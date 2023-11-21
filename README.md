@@ -1,4 +1,4 @@
-# React last practice
+# React Project
 
 ## Overview:
 
