@@ -16,6 +16,7 @@
 - [Zustand](https://github.com/pmndrs/zustand):A small, fast, and scalable bearbones state management solution. Zustand has a comfy API based on hooks. It isn't boilerplatey or opinionated, but has enough convention to be explicit and flux-like.
 - [React Hook Form](https://react-hook-form.com/): React Hook Form reduces the amount of code you need to write while removing unnecessary re-renders.
 - [Chakra](https://chakra-ui.com/): Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start): is a standard library for routing in React.
 - Editor: Visual Studio Code.
 
 ### Development environment:
@@ -36,15 +37,12 @@
 
 All commands are run from the root folder, from a terminal:
 
-
-| Command                                                                                 | Action                        |
-| :-------------------------------------------------------------------------------------- | :---------------------------- |
-| `$ git clone https://gitlab.asoft-python.com/kien.nguyen/envato-market.git`             | Clone Repository with HTTPS |
-| `$ git clone git@gitlab.asoft-python.com:kien.nguyen/envato-market.git`                 | Clone Repository with SSH   |
-| `$ cd envato-market`                                                                    | Redirect to folder            |
-| `$ git checkout dev`                                                                    | Checkout branch             |
-| `$ npm i pnpm`                                                                          | Install packages pnpm         |
-| `$ pnpm install`                                                                        | Install packages dependencies |
-| `$ pnpm dev`                                                                            | Run webpage                   |
-
-
+| Command                                                                     | Action                        |
+| :-------------------------------------------------------------------------- | :---------------------------- |
+| `$ git clone https://gitlab.asoft-python.com/kien.nguyen/envato-market.git` | Clone Repository with HTTPS   |
+| `$ git clone git@gitlab.asoft-python.com:kien.nguyen/envato-market.git`     | Clone Repository with SSH     |
+| `$ cd envato-market`                                                        | Redirect to folder            |
+| `$ git checkout dev`                                                        | Checkout branch               |
+| `$ npm i pnpm`                                                              | Install packages pnpm         |
+| `$ pnpm install`                                                            | Install packages dependencies |
+| `$ pnpm dev`                                                                | Run webpage                   |
