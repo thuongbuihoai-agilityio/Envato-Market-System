@@ -7,7 +7,7 @@
 
 ### Timeline:
 
-- Estimate time: x days.
+- Estimate time: 4 weeks.
 
 ## TECH STACKS:
 
@@ -19,6 +19,7 @@
 - [React Hook Form](https://react-hook-form.com/): React Hook Form reduces the amount of code you need to write while removing unnecessary re-renders.
 - [Chakra](https://chakra-ui.com/): Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.
 - [React Router](https://v5.reactrouter.com/web/guides/quick-start): is a standard library for routing in React.
+- [Storybook](https://storybook.js.org/): captures the rendered state of a UI component. Developers write multiple stories per component that describe all the “interesting” states a component can support.
 - Editor: Visual Studio Code.
 
 ### Testing
@@ -64,4 +65,4 @@ Build and Run app:
 
 - Node: version 18.17.1
 - pnpm: version 8.10.5
-- Vite: version 4.4.5   
+- Vite: version 4.4.5
