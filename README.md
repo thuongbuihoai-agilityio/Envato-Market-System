@@ -1,6 +1,6 @@
-# React Project
+# **REACT PROJECT - ENVATO MARKET**
 
-## Overview:
+### Overview:
 
 - This is an internal project which will demonstrate the dashboard like a real system.
 - [Design](https://preview.themeforest.net/item/bankco-react-tailwind-admin-templates/full_screen_preview/47639153)
@@ -9,7 +9,9 @@
 
 - Estimate time: x days.
 
-### Technical:
+## TECH STACKS:
+
+### Libraries:
 
 - [React](https://react.dev/learn): is a JavaScript library for building user interfaces.
 - [React Query](https://tanstack.com/query/latest/): Powerful asynchronous state management for TS/JS, React.
@@ -19,11 +21,22 @@
 - [React Router](https://v5.reactrouter.com/web/guides/quick-start): is a standard library for routing in React.
 - Editor: Visual Studio Code.
 
-### Development environment:
+### Testing
 
-- Node: version 18.17.1
-- pnpm: version 8.10.5
-- Vite: version 4.4.5
+- [React Testing Library](https://testing-library.com/): Simple and complete testing utilities that encourage good testing practices. Is a light-weight solution for testing web pages by querying and interacting with DOM nodes.
+
+### Debug tool
+
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools.
+- [Responsively App](https://responsively.app/): A simple application for developing, help dev test design in many screens.
+
+### Hosting
+
+- Open http://localhost:3000 to view it in the browser.
+
+### CI/CD, Deployment, Hosting
+
+- Vercel
 
 ### Document:
 
@@ -35,14 +48,20 @@
 
 ## Getting started
 
-All commands are run from the root folder, from a terminal:
+Build and Run app:
 
 | Command                                                                     | Action                        |
 | :-------------------------------------------------------------------------- | :---------------------------- |
 | `$ git clone https://gitlab.asoft-python.com/kien.nguyen/envato-market.git` | Clone Repository with HTTPS   |
 | `$ git clone git@gitlab.asoft-python.com:kien.nguyen/envato-market.git`     | Clone Repository with SSH     |
 | `$ cd envato-market`                                                        | Redirect to folder            |
-| `$ git checkout dev`                                                        | Checkout branch               |
+| `$ git checkout develop`                                                    | Checkout branch               |
 | `$ npm i pnpm`                                                              | Install packages pnpm         |
 | `$ pnpm install`                                                            | Install packages dependencies |
 | `$ pnpm dev`                                                                | Run webpage                   |
+
+### Prerequisites:
+
+- Node: version 18.17.1
+- pnpm: version 8.10.5
+- Vite: version 4.4.5   
