@@ -38,6 +38,7 @@
 ### CI/CD, Deployment, Hosting
 
 - Vercel
+- Firebase
 
 ### Document:
 
