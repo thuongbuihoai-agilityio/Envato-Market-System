@@ -67,4 +67,4 @@ Build and Run app:
 
 - Node: version 18.17.1
 - pnpm: version 8.10.5
-- Vite: version 4.4.5
+- Vite: version 5.0.0
