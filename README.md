@@ -61,6 +61,9 @@ Build and Run app:
 | `$ git checkout develop`                                                    | Checkout branch               |
 | `$ npm i pnpm`                                                              | Install packages pnpm         |
 | `$ pnpm install`                                                            | Install packages dependencies |
+| `$ pnpm run build`                                                          | Run build app                 |
+| `$ pnpm run storybook`                                                      | Run Storybook                 |
+| `$ pnpm test`                                                               | Run Unit Test                 |
 | `$ pnpm dev`                                                                | Run webpage                   |
 
 ### Prerequisites:
