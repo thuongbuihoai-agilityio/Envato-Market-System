@@ -1,2 +1,2 @@
 export { default as ChakraProvider } from './ChakraUIProvider';
-export { default } from './QueryProvider';
+export { default as QueryProvider } from './QueryProvider';

@@ -1,6 +1,5 @@
 // Providers
-import { ChakraProvider } from '@providers/index';
-import QueryProvider from '@providers/QueryProvider';
+import { ChakraProvider, QueryProvider } from '@providers/index';
 import viteLogo from '/vite.svg';
 import { useState } from 'react';
 
