@@ -1,10 +1,11 @@
 import { RouteObject } from 'react-router-dom';
+import { lazy } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/routers';
+import { ROUTES } from '@constants/index';
 
 // Pages
-import User from '@pages/User';
+const User = lazy(() => import('@pages/User'));
 
 export const userRoutes: RouteObject = {
   children: [

@@ -1,10 +1,11 @@
 import { RouteObject } from 'react-router-dom';
+import { lazy } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/routers';
+import { ROUTES } from '@constants/index';
 
 // Pages
-import MyWallet from '@pages/MyWallet';
+const MyWallet = lazy(() => import('@pages/MyWallet'));
 
 export const myWalletRoutes: RouteObject = {
   children: [

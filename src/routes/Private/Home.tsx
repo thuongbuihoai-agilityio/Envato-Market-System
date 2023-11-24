@@ -1,13 +1,14 @@
 import { RouteObject } from 'react-router-dom';
+import { lazy } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/routers';
+import { ROUTES } from '@constants/index';
 
 // Layouts
-import MainLayout from 'src/Layouts/MainLayout';
+import MainLayout from '@layouts/MainLayout';
 
 // Pages
-import Dashboard from '@pages/Home';
+const Dashboard = lazy(() => import('@pages/Home'));
 
 export const homeRoutes: RouteObject = {
   path: ROUTES.ROOT,
