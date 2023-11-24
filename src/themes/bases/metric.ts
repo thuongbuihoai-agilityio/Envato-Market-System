@@ -1,7 +1,7 @@
 import { ThemeOverride } from '@chakra-ui/react';
 
 // Custom spaces
-export const colors: ThemeOverride['spaces'] = {
+export const spaces: ThemeOverride['spaces'] = {
   0.5: '1px',
   1.5: '9px',
   2: '48px',
