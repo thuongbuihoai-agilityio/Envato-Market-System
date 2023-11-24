@@ -8,5 +8,5 @@ import { publicRoutes } from './Public';
 import { ROUTES } from '@constants/routers';
 
 export const routes = createBrowserRouter([...privateRoutes, ...publicRoutes], {
-  basename: ROUTES.HOMEPAGE,
+  basename: ROUTES.ROOT,
 });

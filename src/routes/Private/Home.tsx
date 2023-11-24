@@ -13,7 +13,7 @@ export const homeRoutes: RouteObject = {
   element: <MainLayout />,
   children: [
     {
-      path: ROUTES.HOMEPAGE,
+      path: ROUTES.ROOT,
       Component: Dashboard,
     },
   ],
