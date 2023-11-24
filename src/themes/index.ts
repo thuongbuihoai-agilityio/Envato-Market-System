@@ -2,7 +2,7 @@
 import { extendTheme } from '@chakra-ui/react';
 
 // Metrics
-import { radii, spaces } from './bases/metric';
+import { radii, space } from './bases/metric';
 
 // Bases theme
 import {
@@ -15,7 +15,7 @@ import {
 
 export const configThemes = extendTheme({
   radii,
-  spaces,
+  space,
   fonts,
   fontSizes,
   fontWeights,
