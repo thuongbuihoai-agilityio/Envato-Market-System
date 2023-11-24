@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 
 // Routes
-import { routes } from './routes';
+import { ROUTER } from './routes';
 
 // Providers
 import { ChakraProvider, QueryProvider } from '@providers/index';
@@ -12,7 +12,7 @@ import './App.css';
 const App = () => (
   <QueryProvider>
     <ChakraProvider>
-      <RouterProvider router={routes} />
+      <RouterProvider router={ROUTER} />
     </ChakraProvider>
   </QueryProvider>
 );
