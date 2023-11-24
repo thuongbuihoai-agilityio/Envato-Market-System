@@ -1,3 +1,4 @@
+import { Button } from './components/Button';
 // Libs
 import { extendTheme } from '@chakra-ui/react';
 
@@ -25,4 +26,7 @@ export const configThemes = extendTheme({
   lineHeights,
   letterSpacings,
   colors,
+  components: {
+    Button,
+  },
 });
