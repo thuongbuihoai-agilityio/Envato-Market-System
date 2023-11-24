@@ -6,13 +6,13 @@ import { Suspense } from 'react';
 import MainLayout from './Layouts/MainLayout';
 
 // Providers
-import { ChakraProvider } from '@providers/index';
+import { ChakraProvider, QueryProvider } from '@providers/index';
 
 // Styles
 import './App.css';
 
-const App = () => {
-  return (
+const App = () => (
+  <QueryProvider>
     <ChakraProvider>
       <Routes>
         <Route element={<MainLayout />}>
@@ -29,7 +29,7 @@ const App = () => {
         </Route>
       </Routes>
     </ChakraProvider>
-  );
-};
+  </QueryProvider>
+);
 
 export default App;
