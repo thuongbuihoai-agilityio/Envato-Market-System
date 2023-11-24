@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const MyWallet = () => <p>MyWallet page</p>;
+const MyWalletPage = () => <p>MyWalletPage page</p>;
 
-export default memo(MyWallet);
+const MyWallet = memo(MyWalletPage);
+export default MyWallet;

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const Dashboard = () => <p>Dashboard page</p>;
+const DashboardPage = () => <p>Dashboard page</p>;
 
-export default memo(Dashboard);
+const Dashboard = memo(DashboardPage);
+export default Dashboard;

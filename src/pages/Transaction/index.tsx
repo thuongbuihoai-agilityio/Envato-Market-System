@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const Transaction = () => <p>Transaction page</p>;
+const TransactionPage = () => <p>Transaction page</p>;
 
-export default memo(Transaction);
+const Transaction = memo(TransactionPage);
+export default Transaction;

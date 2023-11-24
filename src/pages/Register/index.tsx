@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const Register = () => <p>Register page</p>;
+const RegisterPage = () => <p>Register page</p>;
 
-export default memo(Register);
+const Register = memo(RegisterPage);
+export default Register;

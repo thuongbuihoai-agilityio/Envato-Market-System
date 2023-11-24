@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const Setting = () => <p>Setting page</p>;
+const SettingPage = () => <p>Setting page</p>;
 
-export default memo(Setting);
+const Setting = memo(SettingPage);
+export default Setting;

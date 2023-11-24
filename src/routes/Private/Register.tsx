@@ -7,10 +7,6 @@ import { ROUTES } from '@constants/routers';
 import Register from '@pages/Register';
 
 export const registerRoutes: RouteObject = {
-  children: [
-    {
-      path: ROUTES.REGISTER,
-      Component: Register,
-    },
-  ],
+  path: ROUTES.REGISTER,
+  Component: Register,
 };

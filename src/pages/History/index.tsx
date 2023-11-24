@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
-const History = () => <p>History page</p>;
+const HistoryPage = () => <p>History page</p>;
 
-export default memo(History);
+const History = memo(HistoryPage);
+export default History;

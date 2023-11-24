@@ -9,6 +9,8 @@ import { ROUTES } from '@constants/routers';
 const Login = lazy(() => import('@pages/Login'));
 
 export const authRoutes: RouteObject = {
+  path: ROUTES.LOGIN,
+  Component: Login,
   element: (
     <Suspense
       fallback={
@@ -20,10 +22,4 @@ export const authRoutes: RouteObject = {
       <Outlet />
     </Suspense>
   ),
-  children: [
-    {
-      path: ROUTES.LOGIN,
-      Component: Login,
-    },
-  ],
 };

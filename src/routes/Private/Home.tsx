@@ -10,10 +10,11 @@ import MainLayout from 'src/Layouts/MainLayout';
 import Dashboard from '@pages/Home';
 
 export const homeRoutes: RouteObject = {
+  path: ROUTES.ROOT,
   element: <MainLayout />,
   children: [
     {
-      path: ROUTES.ROOT,
+      index: true,
       Component: Dashboard,
     },
   ],
