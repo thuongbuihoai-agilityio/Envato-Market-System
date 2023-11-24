@@ -28,6 +28,7 @@
       "@hocs/*": ["src/hocs/*"],
       "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@mocks/*": ["src/mocks/*"],
       "@pages/*": ["src/pages/*"],
       "@providers/*": ["src/providers/*"],

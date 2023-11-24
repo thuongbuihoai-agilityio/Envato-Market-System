@@ -4,6 +4,9 @@ import { extendTheme } from '@chakra-ui/react';
 // colors
 import { colors } from './bases/colors';
 
+// Metrics
+import { radii, space } from './bases/metric';
+
 // Bases theme
 import {
   fonts,
@@ -14,6 +17,8 @@ import {
 } from './bases';
 
 export const configThemes = extendTheme({
+  radii,
+  space,
   fonts,
   fontSizes,
   fontWeights,
