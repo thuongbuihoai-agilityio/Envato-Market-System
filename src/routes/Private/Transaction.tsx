@@ -8,10 +8,6 @@ import { ROUTES } from '@constants/index';
 const Transaction = lazy(() => import('@pages/Transaction'));
 
 export const transactionRoutes: RouteObject = {
-  children: [
-    {
-      path: ROUTES.TRANSACTION,
-      Component: Transaction,
-    },
-  ],
+  path: ROUTES.TRANSACTION,
+  Component: Transaction,
 };

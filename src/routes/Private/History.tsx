@@ -8,10 +8,6 @@ import { ROUTES } from '@constants/index';
 const History = lazy(() => import('@pages/History'));
 
 export const historyRoutes: RouteObject = {
-  children: [
-    {
-      path: ROUTES.HISTORY,
-      Component: History,
-    },
-  ],
+  path: ROUTES.HISTORY,
+  Component: History,
 };

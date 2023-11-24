@@ -8,10 +8,6 @@ import { ROUTES } from '@constants/index';
 const Setting = lazy(() => import('@pages/Setting'));
 
 export const settingRoutes: RouteObject = {
-  children: [
-    {
-      path: ROUTES.SETTING,
-      Component: Setting,
-    },
-  ],
+  path: ROUTES.SETTING,
+  Component: Setting,
 };

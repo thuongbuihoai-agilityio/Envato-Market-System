@@ -8,10 +8,6 @@ import { ROUTES } from '@constants/index';
 const MyWallet = lazy(() => import('@pages/MyWallet'));
 
 export const myWalletRoutes: RouteObject = {
-  children: [
-    {
-      path: ROUTES.MY_WALLET,
-      Component: MyWallet,
-    },
-  ],
+  path: ROUTES.MY_WALLET,
+  Component: MyWallet,
 };
