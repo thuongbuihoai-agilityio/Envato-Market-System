@@ -1,6 +1,9 @@
 // Libs
 import { extendTheme } from '@chakra-ui/react';
 
+// colors
+import { colors } from './bases/colors';
+
 // Metrics
 import { radii, space } from './bases/metric';
 
@@ -21,4 +24,5 @@ export const configThemes = extendTheme({
   fontWeights,
   lineHeights,
   letterSpacings,
+  colors,
 });
