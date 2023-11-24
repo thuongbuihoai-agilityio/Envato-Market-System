@@ -1,7 +1,5 @@
 import { memo } from 'react';
 
-const Register = () => {
-  return <p>Register page</p>;
-};
+const Register = () => <p>Register page</p>;
 
 export default memo(Register);

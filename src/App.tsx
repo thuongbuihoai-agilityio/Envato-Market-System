@@ -1,9 +1,7 @@
-import { Route, RouteObject, Routes } from 'react-router-dom';
-import { Routers } from './routes';
-import { Suspense } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-// Layouts
-import MainLayout from './Layouts/MainLayout';
+// Routes
+import { routes } from './routes';
 
 // Providers
 import { ChakraProvider, QueryProvider } from '@providers/index';
@@ -14,20 +12,7 @@ import './App.css';
 const App = () => (
   <QueryProvider>
     <ChakraProvider>
-      <Routes>
-        <Route element={<MainLayout />}>
-          {Routers.map(({ path, element }: RouteObject) => (
-            <Route
-              key={path}
-              path={path}
-              element={
-                //TODO: Implement Loading component later
-                <Suspense fallback={<p>Loading...</p>}>{element}</Suspense>
-              }
-            />
-          ))}
-        </Route>
-      </Routes>
+      <RouterProvider router={routes} />
     </ChakraProvider>
   </QueryProvider>
 );

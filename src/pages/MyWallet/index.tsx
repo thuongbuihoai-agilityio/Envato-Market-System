@@ -1,7 +1,5 @@
 import { memo } from 'react';
 
-const MyWallet = () => {
-  return <p>MyWallet page</p>;
-};
+const MyWallet = () => <p>MyWallet page</p>;
 
 export default memo(MyWallet);
