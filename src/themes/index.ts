@@ -1,3 +1,19 @@
+// Libs
 import { extendTheme } from '@chakra-ui/react';
 
-export const configThemes = extendTheme({});
+// Bases theme
+import {
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacings,
+} from './bases';
+
+export const configThemes = extendTheme({
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacings,
+});
