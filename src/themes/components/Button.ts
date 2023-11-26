@@ -5,9 +5,15 @@ export const Button = defineStyleConfig({
   sizes: {
     sm: {
       fontSize: 'md',
+      py: 3,
     },
     md: {
       fontSize: 'md',
+      py: 3.5,
+    },
+    lg: {
+      fontSize: 'md',
+      py: 4,
     },
   },
   variants: {
@@ -18,12 +24,11 @@ export const Button = defineStyleConfig({
       borderRadius: 'lg',
       backgroundColor: 'primary.500',
       _hover: {
-        bg: 'primary.600',
+        backgroundColor: 'primary.600',
       },
       _focus: {
         outline: 'none',
       },
-      py: 4,
     },
     outline: {
       color: 'gray.800',
@@ -41,7 +46,7 @@ export const Button = defineStyleConfig({
     },
   },
   defaultProps: {
-    size: 'md',
+    size: 'lg',
     variant: 'solid',
   },
 });
