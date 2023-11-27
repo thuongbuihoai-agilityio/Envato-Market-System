@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Link, List, ListItem } from '@chakra-ui/react';
+import { LINKS } from '@constants/links';
 
 const Footer = () => (
   <Box p={4} textAlign="center">
@@ -12,26 +13,13 @@ const Footer = () => (
       _light={{ color: 'gray.600' }}
       as={List}
     >
-      <ListItem mx={2}>
-        <Link href="#" _hover={{ color: 'gray.500' }}>
-          Terms & Conditions
-        </Link>
-      </ListItem>
-      <ListItem mx={2}>
-        <Link href="#" _hover={{ color: 'gray.500' }}>
-          Privacy Policy
-        </Link>
-      </ListItem>
-      <ListItem mx={2}>
-        <Link href="#" _hover={{ color: 'gray.500' }}>
-          Help
-        </Link>
-      </ListItem>
-      <ListItem mx={2}>
-        <Link href="#" _hover={{ color: 'gray.500' }}>
-          English
-        </Link>
-      </ListItem>
+      {LINKS.map((link) => (
+        <ListItem mx={2} key={link.id}>
+          <Link href={link.link} _hover={{ color: 'gray.500' }}>
+            {link.label}
+          </Link>
+        </ListItem>
+      ))}
     </Flex>
     <Text
       mt={4}
