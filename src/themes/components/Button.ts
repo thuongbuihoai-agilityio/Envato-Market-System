@@ -3,21 +3,35 @@ import { defineStyleConfig } from '@chakra-ui/react';
 // The default style for Button component
 export const Button = defineStyleConfig({
   baseStyle: {
-    fontSize: 'md',
     py: 3,
+    borderRadius: 'lg',
+    _focus: {
+      outline: 'none',
+    },
   },
   sizes: {
+    xs: {
+      py: 3.5,
+      px: 4,
+      fontSize: 'md',
+    },
     sm: {
       px: 7,
+      fontSize: 'md',
     },
     md: {
       px: 10,
+      fontSize: 'md',
+      borderRadius: 'xl',
     },
     lg: {
       px: 11,
+      fontSize: 'md',
+      borderRadius: 'xl',
     },
     xl: {
       py: 4,
+      fontSize: 'md',
       width: '100%',
     },
   },
@@ -26,27 +40,19 @@ export const Button = defineStyleConfig({
       color: 'white',
       fontWeight: 'bold',
       border: 'none',
-      borderRadius: 'lg',
       backgroundColor: 'primary.500',
       _hover: {
         backgroundColor: 'primary.600',
-      },
-      _focus: {
-        outline: 'none',
       },
     },
     outline: {
       color: 'gray.800',
       fontWeight: 'medium',
-      borderRadius: 'lg',
-      borderColor: 'gray.300',
+      borderColor: 'border.300',
       backgroundColor: 'transparent',
       _hover: {
         backgroundColor: 'transparent',
-        borderColor: 'gray.300',
-        outline: 'none',
-      },
-      _focus: {
+        borderColor: 'border.300',
         outline: 'none',
       },
     },
