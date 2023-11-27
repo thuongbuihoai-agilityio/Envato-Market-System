@@ -94,7 +94,7 @@ export const colors: ThemeOverride['colors'] = {
     700: '#FF784B',
   },
 
-  blue: {
-    100: '#f6faff',
+  success: {
+    100: '#22c55e',
   },
 };

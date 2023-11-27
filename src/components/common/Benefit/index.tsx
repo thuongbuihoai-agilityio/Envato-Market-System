@@ -1,5 +1,6 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
-import styles from './Benefit.module.css';
+import { Box, Flex, Highlight, Image, Text } from '@chakra-ui/react';
+
+// Constants
 import { IMAGES } from '@constants/images';
 
 interface BenefitType {
@@ -60,8 +61,11 @@ const Benefit = ({ url = '' }: BenefitType) => (
       >
         BankCo. help you set saving goals, earn cash back offers, Go to
         disclaimer for more details and get paychecks up to two days early. Get
-        a <span className={styles['benefit-description']}>$20</span> bonus when
-        you receive qualifying direct deposits
+        a{' '}
+        <Highlight query="$20" styles={{ color: 'success.100' }}>
+          $20
+        </Highlight>{' '}
+        bonus when you receive qualifying direct deposits
       </Text>
     </Box>
   </Flex>
