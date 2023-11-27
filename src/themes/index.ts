@@ -17,7 +17,7 @@ import {
 } from './bases';
 
 // Components
-import { Button, Text, Heading } from './components';
+import { Button, Text, Input, Heading } from './components';
 
 export const configThemes = {
   ...extendTheme({
@@ -36,6 +36,7 @@ export const configThemes = {
       Text,
       Button,
       Heading,
+      Input,
     },
   }),
   styles: {
