@@ -38,7 +38,7 @@ export const Input = defineStyleConfig({
     primary: {
       field: {
         _placeholder: {
-          fontWeight: 'semibold',
+          fontWeight: 'bold',
         },
         _light: {
           color: COLOR_TEXT,
