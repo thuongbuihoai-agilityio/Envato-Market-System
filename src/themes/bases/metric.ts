@@ -13,3 +13,12 @@ export const space: ThemeOverride['space'] = {
 export const radii: ThemeOverride['radii'] = {
   '2xl': '18px',
 };
+
+// Custom sizes
+export const sizes: ThemeOverride['sizes'] = {
+  xs: '35px',
+  sm: '36px',
+  md: '40px',
+  lg: '52px',
+  xl: '64px',
+};
