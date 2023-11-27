@@ -63,10 +63,10 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
       >
         BankCo. help you set saving goals, earn cash back offers, Go to
         disclaimer for more details and get paychecks up to two days early. Get
-        a{' '}
-        <Highlight query="$20" styles={{ color: 'success.100' }}>
+        a
+        <Highlight query="$20" styles={{ color: 'success.100', p: 1 }}>
           $20
-        </Highlight>{' '}
+        </Highlight>
         bonus when you receive qualifying direct deposits
       </Text>
     </Box>
