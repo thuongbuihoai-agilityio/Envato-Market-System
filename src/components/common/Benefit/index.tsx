@@ -8,14 +8,14 @@ interface BenefitType {
 
 const Benefit = ({ url = '' }: BenefitType) => (
   <Flex
-    display={{ base: 'none', lg: 'block' }}
-    flexDirection="column"
-    alignItems="center"
-    p="80px"
-    position="relative"
-    h="100vh"
-    backgroundColor="blue.100"
     w="50%"
+    p="80px"
+    h="100vh"
+    alignItems="center"
+    position="relative"
+    flexDirection="column"
+    display={{ base: 'none', lg: 'block' }}
+    backgroundColor="background.section.primary"
   >
     <Image src={url} alt="Sign in" />
     <Image
@@ -45,10 +45,19 @@ const Benefit = ({ url = '' }: BenefitType) => (
       m="0 auto"
       w={{ '2xl': '500px' }}
     >
-      <Text fontSize="4xl" fontWeight="semibold" marginBottom="16px">
+      <Text
+        fontSize="4xl"
+        fontWeight="semibold"
+        marginBottom="16px"
+        color="background.section.textPrimary"
+      >
         Speady, Easy and Fast
       </Text>
-      <Text fontSize="sm" fontWeight="medium" color="gray.500">
+      <Text
+        fontSize="sm"
+        fontWeight="medium"
+        color="background.section.textSecondary"
+      >
         BankCo. help you set saving goals, earn cash back offers, Go to
         disclaimer for more details and get paychecks up to two days early. Get
         a <span className={styles['benefit-description']}>$20</span> bonus when

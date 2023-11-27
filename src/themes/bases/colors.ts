@@ -42,6 +42,14 @@ export const colors: ThemeOverride['colors'] = {
         default: '#F6FAFF',
         _dark: '#1D1E24',
       },
+      textPrimary: {
+        default: '#1A202C',
+        _dark: '#fff',
+      },
+      textSecondary: {
+        default: '#2D3748',
+        _dark: '#fff',
+      },
     },
     component: {
       primary: {
