@@ -18,6 +18,7 @@ const Benefit = ({ url = '' }: BenefitType) => (
     display={{ base: 'none', lg: 'block' }}
     backgroundColor="background.section.primary"
   >
+    {/* TODO: Will use common component Image after being defined */}
     <Image src={url} alt="Sign in" />
     <Image
       position="absolute"

@@ -6,8 +6,9 @@ import { memo } from 'react';
 const LoginPage = () => {
   return (
     <Flex width="100%">
+      {/* TODO: Will update Form Sign in later*/}
       <Box w="50%">
-        <p>Form Sign</p>
+        <p>Form Sign in</p>
       </Box>
       <Benefit url={IMAGES.signIn} />
     </Flex>
