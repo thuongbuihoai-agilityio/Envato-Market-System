@@ -51,7 +51,7 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
       <Text
         fontSize="4xl"
         fontWeight="semibold"
-        marginBottom="16px"
+        marginBottom={4}
         color="background.section.textPrimary"
       >
         Speady, Easy and Fast
