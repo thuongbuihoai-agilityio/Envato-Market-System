@@ -16,6 +16,7 @@ export const Input = defineStyleConfig({
       fontFamily: 'inherit',
       borderRadius: 'lg',
       color: 'text.secondary',
+      fontSize: 'sm',
       backgroundColor: BG_DARK_THEME,
       _focus: {
         borderColor: FOCUS_COLOR,
@@ -29,19 +30,6 @@ export const Input = defineStyleConfig({
       },
       _placeholder: {
         color: 'inherit',
-      },
-    },
-  },
-
-  sizes: {
-    sm: {
-      field: {
-        fontSize: 'sm',
-      },
-    },
-    md: {
-      field: {
-        fontSize: 'md',
       },
     },
   },
@@ -75,12 +63,12 @@ export const Input = defineStyleConfig({
         borderColor: 'gray.200',
         color: 'gray.400',
         backgroundColor: NO_COLOR,
+        fontSize: 'md',
       },
     },
   },
 
   defaultProps: {
     variant: 'primary',
-    size: 'sm',
   },
 });
