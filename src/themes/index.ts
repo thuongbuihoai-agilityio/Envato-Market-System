@@ -16,14 +16,33 @@ import {
   letterSpacings,
 } from './bases';
 
-export const configThemes = extendTheme({
-  radii,
-  space,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  letterSpacings,
-  colors,
-  sizes,
-});
+// Common components
+import { Button } from './components';
+
+export const configThemes = {
+  ...extendTheme({
+    semanticTokens: {
+      radii,
+      space,
+      fonts,
+      fontSizes,
+      fontWeights,
+      lineHeights,
+      letterSpacings,
+      colors,
+      sizes,
+    },
+  }),
+  styles: {
+    global: {
+      'html, body': {
+        fontFamily: 'primary',
+      },
+    },
+  },
+  initialColorMode: 'system',
+  useSystemColorMode: true,
+  components: {
+    Button,
+  },
+};
