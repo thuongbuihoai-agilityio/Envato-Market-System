@@ -15,14 +15,14 @@ export const Heading = defineStyleConfig({
       fontSize: 'xl',
       fontWeight: 'bold',
     },
-    heading2XL: {
+    heading2Xl: {
       fontSize: '2xl',
     },
-    heading3XL: {
+    heading3Xl: {
       fontSize: '3xl',
       lineHeight: '9',
     },
-    heading4XL: {
+    heading4Xl: {
       fontSize: '4xl',
       lineHeight: '10',
     },
