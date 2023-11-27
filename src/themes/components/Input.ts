@@ -4,7 +4,6 @@ const FOCUS_COLOR = 'primary.600';
 const NO_COLOR = 'transparent';
 const COLOR_TEXT = 'secondary.450';
 const BG_DARK_THEME = 'background.component.secondary';
-const FW_MEDIUM = 'medium'; // FW_*: font-weight
 
 export const Input = defineStyleConfig({
   baseStyle: {
@@ -17,6 +16,7 @@ export const Input = defineStyleConfig({
       borderRadius: 'lg',
       color: 'text.secondary',
       fontSize: 'sm',
+      fontWeight: 'medium',
       backgroundColor: BG_DARK_THEME,
       _focus: {
         borderColor: FOCUS_COLOR,
@@ -37,7 +37,6 @@ export const Input = defineStyleConfig({
   variants: {
     primary: {
       field: {
-        fontWeight: FW_MEDIUM,
         _placeholder: {
           fontWeight: 'semibold',
         },
@@ -53,7 +52,6 @@ export const Input = defineStyleConfig({
     },
     secondary: {
       field: {
-        fontWeight: FW_MEDIUM,
         color: COLOR_TEXT,
       },
     },
