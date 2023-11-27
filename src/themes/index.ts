@@ -16,21 +16,19 @@ import {
   letterSpacings,
 } from './bases';
 
-// Breakpoints
-import { breakpoints } from './bases/breakpoints';
-
 export const configThemes = {
   ...extendTheme({
-    breakpoints,
-    radii,
-    space,
-    fonts,
-    fontSizes,
-    fontWeights,
-    lineHeights,
-    letterSpacings,
-    colors,
-    sizes,
+    semanticTokens: {
+      radii,
+      space,
+      fonts,
+      fontSizes,
+      fontWeights,
+      lineHeights,
+      letterSpacings,
+      colors,
+      sizes,
+    },
   }),
   styles: {
     global: {

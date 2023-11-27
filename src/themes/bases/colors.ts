@@ -22,11 +22,55 @@ export const colors: ThemeOverride['colors'] = {
     650: '#1D0024',
   },
 
+  background: {
+    body: {
+      primary: {
+        default: '#FAFAFA',
+        _dark: '#23262B',
+      },
+      secondary: {
+        default: '#FFF',
+        _dark: '#23262B',
+      },
+      tertiary: {
+        default: '#FAFAFA',
+        _dark: '#151515',
+      },
+    },
+    section: {
+      primary: {
+        default: '#F6FAFF',
+        _dark: '#1D1E24',
+      },
+    },
+    component: {
+      primary: {
+        default: '#FFF',
+        _dark: '#1D1E24',
+      },
+      secondary: {
+        default: '#F7FAFC',
+        _dark: '#23262B',
+      },
+    },
+  },
+
   border: {
-    300: '#F7F7F7',
-    500: '#EDF2F7',
-    600: '#E2E8F0',
-    700: '#2A313C',
+    primary: {
+      default: '#E2E8F0',
+      _dark: '#2A313C',
+    },
+  },
+
+  text: {
+    primary: {
+      default: '#1A202C',
+      _dark: '#FFF',
+    },
+    secondary: {
+      default: '#718096',
+      _dark: '#FAFAFA',
+    },
   },
 
   danger: {
