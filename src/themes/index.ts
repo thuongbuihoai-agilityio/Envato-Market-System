@@ -17,7 +17,7 @@ import {
 } from './bases';
 
 // Components
-import { Button, Text, Input, Heading } from './components';
+import { Button, Text, Input, Heading, Checkbox } from './components';
 
 export const configThemes = {
   ...extendTheme({
@@ -35,6 +35,7 @@ export const configThemes = {
     components: {
       Text,
       Button,
+      Checkbox,
       Heading,
       Input,
     },
