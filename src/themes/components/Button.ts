@@ -48,11 +48,11 @@ export const Button = defineStyleConfig({
     outline: {
       color: 'gray.800',
       fontWeight: 'medium',
-      borderColor: 'border.300',
+      borderColor: 'border.primary',
       backgroundColor: 'transparent',
       _hover: {
         backgroundColor: 'transparent',
-        borderColor: 'border.300',
+        borderColor: 'border.primary',
         outline: 'none',
       },
     },
