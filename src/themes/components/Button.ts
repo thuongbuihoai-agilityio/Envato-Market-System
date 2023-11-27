@@ -4,18 +4,16 @@ import { defineStyleConfig } from '@chakra-ui/react';
 export const Button = defineStyleConfig({
   baseStyle: {
     fontSize: 'md',
+    py: 3,
   },
   sizes: {
     sm: {
-      py: 3,
       px: 7,
     },
     md: {
-      py: 3,
       px: 10,
     },
     lg: {
-      py: 3,
       px: 11,
     },
     xl: {
