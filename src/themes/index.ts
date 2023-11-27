@@ -16,14 +16,25 @@ import {
   letterSpacings,
 } from './bases';
 
-export const configThemes = extendTheme({
-  radii,
-  space,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  letterSpacings,
-  colors,
-  sizes,
-});
+export const configThemes = {
+  ...extendTheme({
+    radii,
+    space,
+    fonts,
+    fontSizes,
+    fontWeights,
+    lineHeights,
+    letterSpacings,
+    colors,
+    sizes,
+  }),
+  styles: {
+    global: {
+      'html, body': {
+        fontFamily: 'primary',
+      },
+    },
+  },
+  initialColorMode: 'system',
+  useSystemColorMode: true,
+};
