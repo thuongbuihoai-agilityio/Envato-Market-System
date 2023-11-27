@@ -16,6 +16,9 @@ import {
   letterSpacings,
 } from './bases';
 
+// Components
+import { Text } from './components';
+
 export const configThemes = {
   ...extendTheme({
     semanticTokens: {
@@ -28,6 +31,9 @@ export const configThemes = {
       letterSpacings,
       colors,
       sizes,
+    },
+    components: {
+      Text,
     },
   }),
   styles: {
