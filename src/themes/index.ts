@@ -17,7 +17,7 @@ import {
 } from './bases';
 
 // Components
-import { Button, Text } from './components';
+import { Button, Text, Heading } from './components';
 
 export const configThemes = {
   ...extendTheme({
@@ -34,6 +34,8 @@ export const configThemes = {
     },
     components: {
       Text,
+      Button,
+      Heading,
     },
   }),
   styles: {
@@ -45,7 +47,4 @@ export const configThemes = {
   },
   initialColorMode: 'system',
   useSystemColorMode: true,
-  components: {
-    Button,
-  },
 };

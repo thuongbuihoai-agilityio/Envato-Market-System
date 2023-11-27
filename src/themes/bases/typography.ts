@@ -28,6 +28,7 @@ export const lineHeights: ThemeOverride['lineHeights'] = {
   '6.25': '25px',
   '7': '28px',
   '9': '36px',
+  '10': '40px',
   '12': '48px',
 };
 
