@@ -42,6 +42,14 @@ export const colors: ThemeOverride['colors'] = {
         default: '#F6FAFF',
         _dark: '#1D1E24',
       },
+      textPrimary: {
+        default: '#1A202C',
+        _dark: '#fff',
+      },
+      textSecondary: {
+        default: '#2D3748',
+        _dark: '#fff',
+      },
     },
     component: {
       primary: {
@@ -84,5 +92,9 @@ export const colors: ThemeOverride['colors'] = {
     500: '#EAB308',
     600: '#FDF9e9',
     700: '#FF784B',
+  },
+
+  success: {
+    100: '#22c55e',
   },
 };
