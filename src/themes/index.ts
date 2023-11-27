@@ -16,8 +16,8 @@ import {
   letterSpacings,
 } from './bases';
 
-// Common components
-import { Button } from './components';
+// Components
+import { Button, Text } from './components';
 
 export const configThemes = {
   ...extendTheme({
@@ -31,6 +31,9 @@ export const configThemes = {
       letterSpacings,
       colors,
       sizes,
+    },
+    components: {
+      Text,
     },
   }),
   styles: {

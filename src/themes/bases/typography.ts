@@ -15,6 +15,7 @@ export const fontSizes: ThemeOverride['fontSizes'] = {
   '4xl': '36px',
 };
 export const fontWeights: ThemeOverride['fontWeights'] = {
+  normal: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
