@@ -21,15 +21,17 @@ import { Button } from './components';
 
 export const configThemes = {
   ...extendTheme({
-    radii,
-    space,
-    fonts,
-    fontSizes,
-    fontWeights,
-    lineHeights,
-    letterSpacings,
-    colors,
-    sizes,
+    semanticTokens: {
+      radii,
+      space,
+      fonts,
+      fontSizes,
+      fontWeights,
+      lineHeights,
+      letterSpacings,
+      colors,
+      sizes,
+    },
   }),
   styles: {
     global: {
