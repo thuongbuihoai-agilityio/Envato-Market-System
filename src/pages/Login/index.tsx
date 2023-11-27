@@ -10,7 +10,7 @@ const LoginPage = () => {
       <Box w="50%">
         <p>Form Sign in</p>
       </Box>
-      <Benefit url={IMAGES.signIn} />
+      <Benefit url={IMAGES.signIn} alt={IMAGES.altSingIn} />
     </Flex>
   );
 };

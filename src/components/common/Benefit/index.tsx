@@ -5,9 +5,10 @@ import { IMAGES } from '@constants/images';
 
 interface BenefitType {
   url: string;
+  alt?: string;
 }
 
-const Benefit = ({ url = '' }: BenefitType) => (
+const Benefit = ({ url, alt = '' }: BenefitType) => (
   <Flex
     w="50%"
     p="80px"
@@ -19,7 +20,7 @@ const Benefit = ({ url = '' }: BenefitType) => (
     backgroundColor="background.section.primary"
   >
     {/* TODO: Will use common component Image after being defined */}
-    <Image src={url} alt="Sign in" />
+    <Image src={url} alt={alt} />
     <Image
       position="absolute"
       top="10"
