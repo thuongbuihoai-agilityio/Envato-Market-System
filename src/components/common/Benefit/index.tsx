@@ -1,4 +1,4 @@
-import { Box, Flex, Highlight, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Highlight, Image, Text } from '@chakra-ui/react';
 
 // Constants
 import { IMAGES } from '@constants/images';
@@ -48,19 +48,15 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
       m="0 auto"
       w={{ '2xl': '500px' }}
     >
-      <Text
-        fontSize="4xl"
-        fontWeight="semibold"
+      <Heading
+        as="h3"
+        variant="heading4Xl"
         marginBottom={4}
-        color="background.section.textPrimary"
+        color="text.primary"
       >
         Speady, Easy and Fast
-      </Text>
-      <Text
-        fontSize="sm"
-        fontWeight="medium"
-        color="background.section.textSecondary"
-      >
+      </Heading>
+      <Text fontSize="sm" fontWeight="medium" color="text.secondary">
         BankCo. help you set saving goals, earn cash back offers, Go to
         disclaimer for more details and get paychecks up to two days early. Get
         a
