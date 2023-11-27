@@ -4,11 +4,11 @@ import { Box, Flex, Highlight, Image, Text } from '@chakra-ui/react';
 import { IMAGES } from '@constants/images';
 
 interface BenefitType {
-  url: string;
-  alt?: string;
+  imageURL: string;
+  alt: string;
 }
 
-const Benefit = ({ url, alt = '' }: BenefitType) => (
+const Benefit = ({ imageURL, alt }: BenefitType) => (
   <Flex
     w="50%"
     p="80px"
@@ -20,27 +20,27 @@ const Benefit = ({ url, alt = '' }: BenefitType) => (
     backgroundColor="background.section.primary"
   >
     {/* TODO: Will use common component Image after being defined */}
-    <Image src={url} alt={alt} />
+    <Image src={imageURL} alt={alt} />
     <Image
       position="absolute"
-      top="10"
-      left="8"
-      src={IMAGES.square}
-      alt={IMAGES.altSquare}
+      top={10}
+      left={8}
+      src={IMAGES.SQUARE.url}
+      alt={IMAGES.SQUARE.alt}
     />
     <Image
       position="absolute"
-      top="14"
-      right="12"
-      src={IMAGES.vline}
-      alt={IMAGES.altVline}
+      top={14}
+      right={12}
+      src={IMAGES.VLINE.url}
+      alt={IMAGES.VLINE.alt}
     />
     <Image
       position="absolute"
-      bottom="1"
-      left="8"
-      src={IMAGES.dotted}
-      alt={IMAGES.altDotted}
+      bottom={1}
+      left={8}
+      src={IMAGES.DOTTED.url}
+      alt={IMAGES.DOTTED.alt}
     />
     <Box
       fontFamily="primary"
