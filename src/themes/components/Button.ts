@@ -6,14 +6,22 @@ export const Button = defineStyleConfig({
     sm: {
       fontSize: 'md',
       py: 3,
+      px: 7,
     },
     md: {
       fontSize: 'md',
-      py: 3.5,
+      py: 3,
+      px: 10,
     },
     lg: {
       fontSize: 'md',
+      py: 3,
+      px: 11,
+    },
+    xl: {
+      fontSize: 'md',
       py: 4,
+      width: '100%',
     },
   },
   variants: {
@@ -32,6 +40,7 @@ export const Button = defineStyleConfig({
     },
     outline: {
       color: 'gray.800',
+      fontWeight: 'medium',
       borderRadius: 'lg',
       borderColor: 'gray.300',
       backgroundColor: 'transparent',
@@ -46,7 +55,7 @@ export const Button = defineStyleConfig({
     },
   },
   defaultProps: {
-    size: 'lg',
+    size: 'xl',
     variant: 'solid',
   },
 });

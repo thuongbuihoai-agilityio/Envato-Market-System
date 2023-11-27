@@ -16,6 +16,9 @@ import {
   letterSpacings,
 } from './bases';
 
+// Common components
+import { Button } from './components';
+
 export const configThemes = extendTheme({
   radii,
   space,
@@ -26,4 +29,7 @@ export const configThemes = extendTheme({
   letterSpacings,
   colors,
   sizes,
+  components: {
+    Button,
+  },
 });
