@@ -15,6 +15,8 @@ import {
   lineHeights,
   letterSpacings,
 } from './bases';
+
+// Common components
 import { Button } from './components';
 
 export const configThemes = {
