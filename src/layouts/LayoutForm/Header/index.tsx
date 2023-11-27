@@ -1,10 +1,10 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 
-interface Props {
+interface HeaderFormProps {
   content: string;
 }
 
-const Header = ({ content }: Props) => (
+const Header = ({ content }: HeaderFormProps) => (
   <Box>
     <Heading
       as="h1"
