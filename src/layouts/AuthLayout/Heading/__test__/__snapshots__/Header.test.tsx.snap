@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<div>
+  <header
+    class="chakra-stack css-tl3ftk"
+  >
+    <h1
+      class="chakra-heading css-owo776"
+    >
+      Test Content
+    </h1>
+    <p
+      class="chakra-text css-1xbgeyr"
+    >
+      Send, spend and save smarter
+    </p>
+  </header>
+</div>
+`;
