@@ -7,7 +7,21 @@ import { IMAGES } from '@constants/index';
 import { Benefit } from '@components/index';
 
 const meta: Meta<typeof Benefit> = {
+  title: 'Custom Component/Benefit',
   component: Benefit,
+  argTypes: {
+    imageURL: {
+      description: 'The image URL to display',
+    },
+    alt: {
+      description: 'The alt text to display if the image URL is not available',
+    },
+  },
+  parameters: {
+    controls: {
+      expanded: true,
+    },
+  },
 };
 
 export default meta;

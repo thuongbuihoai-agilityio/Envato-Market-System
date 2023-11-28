@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Logo } from '@components/index';
 
 const meta: Meta<typeof Logo> = {
+  title: 'Custom Component/Logo',
   component: Logo,
 };
 
