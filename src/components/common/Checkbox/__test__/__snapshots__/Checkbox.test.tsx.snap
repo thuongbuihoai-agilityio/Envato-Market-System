@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox test cases should render correctly 1`] = `
+<div>
+  <label
+    class="chakra-checkbox css-1elxtiq"
+  >
+    <input
+      class="chakra-checkbox__input"
+      style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+      type="checkbox"
+      value=""
+    />
+    <span
+      aria-hidden="true"
+      class="chakra-checkbox__control css-dnty2r"
+    />
+    <span
+      class="chakra-checkbox__label css-1oeb2oe"
+    >
+      Test Checkbox
+    </span>
+  </label>
+</div>
+`;
