@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { ReactNode, memo } from 'react';
+import { ReactNode, memo, useMemo } from 'react';
 
 // Constants
 import { IMAGES, TITLES } from '@constants/index';
@@ -23,8 +23,14 @@ const AuthLayoutComponent = ({
   children,
   isSignInForm = true,
 }: TAuthLayoutProps): JSX.Element => {
-  const title: string = isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP;
-  const { url, alt }: TImage = isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP;
+  const title: string = useMemo(
+    (): string => (isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP),
+    [isSignInForm],
+  );
+  const { url, alt }: TImage = useMemo(
+    (): TImage => (isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP),
+    [isSignInForm],
+  );
 
   return (
     <Flex width="100%">
