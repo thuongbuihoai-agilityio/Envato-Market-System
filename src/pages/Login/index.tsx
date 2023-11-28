@@ -5,8 +5,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import { IMAGES } from '@constants/index';
 
 // Components
-import Benefit from '@components/common/Benefit';
-import Logo from '@components/common/Logo';
+import { Benefit, Logo } from '@components/index';
 
 const LoginPage = () => (
   <Flex width="100%">
