@@ -1,7 +1,3 @@
-import { memo } from 'react';
-
-const NotFoundPage = () => <p>Not Found page</p>;
-
-const NotFound = memo(NotFoundPage);
+const NotFound = () => <p>Not Found page</p>;
 
 export default NotFound;
