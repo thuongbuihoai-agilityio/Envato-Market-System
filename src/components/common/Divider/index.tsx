@@ -1,15 +1,19 @@
-import { AbsoluteCenter, Box, Divider } from '@chakra-ui/react';
+import {
+  AbsoluteCenter,
+  Box,
+  Divider as ChakraProvider,
+} from '@chakra-ui/react';
 
 type TDividerProps = {
   content: string;
 };
 
-const DividerCustom = ({ content }: TDividerProps) => (
+const Divider = ({ content }: TDividerProps) => (
   <Box position="relative" w="full" m="auto" py="10">
-    <Divider w="full" h="px" bg="gray.500" />
+    <ChakraProvider w="full" bg="gray.500" />
 
     <AbsoluteCenter
-      bg="white"
+      bg="background.body.primary"
       px="4"
       color="gray.500"
       top="50%"
@@ -20,4 +24,4 @@ const DividerCustom = ({ content }: TDividerProps) => (
   </Box>
 );
 
-export default DividerCustom;
+export default Divider;
