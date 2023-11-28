@@ -10,29 +10,36 @@ const Footer = () => {
   const currentYear = getCurrentYear();
 
   return (
-    <Box p={4} textAlign="center">
+    <Box mt={24}>
       <Flex
         justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
-        columnGap="10"
         fontSize="sm"
+        columnGap={7}
         _dark={{ color: 'secondary.100' }}
         _light={{ color: 'gray.600' }}
+        flexWrap={{
+          base: 'wrap',
+          md: 'nowrap',
+        }}
         as={List}
       >
         {LINKS.map((link) => (
-          <ListItem mx={2} key={link.id}>
-            <Link href={link.href} _hover={{ color: 'gray.500' }}>
+          <ListItem mx={2} key={link.id} w="fit-content">
+            <Link
+              href={link.href}
+              _hover={{ color: 'gray.500' }}
+              whiteSpace="nowrap"
+            >
               {link.label}
             </Link>
           </ListItem>
         ))}
       </Flex>
       <Text
-        mt={4}
+        mt={6}
         fontSize="sm"
         variant="textSm"
+        textAlign="center"
         _dark={{ color: 'secondary.700' }}
       >
         @ {currentYear} Bankco. All Rights Reserved.

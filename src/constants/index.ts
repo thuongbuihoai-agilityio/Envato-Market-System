@@ -4,3 +4,4 @@ export * from './images';
 export * from './form';
 export * from './messages';
 export * from './regex';
+export * from './texts';
