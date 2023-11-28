@@ -7,6 +7,23 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '.+\\.(png|jpg)$': 'identity-obj-proxy',
+    '^@assets(.*)$': '<rootDir>/src/assets$1',
+    '^@components(.*)$': '<rootDir>/src/components$1',
+    '^@common(.*)$': '<rootDir>/src/components/common$1',
+    '^@constants(.*)$': '<rootDir>/src/constants$1',
+    '^@contexts(.*)$': '<rootDir>/src/contexts$1',
+    '^@hocs(.*)$': '<rootDir>/src/hocs$1',
+    '^@hooks(.*)$': '<rootDir>/src/hooks$1',
+    '^@interfaces(.*)$': '<rootDir>/src/interfaces$1',
+    '^@layouts(.*)$': '<rootDir>/src/layouts$1',
+    '^@mocks(.*)$': '<rootDir>/src/mocks$1',
+    '^@pages(.*)$': '<rootDir>/src/pages$1',
+    '^@providers(.*)$': '<rootDir>/src/providers$1',
+    '^@routes(.*)$': '<rootDir>/src/routes$1',
+    '^@services(.*)$': '<rootDir>/src/services$1',
+    '^@stores(.*)$': '<rootDir>/src/stores$1',
+    '^@themes(.*)$': '<rootDir>/src/themes$1',
+    '^@utils(.*)$': '<rootDir>/src/utils$1',
   },
   coverageThreshold: {
     global: {
