@@ -12,7 +12,7 @@ const LoginPage = () => (
   <Flex width="100%">
     {/* TODO: Will update Form Sign in later*/}
     <Box w="50%" px={5}>
-      <Box px={5} pt={10}>
+      <Box px={{ base: 0, xl: 5 }} pt={10}>
         <Logo />
       </Box>
     </Box>
