@@ -49,12 +49,18 @@ const AuthLayoutComponent = ({
           w={{
             base: '100%',
             sm: 425,
-            md: 450,
+            md: 460,
           }}
           margin="auto"
           pt={24}
           pb={16}
           px={5}
+          sx={{
+            boxSizing: {
+              base: 'border-box',
+              md: 'unset',
+            },
+          }}
         >
           <AuthHeading title={title} />
           <Divider content={TITLES.AUTH_DiVIDER} />
