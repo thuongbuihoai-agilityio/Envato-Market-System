@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout Match to snapshot 1`] = `
+<div>
+  <div
+    class="css-hboir5"
+  >
+    <section
+      class="css-1rv26q0"
+    >
+      <a
+        class="chakra-text css-bljho8"
+        href="/"
+      >
+        <img
+          alt="This is logo"
+          class="chakra-image css-0"
+          src="/icons/logo.svg"
+        />
+      </a>
+      <div
+        class="css-1jl2bn"
+      >
+        <header
+          class="chakra-stack css-tl3ftk"
+        >
+          <h1
+            class="chakra-heading css-owo776"
+          >
+            Sign in to Bankco.
+          </h1>
+          <p
+            class="chakra-text css-1xbgeyr"
+          >
+            Send, spend and save smarter
+          </p>
+        </header>
+        <div
+          class="chakra-stack css-6ysa1w"
+        >
+          <button
+            class="chakra-button css-1c3nsae"
+            type="button"
+          >
+            <img
+              alt="This is the logo Google"
+              class="chakra-image css-0"
+              src="/icons/google.svg"
+            />
+            <span
+              class="chakra-text css-yc55n3"
+            >
+              Sign In with Google
+            </span>
+          </button>
+          <button
+            class="chakra-button css-1c3nsae"
+            type="button"
+          >
+            <img
+              alt="This is the logo Apple"
+              class="chakra-image css-0"
+              src="/icons/apple.svg"
+            />
+            <span
+              class="chakra-text css-yc55n3"
+            >
+              Sign In with Apple
+            </span>
+          </button>
+        </div>
+        <div
+          class="css-1wqp5dg"
+        >
+          <hr
+            aria-orientation="horizontal"
+            class="chakra-divider css-1fbs1rh"
+          />
+          <div
+            class="css-21ocg6"
+          >
+            Or continue with
+          </div>
+        </div>
+        <div
+          class="css-178yklu"
+        >
+          <ul
+            class="css-1s6o0ok"
+            role="list"
+          >
+            <li
+              class="css-z9iakq"
+            >
+              <a
+                class="chakra-link css-1bl9y41"
+                href="#"
+              >
+                Terms & Conditions
+              </a>
+            </li>
+            <li
+              class="css-z9iakq"
+            >
+              <a
+                class="chakra-link css-1bl9y41"
+                href="#"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li
+              class="css-z9iakq"
+            >
+              <a
+                class="chakra-link css-1bl9y41"
+                href="#"
+              >
+                Help
+              </a>
+            </li>
+            <li
+              class="css-z9iakq"
+            >
+              <a
+                class="chakra-link css-1bl9y41"
+                href="#"
+              >
+                English
+              </a>
+            </li>
+          </ul>
+          <p
+            class="chakra-text css-e9tuiy"
+          >
+            @ 
+            2023
+             Bankco. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div
+      class="css-1nyw6b"
+    >
+      <img
+        alt="This is sign in image"
+        class="chakra-image css-0"
+        src="/icons/signin.svg"
+      />
+      <img
+        alt="This is square image"
+        class="chakra-image css-nuaex1"
+        src="/icons/square.svg"
+      />
+      <img
+        alt="This is vline image"
+        class="chakra-image css-bvz8js"
+        src="/icons/vline.svg"
+      />
+      <img
+        alt="This is dotted image"
+        class="chakra-image css-12wsc5z"
+        src="/icons/dotted.svg"
+      />
+      <div
+        class="css-1wwt0r"
+      >
+        <h3
+          class="chakra-heading css-tmruzz"
+        >
+          Speady, Easy and Fast
+        </h3>
+        <p
+          class="chakra-text css-1rphqkz"
+        >
+          BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a
+          <mark
+            class="css-1rn2hzh"
+          >
+            $20
+          </mark>
+          bonus when you receive qualifying direct deposits
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
