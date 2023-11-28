@@ -1,12 +1,12 @@
 import { AbsoluteCenter, Box, Divider } from '@chakra-ui/react';
 
-interface Props {
+interface DividerProps {
   content: string;
 }
 
-const DividerCustom = ({ content }: Props) => (
-  <Box position="relative" w="full" m="auto" padding="10">
-    <Divider w="full" />
+const DividerCustom = ({ content }: DividerProps) => (
+  <Box position="relative" w="full" m="auto" py="10">
+    <Divider w="full" h="1px" bg="gray.500" />
 
     <AbsoluteCenter bg="white" px="4" color="gray.500">
       {content}
