@@ -23,4 +23,12 @@ export const IMAGES = {
     url: '/icons/logo.svg',
     alt: 'This is logo',
   },
+  GOOGLE: {
+    url: '/icons/google.svg',
+    alt: 'This is the logo Google',
+  },
+  APPLE: {
+    url: '/icons/apple.svg',
+    alt: 'This is the logo Apple',
+  },
 };
