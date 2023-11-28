@@ -1,18 +1,41 @@
-import { FormEvent, memo, useMemo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import { Button, HStack, Text, VStack, useDisclosure } from '@chakra-ui/react';
+import {
+  Button,
+  HStack,
+  Text,
+  VStack,
+  Checkbox,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 // Constants
-import { ROUTES } from '@constants/index';
+import { ROUTES, AUTH_SCHEMA } from '@constants/index';
 
 // Layouts
 import { AuthLayout } from '@layouts/index';
 
 // Components
-import { InputField, Checkbox } from '@components/index';
+import { InputField } from '@components/index';
+
+type TLoginForm = {
+  username: string;
+  password: string;
+  isRemember: boolean;
+};
 
 const LoginPage = (): JSX.Element => {
+  const { control, handleSubmit } = useForm<TLoginForm>({
+    defaultValues: {
+      username: '',
+      password: '',
+      isRemember: false,
+    },
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
+  });
   const { isOpen: isShowPassword, onToggle: onToggleShowPassword } =
     useDisclosure();
 
@@ -30,58 +53,86 @@ const LoginPage = (): JSX.Element => {
     );
   }, [isShowPassword, onToggleShowPassword]);
 
+  // TODO: Will be update when API ready
+  const handleSubmitForm: SubmitHandler<TLoginForm> = useCallback(() => {}, []);
+
   return (
     <AuthLayout>
       <VStack
         as="form"
-        gap={4}
-        mb={6}
-        onSubmit={(e: FormEvent) => e.preventDefault()}
+        gap={6}
+        onSubmit={handleSubmit(handleSubmitForm)}
+        id="login-form"
       >
-        <InputField
-          variant="authentication"
-          placeholder="Username or email"
-          onChange={() => {}} // TODO: Will update when API integrate
+        <Controller
+          rules={AUTH_SCHEMA.EMAIL}
+          control={control}
+          name="username"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              placeholder="Username or email"
+              {...field}
+              isError={!!error?.message}
+              errorMessages={error?.message}
+            />
+          )}
         />
-        <InputField
-          type={isShowPassword ? 'text' : 'password'}
-          variant="authentication"
-          placeholder="Password"
-          rightIcon={renderPasswordIcon}
-          onChange={() => {}} // TODO: Will update when API integrate
+        <Controller
+          rules={AUTH_SCHEMA.PASSWORD}
+          control={control}
+          name="password"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              type={isShowPassword ? 'text' : 'password'}
+              variant="authentication"
+              placeholder="Password"
+              rightIcon={renderPasswordIcon}
+              {...field}
+              isError={!!error?.message}
+              errorMessages={error?.message}
+            />
+          )}
         />
+
+        {/* Helpers */}
+        <HStack justifyContent="space-between" w="100%" mt={6}>
+          <Controller
+            control={control}
+            name="isRemember"
+            render={({ field: { value, onChange } }) => (
+              <Checkbox
+                variant="round"
+                isChecked={value}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  onChange(e.target.checked)
+                }
+              >
+                <Text fontWeight="semibold">Remember me</Text>
+              </Checkbox>
+            )}
+          />
+          <Text
+            as={Link}
+            to={ROUTES.FORGOT_PASSWORD}
+            color="primary.500"
+            fontWeight="semibold"
+            textTransform="capitalize"
+            textDecoration="underline"
+          >
+            forgot password?
+          </Text>
+        </HStack>
       </VStack>
 
-      {/* Helpers */}
-      <HStack justifyContent="space-between" w="100%">
-        <Checkbox
-          variant="round"
-          onChange={
-            () => {} // TODO: Will update when API integrate
-          }
-        >
-          <Text fontWeight="semibold">Remember me</Text>
-        </Checkbox>
-        <Text
-          as={Link}
-          to={ROUTES.FORGOT_PASSWORD}
-          color="primary.500"
-          fontWeight="semibold"
-          textTransform="capitalize"
-          textDecoration="underline"
-        >
-          forgot password?
-        </Text>
-      </HStack>
-
-      <Button textTransform="capitalize" my={7}>
+      <Button type="submit" textTransform="capitalize" my={7} form="login-form">
         Sign In
       </Button>
       <Text fontWeight="medium" textAlign="center">
         Don&apos;t have an account?{' '}
         <Text
           as={Link}
-          to={ROUTES.REGISTER}
+          to={`/${ROUTES.REGISTER}`}
           fontWeight="semibold"
           textDecoration="underline"
         >
