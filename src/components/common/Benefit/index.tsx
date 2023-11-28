@@ -1,14 +1,14 @@
-import { Box, Flex, Highlight, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Highlight, Image, Text } from '@chakra-ui/react';
 
 // Constants
 import { IMAGES } from '@constants/images';
 
-interface BenefitType {
+interface BenefitProps {
   imageURL: string;
   alt: string;
 }
 
-const Benefit = ({ imageURL, alt }: BenefitType) => (
+const Benefit = ({ imageURL, alt }: BenefitProps) => (
   <Flex
     w="50%"
     p="80px"
@@ -19,7 +19,6 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
     display={{ base: 'none', lg: 'block' }}
     backgroundColor="background.section.primary"
   >
-    {/* TODO: Will use common component Image after being defined */}
     <Image src={imageURL} alt={alt} />
     <Image
       position="absolute"
@@ -48,19 +47,15 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
       m="0 auto"
       w={{ '2xl': '500px' }}
     >
-      <Text
-        fontSize="4xl"
-        fontWeight="semibold"
+      <Heading
+        as="h3"
+        variant="heading4Xl"
         marginBottom={4}
-        color="background.section.textPrimary"
+        color="text.primary"
       >
         Speady, Easy and Fast
-      </Text>
-      <Text
-        fontSize="sm"
-        fontWeight="medium"
-        color="background.section.textSecondary"
-      >
+      </Heading>
+      <Text fontSize="sm" fontWeight="medium" color="text.secondary">
         BankCo. help you set saving goals, earn cash back offers, Go to
         disclaimer for more details and get paychecks up to two days early. Get
         a

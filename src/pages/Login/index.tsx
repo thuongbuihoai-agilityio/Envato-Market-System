@@ -1,9 +1,13 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
-import Benefit from '@components/common/Benefit';
-import { IMAGES } from '@constants/images';
 import { memo } from 'react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
-const LoginPage = () =>  (
+// Constants
+import { IMAGES } from '@constants/index';
+
+// Components
+import Benefit from '@components/common/Benefit';
+
+const LoginPage = () => (
   <Flex width="100%">
     {/* TODO: Will update Form Sign in later*/}
     <Box w="50%">
