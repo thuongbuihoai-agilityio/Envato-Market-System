@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Logo with content 1`] = `
+<div>
+  <a
+    href="/"
+  >
+    <img
+      alt="This is logo"
+      class="chakra-image css-0"
+      src="/icons/logo.svg"
+    />
+  </a>
+  ,
+</div>
+`;
