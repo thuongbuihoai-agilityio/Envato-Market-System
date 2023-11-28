@@ -3,12 +3,12 @@ import { Box, Flex, Heading, Highlight, Image, Text } from '@chakra-ui/react';
 // Constants
 import { IMAGES } from '@constants/images';
 
-interface BenefitType {
+interface BenefitProps {
   imageURL: string;
   alt: string;
 }
 
-const Benefit = ({ imageURL, alt }: BenefitType) => (
+const Benefit = ({ imageURL, alt }: BenefitProps) => (
   <Flex
     w="50%"
     p="80px"
@@ -19,7 +19,6 @@ const Benefit = ({ imageURL, alt }: BenefitType) => (
     display={{ base: 'none', lg: 'block' }}
     backgroundColor="background.section.primary"
   >
-    {/* TODO: Will use common component Image after being defined */}
     <Image src={imageURL} alt={alt} />
     <Image
       position="absolute"
