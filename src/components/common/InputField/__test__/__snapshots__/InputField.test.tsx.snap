@@ -22,28 +22,6 @@ exports[`InputField component Render correctly with default props 1`] = `
 </div>
 `;
 
-exports[`InputField component Render correctly with default props 2`] = `
-<div>
-  <div
-    class="chakra-form-control css-0"
-    role="group"
-  >
-    <div
-      class="chakra-input__group css-169ufh8"
-      data-group="true"
-    >
-      <input
-        class="chakra-input css-0"
-        id="field-:r1:"
-        name="email"
-        placeholder="Email"
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`InputField component Render correctly with error message 1`] = `
 <div>
   <div
@@ -56,10 +34,10 @@ exports[`InputField component Render correctly with error message 1`] = `
       data-group="true"
     >
       <input
-        aria-describedby="field-:r6:-feedback"
+        aria-describedby="field-:r5:-feedback"
         aria-invalid="true"
         class="chakra-input css-mcbtq5"
-        id="field-:r6:"
+        id="field-:r5:"
         name="email"
         placeholder="Email"
         type="text"
@@ -68,7 +46,7 @@ exports[`InputField component Render correctly with error message 1`] = `
     <div
       aria-live="polite"
       class="chakra-form__error-message css-1cndk7x"
-      id="field-:r6:-feedback"
+      id="field-:r5:-feedback"
     >
       Field is required
     </div>
@@ -102,7 +80,7 @@ exports[`InputField component Render correctly with left icon 1`] = `
       </div>
       <input
         class="chakra-input css-0"
-        id="field-:r4:"
+        id="field-:r3:"
         name="email"
         placeholder="Email"
         type="text"
@@ -124,7 +102,7 @@ exports[`InputField component Render correctly with right icon 1`] = `
     >
       <input
         class="chakra-input css-0"
-        id="field-:r5:"
+        id="field-:r4:"
         name="email"
         placeholder="Email"
         type="text"
@@ -160,7 +138,7 @@ exports[`InputField component Render correctly with variant is authentication 1`
     >
       <input
         class="chakra-input css-0"
-        id="field-:r3:"
+        id="field-:r2:"
         name="email"
         placeholder="Email"
         type="text"
@@ -182,7 +160,7 @@ exports[`InputField component Render correctly with variant is secondary 1`] = `
     >
       <input
         class="chakra-input css-0"
-        id="field-:r2:"
+        id="field-:r1:"
         name="email"
         placeholder="Email"
         type="text"
