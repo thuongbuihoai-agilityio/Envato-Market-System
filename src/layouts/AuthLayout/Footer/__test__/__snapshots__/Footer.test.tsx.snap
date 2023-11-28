@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Footer with links and current year 1`] = `
+<div>
+  <div
+    class="css-178yklu"
+  >
+    <ul
+      class="css-1s6o0ok"
+      role="list"
+    >
+      <li
+        class="css-z9iakq"
+      >
+        <a
+          class="chakra-link css-1bl9y41"
+          href="#"
+        >
+          Terms & Conditions
+        </a>
+      </li>
+      <li
+        class="css-z9iakq"
+      >
+        <a
+          class="chakra-link css-1bl9y41"
+          href="#"
+        >
+          Privacy Policy
+        </a>
+      </li>
+      <li
+        class="css-z9iakq"
+      >
+        <a
+          class="chakra-link css-1bl9y41"
+          href="#"
+        >
+          Help
+        </a>
+      </li>
+      <li
+        class="css-z9iakq"
+      >
+        <a
+          class="chakra-link css-1bl9y41"
+          href="#"
+        >
+          English
+        </a>
+      </li>
+    </ul>
+    <p
+      class="chakra-text css-e9tuiy"
+    >
+      @ 
+      2023
+       Bankco. All Rights Reserved.
+    </p>
+  </div>
+</div>
+`;
