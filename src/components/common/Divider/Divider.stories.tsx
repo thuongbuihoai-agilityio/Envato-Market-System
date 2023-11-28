@@ -4,14 +4,20 @@ import { StoryObj, Meta } from '@storybook/react';
 import Divider from '@components/common/Divider';
 
 const meta: Meta<typeof Divider> = {
+  title: 'Custom Components/Divider',
   component: Divider,
+  argTypes: {
+    content: {
+      description: 'Content of the divider texts field',
+    },
+  },
 };
 
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
   args: {
-    content: 'Divider Content',
+    content: 'Divider Content Text',
   },
 };
 
