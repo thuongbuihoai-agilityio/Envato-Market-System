@@ -40,13 +40,13 @@ const InputComponent = (
   }: TInputFieldProps,
   ref: ForwardedRef<HTMLInputElement>,
 ): JSX.Element => {
-  const errorStyle: {
-    borderColor?: string;
-  } = isError
-    ? {
-        borderColor: 'red',
+  const errorStyle:
+    | {
+        borderColor?: string;
       }
-    : {};
+    | boolean = isError && {
+    borderColor: 'red',
+  };
 
   const handleChangeValue = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => onChange(e.target.value),
