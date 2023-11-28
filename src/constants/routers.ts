@@ -7,4 +7,5 @@ export const ROUTES = {
   USER: 'user',
   HISTORY: 'history',
   SETTING: 'setting',
+  NOT_FOUND: '*',
 };
