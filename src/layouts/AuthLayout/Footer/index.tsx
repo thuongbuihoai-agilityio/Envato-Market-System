@@ -14,9 +14,13 @@ const Footer = () => {
       <Flex
         justifyContent="center"
         fontSize="sm"
-        gap={7}
+        columnGap={7}
         _dark={{ color: 'secondary.100' }}
         _light={{ color: 'gray.600' }}
+        flexWrap={{
+          base: 'wrap',
+          md: 'nowrap',
+        }}
         as={List}
       >
         {LINKS.map((link) => (
