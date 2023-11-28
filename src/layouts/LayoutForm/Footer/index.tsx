@@ -4,7 +4,7 @@ import { Box, Flex, Text, Link, List, ListItem } from '@chakra-ui/react';
 import { LINKS } from '@constants/links';
 
 // utils
-import { getCurrentYear } from '@utils/CurrentYear';
+import { getCurrentYear } from '@utils/time';
 
 const Footer = () => {
   const currentYear = getCurrentYear();
