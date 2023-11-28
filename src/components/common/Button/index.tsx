@@ -13,4 +13,5 @@ const ButtonComponent = ({ children, ...rest }: TButtonProps) => (
 );
 
 const CustomButton = memo(ButtonComponent);
+
 export default CustomButton;
