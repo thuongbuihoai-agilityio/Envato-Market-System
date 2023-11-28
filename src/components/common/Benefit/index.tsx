@@ -12,7 +12,7 @@ const Benefit = ({ imageURL, alt }: BenefitProps) => (
   <Flex
     w="50%"
     p="80px"
-    h="100vh"
+    minH="100vh"
     alignItems="center"
     position="relative"
     flexDirection="column"
