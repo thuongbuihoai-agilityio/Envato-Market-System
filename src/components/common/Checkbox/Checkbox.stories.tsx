@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from '@components/index';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Example/Checkbox',
+  title: 'Custom Component/Checkbox',
   component: Checkbox,
   argTypes: {
     onChange: {
