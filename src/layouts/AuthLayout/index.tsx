@@ -14,21 +14,21 @@ import AuthFooter from './Footer';
 type TAuthLayoutProps = {
   children?: ReactNode;
   title?: string;
-  isSignForm?: boolean;
+  isSignInForm?: boolean;
 };
 
 const AuthLayoutComponent = ({
   children,
-  isSignForm = true,
+  isSignInForm = true,
 }: TAuthLayoutProps): JSX.Element => {
-  const title: string = isSignForm ? TITLES.SIGN_IN : TITLES.SIGN_UP;
+  const title: string = isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP;
   const {
     url,
     alt,
   }: {
     url: string;
     alt: string;
-  } = isSignForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP;
+  } = isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP;
 
   return (
     <Flex width="100%">

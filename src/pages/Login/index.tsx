@@ -13,7 +13,7 @@ import { AuthLayout } from '@layouts/index';
 import { InputField } from '@components/index';
 
 const LoginPage = () => (
-  <AuthLayout isSignForm>
+  <AuthLayout>
     <VStack as="form" gap={4} mb={6}>
       <InputField
         variant="authentication"
