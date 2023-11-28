@@ -135,17 +135,21 @@ const RegisterPage = () => {
           control={control}
           rules={AUTH_SCHEMA.EMAIL}
           name="password"
-          render={({ field, fieldState: { error } }) => (
-            <InputField
-              type="password"
-              variant="authentication"
-              placeholder="Password"
-              rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
-              {...field}
-              isError={!!error}
-              errorMessages={error?.message}
-            />
-          )}
+          render={({ field, fieldState: { error } }) => {
+            const { message } = error || {};
+
+            return (
+              <InputField
+                type="password"
+                variant="authentication"
+                placeholder="Password"
+                rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
+                {...field}
+                isError={!!message}
+                errorMessages={message}
+              />
+            );
+          }}
         />
 
         <Controller
@@ -183,7 +187,7 @@ const RegisterPage = () => {
             )}
           />
           <Text color="text.secondary" fontSize="md" flex={1}>
-            By creating an account, you agreeing to our
+            By creating an account, you&apos;re agreeing to our
             <Text as="span" color="text.primary">
               Privacy Policy
             </Text>
@@ -201,7 +205,7 @@ const RegisterPage = () => {
         my={7}
         form="register-form"
       >
-        Sign Un
+        Sign Up
       </Button>
 
       <Text fontWeight="medium" textAlign="center">
