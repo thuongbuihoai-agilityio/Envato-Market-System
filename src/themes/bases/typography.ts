@@ -4,6 +4,7 @@ export const fonts = {
   primary: 'Urbanist, sans-serif',
   secondary: 'Poppins, sans-serif',
 };
+
 export const fontSizes: ThemeOverride['fontSizes'] = {
   xs: '12px',
   sm: '14px',
@@ -14,6 +15,7 @@ export const fontSizes: ThemeOverride['fontSizes'] = {
   '3xl': '28px',
   '4xl': '36px',
 };
+
 export const fontWeights: ThemeOverride['fontWeights'] = {
   normal: 400,
   medium: 500,
