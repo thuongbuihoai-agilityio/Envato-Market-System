@@ -29,7 +29,6 @@ type TInputFieldProps = Omit<InputProps, 'onChange'> & {
 
 const InputComponent = (
   {
-    isValidate = false,
     isError = false,
     errorMessages = 'Default error', //
     label,
@@ -43,9 +42,15 @@ const InputComponent = (
   const errorStyle:
     | {
         borderColor?: string;
+        _focus: {
+          borderColor?: string;
+        };
       }
     | boolean = isError && {
     borderColor: 'red',
+    _focus: {
+      borderColor: 'red',
+    },
   };
 
   const handleChangeValue = useCallback(
@@ -54,7 +59,7 @@ const InputComponent = (
   );
 
   return (
-    <FormControl isInvalid={isValidate}>
+    <FormControl isInvalid={isError}>
       {/* TODO: Will update later */}
       {label && <FormLabel color="black">{label}</FormLabel>}
       <InputGroup w="inherit">
@@ -84,9 +89,7 @@ const InputComponent = (
           </InputRightElement>
         )}
       </InputGroup>
-      <FormErrorMessage color={isError ? 'red' : 'transparent'}>
-        {errorMessages}
-      </FormErrorMessage>
+      {isError && <FormErrorMessage>{errorMessages}</FormErrorMessage>}
     </FormControl>
   );
 };

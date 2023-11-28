@@ -1,7 +1,7 @@
 import { ERROR_MESSAGES } from './messages';
 import { REGEX } from './regex';
 
-export const AUTH_SCHEME = {
+export const AUTH_SCHEMA = {
   FIRST_NAME: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('First Name'),
   },
