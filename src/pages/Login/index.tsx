@@ -18,7 +18,7 @@ const LoginPage = () => (
       <InputField
         variant="authentication"
         placeholder="Username or email"
-        onChange={() => {}}
+        onChange={() => {}} // TODO: Will update when API integrate
       />
       <InputField
         type="password"
@@ -27,7 +27,7 @@ const LoginPage = () => (
         rightIcon={
           <ViewOffIcon color="gray.400" w="25px" h="25px" cursor="pointer" />
         }
-        onChange={() => {}}
+        onChange={() => {}} // TODO: Will update when API integrate
       />
     </VStack>
 
