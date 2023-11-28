@@ -7,5 +7,6 @@ export const ROUTES = {
   USER: 'user',
   HISTORY: 'history',
   SETTING: 'setting',
+  FORGOT_PASSWORD: 'forgot-password',
   NOT_FOUND: '*',
 };
