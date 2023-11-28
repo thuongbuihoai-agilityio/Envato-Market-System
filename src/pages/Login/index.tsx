@@ -10,7 +10,7 @@ import { ROUTES } from '@constants/index';
 import { AuthLayout } from '@layouts/index';
 
 // Components
-import { InputField } from '@components/index';
+import { InputField, Checkbox } from '@components/index';
 
 const LoginPage = (): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onToggleShowPassword } =
@@ -54,7 +54,14 @@ const LoginPage = (): JSX.Element => {
 
       {/* Helpers */}
       <HStack justifyContent="space-between" w="100%">
-        <Text fontWeight="semibold">Remember me</Text>
+        <Checkbox
+          variant="round"
+          onChange={
+            () => {} // TODO: Will update when API integrate
+          }
+        >
+          <Text fontWeight="semibold">Remember me</Text>
+        </Checkbox>
         <Text
           as={Link}
           to={ROUTES.FORGOT_PASSWORD}
