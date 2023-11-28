@@ -10,17 +10,17 @@ import {
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 // Constants
 import { ROUTES } from '@constants/routers';
+import { AUTH_SCHEMA } from '@constants/form';
 
 // Layouts
 import { AuthLayout } from '@layouts/index';
 
 // Components
 import { InputField } from '@components/index';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { AUTH_SCHEMA } from '@constants/form';
 
 type TRegisterForm = {
   firstName: string;
