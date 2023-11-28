@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import InputField from '.';
+import InputField from '..';
 import { CloseIcon } from '@chakra-ui/icons';
 
 describe('InputField component', () => {
@@ -10,11 +10,6 @@ describe('InputField component', () => {
     placeholder: 'Email',
     onChange: mockOnChange,
   };
-  it('Render correctly with default props', () => {
-    const { container } = render(<InputField {...props} />);
-    expect(container).toMatchSnapshot();
-  });
-
   it('Render correctly with default props', () => {
     const { container } = render(<InputField {...props} />);
     expect(container).toMatchSnapshot();
