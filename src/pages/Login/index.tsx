@@ -1,22 +1,66 @@
 import { memo } from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { ViewOffIcon } from '@chakra-ui/icons';
+import { Button, HStack, Text, VStack } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 // Constants
-import { IMAGES } from '@constants/index';
+import { ROUTES } from '@constants/index';
+
+// Layouts
+import { AuthLayout } from '@layouts/index';
 
 // Components
-import { Benefit, Logo } from '@components/index';
+import { InputField } from '@components/index';
 
 const LoginPage = () => (
-  <Flex width="100%">
-    {/* TODO: Will update Form Sign in later*/}
-    <Box w="50%" px={5}>
-      <Box px={{ base: 0, xl: 5 }} pt={10}>
-        <Logo />
-      </Box>
-    </Box>
-    <Benefit imageURL={IMAGES.SIGN_IN.url} alt={IMAGES.SIGN_IN.alt} />
-  </Flex>
+  <AuthLayout isSignForm>
+    <VStack as="form" gap={4} mb={6}>
+      <InputField
+        variant="authentication"
+        placeholder="Username or email"
+        onChange={() => {}}
+      />
+      <InputField
+        type="password"
+        variant="authentication"
+        placeholder="Password"
+        rightIcon={
+          <ViewOffIcon color="gray.400" w="25px" h="25px" cursor="pointer" />
+        }
+        onChange={() => {}}
+      />
+    </VStack>
+
+    {/* Helpers */}
+    <HStack justifyContent="space-between" w="100%">
+      <Text fontWeight="semibold">Remember me</Text>
+      <Text
+        as={Link}
+        to={ROUTES.FORGOT_PASSWORD}
+        color="primary.500"
+        fontWeight="semibold"
+        textTransform="capitalize"
+        textDecoration="underline"
+      >
+        forgot password?
+      </Text>
+    </HStack>
+
+    <Button textTransform="capitalize" my={7}>
+      Sign In
+    </Button>
+    <Text fontWeight="medium" textAlign="center">
+      Don&apos;t have an account?{' '}
+      <Text
+        as={Link}
+        to={ROUTES.REGISTER}
+        fontWeight="semibold"
+        textDecoration="underline"
+      >
+        Sign Up
+      </Text>
+    </Text>
+  </AuthLayout>
 );
 
 const Login = memo(LoginPage);
