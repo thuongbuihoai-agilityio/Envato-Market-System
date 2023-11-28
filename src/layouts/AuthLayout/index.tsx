@@ -11,6 +11,9 @@ import AuthHeading from './Heading';
 import ThirdPartyAction from './ThirdPartyAction';
 import AuthFooter from './Footer';
 
+// Types
+import { TImage } from '@interfaces/index';
+
 type TAuthLayoutProps = {
   children?: ReactNode;
   title?: string;
@@ -22,13 +25,7 @@ const AuthLayoutComponent = ({
   isSignInForm = true,
 }: TAuthLayoutProps): JSX.Element => {
   const title: string = isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP;
-  const {
-    url,
-    alt,
-  }: {
-    url: string;
-    alt: string;
-  } = isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP;
+  const { url, alt }: TImage = isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP;
 
   return (
     <Flex width="100%">
