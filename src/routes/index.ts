@@ -14,6 +14,7 @@ const Register = lazy(() => import('@pages/Register'));
 const Setting = lazy(() => import('@pages/Setting'));
 const Transaction = lazy(() => import('@pages/Transaction'));
 const User = lazy(() => import('@pages/User'));
+const NotFound = lazy(() => import('@pages/NotFound'));
 
 export const ROUTER = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const ROUTER = createBrowserRouter([
       {
         path: ROUTES.USER,
         Component: User,
+      },
+      {
+        path: ROUTES.NOT_FOUND,
+        Component: NotFound,
       },
     ],
   },

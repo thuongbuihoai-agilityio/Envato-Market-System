@@ -8,4 +8,5 @@ export const ROUTES = {
   HISTORY: 'history',
   SETTING: 'setting',
   FORGOT_PASSWORD: 'forgot-password',
+  NOT_FOUND: '*',
 };
