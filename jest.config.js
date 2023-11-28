@@ -5,7 +5,7 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    '@(.*)': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '.+\\.(png|jpg)$': 'identity-obj-proxy',
   },
   coverageThreshold: {
