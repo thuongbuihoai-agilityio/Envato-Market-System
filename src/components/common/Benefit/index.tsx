@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Highlight, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 // Constants
 import { IMAGES } from '@constants/images';
@@ -6,9 +6,11 @@ import { IMAGES } from '@constants/images';
 interface BenefitProps {
   imageURL: string;
   alt: string;
+  heading?: string;
+  description?: string;
 }
 
-const Benefit = ({ imageURL, alt }: BenefitProps) => (
+const Benefit = ({ imageURL, alt, heading, description }: BenefitProps) => (
   <Flex
     w="50%"
     p="80px"
@@ -53,17 +55,14 @@ const Benefit = ({ imageURL, alt }: BenefitProps) => (
         marginBottom={4}
         color="text.primary"
       >
-        Speady, Easy and Fast
+        {heading}
       </Heading>
-      <Text fontSize="sm" fontWeight="medium" color="text.secondary">
-        BankCo. help you set saving goals, earn cash back offers, Go to
-        disclaimer for more details and get paychecks up to two days early. Get
-        a
-        <Highlight query="$20" styles={{ color: 'success.100', p: 1 }}>
-          $20
-        </Highlight>
-        bonus when you receive qualifying direct deposits
-      </Text>
+      <Text
+        fontSize="sm"
+        fontWeight="medium"
+        color="text.secondary"
+        dangerouslySetInnerHTML={{ __html: `${description}` }}
+      />
     </Box>
   </Flex>
 );
