@@ -17,7 +17,14 @@ import {
 } from './bases';
 
 // Components
-import { Button, Text, Input, Heading, Checkbox } from './components';
+import {
+  Button,
+  Text,
+  Input,
+  Heading,
+  Checkbox,
+  FormError,
+} from './components';
 
 export const configThemes = {
   ...extendTheme({
@@ -38,6 +45,7 @@ export const configThemes = {
       Checkbox,
       Heading,
       Input,
+      FormError,
     },
   }),
   styles: {

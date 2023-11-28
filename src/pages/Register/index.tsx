@@ -1,4 +1,4 @@
-import { FormEvent, memo, useCallback } from 'react';
+import { ChangeEvent, memo, useCallback } from 'react';
 import {
   Button,
   Checkbox,
@@ -19,8 +19,29 @@ import { AuthLayout } from '@layouts/index';
 
 // Components
 import { InputField } from '@components/index';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { AUTH_SCHEMA } from '@constants/form';
+
+type TRegisterForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  isAcceptPrivacyPolicy: boolean;
+};
 
 const RegisterPage = () => {
+  const { control, handleSubmit } = useForm<TRegisterForm>({
+    defaultValues: {
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      confirmPassword: '',
+      isAcceptPrivacyPolicy: false,
+    },
+  });
   const { isOpen: isShowPassword, onToggle: onShowPassword } = useDisclosure();
   const { isOpen: isShowConfirmPassword, onToggle: onShowConfirmPassword } =
     useDisclosure();
@@ -42,17 +63,21 @@ const RegisterPage = () => {
     [],
   );
 
+  // TODO: Will be update when API ready
+  const handleSubmitForm: SubmitHandler<TRegisterForm> =
+    useCallback(() => {}, []);
+
   return (
     <AuthLayout isSignInForm={false}>
       <VStack
         as="form"
-        gap={4}
-        mb={6}
-        onSubmit={(e: FormEvent) => e.preventDefault()}
+        gap={6}
+        onSubmit={handleSubmit(handleSubmitForm)}
+        id="register-form"
       >
         <HStack
           gap={{
-            base: 4,
+            base: 6,
             md: 10,
           }}
           w="100%"
@@ -61,56 +86,121 @@ const RegisterPage = () => {
             md: 'row',
           }}
         >
-          <InputField
-            variant="authentication"
-            placeholder="First name"
-            onChange={() => {}} // TODO: Will update when API integrate
+          <Controller
+            control={control}
+            rules={AUTH_SCHEMA.FIRST_NAME}
+            name="firstName"
+            render={({ field, fieldState: { error } }) => (
+              <InputField
+                variant="authentication"
+                placeholder="First name"
+                {...field}
+                isError={!!error}
+                errorMessages={error?.message}
+              />
+            )}
           />
-          <InputField
-            variant="authentication"
-            placeholder="Last name"
-            onChange={() => {}} // TODO: Will update when API integrate
+          <Controller
+            control={control}
+            rules={AUTH_SCHEMA.LAST_NAME}
+            name="lastName"
+            render={({ field, fieldState: { error } }) => (
+              <InputField
+                variant="authentication"
+                placeholder="Last name"
+                {...field}
+                isError={!!error}
+                errorMessages={error?.message}
+              />
+            )}
           />
         </HStack>
-        <InputField
-          variant="authentication"
-          placeholder="Email"
-          onChange={() => {}} // TODO: Will update when API integrate
-        />
-        <InputField
-          type="password"
-          variant="authentication"
-          placeholder="Password"
-          rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
-          onChange={() => {}} // TODO: Will update when API integrate
-        />
-        <InputField
-          type="password"
-          variant="authentication"
-          placeholder="Confirm password"
-          rightIcon={renderPasswordIcon(
-            isShowConfirmPassword,
-            onShowConfirmPassword,
+
+        <Controller
+          control={control}
+          rules={AUTH_SCHEMA.EMAIL}
+          name="email"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              placeholder="Email"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+            />
           )}
-          onChange={() => {}} // TODO: Will update when API integrate
         />
+
+        <Controller
+          control={control}
+          rules={AUTH_SCHEMA.EMAIL}
+          name="password"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              type="password"
+              variant="authentication"
+              placeholder="Password"
+              rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+            />
+          )}
+        />
+
+        <Controller
+          control={control}
+          rules={AUTH_SCHEMA.EMAIL}
+          name="password"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              type="password"
+              variant="authentication"
+              placeholder="Confirm password"
+              rightIcon={renderPasswordIcon(
+                isShowConfirmPassword,
+                onShowConfirmPassword,
+              )}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+            />
+          )}
+        />
+        <Flex gap={3}>
+          <Controller
+            control={control}
+            name="isAcceptPrivacyPolicy"
+            render={({ field: { value, onChange } }) => (
+              <Checkbox
+                size="md"
+                colorScheme="green"
+                isChecked={value}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  onChange(e.target.checked)
+                }
+              ></Checkbox>
+            )}
+          />
+          <Text color="text.secondary" fontSize="md" flex={1}>
+            By creating an account, you agreeing to our
+            <Text as="span" color="text.primary">
+              Privacy Policy
+            </Text>
+            , and
+            <Text as="span" color="text.primary">
+              Electronics Communication Policy.
+            </Text>
+          </Text>
+        </Flex>
       </VStack>
 
-      <Flex gap={3} my={7}>
-        <Checkbox size="md" colorScheme="green" defaultChecked></Checkbox>
-        <Text color="text.secondary" fontSize="md" flex={1}>
-          By creating an account, you agreeing to our
-          <Text as="span" color="text.primary">
-            Privacy Policy
-          </Text>
-          , and
-          <Text as="span" color="text.primary">
-            Electronics Communication Policy.
-          </Text>
-        </Text>
-      </Flex>
-
-      <Button textTransform="capitalize" my={7}>
+      <Button
+        type="submit"
+        textTransform="capitalize"
+        my={7}
+        form="register-form"
+      >
         Sign Un
       </Button>
 
