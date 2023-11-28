@@ -8,7 +8,6 @@ import { IMAGES, TITLES } from '@constants/index';
 import { Benefit, Divider } from '@components/index';
 import { Logo } from '@components/index';
 import AuthHeading from './Heading';
-import ThirdPartyAction from './ThirdPartyAction';
 import AuthFooter from './Footer';
 
 // Types
@@ -52,7 +51,6 @@ const AuthLayoutComponent = ({
           px={5}
         >
           <AuthHeading title={title} />
-          <ThirdPartyAction />
           <Divider content={TITLES.AUTH_DiVIDER} />
           {children}
           <AuthFooter />
