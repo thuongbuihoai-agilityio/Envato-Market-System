@@ -1,13 +1,13 @@
-import { Image } from '@chakra-ui/react';
+import { Image, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 // Constants
 import { IMAGES } from '@constants/index';
 
 const Logo = () => (
-  <Link to="/">
+  <Text as={Link} to="/" pl="48px" display="inline-block">
     <Image src={IMAGES.LOGO.url} alt={IMAGES.LOGO.alt} />
-  </Link>
+  </Text>
 );
 
 export default Logo;
