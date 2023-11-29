@@ -62,6 +62,9 @@ export const Input = defineStyleConfig({
         color: 'gray.400',
         backgroundColor: NO_COLOR,
         fontSize: 'md',
+        _dark: {
+          boxShadow: '0 0 0.8px',
+        },
       },
     },
   },
