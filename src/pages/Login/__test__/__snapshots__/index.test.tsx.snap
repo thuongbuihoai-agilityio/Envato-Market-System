@@ -19,7 +19,7 @@ exports[`Login page Match to snapshot 1`] = `
         />
       </a>
       <div
-        class="css-1jl2bn"
+        class="css-qeb7js"
       >
         <header
           class="chakra-stack css-tl3ftk"
@@ -36,54 +36,21 @@ exports[`Login page Match to snapshot 1`] = `
           </p>
         </header>
         <div
-          class="chakra-stack css-6ysa1w"
-        >
-          <button
-            class="chakra-button css-1c3nsae"
-            type="button"
-          >
-            <img
-              alt="This is the logo Google"
-              class="chakra-image css-0"
-              src="/icons/google.svg"
-            />
-            <span
-              class="chakra-text css-yc55n3"
-            >
-              Sign In with Google
-            </span>
-          </button>
-          <button
-            class="chakra-button css-1c3nsae"
-            type="button"
-          >
-            <img
-              alt="This is the logo Apple"
-              class="chakra-image css-0"
-              src="/icons/apple.svg"
-            />
-            <span
-              class="chakra-text css-yc55n3"
-            >
-              Sign In with Apple
-            </span>
-          </button>
-        </div>
-        <div
           class="css-1wqp5dg"
         >
           <hr
             aria-orientation="horizontal"
-            class="chakra-divider css-1fbs1rh"
+            class="chakra-divider css-ri09he"
           />
           <div
-            class="css-21ocg6"
+            class="css-1u70y5c"
           >
             Or continue with
           </div>
         </div>
         <form
-          class="chakra-stack css-1coci8x"
+          class="chakra-stack css-ylms7g"
+          id="login-form"
         >
           <div
             class="chakra-form-control css-0"
@@ -95,9 +62,11 @@ exports[`Login page Match to snapshot 1`] = `
             >
               <input
                 class="chakra-input css-0"
-                id="field-:r0:"
+                id="field-:r1:"
+                name="username"
                 placeholder="Username or email"
                 type="text"
+                value=""
               />
             </div>
           </div>
@@ -111,9 +80,11 @@ exports[`Login page Match to snapshot 1`] = `
             >
               <input
                 class="chakra-input css-0"
-                id="field-:r1:"
+                id="field-:r2:"
+                name="password"
                 placeholder="Password"
                 type="password"
+                value=""
               />
               <button
                 class="chakra-input__right-element css-1uzzgp1"
@@ -137,25 +108,44 @@ exports[`Login page Match to snapshot 1`] = `
               </button>
             </div>
           </div>
+          <div
+            class="chakra-stack css-qo2j2d"
+          >
+            <label
+              class="chakra-checkbox css-1elxtiq"
+            >
+              <input
+                class="chakra-checkbox__input"
+                style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="chakra-checkbox__control css-dnty2r"
+              />
+              <span
+                class="chakra-checkbox__label css-1oeb2oe"
+              >
+                <p
+                  class="chakra-text css-10ircq3"
+                >
+                  Remember me
+                </p>
+              </span>
+            </label>
+            <a
+              class="chakra-text css-csnbyf"
+              href="/forgot-password"
+            >
+              forgot password?
+            </a>
+          </div>
         </form>
-        <div
-          class="chakra-stack css-1jjq5p5"
-        >
-          <p
-            class="chakra-text css-10ircq3"
-          >
-            Remember me
-          </p>
-          <a
-            class="chakra-text css-csnbyf"
-            href="/forgot-password"
-          >
-            forgot password?
-          </a>
-        </div>
         <button
           class="chakra-button css-8o2rc7"
-          type="button"
+          form="login-form"
+          type="submit"
         >
           Sign In
         </button>
@@ -175,7 +165,7 @@ exports[`Login page Match to snapshot 1`] = `
           class="css-178yklu"
         >
           <ul
-            class="css-1948v3z"
+            class="css-1s6o0ok"
             role="list"
           >
             <li
@@ -263,12 +253,18 @@ exports[`Login page Match to snapshot 1`] = `
         <p
           class="chakra-text css-1rphqkz"
         >
-          BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a
-          <mark
-            class="css-1rn2hzh"
+          BankCo. help you set saving goals, earn cash back offers, Go to
+          disclaimer for more details and get paychecks up to two days early. Get
+          a
+            
+          <span
+            class="text-highlight"
           >
-            $20
-          </mark>
+            
+              $20
+            
+          </span>
+          
           bonus when you receive qualifying direct deposits
         </p>
       </div>
