@@ -2,7 +2,7 @@ import { Button } from '@components/index';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PhoneIcon, AddIcon } from '@chakra-ui/icons';
 const meta: Meta<typeof Button> = {
-  title: 'Example/Button',
+  title: 'Custom Components/Button',
   component: Button,
   argTypes: {
     leftIcon: {
