@@ -14,7 +14,7 @@ const Divider = ({ content }: TDividerProps) => (
 
     <AbsoluteCenter
       _light={{ bg: '#fff' }}
-      _dark={{ bg: 'secondary.600' }}
+      _dark={{ bg: 'secondary.600', height: '1px' }}
       px="4"
       color="gray.500"
       top="50%"
