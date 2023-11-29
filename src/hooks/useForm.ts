@@ -14,5 +14,5 @@ export const useForm = <
 ) =>
   useReactHookForm<TFieldValues, TContext, TTransformedValues>({
     ...option,
-    reValidateMode: 'onSubmit',
+    reValidateMode: 'onBlur',
   });

@@ -9,7 +9,10 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler } from 'react-hook-form';
+
+// Hooks
+import { useForm } from '@hooks/index';
 
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@constants/index';
@@ -33,8 +36,6 @@ const LoginPage = (): JSX.Element => {
       password: '',
       isRemember: false,
     },
-    mode: 'onSubmit',
-    reValidateMode: 'onSubmit',
   });
   const { isOpen: isShowPassword, onToggle: onToggleShowPassword } =
     useDisclosure();

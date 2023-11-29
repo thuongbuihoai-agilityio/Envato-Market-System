@@ -10,7 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler } from 'react-hook-form';
+
+// Hooks
+import { useForm } from '@hooks/index';
 
 // Constants
 import { ROUTES } from '@constants/routers';
@@ -140,7 +143,7 @@ const RegisterPage = () => {
 
             return (
               <InputField
-                type="password"
+                type={isShowPassword ? 'text' : 'password'}
                 variant="authentication"
                 placeholder="Password"
                 rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
@@ -155,10 +158,10 @@ const RegisterPage = () => {
         <Controller
           control={control}
           rules={AUTH_SCHEMA.EMAIL}
-          name="password"
+          name="confirmPassword"
           render={({ field, fieldState: { error } }) => (
             <InputField
-              type="password"
+              type={isShowConfirmPassword ? 'text' : 'password'}
               variant="authentication"
               placeholder="Confirm password"
               rightIcon={renderPasswordIcon(
