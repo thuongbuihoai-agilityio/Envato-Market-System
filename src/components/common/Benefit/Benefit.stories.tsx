@@ -7,7 +7,7 @@ import { IMAGES } from '@constants/index';
 import { Benefit } from '@components/index';
 
 const meta: Meta<typeof Benefit> = {
-  title: 'Custom Component/Benefit',
+  title: 'Custom Components/Benefit',
   component: Benefit,
   argTypes: {
     imageURL: {

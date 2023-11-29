@@ -9,7 +9,7 @@ const defaultProps = {
 };
 
 const meta: Meta<typeof InputField> = {
-  title: 'Custom Component/InputField',
+  title: 'Custom Components/InputField',
   component: InputField,
   argTypes: {
     name: {
