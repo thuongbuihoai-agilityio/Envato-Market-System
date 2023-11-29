@@ -18,6 +18,12 @@ export const Input = defineStyleConfig({
       fontSize: 'sm',
       fontWeight: 'medium',
       backgroundColor: BG_DARK_THEME,
+      _invalid: {
+        borderColor: 'red',
+        _dark: {
+          borderColor: 'red',
+        },
+      },
       _focus: {
         borderColor: FOCUS_COLOR,
       },
