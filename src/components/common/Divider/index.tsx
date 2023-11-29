@@ -10,11 +10,11 @@ type TDividerProps = {
 
 const Divider = ({ content }: TDividerProps) => (
   <Box position="relative" w="full" m="auto" py="10">
-    <ChakraProvider w="full" bg="gray.500" />
+    <ChakraProvider w="full" bg="gray.500" _dark={{ height: '1px' }} />
 
     <AbsoluteCenter
       _light={{ bg: '#fff' }}
-      _dark={{ bg: 'secondary.600', height: '1px' }}
+      _dark={{ bg: 'secondary.600' }}
       px="4"
       color="gray.500"
       top="50%"
