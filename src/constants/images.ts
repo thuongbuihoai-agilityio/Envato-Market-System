@@ -19,10 +19,6 @@ export const IMAGES = {
     url: '/icons/dotted.svg',
     alt: 'This is dotted image',
   },
-  LOGO: {
-    url: '/icons/logo.svg',
-    alt: 'This is logo',
-  },
   GOOGLE: {
     url: '/icons/google.svg',
     alt: 'This is the logo Google',
