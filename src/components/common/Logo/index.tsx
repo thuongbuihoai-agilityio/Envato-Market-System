@@ -1,13 +1,20 @@
-import { Image, Text } from '@chakra-ui/react';
+import { Text, useColorModeValue, theme } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-// Constants
-import { IMAGES } from '@constants/index';
+// Assets
+import { LogoIcon } from '@assets/images/index';
 
-const Logo = () => (
-  <Text as={Link} to="/" pl="48px" display="inline-block">
-    <Image src={IMAGES.LOGO.url} alt={IMAGES.LOGO.alt} />
-  </Text>
-);
+const Logo = () => {
+  const colorFill = useColorModeValue(
+    theme.colors.gray[800],
+    theme.colors.white,
+  );
+
+  return (
+    <Text as={Link} to="/" pl={12} display="inline-block">
+      <LogoIcon colorFill={colorFill} />
+    </Text>
+  );
+};
 
 export default Logo;
