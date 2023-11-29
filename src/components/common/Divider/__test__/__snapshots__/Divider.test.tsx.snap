@@ -7,10 +7,10 @@ exports[`renders DividerCustom with content 1`] = `
   >
     <hr
       aria-orientation="horizontal"
-      class="chakra-divider css-1fbs1rh"
+      class="chakra-divider css-ri09he"
     />
     <div
-      class="css-21ocg6"
+      class="css-1u70y5c"
     >
       Test Content
     </div>

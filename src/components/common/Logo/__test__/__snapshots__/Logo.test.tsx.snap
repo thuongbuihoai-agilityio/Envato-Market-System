@@ -3,6 +3,7 @@
 exports[`renders Logo with content 1`] = `
 <div>
   <a
+    class="chakra-text css-bljho8"
     href="/"
   >
     <img

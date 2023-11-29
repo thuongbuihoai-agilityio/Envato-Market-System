@@ -19,7 +19,7 @@ exports[`Auth layout Match to snapshot 1`] = `
         />
       </a>
       <div
-        class="css-1jl2bn"
+        class="css-qeb7js"
       >
         <header
           class="chakra-stack css-tl3ftk"
@@ -36,48 +36,14 @@ exports[`Auth layout Match to snapshot 1`] = `
           </p>
         </header>
         <div
-          class="chakra-stack css-6ysa1w"
-        >
-          <button
-            class="chakra-button css-1c3nsae"
-            type="button"
-          >
-            <img
-              alt="This is the logo Google"
-              class="chakra-image css-0"
-              src="/icons/google.svg"
-            />
-            <span
-              class="chakra-text css-yc55n3"
-            >
-              Sign In with Google
-            </span>
-          </button>
-          <button
-            class="chakra-button css-1c3nsae"
-            type="button"
-          >
-            <img
-              alt="This is the logo Apple"
-              class="chakra-image css-0"
-              src="/icons/apple.svg"
-            />
-            <span
-              class="chakra-text css-yc55n3"
-            >
-              Sign In with Apple
-            </span>
-          </button>
-        </div>
-        <div
           class="css-1wqp5dg"
         >
           <hr
             aria-orientation="horizontal"
-            class="chakra-divider css-1fbs1rh"
+            class="chakra-divider css-ri09he"
           />
           <div
-            class="css-21ocg6"
+            class="css-1u70y5c"
           >
             Or continue with
           </div>
@@ -174,12 +140,18 @@ exports[`Auth layout Match to snapshot 1`] = `
         <p
           class="chakra-text css-1rphqkz"
         >
-          BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a
-          <mark
-            class="css-1rn2hzh"
+          BankCo. help you set saving goals, earn cash back offers, Go to
+          disclaimer for more details and get paychecks up to two days early. Get
+          a
+            
+          <span
+            class="text-highlight"
           >
-            $20
-          </mark>
+            
+              $20
+            
+          </span>
+          
           bonus when you receive qualifying direct deposits
         </p>
       </div>
