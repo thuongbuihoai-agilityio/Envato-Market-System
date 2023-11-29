@@ -61,6 +61,7 @@ const InputComponent = (
         />
         {rightIcon && (
           <InputRightElement
+            type="button"
             as="button"
             _hover={{
               borderColor: 'transparent',
