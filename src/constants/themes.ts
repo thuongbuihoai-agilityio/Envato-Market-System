@@ -1,3 +1,3 @@
 export const THEMES = {
-  dark: 'dark',
+  DARK: 'dark',
 };
