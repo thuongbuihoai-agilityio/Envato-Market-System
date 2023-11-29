@@ -4,6 +4,7 @@ const FOCUS_COLOR = 'primary.600';
 const NO_COLOR = 'transparent';
 const COLOR_TEXT = 'secondary.450';
 const BG_DARK_THEME = 'background.component.secondary';
+const ERROR_COLOR = 'red';
 
 export const Input = defineStyleConfig({
   baseStyle: {
@@ -19,9 +20,15 @@ export const Input = defineStyleConfig({
       fontWeight: 'medium',
       backgroundColor: BG_DARK_THEME,
       _invalid: {
-        borderColor: 'red',
+        borderColor: ERROR_COLOR,
+        _focus: {
+          borderColor: ERROR_COLOR,
+        },
         _dark: {
-          borderColor: 'red',
+          borderColor: ERROR_COLOR,
+          _focus: {
+            borderColor: ERROR_COLOR,
+          },
         },
       },
       _focus: {
