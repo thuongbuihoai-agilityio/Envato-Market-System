@@ -38,8 +38,6 @@ const AuthLayoutComponent = ({
     [isSignInForm],
   );
 
-  console.log(user);
-
   if (user) return <Navigate to={ROUTES.ROOT} replace />;
 
   return (
