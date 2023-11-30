@@ -4,29 +4,33 @@ import { Box, IconButton } from '@chakra-ui/react';
 interface IconButtonProps {
   children: JSX.Element;
   isEmail?: boolean;
+  isNotification?: boolean;
   onClick?: () => void;
 }
 
 const IconButtonComponent = ({
   children,
   isEmail = false,
+  isNotification = false,
   onClick,
 }: IconButtonProps) => {
   return (
     <Box data-testid="icon-button-component" pos="relative" maxW="fit-content">
-      <Box
-        pos="absolute"
-        bg={isEmail ? 'danger.500' : 'secondary.450'}
-        rounded="50%"
-        w="15px"
-        h="15px"
-        textAlign="center"
-        top="0px"
-        right="-5px"
-        fontSize="xs"
-        zIndex={1}
-        _light={{ border: 'solid 3px white' }}
-      />
+      {isNotification && (
+        <Box
+          pos="absolute"
+          bg={isEmail ? 'danger.500' : 'secondary.450'}
+          rounded="50%"
+          w="15px"
+          h="15px"
+          textAlign="center"
+          top="0px"
+          right="-5px"
+          fontSize="xs"
+          zIndex={1}
+          _light={{ border: 'solid 3px white' }}
+        />
+      )}
       <IconButton
         data-testid="icon-button"
         pos="relative"

@@ -40,9 +40,29 @@ describe('IconButton test cases', () => {
     expect(iconButton).toBeInTheDocument();
   });
 
+  it('render with isNotification with isEmail', async () => {
+    const { getByTestId } = render(
+      <IconButton isNotification isEmail onClick={mockOnClick}>
+        <Theme colorFill="gray.800" />
+      </IconButton>,
+    );
+    const iconButton = getByTestId('icon-button-component');
+    expect(iconButton).toBeInTheDocument();
+  });
+
+  it('render with isNotification without isEmail', async () => {
+    const { getByTestId } = render(
+      <IconButton isNotification onClick={mockOnClick}>
+        <Theme colorFill="gray.800" />
+      </IconButton>,
+    );
+    const iconButton = getByTestId('icon-button-component');
+    expect(iconButton).toBeInTheDocument();
+  });
+
   it('render without onClick', async () => {
     const { getByTestId } = render(
-      <IconButton isEmail>
+      <IconButton>
         <Theme colorFill="gray.800" />
       </IconButton>,
     );

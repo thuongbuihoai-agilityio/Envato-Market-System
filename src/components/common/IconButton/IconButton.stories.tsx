@@ -29,6 +29,13 @@ export const Default: Story = {
   },
 };
 
+export const Notification: Story = {
+  args: {
+    children: <Theme colorFill={`${theme.colors.gray[800]}`} />,
+    isNotification: true,
+  },
+};
+
 export const Email: Story = {
   args: {
     children: <EmailIcon colorFill={`${theme.colors.gray[800]}`} />,

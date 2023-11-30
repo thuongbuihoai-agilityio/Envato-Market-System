@@ -6,9 +6,6 @@ exports[`IconButton test cases should render correctly 1`] = `
     class="css-1ve4u7y"
     data-testid="icon-button-component"
   >
-    <div
-      class="css-1hbpe3k"
-    />
     <button
       aria-label="Send email"
       class="chakra-button css-yt1s1n"
