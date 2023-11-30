@@ -56,6 +56,16 @@ export const Button = defineStyleConfig({
         outline: 'none',
       },
     },
+    iconPrimary: {
+      borderWidth: '1px',
+      borderRadius: '12px',
+      _light: {
+        borderColor: 'primary.600',
+      },
+      _dark: {
+        borderColor: 'primary.700',
+      },
+    },
   },
   defaultProps: {
     size: 'xl',
