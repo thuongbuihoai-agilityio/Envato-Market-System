@@ -7,6 +7,7 @@ import {
   VStack,
   Checkbox,
   useDisclosure,
+  Box,
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler } from 'react-hook-form';
@@ -106,8 +107,8 @@ const LoginPage = (): JSX.Element => {
             <InputField
               variant="authentication"
               placeholder="Username or email"
-              isError={!!error?.message || !!root}
-              errorMessages={error?.message || root?.message}
+              isError={!!error?.message}
+              errorMessages={error?.message}
               isDisabled={isSubmit}
               {...field}
               onBlur={() => clearErrors('root')}
@@ -124,8 +125,8 @@ const LoginPage = (): JSX.Element => {
               variant="authentication"
               placeholder="Password"
               rightIcon={renderPasswordIcon}
-              isError={!!error?.message || !!root}
-              errorMessages={error?.message || root?.message}
+              isError={!!error?.message}
+              errorMessages={error?.message}
               isDisabled={isSubmit}
               {...field}
               onBlur={() => clearErrors('root')}
@@ -164,15 +165,30 @@ const LoginPage = (): JSX.Element => {
         </HStack>
       </VStack>
 
-      <Button
-        type="submit"
-        textTransform="capitalize"
-        form="login-form"
-        my={8}
-        isDisabled={isSubmit}
-      >
-        Sign In
-      </Button>
+      <Box mt={8} mb={10} position="relative">
+        <Button
+          type="submit"
+          textTransform="capitalize"
+          form="login-form"
+          isDisabled={isSubmit}
+        >
+          Sign In
+        </Button>
+
+        {/* Show API error */}
+        {root && (
+          <Text
+            color="red"
+            textAlign="center"
+            pt={2}
+            position="absolute"
+            w="100%"
+          >
+            {root.message}
+          </Text>
+        )}
+      </Box>
+
       <Text fontWeight="medium" textAlign="center">
         Don&apos;t have an account?{' '}
         <Text
