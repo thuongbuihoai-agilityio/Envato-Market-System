@@ -35,7 +35,7 @@ type TRegisterForm = {
 };
 
 const RegisterPage = () => {
-  const { control, handleSubmit } = useForm<TRegisterForm>({
+  const { control, handleSubmit, clearErrors } = useForm<TRegisterForm>({
     defaultValues: {
       email: '',
       firstName: '',
@@ -67,8 +67,9 @@ const RegisterPage = () => {
   );
 
   // TODO: Will be update when API ready
-  const handleSubmitForm: SubmitHandler<TRegisterForm> =
-    useCallback(() => {}, []);
+  const handleSubmitForm: SubmitHandler<TRegisterForm> = useCallback((data) => {
+    console.log(data);
+  }, []);
 
   return (
     <AuthLayout isSignInForm={false}>
@@ -100,6 +101,9 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!error}
                 errorMessages={error?.message}
+                onChange={(data) => {
+                  clearErrors('firstName'), field.onChange(data);
+                }}
               />
             )}
           />
@@ -114,6 +118,9 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!error}
                 errorMessages={error?.message}
+                onChange={(data) => {
+                  clearErrors('lastName'), field.onChange(data);
+                }}
               />
             )}
           />
@@ -130,13 +137,16 @@ const RegisterPage = () => {
               {...field}
               isError={!!error}
               errorMessages={error?.message}
+              onChange={(data) => {
+                clearErrors('email'), field.onChange(data);
+              }}
             />
           )}
         />
 
         <Controller
           control={control}
-          rules={AUTH_SCHEMA.EMAIL}
+          rules={AUTH_SCHEMA.PASSWORD}
           name="password"
           render={({ field, fieldState: { error } }) => {
             const { message } = error || {};
@@ -150,6 +160,9 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!message}
                 errorMessages={message}
+                onChange={(data) => {
+                  clearErrors('password'), field.onChange(data);
+                }}
               />
             );
           }}
@@ -157,7 +170,7 @@ const RegisterPage = () => {
 
         <Controller
           control={control}
-          rules={AUTH_SCHEMA.EMAIL}
+          rules={AUTH_SCHEMA.CONFIRM_PASSWORD}
           name="confirmPassword"
           render={({ field, fieldState: { error } }) => (
             <InputField
@@ -171,14 +184,18 @@ const RegisterPage = () => {
               {...field}
               isError={!!error}
               errorMessages={error?.message}
+              onChange={(data) => {
+                clearErrors('confirmPassword'), field.onChange(data);
+              }}
             />
           )}
         />
         <Flex gap={3}>
           <Controller
             control={control}
+            rules={AUTH_SCHEMA.AGREE_POLICY}
             name="isAcceptPrivacyPolicy"
-            render={({ field: { value, onChange } }) => (
+            render={({ field: { value, onChange }, fieldState: { error } }) => (
               <Checkbox
                 size="md"
                 colorScheme="green"
@@ -186,16 +203,23 @@ const RegisterPage = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   onChange(e.target.checked)
                 }
+                {...(error && {
+                  sx: {
+                    '> span': {
+                      borderColor: 'danger.400',
+                    },
+                  },
+                })}
               ></Checkbox>
             )}
           />
           <Text color="text.secondary" fontSize="md" flex={1}>
-            By creating an account, you&apos;re agreeing to our
-            <Text as="span" color="text.primary">
+            By creating an account, you&apos;re agreeing to our {''}
+            <Text as="span" color="text.primary" cursor="pointer">
               Privacy Policy
             </Text>
-            , and
-            <Text as="span" color="text.primary">
+            , and {''}
+            <Text as="span" color="text.primary" cursor="pointer">
               Electronics Communication Policy.
             </Text>
           </Text>
@@ -215,7 +239,7 @@ const RegisterPage = () => {
         Already have an account?
         <Text
           as={Link}
-          to={ROUTES.REGISTER}
+          to={`/${ROUTES.LOGIN}`}
           fontWeight="semibold"
           textDecoration="underline"
         >

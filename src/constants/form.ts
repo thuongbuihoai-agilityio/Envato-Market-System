@@ -12,7 +12,7 @@ export const AUTH_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Email'),
     pattern: {
       value: REGEX.EMAIL,
-      message: ERROR_MESSAGES.FIELD_INVALID('Email'),
+      message: ERROR_MESSAGES.EMAIL_INVALID,
     },
   },
   PASSWORD: {
@@ -21,11 +21,16 @@ export const AUTH_SCHEMA = {
   CONFIRM_PASSWORD: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Confirm Password'),
     // TODO: Update validate confirm password later
+    validate: (val: string, { password }: { password: string }) => {
+      if (val !== password) {
+        return ERROR_MESSAGES.PASSWORD_NOT_MATCH;
+      }
+    },
   },
   REMEMBER_ME: {
     required: false,
   },
   AGREE_POLICY: {
-    // TODO: Update validate agreePolicy later
+    required: true,
   },
 };

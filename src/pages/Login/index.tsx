@@ -30,7 +30,7 @@ type TLoginForm = {
 };
 
 const LoginPage = (): JSX.Element => {
-  const { control, handleSubmit } = useForm<TLoginForm>({
+  const { control, handleSubmit, clearErrors } = useForm<TLoginForm>({
     defaultValues: {
       username: '',
       password: '',
@@ -72,10 +72,14 @@ const LoginPage = (): JSX.Element => {
           render={({ field, fieldState: { error } }) => (
             <InputField
               variant="authentication"
-              placeholder="Username or email"
+              placeholder="Email"
               {...field}
               isError={!!error?.message}
               errorMessages={error?.message}
+              onChange={(data) => {
+                clearErrors('username');
+                field.onChange(data);
+              }}
             />
           )}
         />
@@ -92,6 +96,10 @@ const LoginPage = (): JSX.Element => {
               {...field}
               isError={!!error?.message}
               errorMessages={error?.message}
+              onChange={(data) => {
+                clearErrors('password');
+                field.onChange(data);
+              }}
             />
           )}
         />
@@ -115,7 +123,7 @@ const LoginPage = (): JSX.Element => {
           />
           <Text
             as={Link}
-            to={ROUTES.FORGOT_PASSWORD}
+            to={`/${ROUTES.FORGOT_PASSWORD}`}
             color="primary.500"
             fontWeight="semibold"
             textTransform="capitalize"

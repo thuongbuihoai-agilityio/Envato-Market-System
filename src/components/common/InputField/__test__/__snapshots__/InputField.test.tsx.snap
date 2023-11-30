@@ -109,6 +109,7 @@ exports[`InputField component Render correctly with right icon 1`] = `
       />
       <button
         class="chakra-input__right-element css-1uzzgp1"
+        type="button"
       >
         <svg
           class="chakra-icon css-onkibi"

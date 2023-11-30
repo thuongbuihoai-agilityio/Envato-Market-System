@@ -15,6 +15,7 @@ const Setting = lazy(() => import('@pages/Setting'));
 const Transaction = lazy(() => import('@pages/Transaction'));
 const User = lazy(() => import('@pages/User'));
 const NotFound = lazy(() => import('@pages/NotFound'));
+const ComingSoon = lazy(() => import('@pages/ComingSoon'));
 
 export const ROUTER = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const ROUTER = createBrowserRouter([
       {
         path: ROUTES.NOT_FOUND,
         Component: NotFound,
+      },
+      {
+        path: ROUTES.FORGOT_PASSWORD,
+        Component: ComingSoon,
       },
     ],
   },
