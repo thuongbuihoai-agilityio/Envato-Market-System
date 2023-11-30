@@ -106,12 +106,15 @@ const LoginPage = (): JSX.Element => {
           render={({ field, fieldState: { error } }) => (
             <InputField
               variant="authentication"
-              placeholder="Username or email"
+              placeholder="Email"
+              {...field}
               isError={!!error?.message}
               errorMessages={error?.message}
-              isDisabled={isSubmit}
-              {...field}
-              onBlur={() => clearErrors('root')}
+              onChange={(data) => {
+                clearErrors('username');
+                field.onChange(data);
+                clearErrors('root');
+              }}
             />
           )}
         />
@@ -127,9 +130,11 @@ const LoginPage = (): JSX.Element => {
               rightIcon={renderPasswordIcon}
               isError={!!error?.message}
               errorMessages={error?.message}
-              isDisabled={isSubmit}
-              {...field}
-              onBlur={() => clearErrors('root')}
+              onChange={(data) => {
+                clearErrors('password');
+                field.onChange(data);
+                clearErrors('root');
+              }}
             />
           )}
         />
@@ -154,7 +159,7 @@ const LoginPage = (): JSX.Element => {
           />
           <Text
             as={Link}
-            to={ROUTES.FORGOT_PASSWORD}
+            to={`/${ROUTES.FORGOT_PASSWORD}`}
             color="primary.500"
             fontWeight="semibold"
             textTransform="capitalize"
