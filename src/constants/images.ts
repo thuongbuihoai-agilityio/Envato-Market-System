@@ -27,4 +27,8 @@ export const IMAGES = {
     url: '/icons/apple.svg',
     alt: 'This is the logo Apple',
   },
+  AVATAR: {
+    url: '/images/avatar.webp',
+    alt: 'This is avatar',
+  },
 };
