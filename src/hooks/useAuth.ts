@@ -15,7 +15,7 @@ type TSignUpErrorField = Partial<
   Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>
 >;
 
-type TUseAuth = {
+export type TUseAuth = {
   user: TUser | null;
   isRemember: boolean;
   signIn: (
