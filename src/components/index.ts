@@ -5,3 +5,4 @@ export { default as Button } from './common/Button';
 export { default as Divider } from './common/Divider';
 export { default as IconButton } from './common/IconButton';
 export { default as Avatar } from './common/Avatar';
+export { default as Pagination } from './common/Pagination';
