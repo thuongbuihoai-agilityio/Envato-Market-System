@@ -165,7 +165,11 @@ const LoginPage = (): JSX.Element => {
         </HStack>
       </VStack>
 
-      <Box mt={8} mb={10} position="relative">
+      {/* Show API error */}
+      <Box mb={7}>
+        <Text color="red" textAlign="center" py={2} h={10}>
+          {root?.message}
+        </Text>
         <Button
           type="submit"
           textTransform="capitalize"
@@ -174,19 +178,6 @@ const LoginPage = (): JSX.Element => {
         >
           Sign In
         </Button>
-
-        {/* Show API error */}
-        {root && (
-          <Text
-            color="red"
-            textAlign="center"
-            pt={2}
-            position="absolute"
-            w="100%"
-          >
-            {root.message}
-          </Text>
-        )}
       </Box>
 
       <Text fontWeight="medium" textAlign="center">

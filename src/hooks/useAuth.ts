@@ -46,7 +46,7 @@ export const useAuth = create(
           throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
         }
 
-        set({ user, isRemember });
+        return set({ user, isRemember });
       },
     }),
     { name: 'authentication' },
