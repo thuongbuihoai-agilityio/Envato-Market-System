@@ -37,7 +37,7 @@ export const useAuth = create(
             `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
           );
 
-        // Need find here, because search params working incorrect
+        // Because search by params working incorrect
         const user: TUser | undefined = data.find(
           (user) => user.email === email && user.password === password,
         );
