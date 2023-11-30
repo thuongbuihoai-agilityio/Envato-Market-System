@@ -9,3 +9,8 @@ export const END_POINTS = {
   TRANSACTIONS: '/transactions',
   STATISTICS: '/statistics',
 };
+
+export const SEARCH_PARAM = {
+  EMAIL: 'email',
+  PASSWORD: 'password',
+};
