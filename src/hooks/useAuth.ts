@@ -11,7 +11,11 @@ import { UsersHttpService } from '@services/index';
 // Types
 import { TUser } from '@interfaces/user';
 
-type TUseAuth = {
+type TSignUpErrorField = Partial<
+  Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>
+>;
+
+export type TUseAuth = {
   user: TUser | null;
   isRemember: boolean;
   signIn: (
@@ -24,6 +28,9 @@ type TUseAuth = {
     },
     isRemember?: boolean,
   ) => Promise<void>;
+  signUp: (userInfo: Omit<TUser, 'id' | 'createdAt'>) => Promise<{
+    errors?: TSignUpErrorField;
+  }>;
 };
 
 export const useAuth = create(
@@ -47,6 +54,40 @@ export const useAuth = create(
         }
 
         return set({ user, isRemember });
+      },
+      signUp: async (userInfo) => {
+        const { email, password } = userInfo;
+        const { data = [] }: AxiosResponse<TUser[] | undefined> =
+          await UsersHttpService.get<TUser[] | undefined>(
+            `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
+          );
+        // Because search by params working incorrect
+        const user: TUser | undefined = data.find(
+          (user) => user.email === email,
+        );
+
+        if (user) {
+          return {
+            errors: {
+              email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
+            },
+          };
+        }
+
+        // Send request add new user
+        const response: TUser = await UsersHttpService.post<TUser>(
+          END_POINTS.USERS,
+          {
+            ...userInfo,
+            createdAt: Date.now(),
+          },
+          {},
+        ).then((res) => res.data);
+
+        // Save user into store
+        set({ user: response });
+
+        return {};
       },
     }),
     { name: 'authentication' },
