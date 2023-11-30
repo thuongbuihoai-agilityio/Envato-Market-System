@@ -6,12 +6,12 @@ import { Avatar } from '@components/index';
 describe('Avatar render', () => {
   afterEach(cleanup);
 
-  test('renders Benefit with content', () => {
+  test('Should render match with snapshot.', () => {
     const { container } = render(<Avatar />);
     expect(container).toMatchSnapshot();
   });
 
-  it('should render avatar component', () => {
+  it('Get avatar component', () => {
     const { getByTestId } = render(<Avatar data-testid="TestAvatar" />);
 
     const avatar = getByTestId('TestAvatar');
