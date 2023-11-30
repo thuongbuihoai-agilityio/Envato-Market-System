@@ -22,7 +22,7 @@ export const AUTH_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Confirm Password'),
     // TODO: Update validate confirm password later
     validate: (val: string, { password }: { password: string }) => {
-      if (val !== password) {
+      if (password !== '' && val !== password) {
         return ERROR_MESSAGES.PASSWORD_NOT_MATCH;
       }
     },
