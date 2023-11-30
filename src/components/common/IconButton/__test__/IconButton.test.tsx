@@ -30,9 +30,9 @@ describe('IconButton test cases', () => {
     expect(mockOnClick).toHaveBeenCalled();
   });
 
-  it('render with isEmail', async () => {
+  it('render with hasNewNotification', async () => {
     const { getByTestId } = render(
-      <IconButton isEmail onClick={mockOnClick}>
+      <IconButton hasNewNotification onClick={mockOnClick}>
         <Theme colorFill="gray.800" />
       </IconButton>,
     );
@@ -40,9 +40,9 @@ describe('IconButton test cases', () => {
     expect(iconButton).toBeInTheDocument();
   });
 
-  it('render with isNotification with isEmail', async () => {
+  it('render with isNotification with hasNewNotification', async () => {
     const { getByTestId } = render(
-      <IconButton isNotification isEmail onClick={mockOnClick}>
+      <IconButton isNotification hasNewNotification onClick={mockOnClick}>
         <Theme colorFill="gray.800" />
       </IconButton>,
     );
@@ -50,7 +50,7 @@ describe('IconButton test cases', () => {
     expect(iconButton).toBeInTheDocument();
   });
 
-  it('render with isNotification without isEmail', async () => {
+  it('render with isNotification without hasNewNotification', async () => {
     const { getByTestId } = render(
       <IconButton isNotification onClick={mockOnClick}>
         <Theme colorFill="gray.800" />

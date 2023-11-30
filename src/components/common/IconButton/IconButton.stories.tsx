@@ -40,6 +40,6 @@ export const Email: Story = {
   args: {
     children: <EmailIcon colorFill={`${theme.colors.gray[800]}`} />,
     isNotification: true,
-    isEmail: true,
+    hasNewNotification: true,
   },
 };

@@ -58,7 +58,7 @@ export const Button = defineStyleConfig({
     },
     iconPrimary: {
       borderWidth: '1px',
-      borderRadius: '12px',
+      borderRadius: 'xl',
       _light: {
         borderColor: 'primary.600',
       },

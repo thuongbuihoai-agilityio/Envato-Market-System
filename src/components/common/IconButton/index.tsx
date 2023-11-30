@@ -3,14 +3,14 @@ import { Box, IconButton } from '@chakra-ui/react';
 
 interface IconButtonProps {
   children: JSX.Element;
-  isEmail?: boolean;
+  hasNewNotification?: boolean;
   isNotification?: boolean;
   onClick?: () => void;
 }
 
 const IconButtonComponent = ({
   children,
-  isEmail = false,
+  hasNewNotification = false,
   isNotification = false,
   onClick,
 }: IconButtonProps) => {
@@ -19,10 +19,9 @@ const IconButtonComponent = ({
       {isNotification && (
         <Box
           pos="absolute"
-          bg={isEmail ? 'danger.500' : 'secondary.450'}
-          rounded="50%"
-          w="15px"
-          h="15px"
+          bg={hasNewNotification ? 'danger.500' : 'secondary.450'}
+          rounded="full"
+          boxSize="15px"
           textAlign="center"
           top="0px"
           right="-5px"
