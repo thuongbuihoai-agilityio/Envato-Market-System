@@ -19,10 +19,12 @@ export const AUTH_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Password'),
   },
   CONFIRM_PASSWORD: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Confirm Password'),
     // TODO: Update validate confirm password later
     validate: (val: string, { password }: { password: string }) => {
-      if (password !== '' && val !== password) {
+      if (password && !val) {
+        return ERROR_MESSAGES.FIELD_REQUIRED('Confirm password');
+      }
+      if (password && val !== password) {
         return ERROR_MESSAGES.PASSWORD_NOT_MATCH;
       }
     },
@@ -31,6 +33,9 @@ export const AUTH_SCHEMA = {
     required: false,
   },
   AGREE_POLICY: {
-    required: true,
+    //TODO: Refactor later
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+    validate: (_: any, { isAcceptPrivacyPolicy: __, ...fieldValues }: any) =>
+      !Object.values(fieldValues).every((value) => value),
   },
 };
