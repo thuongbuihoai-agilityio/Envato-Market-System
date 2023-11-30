@@ -1,5 +1,6 @@
-import { ChangeEvent, memo, useCallback } from 'react';
+import { ChangeEvent, memo, useCallback, useState } from 'react';
 import {
+  Box,
   Button,
   Checkbox,
   Flex,
@@ -9,15 +10,14 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler } from 'react-hook-form';
 
 // Hooks
-import { useForm } from '@hooks/index';
+import { useAuth, useForm } from '@hooks/index';
 
 // Constants
-import { ROUTES } from '@constants/routers';
-import { AUTH_SCHEMA } from '@constants/form';
+import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@constants/index';
 
 // Layouts
 import { AuthLayout } from '@layouts/index';
@@ -25,17 +25,27 @@ import { AuthLayout } from '@layouts/index';
 // Components
 import { InputField } from '@components/index';
 
-type TRegisterForm = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
+// Types
+import { TUser } from '@interfaces/user';
+
+type TRegisterForm = Omit<TUser, 'id' | 'createdAt'> & {
   confirmPassword: string;
   isAcceptPrivacyPolicy: boolean;
 };
 
 const RegisterPage = () => {
-  const { control, handleSubmit, clearErrors } = useForm<TRegisterForm>({
+  const signUp = useAuth((state) => state.signUp);
+  const redirect = useNavigate();
+  // Control form
+  const {
+    control,
+    formState: {
+      errors: { root },
+    },
+    handleSubmit,
+    setError,
+    clearErrors,
+  } = useForm<TRegisterForm>({
     defaultValues: {
       email: '',
       firstName: '',
@@ -45,9 +55,14 @@ const RegisterPage = () => {
       isAcceptPrivacyPolicy: false,
     },
   });
+
+  // Control show/hide password and confirmPassword
   const { isOpen: isShowPassword, onToggle: onShowPassword } = useDisclosure();
   const { isOpen: isShowConfirmPassword, onToggle: onShowConfirmPassword } =
     useDisclosure();
+
+  // Disable button when wait response from Server
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
   const renderPasswordIcon = useCallback(
     (isCorrect: boolean, callback: typeof onShowPassword): JSX.Element => {
@@ -66,10 +81,36 @@ const RegisterPage = () => {
     [],
   );
 
-  // TODO: Will be update when API ready
-  const handleSubmitForm: SubmitHandler<TRegisterForm> = useCallback((data) => {
-    console.log(data);
-  }, []);
+  const handleSubmitForm: SubmitHandler<TRegisterForm> = useCallback(
+    async (data) => {
+      setIsSubmit(true);
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { isAcceptPrivacyPolicy, ...fieldValues } = data;
+      try {
+        const { errors } = await signUp(fieldValues);
+
+        if (errors) {
+          return Object.entries(errors).forEach(([key, value]) =>
+            setError(key as keyof typeof data, {
+              type: 'custom',
+              message: value,
+            }),
+          );
+        }
+
+        redirect(ROUTES.ROOT);
+      } catch (error) {
+        setError('root', {
+          type: 'custom',
+          message: ERROR_MESSAGES.SOMETHING_ERROR,
+        });
+      } finally {
+        setIsSubmit(false);
+      }
+    },
+    [redirect, setError, signUp],
+  );
 
   return (
     <AuthLayout isSignInForm={false}>
@@ -101,6 +142,7 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!error}
                 errorMessages={error?.message}
+                isDisabled={isSubmit}
                 onChange={(data) => {
                   clearErrors('firstName'), field.onChange(data);
                 }}
@@ -118,6 +160,7 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!error}
                 errorMessages={error?.message}
+                isDisabled={isSubmit}
                 onChange={(data) => {
                   clearErrors('lastName'), field.onChange(data);
                 }}
@@ -137,6 +180,7 @@ const RegisterPage = () => {
               {...field}
               isError={!!error}
               errorMessages={error?.message}
+              isDisabled={isSubmit}
               onChange={(data) => {
                 clearErrors('email'), field.onChange(data);
               }}
@@ -160,6 +204,7 @@ const RegisterPage = () => {
                 {...field}
                 isError={!!message}
                 errorMessages={message}
+                isDisabled={isSubmit}
                 onChange={(data) => {
                   clearErrors('password'), field.onChange(data);
                 }}
@@ -184,6 +229,7 @@ const RegisterPage = () => {
               {...field}
               isError={!!error}
               errorMessages={error?.message}
+              isDisabled={isSubmit}
               onChange={(data) => {
                 clearErrors('confirmPassword'), field.onChange(data);
               }}
@@ -200,6 +246,7 @@ const RegisterPage = () => {
                 size="md"
                 colorScheme="green"
                 isChecked={value}
+                isDisabled={isSubmit}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   onChange(e.target.checked)
                 }
@@ -226,14 +273,20 @@ const RegisterPage = () => {
         </Flex>
       </VStack>
 
-      <Button
-        type="submit"
-        textTransform="capitalize"
-        my={7}
-        form="register-form"
-      >
-        Sign Up
-      </Button>
+      {/* Show API error */}
+      <Box mb={7}>
+        <Text color="red" textAlign="center" py={2} h={10}>
+          {root?.message}
+        </Text>
+        <Button
+          type="submit"
+          textTransform="capitalize"
+          form="register-form"
+          isDisabled={isSubmit}
+        >
+          Sign Up
+        </Button>
+      </Box>
 
       <Text fontWeight="medium" textAlign="center">
         Already have an account?
