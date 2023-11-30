@@ -6,5 +6,5 @@ export const ERROR_MESSAGES = {
   PASSWORD_NOT_MATCH: 'Password does not match',
   SOMETHING_ERROR: 'Something went wrong!!',
   AUTH_INCORRECT: 'Email or password incorrect',
-  IS_EXISTS: (field: string) => `${field} already exists`,
+  ACCOUNT_ALREADY_EXISTS: 'Account already exists',
 };

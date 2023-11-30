@@ -69,7 +69,7 @@ export const useAuth = create(
         if (user) {
           return {
             errors: {
-              email: ERROR_MESSAGES.IS_EXISTS('Email'),
+              email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
             },
           };
         }
