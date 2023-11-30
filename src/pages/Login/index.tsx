@@ -1,4 +1,4 @@
-import { ChangeEvent, memo, useCallback, useMemo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -8,11 +8,11 @@ import {
   Checkbox,
   useDisclosure,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler } from 'react-hook-form';
 
 // Hooks
-import { useForm } from '@hooks/index';
+import { useForm, useAuth } from '@hooks/index';
 
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@constants/index';
@@ -30,15 +30,32 @@ type TLoginForm = {
 };
 
 const LoginPage = (): JSX.Element => {
-  const { control, handleSubmit } = useForm<TLoginForm>({
+  const signIn = useAuth((state) => state.signIn);
+  const redirect = useNavigate();
+
+  // Control form
+  const {
+    control,
+    formState: {
+      errors: { root },
+    },
+    handleSubmit,
+    setError,
+    clearErrors,
+  } = useForm<TLoginForm>({
     defaultValues: {
       username: '',
       password: '',
       isRemember: false,
     },
   });
+
+  // Control show/hide password
   const { isOpen: isShowPassword, onToggle: onToggleShowPassword } =
     useDisclosure();
+
+  // Disable button when wait response from Server
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
   const renderPasswordIcon = useMemo((): JSX.Element => {
     const Icon = isShowPassword ? ViewIcon : ViewOffIcon;
@@ -54,16 +71,32 @@ const LoginPage = (): JSX.Element => {
     );
   }, [isShowPassword, onToggleShowPassword]);
 
-  // TODO: Will be update when API ready
-  const handleSubmitForm: SubmitHandler<TLoginForm> = useCallback(() => {}, []);
+  const handleSubmitForm: SubmitHandler<TLoginForm> = useCallback(
+    async (data) => {
+      setIsSubmit(true);
+      try {
+        const { username, password, isRemember } = data;
+
+        await signIn({ email: username, password }, isRemember);
+        redirect(ROUTES.ROOT);
+      } catch (error) {
+        const { message } = error as unknown as Error;
+
+        setError('root', { type: 'custom', message });
+      } finally {
+        setIsSubmit(false);
+      }
+    },
+    [redirect, setError, signIn],
+  );
 
   return (
     <AuthLayout>
       <VStack
+        id="login-form"
         as="form"
         gap={6}
         onSubmit={handleSubmit(handleSubmitForm)}
-        id="login-form"
       >
         <Controller
           rules={AUTH_SCHEMA.EMAIL}
@@ -73,9 +106,11 @@ const LoginPage = (): JSX.Element => {
             <InputField
               variant="authentication"
               placeholder="Username or email"
+              isError={!!error?.message || !!root}
+              errorMessages={error?.message || root?.message}
+              isDisabled={isSubmit}
               {...field}
-              isError={!!error?.message}
-              errorMessages={error?.message}
+              onBlur={() => clearErrors('root')}
             />
           )}
         />
@@ -89,9 +124,11 @@ const LoginPage = (): JSX.Element => {
               variant="authentication"
               placeholder="Password"
               rightIcon={renderPasswordIcon}
+              isError={!!error?.message || !!root}
+              errorMessages={error?.message || root?.message}
+              isDisabled={isSubmit}
               {...field}
-              isError={!!error?.message}
-              errorMessages={error?.message}
+              onBlur={() => clearErrors('root')}
             />
           )}
         />
@@ -108,6 +145,7 @@ const LoginPage = (): JSX.Element => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   onChange(e.target.checked)
                 }
+                position="relative"
               >
                 <Text fontWeight="semibold">Remember me</Text>
               </Checkbox>
@@ -126,7 +164,13 @@ const LoginPage = (): JSX.Element => {
         </HStack>
       </VStack>
 
-      <Button type="submit" textTransform="capitalize" my={7} form="login-form">
+      <Button
+        type="submit"
+        textTransform="capitalize"
+        form="login-form"
+        my={8}
+        isDisabled={isSubmit}
+      >
         Sign In
       </Button>
       <Text fontWeight="medium" textAlign="center">
