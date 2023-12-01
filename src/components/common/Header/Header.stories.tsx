@@ -16,6 +16,6 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
   args: {
-    title: 'Dashboard',
+    name: 'Dashboard',
   },
 };
