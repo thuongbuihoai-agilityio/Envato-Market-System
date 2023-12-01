@@ -76,7 +76,7 @@ const TotalCardComponent = ({
           },
         ]}
         type="area"
-        width="200"
+        width="140"
       />
     </Flex>
   </Box>
