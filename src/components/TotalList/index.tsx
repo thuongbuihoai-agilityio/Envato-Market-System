@@ -1,9 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import { Grid, GridItem, Skeleton } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
+import { TotalCard, TotalListSkeleton } from '..';
+
+// Types
 import { ISpendingStatistics } from '@interfaces/index';
-import { TotalCard } from '..';
 
 interface TotalListComponentProps {
   spendingStatistics: ISpendingStatistics[];
@@ -14,35 +16,7 @@ const TotalListComponent = ({
   spendingStatistics,
   isLoading = false,
 }: TotalListComponentProps) => {
-  if (isLoading)
-    return (
-      <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
-        gap={6}
-      >
-        <GridItem>
-          <Skeleton
-            height={180}
-            bg="background.component.primary"
-            rounded="lg"
-          />
-        </GridItem>
-        <GridItem>
-          <Skeleton
-            height={180}
-            bg="background.component.primary"
-            rounded="lg"
-          />
-        </GridItem>
-        <GridItem>
-          <Skeleton
-            height={180}
-            bg="background.component.primary"
-            rounded="lg"
-          />
-        </GridItem>
-      </Grid>
-    );
+  if (isLoading) return <TotalListSkeleton />;
 
   return (
     <Grid
