@@ -6,8 +6,8 @@ import { MemoryRouter } from 'react-router-dom';
 import Header from '..';
 
 describe('Header render', () => {
-  const renderComponent = ({ title }: { title?: string }) =>
-    render(<Header title={title || 'Dashboard'} />, { wrapper: MemoryRouter });
+  const renderComponent = ({ name }: { name?: string }) =>
+    render(<Header name={name || 'Dashboard'} />, { wrapper: MemoryRouter });
 
   it('Should render match with snapshot.', () => {
     const { container } = renderComponent({});
