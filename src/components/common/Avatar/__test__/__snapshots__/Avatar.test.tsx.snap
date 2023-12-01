@@ -3,7 +3,7 @@
 exports[`Avatar render Should render match with snapshot. 1`] = `
 <div>
   <span
-    class="chakra-avatar css-1fhbiri"
+    class="chakra-avatar css-13k7ls1"
   >
     <svg
       aria-label=" avatar"

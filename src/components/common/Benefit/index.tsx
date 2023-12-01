@@ -19,7 +19,7 @@ const BenefitComponent = ({
 }: BenefitProps) => (
   <Flex
     w="50%"
-    p="80px"
+    p={20}
     minH="100vh"
     alignItems="center"
     position="relative"

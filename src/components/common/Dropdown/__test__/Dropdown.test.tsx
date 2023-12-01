@@ -6,21 +6,19 @@ import { MemoryRouter } from 'react-router-dom';
 import Dropdown from '..';
 
 describe('Dropdown render', () => {
+  const renderComponent = (
+    <MemoryRouter>
+      <Dropdown name="John Doe" permission="Super Admin" />
+    </MemoryRouter>
+  );
+
   it('Should render match with snapshot.', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <Dropdown name="John Doe" permission="Super Admin" />
-      </MemoryRouter>,
-    );
+    const { container } = render(renderComponent);
     expect(container).toMatchSnapshot();
   });
 
   it('Get Dropdown component', () => {
-    const { getByTestId } = render(
-      <MemoryRouter>
-        <Dropdown name="John Doe" permission="Super Admin" />
-      </MemoryRouter>,
-    );
+    const { getByTestId } = render(renderComponent);
 
     const avatar = getByTestId('TestDropdown');
     expect(avatar).toBeTruthy();

@@ -1,4 +1,5 @@
-import { TColor } from '@interfaces/color';
+// Types
+import { TColor } from '@interfaces/index';
 
 export const Logout = ({ colorFill }: TColor) => (
   <svg

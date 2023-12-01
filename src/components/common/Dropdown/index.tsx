@@ -1,11 +1,5 @@
 import { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-
-// Assets
-import { Arrow, Email, Logout, User } from '@assets/icons';
-
-// Constants
-import { IMAGES } from '@constants/images';
 import {
   Box,
   Button,
@@ -19,6 +13,14 @@ import {
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
+
+// Assets
+import { Arrow, Email, Logout, User } from '@assets/icons';
+
+// Constants
+import { IMAGES } from '@constants/images';
+
+// Components
 import { Avatar } from '@components/index';
 
 interface DropdownProps {
@@ -41,7 +43,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         px={3}
         py={2}
         mt={8}
-        w="300px"
+        w={300}
         border="none"
         borderRadius="lg"
         bg="dark"
@@ -58,7 +60,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <User colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="text4Xl">
+            <Text as={Link} to="#" ml={18} variant="text4Xl">
               My Profile
             </Text>
           </Flex>
@@ -75,7 +77,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <Email colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="text4Xl">
+            <Text as={Link} to="#" ml={18} variant="text4Xl">
               Inbox
             </Text>
           </Flex>
@@ -92,7 +94,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <Logout colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="text4Xl">
+            <Text as={Link} to="#" ml={18} variant="text4Xl">
               Logout
             </Text>
           </Flex>
@@ -108,7 +110,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             svg: { stroke: 'primary.500' },
           }}
         >
-          <Text as={Link} variant="text4Xl">
+          <Text as={Link} to="#" variant="text4Xl">
             Setting
           </Text>
         </MenuItem>
@@ -122,7 +124,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             svg: { stroke: 'primary.500' },
           }}
         >
-          <Text as={Link} variant="text4Xl">
+          <Text as={Link} to="#" variant="text4Xl">
             User
           </Text>
         </MenuItem>
@@ -149,7 +151,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             <Flex alignItems="center">
               <Avatar src={IMAGES.AVATAR.url} />
               <Box display={{ base: 'none', '2xl': 'block' }}>
-                <Flex flexDirection="column" alignItems="start" ml="18px">
+                <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
                     <Text mr="15px" fontWeight="bold">
                       {name}

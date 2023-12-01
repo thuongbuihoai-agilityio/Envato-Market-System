@@ -1,8 +1,7 @@
-interface Props {
-  colorFill: string;
-}
+// Types
+import { TColor } from '@interfaces/index';
 
-export const Theme = ({ colorFill }: Props) => (
+export const Theme = ({ colorFill }: TColor) => (
   <svg
     stroke={colorFill}
     width="24"
