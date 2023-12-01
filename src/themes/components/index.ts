@@ -5,3 +5,4 @@ export * from './Fonts';
 export * from './Heading';
 export * from './Input';
 export * from './FormErrorMessage';
+export * from './Drawer';

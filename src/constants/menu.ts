@@ -1,11 +1,11 @@
-import { User, Email, Logout } from '@assets/icons/index';
+import { UserIcon, Email, Logout } from '@assets/icons/index';
 
 export const MENU_LIST_ICON = [
   {
     id: 1,
     href: '#',
     value: 'My profile',
-    icon: User,
+    icon: UserIcon,
   },
   {
     id: 2,

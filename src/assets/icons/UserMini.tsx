@@ -1,4 +1,4 @@
-export const UserIcon = () => (
+export const UserMiniIcon = () => (
   <svg
     width="24"
     height="24"
