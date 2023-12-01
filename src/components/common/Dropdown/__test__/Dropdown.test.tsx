@@ -6,21 +6,39 @@ import { MemoryRouter } from 'react-router-dom';
 import Dropdown from '..';
 
 describe('Dropdown render', () => {
-  const renderComponent = (
-    <MemoryRouter>
-      <Dropdown name="John Doe" permission="Super Admin" />
-    </MemoryRouter>
-  );
+  const renderComponent = ({
+    name,
+    permission,
+  }: {
+    name?: string;
+    permission?: string;
+  }) =>
+    render(
+      <Dropdown
+        name={name || 'John Doe'}
+        permission={permission || 'Super Admin'}
+      />,
+      { wrapper: MemoryRouter },
+    );
 
   it('Should render match with snapshot.', () => {
-    const { container } = render(renderComponent);
+    const { container } = renderComponent({});
     expect(container).toMatchSnapshot();
   });
 
   it('Get Dropdown component', () => {
-    const { getByTestId } = render(renderComponent);
+    const { getByTestId } = renderComponent({});
 
     const avatar = getByTestId('TestDropdown');
     expect(avatar).toBeTruthy();
+  });
+
+  it('Re-render', () => {
+    const { getByTestId, rerender } = renderComponent({});
+
+    const avatar = getByTestId('TestDropdown');
+    expect(avatar).toBeTruthy();
+
+    rerender(<Dropdown name="ABC" permission="BCD" />);
   });
 });

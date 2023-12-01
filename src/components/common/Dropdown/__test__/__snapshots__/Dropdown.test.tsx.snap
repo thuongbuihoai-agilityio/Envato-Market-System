@@ -20,7 +20,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           class="css-70qvj9"
         >
           <span
-            class="chakra-avatar css-128231x"
+            class="chakra-avatar css-1gt5voo"
           >
             <svg
               aria-label=" avatar"
@@ -39,7 +39,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
             </svg>
           </span>
           <div
-            class="css-12n3i5w"
+            class="css-21uplc"
           >
             <div
               class="css-1f25a08"
@@ -84,7 +84,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
     >
       <div
         aria-orientation="vertical"
-        class="chakra-menu__menu-list css-14q5rll"
+        class="chakra-menu__menu-list css-hsauau"
         data-testid="TestDropdown"
         id="menu-list-:r1:"
         role="menu"
@@ -92,7 +92,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         tabindex="-1"
       >
         <button
-          class="chakra-menu__menuitem css-m645pg"
+          class="chakra-menu__menuitem css-bnm4c7"
           data-index="0"
           id="menu-list-:r1:-menuitem-:r2:"
           role="menuitem"
@@ -138,7 +138,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           </div>
         </button>
         <button
-          class="chakra-menu__menuitem css-m645pg"
+          class="chakra-menu__menuitem css-bnm4c7"
           data-index="1"
           id="menu-list-:r1:-menuitem-:r3:"
           role="menuitem"
@@ -171,7 +171,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           </div>
         </button>
         <button
-          class="chakra-menu__menuitem css-m645pg"
+          class="chakra-menu__menuitem css-bnm4c7"
           data-index="2"
           id="menu-list-:r1:-menuitem-:r4:"
           role="menuitem"
@@ -205,10 +205,10 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         </button>
         <hr
           aria-orientation="horizontal"
-          class="chakra-divider css-1hy8q5h"
+          class="chakra-divider css-19ob8qo"
         />
         <button
-          class="chakra-menu__menuitem css-m645pg"
+          class="chakra-menu__menuitem css-rm7jzp"
           data-index="3"
           id="menu-list-:r1:-menuitem-:r5:"
           role="menuitem"
@@ -223,7 +223,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           </a>
         </button>
         <button
-          class="chakra-menu__menuitem css-m645pg"
+          class="chakra-menu__menuitem css-rm7jzp"
           data-index="4"
           id="menu-list-:r1:-menuitem-:r6:"
           role="menuitem"

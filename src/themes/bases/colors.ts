@@ -5,6 +5,7 @@ export const colors: ThemeOverride['colors'] = {
     400: '#D9FBE6',
     500: '#22C55E',
     600: '#16A34A',
+    700: '#2A313C',
   },
 
   secondary: {

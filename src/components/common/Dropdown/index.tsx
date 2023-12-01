@@ -18,18 +18,22 @@ import {
 import { Arrow } from '@assets/icons';
 
 // Constants
-import { IMAGES } from '@constants/images';
 import { MENU_LIST, MENU_LIST_ICON } from '@constants/menu';
 
 // Components
 import { Avatar } from '@components/index';
 
 interface DropdownProps {
+  src?: string;
   name?: string;
   permission?: string;
 }
 
-const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
+const DropdownComponent = ({
+  src = '',
+  name = '',
+  permission = '',
+}: DropdownProps) => {
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
@@ -52,8 +56,8 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             isActive={isOpen}
           >
             <Flex alignItems="center">
-              <Avatar src={IMAGES.AVATAR.url} />
-              <Box display={{ base: 'none', '2xl': 'block' }}>
+              <Avatar src={src} />
+              <Box display={{ base: 'none', '2xl': 'inline' }}>
                 <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
                     <Text mr="15px" fontWeight="bold">
@@ -70,15 +74,13 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
           </MenuButton>
           <MenuList
             data-testid="TestDropdown"
-            position="absolute"
-            left="-119px"
             px={3}
             py={2}
-            mt={8}
+            mt={6}
             w={300}
             border="none"
             borderRadius="lg"
-            bg="dark"
+            bg="background.component.primary"
           >
             {MENU_LIST_ICON.map(({ id, href, icon, value }) => {
               const Icon = icon || Fragment;
@@ -92,6 +94,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
                     bg: 'background.component.tertiary',
                     color: 'primary.500',
                     svg: { stroke: 'primary.500' },
+                    path: { stroke: 'primary.500' },
                   }}
                 >
                   <Flex>

@@ -52,7 +52,9 @@ const AuthLayoutComponent = ({
         }}
         bg="background.body.secondary"
       >
-        <Logo />
+        <Box pl={12}>
+          <Logo />
+        </Box>
         <Box
           w={{
             base: '100%',
