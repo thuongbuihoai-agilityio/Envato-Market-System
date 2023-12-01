@@ -47,7 +47,7 @@
 
 ### Flow App
 
-![Flow App Practices](images/work-flow.png)
+![Flow App Practices](./public/images/work-flow.png)
 
 ### Task Management
 
