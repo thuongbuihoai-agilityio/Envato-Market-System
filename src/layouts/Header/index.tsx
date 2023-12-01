@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Components
 import {
   Box,
@@ -19,7 +21,7 @@ interface HeaderProps {
   title?: string;
 }
 
-const Header = ({ title }: HeaderProps) => {
+const HeaderComponent = ({ title }: HeaderProps) => {
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
@@ -108,5 +110,7 @@ const Header = ({ title }: HeaderProps) => {
     </Flex>
   );
 };
+
+const Header = memo(HeaderComponent);
 
 export default Header;

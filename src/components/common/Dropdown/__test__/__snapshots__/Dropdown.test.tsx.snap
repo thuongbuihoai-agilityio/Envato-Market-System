@@ -84,7 +84,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
     >
       <div
         aria-orientation="vertical"
-        class="chakra-menu__menu-list css-p2gi7y"
+        class="chakra-menu__menu-list css-hsauau"
         data-testid="TestDropdown"
         id="menu-list-:r1:"
         role="menu"
