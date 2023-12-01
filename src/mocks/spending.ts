@@ -20,3 +20,22 @@ export const SPENDING_STATISTICS_MOCK = [
     weeklyIncome: [30, 40, 45, 50, 49, 60, 91],
   },
 ];
+
+export const EFFICIENCY_MOCK = {
+  arrival: 5.23,
+  spending: 6.23,
+  statistical: [
+    {
+      title: 'Goal',
+      value: 50,
+    },
+    {
+      title: 'Spending',
+      value: 30,
+    },
+    {
+      title: 'Others',
+      value: 20,
+    },
+  ],
+};
