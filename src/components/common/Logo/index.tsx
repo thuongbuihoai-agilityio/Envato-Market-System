@@ -11,7 +11,7 @@ const Logo = () => {
   );
 
   return (
-    <Text as={Link} to="/" pl={12} display="inline-block">
+    <Text as={Link} to="/" display="inline-block">
       <LogoIcon colorFill={colorFill} />
     </Text>
   );

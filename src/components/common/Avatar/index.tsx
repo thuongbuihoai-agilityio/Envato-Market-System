@@ -22,10 +22,6 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
   />
 );
 
-const Avatar = memo(
-  AvatarComponent,
-  (prevProps: AvatarProps, nextProps: AvatarProps) =>
-    areEqual(prevProps, nextProps),
-);
+const Avatar = memo(AvatarComponent, areEqual);
 
 export default Avatar;
