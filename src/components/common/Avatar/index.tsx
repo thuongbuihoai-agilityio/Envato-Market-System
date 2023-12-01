@@ -1,14 +1,14 @@
-import { memo } from 'react';
 import {
   Avatar as AvatarChakra,
   AvatarProps as AvatarPropsChakra,
 } from '@chakra-ui/react';
+import Lazy from '@components/Lazy';
 
 interface AvatarProps extends AvatarPropsChakra {
   src?: string;
 }
 
-const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
+const Avatar = ({ src = '', ...props }: AvatarProps) => (
   <AvatarChakra
     borderRadius={12}
     borderWidth="1px"
@@ -21,6 +21,8 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
   />
 );
 
-const Avatar = memo(AvatarComponent);
-
-export default Avatar;
+export default (
+  <Lazy>
+    <Avatar />
+  </Lazy>
+);
