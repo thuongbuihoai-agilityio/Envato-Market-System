@@ -8,3 +8,4 @@ export { default as Avatar } from './common/Avatar';
 export { default as Dropdown } from './common/Dropdown';
 export { default as TotalCard } from './TotalCard';
 export { default as Lazy } from './Lazy';
+export { default as TotalListSkeleton } from './Skeleton/TotalListSkeleton';

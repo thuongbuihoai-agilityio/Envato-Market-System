@@ -45,6 +45,10 @@
 
 - [Requirements and plan](https://docs.google.com/document/d/1ldS_HWBGAXGrlWht7vxZAVjFcJo5wu8SajiaIf1_xR8/edit)
 
+### Flow App
+
+![Flow App Practices](./public/images/work-flow.png)
+
 ### Task Management
 
 - [Trello](https://trello.com/b/xo8WyIM1/envato-market-system)
