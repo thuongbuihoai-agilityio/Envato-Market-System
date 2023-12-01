@@ -45,4 +45,24 @@ export const IMAGES = {
     url: '/icons/growth.svg',
     alt: 'Growth icon',
   },
+
+  MICRO: {
+    url: '/icons/micro.svg',
+    alt: 'Micro icon',
+  },
+
+  ATTACH: {
+    url: '/icons/attach.svg',
+    alt: 'Attach icon',
+  },
+
+  SEND: {
+    url: '/icons/send.svg',
+    alt: 'Send icon',
+  },
+
+  CHAT_USER_AVATAR: {
+    url: '/public/images/avatar-user-chat.png',
+    alt: 'This is the user avatar',
+  },
 };
