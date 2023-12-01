@@ -25,8 +25,8 @@ const Message = ({
         <Avatar
           src={avatar}
           borderColor={avatarBorderColor}
-          w="36px"
-          h="36px"
+          w={9}
+          h={9}
           mr={2}
         />
       )}
@@ -87,8 +87,8 @@ const Message = ({
         <Avatar
           src={avatar}
           borderColor={avatarBorderColor}
-          w="36px"
-          h="36px"
+          w={9}
+          h={9}
           ml={2}
         />
       )}

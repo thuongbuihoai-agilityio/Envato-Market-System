@@ -28,20 +28,20 @@ const BoxChatComponent = (): JSX.Element => (
         team chat
       </Heading>
 
-      <Flex gap="12px">
+      <Flex gap={5}>
         <Image
           src={IMAGES.USER_AVATAR.url}
           alt={IMAGES.USER_AVATAR.alt}
           w="52px"
-          h="32px"
+          h={8}
         />
 
-        <Button bg="secondary.800" w="36px" h="36px" borderRadius="50%">
+        <Button bg="secondary.800" w={9} h={9} borderRadius="50%">
           <Image
             src="icons/plus.svg"
             alt={IMAGES.USER_AVATAR.alt}
-            w="14px"
-            h="14px"
+            w={3.5}
+            h={3.5}
           />
         </Button>
       </Flex>
