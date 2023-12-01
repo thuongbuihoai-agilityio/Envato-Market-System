@@ -108,7 +108,7 @@ const CartPaymentComponent = (): JSX.Element => (
             alt={IMAGES.USER_AVATAR.alt}
             boxSize={6}
             mt={3}
-            w={10.5}
+            w="42px"
           />
         </Flex>
       </Box>
