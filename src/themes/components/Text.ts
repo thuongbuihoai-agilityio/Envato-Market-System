@@ -20,6 +20,11 @@ export const Text = defineStyleConfig({
       fontSize: 'lg',
       fontWeight: 'bold',
     },
+    text3Xl: {
+      fontSize: '3xl',
+      fontWeight: 'bold',
+      lineHeight: '12',
+    },
   },
   defaultProps: {
     variant: 'textMd',
