@@ -5,6 +5,9 @@ import { createBrowserRouter } from 'react-router-dom';
 // Layouts
 import { MainLayout } from '@layouts/index';
 
+// Components
+import { Lazy } from '@components/index';
+
 // Pages
 const Dashboard = lazy(() => import('@pages/Home'));
 const History = lazy(() => import('@pages/History'));
@@ -18,6 +21,22 @@ const NotFound = lazy(() => import('@pages/NotFound'));
 const ComingSoon = lazy(() => import('@pages/ComingSoon'));
 
 export const ROUTER = createBrowserRouter([
+  {
+    path: `/${ROUTES.LOGIN}`,
+    element: (
+      <Lazy>
+        <Login />
+      </Lazy>
+    ),
+  },
+  {
+    path: `/${ROUTES.REGISTER}`,
+    element: (
+      <Lazy>
+        <Register />
+      </Lazy>
+    ),
+  },
   {
     path: ROUTES.ROOT,
     Component: MainLayout,
@@ -55,13 +74,5 @@ export const ROUTER = createBrowserRouter([
         Component: ComingSoon,
       },
     ],
-  },
-  {
-    path: `/${ROUTES.LOGIN}`,
-    Component: Login,
-  },
-  {
-    path: `/${ROUTES.REGISTER}`,
-    Component: Register,
   },
 ]);
