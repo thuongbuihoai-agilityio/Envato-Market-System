@@ -4,6 +4,7 @@ import { ThemeOverride } from '@chakra-ui/react';
 export const space: ThemeOverride['space'] = {
   10.5: '42px',
   11: '44px',
+  13: '52px',
   13.75: '55px',
   19: '76px',
   39: '156px',
