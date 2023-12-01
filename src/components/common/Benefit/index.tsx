@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { memo } from 'react';
 
 // Constants
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { IMAGES } from '@constants/images';
 
 interface BenefitProps {
@@ -10,7 +11,12 @@ interface BenefitProps {
   description?: string;
 }
 
-const Benefit = ({ imageURL, alt, heading, description }: BenefitProps) => (
+const BenefitComponent = ({
+  imageURL,
+  alt,
+  heading,
+  description,
+}: BenefitProps) => (
   <Flex
     w="50%"
     p="80px"
@@ -66,5 +72,7 @@ const Benefit = ({ imageURL, alt, heading, description }: BenefitProps) => (
     </Box>
   </Flex>
 );
+
+const Benefit = memo(BenefitComponent);
 
 export default Benefit;
