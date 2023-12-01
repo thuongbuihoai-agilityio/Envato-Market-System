@@ -7,8 +7,6 @@ export const space: ThemeOverride['space'] = {
   13.75: '55px',
   19: '76px',
   39: '156px',
-  41: '-131px',
-  42: '-247px',
 };
 
 // Custom radii

@@ -74,8 +74,6 @@ const DropdownComponent = ({
           </MenuButton>
           <MenuList
             data-testid="TestDropdown"
-            position="absolute"
-            left={{ base: 42, '2xl': 41 }}
             px={3}
             py={2}
             mt={6}

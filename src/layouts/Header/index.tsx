@@ -18,10 +18,10 @@ import { IMAGES } from '@constants/images';
 import { Bell, Email, Gift, Rotate, Search, Theme } from '@assets/icons';
 
 interface HeaderProps {
-  title?: string;
+  name?: string;
 }
 
-const HeaderComponent = ({ title }: HeaderProps) => {
+const HeaderComponent = ({ name }: HeaderProps) => {
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
@@ -52,7 +52,7 @@ const HeaderComponent = ({ title }: HeaderProps) => {
           fontWeight="bold"
           color="text.primary"
         >
-          {title}
+          {name}
         </Heading>
         <Text fontSize="sm" color="text.secondary" fontWeight="medium">
           Let’s check your update today
