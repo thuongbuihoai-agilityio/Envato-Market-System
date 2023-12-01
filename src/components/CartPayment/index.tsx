@@ -1,5 +1,4 @@
 import { memo } from 'react';
-
 import {
   Box,
   Text,
@@ -106,7 +105,7 @@ const CartPaymentComponent = (): JSX.Element => (
             _dark={{
               border: 'none',
             }}
-            sx={{ border: 'none', padding: 0 || 'unset' }}
+            sx={{ border: 'none', padding: 0 }}
           />
 
           <Image
@@ -114,7 +113,7 @@ const CartPaymentComponent = (): JSX.Element => (
             alt={IMAGES.USER_AVATAR.alt}
             boxSize={6}
             mt={3}
-            w="42px"
+            w={10.5}
           />
         </Flex>
       </Box>
