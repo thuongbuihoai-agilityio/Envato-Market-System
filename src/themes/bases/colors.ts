@@ -53,6 +53,10 @@ export const colors: ThemeOverride['colors'] = {
         default: '#F7FAFC',
         _dark: '#23262B',
       },
+      tertiary: {
+        default: 'gray.50',
+        _dark: 'secondary.600',
+      },
     },
   },
 

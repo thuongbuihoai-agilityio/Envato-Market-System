@@ -20,6 +20,11 @@ export const Text = defineStyleConfig({
       fontSize: 'lg',
       fontWeight: 'bold',
     },
+    primary: {
+      fontSize: 'sm',
+      fontWeight: 'semibold',
+      color: 'none',
+    },
   },
   defaultProps: {
     variant: 'textMd',
