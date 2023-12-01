@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar render renders Benefit with content 1`] = `
+exports[`Avatar render Should render match with snapshot. 1`] = `
 <div>
   <span
     class="chakra-avatar css-1fhbiri"
