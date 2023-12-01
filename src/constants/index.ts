@@ -8,3 +8,4 @@ export * from './texts';
 export * from './themes';
 export * from './api';
 export * from './images';
+export * from './menu';

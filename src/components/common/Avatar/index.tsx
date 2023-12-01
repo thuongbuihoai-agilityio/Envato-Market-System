@@ -13,8 +13,8 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
     borderRadius={12}
     borderWidth="1px"
     borderColor="gray.200"
-    w={13}
-    h={13}
+    w="52px"
+    h="52px"
     cursor="pointer"
     src={src}
     {...props}

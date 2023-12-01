@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { Fragment, memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box,
@@ -15,10 +15,11 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import { Arrow, Email, Logout, User } from '@assets/icons';
+import { Arrow } from '@assets/icons';
 
 // Constants
 import { IMAGES } from '@constants/images';
+import { MENU_LIST, MENU_LIST_ICON } from '@constants/menu';
 
 // Components
 import { Avatar } from '@components/index';
@@ -33,104 +34,6 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
     theme.colors.gray[800],
     theme.colors.white,
   );
-
-  const renderMenuItem = useMemo(() => {
-    return (
-      <MenuList
-        data-testid="TestDropdown"
-        position="absolute"
-        left="-119px"
-        px={3}
-        py={2}
-        mt={8}
-        w={300}
-        border="none"
-        borderRadius="lg"
-        bg="dark"
-      >
-        <MenuItem
-          p="14px"
-          borderRadius="lg"
-          bg="transparent"
-          _hover={{
-            bg: 'background.component.tertiary',
-            color: 'primary.500',
-            svg: { stroke: 'primary.500' },
-          }}
-        >
-          <Flex>
-            <User colorFill={colorFill} />
-            <Text as={Link} to="#" ml={18} variant="text4Xl">
-              My Profile
-            </Text>
-          </Flex>
-        </MenuItem>
-        <MenuItem
-          p="14px"
-          borderRadius="lg"
-          bg="transparent"
-          _hover={{
-            bg: 'background.component.tertiary',
-            color: 'primary.500',
-            svg: { stroke: 'primary.500' },
-          }}
-        >
-          <Flex>
-            <Email colorFill={colorFill} />
-            <Text as={Link} to="#" ml={18} variant="text4Xl">
-              Inbox
-            </Text>
-          </Flex>
-        </MenuItem>
-        <MenuItem
-          p="14px"
-          borderRadius="lg"
-          bg="transparent"
-          _hover={{
-            bg: 'background.component.tertiary',
-            color: 'primary.500',
-            path: { stroke: 'primary.500' },
-          }}
-        >
-          <Flex>
-            <Logout colorFill={colorFill} />
-            <Text as={Link} to="#" ml={18} variant="text4Xl">
-              Logout
-            </Text>
-          </Flex>
-        </MenuItem>
-        <Divider my="14px" color="gray.300" />
-        <MenuItem
-          p="14px"
-          borderRadius="lg"
-          bg="transparent"
-          _hover={{
-            bg: 'background.component.tertiary',
-            color: 'primary.500',
-            svg: { stroke: 'primary.500' },
-          }}
-        >
-          <Text as={Link} to="#" variant="text4Xl">
-            Setting
-          </Text>
-        </MenuItem>
-        <MenuItem
-          p="14px"
-          borderRadius="lg"
-          bg="transparent"
-          _hover={{
-            bg: 'background.component.tertiary',
-            color: 'primary.500',
-            svg: { stroke: 'primary.500' },
-          }}
-        >
-          <Text as={Link} to="#" variant="text4Xl">
-            User
-          </Text>
-        </MenuItem>
-      </MenuList>
-    );
-  }, [colorFill]);
 
   return (
     <Menu>
@@ -165,7 +68,60 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
               </Box>
             </Flex>
           </MenuButton>
-          {renderMenuItem}
+          <MenuList
+            data-testid="TestDropdown"
+            position="absolute"
+            left="-119px"
+            px={3}
+            py={2}
+            mt={8}
+            w={300}
+            border="none"
+            borderRadius="lg"
+            bg="dark"
+          >
+            {MENU_LIST_ICON.map(({ id, href, icon, value }) => {
+              const Icon = icon || Fragment;
+              return (
+                <MenuItem
+                  key={id}
+                  p="14px"
+                  borderRadius="lg"
+                  bg="transparent"
+                  _hover={{
+                    bg: 'background.component.tertiary',
+                    color: 'primary.500',
+                    svg: { stroke: 'primary.500' },
+                  }}
+                >
+                  <Flex>
+                    <Icon colorFill={colorFill} />
+                    <Text as={Link} to={href} ml={18} variant="text4Xl">
+                      {value}
+                    </Text>
+                  </Flex>
+                </MenuItem>
+              );
+            })}
+            <Divider my="14px" color="gray.300" />
+            {MENU_LIST.map(({ id, value }) => (
+              <MenuItem
+                key={id}
+                p="14px"
+                borderRadius="lg"
+                bg="transparent"
+                _hover={{
+                  bg: 'background.component.tertiary',
+                  color: 'primary.500',
+                  svg: { stroke: 'primary.500' },
+                }}
+              >
+                <Text as={Link} to="#" variant="text4Xl">
+                  {value}
+                </Text>
+              </MenuItem>
+            ))}
+          </MenuList>
         </Box>
       )}
     </Menu>
