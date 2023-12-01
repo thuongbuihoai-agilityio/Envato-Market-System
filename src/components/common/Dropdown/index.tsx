@@ -85,7 +85,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
               return (
                 <MenuItem
                   key={id}
-                  p="14px"
+                  p={3.5}
                   borderRadius="lg"
                   bg="transparent"
                   _hover={{
@@ -103,11 +103,11 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
                 </MenuItem>
               );
             })}
-            <Divider my="14px" color="gray.300" />
+            <Divider my={3.5} color="gray.300" />
             {MENU_LIST.map(({ id, value }) => (
               <MenuItem
                 key={id}
-                p="14px"
+                p={3.5}
                 borderRadius="lg"
                 bg="transparent"
                 _hover={{
