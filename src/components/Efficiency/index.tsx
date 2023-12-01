@@ -1,9 +1,13 @@
 import { memo } from 'react';
+import isEqual from 'react-fast-compare';
+
+// Components
 import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 import Chart from 'react-apexcharts';
 import { Sort } from '@assets/icons';
+
+// Constants
 import { STROKE_COLORS } from '@constants/charts';
-import isEqual from 'react-fast-compare';
 
 interface EfficiencyProps {
   arrival: number;
