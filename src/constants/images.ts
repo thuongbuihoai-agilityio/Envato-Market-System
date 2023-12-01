@@ -27,9 +27,15 @@ export const IMAGES = {
     url: '/icons/apple.svg',
     alt: 'This is the logo Apple',
   },
-  AVATAR: {
-    url: '/images/avatar.webp',
-    alt: 'This is avatar',
+
+  DEBIT_ICON: {
+    url: '/icons/debit-icon.svg',
+    alt: 'This is the logo debit card',
+  },
+
+  USER_AVATAR: {
+    url: '/icons/user-avatar.png',
+    alt: 'This is the user avatar',
   },
   TOTAL_EARN: {
     url: '/icons/total-earn.svg',
