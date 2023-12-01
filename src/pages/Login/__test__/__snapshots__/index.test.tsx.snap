@@ -102,10 +102,8 @@ exports[`Login page Match to snapshot 1`] = `
               <input
                 class="chakra-input css-0"
                 id="field-:r2:"
-                name="password"
                 placeholder="Password"
                 type="password"
-                value=""
               />
               <button
                 class="chakra-input__right-element css-1uzzgp1"
@@ -164,13 +162,20 @@ exports[`Login page Match to snapshot 1`] = `
             </a>
           </div>
         </form>
-        <button
-          class="chakra-button css-8o2rc7"
-          form="login-form"
-          type="submit"
+        <div
+          class="css-omcqsq"
         >
-          Sign In
-        </button>
+          <p
+            class="chakra-text css-dz8804"
+          />
+          <button
+            class="chakra-button css-shrws2"
+            form="login-form"
+            type="submit"
+          >
+            Sign In
+          </button>
+        </div>
         <p
           class="chakra-text css-25kmip"
         >

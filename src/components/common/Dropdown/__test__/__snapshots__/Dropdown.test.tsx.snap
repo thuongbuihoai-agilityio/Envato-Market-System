@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown render Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="css-cwsnob"
+  >
+    <button
+      aria-controls="menu-list-:r1:"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="chakra-button chakra-menu__menu-button css-14rg285"
+      id="menu-button-:r1:"
+      type="button"
+    >
+      <span
+        class="css-xl71ch"
+      >
+        <div
+          class="css-70qvj9"
+        >
+          <span
+            class="chakra-avatar css-128231x"
+          >
+            <svg
+              aria-label=" avatar"
+              class="chakra-avatar__svg css-16ite8i"
+              role="img"
+              viewBox="0 0 128 128"
+            >
+              <path
+                d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                fill="currentColor"
+              />
+              <path
+                d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div
+            class="css-12n3i5w"
+          >
+            <div
+              class="css-1f25a08"
+            >
+              <div
+                class="css-70qvj9"
+              >
+                <p
+                  class="chakra-text css-8gj9cf"
+                >
+                  John Doe
+                </p>
+                <svg
+                  fill="none"
+                  height="24"
+                  stroke="#1A202C"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 10L12 14L17 10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <p
+                class="chakra-text css-pfmkmr"
+              >
+                Super Admin
+              </p>
+            </div>
+          </div>
+        </div>
+      </span>
+    </button>
+    <div
+      class="css-0"
+      style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+    >
+      <div
+        aria-orientation="vertical"
+        class="chakra-menu__menu-list css-14q5rll"
+        data-testid="TestDropdown"
+        id="menu-list-:r1:"
+        role="menu"
+        style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+        tabindex="-1"
+      >
+        <button
+          class="chakra-menu__menuitem css-m645pg"
+          data-index="0"
+          id="menu-list-:r1:-menuitem-:r2:"
+          role="menuitem"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="css-k008qs"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="#1A202C"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.1197 12.7805C12.0497 12.7705 11.9597 12.7705 11.8797 12.7805C10.1197 12.7205 8.71973 11.2805 8.71973 9.51047C8.71973 7.70047 10.1797 6.23047 11.9997 6.23047C13.8097 6.23047 15.2797 7.70047 15.2797 9.51047C15.2697 11.2805 13.8797 12.7205 12.1197 12.7805Z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M18.7398 19.3796C16.9598 21.0096 14.5998 21.9996 11.9998 21.9996C9.39977 21.9996 7.03977 21.0096 5.25977 19.3796C5.35977 18.4396 5.95977 17.5196 7.02977 16.7996C9.76977 14.9796 14.2498 14.9796 16.9698 16.7996C18.0398 17.5196 18.6398 18.4396 18.7398 19.3796Z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+            <a
+              class="chakra-text css-1t7utft"
+              href="/"
+            >
+              My Profile
+            </a>
+          </div>
+        </button>
+        <button
+          class="chakra-menu__menuitem css-m645pg"
+          data-index="1"
+          id="menu-list-:r1:-menuitem-:r3:"
+          role="menuitem"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="css-k008qs"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="#1A202C"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 12V7C2 4.79086 3.79086 3 6 3H18C20.2091 3 22 4.79086 22 7V17C22 19.2091 20.2091 21 18 21H8M6 8L9.7812 10.5208C11.1248 11.4165 12.8752 11.4165 14.2188 10.5208L18 8M2 15H8M2 18H8"
+                stroke-linecap="round"
+                stroke-width="1.5"
+              />
+            </svg>
+            <a
+              class="chakra-text css-1t7utft"
+              href="/"
+            >
+              Inbox
+            </a>
+          </div>
+        </button>
+        <button
+          class="chakra-menu__menuitem css-69fxak"
+          data-index="2"
+          id="menu-list-:r1:-menuitem-:r4:"
+          role="menuitem"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="css-k008qs"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 10L13.7071 11.2929C13.3166 11.6834 13.3166 12.3166 13.7071 12.7071L15 14M14 12L22 12M6 20C3.79086 20 2 18.2091 2 16V8C2 5.79086 3.79086 4 6 4M6 20C8.20914 20 10 18.2091 10 16V8C10 5.79086 8.20914 4 6 4M6 20H14C16.2091 20 18 18.2091 18 16M6 4H14C16.2091 4 18 5.79086 18 8"
+                stroke="#1A202C"
+                stroke-linecap="round"
+                stroke-width="1.5"
+              />
+            </svg>
+            <a
+              class="chakra-text css-1t7utft"
+              href="/"
+            >
+              Logout
+            </a>
+          </div>
+        </button>
+        <hr
+          aria-orientation="horizontal"
+          class="chakra-divider css-1hy8q5h"
+        />
+        <button
+          class="chakra-menu__menuitem css-m645pg"
+          data-index="3"
+          id="menu-list-:r1:-menuitem-:r5:"
+          role="menuitem"
+          tabindex="-1"
+          type="button"
+        >
+          <a
+            class="chakra-text css-0"
+            href="/"
+          >
+            Setting
+          </a>
+        </button>
+        <button
+          class="chakra-menu__menuitem css-m645pg"
+          data-index="4"
+          id="menu-list-:r1:-menuitem-:r6:"
+          role="menuitem"
+          tabindex="-1"
+          type="button"
+        >
+          <a
+            class="chakra-text css-0"
+            href="/"
+          >
+            User
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
