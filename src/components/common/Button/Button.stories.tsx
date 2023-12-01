@@ -11,13 +11,13 @@ const meta: Meta<typeof Button> = {
     rightIcon: {
       description: 'The right react element icon of the button',
     },
-
     onClick: {
       description: 'The click event handling function',
       action: 'clicked',
     },
     children: {
-      description: 'The children of the button, e.g. text, react components',
+      description:
+        'The children of the button, e.g. text, react components, etc.',
     },
   },
   parameters: {

@@ -1,29 +1,27 @@
 // Libs
 import { extendTheme } from '@chakra-ui/react';
 
-// colors
-import { colors } from './bases/colors';
-
-// Metrics
-import { radii, space, sizes } from './bases/metric';
-
 // Bases theme
 import {
   fonts,
   fontSizes,
   fontWeights,
-  lineHeights,
   letterSpacings,
+  lineHeights,
 } from './bases';
-
+// colors
+import { colors } from './bases/colors';
+// Metrics
+import { radii, sizes, space } from './bases/metric';
 // Components
 import {
   Button,
-  Text,
-  Input,
-  Heading,
   Checkbox,
+  Drawer,
   FormError,
+  Heading,
+  Input,
+  Text,
 } from './components';
 
 export const configThemes = {
@@ -46,6 +44,7 @@ export const configThemes = {
       Heading,
       Input,
       FormError,
+      Drawer,
     },
   }),
   styles: {
