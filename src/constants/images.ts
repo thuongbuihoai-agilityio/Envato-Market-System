@@ -32,7 +32,10 @@ export const IMAGES = {
     url: '/icons/debit-icon.svg',
     alt: 'This is the logo debit card',
   },
-
+  AVATAR: {
+    url: '/images/avatar.webp',
+    alt: 'This is avatar',
+  },
   USER_AVATAR: {
     url: '/icons/user-avatar.png',
     alt: 'This is the user avatar',
