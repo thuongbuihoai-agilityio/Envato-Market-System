@@ -16,88 +16,97 @@ import CARD_PAYMENT from 'src/assets/images/card-payment.svg';
 import { ChevronIcon } from '@assets/images/ChevronIcon';
 
 // Constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@constants/index';
 
-const CartPaymentComponent: React.FC = () => (
-  <Box p={4} w={{ base: '100%', md: '30%' }} bg={'#fff'}>
+const CartPaymentComponent = (): JSX.Element => (
+  <Box
+    p={4}
+    w={{ base: '100%' }}
+    bg="background.body.quaternary"
+    padding="20px 42px"
+  >
     <Heading
       as="h3"
       fontWeight="bold"
       color="text.primary"
       fontSize="lg"
       mb={3}
+      textTransform="capitalize"
     >
-      My Wallet
+      my wallet
     </Heading>
 
-    <Flex justify="center">
-      <Image src={CARD_PAYMENT} alt="Payment Card" />
-    </Flex>
+    <Image src={CARD_PAYMENT} alt="Payment Card" />
 
     <Box mt={4}>
-      <Text fontWeight="bold" color="text.primary" fontSize="lg" mb={3}>
-        Quick Transfer
+      <Text
+        fontWeight="bold"
+        color="text.primary"
+        fontSize="lg"
+        mb={3}
+        textTransform="capitalize"
+      >
+        quick transfer
       </Text>
-      <Box>
-        <Box position="relative">
-          <Select
-            size="lg"
-            sx={{
-              paddingLeft: '50px',
-            }}
-            borderColor="border.secondary"
-            color="text.primary"
-            icon={<ChevronIcon />}
-          >
-            <option value="debit" color="text.primary">
-              Debit
-            </option>
-          </Select>
 
-          <Image
-            src={IMAGES.DEBIT_ICON.url}
-            alt={IMAGES.DEBIT_ICON.alt}
-            boxSize={6}
-            position="absolute"
-            left="20px"
-            top="50%"
-            transform="translateY(-50%)"
-          />
+      <Box position="relative">
+        <Select
+          size="lg"
+          sx={{
+            paddingLeft: '50px',
+          }}
+          borderColor="border.secondary"
+          color="text.primary"
+          icon={<ChevronIcon />}
+        >
+          <option value="debit" color="text.primary">
+            Debit
+          </option>
+        </Select>
 
-          <Text
-            sx={{
-              position: 'absolute',
-              right: '40px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-            }}
-            fontWeight="bold"
-            fontSize="sm"
-          >
-            $ 10,431
-          </Text>
-        </Box>
+        <Image
+          src={IMAGES.DEBIT_ICON.url}
+          alt={IMAGES.DEBIT_ICON.alt}
+          boxSize={6}
+          position="absolute"
+          left={5}
+          top="50%"
+          transform="translateY(-50%)"
+        />
+
+        <Text
+          sx={{
+            position: 'absolute',
+            right: 10,
+            top: '50%',
+            transform: 'translateY(-50%)',
+          }}
+          fontWeight="bold"
+          fontSize="sm"
+        >
+          $ 10,431
+        </Text>
       </Box>
 
       <Box
-        border={'1px solid'}
+        border="1px solid"
         borderColor="border.secondary"
         p={4}
         mt={5}
-        borderRadius="8px"
+        borderRadius="lg"
       >
         <Text color="text.secondary"> Enter amount </Text>
-        <Flex direction="row">
+        <Flex direction="row" alignItems="center">
+          <Text color="text.primary" fontSize="2xl" fontWeight="bold">
+            $
+          </Text>
           <Input
             variant="authentication"
             type="number"
-            placeholder="$"
-            _placeholder={{
-              color: 'text.primary',
-              fontSize: '2xl',
-              fontWeight: 'bold',
+            _dark={{
+              border: 'none',
             }}
-            sx={{ border: 'none', padding: '0px' }}
+            sx={{ border: 'none', padding: 0 || 'unset' }}
           />
 
           <Image
@@ -105,6 +114,7 @@ const CartPaymentComponent: React.FC = () => (
             alt={IMAGES.USER_AVATAR.alt}
             boxSize={6}
             mt={3}
+            w="42px"
           />
         </Flex>
       </Box>

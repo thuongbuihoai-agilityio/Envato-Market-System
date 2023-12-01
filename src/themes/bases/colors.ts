@@ -38,6 +38,10 @@ export const colors: ThemeOverride['colors'] = {
         default: '#FAFAFA',
         _dark: '#151515',
       },
+      quaternary: {
+        default: '#FFF',
+        _dark: '#1D1E24',
+      },
     },
     section: {
       primary: {
