@@ -1,9 +1,9 @@
 // Types
 import { TColor } from '@interfaces/index';
 
-export const Theme = ({ colorFill }: TColor) => (
+export const Theme = ({ color }: TColor) => (
   <svg
-    stroke={colorFill}
+    stroke={color}
     width="24"
     height="24"
     viewBox="0 0 24 24"

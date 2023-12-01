@@ -59,7 +59,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
                     <Text mr="15px" fontWeight="bold">
                       {name}
                     </Text>
-                    <Arrow colorFill={colorFill} />
+                    <Arrow color={colorFill} />
                   </Flex>
                   <Text fontSize="sm" color="text.secondary">
                     {permission}
@@ -95,7 +95,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
                   }}
                 >
                   <Flex>
-                    <Icon colorFill={colorFill} />
+                    <Icon color={colorFill} />
                     <Text as={Link} to={href} ml={18} variant="text4Xl">
                       {value}
                     </Text>

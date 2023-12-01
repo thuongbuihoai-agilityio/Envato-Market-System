@@ -1,9 +1,9 @@
 // Types
 import { TColor } from '@interfaces/index';
 
-export const Bell = ({ colorFill }: TColor) => (
+export const Bell = ({ color }: TColor) => (
   <svg
-    stroke={colorFill}
+    stroke={color}
     width="24"
     height="25"
     viewBox="0 0 24 25"

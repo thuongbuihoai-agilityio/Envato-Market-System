@@ -1,3 +1,3 @@
 export type TColor = {
-  colorFill: string;
+  color: string;
 };

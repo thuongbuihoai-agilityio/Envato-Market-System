@@ -1,9 +1,9 @@
 // Types
 import { TColor } from '@interfaces/index';
 
-export const Gift = ({ colorFill }: TColor) => (
+export const Gift = ({ color }: TColor) => (
   <svg
-    stroke={colorFill}
+    stroke={color}
     width="24"
     height="24"
     viewBox="0 0 24 24"

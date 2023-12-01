@@ -11,7 +11,7 @@ interface AvatarProps extends AvatarPropsChakra {
 
 const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
   <AvatarChakra
-    borderRadius={12}
+    borderRadius="xl"
     borderWidth="1px"
     borderColor="gray.200"
     w="52px"
