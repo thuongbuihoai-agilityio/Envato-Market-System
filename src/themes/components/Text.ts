@@ -20,7 +20,12 @@ export const Text = defineStyleConfig({
       fontSize: 'lg',
       fontWeight: 'bold',
     },
-    primary: {
+    text3Xl: {
+      fontSize: '3xl',
+      fontWeight: 'bold',
+      lineHeight: '12',
+    },
+    text4Xl: {
       fontSize: 'sm',
       fontWeight: 'semibold',
       color: 'none',

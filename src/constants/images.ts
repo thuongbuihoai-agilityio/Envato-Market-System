@@ -31,4 +31,12 @@ export const IMAGES = {
     url: '/images/avatar.webp',
     alt: 'This is avatar',
   },
+  TOTAL_EARN: {
+    url: '/icons/total-earn.svg',
+    alt: 'Total earn icon',
+  },
+  GROWTH: {
+    url: '/icons/growth.svg',
+    alt: 'Growth icon',
+  },
 };

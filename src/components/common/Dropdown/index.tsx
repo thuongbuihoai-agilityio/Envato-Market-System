@@ -58,7 +58,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <User colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="primary">
+            <Text as={Link} ml="18px" variant="text4Xl">
               My Profile
             </Text>
           </Flex>
@@ -75,7 +75,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <Email colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="primary">
+            <Text as={Link} ml="18px" variant="text4Xl">
               Inbox
             </Text>
           </Flex>
@@ -92,7 +92,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
         >
           <Flex>
             <Logout colorFill={colorFill} />
-            <Text as={Link} ml="18px" variant="primary">
+            <Text as={Link} ml="18px" variant="text4Xl">
               Logout
             </Text>
           </Flex>
@@ -108,7 +108,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             svg: { stroke: 'primary.500' },
           }}
         >
-          <Text as={Link} variant="primary">
+          <Text as={Link} variant="text4Xl">
             Setting
           </Text>
         </MenuItem>
@@ -122,7 +122,7 @@ const DropdownComponent = ({ name = '', permission = '' }: DropdownProps) => {
             svg: { stroke: 'primary.500' },
           }}
         >
-          <Text as={Link} variant="primary">
+          <Text as={Link} variant="text4Xl">
             User
           </Text>
         </MenuItem>

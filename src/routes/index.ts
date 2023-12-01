@@ -35,14 +35,6 @@ export const ROUTER = createBrowserRouter([
         Component: MyWallet,
       },
       {
-        path: ROUTES.LOGIN,
-        Component: Login,
-      },
-      {
-        path: ROUTES.REGISTER,
-        Component: Register,
-      },
-      {
         path: ROUTES.SETTING,
         Component: Setting,
       },
@@ -63,5 +55,13 @@ export const ROUTER = createBrowserRouter([
         Component: ComingSoon,
       },
     ],
+  },
+  {
+    path: `/${ROUTES.LOGIN}`,
+    Component: Login,
+  },
+  {
+    path: `/${ROUTES.REGISTER}`,
+    Component: Register,
   },
 ]);
