@@ -1,14 +1,15 @@
+import { memo } from 'react';
+import areEqual from 'react-fast-compare';
 import {
   Avatar as AvatarChakra,
   AvatarProps as AvatarPropsChakra,
 } from '@chakra-ui/react';
-import Lazy from '@components/Lazy';
 
 interface AvatarProps extends AvatarPropsChakra {
   src?: string;
 }
 
-const Avatar = ({ src = '', ...props }: AvatarProps) => (
+const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
   <AvatarChakra
     borderRadius={12}
     borderWidth="1px"
@@ -21,8 +22,10 @@ const Avatar = ({ src = '', ...props }: AvatarProps) => (
   />
 );
 
-export default (
-  <Lazy>
-    <Avatar />
-  </Lazy>
+const Avatar = memo(
+  AvatarComponent,
+  (prevProps: AvatarProps, nextProps: AvatarProps) =>
+    areEqual(prevProps, nextProps),
 );
+
+export default Avatar;
