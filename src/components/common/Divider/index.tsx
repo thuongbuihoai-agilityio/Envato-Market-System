@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   AbsoluteCenter,
   Box,
@@ -8,7 +9,7 @@ type TDividerProps = {
   content: string;
 };
 
-const Divider = ({ content }: TDividerProps) => (
+const DividerComponent = ({ content }: TDividerProps) => (
   <Box position="relative" w="full" m="auto" py="10">
     <ChakraProvider w="full" bg="gray.500" _dark={{ height: '1px' }} />
 
@@ -24,5 +25,7 @@ const Divider = ({ content }: TDividerProps) => (
     </AbsoluteCenter>
   </Box>
 );
+
+const Divider = memo(DividerComponent);
 
 export default Divider;

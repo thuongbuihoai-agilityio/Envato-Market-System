@@ -25,6 +25,11 @@ export const Text = defineStyleConfig({
       fontWeight: 'bold',
       lineHeight: '12',
     },
+    text4Xl: {
+      fontSize: 'sm',
+      fontWeight: 'semibold',
+      color: 'none',
+    },
   },
   defaultProps: {
     variant: 'textMd',

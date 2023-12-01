@@ -25,20 +25,20 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Default: Story = {
   args: {
-    children: <Theme colorFill={`${theme.colors.gray[800]}`} />,
+    children: <Theme color={`${theme.colors.gray[800]}`} />,
   },
 };
 
 export const Notification: Story = {
   args: {
-    children: <Theme colorFill={`${theme.colors.gray[800]}`} />,
+    children: <Theme color={`${theme.colors.gray[800]}`} />,
     isNotification: true,
   },
 };
 
 export const Email: Story = {
   args: {
-    children: <EmailIcon colorFill={`${theme.colors.gray[800]}`} />,
+    children: <EmailIcon color={`${theme.colors.gray[800]}`} />,
     isNotification: true,
     hasNewNotification: true,
   },

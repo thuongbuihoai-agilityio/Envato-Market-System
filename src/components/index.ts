@@ -5,6 +5,7 @@ export { default as Button } from './common/Button';
 export { default as Divider } from './common/Divider';
 export { default as IconButton } from './common/IconButton';
 export { default as Avatar } from './common/Avatar';
+export { default as Dropdown } from './common/Dropdown';
 export { default as TotalCard } from './TotalCard';
 export { default as Lazy } from './Lazy';
 export { default as TotalListSkeleton } from './Skeleton/TotalListSkeleton';
