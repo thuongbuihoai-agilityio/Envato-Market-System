@@ -1,5 +1,6 @@
 import { Next, Previous } from "@assets/icons";
-import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
+import { Flex, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
+import { Button } from "@components/index";
 import { formatNumberButton, formatPagination } from "@utils/helpers";
 import { memo, useEffect, useState } from "react"
 
@@ -83,19 +84,26 @@ const PaginationComponent = ({
             </MenuButton>
             <MenuList>
               <MenuItem minH='48px'>
-                <span>Fluffybuns the Destroyer</span>
+                <Text>5</Text>
               </MenuItem>
-              <MenuItem minH='40px'>
-                <span>Simon the pensive</span>
+              <MenuItem minH='48px'>
+                <Text>10</Text>
+              </MenuItem>
+              <MenuItem minH='48px'>
+                <Text>50</Text>
               </MenuItem>
             </MenuList>
           </Menu>
       </Flex>
       <Flex w='305px' justifyContent='space-between'>
-        <Button bg='transparent' w="fit-content" disabled={isDisabledPrev}
+        <Button
+          bg='transparent'
+          w="fit-content"
           _hover={{
             bg: 'transparent'
           }}
+          cursor={isDisabledPrev ? 'not-allowed' : ''}
+          disabled={isDisabledPrev}
           onClick={handlePrevPage}>
           <Previous />
         </Button>
@@ -108,16 +116,13 @@ const PaginationComponent = ({
                 disabled={isDots}
                 key={itemKey}
                 w='53px'
-                bg='transparent'
-                color='gray.400'
+                bg={currentPage === item ? 'primary.400' : 'transparent'}
+                color={currentPage === item ? 'primary.500' : 'gray.400'}
+                cursor={isDots ? 'not-allowed' : ''}
                 _hover={{
                   color: 'primary.500',
                   bg: 'primary.400'
                 }}
-                // className={[
-                //   `font-primary-medium mx-1.5 2xl:mx-3 text-dark flex items-center justify-center ${currentPage === item ? styles['select'] : styles['unSelect']
-                //   } ${isDots ? btnStyles['effect'] : 'cursor-pointer'}`
-                // ].join(' ')}
                 onClick={() => handlePageClick(item)}
               >
                 {item}
@@ -125,10 +130,14 @@ const PaginationComponent = ({
             );
           })}
         </Flex>
-        <Button bg='transparent' w="fit-content" disabled={isDisableNext}
+        <Button
+          bg='transparent'
+          w="fit-content"
           _hover={{
             bg: 'transparent'
           }}
+          cursor={isDisableNext ? 'not-allowed' : ''}
+          disabled={isDisableNext}
           onClick={handleNextPage}>
           <Next />
         </Button>

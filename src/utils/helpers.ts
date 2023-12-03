@@ -9,22 +9,6 @@ export const formatNumberButton = (numberOfPage: number) => {
   return numberOfButtons;
 };
 
-// export const formatPagination = ({
-//   totalCount,
-//   pageSize,
-//   currentPage,
-// }: FormatPaginationParams) => {
-//   const numberOfPage = Math.ceil(totalCount / pageSize);
-//   const pages = formatNumberButton(numberOfPage);
-
-//   const startIndex = Math.max(0, currentPage - 1);
-//   const endIndex = Math.min(startIndex + 2, pages.length - 1);
-
-//   const tempNumberOfButtons = pages.slice(startIndex, endIndex + 1);
-
-//   return tempNumberOfButtons;
-// };
-
 export const formatPagination = ({
   totalCount,
   pageSize,
@@ -34,48 +18,43 @@ export const formatPagination = ({
   const numberOfPage = Math.ceil(totalCount / pageSize);
   let tempNumberOfButtons = [...arrOfCurrButtons];
 
-  // if (formatNumberButton(numberOfPage).length < 6) {
-  //   console.log(' be hon 6');
+  let rangeStart = Math.max(1, currentPage - 1);
 
-  //   tempNumberOfButtons = formatNumberButton(numberOfPage);
-  // } else {
-    console.log(' lon hon 66666666');
+  let rangeEnd = Math.min(
+    currentPage + 1,
+    formatNumberButton(numberOfPage).length,
+  );
 
-    let rangeStart = Math.max(1, currentPage - 1);
-    console.log('rangeStart', rangeStart);
+  console.log('currentPage', currentPage);
+  console.log(
+    'slice',
+    formatNumberButton(numberOfPage).slice(rangeStart - 1, rangeEnd),
+  );
+  console.log('rangeStart', rangeStart);
+  console.log('rangeEnd', rangeEnd);
 
-    let rangeEnd = Math.min(
-      currentPage + 1,
-      formatNumberButton(numberOfPage).length,
-    );
-    console.log('rangeEnd', rangeEnd);
-
-
-    // if (rangeEnd - rangeStart < 1) {
-    //   // If there are fewer than 3 pages in the range, adjust the range
-    //   const offset = 2 - (rangeEnd - rangeStart);
-    //   console.log('offset', offset);
-
-    //   if (rangeStart > 1) {
-    //     rangeStart -= offset;
-    //   } else {
-    //     rangeEnd += offset;
-    //   }
-    // }
-
-    tempNumberOfButtons = [
-      // rangeStart > 1 ? 1 : null,
-      // rangeStart > 2 ? DOTS : null,
-      ...formatNumberButton(numberOfPage).slice(rangeStart - 1, rangeEnd),
-      rangeEnd < formatNumberButton(numberOfPage).length ? DOTS : null,
-      rangeEnd < formatNumberButton(numberOfPage).length - 1
-        ? formatNumberButton(numberOfPage).length
-        : null,
-    ].filter((button) => button !== null);
-  // }
+  tempNumberOfButtons = [
+    ...(currentPage && rangeEnd === formatNumberButton(numberOfPage).length
+      ? [
+          ...(formatNumberButton(numberOfPage).length - 3 >= 1
+            ? [1, DOTS]
+            : []),
+          ...(formatNumberButton(numberOfPage).length - 1 >= 1
+            ? [formatNumberButton(numberOfPage).length - 1]
+            : []),
+          // formatNumberButton(numberOfPage).length - 1,
+          formatNumberButton(numberOfPage).length,
+        ]
+      : formatNumberButton(numberOfPage).slice(rangeStart - 1, rangeEnd)),
+    rangeEnd < formatNumberButton(numberOfPage).length - 1 ? DOTS : null,
+    rangeEnd < formatNumberButton(numberOfPage).length
+      ? formatNumberButton(numberOfPage).length
+      : null,
+  ].filter((button) => button !== null);
 
   return tempNumberOfButtons;
 };
+
 
 // export const formatPagination = ({
 //   totalCount,
