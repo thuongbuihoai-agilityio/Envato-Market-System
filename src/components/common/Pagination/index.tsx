@@ -92,17 +92,21 @@ const PaginationComponent = ({
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
-      <Flex justifyContent="space-between">
-        <Text>{label}</Text>
-        <Arrow color={colorFill} width={17} height={17} />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontSize={{ lg: 'sm' }}>{label}</Text>
+        <Arrow color={colorFill} width={20} height={15} />
       </Flex>
     ),
     [colorFill],
   );
 
   return (
-    <Flex w="100%" justifyContent="space-between">
-      <Flex alignItems="center" position="relative">
+    <Flex w="100%" justifyContent={{ base: 'center', lg: 'space-between' }}>
+      <Flex
+        display={{ base: 'none', lg: 'inline-flex' }}
+        alignItems="center"
+        position="relative"
+      >
         <Text w={100} fontSize="sm" fontWeight="semibold" color="text.primary">
           Show result:
         </Text>
@@ -114,18 +118,19 @@ const PaginationComponent = ({
           />
         </Box>
       </Flex>
-      <Flex w="358px" justifyContent="space-between">
+      <Flex w={{ base: 304, xl: 358 }} justifyContent="space-between">
         <Button
           variant="iconSecondary"
           cursor={isDisabledPrev ? 'not-allowed' : ''}
-          disabled={isDisabledPrev}
+          isDisabled={isDisabledPrev}
           onClick={handlePrevPage}
         >
           <Arrow color={colorFill} rotate="90deg" />
         </Button>
-        <Flex>
+        <Flex alignItems="center">
           {arrOfCurrButtons.map((item: string | number) => {
             const isDots = item.toString() === '...';
+            const isDisable = currentPage === item || isDots;
             const hoverStyle = isDots
               ? {}
               : {
@@ -135,9 +140,11 @@ const PaginationComponent = ({
             return (
               <Button
                 key={item}
-                isDisabled={isDots}
-                w="53px"
+                isDisabled={isDisable}
                 mx={0.5}
+                h={{ base: 30, '2xl': 53 }}
+                fontSize={{ base: 'xs', lg: 'sm' }}
+                px={{ base: 4, '2xl': 6 }}
                 bg={
                   currentPage === item
                     ? 'background.body.quinary'
@@ -156,7 +163,7 @@ const PaginationComponent = ({
         <Button
           variant="iconSecondary"
           cursor={isDisableNext ? 'not-allowed' : ''}
-          disabled={isDisableNext}
+          isDisabled={isDisableNext}
           onClick={handleNextPage}
         >
           <Arrow color={colorFill} rotate="-90deg" />
