@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation test case should render correctly 1`] = `
-<div>
-  <a
-    class="chakra-link css-1st5xrp"
-    href="/"
-  >
-    Mock navigation
-  </a>
-</div>
-`;
-
 exports[`Navigation test case should render correctly with the default destination 1`] = `
 <div>
   <a

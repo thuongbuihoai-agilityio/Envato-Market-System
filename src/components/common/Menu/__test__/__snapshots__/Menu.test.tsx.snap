@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu test case should render correctly and expand by default 1`] = `
+<div>
+  <div
+    class="chakra-stack css-xgszcm"
+  >
+    <h4
+      class="chakra-heading css-1pcjwh9"
+    >
+      Mock
+    </h4>
+    <ul
+      class="css-19ibvur"
+      role="list"
+    >
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-1st5xrp"
+          href="/"
+        >
+          <div
+            class="css-1lekzkb"
+          >
+            <div
+              class="css-dyap1g"
+            >
+              <svg
+                fill="none"
+                height="21"
+                viewBox="0 0 18 21"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="path-1"
+                  d="M0 8.84719C0 7.99027 0.366443 7.17426 1.00691 6.60496L6.34255 1.86217C7.85809 0.515019 10.1419 0.515019 11.6575 1.86217L16.9931 6.60496C17.6336 7.17426 18 7.99027 18 8.84719V17C18 19.2091 16.2091 21 14 21H4C1.79086 21 0 19.2091 0 17V8.84719Z"
+                  fill="#1A202C"
+                />
+                <path
+                  class="path-2"
+                  d="M5 17C5 14.7909 6.79086 13 9 13C11.2091 13 13 14.7909 13 17V21H5V17Z"
+                  fill="#22C55E"
+                />
+              </svg>
+              <p
+                class="chakra-text css-1pvloc"
+              >
+                Dashboards
+              </p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-1st5xrp"
+          href="/mock"
+        >
+          <div
+            class="css-1lekzkb"
+          >
+            <div
+              class="css-dyap1g"
+            >
+              <p
+                class="chakra-text css-1pvloc"
+              >
+                Mock
+              </p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Menu test case should render correctly with the given minify option 1`] = `
+<div>
+  <div
+    class="chakra-stack css-14jlx9m"
+  >
+    <ul
+      class="css-klyujl"
+      role="list"
+    >
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-1st5xrp"
+          href="/"
+        >
+          <svg
+            fill="none"
+            height="21"
+            viewBox="0 0 18 21"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="path-1"
+              d="M0 8.84719C0 7.99027 0.366443 7.17426 1.00691 6.60496L6.34255 1.86217C7.85809 0.515019 10.1419 0.515019 11.6575 1.86217L16.9931 6.60496C17.6336 7.17426 18 7.99027 18 8.84719V17C18 19.2091 16.2091 21 14 21H4C1.79086 21 0 19.2091 0 17V8.84719Z"
+              fill="#1A202C"
+            />
+            <path
+              class="path-2"
+              d="M5 17C5 14.7909 6.79086 13 9 13C11.2091 13 13 14.7909 13 17V21H5V17Z"
+              fill="#22C55E"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-1st5xrp"
+          href="/mock"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;

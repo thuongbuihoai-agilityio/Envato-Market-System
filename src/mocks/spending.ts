@@ -114,3 +114,82 @@ export const REVENUE_FLOW_MOCK = [
     lost: 65,
   },
 ];
+
+export const OVERALL_BALANCE_MOCK = {
+  total: 48.574,
+  growth: 20,
+  data: [
+    {
+      month: 'Jan',
+      pending: 234324,
+      signed: 534534,
+      lost: 234324,
+    },
+    {
+      month: 'Feb',
+      pending: 553434,
+      signed: 434523,
+      lost: 657667,
+    },
+    {
+      month: 'Mar',
+      pending: 456565,
+      signed: 534534,
+      lost: 234766,
+    },
+    {
+      month: 'April',
+      pending: 324265,
+      signed: 435234,
+      lost: 867876,
+    },
+    {
+      month: 'May',
+      pending: 243223,
+      signed: 533453,
+      lost: 767876,
+    },
+    {
+      month: 'Jun',
+      pending: 345423,
+      signed: 435443,
+      lost: 345433,
+    },
+    {
+      month: 'July',
+      pending: 456745,
+      signed: 234434,
+      lost: 345343,
+    },
+    {
+      month: 'Aug',
+      pending: 345265,
+      signed: 423422,
+      lost: 234234,
+    },
+    {
+      month: 'Sep',
+      pending: 654566,
+      signed: 341342,
+      lost: 234243,
+    },
+    {
+      month: 'Oct',
+      pending: 564566,
+      signed: 423432,
+      lost: 657677,
+    },
+    {
+      month: 'Nov',
+      pending: 123132,
+      signed: 234234,
+      lost: 312312,
+    },
+    {
+      month: 'Dec',
+      pending: 785686,
+      signed: 534534,
+      lost: 345354,
+    },
+  ],
+};
