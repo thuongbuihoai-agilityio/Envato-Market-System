@@ -67,7 +67,7 @@ const MainLayout = () => {
           position="absolute"
           top={8}
           transform="rotate(180deg)"
-          left="0"
+          left={0}
           onClick={onClose}
         />
 
