@@ -7,4 +7,5 @@ export const ERROR_MESSAGES = {
   SOMETHING_ERROR: 'Something went wrong!!',
   AUTH_INCORRECT: 'Email or password incorrect',
   ACCOUNT_ALREADY_EXISTS: 'Account already exists',
+  EMPTY_DATA: 'Data is the empty',
 };
