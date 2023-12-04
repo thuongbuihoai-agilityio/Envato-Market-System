@@ -36,14 +36,11 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
       placement="left"
       onClose={onClose}
       isOpen={!isOpen}
+      trapFocus={false}
       closeOnOverlayClick={false}
       variant={{
         base: '',
-        sm: '',
         md: 'clickThrough',
-        lg: 'clickThrough',
-        xl: 'clickThrough',
-        '2xl': 'clickThrough',
       }}
     >
       <DrawerOverlay />
@@ -65,9 +62,11 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
           borderRightWidth="1px"
           borderBottomColor="border.secondary"
           borderBottomWidth="1px"
+          pl={12.5}
         >
           <Logo />
 
+          {/* Close button of Expand sidebar */}
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
@@ -75,6 +74,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             top="auto"
             right={0}
             onClick={onOpen}
+            cursor="pointer"
           />
         </DrawerHeader>
 
@@ -111,6 +111,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
       onClose={onClose}
       isOpen={isOpen}
       closeOnOverlayClick={false}
+      trapFocus={false}
       variant="clickThrough"
     >
       <DrawerContent
@@ -118,9 +119,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
         display={{
           base: 'none',
           md: 'block',
-          lg: 'block',
         }}
-        overscrollX="none"
         bg="background.component.primary"
       >
         <DrawerHeader
@@ -140,7 +139,9 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             _dark={{
               display: 'none',
             }}
+            cursor="pointer"
           />
+
           {/* Mini Logo in Dark Mode */}
           <Image
             src={IMAGES.LOGO_MINI_DARK.url}
@@ -148,9 +149,10 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             _light={{
               display: 'none',
             }}
+            cursor="pointer"
           />
 
-          {/* Open Button of Sidebar in Mobile */}
+          {/* Close Button of Mini Sidebar */}
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
@@ -161,14 +163,12 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             onClick={onClose}
             display={{
               base: 'none',
-              sm: 'none',
-              md: 'none',
               lg: 'block',
-              xl: 'block',
-              '2xl': 'block',
             }}
+            cursor="pointer"
           />
         </DrawerHeader>
+
         <DrawerBody
           w="full"
           pt={3.5}
