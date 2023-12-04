@@ -1,17 +1,17 @@
 import { memo } from 'react';
 import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
+
+// constants
 import { IMAGES } from '@constants/images';
 
-// Components
-
-const BoxChatComponent = (): JSX.Element => (
-  <Box w="full" bg="background.body.quaternary" p="44px 28px">
+const TotalBalanceComponent = (): JSX.Element => (
+  <Box w="full" bg="background.body.quaternary" px={11} py={7}>
     <Box
       border="1px solid"
       borderColor="border.quaternary"
       mt={5}
       borderRadius="lg"
-      p="32px"
+      p={8}
     >
       <Text fontSize="2xl" fontWeight="semibold" mb="2" color="text.primary">
         Total Balance
@@ -20,7 +20,7 @@ const BoxChatComponent = (): JSX.Element => (
         <Text
           fontSize="4xl"
           fontWeight="bold"
-          mb="0"
+          mb={0}
           color="text.primary"
           lineHeight="9"
           display="inline"
@@ -30,7 +30,7 @@ const BoxChatComponent = (): JSX.Element => (
         <Text
           fontSize="md"
           fontWeight="medium"
-          mb="0"
+          mb={0}
           color="secondary.250"
           lineHeight="5"
           textTransform="uppercase"
@@ -82,6 +82,6 @@ const BoxChatComponent = (): JSX.Element => (
   </Box>
 );
 
-const BoxChat = memo(BoxChatComponent);
+const TotalBalance = memo(TotalBalanceComponent);
 
-export default BoxChat;
+export default TotalBalance;
