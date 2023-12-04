@@ -4,35 +4,41 @@ import { fireEvent, render } from '@testing-library/react';
 import Select from '..';
 
 // Mocks
-import { OPTIONS } from '@mocks/index';
+import { SOCIAL_PLATFORM_OPTIONS } from '@mocks/index';
 
 describe('Select', () => {
   it('Match snapshot', () => {
-    const { container } = render(<Select options={OPTIONS} />);
+    const { container } = render(<Select options={SOCIAL_PLATFORM_OPTIONS} />);
 
     expect(container).toMatchSnapshot();
   });
 
   it('Open list item', () => {
-    const { getByRole, container } = render(<Select options={OPTIONS} />);
+    const { getByRole, container } = render(
+      <Select options={SOCIAL_PLATFORM_OPTIONS} />,
+    );
     const button = getByRole('button');
 
     fireEvent.click(button);
     expect(container.querySelectorAll('button').length).toBe(
-      OPTIONS.length + 1,
+      SOCIAL_PLATFORM_OPTIONS.length + 1,
     );
   });
 
   it('Select one item', () => {
-    const { getByRole, container } = render(<Select options={OPTIONS} />);
+    const { getByRole, container } = render(
+      <Select options={SOCIAL_PLATFORM_OPTIONS} />,
+    );
     const button = getByRole('button');
 
     fireEvent.click(button);
 
     const buttons = container.querySelectorAll('button');
 
-    expect(buttons.length).toBe(OPTIONS.length + 1);
+    expect(buttons.length).toBe(SOCIAL_PLATFORM_OPTIONS.length + 1);
     fireEvent.click(buttons[2]);
-    expect(getByRole('button').textContent).toBe(OPTIONS[1].label);
+    expect(getByRole('button').textContent).toBe(
+      SOCIAL_PLATFORM_OPTIONS[1].label,
+    );
   });
 });

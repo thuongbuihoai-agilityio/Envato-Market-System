@@ -14,7 +14,7 @@ const SECONDARY_BG_COLOR = 'background.component.select.primary';
 const NO_COLOR = 'background.component.select.secondary';
 const NO_BG = 'background.component.select.noBackground';
 
-const BORDER_STYLE = {
+const BORDER_STYLES = {
   borderWidth: '1px',
   borderStyle: 'solid',
   borderColor: 'border.primary',
@@ -22,10 +22,10 @@ const BORDER_STYLE = {
 const VARIANTS = {
   primary: {
     bgColor: SECONDARY_BG_COLOR,
-    ...BORDER_STYLE,
+    ...BORDER_STYLES,
     _hover: {
       background: SECONDARY_BG_COLOR,
-      ...BORDER_STYLE,
+      ...BORDER_STYLES,
     },
     _active: {
       background: SECONDARY_BG_COLOR,
@@ -36,10 +36,10 @@ const VARIANTS = {
   },
   secondary: {
     bgColor: NO_COLOR,
-    ...BORDER_STYLE,
+    ...BORDER_STYLES,
     _hover: {
       background: NO_COLOR,
-      ...BORDER_STYLE,
+      ...BORDER_STYLES,
     },
     _active: {
       background: NO_COLOR,

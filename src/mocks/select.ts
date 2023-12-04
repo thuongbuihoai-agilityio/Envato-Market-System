@@ -1,4 +1,4 @@
-export const OPTIONS = [
+export const SOCIAL_PLATFORM_OPTIONS = [
   {
     value: 'github',
     label: 'github',
