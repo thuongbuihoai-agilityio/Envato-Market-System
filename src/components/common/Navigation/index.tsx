@@ -110,6 +110,6 @@ const Navigation = ({ children, destination = '/' }: TNavigationProps) => (
   </Link>
 );
 
-const NavigationCompnent = memo(Navigation);
+const NavigationComponent = memo(Navigation);
 
-export default NavigationCompnent;
+export default NavigationComponent;
