@@ -10,9 +10,10 @@ const NotFoundPage = (): JSX.Element => (
     <Button
       as={Link}
       to="/"
-      mt="6"
+      mt={6}
       _hover={{ bg: 'gray.600' }}
-      padding="12px 40px"
+      px={10}
+      py={3}
       fontSize="sm"
       width="fit-content"
     >
