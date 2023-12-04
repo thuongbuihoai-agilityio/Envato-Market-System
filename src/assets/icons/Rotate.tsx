@@ -1,6 +1,6 @@
-import { TColor } from '@interfaces/color';
+import { TIcon } from '@interfaces/icons';
 
-export const Rotate = ({ color }: TColor) => (
+export const Rotate = ({ color }: TIcon) => (
   <svg
     stroke={color}
     width="16"

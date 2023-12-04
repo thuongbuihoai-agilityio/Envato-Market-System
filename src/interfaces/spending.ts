@@ -4,3 +4,10 @@ export interface ISpendingStatistics {
   growth: number;
   weeklyIncome: number[];
 }
+
+export interface IRevenueFlow {
+  month: string;
+  pending: number;
+  signed: number;
+  lost: number;
+}

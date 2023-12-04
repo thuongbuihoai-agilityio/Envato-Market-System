@@ -39,3 +39,78 @@ export const EFFICIENCY_MOCK = {
     },
   ],
 };
+
+export const REVENUE_FLOW_MOCK = [
+  {
+    month: 'Jan',
+    pending: 10,
+    signed: 21,
+    lost: 45,
+  },
+  {
+    month: 'Feb',
+    pending: 23,
+    signed: 54,
+    lost: 23,
+  },
+  {
+    month: 'Mar',
+    pending: 54,
+    signed: 23,
+    lost: 54,
+  },
+  {
+    month: 'April',
+    pending: 75,
+    signed: 45,
+    lost: 87,
+  },
+  {
+    month: 'May',
+    pending: 34,
+    signed: 76,
+    lost: 34,
+  },
+  {
+    month: 'Jun',
+    pending: 67,
+    signed: 54,
+    lost: 76,
+  },
+  {
+    month: 'July',
+    pending: 34,
+    signed: 36,
+    lost: 75,
+  },
+  {
+    month: 'Aug',
+    pending: 67,
+    signed: 87,
+    lost: 23,
+  },
+  {
+    month: 'Sep',
+    pending: 60,
+    signed: 54,
+    lost: 32,
+  },
+  {
+    month: 'Oct',
+    pending: 34,
+    signed: 56,
+    lost: 43,
+  },
+  {
+    month: 'Nov',
+    pending: 54,
+    signed: 34,
+    lost: 86,
+  },
+  {
+    month: 'Dec',
+    pending: 34,
+    signed: 32,
+    lost: 65,
+  },
+];

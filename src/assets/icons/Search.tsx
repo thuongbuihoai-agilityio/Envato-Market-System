@@ -1,6 +1,6 @@
-import { TColor } from '@interfaces/color';
+import { TIcon } from '@interfaces/icons';
 
-export const Search = ({ color }: TColor) => (
+export const Search = ({ color }: TIcon) => (
   <svg
     stroke={color}
     width="20"
