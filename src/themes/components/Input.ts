@@ -65,6 +65,9 @@ export const Input = defineStyleConfig({
     },
     secondary: {
       field: {
+        _placeholder: {
+          fontWeight: 'bold',
+        },
         color: COLOR_TEXT,
       },
     },
