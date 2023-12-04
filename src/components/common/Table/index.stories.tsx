@@ -7,6 +7,9 @@ import Table from '.';
 // Icons
 import { Dot } from '@assets/icons';
 
+// Mocks
+import { USERS } from '@mocks/index';
+
 const meta: Meta<typeof Table> = {
   title: 'Custom Components/Table',
   component: Table,
@@ -59,14 +62,6 @@ export const Default: Story = {
         renderBody: () => <Dot />,
       },
     ],
-    dataSource: Array.from({ length: 5 }).map(() => ({
-      id: 1,
-      name: 'Devon Lane',
-      image:
-        'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png',
-      email: 'devon@mail.com',
-      location: 'Philadelphia, USA',
-      spent: '$101.00',
-    })),
+    dataSource: USERS,
   },
 };

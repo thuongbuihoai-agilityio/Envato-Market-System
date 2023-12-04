@@ -11,9 +11,10 @@ import {
 } from '@chakra-ui/react';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants/messages';
+import { ERROR_MESSAGES } from '@constants/index';
 
 type TDataSource = {
+  id: string | number;
   [key: string]: string | number | boolean;
 };
 
@@ -73,7 +74,7 @@ const TableComponent = ({
           </Tr>
         ) : (
           dataSource.map((data) => (
-            <Tr key={`${data.id}`}>
+            <Tr key={data.id}>
               {columns &&
                 columns.map((column) => (
                   <Td
