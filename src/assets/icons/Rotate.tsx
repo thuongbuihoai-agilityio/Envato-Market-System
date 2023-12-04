@@ -1,4 +1,4 @@
-import { TIcon } from '@interfaces/color';
+import { TIcon } from '@interfaces/icons';
 
 export const Rotate = ({ color }: TIcon) => (
   <svg

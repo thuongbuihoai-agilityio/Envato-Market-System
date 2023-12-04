@@ -34,6 +34,10 @@ interface RevenueFlowProps {
   isLoading?: boolean;
 }
 
+interface ChartDataState {
+  data: number[];
+}
+
 const RevenueFlowComponent = ({
   data,
   isLoading = false,
@@ -50,7 +54,7 @@ const RevenueFlowComponent = ({
     },
   ];
 
-  const [series, setSeries] = useState(defaultSeries);
+  const [chartData, setChartData] = useState<ChartDataState[]>(defaultSeries);
 
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
@@ -67,55 +71,44 @@ const RevenueFlowComponent = ({
     [colorFill],
   );
 
-  const handleChangeSelect = useCallback((option: TOption) => {
-    const [monthStart, monthEnd] = option.value.split(',');
+  const handleChangeSelect = useCallback(
+    (option: TOption) => {
+      const [monthStart, monthEnd] = option.value.split(',');
 
-    const rangeMonths = MONTHS.slice(
-      MONTHS.findIndex((i) => i === monthStart),
-      MONTHS.findIndex((i) => i === monthEnd) + 1,
-    );
+      const rangeMonths = MONTHS.slice(
+        MONTHS.findIndex((i) => i === monthStart),
+        MONTHS.findIndex((i) => i === monthEnd) + 1,
+      );
 
-    const result = [
-      {
-        data: data.map((i) => {
-          if (rangeMonths.includes(i.month)) {
-            return i.pending;
-          } else {
-            return 0;
-          }
-        }),
-      },
-      {
-        data: data.map((i) => {
-          if (rangeMonths.includes(i.month)) {
-            return i.signed;
-          } else {
-            return 0;
-          }
-        }),
-      },
-      {
-        data: data.map((i) => {
-          if (rangeMonths.includes(i.month)) {
-            return i.lost;
-          } else {
-            return 0;
-          }
-        }),
-      },
-      {
-        data: data.map((i) => {
-          if (rangeMonths.includes(i.month)) {
-            return 0;
-          } else {
-            return i.lost + i.pending + i.signed;
-          }
-        }),
-      },
-    ];
+      const result = [
+        {
+          data: data.map((revenue: IRevenueFlow) =>
+            rangeMonths.includes(revenue.month) ? revenue.pending : 0,
+          ),
+        },
+        {
+          data: data.map((revenue: IRevenueFlow) =>
+            rangeMonths.includes(revenue.month) ? revenue.signed : 0,
+          ),
+        },
+        {
+          data: data.map((revenue: IRevenueFlow) =>
+            rangeMonths.includes(revenue.month) ? revenue.lost : 0,
+          ),
+        },
+        {
+          data: data.map((revenue: IRevenueFlow) =>
+            rangeMonths.includes(revenue.month)
+              ? 0
+              : revenue.lost + revenue.pending + revenue.signed,
+          ),
+        },
+      ];
 
-    setSeries(result);
-  }, []);
+      setChartData(result);
+    },
+    [data],
+  );
 
   return (
     <Box py={3} px={6}>
@@ -171,7 +164,7 @@ const RevenueFlowComponent = ({
               enabled: false,
             },
           }}
-          series={series}
+          series={chartData}
           type="bar"
           height="300"
         />

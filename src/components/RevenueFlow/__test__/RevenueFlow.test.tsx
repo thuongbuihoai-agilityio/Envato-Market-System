@@ -1,5 +1,9 @@
 import { render } from '@testing-library/react';
+
+// Components
 import RevenueFlow from '..';
+
+// Mock
 import { REVENUE_FLOW_MOCK } from '@mocks/index';
 
 jest.mock('react-apexcharts', () => ({
