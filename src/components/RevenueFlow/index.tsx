@@ -1,38 +1,62 @@
+import { memo, useCallback, useState } from 'react';
+import isEqual from 'react-fast-compare';
+
+// Components
+import Chart from 'react-apexcharts';
 import {
   Box,
   Flex,
   Heading,
+  Skeleton,
   Text,
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { REVENUE_FLOW_COLORS } from '@constants/index';
-import { memo, useCallback } from 'react';
-import Chart from 'react-apexcharts';
 import { Select } from '..';
-import { TOption } from '@components/common/Select';
+
+// Icon
 import { Arrow } from '@assets/icons';
 
-const options = [
-  {
-    value: 'Jan - Dec',
-    label: 'Jan - Dec',
-  },
-  {
-    value: 'Jan - Jun',
-    label: 'Jan - Jun',
-  },
-  {
-    value: 'Jun - Dec',
-    label: 'Jun - Dec',
-  },
-];
+// Constants
+import {
+  MONTHS,
+  REVENUE_FLOW_COLORS,
+  REVENUE_FLOW_OPTIONS,
+  REVENUE_FLOW_STATUS,
+} from '@constants/index';
 
-const RevenueFlowComponent = () => {
+// Types
+import { IRevenueFlow } from '@interfaces/index';
+import { TOption } from '@components/common/Select';
+
+interface RevenueFlowProps {
+  data: IRevenueFlow[];
+  isLoading?: boolean;
+}
+
+const RevenueFlowComponent = ({
+  data,
+  isLoading = false,
+}: RevenueFlowProps) => {
+  const defaultSeries = [
+    {
+      data: data.map((item) => item.pending),
+    },
+    {
+      data: data.map((item) => item.signed),
+    },
+    {
+      data: data.map((item) => item.lost),
+    },
+  ];
+
+  const [series, setSeries] = useState(defaultSeries);
+
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
   );
+
   const renderTitle = useCallback(
     ({ label }: TOption) => (
       <Flex>
@@ -40,8 +64,59 @@ const RevenueFlowComponent = () => {
         <Arrow color={colorFill} width={17} height={17} />
       </Flex>
     ),
-    [],
+    [colorFill],
   );
+
+  const handleChangeSelect = useCallback((option: TOption) => {
+    const [monthStart, monthEnd] = option.value.split(',');
+
+    const rangeMonths = MONTHS.slice(
+      MONTHS.findIndex((i) => i === monthStart),
+      MONTHS.findIndex((i) => i === monthEnd) + 1,
+    );
+
+    const result = [
+      {
+        data: data.map((i) => {
+          if (rangeMonths.includes(i.month)) {
+            return i.pending;
+          } else {
+            return 0;
+          }
+        }),
+      },
+      {
+        data: data.map((i) => {
+          if (rangeMonths.includes(i.month)) {
+            return i.signed;
+          } else {
+            return 0;
+          }
+        }),
+      },
+      {
+        data: data.map((i) => {
+          if (rangeMonths.includes(i.month)) {
+            return i.lost;
+          } else {
+            return 0;
+          }
+        }),
+      },
+      {
+        data: data.map((i) => {
+          if (rangeMonths.includes(i.month)) {
+            return 0;
+          } else {
+            return i.lost + i.pending + i.signed;
+          }
+        }),
+      },
+    ];
+
+    setSeries(result);
+  }, []);
+
   return (
     <Box py={3} px={6}>
       <Flex
@@ -55,83 +130,56 @@ const RevenueFlowComponent = () => {
           Revenue Flow
         </Heading>
         <Flex gap={7} display={{ base: 'none', lg: 'flex' }}>
-          <Flex gap={2} alignItems="center">
-            <Box bgColor="#EAB308" w="12px" height="12px" rounded="50%" />
-            <Text variant="textSm">Pending</Text>
-          </Flex>
-          <Flex gap={2} alignItems="center">
-            <Box bgColor="#EAB308" w="12px" height="12px" rounded="50%" />
-            <Text variant="textSm">Pending</Text>
-          </Flex>
-          <Flex gap={2} alignItems="center">
-            <Box bgColor="#EAB308" w="12px" height="12px" rounded="50%" />
-            <Text variant="textSm">Pending</Text>
-          </Flex>
+          {REVENUE_FLOW_STATUS.map((item, index) => (
+            <Flex key={item} gap={2} alignItems="center">
+              <Box
+                bgColor={REVENUE_FLOW_COLORS[index]}
+                w="12px"
+                height="12px"
+                rounded="50%"
+              />
+              <Text variant="textSm">{item}</Text>
+            </Flex>
+          ))}
         </Flex>
         <Box w={102} h="21px">
           <Select
-            options={options}
+            options={REVENUE_FLOW_OPTIONS}
             size="sm"
             variant="no-border"
             renderTitle={renderTitle}
+            onSelect={handleChangeSelect}
           />
         </Box>
       </Flex>
-      <Chart
-        options={{
-          chart: {
-            id: 'basic-bar',
-            stacked: true,
-          },
-          xaxis: {
-            categories: [
-              'Jan',
-              'Feb',
-              'Mar',
-              'April',
-              'May',
-              'Jun',
-              'July',
-              'Aug',
-              'Sep',
-              'Oct',
-              'Nov',
-              'Dec',
-            ],
-          },
-          legend: {
-            show: false,
-          },
-          colors: REVENUE_FLOW_COLORS,
-          dataLabels: {
-            enabled: false,
-          },
-        }}
-        series={[
-          {
-            name: 'series-1',
-            data: [30, 40, 45, 50, 49, 60],
-          },
-          {
-            name: 'series-2',
-            data: [30, 40, 45, 50, 49, 60],
-          },
-          {
-            name: 'series-3',
-            data: [30, 40, 45, 50, 49, 60],
-          },
-          {
-            name: 'series-4',
-            data: [0, 0, 0, 0, 0, 0, 70, 91, 30, 40, 45, 50],
-          },
-        ]}
-        type="bar"
-        // width="605"
-      />
+      {isLoading ? (
+        <Skeleton bg="background.component.primary" rounded="lg" height={300} />
+      ) : (
+        <Chart
+          options={{
+            chart: {
+              stacked: true,
+            },
+            xaxis: {
+              categories: data.map((item) => item.month),
+            },
+            legend: {
+              show: false,
+            },
+            colors: REVENUE_FLOW_COLORS,
+            dataLabels: {
+              enabled: false,
+            },
+          }}
+          series={series}
+          type="bar"
+          height="300"
+        />
+      )}
     </Box>
   );
 };
 
-const RevenueFlow = memo(RevenueFlowComponent);
+const RevenueFlow = memo(RevenueFlowComponent, isEqual);
 
 export default RevenueFlow;

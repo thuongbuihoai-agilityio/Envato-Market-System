@@ -12,3 +12,4 @@ export * from './menu';
 export * from './sidebar';
 export * from './charts';
 export * from './sidebar';
+export * from './options';
