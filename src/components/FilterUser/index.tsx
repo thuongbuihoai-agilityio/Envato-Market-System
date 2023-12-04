@@ -208,13 +208,10 @@ const FilterComponent = (): JSX.Element => {
   return (
     <Box
       as="section"
-      bgColor="white"
-      minH={300}
-      maxW={1897}
+      bgColor="background.component.primary"
       borderRadius={8}
       px={6}
       py={5}
-      m="120px auto"
     >
       {/* Filter bar */}
       <HStack

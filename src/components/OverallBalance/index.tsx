@@ -130,7 +130,7 @@ const OverallBalanceComponent = ({
           { data: data.map((item) => item.lost) },
         ]}
         type="area"
-        height="260"
+        height="280"
       />
     </Box>
   );

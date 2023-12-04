@@ -67,12 +67,11 @@ const PaginationComponent = ({
       currentPage: currentPage - 1,
     });
     onPageChange(currentPage - 1);
-  }, []);
+  }, [currentPage]);
 
   const handleNextPage = useCallback(() => {
     if (currentPage === formatNumberButton(numberOfPage).length) {
       onPageChange(currentPage);
-      return;
     }
 
     setData({
@@ -80,7 +79,7 @@ const PaginationComponent = ({
       currentPage: currentPage + 1,
     });
     onPageChange(currentPage + 1);
-  }, []);
+  }, [currentPage]);
 
   const handlePageClick = useCallback((value: number) => {
     onPageChange(value);
