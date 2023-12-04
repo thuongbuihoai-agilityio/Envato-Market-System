@@ -16,7 +16,7 @@ import { Button } from '@components/index';
 import { Arrow } from '@assets/icons';
 
 // Constants
-import { PAGINATION } from '@constants/pagination';
+import { PAGE_SIZE, PAGINATION } from '@constants/pagination';
 
 // Interfaces
 import { PaginationType } from '@interfaces/pagination';
@@ -32,7 +32,7 @@ interface PaginationProps {
 
 const PaginationComponent = ({
   totalCount = 0,
-  pageSize = 8,
+  pageSize = PAGE_SIZE,
   onPageChange = () => {},
 }: PaginationProps) => {
   const colorFill = theme.colors.gray[400];

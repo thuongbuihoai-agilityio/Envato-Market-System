@@ -12,3 +12,5 @@ export const PAGINATION = [
     value: 50,
   },
 ];
+
+export const PAGE_SIZE = 10;
