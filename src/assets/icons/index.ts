@@ -18,3 +18,4 @@ export * from './Search';
 export * from './Sort';
 export * from './Account';
 export * from './Dot';
+export * from './Filter';

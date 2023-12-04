@@ -113,7 +113,7 @@ const SelectComponent = ({
         {renderTitle && renderTitle(options[selected])}
         {!renderTitle && (
           <Text as="span" fontSize="sm" textTransform="capitalize">
-            {options[selected].label}
+            {options[selected]?.label}
           </Text>
         )}
       </MenuButton>
