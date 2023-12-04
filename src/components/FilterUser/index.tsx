@@ -10,7 +10,7 @@ import {
   Th,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { memo, useCallback, useMemo, useRef } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Controller } from 'react-hook-form';
 
 // Hooks
@@ -32,7 +32,7 @@ import { Dot, FilterIcon, Search, Sort } from '@assets/icons';
 import { colors } from '@themes/bases/colors';
 
 // Mocks
-import { USERS, SOCIAL_PLATFORM_OPTIONS } from '@mocks/index';
+import { USERS, MONTHS } from '@mocks/index';
 
 // Constants
 import { PAGE_SIZE } from '@constants/pagination';
@@ -59,7 +59,6 @@ const FilterComponent = (): JSX.Element => {
       select: '',
     },
   });
-  const refForm = useRef<HTMLFormElement>(null);
 
   const searchIconColor: string = useColorModeValue(
     colors.secondary[400] ?? '',
@@ -206,8 +205,6 @@ const FilterComponent = (): JSX.Element => {
     [],
   );
 
-  console.log(control);
-
   return (
     <Box
       as="section"
@@ -263,12 +260,9 @@ const FilterComponent = (): JSX.Element => {
             name="select"
             render={({ field: { onChange } }) => (
               <Select
-                options={SOCIAL_PLATFORM_OPTIONS}
+                options={MONTHS}
                 renderTitle={renderTitleSelector}
-                onSelect={({ value }) => {
-                  onChange(value);
-                  refForm.current?.submit();
-                }}
+                onSelect={({ value }) => onChange(value)}
               />
             )}
           />
