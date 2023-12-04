@@ -6,6 +6,7 @@ export const Drawer = defineStyleConfig({
       overlay: {
         pointerEvents: 'none',
         background: 'transparent',
+        display: 'none',
       },
 
       dialogContainer: {
