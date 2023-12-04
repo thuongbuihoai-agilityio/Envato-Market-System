@@ -82,4 +82,5 @@ const MainLayout = () => {
     </Flex>
   );
 };
+
 export default MainLayout;
