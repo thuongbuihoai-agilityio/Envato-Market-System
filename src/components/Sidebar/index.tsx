@@ -42,6 +42,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
         base: '',
         md: 'clickThrough',
       }}
+      blockScrollOnMount={false}
     >
       <DrawerOverlay />
 
@@ -113,6 +114,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
       closeOnOverlayClick={false}
       trapFocus={false}
       variant="clickThrough"
+      blockScrollOnMount={false}
     >
       <DrawerContent
         maxW={SIDEBAR.MINI_SIDEBAR_WIDTH}

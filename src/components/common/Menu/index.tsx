@@ -19,21 +19,21 @@ export type MenuProps = {
 };
 
 const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => (
-  <VStack mb={isMinify ? 9 : 5} w={'100%'} overscroll={'none'}>
+  <VStack mb={isMinify ? 9 : 5} w="full" overscroll="full">
     {!isMinify && (
       <Heading
-        as={'h4'}
-        borderColor={'border.primary'}
-        borderBottomWidth={'1px'}
-        w={'100%'}
+        as="h4"
+        borderColor="border.primary"
+        borderBottomWidth="1px"
+        w="full"
         lineHeight={1.75}
-        fontSize={'sm'}
-        color={'text.secondary'}
+        fontSize="sm"
+        color="text.secondary"
         _light={{
           borderColor: 'gray.100',
           color: 'gray.600',
         }}
-        fontWeight={'md'}
+        fontWeight="md"
       >
         {title}
       </Heading>
@@ -41,8 +41,8 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => (
 
     <List
       mt={2.5}
-      spacing={isMinify ? '22px' : '11px'}
-      w={'full'}
+      spacing={isMinify ? 5.5 : 2.75}
+      w="full"
       sx={{
         textAlign: '-webkit-center',
       }}
@@ -50,6 +50,7 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => (
       {listItem.map(
         ({ leftIcon, rightIcon, destination, menuItemContent, id }) => {
           const LeftIcon = leftIcon || Fragment;
+
           return (
             <ListItem key={id}>
               {isMinify ? (
@@ -58,19 +59,19 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => (
                 </Navigation>
               ) : (
                 <Navigation destination={destination}>
-                  <Flex alignItems={'center'} justifyContent={'space-between'}>
+                  <Flex alignItems="center" justifyContent="space-between">
                     <Flex
                       gap={2.5}
-                      alignItems={'center'}
-                      justifyContent={'space-between'}
+                      alignItems="center"
+                      justifyContent="space-between"
                     >
                       <LeftIcon />
 
                       <Text
-                        fontSize={'lg'}
-                        fontWeight={'md'}
-                        color={'text.primary'}
-                        transition={'all .25s ease-in-out'}
+                        fontSize="lg"
+                        fontWeight="md"
+                        color="text.primary"
+                        transition="all .25s ease-in-out"
                       >
                         {menuItemContent}
                       </Text>
