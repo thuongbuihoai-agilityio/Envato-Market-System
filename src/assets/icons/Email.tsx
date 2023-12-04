@@ -1,7 +1,7 @@
 // Types
-import { TColor } from '@interfaces/index';
+import { TIcon } from '@interfaces/index';
 
-export const Email = ({ color }: TColor) => (
+export const Email = ({ color }: TIcon) => (
   <svg
     stroke={color}
     width="24"

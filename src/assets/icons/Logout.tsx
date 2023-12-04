@@ -1,7 +1,7 @@
 // Types
-import { TColor } from '@interfaces/index';
+import { TIcon } from '@interfaces/index';
 
-export const Logout = ({ color }: TColor) => (
+export const Logout = ({ color }: TIcon) => (
   <svg
     width="24"
     height="24"

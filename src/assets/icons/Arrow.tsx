@@ -1,12 +1,12 @@
 // Types
-import { TColor } from '@interfaces/index';
+import { TIcon } from '@interfaces/index';
 
-export const Arrow = ({ color, rotate }: TColor) => (
+export const Arrow = ({ color, width = 24, height = 24, rotate }: TIcon) => (
   <svg
     stroke={color}
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    width={width}
+    height={height}
+    viewBox={`0 0 ${width} ${height}`}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     style={{
