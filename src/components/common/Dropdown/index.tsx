@@ -73,10 +73,13 @@ const DropdownComponent = ({
             </Flex>
           </MenuButton>
           <MenuList
+            position="absolute"
+            top={{ base: '10px' }}
+            right={{ base: '-18.75', md: '-13.25', '2xl': '-42' }}
             data-testid="TestDropdown"
             px={3}
             py={2}
-            mt={6}
+            mt={{ md: 4 }}
             w={300}
             border="none"
             borderRadius="lg"
