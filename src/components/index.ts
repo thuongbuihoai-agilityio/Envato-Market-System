@@ -13,3 +13,4 @@ export { default as TotalListSkeleton } from './Skeleton/TotalListSkeleton';
 export { default as Sidebar } from './Sidebar';
 export { default as Navigation } from './common/Navigation';
 export { default as Header } from './common/Header';
+export { default as Select } from './common/Select';
