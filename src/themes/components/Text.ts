@@ -29,6 +29,9 @@ export const Text = defineStyleConfig({
       fontSize: 'sm',
       fontWeight: 'semibold',
       color: 'none',
+      _hover: {
+        color: 'primary.500',
+      },
     },
   },
   defaultProps: {

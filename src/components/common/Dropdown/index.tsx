@@ -73,10 +73,13 @@ const DropdownComponent = ({
             </Flex>
           </MenuButton>
           <MenuList
+            position="absolute"
+            top="10px"
+            right={{ base: '-18.75', md: '-13.25', '2xl': '-42' }}
             data-testid="TestDropdown"
             px={3}
             py={2}
-            mt={6}
+            mt={{ md: 4 }}
             w={300}
             border="none"
             borderRadius="lg"
@@ -95,6 +98,10 @@ const DropdownComponent = ({
                     color: 'primary.500',
                     svg: { stroke: 'primary.500' },
                     path: { stroke: 'primary.500' },
+                    borderColor: 'transparent',
+                  }}
+                  _focus={{
+                    outline: 'none',
                   }}
                 >
                   <Flex>
@@ -117,6 +124,10 @@ const DropdownComponent = ({
                   bg: 'background.component.tertiary',
                   color: 'primary.500',
                   svg: { stroke: 'primary.500' },
+                  borderColor: 'transparent',
+                }}
+                _focus={{
+                  outline: 'none',
                 }}
               >
                 <Text as={Link} to="#" variant="text4Xl">

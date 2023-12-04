@@ -16,3 +16,4 @@ export * from './SignOut';
 export * from './Rotate';
 export * from './Search';
 export * from './sort';
+export * from './Account';

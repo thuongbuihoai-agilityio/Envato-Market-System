@@ -57,6 +57,7 @@ const MainLayout = () => {
               : SIDEBAR.MINI_SIDEBAR_WIDTH,
           }}
           w="full"
+          h="100vh"
           sx={{
             transition: 'all .25s ease-in-out',
           }}
