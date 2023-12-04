@@ -20,9 +20,7 @@ const Footer = () => {
         }}
         _dark={{ color: 'secondary.100' }}
         _light={{ color: 'gray.600' }}
-        flexWrap={{
-          base: 'nowrap',
-        }}
+        flexWrap="nowrap"
         as={List}
       >
         {LINKS.map((link) => (
