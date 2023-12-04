@@ -1,26 +1,47 @@
-import { Next, Previous } from "@assets/icons";
-import { Flex, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
-import { Button } from "@components/index";
-import { formatNumberButton, formatPagination } from "@utils/helpers";
-import { memo, useEffect, useState } from "react"
+import { memo, useEffect, useState } from 'react';
+
+// Components
+import {
+  Flex,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+  theme,
+} from '@chakra-ui/react';
+import { Button } from '@components/index';
+
+// Assets
+import { Arrow } from '@assets/icons';
+
+// Constants
+import { PAGINATION } from '@constants/pagination';
+
+// Interfaces
+import { PaginationType } from '@interfaces/pagination';
+
+// Utils
+import { formatNumberButton, formatPagination } from '@utils/helpers';
 
 interface PaginationProps {
-  className?: string;
   totalCount?: number;
   pageSize?: number;
   onPageChange?: (offset: number) => void;
 }
 
 const PaginationComponent = ({
-  className = '',
   totalCount = 0,
   pageSize = 8,
-  onPageChange = () => { }
+  onPageChange = () => {},
 }: PaginationProps) => {
-  const [data, setData] = useState({
+  const colorFill = theme.colors.gray[400];
+
+  const [data, setData] = useState<PaginationType>({
     currentPage: 1,
-    arrOfCurrButtons: []
+    arrOfCurrButtons: [],
   });
+
   const { currentPage, arrOfCurrButtons } = data;
   const numberOfPage = Math.ceil(totalCount / pageSize);
 
@@ -33,12 +54,12 @@ const PaginationComponent = ({
       totalCount,
       pageSize,
       currentPage,
-      arrOfCurrButtons
+      arrOfCurrButtons,
     });
 
     setData({
       ...data,
-      arrOfCurrButtons: tempNumberOfButtons
+      arrOfCurrButtons: tempNumberOfButtons,
     });
   }, [currentPage, pageSize, numberOfPage]);
 
@@ -48,7 +69,7 @@ const PaginationComponent = ({
     } else {
       setData({
         ...data,
-        currentPage: currentPage - 1
+        currentPage: currentPage - 1,
       });
       onPageChange(currentPage - 1);
     }
@@ -60,7 +81,7 @@ const PaginationComponent = ({
     } else {
       setData({
         ...data,
-        currentPage: currentPage + 1
+        currentPage: currentPage + 1,
       });
       onPageChange(currentPage + 1);
     }
@@ -70,60 +91,106 @@ const PaginationComponent = ({
     onPageChange(value);
     setData({
       ...data,
-      currentPage: value
+      currentPage: value,
     });
   };
 
   return (
-    <Flex w='100%' justifyContent='space-between'>
-      <Flex alignItems='center'>
-        <Text w='100px'>Show result:</Text>
-          <Menu>
-            <MenuButton color='gray.800' borderWidth={1} borderColor='gray.200' borderRadius='12px' bg='transparent' py='14px' px='10px' w='70px' as={Button} rightIcon={<Previous />}>
-              3
-            </MenuButton>
-            <MenuList>
-              <MenuItem minH='48px'>
-                <Text>5</Text>
-              </MenuItem>
-              <MenuItem minH='48px'>
-                <Text>10</Text>
-              </MenuItem>
-              <MenuItem minH='48px'>
-                <Text>50</Text>
-              </MenuItem>
-            </MenuList>
-          </Menu>
+    <Flex w="100%" justifyContent="space-between">
+      <Flex alignItems="center" position="relative">
+        <Text
+          w="100px"
+          fontSize="sm"
+          fontWeight="semibold"
+          color="text.primary"
+        >
+          Show result:
+        </Text>
+        <Menu>
+          {({ isOpen }) => (
+            <>
+              <MenuButton
+                as={Button}
+                color="text.primary"
+                border="1px"
+                borderColor="border.quaternary"
+                borderRadius="xl"
+                bg="none"
+                py={3.5}
+                px={2.5}
+                w="70px"
+                _hover={{
+                  bg: 'transparent',
+                  borderColor: 'border.quaternary',
+                }}
+                _active={{
+                  bg: 'none',
+                }}
+                isActive={isOpen}
+                rightIcon={<Arrow color={colorFill} />}
+              >
+                10
+              </MenuButton>
+              <MenuList
+                position="absolute"
+                top={12}
+                left={24.5}
+                mt={{ md: 4 }}
+                p={0}
+                border="none"
+                minWidth="70px"
+                bg="background.component.primary"
+              >
+                {PAGINATION.map((result) => (
+                  <MenuItem
+                    key={result.id}
+                    bg="transparent"
+                    _hover={{
+                      bg: 'background.component.tertiary',
+                      borderColor: 'transparent',
+                    }}
+                  >
+                    <Text>{result.value}</Text>
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </>
+          )}
+        </Menu>
       </Flex>
-      <Flex w='305px' justifyContent='space-between'>
+      <Flex w="358px" justifyContent="space-between">
         <Button
-          bg='transparent'
-          w="fit-content"
-          _hover={{
-            bg: 'transparent'
-          }}
+          variant="iconSecondary"
           cursor={isDisabledPrev ? 'not-allowed' : ''}
           disabled={isDisabledPrev}
-          onClick={handlePrevPage}>
-          <Previous />
+          onClick={handlePrevPage}
+        >
+          <Arrow color={colorFill} rotate="90deg" />
         </Button>
         <Flex>
-          {arrOfCurrButtons.map((item: number, index: number) => {
+          {arrOfCurrButtons.map((item: string | number) => {
             const isDots = item.toString() === '...';
-            const itemKey = `page-${index}`;
+            const hoverStyle = isDots
+              ? {}
+              : {
+                  color: 'primary.500',
+                  bg: 'background.body.quinary',
+                };
             return (
               <Button
-                disabled={isDots}
-                key={itemKey}
-                w='53px'
-                bg={currentPage === item ? 'primary.400' : 'transparent'}
-                color={currentPage === item ? 'primary.500' : 'gray.400'}
+                key={item}
+                isDisabled={isDots}
+                w="53px"
+                mx={0.5}
+                bg={
+                  currentPage === item
+                    ? 'background.body.quinary'
+                    : 'transparent'
+                }
+                color={currentPage === item ? 'text.tertiary' : 'gray.400'}
                 cursor={isDots ? 'not-allowed' : ''}
-                _hover={{
-                  color: 'primary.500',
-                  bg: 'primary.400'
-                }}
-                onClick={() => handlePageClick(item)}
+                _hover={hoverStyle}
+                onClick={() => handlePageClick(item as number)}
               >
                 {item}
               </Button>
@@ -131,20 +198,17 @@ const PaginationComponent = ({
           })}
         </Flex>
         <Button
-          bg='transparent'
-          w="fit-content"
-          _hover={{
-            bg: 'transparent'
-          }}
+          variant="iconSecondary"
           cursor={isDisableNext ? 'not-allowed' : ''}
           disabled={isDisableNext}
-          onClick={handleNextPage}>
-          <Next />
+          onClick={handleNextPage}
+        >
+          <Arrow color={colorFill} rotate="-90deg" />
         </Button>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 const Pagination = memo(PaginationComponent);
 export default Pagination;

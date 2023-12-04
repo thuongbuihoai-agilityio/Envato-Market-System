@@ -66,6 +66,15 @@ export const Button = defineStyleConfig({
         borderColor: 'primary.700',
       },
     },
+    iconSecondary: {
+      bg: 'transparent',
+      w: 'fit-content',
+      border: 'none',
+      _hover: {
+        bg: 'transparent',
+        borderColor: 'none',
+      },
+    },
   },
   defaultProps: {
     size: 'xl',

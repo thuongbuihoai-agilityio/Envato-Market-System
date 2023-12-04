@@ -11,6 +11,7 @@ export const space: ThemeOverride['space'] = {
   13: '52px',
   13.75: '55px',
   19: '76px',
+  24.5: '98px',
   39: '156px',
   50: '200px',
 };

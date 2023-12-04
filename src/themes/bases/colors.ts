@@ -50,6 +50,10 @@ export const colors: ThemeOverride['colors'] = {
         default: '#FFF',
         _dark: '#1D1E24',
       },
+      quinary: {
+        default: 'primary.400',
+        _dark: '#23262B',
+      },
     },
     section: {
       primary: {
@@ -101,10 +105,13 @@ export const colors: ThemeOverride['colors'] = {
       default: '#F7F7F7',
       _dark: '#2A313C',
     },
-
     tertiary: {
       default: '#E2E8F0',
       _dark: '#2A313C',
+    },
+    quaternary: {
+      default: '#E2E8F0',
+      _dark: '#18313C',
     },
   },
 
@@ -115,6 +122,10 @@ export const colors: ThemeOverride['colors'] = {
     },
     secondary: {
       default: '#718096',
+      _dark: '#FAFAFA',
+    },
+    tertiary: {
+      default: 'primary.500',
       _dark: '#FAFAFA',
     },
   },
