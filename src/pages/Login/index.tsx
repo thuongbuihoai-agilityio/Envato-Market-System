@@ -106,15 +106,12 @@ const LoginPage = (): JSX.Element => {
           render={({ field, fieldState: { error } }) => (
             <InputField
               variant="authentication"
-              placeholder="Email"
-              {...field}
+              placeholder="Username or email"
               isError={!!error?.message}
               errorMessages={error?.message}
-              onChange={(data) => {
-                clearErrors('username');
-                field.onChange(data);
-                clearErrors('root');
-              }}
+              isDisabled={isSubmit}
+              {...field}
+              onBlur={() => clearErrors('root')}
             />
           )}
         />
@@ -130,11 +127,9 @@ const LoginPage = (): JSX.Element => {
               rightIcon={renderPasswordIcon}
               isError={!!error?.message}
               errorMessages={error?.message}
-              onChange={(data) => {
-                clearErrors('password');
-                field.onChange(data);
-                clearErrors('root');
-              }}
+              isDisabled={isSubmit}
+              {...field}
+              onBlur={() => clearErrors('root')}
             />
           )}
         />

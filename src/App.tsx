@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 
 // Routes
-import { ROUTER } from './routes';
+import { ROUTER } from './routes/index';
 
 // Providers
 import { ChakraProvider, QueryProvider } from '@providers/index';

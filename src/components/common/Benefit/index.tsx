@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 // Constants
@@ -10,10 +11,15 @@ interface BenefitProps {
   description?: string;
 }
 
-const Benefit = ({ imageURL, alt, heading, description }: BenefitProps) => (
+const BenefitComponent = ({
+  imageURL,
+  alt,
+  heading,
+  description,
+}: BenefitProps) => (
   <Flex
     w="50%"
-    p="80px"
+    p={20}
     minH="100vh"
     alignItems="center"
     position="relative"
@@ -66,5 +72,7 @@ const Benefit = ({ imageURL, alt, heading, description }: BenefitProps) => (
     </Box>
   </Flex>
 );
+
+const Benefit = memo(BenefitComponent);
 
 export default Benefit;

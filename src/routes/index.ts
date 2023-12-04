@@ -5,6 +5,9 @@ import { createBrowserRouter } from 'react-router-dom';
 // Layouts
 import { MainLayout } from '@layouts/index';
 
+// HOCs
+import withLazy from '@hocs/withLazy';
+
 // Pages
 const Dashboard = lazy(() => import('@pages/Home'));
 const History = lazy(() => import('@pages/History'));
@@ -58,10 +61,10 @@ export const ROUTER = createBrowserRouter([
   },
   {
     path: `/${ROUTES.LOGIN}`,
-    Component: Login,
+    Component: withLazy(Login),
   },
   {
     path: `/${ROUTES.REGISTER}`,
-    Component: Register,
+    Component: withLazy(Register),
   },
 ]);
