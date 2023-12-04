@@ -14,3 +14,4 @@ export { default as Sidebar } from './Sidebar';
 export { default as Navigation } from './common/Navigation';
 export { default as Header } from './common/Header';
 export { default as Select } from './common/Select';
+export { default as Pagination } from './common/Pagination';
