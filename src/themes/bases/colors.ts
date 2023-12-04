@@ -71,6 +71,24 @@ export const colors: ThemeOverride['colors'] = {
         default: 'gray.50',
         _dark: 'secondary.600',
       },
+      select: {
+        primary: {
+          default: '#F7FAFC',
+          _dark: '#23262B',
+        },
+        secondary: {
+          default: '#FFF',
+          _dark: '#1d1e25',
+        },
+        noBackground: {
+          default: '#FFF',
+          _dark: '#1d1e25',
+        },
+      },
+      selectList: {
+        default: '#FFF',
+        _dark: '#23262B',
+      },
     },
   },
 
