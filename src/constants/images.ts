@@ -52,8 +52,12 @@ export const IMAGES = {
     url: '/icons/left-arrow.svg',
     alt: 'This is the left arrow image',
   },
-  LOGO_MINI: {
-    url: '/icons/logo-mini.svg',
+  LOGO_MINI_LIGHT: {
+    url: '/icons/logo-mini-light.svg',
+    alt: 'This is the logo mini image',
+  },
+  LOGO_MINI_DARK: {
+    url: '/icons/logo-mini-dark.svg',
     alt: 'This is the logo mini image',
   },
   DASHBOARD: {
