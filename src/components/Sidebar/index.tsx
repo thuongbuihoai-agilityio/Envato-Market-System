@@ -17,9 +17,8 @@ import {
   HELP_ITEM_LIST,
   MENU_ITEM_LIST,
   OTHER_ITEM_LIST,
+  SIDEBAR,
 } from '@constants/index';
-
-import {} from '@constants/sidebar';
 
 // components
 import { Logo, Menu } from '..';
@@ -34,7 +33,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
   <>
     {/* Expand Sidebar */}
     <Drawer
-      placement={'left'}
+      placement="left"
       onClose={onClose}
       isOpen={!isOpen}
       closeOnOverlayClick={false}
@@ -50,33 +49,30 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
       <DrawerOverlay />
 
       <DrawerContent
-        maxW={'308px'}
+        maxW={SIDEBAR.EXPAND_SIDEBAR_WIDTH}
         display={{
           base: 'block',
-          sm: 'block',
           md: 'none',
           lg: 'block',
-          xl: 'block',
-          '2xl': 'block',
         }}
-        bg={'background.component.primary'}
+        bg="background.component.primary"
       >
         <DrawerHeader
-          display={'flex'}
-          alignItems={'center'}
-          h={'108px'}
-          borderRightColor={'border.secondary'}
-          borderRightWidth={'1px'}
-          borderBottomColor={'border.secondary'}
-          borderBottomWidth={'1px'}
+          display="flex"
+          alignItems="center"
+          h="108px"
+          borderRightColor="border.secondary"
+          borderRightWidth="1px"
+          borderBottomColor="border.secondary"
+          borderBottomWidth="1px"
         >
           <Logo />
 
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
-            position={'absolute'}
-            top={'auto'}
+            position="absolute"
+            top="auto"
             right={0}
             onClick={onOpen}
           />
@@ -85,10 +81,10 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
         <DrawerBody
           pt={3.5}
           pl={12}
-          pb={'200px'}
+          pb={50}
           pr={0}
-          w={'100%'}
-          h={'100%'}
+          w="full"
+          h="full"
           sx={{
             '&::-webkit-scrollbar': {
               display: 'none',
@@ -98,7 +94,7 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             },
           }}
         >
-          <VStack pr={'50px'} mb={9}>
+          <VStack pr={12.5} mb={9}>
             <Menu title="Menu" listItem={MENU_ITEM_LIST} />
 
             <Menu title="Help" listItem={HELP_ITEM_LIST} />
@@ -111,43 +107,57 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
 
     {/* Mini SideBar */}
     <Drawer
-      placement={'left'}
+      placement="left"
       onClose={onClose}
       isOpen={isOpen}
       closeOnOverlayClick={false}
-      variant={'clickThrough'}
+      variant="clickThrough"
     >
       <DrawerContent
-        maxW={'96px'}
+        maxW={SIDEBAR.MINI_SIDEBAR_WIDTH}
         display={{
           base: 'none',
-          sm: 'none',
           md: 'block',
           lg: 'block',
-          xl: 'block',
-          '2xl': 'block',
         }}
-        overscrollX={'none'}
-        bg={'background.component.primary'}
+        overscrollX="none"
+        bg="background.component.primary"
       >
         <DrawerHeader
-          display={'flex'}
-          alignItems={'center'}
-          justifyContent={'center'}
-          h={'108px'}
-          borderRightColor={'border.secondary'}
-          borderRightWidth={'1px'}
-          borderBottomColor={'border.secondary'}
-          borderBottomWidth={'1px'}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          h="108px"
+          borderRightColor="border.secondary"
+          borderRightWidth="1px"
+          borderBottomColor="border.secondary"
+          borderBottomWidth="1px"
         >
-          <Image src={IMAGES.LOGO_MINI.url} alt={IMAGES.LOGO_MINI.alt} />
+          {/* Mini Logo in Light Mode */}
+          <Image
+            src={IMAGES.LOGO_MINI_LIGHT.url}
+            alt={IMAGES.LOGO_MINI_LIGHT.alt}
+            _dark={{
+              display: 'none',
+            }}
+          />
+          {/* Mini Logo in Dark Mode */}
+          <Image
+            src={IMAGES.LOGO_MINI_DARK.url}
+            alt={IMAGES.LOGO_MINI_DARK.alt}
+            _light={{
+              display: 'none',
+            }}
+          />
+
+          {/* Open Button of Sidebar in Mobile */}
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
-            position={'absolute'}
-            top={'auto'}
-            transform={'rotate(180deg)'}
-            right={'-16px'}
+            position="absolute"
+            top="auto"
+            transform="rotate(180deg)"
+            right={-4}
             onClick={onClose}
             display={{
               base: 'none',
@@ -160,10 +170,10 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
           />
         </DrawerHeader>
         <DrawerBody
-          w={'100%'}
+          w="full"
           pt={3.5}
-          pb={'200px'}
-          h={'100%'}
+          pb={50}
+          h="full"
           sx={{
             '&::-webkit-scrollbar': {
               display: 'none',
@@ -172,8 +182,8 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
               display: 'none',
             },
           }}
-          display={'flex'}
-          justifyContent={'center'}
+          display="flex"
+          justifyContent="center"
         >
           <VStack>
             <List>
@@ -185,12 +195,12 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
             </List>
 
             <Flex
-              justifyContent={'center'}
-              alignItems={'center'}
-              borderRadius={'full'}
-              border={'1px solid white'}
+              justifyContent="center"
+              alignItems="center"
+              borderRadius="full"
+              border="1px solid white"
               boxSize={10}
-              bg={'primary.500'}
+              bg="primary.500"
             >
               <Image src={IMAGES.MONEY_BAG.url} alt={IMAGES.MONEY_BAG.alt} />
             </Flex>

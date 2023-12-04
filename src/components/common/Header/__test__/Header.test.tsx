@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 
 // component
-import Header from '..';
+import Header from '../';
 
 describe('Header render', () => {
   const renderComponent = ({ name }: { name?: string }) =>
