@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Match to snapshot 1`] = `
+<div>
+  <div
+    class="chakra-table__container css-zipzvv"
+  >
+    <table
+      class="chakra-table css-0"
+    >
+      <thead
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        >
+          <th
+            class="css-1agp9xn"
+          >
+            Customer name
+          </th>
+          <th
+            class="css-1agp9xn"
+          >
+            Email
+          </th>
+          <th
+            class="css-1agp9xn"
+          >
+            Location
+          </th>
+          <th
+            class="css-1agp9xn"
+          >
+            Spent
+          </th>
+          <th
+            class="css-1agp9xn"
+          />
+        </tr>
+      </thead>
+      <tbody
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-2cnysg"
+          >
+            Devon Lane
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            devon@mail.com
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            Philadelphia, USA
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            $101.00
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            <button>
+              action
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-2cnysg"
+          >
+            Devon Lane
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            devon@mail.com
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            Philadelphia, USA
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            $101.00
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            <button>
+              action
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-2cnysg"
+          >
+            Devon Lane
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            devon@mail.com
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            Philadelphia, USA
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            $101.00
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            <button>
+              action
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-2cnysg"
+          >
+            Devon Lane
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            devon@mail.com
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            Philadelphia, USA
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            $101.00
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            <button>
+              action
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-2cnysg"
+          >
+            Devon Lane
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            devon@mail.com
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            Philadelphia, USA
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            $101.00
+          </td>
+          <td
+            class="css-2cnysg"
+          >
+            <button>
+              action
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

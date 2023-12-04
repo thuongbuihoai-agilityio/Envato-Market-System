@@ -17,3 +17,4 @@ export * from './Rotate';
 export * from './Search';
 export * from './Sort';
 export * from './Account';
+export * from './Dot';
