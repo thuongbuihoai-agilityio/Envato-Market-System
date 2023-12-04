@@ -1,16 +1,8 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 
 // Components
-import {
-  Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-  theme,
-} from '@chakra-ui/react';
-import { Button } from '@components/index';
+import { Box, Flex, Text, theme } from '@chakra-ui/react';
+import { Button, Select } from '@components/index';
 
 // Assets
 import { Arrow } from '@assets/icons';
@@ -19,6 +11,7 @@ import { Arrow } from '@assets/icons';
 import { PAGE_SIZE, PAGINATION } from '@constants/pagination';
 
 // Interfaces
+import { TOption } from '../Select';
 import { PaginationType } from '@interfaces/pagination';
 
 // Utils
@@ -63,100 +56,63 @@ const PaginationComponent = ({
     });
   }, [currentPage, pageSize, numberOfPage]);
 
-  const handlePrevPage = () => {
+  const handlePrevPage = useCallback(() => {
     if (currentPage === 1) {
       onPageChange(currentPage);
-    } else {
-      setData({
-        ...data,
-        currentPage: currentPage - 1,
-      });
-      onPageChange(currentPage - 1);
+      return;
     }
-  };
 
-  const handleNextPage = () => {
+    setData({
+      ...data,
+      currentPage: currentPage - 1,
+    });
+    onPageChange(currentPage - 1);
+  }, []);
+
+  const handleNextPage = useCallback(() => {
     if (currentPage === formatNumberButton(numberOfPage).length) {
       onPageChange(currentPage);
-    } else {
-      setData({
-        ...data,
-        currentPage: currentPage + 1,
-      });
-      onPageChange(currentPage + 1);
+      return;
     }
-  };
 
-  const handlePageClick = (value: number) => {
+    setData({
+      ...data,
+      currentPage: currentPage + 1,
+    });
+    onPageChange(currentPage + 1);
+  }, []);
+
+  const handlePageClick = useCallback((value: number) => {
     onPageChange(value);
     setData({
       ...data,
       currentPage: value,
     });
-  };
+  }, []);
+
+  const renderTitle = useCallback(
+    ({ label }: TOption) => (
+      <Flex justifyContent="space-between">
+        <Text>{label}</Text>
+        <Arrow color={colorFill} width={17} height={17} />
+      </Flex>
+    ),
+    [colorFill],
+  );
 
   return (
     <Flex w="100%" justifyContent="space-between">
       <Flex alignItems="center" position="relative">
-        <Text
-          w="100px"
-          fontSize="sm"
-          fontWeight="semibold"
-          color="text.primary"
-        >
+        <Text w={100} fontSize="sm" fontWeight="semibold" color="text.primary">
           Show result:
         </Text>
-        <Menu>
-          {({ isOpen }) => (
-            <>
-              <MenuButton
-                as={Button}
-                color="text.primary"
-                border="1px"
-                borderColor="border.quaternary"
-                borderRadius="xl"
-                bg="none"
-                py={3.5}
-                px={2.5}
-                w="70px"
-                _hover={{
-                  bg: 'transparent',
-                  borderColor: 'border.quaternary',
-                }}
-                _active={{
-                  bg: 'none',
-                }}
-                isActive={isOpen}
-                rightIcon={<Arrow color={colorFill} />}
-              >
-                10
-              </MenuButton>
-              <MenuList
-                position="absolute"
-                top={12}
-                left={24.5}
-                mt={{ md: 4 }}
-                p={0}
-                border="none"
-                minWidth="70px"
-                bg="background.component.primary"
-              >
-                {PAGINATION.map((result) => (
-                  <MenuItem
-                    key={result.id}
-                    bg="transparent"
-                    _hover={{
-                      bg: 'background.component.tertiary',
-                      borderColor: 'transparent',
-                    }}
-                  >
-                    <Text>{result.value}</Text>
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </>
-          )}
-        </Menu>
+        <Box w={70}>
+          <Select
+            variant="secondary"
+            options={PAGINATION}
+            renderTitle={renderTitle}
+          />
+        </Box>
       </Flex>
       <Flex w="358px" justifyContent="space-between">
         <Button
