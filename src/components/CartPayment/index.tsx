@@ -101,6 +101,10 @@ const CartPaymentComponent = (): JSX.Element => (
               border: 'none',
             }}
             sx={{ border: 'none', padding: 0 }}
+            color="text.primary"
+            fontWeight="bold"
+            fontSize="2xl"
+            ml={2}
           />
 
           <Image

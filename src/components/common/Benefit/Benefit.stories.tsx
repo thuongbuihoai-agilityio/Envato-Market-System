@@ -27,7 +27,7 @@ const meta: Meta<typeof Benefit> = {
 export default meta;
 type Story = StoryObj<typeof Benefit>;
 
-export const WhiteLogo: Story = {
+export const Default: Story = {
   args: {
     imageURL: IMAGES.SIGN_IN.url,
     alt: IMAGES.SIGN_IN.alt,

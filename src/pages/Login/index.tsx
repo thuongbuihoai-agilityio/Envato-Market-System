@@ -181,12 +181,13 @@ const LoginPage = (): JSX.Element => {
       </Box>
 
       <Text fontWeight="medium" textAlign="center">
-        Don&apos;t have an account?{' '}
+        Don&apos;t have an account?
         <Text
           as={Link}
           to={`/${ROUTES.REGISTER}`}
           fontWeight="semibold"
           textDecoration="underline"
+          ml={2}
         >
           Sign Up
         </Text>
