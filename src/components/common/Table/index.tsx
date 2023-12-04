@@ -13,7 +13,7 @@ import {
 // Constants
 import { ERROR_MESSAGES } from '@constants/index';
 
-type TDataSource = {
+export type TDataSource = {
   id: string | number;
   [key: string]: string | number | boolean;
 };
@@ -35,7 +35,7 @@ const TableComponent = ({
   dataSource = [],
 }: TTableProps): JSX.Element => (
   <TableContainer>
-    <TableChakra variant="simple">
+    <TableChakra>
       <Thead>
         <Tr>
           {columns &&
@@ -49,6 +49,8 @@ const TableComponent = ({
                   textTransform="none"
                   fontSize="sm"
                   py={5}
+                  px={0}
+                  textAlign="left"
                 >
                   {title}
                 </Th>
@@ -76,19 +78,23 @@ const TableComponent = ({
           dataSource.map((data) => (
             <Tr key={data.id}>
               {columns &&
-                columns.map((column) => (
-                  <Td
-                    key={column.key}
-                    py={5}
-                    fontSize="md"
-                    color="text.primary"
-                    fontWeight="semibold"
-                  >
-                    {column.renderBody
-                      ? column.renderBody(data)
-                      : data[column.key as keyof typeof data]}
-                  </Td>
-                ))}
+                columns.map((column) =>
+                  column.renderBody ? (
+                    column.renderBody(data)
+                  ) : (
+                    <Td
+                      key={column.key}
+                      py={5}
+                      px={0}
+                      fontSize="md"
+                      color="text.primary"
+                      fontWeight="semibold"
+                      textAlign="left"
+                    >
+                      {data[column.key as keyof typeof data]}
+                    </Td>
+                  ),
+                )}
             </Tr>
           ))
         )}
