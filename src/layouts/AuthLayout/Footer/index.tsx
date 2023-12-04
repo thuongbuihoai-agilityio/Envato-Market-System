@@ -14,12 +14,14 @@ const Footer = () => {
       <Flex
         justifyContent="center"
         fontSize="sm"
-        columnGap={7}
+        columnGap={{
+          base: 0,
+          md: 11,
+        }}
         _dark={{ color: 'secondary.100' }}
         _light={{ color: 'gray.600' }}
         flexWrap={{
-          base: 'wrap',
-          md: 'nowrap',
+          base: 'nowrap',
         }}
         as={List}
       >
