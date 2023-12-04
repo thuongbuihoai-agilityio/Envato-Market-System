@@ -12,9 +12,9 @@ import {
 import { useAuth } from '@hooks/useAuth';
 
 // Constants
-import { IMAGES, ROUTES } from '@constants/index';
+import { IMAGES, ROUTES, SIDEBAR } from '@constants/index';
 
-import { Lazy } from '@components/index';
+import { Header, Lazy } from '@components/index';
 
 // Types
 import { TUser } from '@interfaces/user';
@@ -30,6 +30,7 @@ const MainLayout = () => {
     '(min-width: 768px) and (max-width: 1023px)',
   );
 
+  // Open mini sidebar on tablet
   useEffect(() => {
     if (isTablet) {
       onOpen();
@@ -39,30 +40,39 @@ const MainLayout = () => {
   if (!user) return <Navigate to={ROUTES.LOGIN} />;
 
   return (
-    <Flex w={'100%'} h={'100%'}>
+    <Flex w="full" h="full">
       <Lazy>
-        <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
         <Box
           ml={{
             base: 0,
-            md: !isOpen ? 0 : '96px',
-            lg: !isOpen ? '308px' : '96px',
-            xl: !isOpen ? '308px' : '96px',
-            '2xl': !isOpen ? '308px' : '96px',
+            md: !isOpen ? 0 : SIDEBAR.MINI_SIDEBAR_WIDTH,
+            lg: !isOpen
+              ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
+              : SIDEBAR.MINI_SIDEBAR_WIDTH,
+            xl: !isOpen
+              ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
+              : SIDEBAR.MINI_SIDEBAR_WIDTH,
+            '2xl': !isOpen
+              ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
+              : SIDEBAR.MINI_SIDEBAR_WIDTH,
           }}
-          w={'full'}
+          w="full"
           sx={{
             transition: 'all .25s ease-in-out',
           }}
-          h={'100vh'}
+          overflow="hidden"
         >
+          <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+
+          <Header name="Dashboard" />
+
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
-            position={'absolute'}
-            top={'32px'}
-            transform={'rotate(180deg)'}
-            left={'0'}
+            position="absolute"
+            top={8}
+            transform="rotate(180deg)"
+            left="0"
             onClick={onClose}
           />
           <Outlet />

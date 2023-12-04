@@ -1,17 +1,10 @@
-// import { Flex, Image, Text } from '@chakra-ui/react';
-
-// constant
-// import { IMAGES } from '.';
-
 // icons
 import {
   DashboardIcon,
   HistoryIcon,
-  InboxIcon,
   MyWalletIcon,
   SettingIcon,
   SignOutIcon,
-  StatisticIcon,
   TransactionIcon,
   UserIcon,
 } from '@assets/icons';
@@ -31,59 +24,19 @@ export const MENU_ITEM_LIST = [
   },
   {
     id: 3,
-    leftIcon: StatisticIcon,
-    menuItemContent: 'Statistics',
-    destination: '/',
-  },
-  {
-    id: 5,
     leftIcon: MyWalletIcon,
     menuItemContent: 'My Wallet',
     destination: '/my-wallet',
   },
   {
-    id: 6,
-    leftIcon: InboxIcon,
-    // rightIcon: (
-    //   <Flex alignItems={'center'} gap={2.5} maxH={5}>
-    //     <Image src={IMAGES.NOTE.url} alt={IMAGES.NOTE.alt} />
-    //     <Image
-    //       src={IMAGES.INBOX_AVATAR.url}
-    //       alt={IMAGES.INBOX_AVATAR.url}
-    //       boxSize={5}
-    //       borderRadius={'full'}
-    //     />
-    //     <Flex
-    //       justifyContent={'center'}
-    //       alignItems={'center'}
-    //       boxSize={5}
-    //       borderRadius={'full'}
-    //       bg={'primary.500'}
-    //     >
-    //       <Text
-    //         as={'span'}
-    //         color={'white'}
-    //         fontWeight={'semibold'}
-    //         fontSize={'10px'}
-    //       >
-    //         5
-    //       </Text>
-    //     </Flex>
-    //   </Flex>
-    // ),
-    menuItemContent: 'Inbox',
-    destination: '/',
-  },
-
-  {
-    id: 8,
+    id: 4,
     leftIcon: UserIcon,
     menuItemContent: 'User',
     destination: '/user',
   },
 
   {
-    id: 10,
+    id: 5,
     leftIcon: HistoryIcon,
     menuItemContent: 'History',
     destination: '/history',
@@ -92,7 +45,7 @@ export const MENU_ITEM_LIST = [
 
 export const HELP_ITEM_LIST = [
   {
-    id: 12,
+    id: 6,
     leftIcon: SettingIcon,
     menuItemContent: 'Setting',
     destination: '/setting',
@@ -101,9 +54,14 @@ export const HELP_ITEM_LIST = [
 
 export const OTHER_ITEM_LIST = [
   {
-    id: 17,
+    id: 7,
     leftIcon: SignOutIcon,
     menuItemContent: 'Sign Out',
     destination: '/',
   },
 ];
+
+export const SIDEBAR = {
+  MINI_SIDEBAR_WIDTH: '96px',
+  EXPAND_SIDEBAR_WIDTH: '308px',
+};
