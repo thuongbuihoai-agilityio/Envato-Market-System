@@ -89,3 +89,12 @@ export const Outline: Story = {
     children: 'Outline Button',
   },
 };
+
+export const Disable: Story = {
+  args: {
+    size: 'lg',
+    variant: 'outline',
+    children: 'Outline Button',
+    isDisabled: true,
+  },
+};
