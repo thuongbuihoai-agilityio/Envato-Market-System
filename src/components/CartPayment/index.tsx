@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import CARD_PAYMENT from 'src/assets/images/card-payment.svg';
 import { ChevronIcon } from '@assets/images/ChevronIcon';
 
 // Constants
@@ -30,7 +29,7 @@ const CartPaymentComponent = (): JSX.Element => (
       my wallet
     </Heading>
 
-    <Image src={CARD_PAYMENT} alt="Payment Card" />
+    <Image src={IMAGES.CARD_PAYMENT.url} alt={IMAGES.CARD_PAYMENT.alt} />
 
     <Box mt={4}>
       <Text
