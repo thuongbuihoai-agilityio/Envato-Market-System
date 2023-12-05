@@ -19,10 +19,3 @@ type Story = StoryObj<typeof OverallBalance>;
 export const Default: Story = {
   args: OVERALL_BALANCE_MOCK,
 };
-
-export const Loading: Story = {
-  args: {
-    ...OVERALL_BALANCE_MOCK,
-    isLoading: true,
-  },
-};

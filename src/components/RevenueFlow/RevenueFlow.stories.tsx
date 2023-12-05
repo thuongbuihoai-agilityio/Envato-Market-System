@@ -21,10 +21,3 @@ export const Default: Story = {
     data: REVENUE_FLOW_MOCK,
   },
 };
-
-export const Loading: Story = {
-  args: {
-    data: REVENUE_FLOW_MOCK,
-    isLoading: true,
-  },
-};
