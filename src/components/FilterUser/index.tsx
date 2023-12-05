@@ -25,23 +25,32 @@ import { Search } from '@assets/icons';
 import { colors } from '@themes/bases/colors';
 
 // Mocks
-import { USERS, MONTHS } from '@mocks/index';
+import { MONTHS } from '@mocks/index';
 
 // Constants
 import { PAGE_SIZE } from '@constants/pagination';
 
-// TODO: Will update props later
-// type TFilterUserProps = {
-//   page?: number;
-//   tableSize?: number;
-//   onSelect?: (value: string) => void;
-//   onSearch?: (value: string) => void;
-//   onSort?: (sort: { type: string; desc: string }) => void;
-//   onChangePage?: (currentPage: number) => void;
-//   onChangeTableSize?: (currentSize: number) => void;
-// };
+// Types
+import { TTransaction } from '@interfaces/transaction';
 
-const FilterComponent = (): JSX.Element => {
+// Utils
+import { getTransactionHomePage } from '@utils/transaction';
+
+// TODO: Will update props later
+type TFilterUserProps = {
+  transactions?: TTransaction[];
+  // page?: number;
+  // tableSize?: number;
+  // onSelect?: (value: string) => void;
+  // onSearch?: (value: string) => void;
+  // onSort?: (sort: { type: string; desc: string }) => void;
+  // onChangePage?: (currentPage: number) => void;
+  // onChangeTableSize?: (currentSize: number) => void;
+};
+
+const FilterComponent = ({
+  transactions = [],
+}: TFilterUserProps): JSX.Element => {
   const { control, handleSubmit } = useForm<{
     search: string;
     select: string;
@@ -110,25 +119,13 @@ const FilterComponent = (): JSX.Element => {
     [renderActionIcon, renderHead, renderNameUser],
   );
 
-  const dataSource = useMemo(
-    () =>
-      USERS.map((user) => ({
-        ...user,
-        action: '',
-      })),
-    [],
-  );
-
   return (
     <Box
       as="section"
-      bgColor="white"
-      minH={300}
-      maxW={1897}
+      bgColor="background.component.primary"
       borderRadius={8}
       px={6}
       py={5}
-      m="120px auto"
     >
       {/* Filter bar */}
       <HStack
@@ -185,7 +182,10 @@ const FilterComponent = (): JSX.Element => {
 
       {/* Table users */}
       <Box mt={5}>
-        <Table columns={columns} dataSource={dataSource} />
+        <Table
+          columns={columns}
+          dataSource={getTransactionHomePage(transactions)}
+        />
       </Box>
 
       <Box mt={8}>
