@@ -92,9 +92,11 @@ const PaginationComponent = ({
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
-      <Flex justifyContent="space-between" alignItems="center">
+      <Flex w={20}>
         <Text fontSize={{ lg: 'sm' }}>{label}</Text>
-        <Arrow color={colorFill} width={20} height={15} />
+        <Box mt={-1} ml={2}>
+          <Arrow color={colorFill} width={18} height={15} />
+        </Box>
       </Flex>
     ),
     [colorFill],
