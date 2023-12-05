@@ -26,10 +26,3 @@ export const ExchangeRate: Story = {
     isExchangeRate: true,
   },
 };
-
-export const Loading: Story = {
-  args: {
-    ...EFFICIENCY_MOCK,
-    isLoading: true,
-  },
-};

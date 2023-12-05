@@ -21,10 +21,3 @@ export const Default: Story = {
     spendingStatistics: SPENDING_STATISTICS_MOCK,
   },
 };
-
-export const Loading: Story = {
-  args: {
-    spendingStatistics: SPENDING_STATISTICS_MOCK,
-    isLoading: true,
-  },
-};
