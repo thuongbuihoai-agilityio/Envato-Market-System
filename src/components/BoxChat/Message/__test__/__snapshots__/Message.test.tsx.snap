@@ -29,6 +29,7 @@ exports[`Message component renders correctly 1`] = `
     >
       <div
         class="css-0"
+        data-testid="image-container"
       >
         <img
           alt="Message Image"
@@ -47,7 +48,7 @@ exports[`Message component renders correctly 1`] = `
       <p
         class="chakra-text css-1n53wzr"
       >
-        9:04:16 AM
+        3:17:59 PM
       </p>
     </div>
   </div>

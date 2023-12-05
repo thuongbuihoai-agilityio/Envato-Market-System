@@ -19,7 +19,7 @@ export const EFFICIENCY_OPTIONS = [
     value: 'weekly',
   },
   {
-    label: 'monthly',
+    label: 'Monthly',
     value: 'monthly',
   },
   {

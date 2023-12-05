@@ -74,7 +74,7 @@ exports[`OverallBalance component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-19vtkro"
+        class="css-1wa77pn"
       >
         <button
           aria-controls="menu-list-:r1:"
@@ -88,7 +88,7 @@ exports[`OverallBalance component renders correctly 1`] = `
             class="css-xl71ch"
           >
             <div
-              class="css-k008qs"
+              class="css-70qvj9"
             >
               <p
                 class="chakra-text css-0"
@@ -97,11 +97,11 @@ exports[`OverallBalance component renders correctly 1`] = `
               </p>
               <svg
                 fill="none"
-                height="16"
+                height="24"
                 stroke="#1A202C"
                 style="transform: rotate(undefined);"
-                viewBox="0 0 16 16"
-                width="16"
+                viewBox="0 0 24 24"
+                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -132,7 +132,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r2:"
               role="menuitem"
               tabindex="-1"
-              type="button"
+              type="submit"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -146,12 +146,12 @@ exports[`OverallBalance component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r3:"
               role="menuitem"
               tabindex="-1"
-              type="button"
+              type="submit"
             >
               <p
                 class="chakra-text css-1198d6z"
               >
-                monthly
+                Monthly
               </p>
             </button>
             <button
@@ -160,7 +160,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r4:"
               role="menuitem"
               tabindex="-1"
-              type="button"
+              type="submit"
             >
               <p
                 class="chakra-text css-1198d6z"

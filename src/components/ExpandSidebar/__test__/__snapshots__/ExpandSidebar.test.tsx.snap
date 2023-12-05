@@ -6,10 +6,3 @@ exports[`ExpandSidebar test case should render correctly 1`] = `
   data-aria-hidden="true"
 />
 `;
-
-exports[`Menu test case should render correctly 1`] = `
-<div
-  aria-hidden="true"
-  data-aria-hidden="true"
-/>
-`;

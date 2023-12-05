@@ -38,7 +38,7 @@ const MainLayout = () => {
   if (!user) return <Navigate to={ROUTES.LOGIN} />;
 
   return (
-    <Flex w="full" h="full">
+    <Flex w="full" h="full" bg="background.body.primary">
       <Box
         ml={{
           base: 0,
