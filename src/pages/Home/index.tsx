@@ -28,17 +28,14 @@ const Dashboard = () => (
     <GridItem colSpan={3}>
       <TotalList spendingStatistics={SPENDING_STATISTICS_MOCK} />
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(3, 1fr)' }}
+        templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
         mt={6}
+        gap={6}
       >
-        <GridItem colSpan={2} mr={{ '2xl': 2 }}>
+        <GridItem colSpan={{ base: 3, xl: 2 }}>
           <RevenueFlow data={REVENUE_FLOW_MOCK} />
         </GridItem>
-        <GridItem
-          mt={{ base: 6, '2xl': 0 }}
-          ml={{ '2xl': 4 }}
-          display={{ base: 'none', xl: 'block' }}
-        >
+        <GridItem display={{ base: 'none', xl: 'block' }}>
           <Efficiency {...EFFICIENCY_MOCK} />
         </GridItem>
       </Grid>
