@@ -23,6 +23,7 @@ import {
   Input,
   Text,
 } from './components';
+import { breakpoints } from './bases/breakpoints';
 
 export const configThemes = {
   ...extendTheme({
@@ -37,6 +38,7 @@ export const configThemes = {
       colors,
       sizes,
     },
+    breakpoints,
     components: {
       Text,
       Button,
