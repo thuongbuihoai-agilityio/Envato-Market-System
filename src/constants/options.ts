@@ -19,11 +19,26 @@ export const EFFICIENCY_OPTIONS = [
     value: 'weekly',
   },
   {
-    label: 'monthly    ',
+    label: 'monthly',
     value: 'monthly',
   },
   {
     label: 'Yearly',
     value: 'yearly',
+  },
+];
+
+export const EXCHANGE_RATE_OPTIONS = [
+  {
+    label: 'USD',
+    value: 'usd',
+  },
+  {
+    label: 'EUR',
+    value: 'eur',
+  },
+  {
+    label: 'AUD',
+    value: 'AUD',
   },
 ];
