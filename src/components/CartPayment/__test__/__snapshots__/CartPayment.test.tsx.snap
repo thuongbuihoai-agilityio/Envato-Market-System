@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPayment component renders correctly 1`] = `
+<div>
+  <div
+    class="css-1rxgj76"
+  >
+    <h3
+      class="chakra-heading css-1vczax5"
+    >
+      my wallet
+    </h3>
+    <img
+      class="chakra-image css-0"
+      src="/images/card-payment.svg"
+    />
+    <div
+      class="css-1fhgjcy"
+    >
+      <p
+        class="chakra-text css-1vczax5"
+      >
+        quick transfer
+      </p>
+      <div
+        class="css-79elbk"
+      >
+        <div
+          class="chakra-select__wrapper css-1mrua7j"
+        >
+          <select
+            class="chakra-select css-1r8671w"
+          >
+            <option
+              color="text.primary"
+              value="debit"
+            >
+              Debit
+            </option>
+          </select>
+          <div
+            class="chakra-select__icon-wrapper css-1kp1ef3"
+          >
+            <svg
+              fill="none"
+              height="21"
+              style="transform: translateY(4px);"
+              viewBox="0 0 21 21"
+              width="21"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
+                stroke="#A0AEC0"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+        </div>
+        <img
+          alt="This is the logo debit card"
+          class="chakra-image css-1rw1l6f"
+          src="/icons/debit-icon.svg"
+        />
+        <p
+          class="chakra-text css-1lowlkl"
+        >
+          $ 10,431
+        </p>
+      </div>
+      <div
+        class="css-qusax6"
+      >
+        <p
+          class="chakra-text css-jz5bk3"
+        >
+           Enter amount 
+        </p>
+        <div
+          class="css-u4p24i"
+        >
+          <p
+            class="chakra-text css-vax188"
+          >
+            $
+          </p>
+          <input
+            class="chakra-input css-17okvn5"
+            type="number"
+          />
+          <img
+            alt="This is the user avatar"
+            class="chakra-image css-pdhoft"
+            src="/icons/user-avatar.png"
+          />
+        </div>
+      </div>
+      <button
+        class="chakra-button css-4v6g0h"
+        type="button"
+      >
+        Send Money
+      </button>
+    </div>
+  </div>
+</div>
+`;

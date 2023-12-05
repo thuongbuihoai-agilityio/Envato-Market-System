@@ -164,4 +164,9 @@ export const IMAGES = {
     url: '/icons/increase.svg',
     alt: 'This is the increase icon',
   },
+
+  CARD_PAYMENT: {
+    url: '/images/card-payment.svg',
+    alt: 'This is the card payment icon',
+  },
 };

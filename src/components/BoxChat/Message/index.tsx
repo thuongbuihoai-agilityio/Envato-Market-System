@@ -15,24 +15,16 @@ const Message = ({
   avatarPosition = 'before',
   isOwnerMessage = false,
 }: MessageProps) => {
-  const avatarBorderColor = 'border.tertiary';
-
   const reversePositionTime = isOwnerMessage ? 'row-reverse' : 'row';
 
   return (
     <Flex>
       {avatarPosition === 'before' && (
-        <Avatar
-          src={avatar}
-          borderColor={avatarBorderColor}
-          w={9}
-          h={9}
-          mr={2}
-        />
+        <Avatar src={avatar} borderColor="border.tertiary" w={9} h={9} mr={2} />
       )}
 
       <Flex align="flex-end" direction={reversePositionTime} mb="30px">
-        <Box>
+        <Box data-testid="image-container">
           {isImage ? (
             <>
               <Image
@@ -66,6 +58,7 @@ const Message = ({
               ml={2}
               borderRadius={8}
               color="text.primary"
+              data-testid="text-content"
             >
               {content}
             </Text>
@@ -86,10 +79,11 @@ const Message = ({
       {avatarPosition === 'after' && (
         <Avatar
           src={avatar}
-          borderColor={avatarBorderColor}
+          borderColor="border.tertiary"
           w={9}
           h={9}
           ml={2}
+          data-testid="avatar"
         />
       )}
     </Flex>
