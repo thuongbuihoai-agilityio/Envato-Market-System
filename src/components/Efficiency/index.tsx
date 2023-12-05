@@ -114,11 +114,15 @@ const EfficiencyComponent = ({
               legend: {
                 show: false,
               },
+
               annotations: {},
               colors: STROKE_COLORS,
+              dataLabels: {
+                enabled: true,
+                formatter: (val) => val + '%',
+              },
             }}
             series={statistical.map((item) => item.value)}
-            labels={['A', 'B', 'C', 'D']}
             type="donut"
             width="200"
           />
@@ -196,7 +200,7 @@ const EfficiencyComponent = ({
                   color="text.primary"
                   sx={{ marginLeft: 'auto' }}
                 >
-                  {item.value}
+                  {item.value}%
                 </Text>
               </Flex>
             ))}

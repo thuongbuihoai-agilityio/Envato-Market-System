@@ -221,6 +221,7 @@ exports[`Efficiency component renders correctly 1`] = `
             class="chakra-text css-15h4n6s"
           >
             50
+            %
           </p>
         </div>
         <div
@@ -239,6 +240,7 @@ exports[`Efficiency component renders correctly 1`] = `
             class="chakra-text css-15h4n6s"
           >
             30
+            %
           </p>
         </div>
         <div
@@ -257,6 +259,7 @@ exports[`Efficiency component renders correctly 1`] = `
             class="chakra-text css-15h4n6s"
           >
             20
+            %
           </p>
         </div>
       </div>
