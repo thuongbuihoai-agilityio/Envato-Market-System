@@ -16,7 +16,7 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useForm, useAuth } from '@hooks/index';
 
 // Constants
-import { ROUTES, AUTH_SCHEMA } from '@constants/index';
+import { ROUTES, AUTH_SCHEMA, ERROR_MESSAGES } from '@constants/index';
 
 // Layouts
 import { AuthLayout } from '@layouts/index';
@@ -91,6 +91,18 @@ const LoginPage = (): JSX.Element => {
     [redirect, setError, signIn],
   );
 
+  const validatePassword = (value: string) => {
+    if (!value) {
+      return ERROR_MESSAGES.FIELD_REQUIRED('Password');
+    }
+
+    if (value.length < 8) {
+      return ERROR_MESSAGES.PASS_WORD_SHORT;
+    }
+
+    return true;
+  };
+
   return (
     <AuthLayout>
       <VStack
@@ -115,8 +127,9 @@ const LoginPage = (): JSX.Element => {
             />
           )}
         />
+
         <Controller
-          rules={AUTH_SCHEMA.PASSWORD}
+          rules={{ validate: validatePassword }}
           control={control}
           name="password"
           render={({ field, fieldState: { error } }) => (
