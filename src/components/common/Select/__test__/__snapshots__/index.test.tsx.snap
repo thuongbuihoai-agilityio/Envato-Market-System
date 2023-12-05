@@ -38,7 +38,7 @@ exports[`Select Match snapshot 1`] = `
         id="menu-list-:r1:-menuitem-:r2:"
         role="menuitem"
         tabindex="-1"
-        type="button"
+        type="submit"
       >
         <p
           class="chakra-text css-1198d6z"
@@ -52,7 +52,7 @@ exports[`Select Match snapshot 1`] = `
         id="menu-list-:r1:-menuitem-:r3:"
         role="menuitem"
         tabindex="-1"
-        type="button"
+        type="submit"
       >
         <p
           class="chakra-text css-1198d6z"
@@ -66,7 +66,7 @@ exports[`Select Match snapshot 1`] = `
         id="menu-list-:r1:-menuitem-:r4:"
         role="menuitem"
         tabindex="-1"
-        type="button"
+        type="submit"
       >
         <p
           class="chakra-text css-1198d6z"

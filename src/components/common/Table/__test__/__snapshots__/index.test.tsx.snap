@@ -15,27 +15,27 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <th
-            class="css-1agp9xn"
+            class="css-zm2y1u"
           >
             Customer name
           </th>
           <th
-            class="css-1agp9xn"
+            class="css-zm2y1u"
           >
             Email
           </th>
           <th
-            class="css-1agp9xn"
+            class="css-zm2y1u"
           >
             Location
           </th>
           <th
-            class="css-1agp9xn"
+            class="css-zm2y1u"
           >
             Spent
           </th>
           <th
-            class="css-1agp9xn"
+            class="css-zm2y1u"
           />
         </tr>
       </thead>
@@ -46,156 +46,136 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Devon Lane
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             devon@mail.com
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Philadelphia, USA
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             $101.00
           </td>
-          <td
-            class="css-2cnysg"
-          >
-            <button>
-              action
-            </button>
-          </td>
+          <button>
+            action
+          </button>
         </tr>
         <tr
           class="css-0"
         >
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Devon Lane
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             devon@mail.com
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Philadelphia, USA
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             $101.00
           </td>
-          <td
-            class="css-2cnysg"
-          >
-            <button>
-              action
-            </button>
-          </td>
+          <button>
+            action
+          </button>
         </tr>
         <tr
           class="css-0"
         >
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Devon Lane
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             devon@mail.com
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Philadelphia, USA
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             $101.00
           </td>
-          <td
-            class="css-2cnysg"
-          >
-            <button>
-              action
-            </button>
-          </td>
+          <button>
+            action
+          </button>
         </tr>
         <tr
           class="css-0"
         >
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Devon Lane
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             devon@mail.com
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Philadelphia, USA
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             $101.00
           </td>
-          <td
-            class="css-2cnysg"
-          >
-            <button>
-              action
-            </button>
-          </td>
+          <button>
+            action
+          </button>
         </tr>
         <tr
           class="css-0"
         >
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Devon Lane
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             devon@mail.com
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             Philadelphia, USA
           </td>
           <td
-            class="css-2cnysg"
+            class="css-x4m69r"
           >
             $101.00
           </td>
-          <td
-            class="css-2cnysg"
-          >
-            <button>
-              action
-            </button>
-          </td>
+          <button>
+            action
+          </button>
         </tr>
       </tbody>
     </table>
