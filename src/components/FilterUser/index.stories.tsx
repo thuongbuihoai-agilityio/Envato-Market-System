@@ -1,10 +1,14 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import TotalList from '.';
+// Component
+import FilterUser from '.';
 
-const meta: Meta<typeof TotalList> = {
+// Mocks
+import { TRANSACTIONS } from '@mocks/transaction';
+
+const meta: Meta<typeof FilterUser> = {
   title: 'Custom Components/FilterUser',
-  component: TotalList,
+  component: FilterUser,
   parameters: {
     controls: {
       expanded: true,
@@ -13,8 +17,10 @@ const meta: Meta<typeof TotalList> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TotalList>;
+type Story = StoryObj<typeof FilterUser>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    transactions: TRANSACTIONS,
+  },
 };
