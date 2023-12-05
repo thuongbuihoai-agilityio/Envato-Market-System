@@ -20,7 +20,7 @@ const MyWallet = () => (
     bg="background.body.primary"
     px={{ base: 6, md: 12 }}
     py={12}
-    templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(4, 1fr)' }}
+    templateColumns={{ base: 'repeat(1, 1fr)', '3xl': 'repeat(4, 1fr)' }}
     gap={{ base: 0, '2xl': 6 }}
     display={{ sm: 'block', md: 'grid' }}
     minH="100vh"
@@ -31,7 +31,7 @@ const MyWallet = () => (
         <CartPayment />
       </Flex>
     </GridItem>
-    <GridItem colSpan={{ xl: 3 }} mt={{ base: 6, '2xl': 0 }}>
+    <GridItem colSpan={{ xl: 3 }} mt={{ base: 6, '3xl': 0 }}>
       <Flex direction="column" gap={6}>
         <Flex
           gap={6}
