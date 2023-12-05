@@ -3,17 +3,22 @@
 exports[`CardPayment component renders correctly 1`] = `
 <div>
   <div
-    class="css-1rxgj76"
+    class="css-wodbpa"
   >
     <h3
       class="chakra-heading css-1vczax5"
     >
       my wallet
     </h3>
-    <img
-      class="chakra-image css-0"
-      src="/images/card-payment.svg"
-    />
+    <div
+      class="css-gmuwbf"
+    >
+      <img
+        alt="Payment Card"
+        class="chakra-image css-0"
+        src="/images/card-payment.svg"
+      />
+    </div>
     <div
       class="css-1fhgjcy"
     >

@@ -48,9 +48,9 @@ const OverallBalanceComponent = ({
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
-      <Flex>
+      <Flex alignItems="center">
         <Text>{label}</Text>
-        <Arrow color={colorFill} width={16} height={16} />
+        <Arrow color={colorFill} />
       </Flex>
     ),
     [colorFill],
@@ -96,7 +96,7 @@ const OverallBalanceComponent = ({
             </Flex>
           ))}
         </Flex>
-        <Box w={102} h="21px">
+        <Box w={110} h="21px">
           <Select
             options={EFFICIENCY_OPTIONS}
             variant="no-border"

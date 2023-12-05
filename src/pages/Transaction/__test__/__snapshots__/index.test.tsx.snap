@@ -542,29 +542,33 @@ exports[`Transaction page Match to snapshot 1`] = `
                     class="css-xl71ch"
                   >
                     <div
-                      class="css-69i1ev"
+                      class="css-1u78b0r"
                     >
                       <p
                         class="chakra-text css-nyal52"
                       >
                         10
                       </p>
-                      <svg
-                        fill="none"
-                        height="15"
-                        stroke="#A0AEC0"
-                        style="transform: rotate(undefined);"
-                        viewBox="0 0 20 15"
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <div
+                        class="css-1x77umq"
                       >
-                        <path
-                          d="M7 10L12 14L17 10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                        />
-                      </svg>
+                        <svg
+                          fill="none"
+                          height="15"
+                          stroke="#A0AEC0"
+                          style="transform: rotate(undefined);"
+                          viewBox="0 0 18 15"
+                          width="18"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 10L12 14L17 10"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </span>
                 </button>
@@ -729,11 +733,15 @@ exports[`Transaction page Match to snapshot 1`] = `
           >
             my wallet
           </h3>
-          <img
-            alt="This is the card payment icon"
-            class="chakra-image css-0"
-            src="/images/card-payment.svg"
-          />
+          <div
+            class="css-gmuwbf"
+          >
+            <img
+              alt="Payment Card"
+              class="chakra-image css-0"
+              src="/images/card-payment.svg"
+            />
+          </div>
           <div
             class="css-1fhgjcy"
           >
@@ -901,7 +909,7 @@ exports[`Transaction page Match to snapshot 1`] = `
                 <p
                   class="chakra-text css-1n53wzr"
                 >
-                  2:47:40 PM
+                  3:18:05 PM
                 </p>
               </div>
             </div>
@@ -951,7 +959,7 @@ exports[`Transaction page Match to snapshot 1`] = `
                 <p
                   class="chakra-text css-1n53wzr"
                 >
-                  2:47:40 PM
+                  3:18:05 PM
                 </p>
               </div>
             </div>
@@ -981,7 +989,7 @@ exports[`Transaction page Match to snapshot 1`] = `
                   <p
                     class="chakra-text css-1n53wzr"
                   >
-                    2:47:40 PM
+                    3:18:05 PM
                   </p>
                 </div>
                 <span
@@ -1048,7 +1056,7 @@ exports[`Transaction page Match to snapshot 1`] = `
                 <p
                   class="chakra-text css-1n53wzr"
                 >
-                  2:47:40 PM
+                  3:18:05 PM
                 </p>
               </div>
             </div>

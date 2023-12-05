@@ -63,9 +63,9 @@ const RevenueFlowComponent = ({
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
-      <Flex>
-        <Text>{label}</Text>
-        <Arrow color={colorFill} width={17} height={17} />
+      <Flex alignItems="center">
+        <Text fontSize="sm">{label}</Text>
+        <Arrow color={colorFill} />
       </Flex>
     ),
     [colorFill],
@@ -127,15 +127,15 @@ const RevenueFlowComponent = ({
             <Flex key={item} gap={2} alignItems="center">
               <Box
                 bgColor={REVENUE_FLOW_COLORS[index]}
-                w="12px"
-                height="12px"
+                w={3}
+                height={3}
                 rounded="50%"
               />
               <Text variant="textSm">{item}</Text>
             </Flex>
           ))}
         </Flex>
-        <Box w={102} h="21px">
+        <Box w={100} h="21px">
           <Select
             options={REVENUE_FLOW_OPTIONS}
             size="sm"
