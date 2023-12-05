@@ -186,9 +186,8 @@ exports[`Login page Match to snapshot 1`] = `
           class="chakra-text css-25kmip"
         >
           Don't have an account?
-           
           <a
-            class="chakra-text css-13g7tb6"
+            class="chakra-text css-ditwkt"
             href="/register"
           >
             Sign Up

@@ -20,6 +20,13 @@ export const Default: Story = {
   args: EFFICIENCY_MOCK,
 };
 
+export const ExchangeRate: Story = {
+  args: {
+    ...EFFICIENCY_MOCK,
+    isExchangeRate: true,
+  },
+};
+
 export const Loading: Story = {
   args: {
     ...EFFICIENCY_MOCK,

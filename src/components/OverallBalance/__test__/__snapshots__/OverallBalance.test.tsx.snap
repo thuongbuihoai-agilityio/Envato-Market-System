@@ -151,7 +151,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               <p
                 class="chakra-text css-1198d6z"
               >
-                monthly    
+                monthly
               </p>
             </button>
             <button
