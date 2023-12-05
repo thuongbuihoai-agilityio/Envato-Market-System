@@ -15,3 +15,7 @@ export { default as Navigation } from './common/Navigation';
 export { default as Header } from './common/Header';
 export { default as Select } from './common/Select';
 export { default as Pagination } from './common/Pagination';
+export { default as FilterUser } from './FilterUser';
+export { default as Table, type TDataSource } from './common/Table';
+export * from './common/Table/Body';
+export { default as HeadCell } from './common/Table/HeadCell';

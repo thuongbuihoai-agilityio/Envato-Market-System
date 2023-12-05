@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { Flex, Img, Text } from '@chakra-ui/react';
+import { Flex, Img, Td, Text } from '@chakra-ui/react';
 
 // Components
 import Table from '.';
@@ -30,18 +30,27 @@ export const Default: Story = {
         title: 'Customer name',
         key: 'name',
         renderBody: ({ image, name }) => (
-          <Flex alignItems="center" gap="10px">
-            <Img
-              src={`${image}`}
-              alt={`Image of ${name}`}
-              w={10}
-              h={10}
-              borderRadius="full"
-            />
-            <Text fontSize="md" fontWeight="semibold">
-              {name}
-            </Text>
-          </Flex>
+          <Td
+            py={5}
+            px={0}
+            fontSize="md"
+            color="text.primary"
+            fontWeight="semibold"
+            textAlign="left"
+          >
+            <Flex alignItems="center" gap="10px">
+              <Img
+                src={`${image}`}
+                alt={`Image of ${name}`}
+                w={10}
+                h={10}
+                borderRadius="full"
+              />
+              <Text fontSize="md" fontWeight="semibold">
+                {name}
+              </Text>
+            </Flex>
+          </Td>
         ),
       },
       {
@@ -59,7 +68,18 @@ export const Default: Story = {
       {
         title: '',
         key: 'action',
-        renderBody: () => <Dot />,
+        renderBody: () => (
+          <Td
+            py={5}
+            px={0}
+            fontSize="md"
+            color="text.primary"
+            fontWeight="semibold"
+            textAlign="left"
+          >
+            <Dot />
+          </Td>
+        ),
       },
     ],
     dataSource: USERS,
