@@ -41,6 +41,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
       maxW={SIDEBAR.EXPAND_SIDEBAR_WIDTH}
       display="block"
       bg="background.component.primary"
+      maxH="full"
     >
       <DrawerHeader
         display="flex"

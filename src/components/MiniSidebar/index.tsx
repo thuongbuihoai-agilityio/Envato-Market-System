@@ -38,6 +38,7 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => (
   >
     <DrawerContent
       maxW={SIDEBAR.MINI_SIDEBAR_WIDTH}
+      maxH="full"
       display={{
         base: 'none',
         md: 'block',
