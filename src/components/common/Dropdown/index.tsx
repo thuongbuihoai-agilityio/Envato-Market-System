@@ -22,6 +22,7 @@ import { MENU_LIST, MENU_LIST_ICON } from '@constants/menu';
 
 // Components
 import { Avatar } from '@components/index';
+import { useAuth } from '@hooks/useAuth';
 
 interface DropdownProps {
   src?: string;
@@ -34,6 +35,7 @@ const DropdownComponent = ({
   name = '',
   permission = '',
 }: DropdownProps) => {
+  const signOut = useAuth((state) => state.signOut);
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
@@ -90,6 +92,8 @@ const DropdownComponent = ({
               return (
                 <MenuItem
                   key={id}
+                  as={Link}
+                  to={href}
                   p={3.5}
                   borderRadius="lg"
                   bg="transparent"
@@ -103,10 +107,13 @@ const DropdownComponent = ({
                   _focus={{
                     outline: 'none',
                   }}
+                  {...(id === 2 && {
+                    onClick: signOut,
+                  })}
                 >
                   <Flex>
                     <Icon color={colorFill} />
-                    <Text as={Link} to={href} ml={18} variant="text4Xl">
+                    <Text ml={18} variant="text4Xl">
                       {value}
                     </Text>
                   </Flex>

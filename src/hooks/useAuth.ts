@@ -31,6 +31,7 @@ export type TUseAuth = {
   signUp: (userInfo: Omit<TUser, 'id' | 'createdAt'>) => Promise<{
     errors?: TSignUpErrorField;
   }>;
+  signOut: () => void;
 };
 
 export const useAuth = create(
@@ -89,6 +90,7 @@ export const useAuth = create(
 
         return {};
       },
+      signOut: () => set({ user: null }),
     }),
     { name: 'authentication' },
   ),

@@ -1,4 +1,8 @@
+// Icons
 import { Account, Logout } from '@assets/icons/index';
+
+// Constants
+import { ROUTES } from '.';
 
 export const MENU_LIST_ICON = [
   {
@@ -9,7 +13,7 @@ export const MENU_LIST_ICON = [
   },
   {
     id: 2,
-    href: '#',
+    href: `/${ROUTES.LOGIN}`,
     value: 'Logout',
     icon: Logout,
   },
