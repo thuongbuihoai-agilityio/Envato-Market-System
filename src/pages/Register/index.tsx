@@ -295,6 +295,7 @@ const RegisterPage = () => {
           to={`/${ROUTES.LOGIN}`}
           fontWeight="semibold"
           textDecoration="underline"
+          ml={2}
         >
           Sign In
         </Text>

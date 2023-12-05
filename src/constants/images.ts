@@ -117,7 +117,7 @@ export const IMAGES = {
     alt: 'This is the coming soon image',
   },
   NOT_FOUND: {
-    url: '/icons/not-found.svg',
+    url: '/images/not-found.svg',
     alt: 'This is the not found image',
   },
   SIGN_OUT: {

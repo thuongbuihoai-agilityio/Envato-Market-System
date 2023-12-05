@@ -125,8 +125,8 @@ export const colors: ThemeOverride['colors'] = {
       _dark: '#FAFAFA',
     },
     tertiary: {
-      default: 'primary.500',
-      _dark: '#FAFAFA',
+      default: '#fff',
+      _dark: '#1a202c',
     },
   },
 
