@@ -41,7 +41,7 @@ const AuthLayoutComponent = ({
   if (user) return <Navigate to={ROUTES.ROOT} replace />;
 
   return (
-    <Flex width="100%">
+    <Flex width="100%" minH="100vh">
       <Box
         as="section"
         p="40px 0 48px"
