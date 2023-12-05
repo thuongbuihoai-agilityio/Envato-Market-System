@@ -111,7 +111,7 @@ const RevenueFlowComponent = ({
   );
 
   return (
-    <Box py={3} px={6}>
+    <Box py={3} px={6} bg="background.component.primary" rounded="lg">
       <Flex
         py={4}
         px={5}
@@ -146,7 +146,7 @@ const RevenueFlowComponent = ({
         </Box>
       </Flex>
       {isLoading ? (
-        <Skeleton bg="background.component.primary" rounded="lg" height={300} />
+        <Skeleton bg="background.component.primary" rounded="lg" height={230} />
       ) : (
         <Chart
           options={{
@@ -166,7 +166,7 @@ const RevenueFlowComponent = ({
           }}
           series={chartData}
           type="bar"
-          height="300"
+          height="230"
         />
       )}
     </Box>
