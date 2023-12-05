@@ -7,6 +7,7 @@ import {
   Heading,
   Text,
   theme,
+  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Dropdown, IconButton, InputField, Logo } from '@components/index';
@@ -27,9 +28,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     theme.colors.white,
   );
 
+  const { toggleColorMode } = useColorMode();
+
   return (
     <Flex
-      h={{ base: 20, md: 28 }}
+      h={{ base: 85, md: 28 }}
       maxW="full"
       bg="background.component.primary"
       alignItems="center"
@@ -58,7 +61,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           Let’s check your update today
         </Text>
       </Box>
-      <Box display={{ base: 'none', md: 'block' }} w="500px" px={4}>
+      <Box
+        display={{ base: 'none', md: 'block' }}
+        w={{ base: 500, md: 350 }}
+        px={4}
+      >
         <InputField
           leftIcon={<Search color={colorFill} />}
           placeholder="Search..."
@@ -86,7 +93,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           minW="310px"
           justifyContent="space-between"
         >
-          <IconButton>
+          <IconButton onClick={toggleColorMode}>
             <Theme color={colorFill} />
           </IconButton>
           <IconButton isNotification>
