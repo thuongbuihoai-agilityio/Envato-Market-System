@@ -63,7 +63,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
       </Box>
       <Box
         display={{ base: 'none', md: 'block' }}
-        w={{ base: 500, md: 350 }}
+        w={{ base: 500, md: 350, '2xl': 500 }}
         px={4}
       >
         <InputField
