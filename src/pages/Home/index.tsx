@@ -23,7 +23,7 @@ const Dashboard = () => (
     bg="background.body.primary"
     p={{ base: 6, xl: 12 }}
     templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(4, 1fr)' }}
-    gap={{ base: 0 }}
+    gap={0}
   >
     <GridItem colSpan={3}>
       <TotalList spendingStatistics={SPENDING_STATISTICS_MOCK} />
