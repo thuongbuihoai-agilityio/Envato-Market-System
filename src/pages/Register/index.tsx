@@ -86,7 +86,7 @@ const RegisterPage = () => {
       setIsSubmit(true);
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { isAcceptPrivacyPolicy, ...fieldValues } = data;
+      const { isAcceptPrivacyPolicy, confirmPassword, ...fieldValues } = data;
       try {
         const { errors } = await signUp(fieldValues);
 
