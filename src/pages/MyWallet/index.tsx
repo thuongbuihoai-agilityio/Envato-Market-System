@@ -9,7 +9,11 @@ import {
 } from '@components/index';
 
 // Mocks
-import { EFFICIENCY_MOCK, OVERALL_BALANCE_MOCK } from '@mocks/index';
+import {
+  EFFICIENCY_MOCK,
+  OVERALL_BALANCE_MOCK,
+  TRANSACTIONS,
+} from '@mocks/index';
 
 const MyWallet = () => (
   <Grid
@@ -19,6 +23,7 @@ const MyWallet = () => (
     templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(4, 1fr)' }}
     gap={{ base: 0, lg: 6 }}
     display={{ sm: 'block', md: 'grid' }}
+    minH="100vh"
   >
     <GridItem colSpan={1}>
       <Flex direction="column" gap={6}>
@@ -35,7 +40,7 @@ const MyWallet = () => (
           <Efficiency {...EFFICIENCY_MOCK} isExchangeRate />
         </Flex>
         <Box>
-          <FilterUser />
+          <FilterUser transactions={TRANSACTIONS} />
         </Box>
       </Flex>
     </GridItem>
