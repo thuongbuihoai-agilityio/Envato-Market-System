@@ -1,15 +1,4 @@
-import {
-  Box,
-  Center,
-  Flex,
-  HStack,
-  IconButton,
-  Img,
-  Td,
-  Text,
-  Th,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import { Controller } from 'react-hook-form';
 
@@ -23,10 +12,14 @@ import {
   Table,
   Pagination,
   TDataSource,
+  CustomerNameCell,
+  HeadCell,
+  ActionCell,
 } from '@components/index';
+import Selector from './Selector';
 
 // Icons
-import { Dot, FilterIcon, Search, Sort } from '@assets/icons';
+import { Search } from '@assets/icons';
 
 // Themes
 import { colors } from '@themes/bases/colors';
@@ -37,18 +30,17 @@ import { USERS, MONTHS } from '@mocks/index';
 // Constants
 import { PAGE_SIZE } from '@constants/pagination';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type TFilterUserProps = {
-  page?: number;
-  tableSize?: number;
-  onSelect?: (value: string) => void;
-  onSearch?: (value: string) => void;
-  onSort?: (sort: { type: string; desc: string }) => void;
-  onChangePage?: (currentPage: number) => void;
-  onChangeTableSize?: (currentSize: number) => void;
-};
-
 // TODO: Will update props later
+// type TFilterUserProps = {
+//   page?: number;
+//   tableSize?: number;
+//   onSelect?: (value: string) => void;
+//   onSearch?: (value: string) => void;
+//   onSort?: (sort: { type: string; desc: string }) => void;
+//   onChangePage?: (currentPage: number) => void;
+//   onChangeTableSize?: (currentSize: number) => void;
+// };
+
 const FilterComponent = (): JSX.Element => {
   const { control, handleSubmit } = useForm<{
     search: string;
@@ -64,105 +56,20 @@ const FilterComponent = (): JSX.Element => {
     colors.secondary[400] ?? '',
     '#fff',
   );
-  const filterIconColor: string = useColorModeValue(
-    colors.secondary[400] ?? '',
-    colors.primary[500] ?? '',
-  );
 
   const renderHead = useCallback(
-    (title: string): JSX.Element => (
-      <Th
-        key={title}
-        color="text.secondary"
-        textTransform="none"
-        fontSize="sm"
-        py={5}
-        px={0}
-        sx={{
-          minW: {
-            base: 170,
-            md: 'unset',
-          },
-        }}
-      >
-        <Flex alignItems="center" gap={2}>
-          {title}
-          <IconButton
-            aria-label={`This is the icon for ${title}`}
-            w={7}
-            h={7}
-            bgColor="transparent"
-            _hover={{
-              bgColor: 'transparent',
-            }}
-          >
-            <Sort color={colors.secondary[300]} opacityLeft={1} />
-          </IconButton>
-        </Flex>
-      </Th>
-    ),
+    (title: string): JSX.Element => <HeadCell title={title} />,
     [],
   );
 
   const renderNameUser = useCallback(
-    ({ image, name }: TDataSource): JSX.Element => (
-      <Td
-        py={5}
-        px={0}
-        fontSize="md"
-        color="text.primary"
-        fontWeight="semibold"
-        textAlign="left"
-      >
-        <Flex alignItems="center" gap="10px">
-          <Img
-            src={`${image}`}
-            alt={`Image of ${name}`}
-            w={10}
-            h={10}
-            borderRadius="full"
-          />
-          <Text fontSize="md" fontWeight="semibold">
-            {name}
-          </Text>
-        </Flex>
-      </Td>
-    ),
+    (data: TDataSource): JSX.Element => <CustomerNameCell {...data} />,
     [],
   );
 
-  const renderActionIcon = useCallback(
-    (): JSX.Element => (
-      <Td
-        py={5}
-        px={0}
-        fontSize="md"
-        color="text.primary"
-        fontWeight="semibold"
-        textAlign="left"
-        w="50px"
-      >
-        <Dot />
-      </Td>
-    ),
-    [],
-  );
+  const renderActionIcon = useCallback((): JSX.Element => <ActionCell />, []);
 
-  const renderTitleSelector = useCallback(
-    () => (
-      <Center
-        as="span"
-        textAlign="center"
-        fontSize="md"
-        color="primary.500"
-        gap={3}
-      >
-        <FilterIcon stroke={filterIconColor} />
-        Filters
-      </Center>
-    ),
-    [filterIconColor],
-  );
+  const renderTitleSelector = useCallback(() => <Selector />, []);
 
   const columns = useMemo(
     () => [
@@ -222,7 +129,7 @@ const FilterComponent = (): JSX.Element => {
         h={14}
         gap={5}
         onSubmit={handleSubmit((data) => {
-          console.log(data);
+          console.log(data); // TODO: Remove late
         })}
       >
         <Box
