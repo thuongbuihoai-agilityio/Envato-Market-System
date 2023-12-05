@@ -11,7 +11,7 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof Pagination>;
 
-export const WhiteLogo: Story = {
+export const Default: Story = {
   args: {
     totalCount: 100,
     pageSize: 8,
