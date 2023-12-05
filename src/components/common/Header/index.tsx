@@ -7,6 +7,7 @@ import {
   Heading,
   Text,
   theme,
+  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Dropdown, IconButton, InputField, Logo } from '@components/index';
@@ -26,6 +27,8 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     theme.colors.gray[800],
     theme.colors.white,
   );
+
+  const { toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -86,7 +89,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           minW="310px"
           justifyContent="space-between"
         >
-          <IconButton>
+          <IconButton onClick={toggleColorMode}>
             <Theme color={colorFill} />
           </IconButton>
           <IconButton isNotification>
