@@ -22,7 +22,7 @@ import { useEffect } from 'react';
 import Sidebar from '@components/Sidebar';
 
 const MainLayout = () => {
-  const user = useAuth((state): TUser | null => state.user);
+  const user = useAuth((state): Omit<TUser, 'password'> | null => state.user);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
