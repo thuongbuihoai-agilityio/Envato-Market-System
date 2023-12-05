@@ -93,6 +93,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       fill="none"
                       height="24"
                       stroke="#1A202C"
+                      style="transform: rotate(undefined);"
                       viewBox="0 0 24 24"
                       width="24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +122,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
         >
           <div
             aria-orientation="vertical"
-            class="chakra-menu__menu-list css-1smueq2"
+            class="chakra-menu__menu-list css-3e5wnu"
             data-testid="TestDropdown"
             id="menu-list-:r1:"
             role="menu"
@@ -129,7 +130,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
             tabindex="-1"
           >
             <button
-              class="chakra-menu__menuitem css-bnm4c7"
+              class="chakra-menu__menuitem css-4otqo"
               data-index="0"
               id="menu-list-:r1:-menuitem-:r2:"
               role="menuitem"
@@ -175,7 +176,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               </div>
             </button>
             <button
-              class="chakra-menu__menuitem css-bnm4c7"
+              class="chakra-menu__menuitem css-4otqo"
               data-index="1"
               id="menu-list-:r1:-menuitem-:r3:"
               role="menuitem"
@@ -208,7 +209,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               </div>
             </button>
             <button
-              class="chakra-menu__menuitem css-bnm4c7"
+              class="chakra-menu__menuitem css-4otqo"
               data-index="2"
               id="menu-list-:r1:-menuitem-:r4:"
               role="menuitem"
@@ -245,7 +246,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               class="chakra-divider css-19ob8qo"
             />
             <button
-              class="chakra-menu__menuitem css-rm7jzp"
+              class="chakra-menu__menuitem css-mdob6w"
               data-index="3"
               id="menu-list-:r1:-menuitem-:r5:"
               role="menuitem"
@@ -260,7 +261,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               </a>
             </button>
             <button
-              class="chakra-menu__menuitem css-rm7jzp"
+              class="chakra-menu__menuitem css-mdob6w"
               data-index="4"
               id="menu-list-:r1:-menuitem-:r6:"
               role="menuitem"
@@ -537,6 +538,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                         fill="none"
                         height="24"
                         stroke="#1A202C"
+                        style="transform: rotate(undefined);"
                         viewBox="0 0 24 24"
                         width="24"
                         xmlns="http://www.w3.org/2000/svg"
@@ -565,7 +567,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
           >
             <div
               aria-orientation="vertical"
-              class="chakra-menu__menu-list css-1smueq2"
+              class="chakra-menu__menu-list css-3e5wnu"
               data-testid="TestDropdown"
               id="menu-list-:r9:"
               role="menu"
@@ -573,7 +575,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               tabindex="-1"
             >
               <button
-                class="chakra-menu__menuitem css-bnm4c7"
+                class="chakra-menu__menuitem css-4otqo"
                 data-index="0"
                 id="menu-list-:r9:-menuitem-:ra:"
                 role="menuitem"
@@ -619,7 +621,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 </div>
               </button>
               <button
-                class="chakra-menu__menuitem css-bnm4c7"
+                class="chakra-menu__menuitem css-4otqo"
                 data-index="1"
                 id="menu-list-:r9:-menuitem-:rb:"
                 role="menuitem"
@@ -652,7 +654,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 </div>
               </button>
               <button
-                class="chakra-menu__menuitem css-bnm4c7"
+                class="chakra-menu__menuitem css-4otqo"
                 data-index="2"
                 id="menu-list-:r9:-menuitem-:rc:"
                 role="menuitem"
@@ -689,7 +691,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 class="chakra-divider css-19ob8qo"
               />
               <button
-                class="chakra-menu__menuitem css-rm7jzp"
+                class="chakra-menu__menuitem css-mdob6w"
                 data-index="3"
                 id="menu-list-:r9:-menuitem-:rd:"
                 role="menuitem"
@@ -704,7 +706,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 </a>
               </button>
               <button
-                class="chakra-menu__menuitem css-rm7jzp"
+                class="chakra-menu__menuitem css-mdob6w"
                 data-index="4"
                 id="menu-list-:r9:-menuitem-:re:"
                 role="menuitem"

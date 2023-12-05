@@ -3,7 +3,7 @@
 exports[`RevenueFlow component renders correctly 1`] = `
 <div>
   <div
-    class="css-hfln1x"
+    class="css-p120lk"
   >
     <div
       class="css-1spmqp"
@@ -79,6 +79,7 @@ exports[`RevenueFlow component renders correctly 1`] = `
                 fill="none"
                 height="17"
                 stroke="#1A202C"
+                style="transform: rotate(undefined);"
                 viewBox="0 0 17 17"
                 width="17"
                 xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +160,7 @@ exports[`RevenueFlow component renders correctly 1`] = `
 exports[`RevenueFlow component renders with is loading is true 1`] = `
 <div>
   <div
-    class="css-hfln1x"
+    class="css-p120lk"
   >
     <div
       class="css-1spmqp"
@@ -235,6 +236,7 @@ exports[`RevenueFlow component renders with is loading is true 1`] = `
                 fill="none"
                 height="17"
                 stroke="#1A202C"
+                style="transform: rotate(undefined);"
                 viewBox="0 0 17 17"
                 width="17"
                 xmlns="http://www.w3.org/2000/svg"
@@ -308,7 +310,7 @@ exports[`RevenueFlow component renders with is loading is true 1`] = `
       </div>
     </div>
     <div
-      class="chakra-skeleton css-1x2ptk6"
+      class="chakra-skeleton css-yv1zre"
     />
   </div>
 </div>

@@ -12,3 +12,18 @@ export const REVENUE_FLOW_OPTIONS = [
     value: 'July,Dec',
   },
 ];
+
+export const EFFICIENCY_OPTIONS = [
+  {
+    label: 'Weekly',
+    value: 'weekly',
+  },
+  {
+    label: 'monthly    ',
+    value: 'monthly',
+  },
+  {
+    label: 'Yearly',
+    value: 'yearly',
+  },
+];
