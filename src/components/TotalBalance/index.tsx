@@ -13,7 +13,7 @@ const TotalBalanceComponent = (): JSX.Element => (
       borderRadius="lg"
       p={8}
     >
-      <Text fontSize="2xl" fontWeight="semibold" mb="2" color="text.primary">
+      <Text fontSize="2xl" fontWeight="semibold" mb={2} color="text.primary">
         Total Balance
       </Text>
       <Box display="inline-block" mb={2}>
@@ -22,7 +22,7 @@ const TotalBalanceComponent = (): JSX.Element => (
           fontWeight="bold"
           mb={0}
           color="text.primary"
-          lineHeight="9"
+          lineHeight={9}
           display="inline"
         >
           $88,232.00
@@ -32,7 +32,7 @@ const TotalBalanceComponent = (): JSX.Element => (
           fontWeight="medium"
           mb={0}
           color="secondary.250"
-          lineHeight="5"
+          lineHeight={5}
           textTransform="uppercase"
           display="inline"
           ml={2}
@@ -41,8 +41,8 @@ const TotalBalanceComponent = (): JSX.Element => (
         </Text>
       </Box>
 
-      <Flex align="center" mb="4">
-        <Text fontSize="md" color="text.tertiary" mr="2" fontWeight="medium">
+      <Flex align="center" mb={4}>
+        <Text fontSize="md" color="text.tertiary" mr={2} fontWeight="medium">
           11 April 2022
         </Text>
         <Flex align="center">
@@ -58,11 +58,11 @@ const TotalBalanceComponent = (): JSX.Element => (
       </Flex>
     </Box>
 
-    <Flex align="center" justify={'center'}>
+    <Flex align="center" justify="center">
       <Box
         border="1px solid"
         borderColor="secondary.250"
-        p="4"
+        p={4}
         borderRadius="lg"
         bottom={4}
         mt={-6}
