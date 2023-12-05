@@ -26,3 +26,5 @@ export { default as Efficiency } from './Efficiency';
 export { default as RevenueFlow } from './RevenueFlow';
 export { default as OverallBalance } from './OverallBalance';
 export { default as TotalBalance } from './TotalBalance';
+export { default as ExpandSidebar } from './ExpandSidebar';
+export { default as MiniSidebar } from './MiniSidebar';
