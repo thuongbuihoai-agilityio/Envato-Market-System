@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Menu from '@components/common/Menu';
+
+// components
+import { Menu } from '@components/index';
+
 const meta: Meta<typeof Menu> = {
   title: 'Custom Components/Menu',
+
   component: Menu,
+
   argTypes: {
     title: {
       description: 'The title of the Menu component',
