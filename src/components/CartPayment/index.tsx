@@ -18,7 +18,13 @@ import { ChevronIcon } from '@assets/images/ChevronIcon';
 import { IMAGES } from '@constants/index';
 
 const CartPaymentComponent = (): JSX.Element => (
-  <Box p={4} w="full" bg="background.body.quaternary" padding="20px 42px">
+  <Box
+    p={4}
+    w="full"
+    bg="background.body.quaternary"
+    padding="20px 42px"
+    borderRadius="lg"
+  >
     <Heading
       as="h3"
       fontWeight="bold"

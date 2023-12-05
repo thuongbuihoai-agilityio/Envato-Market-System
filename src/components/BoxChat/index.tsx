@@ -8,7 +8,7 @@ import { IMAGES } from '@constants/index';
 import Message from './Message';
 
 const BoxChatComponent = (): JSX.Element => (
-  <Box w="full" bg="background.body.quaternary">
+  <Box w="full" bg="background.body.quaternary" borderRadius="lg">
     <Flex
       direction="row"
       justifyContent="space-between"
