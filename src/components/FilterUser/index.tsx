@@ -58,16 +58,23 @@ const FilterComponent = (): JSX.Element => {
   );
 
   const renderHead = useCallback(
-    (title: string): JSX.Element => <HeadCell title={title} />,
+    (title: string): JSX.Element => <HeadCell key={title} title={title} />,
     [],
   );
 
   const renderNameUser = useCallback(
-    (data: TDataSource): JSX.Element => <CustomerNameCell {...data} />,
+    ({ id, image, name }: TDataSource): JSX.Element => (
+      <CustomerNameCell key={id} id={id} image={image} name={name} />
+    ),
     [],
   );
 
-  const renderActionIcon = useCallback((): JSX.Element => <ActionCell />, []);
+  const renderActionIcon = useCallback(
+    (data: TDataSource): JSX.Element => (
+      <ActionCell key={`${data.id}-action`} />
+    ),
+    [],
+  );
 
   const renderTitleSelector = useCallback(() => <Selector />, []);
 
