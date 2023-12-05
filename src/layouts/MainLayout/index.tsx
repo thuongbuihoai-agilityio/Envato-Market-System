@@ -54,7 +54,6 @@ const MainLayout = () => {
         sx={{
           transition: 'all .25s ease-in-out',
         }}
-        overflow="hidden"
       >
         <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 

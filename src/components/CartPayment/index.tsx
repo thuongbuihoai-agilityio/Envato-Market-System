@@ -8,6 +8,7 @@ import {
   Flex,
   Input,
   Button,
+  Center,
 } from '@chakra-ui/react';
 
 // Assets
@@ -35,7 +36,9 @@ const CartPaymentComponent = (): JSX.Element => (
       my wallet
     </Heading>
 
-    <Image src={IMAGES.CARD_PAYMENT.url} alt={IMAGES.CARD_PAYMENT.alt} />
+    <Center>
+      <Image src={IMAGES.CARD_PAYMENT.url} alt="Payment Card" />
+    </Center>
 
     <Box mt={4}>
       <Text
