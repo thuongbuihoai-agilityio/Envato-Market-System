@@ -1,4 +1,5 @@
 import { DOTS } from '@constants/common';
+import { ERROR_MESSAGES } from '@constants/messages';
 import { ROUTES } from '@constants/routers';
 import { FormatPaginationParams } from '@interfaces/pagination';
 
@@ -65,4 +66,23 @@ export const getTitleByPathName = (path: string): string => {
     default:
       return 'Dashboard';
   }
+};
+
+export const validatePassword = (value: string) => {
+  if (!value) {
+    return ERROR_MESSAGES.FIELD_REQUIRED('Password');
+  }
+
+  if (value.length < 8) {
+    return ERROR_MESSAGES.PASS_WORD_SHORT;
+  }
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
+
+  if (!passwordRegex.test(value)) {
+    return ERROR_MESSAGES.PASS_WORD_WEAK;
+  }
+
+  return true;
 };

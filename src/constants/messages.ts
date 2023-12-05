@@ -9,4 +9,6 @@ export const ERROR_MESSAGES = {
   ACCOUNT_ALREADY_EXISTS: 'Account already exists',
   EMPTY_DATA: 'Data is the empty',
   PASS_WORD_SHORT: 'Password must be at least 8 characters',
+  PASS_WORD_WEAK:
+    'At least one uppercase letter, one lowercase letter, and one number',
 };
