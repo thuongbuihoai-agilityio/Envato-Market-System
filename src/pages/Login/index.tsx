@@ -16,13 +16,16 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useForm, useAuth } from '@hooks/index';
 
 // Constants
-import { ROUTES, AUTH_SCHEMA, ERROR_MESSAGES } from '@constants/index';
+import { ROUTES, AUTH_SCHEMA } from '@constants/index';
 
 // Layouts
 import { AuthLayout } from '@layouts/index';
 
 // Components
 import { InputField } from '@components/index';
+
+// Utils
+import { validatePassword } from '@utils/helpers';
 
 type TLoginForm = {
   username: string;
@@ -90,18 +93,6 @@ const LoginPage = (): JSX.Element => {
     },
     [redirect, setError, signIn],
   );
-
-  const validatePassword = (value: string) => {
-    if (!value) {
-      return ERROR_MESSAGES.FIELD_REQUIRED('Password');
-    }
-
-    if (value.length < 8) {
-      return ERROR_MESSAGES.PASS_WORD_SHORT;
-    }
-
-    return true;
-  };
 
   return (
     <AuthLayout>

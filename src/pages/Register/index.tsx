@@ -28,6 +28,9 @@ import { InputField } from '@components/index';
 // Types
 import { TUser } from '@interfaces/user';
 
+// Utils
+import { validatePassword } from '@utils/helpers';
+
 type TRegisterForm = Omit<TUser, 'id' | 'createdAt'> & {
   confirmPassword: string;
   isAcceptPrivacyPolicy: boolean;
@@ -189,8 +192,8 @@ const RegisterPage = () => {
         />
 
         <Controller
+          rules={{ validate: validatePassword }}
           control={control}
-          rules={AUTH_SCHEMA.PASSWORD}
           name="password"
           render={({ field, fieldState: { error } }) => {
             const { message } = error || {};
