@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // components
 import { Menu } from '@components/index';
+import { MENU_ITEM_LIST } from '@constants/sidebar';
 
 const meta: Meta<typeof Menu> = {
   title: 'Custom Components/Menu',
@@ -30,8 +31,17 @@ export default meta;
 
 type Story = StoryObj<typeof Menu>;
 
-export const Primary: Story = {
+export const Epxand: Story = {
   args: {
-    title: 'Sample Menu Component',
+    title: 'Expand Menu Component',
+    listItem: MENU_ITEM_LIST,
+  },
+};
+
+export const Minify: Story = {
+  args: {
+    title: 'Minify Menu Component',
+    listItem: MENU_ITEM_LIST,
+    isMinify: true,
   },
 };
