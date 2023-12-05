@@ -5,7 +5,13 @@ import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 import { IMAGES } from '@constants/images';
 
 const TotalBalanceComponent = (): JSX.Element => (
-  <Box w="full" bg="background.body.quaternary" px={11} py={7}>
+  <Box
+    w="full"
+    bg="background.body.quaternary"
+    px={11}
+    py={7}
+    borderRadius="lg"
+  >
     <Box
       border="1px solid"
       borderColor="border.quaternary"
