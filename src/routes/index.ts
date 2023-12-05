@@ -53,10 +53,6 @@ export const ROUTER = createBrowserRouter([
         path: ROUTES.NOT_FOUND,
         Component: NotFound,
       },
-      {
-        path: ROUTES.FORGOT_PASSWORD,
-        Component: ComingSoon,
-      },
     ],
   },
   {
@@ -66,5 +62,9 @@ export const ROUTER = createBrowserRouter([
   {
     path: `/${ROUTES.REGISTER}`,
     Component: withLazy(Register),
+  },
+  {
+    path: `/${ROUTES.FORGOT_PASSWORD}`,
+    Component: withLazy(ComingSoon),
   },
 ]);
