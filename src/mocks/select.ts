@@ -16,14 +16,50 @@ export const SOCIAL_PLATFORM_OPTIONS = [
 export const MONTHS = [
   {
     value: 'jan',
-    label: 'january',
+    label: 'January',
   },
   {
     value: 'feb',
-    label: 'january',
+    label: 'February',
   },
   {
     value: 'mar',
-    label: 'march',
+    label: 'March',
+  },
+  {
+    value: 'jan',
+    label: 'April',
+  },
+  {
+    value: 'may',
+    label: 'May',
+  },
+  {
+    value: 'june',
+    label: 'June',
+  },
+  {
+    value: 'july',
+    label: 'July',
+  },
+  {
+    value: 'Aug',
+    label: 'August',
+  },
+  {
+    value: 'sep',
+    label: 'September',
+  },
+  {
+    value: 'oct',
+    label: 'October',
+  },
+  {
+    value: 'nov',
+    label: 'November',
+  },
+  {
+    value: 'dec',
+    label: 'December',
   },
 ];
