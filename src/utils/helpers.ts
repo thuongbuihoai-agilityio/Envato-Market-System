@@ -1,4 +1,5 @@
 import { DOTS } from '@constants/common';
+import { ROUTES } from '@constants/routers';
 import { FormatPaginationParams } from '@interfaces/pagination';
 
 export const formatNumberButton = (numberOfPage: number) => {
@@ -47,4 +48,21 @@ export const formatPagination = ({
   ].filter((button) => button !== null);
 
   return tempNumberOfButtons;
+};
+
+export const getTitleByPathName = (path: string): string => {
+  switch (path) {
+    case ROUTES.MY_WALLET:
+      return 'My Wallet';
+    case ROUTES.TRANSACTION:
+      return 'Transaction';
+    case ROUTES.USER:
+      return 'User';
+    case ROUTES.HISTORY:
+      return 'History';
+    case ROUTES.SETTING:
+      return 'Setting';
+    default:
+      return 'Dashboard';
+  }
 };

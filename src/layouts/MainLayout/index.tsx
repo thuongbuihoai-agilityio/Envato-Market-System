@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 import {
   Box,
@@ -21,12 +21,18 @@ import { TUser } from '@interfaces/user';
 import { useEffect } from 'react';
 import Sidebar from '@components/Sidebar';
 
+import { getTitleByPathName } from '@utils/helpers';
+
 const MainLayout = () => {
   const user = useAuth((state): TUser | null => state.user);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [isTablet] = useMediaQuery('(min-width: 768px) and (max-width: 992px)');
+
+  const location = useLocation();
+
+  const { pathname } = location;
 
   // Open mini sidebar on tablet
   useEffect(() => {
@@ -57,7 +63,7 @@ const MainLayout = () => {
       >
         <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
-        <Header name="Dashboard" />
+        <Header name={getTitleByPathName(`${pathname.slice(1)}`)} />
 
         {/* Button to show Sidebar on mobile */}
         <Image
