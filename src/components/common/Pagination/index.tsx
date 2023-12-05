@@ -67,7 +67,7 @@ const PaginationComponent = ({
       currentPage: currentPage - 1,
     });
     onPageChange(currentPage - 1);
-  }, []);
+  }, [currentPage]);
 
   const handleNextPage = useCallback(() => {
     if (currentPage === formatNumberButton(numberOfPage).length) {
@@ -80,7 +80,7 @@ const PaginationComponent = ({
       currentPage: currentPage + 1,
     });
     onPageChange(currentPage + 1);
-  }, []);
+  }, [currentPage]);
 
   const handlePageClick = useCallback((value: number) => {
     onPageChange(value);
@@ -92,17 +92,25 @@ const PaginationComponent = ({
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
-      <Flex justifyContent="space-between">
-        <Text>{label}</Text>
-        <Arrow color={colorFill} width={17} height={17} />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text fontSize={{ lg: 'sm' }}>{label}</Text>
+        <Arrow color={colorFill} width={20} height={15} />
       </Flex>
     ),
     [colorFill],
   );
 
   return (
-    <Flex w="100%" justifyContent="space-between">
-      <Flex alignItems="center" position="relative">
+    <Flex
+      data-testId="pagination"
+      w="100%"
+      justifyContent={{ base: 'center', lg: 'space-between' }}
+    >
+      <Flex
+        display={{ base: 'none', lg: 'inline-flex' }}
+        alignItems="center"
+        position="relative"
+      >
         <Text w={100} fontSize="sm" fontWeight="semibold" color="text.primary">
           Show result:
         </Text>
@@ -114,38 +122,49 @@ const PaginationComponent = ({
           />
         </Box>
       </Flex>
-      <Flex w="358px" justifyContent="space-between">
+      <Flex w={{ base: 304, xl: 358 }} justifyContent="space-between">
         <Button
+          data-testId="prev-button"
           variant="iconSecondary"
           cursor={isDisabledPrev ? 'not-allowed' : ''}
-          disabled={isDisabledPrev}
+          isDisabled={isDisabledPrev}
           onClick={handlePrevPage}
         >
           <Arrow color={colorFill} rotate="90deg" />
         </Button>
-        <Flex>
+        <Flex alignItems="center">
           {arrOfCurrButtons.map((item: string | number) => {
             const isDots = item.toString() === '...';
+            const isDisable = currentPage === item || isDots;
             const hoverStyle = isDots
               ? {}
               : {
                   color: 'primary.500',
                   bg: 'background.body.quinary',
                 };
+            const disableStyle = isDots
+              ? {}
+              : {
+                  color: 'text.quaternary',
+                  bg: 'background.body.quinary',
+                };
             return (
               <Button
                 key={item}
-                isDisabled={isDots}
-                w="53px"
+                isDisabled={isDisable}
                 mx={0.5}
+                h={{ base: 30, '2xl': 53 }}
+                fontSize={{ base: 'xs', lg: 'sm' }}
+                px={{ base: 4, '2xl': 6 }}
                 bg={
                   currentPage === item
                     ? 'background.body.quinary'
                     : 'transparent'
                 }
-                color={currentPage === item ? 'text.tertiary' : 'gray.400'}
+                color={currentPage === item ? 'text.quaternary' : 'gray.400'}
                 cursor={isDots ? 'not-allowed' : ''}
                 _hover={hoverStyle}
+                _disabled={disableStyle}
                 onClick={() => handlePageClick(item as number)}
               >
                 {item}
@@ -154,9 +173,10 @@ const PaginationComponent = ({
           })}
         </Flex>
         <Button
+          data-testId="next-button"
           variant="iconSecondary"
           cursor={isDisableNext ? 'not-allowed' : ''}
-          disabled={isDisableNext}
+          isDisabled={isDisableNext}
           onClick={handleNextPage}
         >
           <Arrow color={colorFill} rotate="-90deg" />

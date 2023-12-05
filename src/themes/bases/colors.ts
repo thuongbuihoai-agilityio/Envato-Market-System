@@ -128,6 +128,10 @@ export const colors: ThemeOverride['colors'] = {
       default: '#fff',
       _dark: '#1a202c',
     },
+    quaternary: {
+      default: '#22C55E',
+      _dark: '#FAFAFA',
+    },
   },
 
   danger: {
