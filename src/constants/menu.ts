@@ -1,4 +1,4 @@
-import { Account, Email, Logout } from '@assets/icons/index';
+import { Account, Logout } from '@assets/icons/index';
 
 export const MENU_LIST_ICON = [
   {
@@ -9,12 +9,6 @@ export const MENU_LIST_ICON = [
   },
   {
     id: 2,
-    href: '#',
-    value: 'Inbox',
-    icon: Email,
-  },
-  {
-    id: 3,
     href: '#',
     value: 'Logout',
     icon: Logout,
