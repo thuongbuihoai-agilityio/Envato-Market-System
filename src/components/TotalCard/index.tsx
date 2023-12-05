@@ -20,7 +20,11 @@ const TotalCardComponent = ({
   growth,
   weeklyIncome,
 }: TotalCardComponentProps) => (
-  <Box p={5} bg="background.component.primary" rounded="lg">
+  <Box
+    p={{ base: 5, lg: 1, xl: 5 }}
+    bg="background.component.primary"
+    rounded="lg"
+  >
     <Flex alignItems="center" justifyContent="space-between" mb={5}>
       <HStack w="fit-content">
         <Image src={IMAGES.TOTAL_EARN.url} alt={IMAGES.TOTAL_EARN.alt} />
@@ -76,7 +80,7 @@ const TotalCardComponent = ({
           },
         ]}
         type="area"
-        width="200"
+        width="150"
       />
     </Flex>
   </Box>
