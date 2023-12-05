@@ -159,4 +159,9 @@ export const IMAGES = {
     url: '/public/images/avatar-user-chat.png',
     alt: 'This is the user avatar',
   },
+
+  INCREASE_ICON: {
+    url: '/icons/increase.svg',
+    alt: 'This is the increase icon',
+  },
 };
