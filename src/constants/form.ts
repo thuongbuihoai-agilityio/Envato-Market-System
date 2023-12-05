@@ -34,8 +34,10 @@ export const AUTH_SCHEMA = {
   },
   AGREE_POLICY: {
     //TODO: Refactor later
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-    validate: (_: any, { isAcceptPrivacyPolicy: __, ...fieldValues }: any) =>
-      !Object.values(fieldValues).every((value) => value),
+    validate: (
+      value: boolean,
+      //eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+      { isAcceptPrivacyPolicy: __, ...fieldValues }: any,
+    ) => Object.values(fieldValues).every((value) => value) && value,
   },
 };

@@ -16,7 +16,7 @@ type TSignUpErrorField = Partial<
 >;
 
 export type TUseAuth = {
-  user: TUser | null;
+  user: Omit<TUser, 'password'> | null;
   isRemember: boolean;
   signIn: (
     {
@@ -54,7 +54,10 @@ export const useAuth = create(
           throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
         }
 
-        return set({ user, isRemember });
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { password: pass, ...userInfo } = user;
+
+        return set({ user: userInfo, isRemember });
       },
       signUp: async (userInfo) => {
         const { email, password } = userInfo;
@@ -76,14 +79,16 @@ export const useAuth = create(
         }
 
         // Send request add new user
-        const response: TUser = await UsersHttpService.post<TUser>(
-          END_POINTS.USERS,
-          {
-            ...userInfo,
-            createdAt: Date.now(),
-          },
-          {},
-        ).then((res) => res.data);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { password: responsePassword, ...response }: TUser =
+          await UsersHttpService.post<TUser>(
+            END_POINTS.USERS,
+            {
+              ...userInfo,
+              createdAt: Date.now(),
+            },
+            {},
+          ).then((res) => res.data);
 
         // Save user into store
         set({ user: response });
