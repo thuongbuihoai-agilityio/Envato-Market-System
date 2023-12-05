@@ -15,6 +15,7 @@ import {
   EFFICIENCY_MOCK,
   REVENUE_FLOW_MOCK,
 } from '@mocks/spending';
+import { TRANSACTIONS } from '@mocks/transaction';
 
 const Dashboard = () => (
   <Grid
@@ -42,7 +43,7 @@ const Dashboard = () => (
         </GridItem>
       </Grid>
       <Box mt={6}>
-        <FilterUser />
+        <FilterUser transactions={TRANSACTIONS} />
       </Box>
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }} ml={{ '2xl': 12 }}>
