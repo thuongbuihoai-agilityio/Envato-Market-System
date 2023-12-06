@@ -7,13 +7,16 @@ import { withLogged, withNeedLogin } from '..';
 // Hooks
 import { useAuth } from '@hooks/index';
 
+// Constants
+import { ROUTES } from '@constants/index';
+
 const Home = () => <h2>Home page</h2>;
 const Login = () => <h2>Login page</h2>;
 const RouterTemp = () => (
-  <MemoryRouter initialEntries={['/']}>
+  <MemoryRouter initialEntries={[ROUTES.ROOT]}>
     <Routes>
-      <Route path="/" Component={withNeedLogin(Home)} />
-      <Route path="/login" Component={withLogged(Login)} />
+      <Route path={ROUTES.ROOT} Component={withNeedLogin(Home)} />
+      <Route path={ROUTES.LOGIN} Component={withLogged(Login)} />
     </Routes>
   </MemoryRouter>
 );
