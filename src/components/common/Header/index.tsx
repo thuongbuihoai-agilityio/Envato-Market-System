@@ -102,11 +102,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           minW="310px"
           justifyContent="space-between"
         >
-          <IconButton
-            onClick={() => {
-              toggleColorMode();
-            }}
-          >
+          <IconButton onClick={toggleColorMode}>
             {colorMode === 'light' ? (
               <LightTheme color={colorFill} />
             ) : (
