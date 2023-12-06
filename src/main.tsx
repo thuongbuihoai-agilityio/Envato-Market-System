@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom/client';
 // App
 import App from './App.tsx';
 
+// config why-did-you-render
+import './wdyr';
+
 // Styles
 import './index.css';
 
