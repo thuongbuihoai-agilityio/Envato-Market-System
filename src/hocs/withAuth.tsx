@@ -8,7 +8,7 @@ import { EXPIRED_DAY, ROUTES } from '@constants/index';
 import { useAuth, TUserInfo, TUseAuth } from '@hooks/index';
 
 // Utils
-import { getExpireTime, getCurrentTime } from '@utils/index';
+import { getExpireTime, getCurrentTimeSeconds } from '@utils/index';
 
 /**
  * Requires you to log in to continue
@@ -19,28 +19,26 @@ export const withNeedLogin = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const { isRemember, user, startDate, signOut } = useAuth(
+    const { isRemember, user, date, signOut } = useAuth(
       (
         state,
       ): {
         isRemember: boolean;
-        startDate: number;
+        date: number;
         user: TUserInfo;
         signOut: TUseAuth['signOut'];
       } => ({
         isRemember: state.isRemember,
         user: state.user,
-        startDate: state.startDate,
+        date: state.date,
         signOut: state.signOut,
       }),
     );
-    const isExpired: boolean =
-      getCurrentTime() / 1000 -
-        getExpireTime(
-          startDate / 1000,
-          isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
-        ) >=
-      0;
+    const expiredTime: number = getExpireTime(
+      date,
+      isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+    );
+    const isExpired: boolean = expiredTime - getCurrentTimeSeconds() < 0;
 
     if (isExpired && user) {
       signOut();

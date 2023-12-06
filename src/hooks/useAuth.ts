@@ -12,7 +12,7 @@ import { UsersHttpService } from '@services/index';
 import { TUser } from '@interfaces/user';
 
 // Utils
-import { getCurrentTime } from '@utils/index';
+import { getCurrentTimeSeconds } from '@utils/index';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>
@@ -23,7 +23,7 @@ export type TUserInfo = Omit<TUser, 'password'> | null;
 export type TUseAuth = {
   user: TUserInfo;
   isRemember: boolean;
-  startDate: number;
+  date: number;
   signIn: (
     {
       email,
@@ -45,7 +45,7 @@ export const useAuth = create(
     (set) => ({
       user: null,
       isRemember: false,
-      startDate: 0,
+      date: 0,
       signIn: async ({ email, password }, isRemember) => {
         const { data = [] }: AxiosResponse<TUser[] | undefined> =
           await UsersHttpService.get<TUser[] | undefined>(
@@ -64,7 +64,11 @@ export const useAuth = create(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { password: pass, ...userInfo } = user;
 
-        return set({ user: userInfo, isRemember, startDate: getCurrentTime() });
+        return set({
+          user: userInfo,
+          isRemember,
+          date: getCurrentTimeSeconds(),
+        });
       },
       signUp: async (userInfo) => {
         const { email, password } = userInfo;
@@ -98,11 +102,11 @@ export const useAuth = create(
           ).then((res) => res.data);
 
         // Save user into store
-        set({ user: response, startDate: getCurrentTime() });
+        set({ user: response, date: getCurrentTimeSeconds() });
 
         return {};
       },
-      signOut: () => set({ user: null, isRemember: false, startDate: 0 }),
+      signOut: () => set({ user: null, isRemember: false, date: 0 }),
     }),
     { name: 'authentication' },
   ),
