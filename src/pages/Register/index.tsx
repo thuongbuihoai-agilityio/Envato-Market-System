@@ -16,6 +16,9 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 // Hooks
 import { useAuth, useForm } from '@hooks/index';
 
+// HOCs
+import { withLogged } from '@hocs/index';
+
 // Constants
 import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@constants/index';
 
@@ -307,5 +310,5 @@ const RegisterPage = () => {
   );
 };
 
-const Register = memo(RegisterPage);
+const Register = memo(withLogged(RegisterPage));
 export default Register;
