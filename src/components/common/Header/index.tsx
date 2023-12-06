@@ -17,6 +17,7 @@ import { IMAGES } from '@constants/images';
 
 // Assets
 import { Bell, Email, Gift, Rotate, Search, Theme } from '@assets/icons';
+import { useAuth } from '@hooks/useAuth';
 
 interface HeaderProps {
   name?: string;
@@ -26,6 +27,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
+  );
+
+  const username = useAuth(
+    (state): string | undefined =>
+      `${state.user?.firstName} ${state.user?.lastName}`,
   );
 
   const { toggleColorMode } = useColorMode();
@@ -108,7 +114,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         </Flex>
         <Box display={{ base: 'none', md: 'inline-flex' }}>
           <Dropdown
-            name="John Doe"
+            name={username}
             permission="Super Admin"
             src={IMAGES.AVATAR.url}
           />
