@@ -59,7 +59,7 @@ const DropdownComponent = ({
           >
             <Flex alignItems="center">
               <Avatar src={src} />
-              <Box display={{ base: 'none', '2xl': 'inline' }}>
+              <Box display={{ base: 'none', '3xl': 'inline' }}>
                 <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
                     <Text mr="15px" fontWeight="bold">
@@ -77,7 +77,7 @@ const DropdownComponent = ({
           <MenuList
             position="absolute"
             top="10px"
-            right={{ base: '-18.75', md: '-13.25', '2xl': '-42' }}
+            right={{ base: '-18.75', md: '-13.25', '3xl': '-42' }}
             data-testid="TestDropdown"
             px={3}
             py={2}

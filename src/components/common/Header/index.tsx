@@ -89,7 +89,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         />
       </Box>
       <Flex
-        minW={{ base: 'fit-content', xl: '407px', '2xl': '530px' }}
+        minW={{ base: 'fit-content', xl: '407px', '3xl': '530px' }}
         justifyContent={{ base: 'end', xl: 'space-between' }}
       >
         <Flex
