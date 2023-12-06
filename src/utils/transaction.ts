@@ -2,6 +2,9 @@
 import { TDataSource } from '@components/index';
 import { TTransaction } from '@interfaces/transaction';
 
+// Mocks
+import { TRANSACTIONS } from '@mocks/index';
+
 /**
  * Convert data show for home page
  * @param transactions
@@ -23,7 +26,7 @@ export const getTransactionHomePage = (
       name,
       email,
       location,
-      image: avatar,
+      image: avatar || TRANSACTIONS[0].customer.avatar,
       spent: `${currency}${amount}`,
     };
   });

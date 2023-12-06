@@ -10,14 +10,13 @@ import {
 } from '@components/index';
 
 // Hooks
-import { useGetStatistic } from '@hooks/index';
+import { useGetStatistic, useTransaction } from '@hooks/index';
 
 // Mocks
 import {
   EFFICIENCY_MOCK,
   INITIAL_TOTAL_STATISTICS,
   REVENUE_FLOW_MOCK,
-  TRANSACTIONS,
 } from '@mocks/index';
 
 // Constants
@@ -27,6 +26,7 @@ import { END_POINTS } from '@constants/index';
 import { ISpendingStatistics } from '@interfaces/spending';
 
 const Dashboard = () => {
+  const { data: transactions = [] } = useTransaction();
   const {
     data: TotalListData,
     isLoading: isLoadingTotalList,
@@ -63,7 +63,7 @@ const Dashboard = () => {
           </GridItem>
         </Grid>
         <Box mt={6}>
-          <FilterUser transactions={TRANSACTIONS} />
+          <FilterUser transactions={transactions} />
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>
