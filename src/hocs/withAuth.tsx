@@ -2,13 +2,13 @@ import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/index';
+import { EXPIRED_DAY, ROUTES } from '@constants/index';
 
 // Hooks
 import { useAuth, TUserInfo, TUseAuth } from '@hooks/index';
 
 // Utils
-import { getCurrentTime } from '@utils/index';
+import { getExpireTime, getCurrentTime } from '@utils/index';
 
 /**
  * Requires you to log in to continue
@@ -19,20 +19,28 @@ export const withNeedLogin = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const { user, expiredTime, signOut } = useAuth(
+    const { isRemember, user, startDate, signOut } = useAuth(
       (
         state,
       ): {
+        isRemember: boolean;
+        startDate: number;
         user: TUserInfo;
-        expiredTime: number;
         signOut: TUseAuth['signOut'];
       } => ({
+        isRemember: state.isRemember,
         user: state.user,
-        expiredTime: state.expiredTime,
+        startDate: state.startDate,
         signOut: state.signOut,
       }),
     );
-    const isExpired: boolean = getCurrentTime() - expiredTime >= 0;
+    const isExpired: boolean =
+      getCurrentTime() / 1000 -
+        getExpireTime(
+          startDate / 1000,
+          isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+        ) >=
+      0;
 
     if (isExpired && user) {
       signOut();

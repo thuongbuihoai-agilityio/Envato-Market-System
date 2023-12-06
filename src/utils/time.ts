@@ -8,7 +8,9 @@ export const getCurrentYear = (): number => {
  * @param dateOfExpired
  * @returns
  */
-export const getExpireTime = (dateOfExpiry: number): number =>
-  Date.now() + dateOfExpiry * 24 * 60 * 60 * 1000; // currentTime + dateOfExpiry * hour * minutes * seconds * milliseconds
+export const getExpireTime = (
+  startDate: number,
+  dateOfExpiry: number,
+): number => startDate + dateOfExpiry * 24 * 60 * 60; // startDate + dateOfExpiry * hour * minutes * seconds
 
 export const getCurrentTime = (): number => Date.now();

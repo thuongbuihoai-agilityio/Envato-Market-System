@@ -3,12 +3,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 // Constants
-import {
-  END_POINTS,
-  SEARCH_PARAM,
-  ERROR_MESSAGES,
-  EXPIRED_DAY,
-} from '@constants/index';
+import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@constants/index';
 
 // Services
 import { UsersHttpService } from '@services/index';
@@ -17,7 +12,7 @@ import { UsersHttpService } from '@services/index';
 import { TUser } from '@interfaces/user';
 
 // Utils
-import { getExpireTime } from '@utils/index';
+import { getCurrentTime } from '@utils/index';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>
@@ -28,7 +23,7 @@ export type TUserInfo = Omit<TUser, 'password'> | null;
 export type TUseAuth = {
   user: TUserInfo;
   isRemember: boolean;
-  expiredTime: number;
+  startDate: number;
   signIn: (
     {
       email,
@@ -50,7 +45,7 @@ export const useAuth = create(
     (set) => ({
       user: null,
       isRemember: false,
-      expiredTime: 0,
+      startDate: 0,
       signIn: async ({ email, password }, isRemember) => {
         const { data = [] }: AxiosResponse<TUser[] | undefined> =
           await UsersHttpService.get<TUser[] | undefined>(
@@ -68,11 +63,8 @@ export const useAuth = create(
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { password: pass, ...userInfo } = user;
-        const expiredTime: number = getExpireTime(
-          isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
-        );
 
-        return set({ user: userInfo, isRemember, expiredTime });
+        return set({ user: userInfo, isRemember, startDate: getCurrentTime() });
       },
       signUp: async (userInfo) => {
         const { email, password } = userInfo;
@@ -104,14 +96,13 @@ export const useAuth = create(
             },
             {},
           ).then((res) => res.data);
-        const expiredTime: number = getExpireTime(EXPIRED_DAY.NOT_REMEMBER);
 
         // Save user into store
-        set({ user: response, expiredTime });
+        set({ user: response, startDate: getCurrentTime() });
 
         return {};
       },
-      signOut: () => set({ user: null, isRemember: false, expiredTime: 0 }),
+      signOut: () => set({ user: null, isRemember: false, startDate: 0 }),
     }),
     { name: 'authentication' },
   ),
