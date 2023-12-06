@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@chakra-ui/icons':
     specifier: ^2.1.1
@@ -108,6 +112,9 @@ devDependencies:
   '@vitejs/plugin-react':
     specifier: ^4.2.0
     version: 4.2.0(vite@5.0.2)
+  '@welldone-software/why-did-you-render':
+    specifier: ^7.0.1
+    version: 7.0.1(react@18.2.0)
   eslint:
     specifier: ^8.53.0
     version: 8.54.0
@@ -5962,6 +5969,15 @@ packages:
       vite: 5.0.2(@types/node@18.18.12)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@welldone-software/why-did-you-render@7.0.1(react@18.2.0):
+    resolution: {integrity: sha512-Qe/8Xxa2G+LMdI6VoazescPzjjkHYduCDa8aHOJR50e9Bgs8ihkfMBY+ev7B4oc3N59Zm547Sgjf8h5y0FOyoA==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+    dependencies:
+      lodash: 4.17.21
+      react: 18.2.0
     dev: true
 
   /@yarnpkg/esbuild-plugin-pnp@3.0.0-rc.15(esbuild@0.18.20):
@@ -13204,7 +13220,3 @@ packages:
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false

@@ -9,7 +9,9 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxImportSource: '@welldone-software/why-did-you-render',
+    }),
     tsconfigPaths(),
     ViteImageOptimizer({
       svg: {
