@@ -17,6 +17,8 @@ import { IMAGES } from '@constants/images';
 
 // Assets
 import { Bell, Email, Gift, Rotate, Search, Theme } from '@assets/icons';
+
+// hooks
 import { useAuth } from '@hooks/useAuth';
 
 interface HeaderProps {
