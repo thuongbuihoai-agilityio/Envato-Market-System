@@ -41,6 +41,8 @@ const DropdownComponent = ({
     theme.colors.white,
   );
 
+  console.log('theme', theme.components.Tag);
+
   return (
     <Menu>
       {({ isOpen }) => (

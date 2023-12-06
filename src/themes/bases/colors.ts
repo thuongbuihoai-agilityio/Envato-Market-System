@@ -148,5 +148,6 @@ export const colors: ThemeOverride['colors'] &
     500: '#EAB308',
     600: '#FDF9e9',
     700: '#FF784B',
+    800: '#f6a723',
   },
 };

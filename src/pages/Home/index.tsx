@@ -1,5 +1,5 @@
 // Components
-import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Stack, Tag } from '@chakra-ui/react';
 import {
   CartPayment,
   TotalList,
@@ -25,6 +25,7 @@ const Dashboard = () => (
     templateColumns={{ base: 'repeat(1, 1fr)', '3xl': 'repeat(4, 1fr)' }}
     gap={0}
   >
+    <Tag>Teal</Tag>
     <GridItem colSpan={3}>
       <TotalList spendingStatistics={SPENDING_STATISTICS_MOCK} />
       <Grid

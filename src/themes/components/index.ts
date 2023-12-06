@@ -1,3 +1,4 @@
+export * from './Tag';
 export * from './Button';
 export * from './Text';
 export * from './Checkbox';
