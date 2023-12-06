@@ -1,5 +1,5 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-
+import { Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -8,24 +8,16 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 
-// Hooks
-import { useAuth } from '@hooks/useAuth';
-
 // Constants
-import { IMAGES, ROUTES, SIDEBAR } from '@constants/index';
+import { IMAGES, SIDEBAR } from '@constants/index';
 
-import { Header, Lazy } from '@components/index';
+// Components
+import { Header, Lazy, Sidebar } from '@components/index';
 
-// Types
-import { TUser } from '@interfaces/user';
-import { useEffect } from 'react';
-import Sidebar from '@components/Sidebar';
-
+// Helpers
 import { getTitleByPathName } from '@utils/helpers';
 
 const MainLayout = () => {
-  const user = useAuth((state): Omit<TUser, 'password'> | null => state.user);
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [isTablet] = useMediaQuery('(min-width: 768px) and (max-width: 992px)');
@@ -40,8 +32,6 @@ const MainLayout = () => {
       onOpen();
     }
   }, [isTablet, onOpen]);
-
-  if (!user) return <Navigate to={ROUTES.LOGIN} />;
 
   return (
     <Flex w="full" h="full" bg="background.body.primary">

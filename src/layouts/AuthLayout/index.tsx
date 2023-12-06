@@ -1,21 +1,16 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { ReactNode, memo, useMemo } from 'react';
-import { Navigate } from 'react-router-dom';
-
-// Hooks
-import { useAuth } from '@hooks/index';
 
 // Constants
-import { IMAGES, ROUTES, TITLES } from '@constants/index';
+import { IMAGES, TITLES } from '@constants/index';
 
 // Components
-import { Benefit, Divider } from '@components/index';
-import { Logo } from '@components/index';
+import { Benefit, Divider, Logo } from '@components/index';
 import AuthHeading from './Heading';
 import AuthFooter from './Footer';
 
 // Types
-import { TImage, TUser } from '@interfaces/index';
+import { TImage } from '@interfaces/index';
 
 type TAuthLayoutProps = {
   children?: ReactNode;
@@ -27,8 +22,6 @@ const AuthLayoutComponent = ({
   children,
   isSignInForm = true,
 }: TAuthLayoutProps): JSX.Element => {
-  const user = useAuth((state): TUser | null => state.user);
-
   const title: string = useMemo(
     (): string => (isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP),
     [isSignInForm],
@@ -37,8 +30,6 @@ const AuthLayoutComponent = ({
     (): TImage => (isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP),
     [isSignInForm],
   );
-
-  if (user) return <Navigate to={ROUTES.ROOT} replace />;
 
   return (
     <Flex width="100%" minH="100vh">

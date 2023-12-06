@@ -15,6 +15,9 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 // Hooks
 import { useForm, useAuth } from '@hooks/index';
 
+// HOCs
+import { withLogged } from '@hocs/index';
+
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@constants/index';
 
@@ -200,5 +203,5 @@ const LoginPage = (): JSX.Element => {
   );
 };
 
-const Login = memo(LoginPage);
+const Login = memo(withLogged(LoginPage));
 export default Login;
