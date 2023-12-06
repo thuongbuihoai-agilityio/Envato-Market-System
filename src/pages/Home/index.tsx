@@ -10,9 +10,9 @@ import {
 } from '@components/index';
 
 // Hooks
-import { useGetTotalStatistic } from '@hooks/index';
+import { useGetStatistic } from '@hooks/index';
 
-// Constants
+// Mocks
 import {
   EFFICIENCY_MOCK,
   INITIAL_TOTAL_STATISTICS,
@@ -20,12 +20,18 @@ import {
   TRANSACTIONS,
 } from '@mocks/index';
 
+// Constants
+import { END_POINTS } from '@constants/index';
+
+// Types
+import { ISpendingStatistics } from '@interfaces/spending';
+
 const Dashboard = () => {
   const {
     data: TotalListData,
     isLoading: isLoadingTotalList,
     isError,
-  } = useGetTotalStatistic();
+  } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
 
   return (
     <Grid
