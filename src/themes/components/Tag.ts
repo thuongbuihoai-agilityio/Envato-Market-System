@@ -4,33 +4,35 @@ import { defineStyleConfig } from '@chakra-ui/react';
 export const Tag = defineStyleConfig({
   baseStyle: {
     border: 'none',
-    borderRadius: 'lg',
-    color: 'red',
-    fontSize: '50px',
   },
   variants: {
-    subtle: {
+    primary: {
       container: {
-        background: 'red.500',
+        color: 'primary.500',
+        background: 'primary.400',
       },
-      colorScheme: 'red',
     },
     secondary: {
-      color: 'danger.500',
-      // backgroundColor: 'primary.400',
+      container: {
+        color: 'danger.500',
+        backgroundColor: 'primary.400',
+      },
     },
     tertiary: {
-      color: 'warning.800',
-      // backgroundColor: 'warning.300',
+      container: {
+        color: 'warning.800',
+        backgroundColor: 'warning.300',
+      },
     },
     quaternary: {
-      color: 'danger.500',
-      // backgroundColor: 'warning.300',
+      container: {
+        color: 'danger.500',
+        backgroundColor: 'warning.300',
+      },
     },
   },
   defaultProps: {
     size: 'xl',
-    variant: 'subtle',
-    // colorScheme: "#000f",
+    variant: 'primary',
   },
 });

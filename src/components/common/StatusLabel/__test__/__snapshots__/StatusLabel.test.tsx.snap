@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusLabel Component Should render match with snapshot. 1`] = `
+<div>
+  <span
+    class="css-ytu0vs"
+    data-testid="tag"
+  >
+    Full Time
+  </span>
+</div>
+`;
