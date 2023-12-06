@@ -152,9 +152,15 @@ const RevenueFlowComponent = ({
           options={{
             chart: {
               stacked: true,
+              toolbar: {
+                show: false,
+              },
             },
             xaxis: {
               categories: data.map((item) => item.month),
+              axisTicks: {
+                show: false,
+              },
             },
             legend: {
               show: false,

@@ -56,6 +56,9 @@ const TotalCardComponent = ({
             labels: {
               show: false,
             },
+            axisTicks: {
+              show: false,
+            },
           },
           yaxis: {
             labels: {
