@@ -2,15 +2,13 @@ import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/index';
+import { EXPIRED_DAY, ROUTES } from '@constants/index';
 
 // Hooks
-import { useAuth } from '@hooks/index';
+import { useAuth, TUserInfo, TUseAuth } from '@hooks/index';
 
-// Types
-import { TUser } from '@interfaces/index';
-
-type TUserStore = Omit<TUser, 'password'> | null;
+// Utils
+import { getExpireTime, getCurrentTimeSeconds } from '@utils/index';
 
 /**
  * Requires you to log in to continue
@@ -21,9 +19,36 @@ export const withNeedLogin = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const user = useAuth((state): TUserStore => state.user);
+    const { isRemember, user, date, signOut } = useAuth(
+      (
+        state,
+      ): {
+        isRemember: boolean;
+        date: number;
+        user: TUserInfo;
+        signOut: TUseAuth['signOut'];
+      } => ({
+        isRemember: state.isRemember,
+        user: state.user,
+        date: state.date,
+        signOut: state.signOut,
+      }),
+    );
+    const expiredTime: number = getExpireTime(
+      date,
+      isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+    );
+    const isExpired: boolean = expiredTime - getCurrentTimeSeconds() < 0;
 
-    if (!user) return <Navigate to={ROUTES.LOGIN} />;
+    if (isExpired && user) {
+      signOut();
+
+      return <></>;
+    }
+
+    if (!user) {
+      return <Navigate to={ROUTES.LOGIN} />;
+    }
 
     return <Component {...props} />;
   };
@@ -40,7 +65,7 @@ export const withLogged = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const user = useAuth((state): TUserStore => state.user);
+    const user = useAuth((state): TUserInfo => state.user);
 
     if (user) return <Navigate to={ROUTES.ROOT} replace />;
 
