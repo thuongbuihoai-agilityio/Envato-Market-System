@@ -7,7 +7,9 @@ import {
   OverallBalance,
   TotalBalance,
 } from '@components/index';
-import { useTransaction } from '@hooks/useTransaction';
+
+// Hooks
+import { useTransaction } from '@hooks/index';
 
 // Mocks
 import { EFFICIENCY_MOCK, OVERALL_BALANCE_MOCK } from '@mocks/index';

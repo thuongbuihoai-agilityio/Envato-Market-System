@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 // Constants
-import { END_POINTS } from '@constants/api';
+import { END_POINTS } from '@constants/index';
 
 // Types
 import { TTransaction } from '@interfaces/index';
