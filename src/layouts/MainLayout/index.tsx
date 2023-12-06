@@ -46,7 +46,7 @@ const MainLayout = () => {
   return (
     <Flex w="full" h="full" bg="background.body.primary">
       <Box
-        ml={{
+        pl={{
           base: 0,
           md: !isOpen ? 0 : SIDEBAR.MINI_SIDEBAR_WIDTH,
           lg: SIDEBAR.MINI_SIDEBAR_WIDTH,
