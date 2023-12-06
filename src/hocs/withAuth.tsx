@@ -2,13 +2,13 @@ import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 
 // Constants
-import { ROUTES } from '@constants/routers';
+import { ROUTES } from '@constants/index';
 
 // Hooks
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/index';
 
 // Types
-import { TUser } from '@interfaces/user';
+import { TUser } from '@interfaces/index';
 
 type TUserStore = Omit<TUser, 'password'> | null;
 
