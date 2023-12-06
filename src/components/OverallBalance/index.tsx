@@ -115,6 +115,9 @@ const OverallBalanceComponent = ({
           },
           xaxis: {
             categories: data.map((item) => item.month),
+            axisTicks: {
+              show: false,
+            },
           },
           legend: {
             show: false,
