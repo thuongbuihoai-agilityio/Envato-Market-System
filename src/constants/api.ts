@@ -12,6 +12,7 @@ export const END_POINTS = {
   REVENUE: '/revenue',
   EFFICIENCY: '/efficiency',
   EMPLOYEES: '/employees',
+  OVERALL_BALANCE: '/overall-balance',
 };
 
 export const SEARCH_PARAM = {

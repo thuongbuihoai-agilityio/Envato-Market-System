@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -7,7 +7,6 @@ import {
   Box,
   Flex,
   Heading,
-  Skeleton,
   Text,
   theme,
   useColorModeValue,
@@ -19,8 +18,9 @@ import { Arrow } from '@assets/icons';
 
 // Constants
 import {
-  EFFICIENCY_OPTIONS,
+  OVERALL_BALANCE_COLORS,
   REVENUE_FLOW_COLORS,
+  REVENUE_FLOW_OPTIONS,
   REVENUE_FLOW_STATUS,
 } from '@constants/index';
 
@@ -31,16 +31,17 @@ import { TOption } from '@components/common/Select';
 interface OverallBalanceProps {
   total: number;
   growth: number;
-  data: IRevenueFlow[];
-  isLoading?: boolean;
+  data: Omit<IRevenueFlow, 'pending'>[];
 }
 
 const OverallBalanceComponent = ({
   data,
   total,
   growth,
-  isLoading = false,
 }: OverallBalanceProps) => {
+  const [chartData, setChartData] =
+    useState<Omit<IRevenueFlow, 'pending'>[]>(data);
+
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,
@@ -56,14 +57,21 @@ const OverallBalanceComponent = ({
     [colorFill],
   );
 
-  const handleChangeSelect = useCallback(() => {
-    // TODO: Update later
-  }, []);
-
-  if (isLoading)
-    return (
-      <Skeleton bg="background.component.primary" rounded="lg" height={360} />
-    );
+  const handleChangeSelect = useCallback(
+    (option: TOption) => {
+      switch (option.value) {
+        case 'Jan,Jun':
+          setChartData(data.slice(0, -6));
+          break;
+        case 'July,Dec':
+          setChartData(data.slice(-6));
+          break;
+        default:
+          setChartData(data);
+      }
+    },
+    [data],
+  );
 
   return (
     <Box py={3} px={6} bg="background.component.primary" rounded="lg">
@@ -84,10 +92,10 @@ const OverallBalanceComponent = ({
           </Flex>
         </Box>
         <Flex gap={7} display={{ base: 'none', lg: 'flex' }}>
-          {REVENUE_FLOW_STATUS.map((item, index) => (
+          {REVENUE_FLOW_STATUS.slice(0, -1).map((item, index) => (
             <Flex key={item} gap={2} alignItems="center">
               <Box
-                bgColor={REVENUE_FLOW_COLORS[index]}
+                bgColor={OVERALL_BALANCE_COLORS[index]}
                 w="12px"
                 height="12px"
                 rounded="50%"
@@ -96,9 +104,9 @@ const OverallBalanceComponent = ({
             </Flex>
           ))}
         </Flex>
-        <Box w={110} h="21px">
+        <Box w={125} h="21px">
           <Select
-            options={EFFICIENCY_OPTIONS}
+            options={REVENUE_FLOW_OPTIONS}
             variant="no-border"
             renderTitle={renderTitle}
             onSelect={handleChangeSelect}
@@ -114,7 +122,7 @@ const OverallBalanceComponent = ({
             },
           },
           xaxis: {
-            categories: data.map((item) => item.title),
+            categories: chartData.map((item) => item.title),
             axisTicks: {
               show: false,
             },
@@ -128,9 +136,12 @@ const OverallBalanceComponent = ({
           },
         }}
         series={[
-          { data: data.map((item) => item.pending) },
-          { data: data.map((item) => item.signed) },
-          { data: data.map((item) => item.lost) },
+          {
+            data: chartData.map(({ signed }) => signed),
+          },
+          {
+            data: chartData.map(({ lost }) => lost),
+          },
         ]}
         type="area"
         height="260"

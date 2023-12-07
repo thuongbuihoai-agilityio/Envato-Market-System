@@ -22,3 +22,9 @@ export interface IEfficiency {
   isLoading?: boolean;
   isExchangeRate?: boolean;
 }
+
+export interface IOverallBalance {
+  total: number;
+  growth: number;
+  data: Omit<IRevenueFlow, 'pending'>[];
+}

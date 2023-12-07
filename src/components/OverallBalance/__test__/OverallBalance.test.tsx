@@ -17,12 +17,4 @@ describe('OverallBalance component', () => {
 
     expect(container).toMatchSnapshot();
   });
-
-  it('renders with is loading is true', () => {
-    const { container } = render(
-      <OverallBalance {...OVERALL_BALANCE_MOCK} isLoading />,
-    );
-
-    expect(container).toMatchSnapshot();
-  });
 });

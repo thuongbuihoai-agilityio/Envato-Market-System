@@ -152,75 +152,75 @@ export const OVERALL_BALANCE_MOCK = {
   data: [
     {
       title: 'Jan',
-      pending: 234324,
       signed: 534534,
       lost: 234324,
     },
     {
       title: 'Feb',
-      pending: 553434,
       signed: 434523,
       lost: 657667,
     },
     {
       title: 'Mar',
-      pending: 456565,
       signed: 534534,
       lost: 234766,
     },
     {
       title: 'April',
-      pending: 324265,
       signed: 435234,
       lost: 867876,
     },
     {
       title: 'May',
-      pending: 243223,
       signed: 533453,
       lost: 767876,
     },
     {
       title: 'Jun',
-      pending: 345423,
       signed: 435443,
       lost: 345433,
     },
     {
       title: 'July',
-      pending: 456745,
       signed: 234434,
       lost: 345343,
     },
     {
       title: 'Aug',
-      pending: 345265,
       signed: 423422,
       lost: 234234,
     },
     {
       title: 'Sep',
-      pending: 654566,
       signed: 341342,
       lost: 234243,
     },
     {
       title: 'Oct',
-      pending: 564566,
       signed: 423432,
       lost: 657677,
     },
     {
       title: 'Nov',
-      pending: 123132,
       signed: 234234,
       lost: 312312,
     },
     {
       title: 'Dec',
-      pending: 785686,
       signed: 534534,
       lost: 345354,
+    },
+  ],
+};
+
+export const INITIAL_OVERALL_BALANCE = {
+  total: 0,
+  growth: 0,
+  data: [
+    {
+      title: '',
+      signed: 0,
+      lost: 0,
     },
   ],
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Components
-import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Skeleton, Text } from '@chakra-ui/react';
 import { TOption } from '@components/common/Select';
 import {
   CartPayment,
@@ -14,10 +14,10 @@ import { END_POINTS } from '@constants/api';
 
 // Hooks
 import { useGetStatistic, useTransaction } from '@hooks/index';
-import { IEfficiency } from '@interfaces/index';
+import { IEfficiency, IOverallBalance } from '@interfaces/index';
 
 // Mocks
-import { INITIAL_EFFICIENCY, OVERALL_BALANCE_MOCK } from '@mocks/index';
+import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@mocks/index';
 
 const MyWallet = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
@@ -32,6 +32,12 @@ const MyWallet = () => {
   } = useGetStatistic<IEfficiency>(
     `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
   );
+
+  const {
+    data: overallBalanceData = INITIAL_OVERALL_BALANCE,
+    isLoading: isLoadingOverallBalance,
+    isError: isErrorOverallBalance,
+  } = useGetStatistic<IOverallBalance>(END_POINTS.OVERALL_BALANCE);
 
   const handleChangeSelectEfficiency = (data: TOption) => {
     setEfficiencyType(data.value);
@@ -61,8 +67,18 @@ const MyWallet = () => {
             direction={{ base: 'column', xl: 'row' }}
             boxSizing="border-box"
           >
-            <Box>
-              <OverallBalance {...OVERALL_BALANCE_MOCK} />
+            <Box flex={2}>
+              {isLoadingOverallBalance ? (
+                <Skeleton
+                  bg="background.component.primary"
+                  rounded="lg"
+                  height={360}
+                />
+              ) : isErrorOverallBalance ? (
+                <Text>Overall Balance data error</Text>
+              ) : (
+                <OverallBalance {...overallBalanceData} />
+              )}
             </Box>
             <Box flex={1}>
               {isErrorEfficiency ? (
