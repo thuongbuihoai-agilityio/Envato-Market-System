@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Components
 import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 import { TOption } from '@components/common/Select';
@@ -16,10 +18,12 @@ import { IEfficiency } from '@interfaces/index';
 
 // Mocks
 import { INITIAL_EFFICIENCY, OVERALL_BALANCE_MOCK } from '@mocks/index';
-import { useCallback, useState } from 'react';
 
 const MyWallet = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
+  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
+    useState<boolean>(false);
+
   const { data: transactions = [] } = useTransaction();
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
@@ -29,9 +33,10 @@ const MyWallet = () => {
     `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
   );
 
-  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
+  const handleChangeSelectEfficiency = (data: TOption) => {
     setEfficiencyType(data.value);
-  }, []);
+    setLoadingSelectEfficiencyType(true);
+  };
 
   return (
     <Grid
@@ -67,6 +72,7 @@ const MyWallet = () => {
                   {...efficiencyData}
                   isLoading={isLoadingEfficiency}
                   isExchangeRate
+                  isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                   onChangeSelect={handleChangeSelectEfficiency}
                 />
               )}

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Components
 import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 import {
@@ -28,11 +30,13 @@ import {
   IRevenueFlow,
   IEfficiency,
 } from '@interfaces/index';
-import { useCallback, useState } from 'react';
 import { TOption } from '@components/common/Select';
 
 const Dashboard = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
+  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
+    useState<boolean>(false);
+
   const { data: transactions = [] } = useTransaction();
   const {
     data: totalListData,
@@ -54,9 +58,10 @@ const Dashboard = () => {
     `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
   );
 
-  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
+  const handleChangeSelectEfficiency = (data: TOption) => {
     setEfficiencyType(data.value);
-  }, []);
+    setLoadingSelectEfficiencyType(true);
+  };
 
   return (
     <Grid
@@ -100,6 +105,7 @@ const Dashboard = () => {
               <Efficiency
                 {...efficiencyData}
                 isLoading={isLoadingEfficiency}
+                isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                 onChangeSelect={handleChangeSelectEfficiency}
               />
             )}
