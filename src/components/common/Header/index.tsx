@@ -14,9 +14,11 @@ import { Dropdown, IconButton, InputField, Logo } from '@components/index';
 
 // Constants
 import { IMAGES } from '@constants/images';
+import { THEMES } from '@constants/themes';
 
 // Assets
-import { Bell, Email, Gift, Rotate, Search, Theme } from '@assets/icons';
+import { Bell, Email, Gift, Rotate, Search, LightTheme } from '@assets/icons';
+import { DarkTheme } from '@assets/icons/DarkTheme';
 
 // hooks
 import { useAuth } from '@hooks/useAuth';
@@ -36,7 +38,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
       `${state.user?.firstName} ${state.user?.lastName}`,
   );
 
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -102,14 +104,21 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           justifyContent="space-between"
         >
           <IconButton onClick={toggleColorMode}>
-            <Theme color={colorFill} />
+            {colorMode === THEMES.LIGHT ? (
+              <LightTheme color={colorFill} />
+            ) : (
+              <DarkTheme color={colorFill} />
+            )}
           </IconButton>
+
           <IconButton isNotification>
             <Bell color={colorFill} />
           </IconButton>
+
           <IconButton isNotification hasNewNotification>
             <Email color={colorFill} />
           </IconButton>
+
           <IconButton isNotification>
             <Gift color={colorFill} />
           </IconButton>

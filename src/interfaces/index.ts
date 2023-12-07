@@ -3,3 +3,4 @@ export * from './user';
 export * from './icons';
 export * from './spending';
 export * from './status';
+export * from './transaction';

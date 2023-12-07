@@ -1,3 +1,5 @@
+import { ISpendingStatistics } from '@interfaces/index';
+
 export const TOTAL_EARNINGS_MOCK = {
   title: 'Total earnings',
   total: 7.245,
@@ -18,6 +20,15 @@ export const SPENDING_STATISTICS_MOCK = [
     total: 7.245,
     growth: 3.5,
     weeklyIncome: [30, 40, 45, 50, 49, 60, 91],
+  },
+];
+
+export const INITIAL_TOTAL_STATISTICS: ISpendingStatistics[] = [
+  {
+    title: '',
+    total: 0,
+    growth: 0,
+    weeklyIncome: [],
   },
 ];
 
