@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -7,7 +7,7 @@ import {
   Box,
   Flex,
   Heading,
-  Skeleton,
+  // Skeleton,
   Text,
   theme,
   useColorModeValue,
@@ -31,28 +31,27 @@ import { TOption } from '@components/common/Select';
 
 interface RevenueFlowProps {
   data: IRevenueFlow[];
-  isLoading?: boolean;
 }
 
 interface ChartDataState {
   data: number[];
 }
 
-const RevenueFlowComponent = ({
-  data,
-  isLoading = false,
-}: RevenueFlowProps) => {
-  const defaultSeries = [
-    {
-      data: data.map((item) => item.pending),
-    },
-    {
-      data: data.map((item) => item.signed),
-    },
-    {
-      data: data.map((item) => item.lost),
-    },
-  ];
+const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
+  const defaultSeries = useMemo(
+    () => [
+      {
+        data: data.map(({ pending }) => pending),
+      },
+      {
+        data: data.map(({ signed }) => signed),
+      },
+      {
+        data: data.map(({ lost }) => lost),
+      },
+    ],
+    [data],
+  );
 
   const [chartData, setChartData] = useState<ChartDataState[]>(defaultSeries);
 
@@ -80,25 +79,25 @@ const RevenueFlowComponent = ({
         MONTHS.findIndex((i) => i === monthEnd) + 1,
       );
 
+      const getRevenueFlowDetails = (
+        key: keyof Omit<IRevenueFlow, '_id' | 'title'>,
+      ) =>
+        data.map((revenue: IRevenueFlow) =>
+          rangeMonths.includes(revenue.title) ? revenue[key] : 0,
+        );
       const result = [
         {
-          data: data.map((revenue: IRevenueFlow) =>
-            rangeMonths.includes(revenue.month) ? revenue.pending : 0,
-          ),
+          data: getRevenueFlowDetails('pending'),
+        },
+        {
+          data: getRevenueFlowDetails('signed'),
+        },
+        {
+          data: getRevenueFlowDetails('lost'),
         },
         {
           data: data.map((revenue: IRevenueFlow) =>
-            rangeMonths.includes(revenue.month) ? revenue.signed : 0,
-          ),
-        },
-        {
-          data: data.map((revenue: IRevenueFlow) =>
-            rangeMonths.includes(revenue.month) ? revenue.lost : 0,
-          ),
-        },
-        {
-          data: data.map((revenue: IRevenueFlow) =>
-            rangeMonths.includes(revenue.month)
+            rangeMonths.includes(revenue.title)
               ? 0
               : revenue.lost + revenue.pending + revenue.signed,
           ),
@@ -145,36 +144,32 @@ const RevenueFlowComponent = ({
           />
         </Box>
       </Flex>
-      {isLoading ? (
-        <Skeleton bg="background.component.primary" rounded="lg" height={230} />
-      ) : (
-        <Chart
-          options={{
-            chart: {
-              stacked: true,
-              toolbar: {
-                show: false,
-              },
-            },
-            xaxis: {
-              categories: data.map((item) => item.month),
-              axisTicks: {
-                show: false,
-              },
-            },
-            legend: {
+      <Chart
+        options={{
+          chart: {
+            stacked: true,
+            toolbar: {
               show: false,
             },
-            colors: REVENUE_FLOW_COLORS,
-            dataLabels: {
-              enabled: false,
+          },
+          xaxis: {
+            categories: data.map((item) => item.title),
+            axisTicks: {
+              show: false,
             },
-          }}
-          series={chartData}
-          type="bar"
-          height="230"
-        />
-      )}
+          },
+          legend: {
+            show: false,
+          },
+          colors: REVENUE_FLOW_COLORS,
+          dataLabels: {
+            enabled: false,
+          },
+        }}
+        series={chartData}
+        type="bar"
+        height="230"
+      />
     </Box>
   );
 };
