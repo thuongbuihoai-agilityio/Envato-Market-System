@@ -9,7 +9,7 @@ import { END_POINTS } from '@constants/index';
 export const useTransaction = () => {
   const query = useQuery({
     queryKey: [END_POINTS.TRANSACTIONS],
-    queryFn: () => getTransactions(),
+    queryFn: getTransactions,
   });
 
   // TODO: update return value later

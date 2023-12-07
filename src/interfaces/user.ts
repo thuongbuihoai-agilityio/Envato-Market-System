@@ -14,3 +14,16 @@ export type TCustomer = {
   email: string;
   location: string;
 };
+
+export type TEmployee = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  lastActive: string;
+  lastPlace: string;
+  workTime: string;
+  level: string;
+  position: string;
+  avatarURL: string;
+  createdAt: number;
+};
