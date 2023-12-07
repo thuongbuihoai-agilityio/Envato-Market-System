@@ -16,3 +16,4 @@ export * from './common';
 export * from './options';
 export * from './transaction';
 export * from './store';
+export * from './status';

@@ -15,6 +15,7 @@ import { colors } from './bases/colors';
 import { radii, sizes, space } from './bases/metric';
 // Components
 import {
+  Tag,
   Button,
   Checkbox,
   Drawer,
@@ -40,6 +41,7 @@ export const configThemes = {
     },
     breakpoints,
     components: {
+      Tag,
       Text,
       Button,
       Checkbox,

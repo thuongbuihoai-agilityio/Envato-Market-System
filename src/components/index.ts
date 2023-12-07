@@ -28,3 +28,4 @@ export { default as OverallBalance } from './OverallBalance';
 export { default as TotalBalance } from './TotalBalance';
 export { default as ExpandSidebar } from './ExpandSidebar';
 export { default as MiniSidebar } from './MiniSidebar';
+export { default as StatusLabel } from './common/StatusLabel';
