@@ -13,6 +13,8 @@ import { colors } from '@themes/bases/colors';
 
 // Components
 import { InputField, Select, Selector } from '@components/index';
+
+//Mocks
 import { MONTHS } from '@mocks/select';
 
 const SearchBarComponent = () => {
