@@ -156,7 +156,7 @@ export const IMAGES = {
   },
 
   CHAT_USER_AVATAR: {
-    url: '/public/images/avatar-user-chat.png',
+    url: '/images/avatar-user-chat.png',
     alt: 'This is the user avatar',
   },
 

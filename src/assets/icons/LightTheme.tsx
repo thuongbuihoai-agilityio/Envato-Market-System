@@ -1,7 +1,7 @@
 // Types
 import { TIcon } from '@interfaces/index';
 
-export const Theme = ({ color }: TIcon) => (
+export const LightTheme = ({ color }: TIcon) => (
   <svg
     stroke={color}
     width="24"
