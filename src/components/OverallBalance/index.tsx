@@ -126,6 +126,18 @@ const OverallBalanceComponent = ({
             axisTicks: {
               show: false,
             },
+            labels: {
+              style: {
+                colors: colorFill,
+              },
+            },
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: colorFill,
+              },
+            },
           },
           legend: {
             show: false,
@@ -144,7 +156,7 @@ const OverallBalanceComponent = ({
           },
         ]}
         type="area"
-        height="260"
+        height="210"
       />
     </Box>
   );

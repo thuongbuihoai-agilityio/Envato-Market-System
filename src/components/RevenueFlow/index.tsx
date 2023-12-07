@@ -157,6 +157,18 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
             axisTicks: {
               show: false,
             },
+            labels: {
+              style: {
+                colors: colorFill,
+              },
+            },
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: colorFill,
+              },
+            },
           },
           legend: {
             show: false,

@@ -40,7 +40,7 @@ const TotalCardComponent = ({
           <Image src={IMAGES.GROWTH.url} alt={IMAGES.GROWTH.alt} />
           <Text color="primary.500">
             + {growth}%{' '}
-            <Text as="span" _light={{ color: 'text.tertiary' }}>
+            <Text as="span" variant="textSm" color="text.textInfo">
               from last week
             </Text>
           </Text>
