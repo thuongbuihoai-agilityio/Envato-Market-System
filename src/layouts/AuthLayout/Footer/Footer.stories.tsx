@@ -5,6 +5,7 @@ import Footer from '@layouts/AuthLayout/Footer';
 
 const meta: Meta<typeof Footer> = {
   title: 'Footer Form',
+  tags: ['autodocs'],
   component: Footer,
 };
 

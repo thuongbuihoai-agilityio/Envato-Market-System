@@ -5,6 +5,7 @@ import { Logo } from '@components/index';
 
 const meta: Meta<typeof Logo> = {
   title: 'Custom Components/Logo',
+  tags: ['autodocs'],
   component: Logo,
 };
 

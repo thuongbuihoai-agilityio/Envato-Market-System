@@ -6,18 +6,19 @@ import { MENU_ITEM_LIST } from '@constants/sidebar';
 
 const meta: Meta<typeof Menu> = {
   title: 'Custom Components/Menu',
-
+  tags: ['autodocs'],
   component: Menu,
-
   argTypes: {
     title: {
       description: 'The title of the Menu component',
     },
+
     listItem: {
       description: 'The list item of the menu',
     },
+
     isMinify: {
-      description: 'Determine the mode of the sidebar: expand and mini',
+      description: 'Determine the mode of the menu in sidebar: expand or mini',
     },
   },
   parameters: {

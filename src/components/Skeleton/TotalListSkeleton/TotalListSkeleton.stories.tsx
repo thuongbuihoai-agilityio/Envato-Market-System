@@ -4,6 +4,7 @@ import TotalListSkeleton from '.';
 
 const meta: Meta<typeof TotalListSkeleton> = {
   title: 'Custom Components/Skeleton/TotalListSkeleton',
+  tags: ['autodocs'],
   component: TotalListSkeleton,
   parameters: {
     controls: {

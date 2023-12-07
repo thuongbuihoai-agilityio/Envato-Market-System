@@ -17,12 +17,4 @@ describe('RevenueFlow component', () => {
 
     expect(container).toMatchSnapshot();
   });
-
-  it('renders with is loading is true', () => {
-    const { container } = render(
-      <RevenueFlow data={REVENUE_FLOW_MOCK} isLoading />,
-    );
-
-    expect(container).toMatchSnapshot();
-  });
 });

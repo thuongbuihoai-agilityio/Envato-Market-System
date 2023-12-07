@@ -6,7 +6,7 @@ export interface ISpendingStatistics {
 }
 
 export interface IRevenueFlow {
-  month: string;
+  title: string;
   pending: number;
   signed: number;
   lost: number;

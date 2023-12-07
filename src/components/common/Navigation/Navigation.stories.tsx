@@ -7,12 +7,14 @@ import { DashboardIcon } from '@assets/icons';
 
 const meta: Meta<typeof Navigation> = {
   title: 'Custom Components/Navigation',
+  tags: ['autodocs'],
   component: Navigation,
   argTypes: {
     children: {
       description:
         'The children of the navigation, e.g. text, react components, etc.',
     },
+
     destination: {
       description: 'The destination of the navigation component',
       defaultValue: '/',

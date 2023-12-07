@@ -5,7 +5,13 @@ import { SPENDING_STATISTICS_MOCK } from '@mocks/index';
 
 const meta: Meta<typeof TotalList> = {
   title: 'Custom Components/TotalList',
+  tags: ['autodocs'],
   component: TotalList,
+  argTypes: {
+    spendingStatistics: {
+      description: 'The list of total card to display',
+    },
+  },
   parameters: {
     controls: {
       expanded: true,

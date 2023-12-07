@@ -1,5 +1,5 @@
 // Components
-import { Box, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 import {
   CartPayment,
   TotalList,
@@ -15,23 +15,29 @@ import { useGetStatistic, useTransaction } from '@hooks/index';
 // Mocks
 import {
   EFFICIENCY_MOCK,
+  INITIAL_REVENUE_FLOW,
   INITIAL_TOTAL_STATISTICS,
-  REVENUE_FLOW_MOCK,
 } from '@mocks/index';
 
 // Constants
 import { END_POINTS } from '@constants/index';
 
 // Types
-import { ISpendingStatistics } from '@interfaces/spending';
+import { ISpendingStatistics, IRevenueFlow } from '@interfaces/index';
 
 const Dashboard = () => {
   const { data: transactions = [] } = useTransaction();
   const {
     data: TotalListData,
     isLoading: isLoadingTotalList,
-    isError,
+    isError: isErrorTotalList,
   } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
+
+  const {
+    data: RevenueFlowData,
+    isLoading: isLoadingRevenueFlow,
+    isError: isErrorRevenueFlow,
+  } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
 
   return (
     <Grid
@@ -42,7 +48,7 @@ const Dashboard = () => {
       gap={0}
     >
       <GridItem colSpan={3}>
-        {isError ? (
+        {isErrorTotalList ? (
           <Text>Total statistic data error </Text>
         ) : (
           <TotalList
@@ -56,7 +62,17 @@ const Dashboard = () => {
           gap={6}
         >
           <GridItem colSpan={{ base: 3, xl: 2 }}>
-            <RevenueFlow data={REVENUE_FLOW_MOCK} />
+            {isLoadingRevenueFlow ? (
+              <Skeleton
+                bg="background.component.primary"
+                rounded="lg"
+                height={300}
+              />
+            ) : isErrorRevenueFlow ? (
+              <Text>Revenue flow data error</Text>
+            ) : (
+              <RevenueFlow data={RevenueFlowData || INITIAL_REVENUE_FLOW} />
+            )}
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
             <Efficiency {...EFFICIENCY_MOCK} />

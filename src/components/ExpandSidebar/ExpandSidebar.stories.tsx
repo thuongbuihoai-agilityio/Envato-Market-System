@@ -5,9 +5,8 @@ import { ExpandSidebar } from '@components/index';
 
 const meta: Meta<typeof ExpandSidebar> = {
   title: 'Custom Components/ExpandSidebar',
-
+  tags: ['autodocs'],
   component: ExpandSidebar,
-
   argTypes: {
     isOpen: {
       description: 'The state of the ExpandSidebar component',
@@ -20,6 +19,11 @@ const meta: Meta<typeof ExpandSidebar> = {
 
     onClose: {
       description: 'The callback function to close the ExpandSidebar component',
+    },
+  },
+  parameters: {
+    controls: {
+      expanded: true,
     },
   },
 };
