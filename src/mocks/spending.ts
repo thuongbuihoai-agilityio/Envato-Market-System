@@ -1,4 +1,4 @@
-import { ISpendingStatistics } from '@interfaces/index';
+import { IRevenueFlow, ISpendingStatistics } from '@interfaces/index';
 
 export const TOTAL_EARNINGS_MOCK = {
   title: 'Total earnings',
@@ -53,76 +53,85 @@ export const EFFICIENCY_MOCK = {
 
 export const REVENUE_FLOW_MOCK = [
   {
-    month: 'Jan',
+    title: 'Jan',
     pending: 10,
     signed: 21,
     lost: 45,
   },
   {
-    month: 'Feb',
+    title: 'Feb',
     pending: 23,
     signed: 54,
     lost: 23,
   },
   {
-    month: 'Mar',
+    title: 'Mar',
     pending: 54,
     signed: 23,
     lost: 54,
   },
   {
-    month: 'April',
+    title: 'April',
     pending: 75,
     signed: 45,
     lost: 87,
   },
   {
-    month: 'May',
+    title: 'May',
     pending: 34,
     signed: 76,
     lost: 34,
   },
   {
-    month: 'Jun',
+    title: 'Jun',
     pending: 67,
     signed: 54,
     lost: 76,
   },
   {
-    month: 'July',
+    title: 'July',
     pending: 34,
     signed: 36,
     lost: 75,
   },
   {
-    month: 'Aug',
+    title: 'Aug',
     pending: 67,
     signed: 87,
     lost: 23,
   },
   {
-    month: 'Sep',
+    title: 'Sep',
     pending: 60,
     signed: 54,
     lost: 32,
   },
   {
-    month: 'Oct',
+    title: 'Oct',
     pending: 34,
     signed: 56,
     lost: 43,
   },
   {
-    month: 'Nov',
+    title: 'Nov',
     pending: 54,
     signed: 34,
     lost: 86,
   },
   {
-    month: 'Dec',
+    title: 'Dec',
     pending: 34,
     signed: 32,
     lost: 65,
+  },
+];
+
+export const INITIAL_REVENUE_FLOW: IRevenueFlow[] = [
+  {
+    title: '',
+    pending: 0,
+    signed: 0,
+    lost: 0,
   },
 ];
 
