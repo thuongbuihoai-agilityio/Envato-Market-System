@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { Flex, Img, Td, Text } from '@chakra-ui/react';
+import { Box, Flex, Img, Td, Text } from '@chakra-ui/react';
 
 // Components
 import Table from '.';
@@ -27,6 +27,11 @@ const meta: Meta<typeof Table> = {
       expanded: true,
     },
   },
+  render: (props) => (
+    <Box bgColor="secondary.150" w="full" h="100vh" padding={10}>
+      <Table {...props} />
+    </Box>
+  ),
 };
 
 export default meta;
@@ -77,6 +82,72 @@ export const Default: Story = {
       {
         title: '',
         key: 'action',
+        renderBody: () => (
+          <Td
+            py={5}
+            px={0}
+            fontSize="md"
+            color="text.primary"
+            fontWeight="semibold"
+            textAlign="left"
+          >
+            <Dot />
+          </Td>
+        ),
+      },
+    ],
+    dataSource: USERS,
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+    columns: [
+      {
+        key: 'name',
+        renderBody: ({ image, name }) => (
+          <Td
+            py={5}
+            px={2}
+            fontSize="md"
+            color="text.primary"
+            fontWeight="semibold"
+            textAlign="left"
+          >
+            <Flex alignItems="center" gap={4}>
+              <Img
+                src={`${image}`}
+                alt={`Image of ${name}`}
+                w={16}
+                h={16}
+                objectFit="cover"
+                borderRadius="lg"
+              />
+              <Text fontSize="md" fontWeight="semibold">
+                {name}
+              </Text>
+            </Flex>
+          </Td>
+        ),
+        renderHead: () => <></>,
+      },
+      {
+        key: 'email',
+        renderHead: () => <></>,
+      },
+      {
+        key: 'location',
+        renderHead: () => <></>,
+      },
+      {
+        key: 'spent',
+        renderHead: () => <></>,
+      },
+      {
+        title: '',
+        key: 'action',
+        renderHead: () => <></>,
         renderBody: () => (
           <Td
             py={5}

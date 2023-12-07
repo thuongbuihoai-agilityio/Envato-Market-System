@@ -8,3 +8,5 @@ export * from './Input';
 export * from './FormErrorMessage';
 export * from './Drawer';
 export * from './Menu';
+export * from './Table';
+export * from './Badge';
