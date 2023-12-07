@@ -1,31 +1,16 @@
-import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
-import { Controller } from 'react-hook-form';
-
-// Hooks
-import { useForm } from '@hooks/useForm';
 
 // Components
 import {
-  InputField,
-  Select,
   Table,
   Pagination,
   TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
+  SearchBar,
 } from '@components/index';
-import Selector from './Selector';
-
-// Icons
-import { Search } from '@assets/icons';
-
-// Themes
-import { colors } from '@themes/bases/colors';
-
-// Mocks
-import { MONTHS } from '@mocks/index';
 
 // Constants
 import { PAGE_SIZE } from '@constants/pagination';
@@ -48,24 +33,9 @@ type TFilterUserProps = {
   // onChangeTableSize?: (currentSize: number) => void;
 };
 
-const FilterComponent = ({
+const TransactionTableComponent = ({
   transactions = [],
 }: TFilterUserProps): JSX.Element => {
-  const { control, handleSubmit } = useForm<{
-    search: string;
-    select: string;
-  }>({
-    defaultValues: {
-      search: '',
-      select: '',
-    },
-  });
-
-  const searchIconColor: string = useColorModeValue(
-    colors.secondary[400] ?? '',
-    '#fff',
-  );
-
   const renderHead = useCallback(
     (title: string): JSX.Element => <HeadCell key={title} title={title} />,
     [],
@@ -84,8 +54,6 @@ const FilterComponent = ({
     ),
     [],
   );
-
-  const renderTitleSelector = useCallback(() => <Selector />, []);
 
   const columns = useMemo(
     () => [
@@ -127,58 +95,7 @@ const FilterComponent = ({
       px={6}
       py={5}
     >
-      {/* Filter bar */}
-      <HStack
-        as="form"
-        h={14}
-        gap={5}
-        onSubmit={handleSubmit((data) => {
-          console.log(data); // TODO: Remove late
-        })}
-      >
-        <Box
-          display={{
-            base: 'none',
-            sm: 'block',
-          }}
-          flex={1}
-        >
-          <Controller
-            control={control}
-            name="search"
-            render={({ field: { value, onChange } }) => (
-              <InputField
-                value={value}
-                onChange={onChange}
-                placeholder="Search by name, email, or other..."
-                variant="secondary"
-                leftIcon={<Search color={searchIconColor} />}
-              />
-            )}
-          />
-        </Box>
-        <Box
-          h="100%"
-          w={{
-            base: '100%',
-            sm: '30%',
-            lg: '15%',
-            xl: '12%',
-          }}
-        >
-          <Controller
-            control={control}
-            name="select"
-            render={({ field: { onChange } }) => (
-              <Select
-                options={MONTHS}
-                renderTitle={renderTitleSelector}
-                onSelect={({ value }) => onChange(value)}
-              />
-            )}
-          />
-        </Box>
-      </HStack>
+      <SearchBar />
 
       {/* Table users */}
       <Box mt={5}>
@@ -195,6 +112,6 @@ const FilterComponent = ({
   );
 };
 
-const FilterUser = memo(FilterComponent);
+const TransactionTable = memo(TransactionTableComponent);
 
-export default FilterUser;
+export default TransactionTable;

@@ -8,7 +8,7 @@ import {
   BoxChat,
   Efficiency,
   RevenueFlow,
-  FilterUser,
+  TransactionTable,
 } from '@components/index';
 
 // Hooks
@@ -112,7 +112,7 @@ const Dashboard = () => {
           </GridItem>
         </Grid>
         <Box mt={6}>
-          <FilterUser transactions={transactions} />
+          <TransactionTable transactions={transactions} />
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>

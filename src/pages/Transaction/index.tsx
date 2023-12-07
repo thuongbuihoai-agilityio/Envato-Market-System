@@ -1,7 +1,7 @@
 import { Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
-import { BoxChat, CartPayment, FilterUser } from '@components/index';
+import { BoxChat, CartPayment, TransactionTable } from '@components/index';
 
 // Hooks
 import { useTransaction } from '@hooks/index';
@@ -19,7 +19,7 @@ const Transaction = () => {
       gap={{ base: 0, '2xl': 12 }}
     >
       <GridItem colSpan={3}>
-        <FilterUser transactions={transactions} />
+        <TransactionTable transactions={transactions} />
       </GridItem>
       <GridItem mt={{ base: 6, '2xl': 0 }}>
         <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>

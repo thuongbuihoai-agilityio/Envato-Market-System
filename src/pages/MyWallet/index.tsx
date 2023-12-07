@@ -6,9 +6,9 @@ import { TOption } from '@components/common/Select';
 import {
   CartPayment,
   Efficiency,
-  FilterUser,
   OverallBalance,
   TotalBalance,
+  TransactionTable,
 } from '@components/index';
 import { END_POINTS } from '@constants/api';
 
@@ -79,7 +79,7 @@ const MyWallet = () => {
             </Box>
           </Flex>
           <Box>
-            <FilterUser transactions={transactions} />
+            <TransactionTable transactions={transactions} />
           </Box>
         </Flex>
       </GridItem>
