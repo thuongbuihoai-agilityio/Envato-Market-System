@@ -1,7 +1,8 @@
 import { defineStyleConfig } from '@chakra-ui/react';
 
-const backgroundPrimary = 'background.component.tagPrimary';
-const backgroundSecondary = 'background.component.tagSecondary';
+const COLOR_PRIMARY = 'danger.500';
+const BACKGROUND_PRIMARY = 'background.component.tagPrimary';
+const BACKGROUND_SECONDARY = 'background.component.tagSecondary';
 
 // The default style for Button component
 export const Tag = defineStyleConfig({
@@ -12,25 +13,25 @@ export const Tag = defineStyleConfig({
     primary: {
       container: {
         color: 'primary.500',
-        backgroundColor: backgroundPrimary,
+        backgroundColor: BACKGROUND_PRIMARY,
       },
     },
     secondary: {
       container: {
-        color: 'danger.500',
-        backgroundColor: backgroundPrimary,
+        color: COLOR_PRIMARY,
+        backgroundColor: BACKGROUND_PRIMARY,
       },
     },
     tertiary: {
       container: {
         color: 'warning.800',
-        backgroundColor: backgroundSecondary,
+        backgroundColor: BACKGROUND_SECONDARY,
       },
     },
     quaternary: {
       container: {
-        color: 'danger.500',
-        backgroundColor: backgroundSecondary,
+        color: COLOR_PRIMARY,
+        backgroundColor: BACKGROUND_SECONDARY,
       },
     },
   },

@@ -2,7 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
 import { StatusLabel } from '@components/index';
-import { Status } from '@interfaces/status';
+
+// Interfaces
+import { Status } from '@interfaces/index';
 
 const meta: Meta<typeof StatusLabel> = {
   title: 'Custom Components/StatusLabel',
