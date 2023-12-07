@@ -3,6 +3,7 @@ import { MouseEventHandler, memo, useCallback } from 'react';
 
 // Icons
 import { Dot } from '@assets/icons';
+import areEqual from 'react-fast-compare';
 
 type TActionsProps = {
   onClickMessage?: () => void;
@@ -53,6 +54,6 @@ const ActionComponent = ({
   );
 };
 
-const ActionsCell = memo(ActionComponent);
+const ActionsCell = memo(ActionComponent, areEqual);
 
 export default ActionsCell;
