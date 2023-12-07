@@ -94,6 +94,14 @@ export const colors: ThemeOverride['colors'] &
         default: '#FFF',
         _dark: '#23262B',
       },
+      tagPrimary: {
+        default: 'primary.400',
+        _dark: '#23262B',
+      },
+      tagSecondary: {
+        default: 'warning.300',
+        _dark: '#23262B',
+      },
     },
   },
 

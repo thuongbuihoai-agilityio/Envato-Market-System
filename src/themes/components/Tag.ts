@@ -9,25 +9,25 @@ export const Tag = defineStyleConfig({
     primary: {
       container: {
         color: 'primary.500',
-        background: 'primary.400',
+        backgroundColor: 'background.component.tagPrimary',
       },
     },
     secondary: {
       container: {
         color: 'danger.500',
-        backgroundColor: 'primary.400',
+        backgroundColor: 'background.component.tagPrimary',
       },
     },
     tertiary: {
       container: {
         color: 'warning.800',
-        backgroundColor: 'warning.300',
+        backgroundColor: 'background.component.tagSecondary',
       },
     },
     quaternary: {
       container: {
         color: 'danger.500',
-        backgroundColor: 'warning.300',
+        backgroundColor: 'background.component.tagSecondary',
       },
     },
   },

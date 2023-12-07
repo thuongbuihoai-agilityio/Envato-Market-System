@@ -24,7 +24,7 @@ const StatusLabelComponent = ({
     fontSize="sm"
     borderRadius="lg"
   >
-    {STATUS_LABEL[value]}
+    {value}
   </Tag>
 );
 
