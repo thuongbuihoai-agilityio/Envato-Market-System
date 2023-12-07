@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
   useDisclosure,
+  Link as ChakraLink,
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { Link, useNavigate } from 'react-router-dom';
@@ -268,13 +269,13 @@ const RegisterPage = () => {
           />
           <Text color="text.secondary" fontSize="md" flex={1}>
             By creating an account, you&apos;re agreeing to our {''}
-            <Text as="span" color="text.primary" cursor="pointer">
+            <ChakraLink href="#" color="text.primary" cursor="pointer">
               Privacy Policy
-            </Text>
+            </ChakraLink>
             , and {''}
-            <Text as="span" color="text.primary" cursor="pointer">
+            <ChakraLink href="#" color="text.primary" cursor="pointer">
               Electronics Communication Policy.
-            </Text>
+            </ChakraLink>
           </Text>
         </Flex>
       </VStack>
