@@ -11,7 +11,7 @@ exports[`Efficiency component renders correctly 1`] = `
       <h3
         class="chakra-heading css-0"
       >
-        Revenue Flow
+        Efficiency
       </h3>
       <div
         class="css-19vtkro"
@@ -287,7 +287,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
       <h3
         class="chakra-heading css-0"
       >
-        Revenue Flow
+        Efficiency
       </h3>
       <div
         class="css-19vtkro"

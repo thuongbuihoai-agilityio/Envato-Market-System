@@ -3,7 +3,7 @@
 exports[`withAuth Logged 1`] = `
 <div>
   <h2>
-    Home page
+    Login page
   </h2>
 </div>
 `;

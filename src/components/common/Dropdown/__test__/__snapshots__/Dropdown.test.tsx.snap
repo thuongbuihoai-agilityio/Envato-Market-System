@@ -39,7 +39,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
             </svg>
           </span>
           <div
-            class="css-21uplc"
+            class="css-1eben70"
           >
             <div
               class="css-1f25a08"
@@ -85,20 +85,20 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
     >
       <div
         aria-orientation="vertical"
-        class="chakra-menu__menu-list css-3e5wnu"
+        class="chakra-menu__menu-list css-1ivb9p2"
         data-testid="TestDropdown"
         id="menu-list-:r1:"
         role="menu"
         style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
         tabindex="-1"
       >
-        <button
+        <a
           class="chakra-menu__menuitem css-4otqo"
           data-index="0"
+          href="/"
           id="menu-list-:r1:-menuitem-:r2:"
           role="menuitem"
           tabindex="-1"
-          type="button"
         >
           <div
             class="css-k008qs"
@@ -130,54 +130,20 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
                 stroke-width="1.5"
               />
             </svg>
-            <a
+            <p
               class="chakra-text css-1t7utft"
-              href="/"
             >
               My profile
-            </a>
+            </p>
           </div>
-        </button>
-        <button
+        </a>
+        <a
           class="chakra-menu__menuitem css-4otqo"
           data-index="1"
+          href="/login"
           id="menu-list-:r1:-menuitem-:r3:"
           role="menuitem"
           tabindex="-1"
-          type="button"
-        >
-          <div
-            class="css-k008qs"
-          >
-            <svg
-              fill="none"
-              height="24"
-              stroke="#1A202C"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 12V7C2 4.79086 3.79086 3 6 3H18C20.2091 3 22 4.79086 22 7V17C22 19.2091 20.2091 21 18 21H8M6 8L9.7812 10.5208C11.1248 11.4165 12.8752 11.4165 14.2188 10.5208L18 8M2 15H8M2 18H8"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-            </svg>
-            <a
-              class="chakra-text css-1t7utft"
-              href="/"
-            >
-              Inbox
-            </a>
-          </div>
-        </button>
-        <button
-          class="chakra-menu__menuitem css-4otqo"
-          data-index="2"
-          id="menu-list-:r1:-menuitem-:r4:"
-          role="menuitem"
-          tabindex="-1"
-          type="button"
         >
           <div
             class="css-k008qs"
@@ -196,22 +162,21 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
                 stroke-width="1.5"
               />
             </svg>
-            <a
+            <p
               class="chakra-text css-1t7utft"
-              href="/"
             >
               Logout
-            </a>
+            </p>
           </div>
-        </button>
+        </a>
         <hr
           aria-orientation="horizontal"
           class="chakra-divider css-19ob8qo"
         />
         <button
           class="chakra-menu__menuitem css-mdob6w"
-          data-index="3"
-          id="menu-list-:r1:-menuitem-:r5:"
+          data-index="2"
+          id="menu-list-:r1:-menuitem-:r4:"
           role="menuitem"
           tabindex="-1"
           type="button"
@@ -225,8 +190,8 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         </button>
         <button
           class="chakra-menu__menuitem css-mdob6w"
-          data-index="4"
-          id="menu-list-:r1:-menuitem-:r6:"
+          data-index="3"
+          id="menu-list-:r1:-menuitem-:r5:"
           role="menuitem"
           tabindex="-1"
           type="button"
