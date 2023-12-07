@@ -7,7 +7,7 @@ import { END_POINTS } from '@constants/index';
 import { TTransaction } from '@interfaces/index';
 
 const transactionHttpService: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_TRANSACTION,
+  baseURL: process.env.VITE_API_TRANSACTION,
 });
 
 export const getTransactions = async (): Promise<TTransaction[]> =>
