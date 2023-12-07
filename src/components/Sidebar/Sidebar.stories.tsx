@@ -5,9 +5,8 @@ import { Sidebar } from '@components/index';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Custom Components/Sidebar',
-
+  tags: ['autodocs'],
   component: Sidebar,
-
   argTypes: {
     isOpen: {
       description: 'The state of the Sidebar component',
@@ -22,6 +21,11 @@ const meta: Meta<typeof Sidebar> = {
     onClose: {
       description:
         'The callback function to close the ExpandSidebar and open the MiniSidebar component',
+    },
+  },
+  parameters: {
+    controls: {
+      expanded: true,
     },
   },
 };

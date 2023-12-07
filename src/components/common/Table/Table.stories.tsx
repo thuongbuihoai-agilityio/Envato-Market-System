@@ -12,7 +12,16 @@ import { USERS } from '@mocks/index';
 
 const meta: Meta<typeof Table> = {
   title: 'Custom Components/Table',
+  tags: ['autodocs'],
   component: Table,
+  argTypes: {
+    columns: {
+      description: 'The columns list to display in the table',
+    },
+    dataSource: {
+      description: 'The data list to display in the table data cells',
+    },
+  },
   parameters: {
     controls: {
       expanded: true,

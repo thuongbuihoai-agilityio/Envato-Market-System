@@ -5,12 +5,9 @@ import CardPayment from '@components/CartPayment';
 
 const meta: Meta<typeof CardPayment> = {
   title: 'Custom Components/CardPayment',
+  tags: ['autodocs'],
   component: CardPayment,
-  argTypes: {
-    content: {
-      description: 'Content of the divider texts field',
-    },
-  },
+  argTypes: {},
 };
 
 type Story = StoryObj<typeof CardPayment>;

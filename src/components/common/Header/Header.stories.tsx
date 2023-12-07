@@ -3,7 +3,13 @@ import Header from './index';
 
 const meta: Meta<typeof Header> = {
   title: 'Custom Components/Header',
+  tags: ['autodocs'],
   component: Header,
+  argTypes: {
+    name: {
+      description: 'The name of the Header',
+    },
+  },
   parameters: {
     controls: {
       expanded: true,

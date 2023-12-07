@@ -5,9 +5,8 @@ import { MiniSidebar } from '@components/index';
 
 const meta: Meta<typeof MiniSidebar> = {
   title: 'Custom Components/MiniSidebar',
-
+  tags: ['autodocs'],
   component: MiniSidebar,
-
   argTypes: {
     isOpen: {
       description: 'The state of the MiniSidebar component',
@@ -17,6 +16,11 @@ const meta: Meta<typeof MiniSidebar> = {
     onClose: {
       description:
         'The callback function to close the MiniSidebar and open ExpandSidebar component',
+    },
+  },
+  parameters: {
+    controls: {
+      expanded: true,
     },
   },
 };

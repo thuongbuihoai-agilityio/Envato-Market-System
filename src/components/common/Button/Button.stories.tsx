@@ -1,20 +1,26 @@
-import { Button } from '@components/index';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PhoneIcon, AddIcon } from '@chakra-ui/icons';
+
+// components
+import { Button } from '@components/index';
 const meta: Meta<typeof Button> = {
   title: 'Custom Components/Button',
+  tags: ['autodocs'],
   component: Button,
   argTypes: {
     leftIcon: {
       description: 'The left react element icon of the button',
     },
+
     rightIcon: {
       description: 'The right react element icon of the button',
     },
+
     onClick: {
       description: 'The click event handling function',
       action: 'clicked',
     },
+
     children: {
       description:
         'The children of the button, e.g. text, react components, etc.',
@@ -96,5 +102,13 @@ export const Disable: Story = {
     variant: 'outline',
     children: 'Outline Button',
     isDisabled: true,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    size: 'lg',
+    children: 'Loading Button',
+    isLoading: true,
   },
 };
