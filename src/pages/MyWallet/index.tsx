@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 // Components
-import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { TOption } from '@components/common/Select';
 import {
   CartPayment,
   Efficiency,
@@ -7,15 +10,33 @@ import {
   OverallBalance,
   TotalBalance,
 } from '@components/index';
+import { END_POINTS } from '@constants/api';
 
 // Hooks
-import { useTransaction } from '@hooks/index';
+import { useGetStatistic, useTransaction } from '@hooks/index';
+import { IEfficiency } from '@interfaces/index';
 
 // Mocks
-import { EFFICIENCY_MOCK, OVERALL_BALANCE_MOCK } from '@mocks/index';
+import { INITIAL_EFFICIENCY, OVERALL_BALANCE_MOCK } from '@mocks/index';
 
 const MyWallet = () => {
+  const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
+  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
+    useState<boolean>(false);
+
   const { data: transactions = [] } = useTransaction();
+  const {
+    data: efficiencyData = INITIAL_EFFICIENCY,
+    isLoading: isLoadingEfficiency,
+    isError: isErrorEfficiency,
+  } = useGetStatistic<IEfficiency>(
+    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
+  );
+
+  const handleChangeSelectEfficiency = (data: TOption) => {
+    setEfficiencyType(data.value);
+    setLoadingSelectEfficiencyType(true);
+  };
 
   return (
     <Grid
@@ -44,7 +65,17 @@ const MyWallet = () => {
               <OverallBalance {...OVERALL_BALANCE_MOCK} />
             </Box>
             <Box flex={1}>
-              <Efficiency {...EFFICIENCY_MOCK} isExchangeRate />
+              {isErrorEfficiency ? (
+                <Text>Efficiency data error</Text>
+              ) : (
+                <Efficiency
+                  {...efficiencyData}
+                  isLoading={isLoadingEfficiency}
+                  isExchangeRate
+                  isLoadingWhenSelect={isLoadingSelectEfficiencyType}
+                  onChangeSelect={handleChangeSelectEfficiency}
+                />
+              )}
             </Box>
           </Flex>
           <Box>

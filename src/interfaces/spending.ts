@@ -11,3 +11,14 @@ export interface IRevenueFlow {
   signed: number;
   lost: number;
 }
+
+export interface IEfficiency {
+  arrival: number;
+  spending: number;
+  statistical: {
+    title: string;
+    value: number;
+  }[];
+  isLoading?: boolean;
+  isExchangeRate?: boolean;
+}

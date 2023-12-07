@@ -51,6 +51,17 @@ export const EFFICIENCY_MOCK = {
   ],
 };
 
+export const INITIAL_EFFICIENCY = {
+  arrival: 0,
+  spending: 0,
+  statistical: [
+    {
+      title: '',
+      value: 0,
+    },
+  ],
+};
+
 export const REVENUE_FLOW_MOCK = [
   {
     title: 'Jan',
@@ -140,73 +151,73 @@ export const OVERALL_BALANCE_MOCK = {
   growth: 20,
   data: [
     {
-      month: 'Jan',
+      title: 'Jan',
       pending: 234324,
       signed: 534534,
       lost: 234324,
     },
     {
-      month: 'Feb',
+      title: 'Feb',
       pending: 553434,
       signed: 434523,
       lost: 657667,
     },
     {
-      month: 'Mar',
+      title: 'Mar',
       pending: 456565,
       signed: 534534,
       lost: 234766,
     },
     {
-      month: 'April',
+      title: 'April',
       pending: 324265,
       signed: 435234,
       lost: 867876,
     },
     {
-      month: 'May',
+      title: 'May',
       pending: 243223,
       signed: 533453,
       lost: 767876,
     },
     {
-      month: 'Jun',
+      title: 'Jun',
       pending: 345423,
       signed: 435443,
       lost: 345433,
     },
     {
-      month: 'July',
+      title: 'July',
       pending: 456745,
       signed: 234434,
       lost: 345343,
     },
     {
-      month: 'Aug',
+      title: 'Aug',
       pending: 345265,
       signed: 423422,
       lost: 234234,
     },
     {
-      month: 'Sep',
+      title: 'Sep',
       pending: 654566,
       signed: 341342,
       lost: 234243,
     },
     {
-      month: 'Oct',
+      title: 'Oct',
       pending: 564566,
       signed: 423432,
       lost: 657677,
     },
     {
-      month: 'Nov',
+      title: 'Nov',
       pending: 123132,
       signed: 234234,
       lost: 312312,
     },
     {
-      month: 'Dec',
+      title: 'Dec',
       pending: 785686,
       signed: 534534,
       lost: 345354,

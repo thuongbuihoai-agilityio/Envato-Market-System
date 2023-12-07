@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Components
 import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 import {
@@ -14,30 +16,52 @@ import { useGetStatistic, useTransaction } from '@hooks/index';
 
 // Mocks
 import {
-  EFFICIENCY_MOCK,
   INITIAL_REVENUE_FLOW,
   INITIAL_TOTAL_STATISTICS,
+  INITIAL_EFFICIENCY,
 } from '@mocks/index';
 
 // Constants
 import { END_POINTS } from '@constants/index';
 
 // Types
-import { ISpendingStatistics, IRevenueFlow } from '@interfaces/index';
+import {
+  ISpendingStatistics,
+  IRevenueFlow,
+  IEfficiency,
+} from '@interfaces/index';
+import { TOption } from '@components/common/Select';
 
 const Dashboard = () => {
+  const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
+  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
+    useState<boolean>(false);
+
   const { data: transactions = [] } = useTransaction();
   const {
-    data: TotalListData,
+    data: totalListData,
     isLoading: isLoadingTotalList,
     isError: isErrorTotalList,
   } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
 
   const {
-    data: RevenueFlowData,
+    data: revenueFlowData = INITIAL_REVENUE_FLOW,
     isLoading: isLoadingRevenueFlow,
     isError: isErrorRevenueFlow,
   } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
+
+  const {
+    data: efficiencyData = INITIAL_EFFICIENCY,
+    isLoading: isLoadingEfficiency,
+    isError: isErrorEfficiency,
+  } = useGetStatistic<IEfficiency>(
+    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
+  );
+
+  const handleChangeSelectEfficiency = (data: TOption) => {
+    setEfficiencyType(data.value);
+    setLoadingSelectEfficiencyType(true);
+  };
 
   return (
     <Grid
@@ -52,7 +76,7 @@ const Dashboard = () => {
           <Text>Total statistic data error </Text>
         ) : (
           <TotalList
-            spendingStatistics={TotalListData || INITIAL_TOTAL_STATISTICS}
+            spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
             isLoading={isLoadingTotalList}
           />
         )}
@@ -71,11 +95,20 @@ const Dashboard = () => {
             ) : isErrorRevenueFlow ? (
               <Text>Revenue flow data error</Text>
             ) : (
-              <RevenueFlow data={RevenueFlowData || INITIAL_REVENUE_FLOW} />
+              <RevenueFlow data={revenueFlowData} />
             )}
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
-            <Efficiency {...EFFICIENCY_MOCK} />
+            {isErrorEfficiency ? (
+              <Text>Efficiency data error</Text>
+            ) : (
+              <Efficiency
+                {...efficiencyData}
+                isLoading={isLoadingEfficiency}
+                isLoadingWhenSelect={isLoadingSelectEfficiencyType}
+                onChangeSelect={handleChangeSelectEfficiency}
+              />
+            )}
           </GridItem>
         </Grid>
         <Box mt={6}>

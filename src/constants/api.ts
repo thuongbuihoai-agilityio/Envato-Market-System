@@ -10,6 +10,7 @@ export const END_POINTS = {
   TRANSACTIONS: '/transactions',
   STATISTICS: '/statistics',
   REVENUE: '/revenue',
+  EFFICIENCY: '/efficiency',
 };
 
 export const SEARCH_PARAM = {
