@@ -1,3 +1,6 @@
+import { MONTHS } from '@mocks/select';
+import { formatUppercaseFirstLetter } from './helpers';
+
 export const getCurrentYear = (): number => {
   const currentYear = new Date().getFullYear();
   return currentYear;
@@ -15,3 +18,17 @@ export const getExpireTime = (
 ): number => startDate + dateOfExpiry * 24 * 60 * 60; // startDate + dateOfExpiry * hour * minutes * seconds
 
 export const getCurrentTimeSeconds = (): number => Date.now() / 1000;
+
+/**
+ * @param timestamp
+ * @returns
+ */
+export const formatDate = (timestamp: number) => {
+  const date = new Date(+timestamp);
+
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+
+  return `${formatUppercaseFirstLetter(MONTHS[month].value)} ${day}, ${year}`;
+};
