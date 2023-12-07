@@ -22,7 +22,7 @@ const MyWallet = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const { data: transactions = [] } = useTransaction();
   const {
-    data: efficiencyData,
+    data: efficiencyData = INITIAL_EFFICIENCY,
     isLoading: isLoadingEfficiency,
     isError: isErrorEfficiency,
   } = useGetStatistic<IEfficiency>(
@@ -64,7 +64,7 @@ const MyWallet = () => {
                 <Text>Efficiency data error</Text>
               ) : (
                 <Efficiency
-                  {...(efficiencyData || INITIAL_EFFICIENCY)}
+                  {...efficiencyData}
                   isLoading={isLoadingEfficiency}
                   isExchangeRate
                   onChangeSelect={handleChangeSelectEfficiency}

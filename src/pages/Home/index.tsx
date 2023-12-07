@@ -41,13 +41,13 @@ const Dashboard = () => {
   } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
 
   const {
-    data: revenueFlowData,
+    data: revenueFlowData = INITIAL_REVENUE_FLOW,
     isLoading: isLoadingRevenueFlow,
     isError: isErrorRevenueFlow,
   } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
 
   const {
-    data: efficiencyData,
+    data: efficiencyData = INITIAL_EFFICIENCY,
     isLoading: isLoadingEfficiency,
     isError: isErrorEfficiency,
   } = useGetStatistic<IEfficiency>(
@@ -90,7 +90,7 @@ const Dashboard = () => {
             ) : isErrorRevenueFlow ? (
               <Text>Revenue flow data error</Text>
             ) : (
-              <RevenueFlow data={revenueFlowData || INITIAL_REVENUE_FLOW} />
+              <RevenueFlow data={revenueFlowData} />
             )}
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
@@ -98,7 +98,7 @@ const Dashboard = () => {
               <Text>Efficiency data error</Text>
             ) : (
               <Efficiency
-                {...(efficiencyData || INITIAL_EFFICIENCY)}
+                {...efficiencyData}
                 isLoading={isLoadingEfficiency}
                 onChangeSelect={handleChangeSelectEfficiency}
               />
