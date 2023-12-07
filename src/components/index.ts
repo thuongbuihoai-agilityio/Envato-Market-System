@@ -31,5 +31,5 @@ export { default as MiniSidebar } from './MiniSidebar';
 export { default as StatusLabel } from './common/StatusLabel';
 export { default as Selector } from './TransactionTable/Selector';
 export { default as SearchBar } from './common/SearchBar';
-export { default as Users } from './Users';
-export * from './Users/Cell';
+export { default as UsersTable } from './UsersTable';
+export * from './UsersTable/Cell';
