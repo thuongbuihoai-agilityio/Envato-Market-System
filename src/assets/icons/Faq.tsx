@@ -1,7 +1,7 @@
 // Types
 import { TIcon } from '@interfaces/index';
 
-export const Faq = ({ color }: TIcon) => (
+export const Faq = ({ color = 'gray.800' }: Partial<TIcon>) => (
   <svg
     stroke={color}
     width="24"

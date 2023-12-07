@@ -10,11 +10,11 @@ import {
 } from '@chakra-ui/react';
 import { InputField } from '@components/index';
 import { AUTH_SCHEMA } from '@constants/form';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import UpdateProfile from './Profile';
 
-const UserForm = () => {
+const UserFormComponent = () => {
   const {
     control,
     formState: {
@@ -415,5 +415,7 @@ const UserForm = () => {
     </Grid>
   );
 };
+
+const UserForm = memo(UserFormComponent);
 
 export default UserForm;

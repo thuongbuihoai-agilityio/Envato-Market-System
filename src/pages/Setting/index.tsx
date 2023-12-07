@@ -1,29 +1,24 @@
 import { AvatarSetting } from '@assets/icons/AvatarSetting';
 import { Faq } from '@assets/icons/Faq';
-import { Grid, GridItem, theme, useColorModeValue } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 import ItemSideBarSetting from '@components/ItemSideBarSetting';
 import { memo, useState } from 'react';
-import PersonalPage from './Personal';
+import UserForm from './Personal';
 import FaqPage from './Faq';
 
 const SettingPage = () => {
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
-
   const [activeItemId, setActiveItemId] = useState<string | undefined>(
     undefined,
   );
 
   const handleItemClick = (id: string) => {
-    setActiveItemId((prevId) => (prevId === id ? undefined : id));
+    setActiveItemId(id);
   };
 
   const renderPageContent = () => {
     switch (activeItemId) {
       case 'item1':
-        return <PersonalPage />;
+        return <UserForm />;
       case 'item2':
         return <FaqPage />;
       default:
@@ -48,7 +43,7 @@ const SettingPage = () => {
           title="Personal Informations"
           content="Fill in your personal information"
         >
-          <AvatarSetting color={colorFill} />
+          <AvatarSetting />
         </ItemSideBarSetting>
 
         <ItemSideBarSetting
@@ -58,7 +53,7 @@ const SettingPage = () => {
           title="FAQ"
           content="Frequently asked questions"
         >
-          <Faq color={colorFill} />
+          <Faq />
         </ItemSideBarSetting>
       </GridItem>
 

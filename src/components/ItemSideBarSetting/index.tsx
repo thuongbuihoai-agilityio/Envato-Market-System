@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Heading } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, useColorMode } from '@chakra-ui/react';
+import { useCallback } from 'react';
 
 export interface ItemSideBarSettingProps {
   id: string;
@@ -17,19 +18,27 @@ const ItemSideBarSetting = ({
   title,
   content,
 }: ItemSideBarSettingProps): JSX.Element => {
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     onClick(id);
-  };
+  }, [id, onClick]);
 
-  const isActive = id === activeItemId;
+  const { colorMode } = useColorMode();
+
+  const isActive: boolean = id === activeItemId;
 
   return (
-    <Box w="full" px={4} py={6}>
+    <Box w="full" px={4} py={6} onClick={handleToggle}>
       <Flex
         cursor="pointer"
         onClick={handleToggle}
         columnGap={4}
-        bg={isActive ? 'background.body.senary' : 'background.body.primary'}
+        bg={
+          isActive
+            ? colorMode === 'light'
+              ? 'secondary.200'
+              : 'secondary.600'
+            : 'transparent'
+        }
         p={4}
         borderRadius="lg"
       >
