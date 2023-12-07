@@ -11,7 +11,7 @@ const StatusComponent = ({
 }: TStatusProps): JSX.Element => (
   <Td
     py={5}
-    px={4}
+    px={0}
     fontSize="md"
     color="text.primary"
     fontWeight="semibold"

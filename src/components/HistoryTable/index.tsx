@@ -10,6 +10,7 @@ import {
   HeadCell,
   ActionCell,
   SearchBar,
+  StatusCell,
 } from '@components/index';
 
 // Constants
@@ -20,6 +21,7 @@ import { TTransaction } from '@interfaces/transaction';
 
 // Utils
 import { getHistoryHomePage } from '@utils/history';
+import { STATUS_LABEL } from '@constants/status';
 
 type TFilterUserProps = {
   histories?: TTransaction[];
@@ -47,6 +49,8 @@ const HistoryTableComponent = ({
     [],
   );
 
+  type TStatus = keyof typeof STATUS_LABEL;
+
   const columns = useMemo(
     () => [
       {
@@ -69,11 +73,23 @@ const HistoryTableComponent = ({
         title: 'Payment',
         key: 'paymentStatus',
         renderHead,
+        renderBody: ({ paymentStatus }: TDataSource): JSX.Element => (
+          <StatusCell
+            variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
+            text={`${paymentStatus}`}
+          />
+        ),
       },
       {
         title: 'Status',
         key: 'transactionStatus',
         renderHead,
+        renderBody: ({ transactionStatus }: TDataSource): JSX.Element => (
+          <StatusCell
+            variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
+            text={`${transactionStatus}`}
+          />
+        ),
       },
       {
         title: '',
