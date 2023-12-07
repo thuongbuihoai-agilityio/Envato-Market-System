@@ -40,7 +40,7 @@ exports[`OverallBalance component renders correctly 1`] = `
           class="css-r2hvuq"
         >
           <div
-            class="css-18ek59d"
+            class="css-vdd5pp"
           />
           <p
             class="chakra-text css-0"
@@ -52,7 +52,7 @@ exports[`OverallBalance component renders correctly 1`] = `
           class="css-r2hvuq"
         >
           <div
-            class="css-vdd5pp"
+            class="css-y7nxfq"
           />
           <p
             class="chakra-text css-0"
@@ -60,21 +60,9 @@ exports[`OverallBalance component renders correctly 1`] = `
             Signed
           </p>
         </div>
-        <div
-          class="css-r2hvuq"
-        >
-          <div
-            class="css-y7nxfq"
-          />
-          <p
-            class="chakra-text css-0"
-          >
-            Lost
-          </p>
-        </div>
       </div>
       <div
-        class="css-1wa77pn"
+        class="css-3oq3yy"
       >
         <button
           aria-controls="menu-list-:r1:"
@@ -93,7 +81,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               <p
                 class="chakra-text css-0"
               >
-                Weekly
+                Jan - Dec
               </p>
               <svg
                 fill="none"
@@ -137,7 +125,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               <p
                 class="chakra-text css-1198d6z"
               >
-                Weekly
+                Jan - Dec
               </p>
             </button>
             <button
@@ -151,7 +139,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               <p
                 class="chakra-text css-1198d6z"
               >
-                Monthly
+                Jan - Jun
               </p>
             </button>
             <button
@@ -165,7 +153,7 @@ exports[`OverallBalance component renders correctly 1`] = `
               <p
                 class="chakra-text css-1198d6z"
               >
-                Yearly
+                July - Dec
               </p>
             </button>
           </div>
@@ -174,13 +162,5 @@ exports[`OverallBalance component renders correctly 1`] = `
     </div>
     <div />
   </div>
-</div>
-`;
-
-exports[`OverallBalance component renders with is loading is true 1`] = `
-<div>
-  <div
-    class="chakra-skeleton css-76u8cq"
-  />
 </div>
 `;
