@@ -5,10 +5,16 @@ import Divider from '@components/common/Divider';
 
 const meta: Meta<typeof Divider> = {
   title: 'Custom Components/Divider',
+  tags: ['autodocs'],
   component: Divider,
   argTypes: {
     content: {
       description: 'Content of the divider texts field',
+    },
+  },
+  parameters: {
+    controls: {
+      expanded: true,
     },
   },
 };

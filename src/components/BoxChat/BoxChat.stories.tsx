@@ -4,12 +4,9 @@ import BoxChat from '.';
 
 const meta: Meta<typeof BoxChat> = {
   title: 'Custom Components/BoxChat',
+  tags: ['autodocs'],
   component: BoxChat,
-  argTypes: {
-    content: {
-      description: 'Content of the box chat',
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;

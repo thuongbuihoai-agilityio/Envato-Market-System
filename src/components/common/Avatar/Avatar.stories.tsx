@@ -8,7 +8,13 @@ import { IMAGES } from '@constants/images';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Custom Components/Avatar',
+  tags: ['autodocs'],
   component: Avatar,
+  argTypes: {
+    src: {
+      description: 'The image url to the avatar',
+    },
+  },
   parameters: {
     controls: {
       expanded: true,

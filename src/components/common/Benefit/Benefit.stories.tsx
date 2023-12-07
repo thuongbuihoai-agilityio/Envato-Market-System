@@ -8,13 +8,23 @@ import { Benefit } from '@components/index';
 
 const meta: Meta<typeof Benefit> = {
   title: 'Custom Components/Benefit',
+  tags: ['autodocs'],
   component: Benefit,
   argTypes: {
     imageURL: {
       description: 'The image URL to display',
     },
+
     alt: {
       description: 'The alt text to display if the image URL is not available',
+    },
+
+    heading: {
+      description: 'The heading content to display',
+    },
+
+    description: {
+      description: 'The description content of the Benefit',
     },
   },
   parameters: {

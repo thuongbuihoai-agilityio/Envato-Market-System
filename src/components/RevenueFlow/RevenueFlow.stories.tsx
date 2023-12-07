@@ -5,7 +5,14 @@ import { REVENUE_FLOW_MOCK } from '@mocks/index';
 
 const meta: Meta<typeof RevenueFlow> = {
   title: 'Custom Components/RevenueFlow',
+  tags: ['autodocs'],
   component: RevenueFlow,
+  argTypes: {
+    data: {
+      description:
+        'The data of revenue flow for 12 months includes: pending, signed and lost',
+    },
+  },
   parameters: {
     controls: {
       expanded: true,

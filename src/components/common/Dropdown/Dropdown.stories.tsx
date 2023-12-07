@@ -8,11 +8,13 @@ import { IMAGES } from '@constants/images';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Custom Components/Dropdown',
+  tags: ['autodocs'],
   component: Dropdown,
   argTypes: {
     name: {
       description: 'This is username after login',
     },
+
     permission: {
       description: 'This is that persons right',
     },

@@ -2,6 +2,7 @@ export * from './Bell';
 export * from './Email';
 export * from './Gift';
 export * from './LightTheme';
+export * from './DarkTheme';
 export * from './User';
 export * from './UserMini';
 export * from './Logout';

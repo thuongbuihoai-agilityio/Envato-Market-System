@@ -10,37 +10,45 @@ const defaultProps = {
 
 const meta: Meta<typeof InputField> = {
   title: 'Custom Components/InputField',
+  tags: ['autodocs'],
   component: InputField,
   argTypes: {
     name: {
       description: 'The name of the input field',
       defaultValue: 'email',
     },
+
     placeholder: {
       description: 'The placeholder for the input field',
       defaultValue: 'email',
     },
+
     isValidate: {
       description:
         'The validation state of the input field (the default state is false)',
     },
+
     isError: {
       description:
         'The error state of the input field (the default state is false)',
     },
+
     errorMessages: {
       description: 'The error messages of the input field',
       defaultValue: 'Default error',
     },
+
     label: {
       description: 'The label for the input field',
     },
     leftIcon: {
       description: 'The icon on the left of the input field',
     },
+
     rightIcon: {
       description: 'The icon on the right of the input field',
     },
+
     onChange: {
       description:
         'The onChange function that handles the change of the input field',

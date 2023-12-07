@@ -4,10 +4,11 @@ import { Checkbox } from '@chakra-ui/react';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Custom Components/Checkbox',
+  tags: ['autodocs'],
   component: Checkbox,
   argTypes: {
     variant: {
-      description: 'Determines whether variant checkbox.',
+      description: 'Determines the variant of the checkbox.',
     },
   },
   parameters: {
