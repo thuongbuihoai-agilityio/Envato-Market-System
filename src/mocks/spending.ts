@@ -51,6 +51,17 @@ export const EFFICIENCY_MOCK = {
   ],
 };
 
+export const INITIAL_EFFICIENCY = {
+  arrival: 0,
+  spending: 0,
+  statistical: [
+    {
+      title: '',
+      value: 0,
+    },
+  ],
+};
+
 export const REVENUE_FLOW_MOCK = [
   {
     title: 'Jan',

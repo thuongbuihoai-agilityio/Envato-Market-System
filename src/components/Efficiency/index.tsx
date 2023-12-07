@@ -31,6 +31,7 @@ interface EfficiencyProps {
   }[];
   isLoading?: boolean;
   isExchangeRate?: boolean;
+  onChangeSelect: (data: TOption) => void;
 }
 
 const EfficiencyComponent = ({
@@ -39,6 +40,7 @@ const EfficiencyComponent = ({
   statistical,
   isLoading = false,
   isExchangeRate = false,
+  onChangeSelect,
 }: EfficiencyProps) => {
   const colorFill = useColorModeValue(
     theme.colors.gray[400],
@@ -88,7 +90,7 @@ const EfficiencyComponent = ({
         justifyContent="space-between"
       >
         <Heading variant="heading2Xl" as="h3">
-          Revenue Flow
+          Efficiency
         </Heading>
         <Box w={102} h="21px">
           <Select
@@ -96,7 +98,7 @@ const EfficiencyComponent = ({
             size="sm"
             variant="no-background"
             renderTitle={renderTitle}
-            onSelect={handleChangeSelect}
+            onSelect={onChangeSelect}
           />
         </Box>
       </Flex>
