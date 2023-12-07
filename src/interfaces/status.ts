@@ -3,4 +3,7 @@ export enum Status {
   PART_TIME = 'Part Time',
   SENIOR_LEVEL = 'Senior Level',
   JUNIOR_LEVEL = 'Junior Level',
-};
+  PAID = 'Paid',
+  UN_PAID = 'Unpaid',
+  CANCELLED = 'Cancelled',
+}

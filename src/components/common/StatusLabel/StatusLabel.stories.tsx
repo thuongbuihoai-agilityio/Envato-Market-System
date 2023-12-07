@@ -37,3 +37,21 @@ export const JuniorLevel: Story = {
     value: Status.JUNIOR_LEVEL,
   },
 };
+
+export const Paid: Story = {
+  args: {
+    value: Status.PAID,
+  },
+};
+
+export const Unpaid: Story = {
+  args: {
+    value: Status.UN_PAID,
+  },
+};
+
+export const Cancelled: Story = {
+  args: {
+    value: Status.CANCELLED,
+  },
+};
