@@ -8,6 +8,7 @@ import {
   Th,
   Tbody,
   Td,
+  TableProps,
 } from '@chakra-ui/react';
 
 // Constants
@@ -25,7 +26,7 @@ type THeaderTable = {
   renderHead?: (_: string) => JSX.Element;
 };
 
-type TTableProps = {
+type TTableProps = TableProps & {
   columns?: THeaderTable[];
   dataSource?: TDataSource[];
 };
@@ -33,9 +34,10 @@ type TTableProps = {
 const TableComponent = ({
   columns,
   dataSource = [],
+  ...props
 }: TTableProps): JSX.Element => (
   <TableContainer>
-    <TableChakra>
+    <TableChakra {...props}>
       <Thead>
         <Tr>
           {columns &&
