@@ -1,13 +1,20 @@
-import { Box, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  theme,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { ReactNode, memo, useMemo } from 'react';
 
 // Constants
-import { IMAGES, TITLES } from '@constants/index';
+import { IMAGES, THEMES, TITLES } from '@constants/index';
 
 // Components
-import { Benefit, Divider, Logo } from '@components/index';
+import { Benefit, Divider, IconButton, Logo } from '@components/index';
 import AuthHeading from './Heading';
 import AuthFooter from './Footer';
+import { DarkTheme, LightTheme } from '@assets/icons';
 
 // Types
 import { TImage } from '@interfaces/index';
@@ -31,6 +38,12 @@ const AuthLayoutComponent = ({
     [isSignInForm],
   );
 
+  const colorFill = useColorModeValue(
+    theme.colors.gray[800],
+    theme.colors.white,
+  );
+
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex width="100%" minH="100vh">
       <Box
@@ -43,9 +56,16 @@ const AuthLayoutComponent = ({
         }}
         bg="background.body.secondary"
       >
-        <Box pl={12}>
+        <Flex justifyContent="space-between" px={12}>
           <Logo />
-        </Box>
+          <IconButton onClick={toggleColorMode}>
+            {colorMode === THEMES.LIGHT ? (
+              <LightTheme color={colorFill} />
+            ) : (
+              <DarkTheme color={colorFill} />
+            )}
+          </IconButton>
+        </Flex>
         <Box
           w={{
             base: '100%',
