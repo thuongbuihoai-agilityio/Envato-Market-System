@@ -14,6 +14,7 @@ import { Dropdown, IconButton, InputField, Logo } from '@components/index';
 
 // Constants
 import { IMAGES } from '@constants/images';
+import { THEMES } from '@constants/themes';
 
 // Assets
 import { Bell, Email, Gift, Rotate, Search, LightTheme } from '@assets/icons';
@@ -103,7 +104,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           justifyContent="space-between"
         >
           <IconButton onClick={toggleColorMode}>
-            {colorMode === 'light' ? (
+            {colorMode === THEMES.LIGHT ? (
               <LightTheme color={colorFill} />
             ) : (
               <DarkTheme color={colorFill} />
