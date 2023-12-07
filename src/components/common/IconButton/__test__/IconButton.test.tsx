@@ -1,4 +1,4 @@
-import { Theme } from '@assets/icons';
+import { DarkTheme } from '@assets/icons';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -11,7 +11,7 @@ describe('IconButton test cases', () => {
   it('should render correctly', () => {
     const { container } = render(
       <IconButton onClick={mockOnClick}>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('IconButton test cases', () => {
   it('calls onClick when being clicked', async () => {
     const { getByTestId } = render(
       <IconButton onClick={mockOnClick}>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     const changeTheme = getByTestId('icon-button');
@@ -33,7 +33,7 @@ describe('IconButton test cases', () => {
   it('render with hasNewNotification', async () => {
     const { getByTestId } = render(
       <IconButton hasNewNotification onClick={mockOnClick}>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     const iconButton = getByTestId('icon-button-component');
@@ -43,7 +43,7 @@ describe('IconButton test cases', () => {
   it('render with isNotification with hasNewNotification', async () => {
     const { getByTestId } = render(
       <IconButton isNotification hasNewNotification onClick={mockOnClick}>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     const iconButton = getByTestId('icon-button-component');
@@ -53,7 +53,7 @@ describe('IconButton test cases', () => {
   it('render with isNotification without hasNewNotification', async () => {
     const { getByTestId } = render(
       <IconButton isNotification onClick={mockOnClick}>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     const iconButton = getByTestId('icon-button-component');
@@ -63,7 +63,7 @@ describe('IconButton test cases', () => {
   it('render without onClick', async () => {
     const { getByTestId } = render(
       <IconButton>
-        <Theme color="gray.800" />
+        <DarkTheme color="gray.800" />
       </IconButton>,
     );
     const iconButton = getByTestId('icon-button-component');

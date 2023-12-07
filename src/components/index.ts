@@ -32,3 +32,5 @@ export { default as StatusLabel } from './common/StatusLabel';
 export { default as Selector } from './TransactionTable/Selector';
 export { default as SearchBar } from './common/SearchBar';
 export { default as HistoryTable } from './HistoryTable';
+export { default as UsersTable } from './UsersTable';
+export * from './UsersTable/Cell';

@@ -13,6 +13,7 @@ import {
 import { colors } from './bases/colors';
 // Metrics
 import { radii, sizes, space } from './bases/metric';
+
 // Components
 import {
   Tag,
@@ -23,6 +24,8 @@ import {
   Heading,
   Input,
   Text,
+  Table,
+  Badge,
 } from './components';
 import { breakpoints } from './bases/breakpoints';
 
@@ -49,6 +52,8 @@ export const configThemes = {
       Input,
       FormError,
       Drawer,
+      Table,
+      Badge,
     },
   }),
   styles: {
