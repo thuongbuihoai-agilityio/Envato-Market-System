@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Controller } from 'react-hook-form';
 import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
 
@@ -17,7 +17,7 @@ import { InputField, Select, Selector } from '@components/index';
 //Mocks
 import { MONTHS } from '@mocks/select';
 
-const SearchBarComponent = () => {
+const SearchBar = () => {
   const { control, handleSubmit } = useForm<{
     search: string;
     select: string;
@@ -91,5 +91,4 @@ const SearchBarComponent = () => {
   );
 };
 
-const SearchBar = memo(SearchBarComponent);
 export default SearchBar;
