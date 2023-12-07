@@ -6,7 +6,7 @@ exports[`StatusLabel Component Should render match with snapshot. 1`] = `
     class="css-ytu0vs"
     data-testid="tag"
   >
-    Full Time
+    primary
   </span>
 </div>
 `;

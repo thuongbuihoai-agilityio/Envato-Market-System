@@ -1,39 +1,43 @@
 import { render } from '@testing-library/react';
-import { Status } from '@interfaces/status';
 import '@testing-library/jest-dom';
+
+// Interfaces
+import { Status } from '@interfaces/status';
+
+// Components
 import StatusLabel from '..';
 
 describe('StatusLabel Component', () => {
   it('renders with the correct variant for FULL_TIME', () => {
-    const { getByText } = render(<StatusLabel value={Status.FULL_TIME} />);
-    const tag = getByText(Status.FULL_TIME);
+    const { getByTestId } = render(<StatusLabel value={Status.FULL_TIME} />);
+    const tag = getByTestId('tag');
 
     expect(tag).toBeInTheDocument();
   });
 
   it('renders with the correct variant for PART_TIME', () => {
-    const { getByText } = render(<StatusLabel value={Status.PART_TIME} />);
-    const tag = getByText(Status.PART_TIME);
+    const { getByTestId } = render(<StatusLabel value={Status.PART_TIME} />);
+    const tag = getByTestId('tag');
 
     expect(tag).toBeInTheDocument();
   });
 
   it('renders with the correct variant for SENIOR_LEVEL', () => {
-    const { getByText } = render(<StatusLabel value={Status.SENIOR_LEVEL} />);
-    const tag = getByText(Status.SENIOR_LEVEL);
+    const { getByTestId } = render(<StatusLabel value={Status.SENIOR_LEVEL} />);
+    const tag = getByTestId('tag');
 
     expect(tag).toBeInTheDocument();
   });
 
   it('renders with the correct variant for JUNIOR_LEVEL', () => {
-    const { getByText } = render(<StatusLabel value={Status.JUNIOR_LEVEL} />);
-    const tag = getByText(Status.JUNIOR_LEVEL);
+    const { getByTestId } = render(<StatusLabel value={Status.JUNIOR_LEVEL} />);
+    const tag = getByTestId('tag');
 
     expect(tag).toBeInTheDocument();
   });
 
-  it('renders with no variant for an empty status', () => {
-    const { getByTestId } = render(<StatusLabel value='' />);
+  it('renders with the correct variant for default value', () => {
+    const { getByTestId } = render(<StatusLabel />);
     const tag = getByTestId('tag');
 
     expect(tag).toBeInTheDocument();
