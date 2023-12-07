@@ -3,9 +3,9 @@ import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 import {
   CartPayment,
   Efficiency,
-  FilterUser,
   OverallBalance,
   TotalBalance,
+  TransactionTable,
 } from '@components/index';
 
 // Hooks
@@ -48,7 +48,7 @@ const MyWallet = () => {
             </Box>
           </Flex>
           <Box>
-            <FilterUser transactions={transactions} />
+            <TransactionTable transactions={transactions} />
           </Box>
         </Flex>
       </GridItem>

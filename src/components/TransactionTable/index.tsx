@@ -33,7 +33,7 @@ type TFilterUserProps = {
   // onChangeTableSize?: (currentSize: number) => void;
 };
 
-const FilterComponent = ({
+const TransactionTableComponent = ({
   transactions = [],
 }: TFilterUserProps): JSX.Element => {
   const renderHead = useCallback(
@@ -112,6 +112,6 @@ const FilterComponent = ({
   );
 };
 
-const FilterUser = memo(FilterComponent);
+const TransactionTable = memo(TransactionTableComponent);
 
-export default FilterUser;
+export default TransactionTable;
