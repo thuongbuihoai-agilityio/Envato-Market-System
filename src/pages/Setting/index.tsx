@@ -1,6 +1,9 @@
 import { memo, useCallback, useState } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 
+// Constants
+import { OPTION_SETTING } from '@constants/setting';
+
 // Assets
 import { AvatarSetting } from '@assets/icons/AvatarSetting';
 import { Faq } from '@assets/icons/Faq';
@@ -17,9 +20,9 @@ const SettingPage = () => {
 
   const renderPageContent = useCallback(() => {
     switch (activeItemId) {
-      case 'userForm':
+      case OPTION_SETTING.USER_FORM:
         return <UserForm />;
-      case 'faqPage':
+      case OPTION_SETTING.FAQ_PAGE:
         return <FaqPage />;
       default:
         return null;
@@ -37,7 +40,7 @@ const SettingPage = () => {
     >
       <GridItem colSpan={3}>
         <ItemSideBarSetting
-          id="userForm"
+          id={OPTION_SETTING.USER_FORM}
           activeItemId={activeItemId}
           onClick={handleItemClick}
           title="Personal Informations"
@@ -47,7 +50,7 @@ const SettingPage = () => {
         </ItemSideBarSetting>
 
         <ItemSideBarSetting
-          id="faqPage"
+          id={OPTION_SETTING.FAQ_PAGE}
           activeItemId={activeItemId}
           onClick={handleItemClick}
           title="FAQ"

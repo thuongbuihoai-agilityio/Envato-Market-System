@@ -1,6 +1,6 @@
+import { useCallback, useState } from 'react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 import { Box, Divider, Flex, Text } from '@chakra-ui/react';
-import { useState } from 'react';
 
 export type FaqItemProps = {
   question: string;
@@ -10,9 +10,11 @@ export type FaqItemProps = {
 const FaqItem = ({ question, answer }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAnswer = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleAnswer = useCallback(() => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
+
+  const colorFill = 'primary.500';
 
   return (
     <Box>
@@ -27,9 +29,9 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
         color="text.quinary"
       >
         {isOpen ? (
-          <MinusIcon color="primary.500" />
+          <MinusIcon color={colorFill} />
         ) : (
-          <AddIcon color="primary.500" />
+          <AddIcon color={colorFill} />
         )}
         <Text ml={5} fontWeight="bold" color="text.quinary" fontSize="lg">
           {question}
@@ -40,7 +42,7 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
           <Divider
             orientation="vertical"
             height="auto"
-            borderColor="primary.500"
+            borderColor={colorFill}
             borderWidth="1px"
             borderRadius="lg"
             marginLeft={9}
