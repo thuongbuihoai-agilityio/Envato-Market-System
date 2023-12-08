@@ -73,7 +73,7 @@ const Navigation = ({ children, destination = '/' }: TNavigationProps) => (
         svg: {
           path: {
             '&.path-1': {
-              fill: COLOR.DARK.ALTERNATIVE,
+              fill: COLOR.DARK.SECONDARY,
             },
             '&.path-2': {
               fill: COLOR.DARK.ALTERNATIVE,
