@@ -14,7 +14,7 @@ import {
 } from '@components/index';
 
 // Constants
-import { PAGE_SIZE, STATUS_LABEL } from '@constants/index';
+import { PAGE_SIZE, STATUS_LABEL, TOTAL_COUNT } from '@constants/index';
 
 // Types
 import { TTransaction } from '@interfaces/index';
@@ -119,7 +119,7 @@ const HistoryTableComponent = ({
       </Box>
 
       <Box mt={8}>
-        <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+        <Pagination pageSize={PAGE_SIZE} totalCount={TOTAL_COUNT} />
       </Box>
     </Box>
   );
