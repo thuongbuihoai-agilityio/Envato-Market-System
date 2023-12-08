@@ -10,3 +10,16 @@ export const USER_MOCK = {
   id: '1',
   createdAt: 3123123,
 };
+
+export const INITIAL_USER = {
+  avatarURL: '',
+  firstName: '',
+  lastName: '',
+  lastActive: '',
+  workTime: '',
+  level: '',
+  position: '',
+  lastPlace: '',
+  id: '',
+  createdAt: 0,
+};

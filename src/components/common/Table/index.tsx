@@ -29,11 +29,13 @@ type THeaderTable = {
 type TTableProps = TableProps & {
   columns?: THeaderTable[];
   dataSource?: TDataSource[];
+  onClickTableRow?: (id: string) => void;
 };
 
 const TableComponent = ({
   columns,
   dataSource = [],
+  onClickTableRow,
   ...props
 }: TTableProps): JSX.Element => (
   <TableContainer>
@@ -77,28 +79,41 @@ const TableComponent = ({
             </Td>
           </Tr>
         ) : (
-          dataSource.map((data) => (
-            <Tr key={data.id}>
-              {columns &&
-                columns.map((column) =>
-                  column.renderBody ? (
-                    column.renderBody(data)
-                  ) : (
-                    <Td
-                      key={column.key}
-                      py={5}
-                      px={0}
-                      fontSize="md"
-                      color="text.primary"
-                      fontWeight="semibold"
-                      textAlign="left"
-                    >
-                      {data[column.key as keyof typeof data]}
-                    </Td>
-                  ),
-                )}
-            </Tr>
-          ))
+          dataSource.map((data) => {
+            const handleClick = () => {
+              if (onClickTableRow) {
+                onClickTableRow(data.id.toString());
+              }
+            };
+            return (
+              <Tr
+                key={data.id}
+                {...(onClickTableRow && {
+                  cursor: 'pointer',
+                })}
+                onClick={handleClick}
+              >
+                {columns &&
+                  columns.map((column) =>
+                    column.renderBody ? (
+                      column.renderBody(data)
+                    ) : (
+                      <Td
+                        key={column.key}
+                        py={5}
+                        px={0}
+                        fontSize="md"
+                        color="text.primary"
+                        fontWeight="semibold"
+                        textAlign="left"
+                      >
+                        {data[column.key as keyof typeof data]}
+                      </Td>
+                    ),
+                  )}
+              </Tr>
+            );
+          })
         )}
       </Tbody>
     </TableChakra>
