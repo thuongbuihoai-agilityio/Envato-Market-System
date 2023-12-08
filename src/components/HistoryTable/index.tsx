@@ -14,7 +14,7 @@ import {
 } from '@components/index';
 
 // Constants
-import { PAGE_SIZE, STATUS_LABEL  } from '@constants/index';
+import { PAGE_SIZE, STATUS_LABEL } from '@constants/index';
 
 // Types
 import { TTransaction } from '@interfaces/index';
