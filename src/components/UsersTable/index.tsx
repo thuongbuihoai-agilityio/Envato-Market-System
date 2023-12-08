@@ -6,7 +6,7 @@ import {
   Table,
   UserInfoCell,
   StatusCell,
-  ActionsCell,
+  ActionCell,
   TDataSource,
 } from '@components/index';
 
@@ -21,11 +21,12 @@ import { STATUS_LABEL } from '@constants/status';
 
 type TUsersProps = {
   users: TEmployee[];
+  onClickUser?: (id: string) => void;
 };
 
 type TStatus = keyof typeof STATUS_LABEL;
 
-const UsersComponent = ({ users }: TUsersProps): JSX.Element => {
+const UsersComponent = ({ users, onClickUser }: TUsersProps): JSX.Element => {
   const renderHead = useCallback((): JSX.Element => <></>, []);
 
   const columns = [
@@ -71,7 +72,7 @@ const UsersComponent = ({ users }: TUsersProps): JSX.Element => {
     {
       key: 'actions',
       renderHead,
-      renderBody: () => <ActionsCell />,
+      renderBody: () => <ActionCell />,
     },
   ];
 
@@ -80,6 +81,7 @@ const UsersComponent = ({ users }: TUsersProps): JSX.Element => {
       variant="secondary"
       columns={columns}
       dataSource={getDataUser(users)}
+      onClickTableRow={onClickUser}
     />
   );
 };

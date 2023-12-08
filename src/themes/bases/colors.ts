@@ -81,6 +81,10 @@ export const colors: ThemeOverride['colors'] &
         default: 'gray.50',
         _dark: 'secondary.600',
       },
+      quaternary: {
+        default: '#718096',
+        _dark: '#23262B',
+      },
       select: {
         primary: {
           default: '#F7FAFC',

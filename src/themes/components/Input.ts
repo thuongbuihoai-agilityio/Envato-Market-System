@@ -84,6 +84,22 @@ export const Input = defineStyleConfig({
         },
       },
     },
+    noFocus: {
+      field: {
+        fontSize: 'md',
+        px: 3,
+        _focus: {
+          borderColor: NO_COLOR,
+        },
+        _dark: {
+          borderColor: NO_COLOR,
+          _focus: {
+            borderColor: NO_COLOR,
+          },
+        },
+        backgroundColor: NO_COLOR,
+      },
+    },
   },
 
   defaultProps: {
