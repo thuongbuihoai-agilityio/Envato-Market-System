@@ -200,7 +200,7 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.COUNTRY}
-              name="email"
+              name="country"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
