@@ -1,9 +1,17 @@
-import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
 import { memo } from 'react';
-import { BookMark, ShareNodes } from '@assets/icons';
-import { IMAGES } from '@constants/images';
-import { TEmployee } from '@interfaces/index';
 import isEqual from 'react-fast-compare';
+
+// Components
+import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
+
+// Icons
+import { BookMark, ShareNodes } from '@assets/icons';
+
+// Images
+import { IMAGES } from '@constants/images';
+
+// Types
+import { TEmployee } from '@interfaces/index';
 
 interface userCardProps {
   user: TEmployee;
