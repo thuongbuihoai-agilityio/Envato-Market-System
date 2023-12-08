@@ -80,6 +80,7 @@ export const Input = defineStyleConfig({
         fontSize: 'md',
         _dark: {
           boxShadow: '0 0 0.8px',
+          borderColor: 'secondary.450',
         },
       },
     },

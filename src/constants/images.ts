@@ -169,4 +169,14 @@ export const IMAGES = {
     url: '/images/card-payment.svg',
     alt: 'This is the card payment icon',
   },
+
+  BIG_AVATAR: {
+    url: '/images/big-avatar.png',
+    alt: 'This is the big avatar',
+  },
+
+  EDIT: {
+    url: '/icons/edit.svg',
+    alt: 'Edit icon',
+  },
 };
