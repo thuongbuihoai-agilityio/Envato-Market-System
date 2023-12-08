@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 // Assets
@@ -11,24 +11,20 @@ import UserForm from './Personal';
 import FaqPage from './Faq';
 
 const SettingPage = () => {
-  const [activeItemId, setActiveItemId] = useState<string | undefined>(
-    undefined,
-  );
+  const [activeItemId, setActiveItemId] = useState<string>('');
 
-  const handleItemClick = (id: string) => {
-    setActiveItemId(id);
-  };
+  const handleItemClick = (id: string) => setActiveItemId(id);
 
-  const renderPageContent = () => {
+  const renderPageContent = useCallback(() => {
     switch (activeItemId) {
-      case 'item1':
+      case 'userForm':
         return <UserForm />;
-      case 'item2':
+      case 'faqPage':
         return <FaqPage />;
       default:
         return null;
     }
-  };
+  }, [activeItemId]);
 
   return (
     <Grid
@@ -41,7 +37,7 @@ const SettingPage = () => {
     >
       <GridItem colSpan={3}>
         <ItemSideBarSetting
-          id="item1"
+          id="userForm"
           activeItemId={activeItemId}
           onClick={handleItemClick}
           title="Personal Informations"
@@ -51,7 +47,7 @@ const SettingPage = () => {
         </ItemSideBarSetting>
 
         <ItemSideBarSetting
-          id="item2"
+          id="faqPage"
           activeItemId={activeItemId}
           onClick={handleItemClick}
           title="FAQ"
