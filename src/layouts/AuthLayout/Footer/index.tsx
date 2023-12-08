@@ -1,7 +1,4 @@
-import { Box, Flex, Text, Link, List, ListItem } from '@chakra-ui/react';
-
-// constants
-import { LINKS } from '@constants/links';
+import { Box, Text } from '@chakra-ui/react';
 
 // utils
 import { getCurrentYear } from '@utils/time';
@@ -11,30 +8,6 @@ const Footer = () => {
 
   return (
     <Box mt={24}>
-      <Flex
-        justifyContent="center"
-        fontSize="sm"
-        columnGap={{
-          base: 0,
-          md: 11,
-        }}
-        _dark={{ color: 'secondary.100' }}
-        _light={{ color: 'gray.600' }}
-        flexWrap="nowrap"
-        as={List}
-      >
-        {LINKS.map((link) => (
-          <ListItem mx={2} key={link.id} w="fit-content">
-            <Link
-              href={link.href}
-              _hover={{ color: 'gray.500' }}
-              whiteSpace="nowrap"
-            >
-              {link.label}
-            </Link>
-          </ListItem>
-        ))}
-      </Flex>
       <Text
         mt={6}
         fontSize="sm"
