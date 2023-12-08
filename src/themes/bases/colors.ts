@@ -128,7 +128,6 @@ export const colors: ThemeOverride['colors'] &
       default: '#E2E8F0',
       _dark: '#2A313C',
     },
-
     quaternary: {
       default: '#E2E8F0',
       _dark: '#2A313C',
@@ -136,6 +135,10 @@ export const colors: ThemeOverride['colors'] &
 
     quinary: {
       default: '#EDf2F7',
+      _dark: '#2A313C',
+    },
+    senary: {
+      default: '#E5E7EB',
       _dark: '#2A313C',
     },
   },
@@ -158,12 +161,10 @@ export const colors: ThemeOverride['colors'] &
       default: '#22C55E',
       _dark: '#FAFAFA',
     },
-
     textInfo: {
       default: '#4A5568',
       _dark: '#FAFAFA',
     },
-
     quinary: {
       default: '#1A202C',
       _dark: '#FFF',
@@ -172,10 +173,21 @@ export const colors: ThemeOverride['colors'] &
       default: '#4A5568',
       _dark: '#747681',
     },
-
     septenary: {
       default: '#1A202C',
       _dark: '#747681',
+    },
+    octonary: {
+      default: '#4A5568',
+      _dark: '#FFF',
+    },
+    nonary: {
+      default: '#A0AEC0',
+      _dark: '#FFF',
+    },
+    denary: {
+      default: '#6B7280',
+      _dark: '#FFF',
     },
   },
 
