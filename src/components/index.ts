@@ -33,3 +33,4 @@ export { default as Selector } from './TransactionTable/Selector';
 export { default as SearchBar } from './common/SearchBar';
 export { default as UsersTable } from './UsersTable';
 export * from './UsersTable/Cell';
+export { default as UserCard } from './UserCard';
