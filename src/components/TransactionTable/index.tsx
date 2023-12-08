@@ -1,19 +1,13 @@
-import { Box } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 
 // Components
 import {
   Table,
-  Pagination,
   TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
-  SearchBar,
 } from '@components/index';
-
-// Constants
-import { PAGE_SIZE } from '@constants/pagination';
 
 // Types
 import { TTransaction } from '@interfaces/transaction';
@@ -21,16 +15,8 @@ import { TTransaction } from '@interfaces/transaction';
 // Utils
 import { getTransactionHomePage } from '@utils/transaction';
 
-// TODO: Will update props later
 type TFilterUserProps = {
   transactions?: TTransaction[];
-  // page?: number;
-  // tableSize?: number;
-  // onSelect?: (value: string) => void;
-  // onSearch?: (value: string) => void;
-  // onSort?: (sort: { type: string; desc: string }) => void;
-  // onChangePage?: (currentPage: number) => void;
-  // onChangeTableSize?: (currentSize: number) => void;
 };
 
 const TransactionTableComponent = ({
@@ -88,27 +74,10 @@ const TransactionTableComponent = ({
   );
 
   return (
-    <Box
-      as="section"
-      bgColor="background.component.primary"
-      borderRadius={8}
-      px={6}
-      py={5}
-    >
-      <SearchBar />
-
-      {/* Table users */}
-      <Box mt={5}>
-        <Table
-          columns={columns}
-          dataSource={getTransactionHomePage(transactions)}
-        />
-      </Box>
-
-      <Box mt={8}>
-        <Pagination pageSize={PAGE_SIZE} totalCount={100} />
-      </Box>
-    </Box>
+    <Table
+      columns={columns}
+      dataSource={getTransactionHomePage(transactions)}
+    />
   );
 };
 
