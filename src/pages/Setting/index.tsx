@@ -8,7 +8,7 @@ import { Faq } from '@assets/icons/Faq';
 // Components
 import ItemSideBarSetting from '@components/ItemSideBarSetting';
 import UserForm from './Personal';
-import FaqPage from './Faq';
+// import FaqPage from './Faq';
 
 const SettingPage = () => {
   const [activeItemId, setActiveItemId] = useState<string>('');
@@ -19,8 +19,8 @@ const SettingPage = () => {
     switch (activeItemId) {
       case 'userForm':
         return <UserForm />;
-      case 'faqPage':
-        return <FaqPage />;
+      // case 'faqPage':
+      // return <FaqPage />;
       default:
         return null;
     }
