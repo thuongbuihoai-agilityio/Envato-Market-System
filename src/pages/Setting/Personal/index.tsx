@@ -1,3 +1,4 @@
+import { memo, useState } from 'react';
 import {
   Box,
   HStack,
@@ -8,19 +9,26 @@ import {
   GridItem,
   Button,
 } from '@chakra-ui/react';
-import { InputField } from '@components/index';
-import { AUTH_SCHEMA } from '@constants/form';
-import { memo, useState } from 'react';
+
+// Hooks
 import { Controller, useForm } from 'react-hook-form';
-import UpdateProfile from './Profile';
+
+// Constants
+import { AUTH_SCHEMA } from '@constants/form';
+
+// Components
+import { InputField } from '@components/index';
+// import UpdateProfile from './Profile';
 
 const UserFormComponent = () => {
+  // TODO: will update integrate later
+  const [isSubmit] = useState<boolean>(false);
+
   const {
     control,
     formState: {
       errors: { root },
     },
-
     clearErrors,
   } = useForm({
     defaultValues: {
@@ -38,8 +46,6 @@ const UserFormComponent = () => {
       youtube: '',
     },
   });
-
-  const [isSubmit] = useState<boolean>(false);
 
   return (
     <Grid
@@ -159,18 +165,18 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="lastName"
+              name="phoneNumber"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
                   bg="background.body.primary"
-                  label="Phone Number"
+                  label="Phone Number (optional)"
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('lastName'), field.onChange(data);
+                    clearErrors('phoneNumber'), field.onChange(data);
                   }}
                 />
               )}
@@ -193,19 +199,19 @@ const UserFormComponent = () => {
           >
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.EMAIL}
+              rules={AUTH_SCHEMA.COUNTRY}
               name="email"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
                   bg="background.body.primary"
-                  label="Country"
+                  label="Country and Region"
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('email'), field.onChange(data);
+                    clearErrors('country'), field.onChange(data);
                   }}
                 />
               )}
@@ -213,8 +219,8 @@ const UserFormComponent = () => {
 
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="lastName"
+              rules={AUTH_SCHEMA.CITY}
+              name="city"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -225,7 +231,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('lastName'), field.onChange(data);
+                    clearErrors('city'), field.onChange(data);
                   }}
                 />
               )}
@@ -245,8 +251,8 @@ const UserFormComponent = () => {
           >
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.EMAIL}
-              name="email"
+              rules={AUTH_SCHEMA.ADDRESS}
+              name="address"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -257,7 +263,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('email'), field.onChange(data);
+                    clearErrors('address'), field.onChange(data);
                   }}
                 />
               )}
@@ -265,8 +271,8 @@ const UserFormComponent = () => {
 
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="lastName"
+              rules={AUTH_SCHEMA.POSTAL_CODE}
+              name="postalCode"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -277,7 +283,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('lastName'), field.onChange(data);
+                    clearErrors('postalCode'), field.onChange(data);
                   }}
                 />
               )}
@@ -300,8 +306,8 @@ const UserFormComponent = () => {
           >
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.EMAIL}
-              name="email"
+              rules={AUTH_SCHEMA.FACEBOOK}
+              name="facebook"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -312,7 +318,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('email'), field.onChange(data);
+                    clearErrors('facebook'), field.onChange(data);
                   }}
                 />
               )}
@@ -320,19 +326,19 @@ const UserFormComponent = () => {
 
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="lastName"
+              rules={AUTH_SCHEMA.TWITTER}
+              name="twitter"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
                   bg="background.body.primary"
-                  label="Linkedin"
+                  label="TWitter"
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('lastName'), field.onChange(data);
+                    clearErrors('twitter'), field.onChange(data);
                   }}
                 />
               )}
@@ -352,8 +358,8 @@ const UserFormComponent = () => {
           >
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.EMAIL}
-              name="email"
+              rules={AUTH_SCHEMA.LINKEDIN}
+              name="linkedin"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -364,7 +370,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('email'), field.onChange(data);
+                    clearErrors('linkedin'), field.onChange(data);
                   }}
                 />
               )}
@@ -372,8 +378,8 @@ const UserFormComponent = () => {
 
             <Controller
               control={control}
-              rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="lastName"
+              rules={AUTH_SCHEMA.YOUTUBE}
+              name="youtube"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -384,7 +390,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('lastName'), field.onChange(data);
+                    clearErrors('youtube'), field.onChange(data);
                   }}
                 />
               )}
@@ -409,9 +415,9 @@ const UserFormComponent = () => {
         </VStack>
       </GridItem>
 
-      <GridItem colSpan={5}>
+      {/* <GridItem colSpan={5}>
         <UpdateProfile />
-      </GridItem>
+      </GridItem> */}
     </Grid>
   );
 };

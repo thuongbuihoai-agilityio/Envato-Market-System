@@ -1,10 +1,13 @@
+import { memo, useCallback } from 'react';
 import { Box, Flex, Text, Heading, useColorMode } from '@chakra-ui/react';
-import { useCallback } from 'react';
+
+// constants
+import { THEMES } from '@constants/themes';
 
 export interface ItemSideBarSettingProps {
   id: string;
   children?: React.ReactElement;
-  activeItemId: string | undefined;
+  activeItemId?: string;
   title?: string;
   content?: string;
   onClick: (id: string) => void;
@@ -34,7 +37,7 @@ const ItemSideBarSetting = ({
         columnGap={4}
         bg={
           isActive
-            ? colorMode === 'light'
+            ? colorMode === THEMES.LIGHT
               ? 'secondary.200'
               : 'secondary.600'
             : 'transparent'
@@ -66,4 +69,6 @@ const ItemSideBarSetting = ({
   );
 };
 
-export default ItemSideBarSetting;
+const ItemSideBar = memo(ItemSideBarSetting);
+
+export default ItemSideBar;

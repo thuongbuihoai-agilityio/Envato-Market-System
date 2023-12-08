@@ -11,4 +11,5 @@ export const ERROR_MESSAGES = {
   PASS_WORD_SHORT: 'Password must be at least 8 characters',
   PASS_WORD_WEAK:
     'At least one uppercase letter, one lowercase letter, and one number',
+  PHONE_NUMBER_INVALID: 'Invalid phone number',
 };

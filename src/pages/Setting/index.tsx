@@ -1,8 +1,12 @@
+import { memo, useState } from 'react';
+import { Grid, GridItem } from '@chakra-ui/react';
+
+// Assets
 import { AvatarSetting } from '@assets/icons/AvatarSetting';
 import { Faq } from '@assets/icons/Faq';
-import { Grid, GridItem } from '@chakra-ui/react';
+
+// Components
 import ItemSideBarSetting from '@components/ItemSideBarSetting';
-import { memo, useState } from 'react';
 import UserForm from './Personal';
 import FaqPage from './Faq';
 
