@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -7,7 +6,7 @@ import { BoxChat, CartPayment, HistoryTable } from '@components/index';
 // Hooks
 import { useTransaction } from '@hooks/useTransaction';
 
-const HistoryPage = () => {
+const History = () => {
   const { data: transactions = [] } = useTransaction();
 
   return (
@@ -32,5 +31,4 @@ const HistoryPage = () => {
   );
 };
 
-const History = memo(HistoryPage);
 export default History;
