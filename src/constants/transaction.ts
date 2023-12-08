@@ -8,5 +8,5 @@ export enum TRANSACTION_STATUS_ENUM {
   PROCESSING = 'processing',
   PENDING = 'pending',
   FAILED = 'failed',
-  CANCELED = 'canceled',
+  CANCELED = 'cancelled',
 }

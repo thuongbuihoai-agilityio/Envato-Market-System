@@ -6,4 +6,6 @@ export enum Status {
   PAID = 'Paid',
   UN_PAID = 'Unpaid',
   CANCELLED = 'Cancelled',
+  PENDING = 'Pending',
+  COMPLETED = 'Completed',
 }
