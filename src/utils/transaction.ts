@@ -4,6 +4,8 @@ import { TTransaction } from '@interfaces/transaction';
 
 // Mocks
 import { TRANSACTIONS } from '@mocks/index';
+import { formatDate } from '.';
+import { formatUppercaseFirstLetter } from './helpers';
 
 /**
  * Convert data show for home page
@@ -19,6 +21,9 @@ export const getTransactionHomePage = (
       customer: { avatar, name, location, email },
       amount,
       currency,
+      date,
+      paymentStatus,
+      transactionStatus,
     } = transaction;
 
     return {
@@ -26,6 +31,9 @@ export const getTransactionHomePage = (
       name,
       email,
       location,
+      date: formatDate(+date),
+      paymentStatus: formatUppercaseFirstLetter(paymentStatus),
+      transactionStatus: formatUppercaseFirstLetter(transactionStatus),
       image: avatar || TRANSACTIONS[0].customer.avatar,
       spent: `${currency}${amount}`,
     };

@@ -20,7 +20,7 @@ import { PAGE_SIZE, STATUS_LABEL } from '@constants/index';
 import { TTransaction } from '@interfaces/index';
 
 // Utils
-import { getHistoryHomePage } from '@utils/index';
+import { getTransactionHomePage } from '@utils/index';
 
 type TFilterUserProps = {
   histories?: TTransaction[];
@@ -112,7 +112,10 @@ const HistoryTableComponent = ({
 
       {/* Table users */}
       <Box mt={5}>
-        <Table columns={columns} dataSource={getHistoryHomePage(histories)} />
+        <Table
+          columns={columns}
+          dataSource={getTransactionHomePage(histories)}
+        />
       </Box>
 
       <Box mt={8}>
