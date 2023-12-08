@@ -82,6 +82,7 @@ const TableComponent = ({
           dataSource.map((data) => {
             const handleClick = () =>
               onClickTableRow && onClickTableRow(`${data.id}`);
+
             return (
               <Tr
                 key={data.id}
