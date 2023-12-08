@@ -19,8 +19,7 @@ const SettingPage = () => {
     switch (activeItemId) {
       case 'userForm':
         return <UserForm />;
-      // case 'faqPage':
-      // return <FaqPage />;
+
       default:
         return null;
     }

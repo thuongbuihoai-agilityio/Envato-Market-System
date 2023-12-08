@@ -35,7 +35,7 @@ const UpdateProfile = () => (
         position="absolute"
         bottom="-8px"
         ml={24}
-        p="2"
+        p={2}
         zIndex={1}
         border="none"
         bg="none"
