@@ -5,12 +5,12 @@ import { Box } from '@chakra-ui/react';
 import { FAQ_DATA } from '@mocks/faq';
 
 // Components
-import FaqItem from '@components/FaqItem';
+import { FaqItem } from '@components/index';
 
 const FaqPageComponent = () => (
   <Box>
-    {FAQ_DATA.map((item) => (
-      <FaqItem key={item.id} question={item.question} answer={item.answer} />
+    {FAQ_DATA.map(({ id, question, answer }) => (
+      <FaqItem key={id} question={question} answer={answer} />
     ))}
   </Box>
 );
