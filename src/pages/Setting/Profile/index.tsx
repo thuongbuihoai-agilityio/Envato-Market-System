@@ -1,4 +1,6 @@
 import { Box, Heading, Text, Image, Center, Button } from '@chakra-ui/react';
+
+// Constants
 import { IMAGES } from '@constants/images';
 
 const UpdateProfile = () => (
