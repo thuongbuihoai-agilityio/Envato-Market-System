@@ -35,10 +35,12 @@ const UpdateProfile = () => (
         position="absolute"
         bottom="-8px"
         ml={24}
-        p={2}
         zIndex={1}
         border="none"
         bg="none"
+        w="auto"
+        p={0}
+        borderRadius="50%"
       >
         <Image src={IMAGES.EDIT.url} alt={IMAGES.EDIT.alt} />
       </Button>
