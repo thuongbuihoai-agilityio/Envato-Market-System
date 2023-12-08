@@ -87,7 +87,6 @@ const MyWallet = () => {
                 <Efficiency
                   {...efficiencyData}
                   isLoading={isLoadingEfficiency}
-                  isExchangeRate
                   isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                   onChangeSelect={handleChangeSelectEfficiency}
                 />
