@@ -75,7 +75,7 @@ const HistoryTableComponent = ({
         renderBody: ({ paymentStatus }: TDataSource): JSX.Element => (
           <StatusCell
             variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
-            text={`${paymentStatus}`}
+            text={paymentStatus}
           />
         ),
       },
@@ -86,7 +86,7 @@ const HistoryTableComponent = ({
         renderBody: ({ transactionStatus }: TDataSource): JSX.Element => (
           <StatusCell
             variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
-            text={`${transactionStatus}`}
+            text={transactionStatus}
           />
         ),
       },

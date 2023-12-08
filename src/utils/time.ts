@@ -1,6 +1,3 @@
-import { MONTHS } from '@mocks/select';
-import { formatUppercaseFirstLetter } from './helpers';
-
 export const getCurrentYear = (): number => {
   const currentYear = new Date().getFullYear();
   return currentYear;
@@ -27,8 +24,8 @@ export const formatDate = (timestamp: number) => {
   const date = new Date(+timestamp);
 
   const day = date.getDate();
-  const month = date.getMonth();
+  const month = date.toLocaleString('default', { month: 'short' });
   const year = date.getFullYear();
 
-  return `${formatUppercaseFirstLetter(MONTHS[month].value)} ${day}, ${year}`;
+  return `${month} ${day}, ${year}`;
 };

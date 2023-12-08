@@ -4,7 +4,10 @@ import {
   TRANSACTION_STATUS_ENUM,
 } from '@constants/transaction';
 
-export const HISTORY = [
+// Interfaces
+import { TTransaction } from '@interfaces/transaction';
+
+export const HISTORY: TTransaction[] = [
   {
     id: '1701513537051',
     customer: {
