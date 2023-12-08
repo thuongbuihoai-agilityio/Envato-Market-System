@@ -55,6 +55,10 @@ export const colors: ThemeOverride['colors'] &
         default: 'primary.400',
         _dark: '#23262B',
       },
+      senary: {
+        default: '#F7FAFC',
+        _dark: '#1D1E24',
+      },
     },
     section: {
       primary: {
@@ -129,6 +133,11 @@ export const colors: ThemeOverride['colors'] &
       default: '#E2E8F0',
       _dark: '#2A313C',
     },
+
+    quinary: {
+      default: '#EDf2F7',
+      _dark: '#2A313C',
+    },
   },
 
   text: {
@@ -149,9 +158,24 @@ export const colors: ThemeOverride['colors'] &
       default: '#22C55E',
       _dark: '#FAFAFA',
     },
+
     textInfo: {
       default: '#4A5568',
       _dark: '#FAFAFA',
+    },
+
+    quinary: {
+      default: '#1A202C',
+      _dark: '#FFF',
+    },
+    senary: {
+      default: '#4A5568',
+      _dark: '#747681',
+    },
+
+    septenary: {
+      default: '#1A202C',
+      _dark: '#747681',
     },
   },
 
