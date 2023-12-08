@@ -8,4 +8,6 @@ export const STATUS_LABEL = {
   [Status.PAID]: 'primary',
   [Status.UN_PAID]: 'secondary',
   [Status.CANCELLED]: 'tertiary',
+  [Status.PENDING]: 'quaternary',
+  [Status.COMPLETED]: 'primary',
 };

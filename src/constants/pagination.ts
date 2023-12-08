@@ -14,3 +14,4 @@ export const PAGINATION = [
 ];
 
 export const PAGE_SIZE = 10;
+export const TOTAL_COUNT = 100;

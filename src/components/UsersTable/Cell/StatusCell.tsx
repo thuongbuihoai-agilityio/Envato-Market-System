@@ -2,7 +2,7 @@ import { Badge, BadgeProps, Td } from '@chakra-ui/react';
 import { memo } from 'react';
 
 type TStatusProps = BadgeProps & {
-  text?: string;
+  text?: string | number | boolean;
 };
 
 const StatusComponent = ({
@@ -11,7 +11,7 @@ const StatusComponent = ({
 }: TStatusProps): JSX.Element => (
   <Td
     py={5}
-    px={4}
+    px={0}
     fontSize="md"
     color="text.primary"
     fontWeight="semibold"
