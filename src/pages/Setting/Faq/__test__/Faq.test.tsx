@@ -1,8 +1,11 @@
 // FaqPage.test.js
 import { render } from '@testing-library/react';
-import FaqPage from '@pages/Setting/Faq';
 
+// Components
 import * as FaqModule from '@components/index';
+
+// Pages
+import FaqPage from '@pages/Setting/Faq';
 
 // Mock the FaqItem component
 jest.mock('@components/index', () => ({
