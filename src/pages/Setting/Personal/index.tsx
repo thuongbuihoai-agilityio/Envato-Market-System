@@ -18,7 +18,7 @@ import { AUTH_SCHEMA } from '@constants/form';
 
 // Components
 import { InputField } from '@components/index';
-import UpdateProfile from '../Profile';
+import UpdateProfile from '@components/Profile';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later
