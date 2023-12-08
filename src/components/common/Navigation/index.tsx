@@ -1,10 +1,12 @@
 import { ReactNode, memo } from 'react';
 import { Link } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import isEqual from 'react-fast-compare';
 
 export type TNavigationProps = {
   children: ReactNode;
   destination?: string;
+  onClick?: () => void;
 };
 
 const COLOR = {
@@ -18,10 +20,15 @@ const COLOR = {
     ALTERNATIVE: 'primary.600',
   },
 };
-const Navigation = ({ children, destination = '/' }: TNavigationProps) => (
+const Navigation = ({
+  children,
+  destination = '/',
+  onClick = () => {},
+}: TNavigationProps) => (
   <Link
     as={ReactRouterLink}
     to={destination}
+    onClick={onClick}
     _hover={{
       textDecoration: 'none',
       svg: {
@@ -110,6 +117,6 @@ const Navigation = ({ children, destination = '/' }: TNavigationProps) => (
   </Link>
 );
 
-const NavigationComponent = memo(Navigation);
+const NavigationComponent = memo(Navigation, isEqual);
 
 export default NavigationComponent;
