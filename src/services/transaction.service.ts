@@ -10,5 +10,11 @@ const transactionHttpService: AxiosInstance = axios.create({
   baseURL: process.env.VITE_API_TRANSACTION,
 });
 
-export const getTransactions = async (): Promise<TTransaction[]> =>
-  (await transactionHttpService.get(END_POINTS.TRANSACTIONS)).data;
+export const getTransactions = async (
+  searchParam?: string,
+): Promise<TTransaction[]> =>
+  (
+    await transactionHttpService.get(
+      `${END_POINTS.TRANSACTIONS}${searchParam || ''}`,
+    )
+  ).data;

@@ -1,7 +1,9 @@
+import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 
 // Components
-import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 import {
   CartPayment,
   TotalList,
@@ -9,10 +11,15 @@ import {
   Efficiency,
   RevenueFlow,
   TransactionTable,
+  SearchBar,
+  Pagination,
+  TableSkeleton,
 } from '@components/index';
+import { TSearchValue } from '@components/common/SearchBar';
+import { TOption } from '@components/common/Select';
 
 // Hooks
-import { useGetStatistic, useTransaction } from '@hooks/index';
+import { useGetStatistic, useTransactions, useDebounce } from '@hooks/index';
 
 // Mocks
 import {
@@ -22,7 +29,8 @@ import {
 } from '@mocks/index';
 
 // Constants
-import { END_POINTS } from '@constants/index';
+import { END_POINTS, SEARCH_PARAM } from '@constants/index';
+import { PAGE_SIZE } from '@constants/pagination';
 
 // Types
 import {
@@ -30,14 +38,33 @@ import {
   IRevenueFlow,
   IEfficiency,
 } from '@interfaces/index';
-import { TOption } from '@components/common/Select';
+
+// Utils
+import { cleanUpSearchParam } from '@utils/index';
 
 const Dashboard = () => {
+  const [searchTransaction, setSearchTransaction] = useSearchParams();
+
+  // Default data for useForm(search)
+  const defaultSearchValue: TSearchValue = {
+    search: searchTransaction.get(SEARCH_PARAM.TRANSACTION_NAME) || '',
+  };
+
+  // Form control for search
+  const { control, getValues } = useForm<TSearchValue>({
+    defaultValues: defaultSearchValue,
+  });
+
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
-  const { data: transactions = [] } = useTransaction();
+  // Query transactions
+  const { data: transactions = [], isLoading: isLoadingTransaction } =
+    useTransactions({
+      queryKey: [defaultSearchValue.search],
+    });
+
   const {
     data: totalListData,
     isLoading: isLoadingTotalList,
@@ -62,6 +89,17 @@ const Dashboard = () => {
     setEfficiencyType(data.value);
     setLoadingSelectEfficiencyType(true);
   };
+
+  // Update search params when end time debounce
+  const handleDebounceSearch = useDebounce(
+    () =>
+      setSearchTransaction(
+        cleanUpSearchParam({
+          [SEARCH_PARAM.TRANSACTION_NAME]: getValues().search.trim(),
+        }),
+      ),
+    [],
+  );
 
   return (
     <Grid
@@ -111,8 +149,29 @@ const Dashboard = () => {
             )}
           </GridItem>
         </Grid>
-        <Box mt={6}>
-          <TransactionTable transactions={transactions} />
+
+        {/* Transactions table */}
+        <Box
+          mt={6}
+          as="section"
+          bgColor="background.component.primary"
+          borderRadius={8}
+          px={6}
+          py={5}
+        >
+          {isLoadingTransaction ? (
+            <TableSkeleton />
+          ) : (
+            <>
+              <SearchBar control={control} onSearch={handleDebounceSearch} />
+              <Box mt={5}>
+                <TransactionTable transactions={transactions} />
+              </Box>
+              <Box mt={8}>
+                <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+              </Box>
+            </>
+          )}
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>
