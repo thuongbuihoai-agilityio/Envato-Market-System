@@ -18,7 +18,7 @@ import { AUTH_SCHEMA } from '@constants/form';
 
 // Components
 import { InputField } from '@components/index';
-// import UpdateProfile from './Profile';
+import UpdateProfile from '../Profile';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later
@@ -415,9 +415,9 @@ const UserFormComponent = () => {
         </VStack>
       </GridItem>
 
-      {/* <GridItem colSpan={5}>
+      <GridItem colSpan={5}>
         <UpdateProfile />
-      </GridItem> */}
+      </GridItem>
     </Grid>
   );
 };
