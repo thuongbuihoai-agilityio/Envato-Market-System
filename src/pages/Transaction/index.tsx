@@ -4,10 +4,10 @@ import { Flex, Grid, GridItem } from '@chakra-ui/react';
 import { BoxChat, CartPayment, TransactionTable } from '@components/index';
 
 // Hooks
-import { useTransaction } from '@hooks/index';
+import { useTransactions } from '@hooks/index';
 
 const Transaction = () => {
-  const { data: transactions = [] } = useTransaction();
+  const { data: transactions = [] } = useTransactions();
 
   return (
     <Grid

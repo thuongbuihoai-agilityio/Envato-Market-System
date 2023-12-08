@@ -13,7 +13,7 @@ import {
 import { END_POINTS } from '@constants/api';
 
 // Hooks
-import { useGetStatistic, useTransaction } from '@hooks/index';
+import { useGetStatistic, useTransactions } from '@hooks/index';
 import { IEfficiency, IOverallBalance } from '@interfaces/index';
 
 // Mocks
@@ -24,7 +24,7 @@ const MyWallet = () => {
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
-  const { data: transactions = [] } = useTransaction();
+  const { data: transactions = [] } = useTransactions();
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
     isLoading: isLoadingEfficiency,
