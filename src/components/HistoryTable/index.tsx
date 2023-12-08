@@ -14,14 +14,14 @@ import {
 } from '@components/index';
 
 // Constants
-import { PAGE_SIZE } from '@constants/pagination';
+import { PAGE_SIZE } from '@constants/index';
+import { STATUS_LABEL } from '@constants/index';
 
 // Types
-import { TTransaction } from '@interfaces/transaction';
+import { TTransaction } from '@interfaces/index';
 
 // Utils
-import { getHistoryHomePage } from '@utils/history';
-import { STATUS_LABEL } from '@constants/status';
+import { getHistoryHomePage } from '@utils/index';
 
 type TFilterUserProps = {
   histories?: TTransaction[];
