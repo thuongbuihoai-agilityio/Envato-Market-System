@@ -13,13 +13,13 @@ export const MENU_ITEM_LIST = [
   {
     id: 1,
     leftIcon: DashboardIcon,
-    menuItemContent: 'Dashboards',
+    menuItemContent: 'Dashboard',
     destination: '/',
   },
   {
     id: 2,
     leftIcon: TransactionIcon,
-    menuItemContent: 'Transactions',
+    menuItemContent: 'Transaction',
     destination: '/transaction',
   },
   {
@@ -57,7 +57,7 @@ export const OTHER_ITEM_LIST = [
     id: 7,
     leftIcon: SignOutIcon,
     menuItemContent: 'Sign Out',
-    destination: '/',
+    destination: '/sign-out',
   },
 ];
 
