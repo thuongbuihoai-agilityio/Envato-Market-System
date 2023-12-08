@@ -34,3 +34,5 @@ export { default as SearchBar } from './common/SearchBar';
 export { default as UsersTable } from './UsersTable';
 export * from './UsersTable/Cell';
 export { default as UserCard } from './UserCard';
+export { default as FaqItem } from './FaqItem';
+export { default as UpdateProfile } from './Profile';
