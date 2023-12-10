@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import { Box, Flex, Grid, GridItem, Skeleton, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
 import {
@@ -9,7 +9,7 @@ import {
   OverallBalance,
   Pagination,
   SearchBar,
-  TableSkeleton,
+  Fetching,
   TotalBalance,
   TransactionTable,
 } from '@components/index';
@@ -48,10 +48,13 @@ const MyWallet = () => {
   });
 
   // Query transactions
-  const { data: transactions = [], isLoading: isLoadingTransaction } =
-    useTransactions({
-      name: searchTransaction.name,
-    });
+  const {
+    data: transactions = [],
+    isLoading: isLoadingTransactions,
+    isError: isTransactionsError,
+  } = useTransactions({
+    name: searchTransaction.name,
+  });
 
   // Form control for search
   const { control, getValues } = useForm<TSearchValue>({
@@ -109,29 +112,26 @@ const MyWallet = () => {
             boxSizing="border-box"
           >
             <Box flex={2}>
-              {isLoadingOverallBalance ? (
-                <Skeleton
-                  bg="background.component.primary"
-                  rounded="lg"
-                  height={360}
-                />
-              ) : isErrorOverallBalance ? (
-                <Text>Overall Balance data error</Text>
-              ) : (
+              <Fetching
+                isLoading={isLoadingOverallBalance}
+                isError={isErrorOverallBalance}
+                errorMessage="Overall Balance data error"
+              >
                 <OverallBalance {...overallBalanceData} />
-              )}
+              </Fetching>
             </Box>
             <Box flex={1}>
-              {isErrorEfficiency ? (
-                <Text>Efficiency data error</Text>
-              ) : (
+              <Fetching
+                isError={isErrorEfficiency}
+                errorMessage="Efficiency data error"
+              >
                 <Efficiency
                   {...efficiencyData}
                   isLoading={isLoadingEfficiency}
                   isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                   onChangeSelect={handleChangeSelectEfficiency}
                 />
-              )}
+              </Fetching>
             </Box>
           </Flex>
           <Box>
@@ -142,22 +142,18 @@ const MyWallet = () => {
               px={6}
               py={5}
             >
-              {isLoadingTransaction ? (
-                <TableSkeleton />
-              ) : (
-                <>
-                  <SearchBar
-                    control={control}
-                    onSearch={handleDebounceSearch}
-                  />
-                  <Box mt={5}>
-                    <TransactionTable transactions={transactions} />
-                  </Box>
-                  <Box mt={8}>
-                    <Pagination pageSize={PAGE_SIZE} totalCount={100} />
-                  </Box>
-                </>
-              )}
+              <Fetching
+                isLoading={isLoadingTransactions}
+                isError={isTransactionsError}
+              >
+                <SearchBar control={control} onSearch={handleDebounceSearch} />
+                <Box mt={5}>
+                  <TransactionTable transactions={transactions} />
+                </Box>
+                <Box mt={8}>
+                  <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+                </Box>
+              </Fetching>
             </Box>
           </Box>
         </Flex>

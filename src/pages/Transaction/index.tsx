@@ -7,7 +7,7 @@ import {
   CartPayment,
   Pagination,
   SearchBar,
-  TableSkeleton,
+  Fetching,
   TransactionTable,
 } from '@components/index';
 import { TSearchValue } from '@components/common/SearchBar';
@@ -32,10 +32,13 @@ const Transaction = () => {
   });
 
   // Query transactions
-  const { data: transactions = [], isLoading: isLoadingTransaction } =
-    useTransactions({
-      name: searchTransaction.name,
-    });
+  const {
+    data: transactions = [],
+    isLoading: isLoadingTransactions,
+    isError: isTransactionsError,
+  } = useTransactions({
+    name: searchTransaction.name,
+  });
 
   // Form control for search
   const { control, getValues } = useForm<TSearchValue>({
@@ -68,19 +71,18 @@ const Transaction = () => {
           px={6}
           py={5}
         >
-          {isLoadingTransaction ? (
-            <TableSkeleton />
-          ) : (
-            <>
-              <SearchBar control={control} onSearch={handleDebounceSearch} />
-              <Box mt={5}>
-                <TransactionTable transactions={transactions} />
-              </Box>
-              <Box mt={8}>
-                <Pagination pageSize={PAGE_SIZE} totalCount={100} />
-              </Box>
-            </>
-          )}
+          <Fetching
+            isLoading={isLoadingTransactions}
+            isError={isTransactionsError}
+          >
+            <SearchBar control={control} onSearch={handleDebounceSearch} />
+            <Box mt={5}>
+              <TransactionTable transactions={transactions} />
+            </Box>
+            <Box mt={8}>
+              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+            </Box>
+          </Fetching>
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '2xl': 0 }}>

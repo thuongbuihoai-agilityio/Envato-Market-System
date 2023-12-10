@@ -80,7 +80,7 @@ const EfficiencyComponent = ({
 
   if (isLoading && !isLoadingWhenSelect)
     return (
-      <Skeleton bg="background.component.primary" rounded="lg" height={320} />
+      <Skeleton bg="background.component.primary" rounded="lg" size="md" />
     );
 
   return (

@@ -1,7 +1,13 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 
 // Components
-import { Button, InputField, UserCard, UsersTable } from '@components/index';
+import {
+  Button,
+  InputField,
+  Fetching,
+  UserCard,
+  UsersTable,
+} from '@components/index';
 import { Box, Flex } from '@chakra-ui/react';
 
 // Hooks
@@ -12,7 +18,12 @@ import { INITIAL_USER } from '@mocks/index';
 import { Search } from '@assets/icons';
 
 const UserPage = () => {
-  const { data: users = [] } = useEmployee();
+  // Users
+  const {
+    data: users = [],
+    isLoading: isEmployeesLoading,
+    isError: isEmployeesError,
+  } = useEmployee();
   const [userId, setUserId] = useState<string | null>(null);
 
   const handleClickUser = useCallback((id: string) => {
@@ -69,7 +80,9 @@ const UserPage = () => {
             Search
           </Button>
         </Flex>
-        <UsersTable users={users} onClickUser={handleClickUser} />
+        <Fetching isLoading={isEmployeesLoading} isError={isEmployeesError}>
+          <UsersTable users={users} onClickUser={handleClickUser} />
+        </Fetching>
       </Box>
       <Box flex={1} pt={20}>
         <UserCard user={user || INITIAL_USER} />

@@ -7,7 +7,7 @@ import {
   HistoryTable,
   Pagination,
   SearchBar,
-  TableSkeleton,
+  Fetching,
 } from '@components/index';
 import { TSearchValue } from '@components/common/SearchBar';
 
@@ -22,8 +22,6 @@ import {
 
 // Constants
 import { PAGE_SIZE, TOTAL_COUNT } from '@constants/index';
-
-// Utils
 
 const History = () => {
   const {
@@ -41,10 +39,13 @@ const History = () => {
   });
 
   // History transactions
-  const { data: transactions = [], isLoading: isLoadingTransaction } =
-    useTransactions({
-      name: searchTransaction.name,
-    });
+  const {
+    data: transactions = [],
+    isLoading: isLoadingTransactions,
+    isError: isTransactionsError,
+  } = useTransactions({
+    name: searchTransaction.name,
+  });
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce(
     () => setSearchTransaction('name', getValues().search),
@@ -61,15 +62,16 @@ const History = () => {
       gap={{ base: 0, '2xl': 12 }}
     >
       <GridItem colSpan={3}>
-        {isLoadingTransaction ? (
-          <TableSkeleton />
-        ) : (
-          <Box
-            as="section"
-            bgColor="background.component.primary"
-            borderRadius={8}
-            px={6}
-            py={5}
+        <Box
+          as="section"
+          bgColor="background.component.primary"
+          borderRadius={8}
+          px={6}
+          py={5}
+        >
+          <Fetching
+            isLoading={isLoadingTransactions}
+            isError={isTransactionsError}
           >
             {/* Filter bar */}
             <SearchBar control={control} onSearch={handleDebounceSearch} />
@@ -82,8 +84,8 @@ const History = () => {
             <Box mt={8}>
               <Pagination pageSize={PAGE_SIZE} totalCount={TOTAL_COUNT} />
             </Box>
-          </Box>
-        )}
+          </Fetching>
+        </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '2xl': 0 }}>
         <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
