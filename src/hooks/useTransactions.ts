@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { UseQueryOptions, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 // Services
 import { getTransactions } from '@services/transaction.service';
@@ -10,20 +10,24 @@ import { END_POINTS } from '@constants/index';
 // Types
 import { TTransaction } from '@interfaces/transaction';
 
-export type TSearchValue = {
-  search: string;
-  select: string;
+export type TSearchTransaction = {
+  name: string;
+  month?: string;
 };
 
-export const useTransactions = <TError = Error>(
-  options?: UseQueryOptions<TTransaction[], TError>,
-) => {
-  const { queryKey = [], queryFn, ...option } = options || {};
+export const useTransactions = (queryParam?: TSearchTransaction) => {
+  const { name: searchName, month: searchMonth }: TSearchTransaction =
+    Object.assign(
+      {
+        name: '',
+        month: '',
+      },
+      queryParam,
+    );
 
   const { data = [], ...query } = useQuery({
-    queryKey: [END_POINTS.TRANSACTIONS, ...queryKey],
-    queryFn: queryFn || (() => getTransactions()),
-    ...option,
+    queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
+    queryFn: () => getTransactions(),
   });
 
   /**
@@ -31,21 +35,19 @@ export const useTransactions = <TError = Error>(
    * TODO: Will be removed in the future and will use queryKey for re-fetching
    */
   const transactions: TTransaction[] = useMemo((): TTransaction[] => {
-    const isMatchWith = (value: string): boolean =>
-      queryKey.some((key) =>
-        value.toLowerCase().includes(`${key}`.toLowerCase()),
-      );
+    const isNameMatchWith = (target: string): boolean =>
+      target.trim().includes(searchName);
 
     return data.filter(
       ({ customer: { name, email, location } }: TTransaction) => {
-        const isMatchWithUser: boolean = isMatchWith(name);
-        const isMatchWithEmail: boolean = isMatchWith(email);
-        const isMatchWithLocation: boolean = isMatchWith(location);
+        const isMatchWithName: boolean = isNameMatchWith(name);
+        const isMatchWithEmail: boolean = isNameMatchWith(email);
+        const isMatchWithLocation: boolean = isNameMatchWith(location);
 
-        return isMatchWithUser || isMatchWithEmail || isMatchWithLocation;
+        return isMatchWithEmail || isMatchWithLocation || isMatchWithName;
       },
     );
-  }, [data, queryKey]);
+  }, [data, searchName]);
 
   return {
     ...query,

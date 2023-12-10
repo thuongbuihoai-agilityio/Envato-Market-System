@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
@@ -19,7 +18,13 @@ import { TSearchValue } from '@components/common/SearchBar';
 import { TOption } from '@components/common/Select';
 
 // Hooks
-import { useGetStatistic, useTransactions, useDebounce } from '@hooks/index';
+import {
+  useGetStatistic,
+  useTransactions,
+  useDebounce,
+  useSearch,
+  TSearchTransaction,
+} from '@hooks/index';
 
 // Mocks
 import {
@@ -29,8 +34,7 @@ import {
 } from '@mocks/index';
 
 // Constants
-import { END_POINTS, SEARCH_PARAM } from '@constants/index';
-import { PAGE_SIZE } from '@constants/pagination';
+import { END_POINTS, PAGE_SIZE } from '@constants/index';
 
 // Types
 import {
@@ -39,20 +43,19 @@ import {
   IEfficiency,
 } from '@interfaces/index';
 
-// Utils
-import { cleanUpSearchParam } from '@utils/index';
-
 const Dashboard = () => {
-  const [searchTransaction, setSearchTransaction] = useSearchParams();
-
-  // Default data for useForm(search)
-  const defaultSearchValue: TSearchValue = {
-    search: searchTransaction.get(SEARCH_PARAM.TRANSACTION_NAME) || '',
-  };
+  const {
+    searchParam: searchTransaction,
+    setSearchParam: setSearchTransaction,
+  } = useSearch<TSearchTransaction>({
+    name: '',
+  });
 
   // Form control for search
   const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: defaultSearchValue,
+    defaultValues: {
+      search: searchTransaction.name,
+    },
   });
 
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
@@ -62,7 +65,7 @@ const Dashboard = () => {
   // Query transactions
   const { data: transactions = [], isLoading: isLoadingTransaction } =
     useTransactions({
-      queryKey: [defaultSearchValue.search],
+      name: searchTransaction.name,
     });
 
   const {
@@ -92,12 +95,7 @@ const Dashboard = () => {
 
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce(
-    () =>
-      setSearchTransaction(
-        cleanUpSearchParam({
-          [SEARCH_PARAM.TRANSACTION_NAME]: getValues().search.trim(),
-        }),
-      ),
+    () => setSearchTransaction('name', getValues().search),
     [],
   );
 

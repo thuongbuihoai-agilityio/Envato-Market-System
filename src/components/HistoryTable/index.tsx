@@ -1,20 +1,17 @@
-import { Box } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 
 // Components
 import {
   Table,
-  Pagination,
   TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
-  SearchBar,
   StatusCell,
 } from '@components/index';
 
 // Constants
-import { PAGE_SIZE, STATUS_LABEL, TOTAL_COUNT } from '@constants/index';
+import { STATUS_LABEL } from '@constants/index';
 
 // Types
 import { TTransaction } from '@interfaces/index';
@@ -100,28 +97,7 @@ const HistoryTableComponent = ({
   );
 
   return (
-    <Box
-      as="section"
-      bgColor="background.component.primary"
-      borderRadius={8}
-      px={6}
-      py={5}
-    >
-      {/* Filter bar */}
-      <SearchBar />
-
-      {/* Table users */}
-      <Box mt={5}>
-        <Table
-          columns={columns}
-          dataSource={getTransactionHomePage(histories)}
-        />
-      </Box>
-
-      <Box mt={8}>
-        <Pagination pageSize={PAGE_SIZE} totalCount={TOTAL_COUNT} />
-      </Box>
-    </Box>
+    <Table columns={columns} dataSource={getTransactionHomePage(histories)} />
   );
 };
 
