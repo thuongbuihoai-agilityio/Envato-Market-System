@@ -8,5 +8,4 @@ export const useGetStatistic = <T>(endPoint: string) =>
   useQuery<T>({
     queryKey: [endPoint],
     queryFn: () => getStatistical(endPoint),
-    retry: 2,
   });

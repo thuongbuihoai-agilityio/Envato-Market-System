@@ -19,7 +19,6 @@ import { Arrow } from '@assets/icons';
 // Constants
 import {
   OVERALL_BALANCE_COLORS,
-  REVENUE_FLOW_COLORS,
   REVENUE_FLOW_OPTIONS,
   REVENUE_FLOW_STATUS,
 } from '@constants/index';
@@ -142,7 +141,7 @@ const OverallBalanceComponent = ({
           legend: {
             show: false,
           },
-          colors: REVENUE_FLOW_COLORS,
+          colors: OVERALL_BALANCE_COLORS,
           dataLabels: {
             enabled: false,
           },
