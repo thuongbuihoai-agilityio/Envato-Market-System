@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import areEqual from 'react-fast-compare';
+import { memo, useState } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -13,20 +13,16 @@ import {
   TotalBalance,
   TransactionTable,
 } from '@components/index';
-import { TSearchValue } from '@components/common/SearchBar';
 import { TOption } from '@components/common/Select';
 
 // Constants
 import { END_POINTS, PAGE_SIZE } from '@constants/index';
 
 // Hooks
-import {
-  TSearchTransaction,
-  useDebounce,
-  useGetStatistic,
-  useSearch,
-  useTransactions,
-} from '@hooks/index';
+import { useGetStatistic, useTransactions } from '@hooks/index';
+
+// HOCs
+import { TWithTransaction, withTransactions } from '@hocs/index';
 
 // Types
 import { IEfficiency, IOverallBalance } from '@interfaces/index';
@@ -34,18 +30,14 @@ import { IEfficiency, IOverallBalance } from '@interfaces/index';
 // Mocks
 import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@mocks/index';
 
-const MyWallet = () => {
+const MyWallet = ({
+  controlInputTransaction,
+  searchTransactionValue,
+  onSearchTransaction,
+}: TWithTransaction) => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
-
-  // Search transactions
-  const {
-    searchParam: searchTransaction,
-    setSearchParam: setSearchTransaction,
-  } = useSearch<TSearchTransaction>({
-    name: '',
-  });
 
   // Query transactions
   const {
@@ -53,21 +45,8 @@ const MyWallet = () => {
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
-    name: searchTransaction.name,
+    name: searchTransactionValue,
   });
-
-  // Form control for search
-  const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: {
-      search: searchTransaction.name,
-    },
-  });
-
-  // Update search params when end time debounce
-  const handleDebounceSearch = useDebounce(
-    () => setSearchTransaction('name', getValues().search),
-    [],
-  );
 
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
@@ -146,7 +125,10 @@ const MyWallet = () => {
                 isLoading={isLoadingTransactions}
                 isError={isTransactionsError}
               >
-                <SearchBar control={control} onSearch={handleDebounceSearch} />
+                <SearchBar
+                  control={controlInputTransaction}
+                  onSearch={onSearchTransaction}
+                />
                 <Box mt={5}>
                   <TransactionTable transactions={transactions} />
                 </Box>
@@ -162,4 +144,6 @@ const MyWallet = () => {
   );
 };
 
-export default MyWallet;
+const MyWalletPage = memo(withTransactions(MyWallet), areEqual);
+
+export default MyWalletPage;

@@ -1,4 +1,6 @@
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
+import areEqual from 'react-fast-compare';
+import { memo } from 'react';
 
 // Components
 import {
@@ -9,48 +11,29 @@ import {
   SearchBar,
   Fetching,
 } from '@components/index';
-import { TSearchValue } from '@components/common/SearchBar';
 
 // Hooks
-import {
-  TSearchTransaction,
-  useDebounce,
-  useForm,
-  useSearch,
-  useTransactions,
-} from '@hooks/index';
+import { useTransactions } from '@hooks/index';
+
+// HOCs
+import { TWithTransaction, withTransactions } from '@hocs/index';
 
 // Constants
 import { PAGE_SIZE, TOTAL_COUNT } from '@constants/index';
 
-const History = () => {
-  const {
-    searchParam: searchTransaction,
-    setSearchParam: setSearchTransaction,
-  } = useSearch<TSearchTransaction>({
-    name: '',
-  });
-
-  // Form control for search
-  const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: {
-      search: searchTransaction.name,
-    },
-  });
-
+const History = ({
+  searchTransactionValue,
+  controlInputTransaction,
+  onSearchTransaction,
+}: TWithTransaction) => {
   // History transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
-    name: searchTransaction.name,
+    name: searchTransactionValue,
   });
-  // Update search params when end time debounce
-  const handleDebounceSearch = useDebounce(
-    () => setSearchTransaction('name', getValues().search),
-    [],
-  );
 
   return (
     <Grid
@@ -74,7 +57,10 @@ const History = () => {
             isError={isTransactionsError}
           >
             {/* Filter bar */}
-            <SearchBar control={control} onSearch={handleDebounceSearch} />
+            <SearchBar
+              control={controlInputTransaction}
+              onSearch={onSearchTransaction}
+            />
 
             {/* Table users */}
             <Box mt={5}>
@@ -97,4 +83,6 @@ const History = () => {
   );
 };
 
-export default History;
+const HistoryPage = memo(withTransactions(History), areEqual);
+
+export default HistoryPage;
