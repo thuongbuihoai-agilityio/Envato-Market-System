@@ -1,5 +1,5 @@
 import areEqual from 'react-fast-compare';
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -62,10 +62,10 @@ const MyWallet = ({
     isError: isErrorOverallBalance,
   } = useGetStatistic<IOverallBalance>(END_POINTS.OVERALL_BALANCE);
 
-  const handleChangeSelectEfficiency = (data: TOption) => {
+  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
     setEfficiencyType(data.value);
     setLoadingSelectEfficiencyType(true);
-  };
+  }, []);
 
   return (
     <Grid
