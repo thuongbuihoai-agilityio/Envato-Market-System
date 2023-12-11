@@ -24,6 +24,8 @@ export type TUseAuth = {
   user: TUserInfo;
   isRemember: boolean;
   date: number;
+  setUser: (user: TUser) => void;
+  updateUserInfo: (updatedInfo: Partial<TUser>) => Promise<void>;
   signIn: (
     {
       email,
@@ -46,6 +48,7 @@ export const useAuth = create(
       user: null,
       isRemember: false,
       date: 0,
+      setUser: (user) => set({ user }),
       signIn: async ({ email, password }, isRemember) => {
         const { data = [] }: AxiosResponse<TUser[] | undefined> =
           await UsersHttpService.get<TUser[] | undefined>(
@@ -107,6 +110,37 @@ export const useAuth = create(
         return {};
       },
       signOut: () => set({ user: null, isRemember: false, date: 0 }),
+
+      updateUserInfo: async (updatedInfo) => {
+        const currentUser = useAuth.getState().user;
+
+        if (!currentUser) {
+          return;
+        }
+
+        try {
+          const response = await UsersHttpService.put<TUser>(
+            `${END_POINTS.USERS}/${currentUser.id}`,
+            updatedInfo,
+          );
+
+          const updatedUser = response.data;
+
+          set((currentState: TUseAuth) => {
+            if (currentState.user) {
+              return {
+                user: {
+                  ...currentState.user,
+                  ...updatedUser,
+                },
+              };
+            }
+            return currentState;
+          });
+        } catch {
+          throw new Error(ERROR_MESSAGES.UPDATE_FAIL);
+        }
+      },
     }),
     { name: 'authentication' },
   ),

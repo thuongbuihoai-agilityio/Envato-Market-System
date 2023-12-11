@@ -13,16 +13,26 @@ import {
 // Hooks
 import { Controller, useForm } from 'react-hook-form';
 
+// Interfaces
+import { TUser } from '@app/interfaces';
+
+// Hooks
+import { useAuth } from '@app/hooks';
+import { useUser } from '@app/hooks/useUser';
+
 // Constants
 import { AUTH_SCHEMA } from '@app/constants/form';
 
 // Components
-import { InputField } from '@app/components';
-import { UpdateProfile } from '@app/components';
+import { InputField, UpdateProfile } from '@app/components';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later
   const [isSubmit] = useState<boolean>(false);
+  const { user, updateUserInfo } = useAuth();
+  const {
+    updateUserMutation: { mutate },
+  } = useUser();
 
   const {
     control,
@@ -30,22 +40,38 @@ const UserFormComponent = () => {
       errors: { root },
     },
     clearErrors,
-  } = useForm({
+    handleSubmit,
+  } = useForm<TUser>({
     defaultValues: {
-      email: '',
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      country: '',
-      city: '',
-      address: '',
-      postalCode: '',
-      facebook: '',
-      linkedin: '',
-      twitter: '',
-      youtube: '',
+      email: user?.email || '',
+      firstName: user?.firstName || '',
+      lastName: user?.lastName || '',
+      phoneNumber: user?.phoneNumber || '',
+      country: user?.country || '',
+      city: user?.city || '',
+      address: user?.address || '',
+      postalCode: user?.postalCode || '',
+      facebookURL: user?.facebookURL || '',
+      linkedinURL: user?.linkedinURL || '',
+      twitterURL: user?.twitterURL || '',
+      youtubeURL: user?.youtubeURL || '',
     },
   });
+
+  const handleSubmitForm = (updatedInfo: TUser) => {
+    const data = { ...updatedInfo, id: user?.id || '' };
+
+    mutate(data, {
+      onSuccess: (updatedUser) => {
+        updateUserInfo(updatedUser);
+      },
+
+      onError: (error) => {
+        // TODO : handle notification later
+        console.log(error);
+      },
+    });
+  };
 
   return (
     <Grid
@@ -79,7 +105,12 @@ const UserFormComponent = () => {
         >
           personal information&apos;s
         </Heading>
-        <VStack as="form" gap={6} id="register-form">
+        <VStack
+          as="form"
+          gap={6}
+          id="register-form"
+          onSubmit={handleSubmit(handleSubmitForm)}
+        >
           <HStack
             gap={{
               base: 6,
@@ -307,7 +338,7 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.FACEBOOK}
-              name="facebook"
+              name="facebookURL"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -318,7 +349,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('facebook'), field.onChange(data);
+                    clearErrors('facebookURL'), field.onChange(data);
                   }}
                 />
               )}
@@ -327,7 +358,7 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.TWITTER}
-              name="twitter"
+              name="twitterURL"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -338,7 +369,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('twitter'), field.onChange(data);
+                    clearErrors('twitterURL'), field.onChange(data);
                   }}
                 />
               )}
@@ -359,7 +390,7 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.LINKEDIN}
-              name="linkedin"
+              name="linkedinURL"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -370,7 +401,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('linkedin'), field.onChange(data);
+                    clearErrors('linkedinURL'), field.onChange(data);
                   }}
                 />
               )}
@@ -379,7 +410,7 @@ const UserFormComponent = () => {
             <Controller
               control={control}
               rules={AUTH_SCHEMA.YOUTUBE}
-              name="youtube"
+              name="youtubeURL"
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   variant="authentication"
@@ -390,7 +421,7 @@ const UserFormComponent = () => {
                   errorMessages={error?.message}
                   isDisabled={isSubmit}
                   onChange={(data) => {
-                    clearErrors('youtube'), field.onChange(data);
+                    clearErrors('youtubeURL'), field.onChange(data);
                   }}
                 />
               )}
