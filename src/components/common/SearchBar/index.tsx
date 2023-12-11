@@ -1,9 +1,7 @@
-import { useCallback } from 'react';
-import { Controller } from 'react-hook-form';
+import { FormEvent, memo, useCallback } from 'react';
+import { Controller, Control } from 'react-hook-form';
 import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
-
-// Hooks
-import { useForm } from '@hooks/useForm';
+import areEqual from 'react-fast-compare';
 
 // Assets
 import { Search } from '@assets/icons';
@@ -13,26 +11,36 @@ import { colors } from '@themes/bases/colors';
 
 // Components
 import { InputField, Select, Selector } from '@components/index';
+import { TOption } from '../Select';
 
 //Mocks
 import { MONTHS } from '@mocks/select';
 
-const SearchBar = () => {
-  const { control, handleSubmit } = useForm<{
-    search: string;
-    select: string;
-  }>({
-    defaultValues: {
-      search: '',
-      select: '',
-    },
-  });
+export type TSearchValue = {
+  search: string;
+};
 
+type TSearchProps = {
+  control: Control<TSearchValue>;
+  onSearch: () => void;
+  onFilter?: (value: string) => void;
+};
+
+const SearchBarComponent = ({
+  control,
+  onSearch,
+  onFilter,
+}: TSearchProps): JSX.Element => {
   const renderTitleSelector = useCallback(() => <Selector />, []);
 
   const searchIconColor: string = useColorModeValue(
     colors.secondary[400] ?? '',
     '#fff',
+  );
+
+  const handleSelectMonth = useCallback(
+    ({ value }: TOption) => onFilter && onFilter(value),
+    [onFilter],
   );
 
   return (
@@ -41,9 +49,7 @@ const SearchBar = () => {
       data-testId="search-bar"
       h={14}
       gap={5}
-      onSubmit={handleSubmit((data) => {
-        console.log(data); // TODO: Remove late
-      })}
+      onSubmit={(e: FormEvent) => e.preventDefault()}
     >
       <Box
         display={{
@@ -58,7 +64,10 @@ const SearchBar = () => {
           render={({ field: { value, onChange } }) => (
             <InputField
               value={value}
-              onChange={onChange}
+              onChange={(value: string) => {
+                onChange(value);
+                onSearch();
+              }}
               placeholder="Search by name, email, or other..."
               variant="secondary"
               leftIcon={<Search color={searchIconColor} />}
@@ -75,20 +84,16 @@ const SearchBar = () => {
           xl: '12%',
         }}
       >
-        <Controller
-          control={control}
-          name="select"
-          render={({ field: { onChange } }) => (
-            <Select
-              options={MONTHS}
-              renderTitle={renderTitleSelector}
-              onSelect={({ value }) => onChange(value)}
-            />
-          )}
+        <Select
+          options={MONTHS}
+          renderTitle={renderTitleSelector}
+          onSelect={handleSelectMonth}
         />
       </Box>
     </HStack>
   );
 };
+
+const SearchBar = memo(SearchBarComponent, areEqual);
 
 export default SearchBar;

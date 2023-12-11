@@ -147,7 +147,6 @@ const SelectComponent = ({
               _focus={{ borderColor: 'transparent', outline: 'none' }}
               onClick={handleSelected}
               {...SIZES[size]}
-              type="submit"
             >
               <Text
                 fontSize="sm"
