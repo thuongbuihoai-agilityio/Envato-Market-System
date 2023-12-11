@@ -103,7 +103,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           spent: handleSort(type, prevAmount, nextAmount),
         };
 
-        return valueForField[field];
+        return valueForField[field] ?? 0;
       },
     );
 

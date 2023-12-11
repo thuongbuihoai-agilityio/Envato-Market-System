@@ -29,6 +29,7 @@ const History = ({
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
+    sortBy,
   } = useTransactions({
     name: searchTransactionValue,
   });
@@ -63,7 +64,7 @@ const History = ({
             {/* Table users */}
             <Box mt={5}>
               <Suspense fallback={<Spinner />}>
-                <HistoryTable histories={transactions} />
+                <HistoryTable histories={transactions} onSort={sortBy} />
               </Suspense>
             </Box>
 
