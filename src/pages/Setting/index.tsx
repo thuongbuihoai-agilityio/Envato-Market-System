@@ -16,7 +16,10 @@ import FaqPage from './Faq';
 const SettingPage = () => {
   const [activeItemId, setActiveItemId] = useState<string>('');
 
-  const handleItemClick = (id: string) => setActiveItemId(id);
+  const handleItemClick = useCallback(
+    (id: string) => setActiveItemId(id),
+    [activeItemId],
+  );
 
   const renderPageContent = useCallback(() => {
     switch (activeItemId) {

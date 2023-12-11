@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import areEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
@@ -77,10 +77,10 @@ const Dashboard = ({
     `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
   );
 
-  const handleChangeSelectEfficiency = (data: TOption) => {
+  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
     setEfficiencyType(data.value);
     setLoadingSelectEfficiencyType(true);
-  };
+  }, []);
 
   return (
     <Grid
