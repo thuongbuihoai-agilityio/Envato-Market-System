@@ -26,3 +26,4 @@ export * from './Faq';
 export * from './LogoMini';
 export * from './MyWallet';
 export * from './Setting';
+export * from './ChevronIcon';

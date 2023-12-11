@@ -3,10 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 // Services
 import { getEmployees } from '@app/services';
 
-export const useEmployee = () => {
+export const useEmployee = (searchParam = '') => {
   const query = useQuery({
-    queryKey: [''],
-    queryFn: getEmployees,
+    queryKey: ['', searchParam],
+    queryFn: () => getEmployees(searchParam),
   });
 
   // TODO: update return value later
