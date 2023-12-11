@@ -37,4 +37,4 @@ export * from './UsersTable/Cell';
 export { default as UserCard } from './UserCard';
 export { default as FaqItem } from './FaqItem';
 export { default as UpdateProfile } from './Profile';
-export { default as TableSkeleton } from './Skeleton/TableSkeleton';
+export { default as Fetching } from './Skeleton/Fetching';

@@ -6,13 +6,13 @@ const TotalListSkeleton = () => (
     gap={6}
   >
     <GridItem>
-      <Skeleton height={180} bg="background.component.primary" rounded="lg" />
+      <Skeleton bg="background.component.primary" rounded="lg" />
     </GridItem>
     <GridItem>
-      <Skeleton height={180} bg="background.component.primary" rounded="lg" />
+      <Skeleton bg="background.component.primary" rounded="lg" />
     </GridItem>
     <GridItem>
-      <Skeleton height={180} bg="background.component.primary" rounded="lg" />
+      <Skeleton bg="background.component.primary" rounded="lg" />
     </GridItem>
   </Grid>
 );

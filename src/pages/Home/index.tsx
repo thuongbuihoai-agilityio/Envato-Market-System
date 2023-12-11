@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, Grid, GridItem, Skeleton, Stack, Text } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
 import {
@@ -12,7 +12,7 @@ import {
   TransactionTable,
   SearchBar,
   Pagination,
-  TableSkeleton,
+  Fetching,
 } from '@components/index';
 import { TSearchValue } from '@components/common/SearchBar';
 import { TOption } from '@components/common/Select';
@@ -63,13 +63,16 @@ const Dashboard = () => {
     useState<boolean>(false);
 
   // Query transactions
-  const { data: transactions = [], isLoading: isLoadingTransaction } =
-    useTransactions({
-      name: searchTransaction.name,
-    });
+  const {
+    data: transactions = [],
+    isLoading: isLoadingTransactions,
+    isError: isTransactionsError,
+  } = useTransactions({
+    name: searchTransaction.name,
+  });
 
   const {
-    data: totalListData,
+    data: totalListData = [],
     isLoading: isLoadingTotalList,
     isError: isErrorTotalList,
   } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
@@ -108,43 +111,42 @@ const Dashboard = () => {
       gap={0}
     >
       <GridItem colSpan={3}>
-        {isErrorTotalList ? (
-          <Text>Total statistic data error </Text>
-        ) : (
+        <Fetching
+          isError={isErrorTotalList}
+          errorMessage="Total statistic data error "
+        >
           <TotalList
             spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
             isLoading={isLoadingTotalList}
           />
-        )}
+        </Fetching>
+
         <Grid
           templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
           mt={6}
           gap={6}
         >
           <GridItem colSpan={{ base: 3, xl: 2 }}>
-            {isLoadingRevenueFlow ? (
-              <Skeleton
-                bg="background.component.primary"
-                rounded="lg"
-                height={300}
-              />
-            ) : isErrorRevenueFlow ? (
-              <Text>Revenue flow data error</Text>
-            ) : (
+            <Fetching
+              isLoading={isLoadingRevenueFlow}
+              isError={isErrorRevenueFlow}
+              errorMessage="Revenue flow data error"
+            >
               <RevenueFlow data={revenueFlowData} />
-            )}
+            </Fetching>
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
-            {isErrorEfficiency ? (
-              <Text>Efficiency data error</Text>
-            ) : (
+            <Fetching
+              isError={isErrorEfficiency}
+              errorMessage="Efficiency data error"
+            >
               <Efficiency
                 {...efficiencyData}
                 isLoading={isLoadingEfficiency}
                 isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                 onChangeSelect={handleChangeSelectEfficiency}
               />
-            )}
+            </Fetching>
           </GridItem>
         </Grid>
 
@@ -157,19 +159,18 @@ const Dashboard = () => {
           px={6}
           py={5}
         >
-          {isLoadingTransaction ? (
-            <TableSkeleton />
-          ) : (
-            <>
-              <SearchBar control={control} onSearch={handleDebounceSearch} />
-              <Box mt={5}>
-                <TransactionTable transactions={transactions} />
-              </Box>
-              <Box mt={8}>
-                <Pagination pageSize={PAGE_SIZE} totalCount={100} />
-              </Box>
-            </>
-          )}
+          <Fetching
+            isLoading={isLoadingTransactions}
+            isError={isTransactionsError}
+          >
+            <SearchBar control={control} onSearch={handleDebounceSearch} />
+            <Box mt={5}>
+              <TransactionTable transactions={transactions} />
+            </Box>
+            <Box mt={8}>
+              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+            </Box>
+          </Fetching>
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>
