@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders DividerCustom with content 1`] = `
+<div>
+  <div
+    class="css-1wqp5dg"
+  >
+    <hr
+      aria-orientation="horizontal"
+      class="chakra-divider css-ri09he"
+    />
+    <div
+      class="css-1u70y5c"
+    >
+      Test Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders UserForm with content 1`] = `
+<div>
+  <div
+    class="css-1pzxhv6"
+  >
+    <section
+      class="css-j63fm7"
+    >
+      <h3
+        class="chakra-heading css-r8aai1"
+      >
+        personal information's
+      </h3>
+      <form
+        class="chakra-stack css-ylms7g"
+        id="register-form"
+      >
+        <div
+          class="chakra-stack css-rluqv0"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r0:"
+              id="field-:r0:-label"
+            >
+              First Name
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r0:"
+                name="firstName"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r1:"
+              id="field-:r1:-label"
+            >
+              Last Name
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r1:"
+                name="lastName"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-stack css-rluqv0"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r2:"
+              id="field-:r2:-label"
+            >
+              Email
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r2:"
+                name="email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r3:"
+              id="field-:r3:-label"
+            >
+              Phone Number (optional)
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r3:"
+                name="phoneNumber"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <h2
+          class="chakra-heading css-7yzvk1"
+        >
+          Personal Address
+        </h2>
+        <div
+          class="chakra-stack css-fskqe1"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r4:"
+              id="field-:r4:-label"
+            >
+              Country and Region
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r4:"
+                name="country"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r5:"
+              id="field-:r5:-label"
+            >
+              City
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r5:"
+                name="city"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-stack css-fskqe1"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r6:"
+              id="field-:r6:-label"
+            >
+              Address
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r6:"
+                name="address"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r7:"
+              id="field-:r7:-label"
+            >
+              Postal Code
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r7:"
+                name="postalCode"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <h2
+          class="chakra-heading css-7yzvk1"
+        >
+          Social Information
+        </h2>
+        <div
+          class="chakra-stack css-fskqe1"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r8:"
+              id="field-:r8:-label"
+            >
+              Facebook
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r8:"
+                name="facebook"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:r9:"
+              id="field-:r9:-label"
+            >
+              TWitter
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:r9:"
+                name="twitter"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-stack css-fskqe1"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:ra:"
+              id="field-:ra:-label"
+            >
+              Linkedin
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:ra:"
+                name="linkedin"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <label
+              class="chakra-form__label css-yeb7cv"
+              for="field-:rb:"
+              id="field-:rb:-label"
+            >
+              Youtube
+            </label>
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-r4nbqm"
+                id="field-:rb:"
+                name="youtube"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="css-omcqsq"
+        >
+          <p
+            class="chakra-text css-dz8804"
+          />
+          <button
+            class="chakra-button css-1u2d9l5"
+            form="register-form"
+            type="submit"
+          >
+            Save Profile
+          </button>
+        </div>
+      </form>
+    </section>
+    <div
+      class="css-73fbxg"
+    >
+      <div
+        class="css-0"
+      >
+        <h4
+          class="chakra-heading css-1th4bpb"
+        >
+          update profile
+        </h4>
+        <p
+          class="chakra-text css-12zxwfm"
+        >
+          Profile at least Size
+          <span
+            class="chakra-text css-1999y4e"
+          >
+            300x300.
+          </span>
+          Gift to work too.
+        </p>
+        <div
+          class="css-4bwcy0"
+        >
+          <img
+            alt="This is the big avatar"
+            class="chakra-image css-1phd9a0"
+            src="/images/big-avatar.png"
+          />
+          <button
+            class="chakra-button css-1bbvwej"
+            type="button"
+          >
+            <img
+              alt="Edit icon"
+              class="chakra-image css-0"
+              src="/icons/edit.svg"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
