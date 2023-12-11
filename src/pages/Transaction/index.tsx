@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import areEqual from 'react-fast-compare';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -10,48 +10,30 @@ import {
   Fetching,
   TransactionTable,
 } from '@components/index';
-import { TSearchValue } from '@components/common/SearchBar';
 
 // Constants
 import { PAGE_SIZE } from '@constants/pagination';
 
 // Hooks
-import {
-  TSearchTransaction,
-  useDebounce,
-  useSearch,
-  useTransactions,
-} from '@hooks/index';
+import { useTransactions } from '@hooks/index';
 
-const Transaction = () => {
-  const {
-    searchParam: searchTransaction,
-    setSearchParam: setSearchTransaction,
-  } = useSearch<TSearchTransaction>({
-    name: '',
-  });
+//
+import { TWithTransaction, withTransactions } from '@hocs/index';
+import { memo } from 'react';
 
+const Transaction = ({
+  searchTransactionValue,
+  controlInputTransaction,
+  onSearchTransaction,
+}: TWithTransaction) => {
   // Query transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
-    name: searchTransaction.name,
+    name: searchTransactionValue,
   });
-
-  // Form control for search
-  const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: {
-      search: searchTransaction.name,
-    },
-  });
-
-  // Update search params when end time debounce
-  const handleDebounceSearch = useDebounce(
-    () => setSearchTransaction('name', getValues().search),
-    [],
-  );
 
   return (
     <Grid
@@ -75,7 +57,10 @@ const Transaction = () => {
             isLoading={isLoadingTransactions}
             isError={isTransactionsError}
           >
-            <SearchBar control={control} onSearch={handleDebounceSearch} />
+            <SearchBar
+              control={controlInputTransaction}
+              onSearch={onSearchTransaction}
+            />
             <Box mt={5}>
               <TransactionTable transactions={transactions} />
             </Box>
@@ -95,4 +80,6 @@ const Transaction = () => {
   );
 };
 
-export default Transaction;
+const TransactionPage = memo(withTransactions(Transaction), areEqual);
+
+export default TransactionPage;

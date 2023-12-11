@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { memo, useState } from 'react';
+import areEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
@@ -14,17 +14,10 @@ import {
   Pagination,
   Fetching,
 } from '@components/index';
-import { TSearchValue } from '@components/common/SearchBar';
 import { TOption } from '@components/common/Select';
 
 // Hooks
-import {
-  useGetStatistic,
-  useTransactions,
-  useDebounce,
-  useSearch,
-  TSearchTransaction,
-} from '@hooks/index';
+import { useGetStatistic, useTransactions } from '@hooks/index';
 
 // Mocks
 import {
@@ -32,6 +25,9 @@ import {
   INITIAL_TOTAL_STATISTICS,
   INITIAL_EFFICIENCY,
 } from '@mocks/index';
+
+// HOCs
+import { TWithTransaction, withTransactions } from '@hocs/index';
 
 // Constants
 import { END_POINTS, PAGE_SIZE } from '@constants/index';
@@ -43,21 +39,11 @@ import {
   IEfficiency,
 } from '@interfaces/index';
 
-const Dashboard = () => {
-  const {
-    searchParam: searchTransaction,
-    setSearchParam: setSearchTransaction,
-  } = useSearch<TSearchTransaction>({
-    name: '',
-  });
-
-  // Form control for search
-  const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: {
-      search: searchTransaction.name,
-    },
-  });
-
+const Dashboard = ({
+  searchTransactionValue,
+  controlInputTransaction,
+  onSearchTransaction,
+}: TWithTransaction) => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
@@ -68,7 +54,7 @@ const Dashboard = () => {
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
-    name: searchTransaction.name,
+    name: searchTransactionValue,
   });
 
   const {
@@ -95,12 +81,6 @@ const Dashboard = () => {
     setEfficiencyType(data.value);
     setLoadingSelectEfficiencyType(true);
   };
-
-  // Update search params when end time debounce
-  const handleDebounceSearch = useDebounce(
-    () => setSearchTransaction('name', getValues().search),
-    [],
-  );
 
   return (
     <Grid
@@ -163,7 +143,10 @@ const Dashboard = () => {
             isLoading={isLoadingTransactions}
             isError={isTransactionsError}
           >
-            <SearchBar control={control} onSearch={handleDebounceSearch} />
+            <SearchBar
+              control={controlInputTransaction}
+              onSearch={onSearchTransaction}
+            />
             <Box mt={5}>
               <TransactionTable transactions={transactions} />
             </Box>
@@ -194,4 +177,6 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+const DashboardPage = memo(withTransactions(Dashboard), areEqual);
+
+export default DashboardPage;
