@@ -84,7 +84,7 @@ export const Input = defineStyleConfig({
         },
       },
     },
-    noFocus: {
+    'no-focus': {
       field: {
         fontSize: 'md',
         px: 3,

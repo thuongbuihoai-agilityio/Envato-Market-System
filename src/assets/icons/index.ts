@@ -23,3 +23,4 @@ export * from './Filter';
 export * from './Search';
 export * from './BookMart';
 export * from './ShareNodes';
+export * from './ChevronIcon';

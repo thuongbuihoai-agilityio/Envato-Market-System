@@ -1,30 +1,43 @@
-import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { useCallback, useMemo, useState } from 'react';
 
 // Components
+import { Box, Flex, Text } from '@chakra-ui/react';
 import {
   Button,
   InputField,
   Fetching,
   UserCard,
   UsersTable,
+  Select,
 } from '@app/components';
 
 // Hooks
-import { useEmployee } from '@app/hooks';
+import { useDebounce, useEmployee, useSearch } from '@app/hooks';
 
 // Mocks
 import { INITIAL_USER } from '@app/mocks';
-import { Search } from '@app/assets/icons';
 
-const UserPage = () => {
+// Icons
+import { Search, ChevronIcon } from '@app/assets/icons';
+
+// Constants
+import { FILTER_USER_OPTIONS } from '@app/constants';
+
+// Types
+import { TOption } from '@app/components/common/Select';
+
+const User = () => {
+  const [userId, setUserId] = useState<string | null>(null);
+  const [seniorityLevel, setSeniorityLevel] = useState<string>('');
+  const { setSearchParam, searchParam } = useSearch<{ jobTitle: string }>({
+    jobTitle: '',
+  });
   // Users
   const {
     data: users = [],
     isLoading: isEmployeesLoading,
     isError: isEmployeesError,
-  } = useEmployee();
-  const [userId, setUserId] = useState<string | null>(null);
+  } = useEmployee(searchParam.jobTitle);
 
   const handleClickUser = useCallback((id: string) => {
     setUserId(id);
@@ -35,9 +48,31 @@ const UserPage = () => {
     [userId, users],
   );
 
-  const handleChange = () => {
-    //TODO: Update later
-  };
+  const renderTitle = useCallback(
+    ({ label }: TOption) => (
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text>{label}</Text>
+        <ChevronIcon />
+      </Flex>
+    ),
+    [],
+  );
+
+  const handleSearchUsersByJobTitle = useDebounce((value: string) => {
+    setSearchParam('jobTitle', value);
+  }, []);
+
+  const handleFilterUsersBySeniorLevel = useCallback((data: TOption) => {
+    setSeniorityLevel(data.value);
+  }, []);
+
+  const usersFiltered = useMemo(
+    () =>
+      seniorityLevel
+        ? users.filter((item) => item.level === seniorityLevel)
+        : users,
+    [users, seniorityLevel],
+  );
 
   return (
     <Flex
@@ -57,31 +92,51 @@ const UserPage = () => {
         >
           <InputField
             flex={4}
-            variant="noFocus"
+            variant="no-focus"
             leftIcon={<Search color="#94A3B8" />}
-            placeholder="Search..."
+            placeholder="Job Title"
             sx={{
               svg: {
                 position: 'absolute',
               },
             }}
-            onChange={handleChange}
+            onChange={handleSearchUsersByJobTitle}
           />
-          <Button
-            size="md"
-            bg="background.component.quaternary"
-            fontWeight="medium"
-            sx={{
-              py: 7,
-              borderRadius: 'lg',
-              display: { base: 'none', md: 'inline-flex' },
-            }}
-          >
-            Search
-          </Button>
+          <Flex gap={8}>
+            <Box
+              w={220}
+              px={5}
+              borderRight="solid 1px"
+              borderLeft="solid 1px"
+              borderColor="border.primary"
+              display={{ base: 'none', xl: 'block' }}
+            >
+              <Select
+                options={FILTER_USER_OPTIONS}
+                variant="no-background"
+                renderTitle={renderTitle}
+                onSelect={handleFilterUsersBySeniorLevel}
+              />
+            </Box>
+            <Button
+              size="md"
+              bg="background.component.quaternary"
+              fontWeight="medium"
+              sx={{
+                py: 7,
+                borderRadius: 'lg',
+                display: { base: 'none', md: 'inline-flex' },
+                _hover: {
+                  bg: 'background.component.quaternary',
+                },
+              }}
+            >
+              Search
+            </Button>
+          </Flex>
         </Flex>
         <Fetching isLoading={isEmployeesLoading} isError={isEmployeesError}>
-          <UsersTable users={users} onClickUser={handleClickUser} />
+          <UsersTable users={usersFiltered} onClickUser={handleClickUser} />
         </Fetching>
       </Box>
       <Box flex={1} pt={20}>
@@ -91,5 +146,4 @@ const UserPage = () => {
   );
 };
 
-const User = memo(UserPage);
 export default User;
