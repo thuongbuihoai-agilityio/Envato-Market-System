@@ -44,6 +44,7 @@ const MyWallet = ({
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
+    sortBy,
   } = useTransactions({
     name: searchTransactionValue,
   });
@@ -130,7 +131,10 @@ const MyWallet = ({
                   onSearch={onSearchTransaction}
                 />
                 <Box mt={5}>
-                  <TransactionTable transactions={transactions} />
+                  <TransactionTable
+                    transactions={transactions}
+                    onSort={sortBy}
+                  />
                 </Box>
                 <Box mt={8}>
                   <Pagination pageSize={PAGE_SIZE} totalCount={100} />
