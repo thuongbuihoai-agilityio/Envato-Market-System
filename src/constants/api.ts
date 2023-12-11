@@ -18,4 +18,5 @@ export const END_POINTS = {
 export const SEARCH_PARAM = {
   EMAIL: 'email',
   PASSWORD: 'password',
+  TRANSACTION_NAME: 'transactionName',
 };

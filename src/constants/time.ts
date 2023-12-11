@@ -5,3 +5,5 @@ export const EXPIRED_DAY = {
   REMEMBER: 30,
   NOT_REMEMBER: 1,
 };
+
+export const DEBOUNCE_TIME = 600; // ms

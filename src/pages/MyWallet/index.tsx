@@ -1,19 +1,34 @@
+import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { Box, Flex, Grid, GridItem, Skeleton, Text } from '@chakra-ui/react';
 
 // Components
-import { Box, Flex, Grid, GridItem, Skeleton, Text } from '@chakra-ui/react';
-import { TOption } from '@components/common/Select';
 import {
   CartPayment,
   Efficiency,
   OverallBalance,
+  Pagination,
+  SearchBar,
+  TableSkeleton,
   TotalBalance,
   TransactionTable,
 } from '@components/index';
-import { END_POINTS } from '@constants/api';
+import { TSearchValue } from '@components/common/SearchBar';
+import { TOption } from '@components/common/Select';
+
+// Constants
+import { END_POINTS, PAGE_SIZE } from '@constants/index';
 
 // Hooks
-import { useGetStatistic, useTransaction } from '@hooks/index';
+import {
+  TSearchTransaction,
+  useDebounce,
+  useGetStatistic,
+  useSearch,
+  useTransactions,
+} from '@hooks/index';
+
+// Types
 import { IEfficiency, IOverallBalance } from '@interfaces/index';
 
 // Mocks
@@ -24,7 +39,33 @@ const MyWallet = () => {
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
-  const { data: transactions = [] } = useTransaction();
+  // Search transactions
+  const {
+    searchParam: searchTransaction,
+    setSearchParam: setSearchTransaction,
+  } = useSearch<TSearchTransaction>({
+    name: '',
+  });
+
+  // Query transactions
+  const { data: transactions = [], isLoading: isLoadingTransaction } =
+    useTransactions({
+      name: searchTransaction.name,
+    });
+
+  // Form control for search
+  const { control, getValues } = useForm<TSearchValue>({
+    defaultValues: {
+      search: searchTransaction.name,
+    },
+  });
+
+  // Update search params when end time debounce
+  const handleDebounceSearch = useDebounce(
+    () => setSearchTransaction('name', getValues().search),
+    [],
+  );
+
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
     isLoading: isLoadingEfficiency,
@@ -94,7 +135,30 @@ const MyWallet = () => {
             </Box>
           </Flex>
           <Box>
-            <TransactionTable transactions={transactions} />
+            <Box
+              as="section"
+              bgColor="background.component.primary"
+              borderRadius={8}
+              px={6}
+              py={5}
+            >
+              {isLoadingTransaction ? (
+                <TableSkeleton />
+              ) : (
+                <>
+                  <SearchBar
+                    control={control}
+                    onSearch={handleDebounceSearch}
+                  />
+                  <Box mt={5}>
+                    <TransactionTable transactions={transactions} />
+                  </Box>
+                  <Box mt={8}>
+                    <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+                  </Box>
+                </>
+              )}
+            </Box>
           </Box>
         </Flex>
       </GridItem>
