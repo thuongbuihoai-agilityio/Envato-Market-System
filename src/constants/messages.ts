@@ -1,15 +1,13 @@
 export const ERROR_MESSAGES = {
   FIELD_REQUIRED: (fieldName: string) => `${fieldName} is required`,
-  FIELD_INVALID: (fieldName: string) =>
-    `Invalid format of ${fieldName}, please check.`,
-  EMAIL_INVALID: 'Email does not follow the correct format.',
-  PASSWORD_NOT_MATCH: 'Password does not match',
+  EMAIL_INVALID: 'Wrong email format',
+  PASSWORD_NOT_MATCH: 'Password don’t match',
   SOMETHING_ERROR: 'Something went wrong!!',
   AUTH_INCORRECT: 'Email or password incorrect',
-  ACCOUNT_ALREADY_EXISTS: 'Account already exists',
+  ACCOUNT_ALREADY_EXISTS: 'An account using this email address already exists',
   EMPTY_DATA: 'Data is the empty',
-  PASS_WORD_SHORT: 'Password must be at least 8 characters',
+  PASS_WORD_SHORT: 'Password must be more than 8 characters',
   PASS_WORD_WEAK:
-    'At least one uppercase letter, one lowercase letter, and one number',
+    'Password contains uppercase, lowercase and special characters',
   PHONE_NUMBER_INVALID: 'Invalid phone number',
 };
