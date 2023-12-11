@@ -63,19 +63,15 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       nextValue: string,
     ): number => {
       if (type === 'asc') {
-        if (prevValue > nextValue) {
-          return 1;
-        }
+        if (prevValue.trim() > nextValue.trim()) return 1;
 
-        return -1;
+        if (prevValue.trim() < nextValue.trim()) return -1;
       }
 
       if (type === 'desc') {
-        if (prevValue > nextValue) {
-          return -1;
-        }
+        if (prevValue.trim() > nextValue.trim()) return -1;
 
-        return 1;
+        if (prevValue.trim() < nextValue.trim()) return -1;
       }
 
       return 0;
