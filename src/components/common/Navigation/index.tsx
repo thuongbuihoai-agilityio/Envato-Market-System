@@ -36,8 +36,8 @@ const ACTIVE_LIGHT = {
       },
     },
     circle: {
-      '&.path-1': {
-        fill: COLOR.LIGHT.PRIMARY,
+      '&.path-2': {
+        fill: COLOR.LIGHT.SECONDARY,
       },
     },
     ellipse: {
@@ -83,13 +83,13 @@ const ACTIVE_DARK = {
       },
     },
     circle: {
-      '&.path-1': {
+      '&.path-2': {
         fill: COLOR.DARK.ALTERNATIVE,
       },
     },
     ellipse: {
       '&.path-1': {
-        fill: COLOR.DARK.ALTERNATIVE,
+        fill: COLOR.DARK.SECONDARY,
       },
     },
   },
