@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import TotalList from '.';
-import { SPENDING_STATISTICS_MOCK } from '@mocks/index';
+import { SPENDING_STATISTICS_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof TotalList> = {
   title: 'Custom Components/TotalList',

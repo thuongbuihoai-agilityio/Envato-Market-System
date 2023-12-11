@@ -5,13 +5,13 @@ import isEqual from 'react-fast-compare';
 import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
 
 // Icons
-import { BookMark, ShareNodes } from '@assets/icons';
+import { BookMark, ShareNodes } from '@app/assets/icons';
 
 // Images
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 // Types
-import { TEmployee } from '@interfaces/index';
+import { TEmployee } from '@app/interfaces';
 
 interface userCardProps {
   user: TEmployee;

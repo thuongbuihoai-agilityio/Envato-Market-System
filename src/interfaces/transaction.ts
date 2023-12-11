@@ -1,5 +1,5 @@
 // Constants
-import { PAYMENT_STATUS_ENUM, TRANSACTION_STATUS_ENUM } from '@constants/index';
+import { PAYMENT_STATUS_ENUM, TRANSACTION_STATUS_ENUM } from '@app/constants';
 
 // Types
 import { TCustomer } from '.';

@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import Message from '.';
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 const meta: Meta<typeof Message> = {
   title: 'Custom Components/Message',

@@ -8,16 +8,16 @@ import {
   HeadCell,
   ActionCell,
   StatusCell,
-} from '@components/index';
+} from '@app/components';
 
 // Constants
-import { STATUS_LABEL } from '@constants/index';
+import { STATUS_LABEL } from '@app/constants';
 
 // Types
-import { TTransaction } from '@interfaces/index';
+import { TTransaction } from '@app/interfaces';
 
 // Utils
-import { getTransactionHomePage } from '@utils/index';
+import { getTransactionHomePage } from '@app/utils';
 
 type TFilterUserProps = {
   histories?: TTransaction[];

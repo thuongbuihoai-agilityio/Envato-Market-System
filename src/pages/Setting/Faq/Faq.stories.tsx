@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import FaqPage from '@pages/Setting/Faq';
+import FaqPage from '@app/pages/Setting/Faq';
 
 const meta: Meta<typeof FaqPage> = {
   title: 'Custom Components/FaqPage',

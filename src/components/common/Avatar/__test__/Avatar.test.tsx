@@ -1,7 +1,7 @@
 import { cleanup, render } from '@testing-library/react';
 
 // Components
-import { Avatar } from '@components/index';
+import { Avatar } from '@app/components';
 
 describe('Avatar render', () => {
   afterEach(cleanup);

@@ -14,18 +14,18 @@ import {
 import { Select } from '..';
 
 // Icon
-import { Arrow } from '@assets/icons';
+import { Arrow } from '@app/assets/icons';
 
 // Constants
 import {
   OVERALL_BALANCE_COLORS,
   REVENUE_FLOW_OPTIONS,
   REVENUE_FLOW_STATUS,
-} from '@constants/index';
+} from '@app/constants';
 
 // Types
-import { IRevenueFlow } from '@interfaces/index';
-import { TOption } from '@components/common/Select';
+import { IRevenueFlow } from '@app/interfaces';
+import { TOption } from '@app/components/common/Select';
 
 interface OverallBalanceProps {
   total: number;

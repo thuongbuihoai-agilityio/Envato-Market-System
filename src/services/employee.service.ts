@@ -1,13 +1,13 @@
 import axios, { AxiosInstance } from 'axios';
 
 // Constants
-import { END_POINTS } from '@constants/index';
+import { END_POINTS } from '@app/constants';
 
 // Types
-import { TEmployee } from '@interfaces/index';
+import { TEmployee } from '@app/interfaces';
 
 export const employeeHttpRequest: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_USER,
+  baseURL: process.env.VITE_API_USER,
 });
 
 export const getEmployees = async (): Promise<TEmployee[]> =>

@@ -7,13 +7,13 @@ import {
   CustomerNameCell,
   HeadCell,
   ActionCell,
-} from '@components/index';
+} from '@app/components';
 
 // Types
-import { TTransaction } from '@interfaces/transaction';
+import { TTransaction } from '@app/interfaces/transaction';
 
 // Utils
-import { getTransactionHomePage } from '@utils/transaction';
+import { getTransactionHomePage } from '@app/utils/transaction';
 
 type TFilterUserProps = {
   transactions?: TTransaction[];

@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // components
-import HeadingComponent from '@layouts/AuthLayout/Heading';
+import HeadingComponent from '@app/layouts/AuthLayout/Heading';
 
 const meta: Meta<typeof HeadingComponent> = {
   title: 'Heading Form',

@@ -2,8 +2,8 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // component
-import { Benefit } from '@components/index';
-import { IMAGES } from '@constants/images';
+import { Benefit } from '@app/components';
+import { IMAGES } from '@app/constants/images';
 
 test('renders Benefit with content', () => {
   const { container } = render(

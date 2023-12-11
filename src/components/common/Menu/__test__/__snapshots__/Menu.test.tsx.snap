@@ -18,7 +18,7 @@ exports[`Menu test case should render correctly and expand by default 1`] = `
         class="css-0"
       >
         <a
-          class="chakra-link css-1st5xrp"
+          class="chakra-link css-kf8s5h"
           href="/"
         >
           <div
@@ -58,7 +58,7 @@ exports[`Menu test case should render correctly and expand by default 1`] = `
         class="css-0"
       >
         <a
-          class="chakra-link css-1st5xrp"
+          class="chakra-link css-1h1hto7"
           href="/mock"
         >
           <div
@@ -94,7 +94,7 @@ exports[`Menu test case should render correctly with the given minify option 1`]
         class="css-0"
       >
         <a
-          class="chakra-link css-1st5xrp"
+          class="chakra-link css-kf8s5h"
           href="/"
         >
           <svg
@@ -121,7 +121,7 @@ exports[`Menu test case should render correctly with the given minify option 1`]
         class="css-0"
       >
         <a
-          class="chakra-link css-1st5xrp"
+          class="chakra-link css-1h1hto7"
           href="/mock"
         />
       </li>

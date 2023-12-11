@@ -1,10 +1,12 @@
-import { DarkTheme } from '@assets/icons';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 // component
-import { IconButton } from '@components/index';
+import { IconButton } from '@app/components';
+
+// Assets
+import { DarkTheme } from '@app/assets/icons';
 
 describe('IconButton test cases', () => {
   const mockOnClick = jest.fn();

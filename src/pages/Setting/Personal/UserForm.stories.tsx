@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import UserForm from '@pages/Setting/Personal';
+import UserForm from '@app/pages/Setting/Personal';
 
 const meta: Meta<typeof UserForm> = {
   title: 'Custom Components/UserForm',

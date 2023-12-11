@@ -2,7 +2,7 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // type
-import { SidebarProps } from '@components/Sidebar';
+import { SidebarProps } from '@app/components/Sidebar';
 
 // components
 import {
@@ -15,7 +15,7 @@ import {
   List,
   VStack,
 } from '@chakra-ui/react';
-import { Menu } from '@components/index';
+import { Menu } from '@app/components';
 
 // constants
 import {
@@ -23,8 +23,8 @@ import {
   MENU_ITEM_LIST,
   OTHER_ITEM_LIST,
   SIDEBAR,
-} from '@constants/sidebar';
-import { IMAGES } from '@constants/images';
+} from '@app/constants/sidebar';
+import { IMAGES } from '@app/constants/images';
 
 const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => (
   <Drawer

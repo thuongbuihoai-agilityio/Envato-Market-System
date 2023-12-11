@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { Box, Image, Heading, Flex, Input, Button } from '@chakra-ui/react';
 
 // Constants
-import { IMAGES } from '@constants/index';
+import { IMAGES } from '@app/constants';
 
 // Components
-import Message from './Message';
+import Message from '@app/components/BoxChat/Message';
 
 const BoxChatComponent = (): JSX.Element => (
   <Box w="full" bg="background.body.quaternary" borderRadius="lg">

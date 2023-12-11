@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 // Layouts
-import { AuthLayout } from '@layouts/index';
-import { BrowserRouter } from 'react-router-dom';
+import { AuthLayout } from '@app/layouts';
 
 const setup = () =>
   render(

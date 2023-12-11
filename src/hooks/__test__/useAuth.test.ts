@@ -2,13 +2,13 @@ import { act, renderHook } from '@testing-library/react';
 import axios, { AxiosResponse } from 'axios';
 
 // Hooks
-import { useAuth, TUseAuth } from '@hooks/index';
+import { useAuth, TUseAuth } from '@app/hooks';
 
 // Services
-import { UsersHttpService } from '@services/index';
+import { UsersHttpService } from '@app/services';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants/messages';
+import { ERROR_MESSAGES } from '@app/constants/messages';
 
 const setup = () => renderHook<TUseAuth, () => void>(useAuth);
 const SIGN_IN_PARAM = {

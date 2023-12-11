@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 // Constants
-import { BASE_API, USERS_API, STATISTICAL_API } from '@constants/index';
+import { BASE_API, USERS_API, STATISTICAL_API } from '@app/constants';
 
 class HttpService {
   private readonly baseApi: string;

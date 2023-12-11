@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Components
-import HeadingComponent from '@layouts/AuthLayout/Heading';
+import HeadingComponent from '@app/layouts/AuthLayout/Heading';
 
 describe('Header', () => {
   it('should render correctly', () => {

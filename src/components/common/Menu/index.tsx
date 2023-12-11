@@ -2,10 +2,10 @@ import { Fragment, ReactElement, ReactNode } from 'react';
 import { Flex, Heading, List, ListItem, Text, VStack } from '@chakra-ui/react';
 
 // Components
-import { Navigation } from '@components/index';
+import { Navigation } from '@app/components';
 
 // Hooks
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@app/hooks/useAuth';
 
 export type TMenuItem = {
   id: number;

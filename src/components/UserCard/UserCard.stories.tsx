@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import UserCard from '.';
-import { USER_MOCK } from '@mocks/index';
+import { USER_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof UserCard> = {
   title: 'Custom Components/UserCard',

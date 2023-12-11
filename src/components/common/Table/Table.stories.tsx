@@ -5,10 +5,10 @@ import { Box, Flex, Img, Td, Text } from '@chakra-ui/react';
 import Table from '.';
 
 // Icons
-import { Dot } from '@assets/icons';
+import { Dot } from '@app/assets/icons';
 
 // Mocks
-import { USERS } from '@mocks/index';
+import { USERS } from '@app/mocks';
 
 const meta: Meta<typeof Table> = {
   title: 'Custom Components/Table',

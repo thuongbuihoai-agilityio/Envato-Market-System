@@ -2,10 +2,10 @@ import { Heading, Skeleton as SkeletonChakra } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants/index';
+import { ERROR_MESSAGES } from '@app/constants';
 
 // Themes
-import { skeletonSizes } from '@themes/components';
+import { skeletonSizes } from '@app/themes/components';
 
 type TFetchingProps = {
   isLoading?: boolean;

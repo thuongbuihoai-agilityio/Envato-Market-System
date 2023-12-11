@@ -3,7 +3,7 @@
 exports[`Navigation test case should render correctly with the default destination 1`] = `
 <div>
   <a
-    class="chakra-link css-1st5xrp"
+    class="chakra-link css-kf8s5h"
     href="/"
   >
     Mock navigation
@@ -14,7 +14,7 @@ exports[`Navigation test case should render correctly with the default destinati
 exports[`Navigation test case should render correctly with the given destination 1`] = `
 <div>
   <a
-    class="chakra-link css-1st5xrp"
+    class="chakra-link css-1h1hto7"
     href="/mock"
   >
     Mock navigation

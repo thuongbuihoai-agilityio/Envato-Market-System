@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { MiniSidebar } from '@components/index';
+import { MiniSidebar } from '@app/components';
 
 const meta: Meta<typeof MiniSidebar> = {
   title: 'Custom Components/MiniSidebar',

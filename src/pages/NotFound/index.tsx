@@ -2,7 +2,7 @@ import { Button, Flex, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 // constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 const NotFoundPage = (): JSX.Element => (
   <Flex maxWidth="672px" direction="column" justify="center" align="center">

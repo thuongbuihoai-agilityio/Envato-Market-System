@@ -1,9 +1,9 @@
 // Types
-import { TDataSource } from '@components/index';
-import { TEmployee } from '@interfaces/index';
+import { TDataSource } from '@app/components';
+import { TEmployee } from '@app/interfaces';
 
 // Mocks
-import { TRANSACTIONS } from '@mocks/index';
+import { TRANSACTIONS } from '@app/mocks';
 
 export type TShowEmployee = Omit<
   TEmployee,

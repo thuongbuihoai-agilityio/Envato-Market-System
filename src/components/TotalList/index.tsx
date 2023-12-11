@@ -5,7 +5,7 @@ import { Grid, GridItem } from '@chakra-ui/react';
 import { TotalCard, TotalListSkeleton } from '..';
 
 // Types
-import { ISpendingStatistics } from '@interfaces/index';
+import { ISpendingStatistics } from '@app/interfaces';
 
 interface TotalListComponentProps {
   spendingStatistics: ISpendingStatistics[];

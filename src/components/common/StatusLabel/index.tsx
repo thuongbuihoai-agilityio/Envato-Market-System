@@ -4,10 +4,10 @@ import { memo } from 'react';
 import { Tag } from '@chakra-ui/react';
 
 // Interfaces
-import { Status } from '@interfaces/index';
+import { Status } from '@app/interfaces';
 
 // Constants
-import { STATUS_LABEL } from '@constants/index';
+import { STATUS_LABEL } from '@app/constants';
 
 interface StatusLabelProps {
   value?: Status;

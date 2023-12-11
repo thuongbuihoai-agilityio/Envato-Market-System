@@ -4,7 +4,7 @@ import { Link, useColorMode } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
 
 // constants
-import { THEMES } from '@constants/themes';
+import { THEMES } from '@app/constants/themes';
 
 export type TNavigationProps = {
   children: ReactNode;

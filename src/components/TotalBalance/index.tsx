@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 
 // constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 const TotalBalanceComponent = (): JSX.Element => (
   <Box

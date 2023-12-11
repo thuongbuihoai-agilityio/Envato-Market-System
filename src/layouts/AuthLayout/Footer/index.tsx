@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
 
 // utils
-import { getCurrentYear } from '@utils/time';
+import { getCurrentYear } from '@app/utils/time';
 
 const Footer = () => {
   const currentYear = getCurrentYear();

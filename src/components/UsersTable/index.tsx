@@ -8,16 +8,16 @@ import {
   StatusCell,
   ActionCell,
   TDataSource,
-} from '@components/index';
+} from '@app/components';
 
 // Types
-import { TEmployee } from '@interfaces/user';
+import { TEmployee } from '@app/interfaces/user';
 
 // Utils
-import { getDataUser } from '@utils/index';
+import { getDataUser } from '@app/utils';
 
 // Constants
-import { STATUS_LABEL } from '@constants/status';
+import { STATUS_LABEL } from '@app/constants/status';
 
 type TUsersProps = {
   users: TEmployee[];

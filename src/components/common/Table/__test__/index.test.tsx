@@ -4,10 +4,10 @@ import { render } from '@testing-library/react';
 import Table from '..';
 
 // Mocks
-import { USERS } from '@mocks/index';
+import { USERS } from '@app/mocks';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants/index';
+import { ERROR_MESSAGES } from '@app/constants';
 
 const COLUMNS = [
   {

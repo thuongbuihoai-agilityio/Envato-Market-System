@@ -4,7 +4,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import FilterUser from '.';
 
 // Mocks
-import { TRANSACTIONS } from '@mocks/transaction';
+import { TRANSACTIONS } from '@app/mocks/transaction';
 
 const meta: Meta<typeof FilterUser> = {
   title: 'Custom Components/FilterUser',

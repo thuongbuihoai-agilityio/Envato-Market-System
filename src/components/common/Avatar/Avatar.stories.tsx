@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import { Avatar } from '@components/index';
+import { Avatar } from '@app/components';
 
 // Constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Custom Components/Avatar',

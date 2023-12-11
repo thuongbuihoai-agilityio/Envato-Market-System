@@ -1,11 +1,11 @@
 import { Global } from '@emotion/react';
 
-import urbanistRegular from '@assets/fonts/Urbanist-Regular.ttf';
-import urbanistMedium from '@assets/fonts/Urbanist-Medium.ttf';
-import urbanistSemiBold from '@assets/fonts/Urbanist-SemiBold.ttf';
-import urbanistBold from '@assets/fonts/Urbanist-Bold.ttf';
-import poppinsSemiBold from '@assets/fonts/Poppins-SemiBold.ttf';
-import poppinsBold from '@assets/fonts/Poppins-SemiBold.ttf';
+import urbanistRegular from '@app/assets/fonts/Urbanist-Regular.ttf';
+import urbanistMedium from '@app/assets/fonts/Urbanist-Medium.ttf';
+import urbanistSemiBold from '@app/assets/fonts/Urbanist-SemiBold.ttf';
+import urbanistBold from '@app/assets/fonts/Urbanist-Bold.ttf';
+import poppinsSemiBold from '@app/assets/fonts/Poppins-SemiBold.ttf';
+import poppinsBold from '@app/assets/fonts/Poppins-SemiBold.ttf';
 
 const Fonts = () => (
   <Global
@@ -25,7 +25,7 @@ const Fonts = () => (
         font-style: normal;
         src: url('${urbanistMedium}') format('woff2');
       }
-      
+
       @font-face {
         font-family: 'Urbanist';
         font-weight: 600;

@@ -9,13 +9,13 @@ import {
 } from '@chakra-ui/react';
 
 // Constants
-import { IMAGES, SIDEBAR } from '@constants/index';
+import { IMAGES, SIDEBAR } from '@app/constants';
 
 // Components
-import { Header, Lazy, Sidebar } from '@components/index';
+import { Header, Lazy, Sidebar } from '@app/components';
 
 // Helpers
-import { getTitleByPathName } from '@utils/helpers';
+import { getTitleByPathName } from '@app/utils/helpers';
 
 const MainLayout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

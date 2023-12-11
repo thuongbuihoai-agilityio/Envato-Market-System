@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import Efficiency from '.';
-import { EFFICIENCY_MOCK } from '@mocks/spending';
+import { EFFICIENCY_MOCK } from '@app/mocks/spending';
 
 const meta: Meta<typeof Efficiency> = {
   title: 'Custom Components/Efficiency',

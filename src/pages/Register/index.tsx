@@ -15,25 +15,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler } from 'react-hook-form';
 
 // Hooks
-import { useAuth, useForm } from '@hooks/index';
+import { useAuth, useForm } from '@app/hooks';
 
 // HOCs
-import { withLogged } from '@hocs/index';
+import { withLogged } from '@app/hocs';
 
 // Constants
-import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@constants/index';
+import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@app/constants';
 
 // Layouts
-import { AuthLayout } from '@layouts/index';
+import { AuthLayout } from '@app/layouts';
 
 // Components
-import { InputField } from '@components/index';
+import { InputField } from '@app/components';
 
 // Types
-import { TUser } from '@interfaces/user';
+import { TUser } from '@app/interfaces/user';
 
 // Utils
-import { validatePassword } from '@utils/helpers';
+import { validatePassword } from '@app/utils/helpers';
 
 type TRegisterForm = Omit<TUser, 'id' | 'createdAt'> & {
   confirmPassword: string;

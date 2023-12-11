@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // components
-import Footer from '@layouts/AuthLayout/Footer';
+import Footer from '@app/layouts/AuthLayout/Footer';
 
 const meta: Meta<typeof Footer> = {
   title: 'Footer Form',

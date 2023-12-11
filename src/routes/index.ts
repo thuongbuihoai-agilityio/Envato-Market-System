@@ -1,24 +1,24 @@
-import { ROUTES } from '@constants/routers';
+import { ROUTES } from '@app/constants/routers';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // Layouts
-import { MainLayout } from '@layouts/index';
+import { MainLayout } from '@app/layouts';
 
 // HOCs
-import { withLazy, withNeedLogin } from '@hocs/index';
+import { withLazy, withNeedLogin } from '@app/hocs';
 
 // Pages
-const Dashboard = lazy(() => import('@pages/Home'));
-const History = lazy(() => import('@pages/History'));
-const MyWallet = lazy(() => import('@pages/MyWallet'));
-const Login = lazy(() => import('@pages/Login'));
-const Register = lazy(() => import('@pages/Register'));
-const Setting = lazy(() => import('@pages/Setting'));
-const Transaction = lazy(() => import('@pages/Transaction'));
-const User = lazy(() => import('@pages/User'));
-const NotFound = lazy(() => import('@pages/NotFound'));
-const ComingSoon = lazy(() => import('@pages/ComingSoon'));
+const Dashboard = lazy(() => import('@app/pages/Home'));
+const History = lazy(() => import('@app/pages/History'));
+const MyWallet = lazy(() => import('@app/pages/MyWallet'));
+const Login = lazy(() => import('@app/pages/Login'));
+const Register = lazy(() => import('@app/pages/Register'));
+const Setting = lazy(() => import('@app/pages/Setting'));
+const Transaction = lazy(() => import('@app/pages/Transaction'));
+const User = lazy(() => import('@app/pages/User'));
+const NotFound = lazy(() => import('@app/pages/NotFound'));
+const ComingSoon = lazy(() => import('@app/pages/ComingSoon'));
 
 export const ROUTER = createBrowserRouter([
   {

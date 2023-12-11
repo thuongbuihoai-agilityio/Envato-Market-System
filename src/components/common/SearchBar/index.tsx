@@ -4,24 +4,26 @@ import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
 
 // Assets
-import { Search } from '@assets/icons';
+import { Search } from '@app/assets/icons';
 
 // Themes
-import { colors } from '@themes/bases/colors';
+import { colors } from '@app/themes/bases/colors';
 
 // Components
-import { InputField, Select, Selector } from '@components/index';
-import { TOption } from '../Select';
+import { InputField, Select, Selector } from '@app/components';
 
 //Mocks
-import { MONTHS } from '@mocks/select';
+import { MONTHS } from '@app/mocks/select';
+
+// Types
+import { TOption } from '@app/components/common/Select';
 
 export type TSearchValue = {
   search: string;
 };
 
 type TSearchProps = {
-  control: Control<TSearchValue>;
+  control?: Control<TSearchValue>;
   onSearch: () => void;
   onFilter?: (value: string) => void;
 };

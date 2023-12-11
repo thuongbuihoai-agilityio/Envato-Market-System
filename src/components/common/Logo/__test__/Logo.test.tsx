@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // component
-import Logo from '../index';
+import Logo from '..';
 
 test('renders Logo with content', () => {
   const { container } = render(

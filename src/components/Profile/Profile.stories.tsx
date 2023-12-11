@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import Profile from '@components/Profile';
+import Profile from '@app/components/Profile';
 
 const meta: Meta<typeof Profile> = {
   title: 'Custom Components/Profile',

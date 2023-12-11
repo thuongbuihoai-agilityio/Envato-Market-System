@@ -2,10 +2,10 @@ import { Center, useColorModeValue } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
-import { FilterIcon } from '@assets/icons';
+import { FilterIcon } from '@app/assets/icons';
 
 // Themes
-import { colors } from '@themes/bases/colors';
+import { colors } from '@app/themes/bases/colors';
 
 const SelectorComponent = (): JSX.Element => {
   const filterIconColor: string = useColorModeValue(

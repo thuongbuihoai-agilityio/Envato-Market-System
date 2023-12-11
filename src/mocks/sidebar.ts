@@ -3,7 +3,7 @@ import {
   HELP_ITEM_LIST,
   MENU_ITEM_LIST,
   OTHER_ITEM_LIST,
-} from '@constants/sidebar';
+} from '@app/constants/sidebar';
 
 export const EXPAND_SIDEBAR_MENU_LIST = [
   {

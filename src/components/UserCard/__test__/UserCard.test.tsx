@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import UserCard from '..';
 
 // Mock
-import { USER_MOCK } from '@mocks/index';
+import { USER_MOCK } from '@app/mocks';
 
 describe('UserCard component', () => {
   it('renders correctly', () => {

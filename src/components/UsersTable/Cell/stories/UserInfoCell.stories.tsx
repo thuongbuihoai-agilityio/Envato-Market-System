@@ -5,7 +5,7 @@ import { Table, Tr } from '@chakra-ui/react';
 import UserInfoCell from '../UserInfoCell';
 
 // Mocks
-import { USERS } from '@mocks/index';
+import { USERS } from '@app/mocks';
 
 const meta: Meta<typeof UserInfoCell> = {
   title: 'Custom Components/Users/Cell/UserInfoCell',

@@ -8,16 +8,16 @@ import {
 import { ReactNode, memo, useMemo } from 'react';
 
 // Constants
-import { IMAGES, THEMES, TITLES } from '@constants/index';
+import { IMAGES, THEMES, TITLES } from '@app/constants';
 
 // Components
-import { Benefit, Divider, IconButton, Logo } from '@components/index';
+import { Benefit, Divider, IconButton, Logo } from '@app/components';
 import AuthHeading from './Heading';
 import AuthFooter from './Footer';
-import { DarkTheme, LightTheme } from '@assets/icons';
+import { DarkTheme, LightTheme } from '@app/assets/icons';
 
 // Types
-import { TImage } from '@interfaces/index';
+import { TImage } from '@app/interfaces';
 
 type TAuthLayoutProps = {
   children?: ReactNode;

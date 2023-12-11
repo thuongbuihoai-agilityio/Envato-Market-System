@@ -1,4 +1,4 @@
-import { IRevenueFlow, ISpendingStatistics } from '@interfaces/index';
+import { IRevenueFlow, ISpendingStatistics } from '@app/interfaces';
 
 export const TOTAL_EARNINGS_MOCK = {
   title: 'Total earnings',

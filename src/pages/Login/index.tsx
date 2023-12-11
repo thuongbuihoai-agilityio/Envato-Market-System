@@ -13,22 +13,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler } from 'react-hook-form';
 
 // Hooks
-import { useForm, useAuth } from '@hooks/index';
+import { useForm, useAuth } from '@app/hooks';
 
 // HOCs
-import { withLogged } from '@hocs/index';
+import { withLogged } from '@app/hocs';
 
 // Constants
-import { ROUTES, AUTH_SCHEMA } from '@constants/index';
+import { ROUTES, AUTH_SCHEMA } from '@app/constants';
 
 // Layouts
-import { AuthLayout } from '@layouts/index';
+import { AuthLayout } from '@app/layouts';
 
 // Components
-import { InputField } from '@components/index';
+import { InputField } from '@app/components';
 
 // Utils
-import { validatePassword } from '@utils/helpers';
+import { validatePassword } from '@app/utils/helpers';
 
 type TLoginForm = {
   username: string;

@@ -9,16 +9,16 @@ import {
   SearchBar,
   Fetching,
   TransactionTable,
-} from '@components/index';
+} from '@app/components';
 
 // Constants
-import { PAGE_SIZE } from '@constants/pagination';
+import { PAGE_SIZE } from '@app/constants/pagination';
 
 // Hooks
-import { useTransactions } from '@hooks/index';
+import { useTransactions } from '@app/hooks';
 
 //
-import { TWithTransaction, withTransactions } from '@hocs/index';
+import { TWithTransaction, withTransactions } from '@app/hocs';
 import { memo } from 'react';
 
 const Transaction = ({

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // type
-import { SidebarProps } from '@components/Sidebar';
+import { SidebarProps } from '@app/components/Sidebar';
 
 // components
 import {
@@ -14,13 +14,13 @@ import {
   Image,
   VStack,
 } from '@chakra-ui/react';
-import { Logo, Menu } from '@components/index';
+import { Logo, Menu } from '@app/components';
 
 // constants
-import { SIDEBAR, IMAGES } from '@constants/index';
+import { SIDEBAR, IMAGES } from '@app/constants';
 
 // mocks
-import { EXPAND_SIDEBAR_MENU_LIST } from '@mocks/sidebar';
+import { EXPAND_SIDEBAR_MENU_LIST } from '@app/mocks/sidebar';
 
 const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
   <Drawer

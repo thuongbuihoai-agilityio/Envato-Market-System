@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 // Utils
-import { cleanUpSearchParam } from '@utils/index';
+import { cleanUpSearchParam } from '@app/utils';
 
 export const useSearch = <TParam = Partial<Record<string, string>>>(
   defaultParam: TParam,

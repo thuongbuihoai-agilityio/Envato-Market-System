@@ -3,16 +3,16 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 // Constants
-import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@constants/index';
+import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
 
 // Services
-import { UsersHttpService } from '@services/index';
+import { UsersHttpService } from '@app/services';
 
 // Types
-import { TUser } from '@interfaces/user';
+import { TUser } from '@app/interfaces/user';
 
 // Utils
-import { getCurrentTimeSeconds } from '@utils/index';
+import { getCurrentTimeSeconds } from '@app/utils';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>

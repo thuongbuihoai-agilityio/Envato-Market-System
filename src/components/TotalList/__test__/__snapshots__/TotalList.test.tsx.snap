@@ -57,7 +57,7 @@ exports[`TotalList component renders correctly 1`] = `
                 %
                  
                 <span
-                  class="chakra-text css-rrpdat"
+                  class="chakra-text css-cu8k27"
                 >
                   from last week
                 </span>
@@ -120,7 +120,7 @@ exports[`TotalList component renders correctly 1`] = `
                 %
                  
                 <span
-                  class="chakra-text css-rrpdat"
+                  class="chakra-text css-cu8k27"
                 >
                   from last week
                 </span>
@@ -183,7 +183,7 @@ exports[`TotalList component renders correctly 1`] = `
                 %
                  
                 <span
-                  class="chakra-text css-rrpdat"
+                  class="chakra-text css-cu8k27"
                 >
                   from last week
                 </span>
@@ -207,21 +207,21 @@ exports[`TotalList component renders with is loading is true 1`] = `
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
     <div
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
     <div
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
   </div>

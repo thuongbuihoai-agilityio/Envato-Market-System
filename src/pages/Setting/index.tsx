@@ -2,14 +2,14 @@ import { memo, useCallback, useState } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 // Constants
-import { OPTION_SETTING } from '@constants/setting';
+import { OPTION_SETTING } from '@app/constants/setting';
 
 // Assets
-import { AvatarSetting } from '@assets/icons/AvatarSetting';
-import { Faq } from '@assets/icons/Faq';
+import { AvatarSetting } from '@app/assets/icons/AvatarSetting';
+import { Faq } from '@app/assets/icons/Faq';
 
 // Components
-import ItemSideBarSetting from '@components/ItemSideBarSetting';
+import ItemSideBarSetting from '@app/components/ItemSideBarSetting';
 import UserForm from './Personal';
 import FaqPage from './Faq';
 

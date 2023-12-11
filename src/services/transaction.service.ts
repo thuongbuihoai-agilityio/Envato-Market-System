@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 
 // Constants
-import { END_POINTS } from '@constants/index';
+import { END_POINTS } from '@app/constants';
 
 // Types
-import { TTransaction } from '@interfaces/index';
+import { TTransaction } from '@app/interfaces';
 
 const transactionHttpService: AxiosInstance = axios.create({
   baseURL: process.env.VITE_API_TRANSACTION,

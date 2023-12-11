@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Constants
-import { IMAGES } from '@constants/index';
+import { IMAGES } from '@app/constants';
 
 // Components
-import { Benefit } from '@components/index';
+import { Benefit } from '@app/components';
 
 const meta: Meta<typeof Benefit> = {
   title: 'Custom Components/Benefit',

@@ -5,10 +5,10 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { withLogged, withNeedLogin } from '..';
 
 // Hooks
-import { useAuth } from '@hooks/index';
+import { useAuth } from '@app/hooks';
 
 // Constants
-import { ROUTES } from '@constants/index';
+import { ROUTES } from '@app/constants';
 
 const Home = () => <h2>Home page</h2>;
 const Login = () => <h2>Login page</h2>;

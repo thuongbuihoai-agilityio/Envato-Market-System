@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { ExpandSidebar } from '@components/index';
+import { ExpandSidebar } from '@app/components';
 
 const meta: Meta<typeof ExpandSidebar> = {
   title: 'Custom Components/ExpandSidebar',

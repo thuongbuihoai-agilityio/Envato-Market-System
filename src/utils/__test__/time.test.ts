@@ -1,4 +1,4 @@
-import { getCurrentYear } from '@utils/time';
+import { getCurrentYear } from '@app/utils/time';
 
 describe('getCurrentYear', () => {
   it('returns the current year', () => {

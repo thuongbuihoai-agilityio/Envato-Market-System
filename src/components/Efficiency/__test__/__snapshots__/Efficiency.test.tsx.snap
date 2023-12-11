@@ -72,7 +72,7 @@ exports[`Efficiency component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r2:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -86,7 +86,7 @@ exports[`Efficiency component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r3:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -100,7 +100,7 @@ exports[`Efficiency component renders correctly 1`] = `
               id="menu-list-:r1:-menuitem-:r4:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -271,7 +271,7 @@ exports[`Efficiency component renders correctly 1`] = `
 exports[`Efficiency component renders with is loading is true 1`] = `
 <div>
   <div
-    class="chakra-skeleton css-dzxllh"
+    class="chakra-skeleton css-1wu0swh"
   />
 </div>
 `;
@@ -348,7 +348,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
               id="menu-list-:r6:-menuitem-:r7:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -362,7 +362,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
               id="menu-list-:r6:-menuitem-:r8:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -376,7 +376,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
               id="menu-list-:r6:-menuitem-:r9:"
               role="menuitem"
               tabindex="-1"
-              type="submit"
+              type="button"
             >
               <p
                 class="chakra-text css-1198d6z"
@@ -540,7 +540,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rb:-menuitem-:rc:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"
@@ -554,7 +554,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rb:-menuitem-:rd:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"
@@ -568,7 +568,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rb:-menuitem-:re:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"
@@ -657,7 +657,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rh:-menuitem-:ri:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"
@@ -671,7 +671,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rh:-menuitem-:rj:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"
@@ -685,7 +685,7 @@ exports[`Efficiency component renders with isExchangeRate is true 1`] = `
                 id="menu-list-:rh:-menuitem-:rk:"
                 role="menuitem"
                 tabindex="-1"
-                type="submit"
+                type="button"
               >
                 <p
                   class="chakra-text css-1198d6z"

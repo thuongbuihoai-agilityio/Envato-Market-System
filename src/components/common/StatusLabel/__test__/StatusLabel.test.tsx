@@ -2,10 +2,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Interfaces
-import { Status } from '@interfaces/index';
+import { Status } from '@app/interfaces';
 
 // Components
-import StatusLabel from '../index';
+import StatusLabel from '..';
 
 describe('StatusLabel Component', () => {
   it('renders with the correct variant for FULL_TIME', () => {

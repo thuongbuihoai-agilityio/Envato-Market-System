@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 // components
 import { MemoryRouter } from 'react-router-dom';
-import { MiniSidebar } from '@components/index';
+import { MiniSidebar } from '@app/components';
 
 describe('MiniSidebar test case', () => {
   it('should render correctly', () => {

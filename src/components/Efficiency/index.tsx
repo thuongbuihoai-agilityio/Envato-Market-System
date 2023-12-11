@@ -13,15 +13,18 @@ import {
   CircularProgress,
 } from '@chakra-ui/react';
 import Chart from 'react-apexcharts';
-import { InputField, Select } from '..';
+import { InputField, Select } from '@app/components';
 
 // Icons
-import { Arrow, Sort } from '@assets/icons';
+import { Arrow, Sort } from '@app/assets/icons';
 
 // Constants
-import { STROKE_COLORS } from '@constants/charts';
-import { EFFICIENCY_OPTIONS, EXCHANGE_RATE_OPTIONS } from '@constants/options';
-import { TOption } from '@components/common/Select';
+import { STROKE_COLORS } from '@app/constants/charts';
+import {
+  EFFICIENCY_OPTIONS,
+  EXCHANGE_RATE_OPTIONS,
+} from '@app/constants/options';
+import { TOption } from '@app/components/common/Select';
 
 interface EfficiencyProps {
   arrival: number;

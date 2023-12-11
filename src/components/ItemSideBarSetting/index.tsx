@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Box, Flex, Text, Heading, useColorMode } from '@chakra-ui/react';
 
 // constants
-import { THEMES } from '@constants/themes';
+import { THEMES } from '@app/constants/themes';
 
 export interface ItemSideBarSettingProps {
   id: string;

@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants/index';
+import { ERROR_MESSAGES } from '@app/constants';
 
 export type TDataSource = {
   id: string | number;

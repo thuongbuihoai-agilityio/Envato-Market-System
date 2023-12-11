@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import FaqItem from '@components/FaqItem';
+import FaqItem from '@app/components/FaqItem';
 
 const meta: Meta<typeof FaqItem> = {
   title: 'Custom Components/FaqItem',

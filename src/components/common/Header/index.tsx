@@ -10,18 +10,25 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Dropdown, IconButton, InputField, Logo } from '@components/index';
+import { Dropdown, IconButton, InputField, Logo } from '@app/components';
 
 // Constants
-import { IMAGES } from '@constants/images';
-import { THEMES } from '@constants/themes';
+import { IMAGES } from '@app/constants/images';
+import { THEMES } from '@app/constants/themes';
 
 // Assets
-import { Bell, Email, Gift, Rotate, Search, LightTheme } from '@assets/icons';
-import { DarkTheme } from '@assets/icons/DarkTheme';
+import {
+  Bell,
+  Email,
+  Gift,
+  Rotate,
+  Search,
+  LightTheme,
+} from '@app/assets/icons';
+import { DarkTheme } from '@app/assets/icons/DarkTheme';
 
 // hooks
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@app/hooks/useAuth';
 
 interface HeaderProps {
   name?: string;

@@ -1,4 +1,4 @@
-import { Status } from '@interfaces/status';
+import { Status } from '@app/interfaces/status';
 
 export const STATUS_LABEL = {
   [Status.FULL_TIME]: 'primary',

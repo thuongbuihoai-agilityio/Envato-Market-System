@@ -2,13 +2,13 @@ import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 // Services
-import { getTransactions } from '@services/transaction.service';
+import { getTransactions } from '@app/services/transaction.service';
 
 // Constants
-import { END_POINTS } from '@constants/index';
+import { END_POINTS } from '@app/constants';
 
 // Types
-import { TTransaction } from '@interfaces/transaction';
+import { TTransaction } from '@app/interfaces/transaction';
 
 export type TSearchTransaction = {
   name: string;

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import { Select } from '@components/index';
+import { Select } from '@app/components';
 
 // Mocks
-import { SOCIAL_PLATFORM_OPTIONS } from '@mocks/select';
+import { SOCIAL_PLATFORM_OPTIONS } from '@app/mocks/select';
 
 const meta: Meta<typeof Select> = {
   title: 'Custom Components/Select',

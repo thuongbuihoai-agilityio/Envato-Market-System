@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
-import { Navigation } from '@components/index';
 import { MemoryRouter } from 'react-router-dom';
+
+// Components
+import { Navigation } from '@app/components';
 
 describe('Navigation test case', () => {
   it('should render correctly with the default destination', () => {

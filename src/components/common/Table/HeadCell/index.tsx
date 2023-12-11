@@ -2,10 +2,10 @@ import { Flex, IconButton, Th } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
-import { Sort } from '@assets/icons';
+import { Sort } from '@app/assets/icons';
 
 // Themes
-import { colors } from '@themes/bases/colors';
+import { colors } from '@app/themes/bases/colors';
 
 type THeadCellProps = {
   title?: string;

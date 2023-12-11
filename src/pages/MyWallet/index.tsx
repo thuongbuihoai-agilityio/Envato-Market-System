@@ -12,23 +12,23 @@ import {
   Fetching,
   TotalBalance,
   TransactionTable,
-} from '@components/index';
-import { TOption } from '@components/common/Select';
+} from '@app/components';
 
 // Constants
-import { END_POINTS, PAGE_SIZE } from '@constants/index';
+import { END_POINTS, PAGE_SIZE } from '@app/constants';
 
 // Hooks
-import { useGetStatistic, useTransactions } from '@hooks/index';
+import { useGetStatistic, useTransactions } from '@app/hooks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@hocs/index';
+import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Types
-import { IEfficiency, IOverallBalance } from '@interfaces/index';
+import { TOption } from '@app/components/common/Select';
+import { IEfficiency, IOverallBalance } from '@app/interfaces';
 
 // Mocks
-import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@mocks/index';
+import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@app/mocks';
 
 const MyWallet = ({
   controlInputTransaction,

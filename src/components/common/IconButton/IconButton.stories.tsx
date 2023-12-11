@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { theme } from '@chakra-ui/react';
 
 // Components
-import { IconButton } from '@components/index';
-import { LightTheme, DarkTheme, Email as EmailIcon } from '@assets/icons';
+import { IconButton } from '@app/components';
+import { LightTheme, DarkTheme, Email as EmailIcon } from '@app/assets/icons';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Custom Components/IconButton',

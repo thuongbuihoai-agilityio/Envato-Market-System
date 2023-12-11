@@ -1,9 +1,11 @@
 import { screen, render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 // components
-import { MemoryRouter } from 'react-router-dom';
-import { Menu } from '@components/index';
-import { DashboardIcon } from '@assets/icons';
+import { Menu } from '@app/components';
+
+// Assets
+import { DashboardIcon } from '@app/assets/icons';
 
 describe('Menu test case', () => {
   const MOCK_ITEM_LIST = [

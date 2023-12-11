@@ -2,20 +2,20 @@ import { memo, useCallback, useEffect, useState } from 'react';
 
 // Components
 import { Box, Flex, Text, theme } from '@chakra-ui/react';
-import { Button, Select } from '@components/index';
+import { Button, Select } from '@app/components';
 
 // Assets
-import { Arrow } from '@assets/icons';
+import { Arrow } from '@app/assets/icons';
 
 // Constants
-import { PAGE_SIZE, PAGINATION } from '@constants/pagination';
+import { PAGE_SIZE, PAGINATION } from '@app/constants/pagination';
 
 // Interfaces
 import { TOption } from '../Select';
-import { PaginationType } from '@interfaces/pagination';
+import { PaginationType } from '@app/interfaces/pagination';
 
 // Utils
-import { formatNumberButton, formatPagination } from '@utils/helpers';
+import { formatNumberButton, formatPagination } from '@app/utils/helpers';
 
 interface PaginationProps {
   totalCount?: number;

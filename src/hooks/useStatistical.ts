@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 // Services
-import { getStatistical } from '@services/index';
+import { getStatistical } from '@app/services';
 
 export const useGetStatistic = <T>(endPoint: string) =>
   useQuery<T>({

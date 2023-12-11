@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import Efficiency from '..';
 
 // Mocks
-import { EFFICIENCY_MOCK } from '@mocks/index';
+import { EFFICIENCY_MOCK } from '@app/mocks';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

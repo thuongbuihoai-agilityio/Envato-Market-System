@@ -1,5 +1,5 @@
 // Types
-import { TIcon } from '@interfaces/index';
+import { TIcon } from '@app/interfaces';
 
 export const Arrow = ({ color, width = 24, height = 24, rotate }: TIcon) => (
   <svg

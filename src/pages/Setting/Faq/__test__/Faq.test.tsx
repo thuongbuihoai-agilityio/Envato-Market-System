@@ -2,14 +2,14 @@
 import { render } from '@testing-library/react';
 
 // Components
-import * as FaqModule from '@components/index';
+import * as FaqModule from '@app/components';
 
 // Pages
-import FaqPage from '@pages/Setting/Faq';
+import FaqPage from '@app/pages/Setting/Faq';
 
 // Mock the FaqItem component
-jest.mock('@components/index', () => ({
-  ...jest.requireActual('@components/index'),
+jest.mock('@app/components/index', () => ({
+  ...jest.requireActual('@app/components/index'),
   FaqItem: jest.fn(({ question, answer }) => (
     <div>
       <div data-testid="question">{question}</div>

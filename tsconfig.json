@@ -19,27 +19,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@contexts/*": ["contexts/*"],
-      "@hocs/*": ["src/hocs/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@mocks/*": ["src/mocks/*"],
-      "@pages/*": ["src/pages/*"],
-      "@providers/*": ["src/providers/*"],
-      "@routes/*": ["src/routes/*"],
-      "@services/*": ["src/services/*"],
-      "@styles/*": ["src/styles/*"],
-      "@stores/*": ["src/stores/*"],
-      "@themes/*": ["src/themes/*"],
-      "@utils/*": ["src/utils/*"]
+      "@app/*": ["./*"],
     }
   },
-  "include": ["src"],
+  "include": ["src", "jest.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

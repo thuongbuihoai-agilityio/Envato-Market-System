@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { memo, ReactNode } from 'react';
 
 // Constants
-import { DEFAULT_STALE_TIME } from '@constants/index';
+import { DEFAULT_STALE_TIME } from '@app/constants';
 
 const queryClient = new QueryClient({
   defaultOptions: {

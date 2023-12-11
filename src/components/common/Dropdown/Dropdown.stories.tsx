@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import Dropdown from './index';
+import Dropdown from '.';
 
 // Constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Custom Components/Dropdown',

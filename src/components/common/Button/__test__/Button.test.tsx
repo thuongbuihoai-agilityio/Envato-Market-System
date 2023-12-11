@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import { PhoneIcon } from '@chakra-ui/icons';
 
 // component
-import { Button } from '@components/index';
-import { PhoneIcon } from '@chakra-ui/icons';
+import { Button } from '@app/components';
 
 describe('Button test cases', () => {
   const mockOnClick = jest.fn();

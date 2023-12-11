@@ -5,7 +5,7 @@ import { Box, Image, HStack, Text, Flex } from '@chakra-ui/react';
 import Chart from 'react-apexcharts';
 
 // Images
-import { IMAGES } from '@constants/index';
+import { IMAGES } from '@app/constants';
 
 interface TotalCardComponentProps {
   title: string;

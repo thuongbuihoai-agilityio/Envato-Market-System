@@ -14,11 +14,11 @@ import {
 import { Controller, useForm } from 'react-hook-form';
 
 // Constants
-import { AUTH_SCHEMA } from '@constants/form';
+import { AUTH_SCHEMA } from '@app/constants/form';
 
 // Components
-import { InputField } from '@components/index';
-import { UpdateProfile } from '@components/index';
+import { InputField } from '@app/components';
+import { UpdateProfile } from '@app/components';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // components
-import { ExpandSidebar, MiniSidebar } from '@components/index';
+import { ExpandSidebar, MiniSidebar } from '@app/components';
 
 export type SidebarProps = {
   onClose: () => void;

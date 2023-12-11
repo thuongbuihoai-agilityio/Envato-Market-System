@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import RevenueFlow from '..';
 
 // Mock
-import { REVENUE_FLOW_MOCK } from '@mocks/index';
+import { REVENUE_FLOW_MOCK } from '@app/mocks';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

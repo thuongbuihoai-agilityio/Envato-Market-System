@@ -13,31 +13,31 @@ import {
   SearchBar,
   Pagination,
   Fetching,
-} from '@components/index';
-import { TOption } from '@components/common/Select';
+} from '@app/components';
 
 // Hooks
-import { useGetStatistic, useTransactions } from '@hooks/index';
+import { useGetStatistic, useTransactions } from '@app/hooks';
 
 // Mocks
 import {
   INITIAL_REVENUE_FLOW,
   INITIAL_TOTAL_STATISTICS,
   INITIAL_EFFICIENCY,
-} from '@mocks/index';
+} from '@app/mocks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@hocs/index';
+import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Constants
-import { END_POINTS, PAGE_SIZE } from '@constants/index';
+import { END_POINTS, PAGE_SIZE } from '@app/constants';
 
 // Types
 import {
   ISpendingStatistics,
   IRevenueFlow,
   IEfficiency,
-} from '@interfaces/index';
+} from '@app/interfaces';
+import { TOption } from '@app/components/common/Select';
 
 const Dashboard = ({
   searchTransactionValue,

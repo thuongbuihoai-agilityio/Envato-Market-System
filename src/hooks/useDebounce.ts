@@ -1,7 +1,7 @@
 import { MutableRefObject, useCallback, useRef, DependencyList } from 'react';
 
 // Constants
-import { DEBOUNCE_TIME } from '@constants/index';
+import { DEBOUNCE_TIME } from '@app/constants';
 
 export const useDebounce = <TParam = unknown>(
   callback: (...args: TParam[]) => void,

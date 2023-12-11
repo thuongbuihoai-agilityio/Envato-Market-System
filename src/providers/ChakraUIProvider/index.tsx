@@ -2,8 +2,8 @@ import { ReactNode, memo } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
 // Themes
-import { configThemes } from '@themes/index';
-import Fonts from '@themes/components/Fonts';
+import { configThemes } from '@app/themes';
+import Fonts from '@app/themes/components/Fonts';
 
 type TChakraProvider = {
   children: ReactNode;

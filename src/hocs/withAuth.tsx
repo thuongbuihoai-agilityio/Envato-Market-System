@@ -2,13 +2,13 @@ import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 
 // Constants
-import { EXPIRED_DAY, ROUTES } from '@constants/index';
+import { EXPIRED_DAY, ROUTES } from '@app/constants';
 
 // Hooks
-import { useAuth, TUserInfo, TUseAuth } from '@hooks/index';
+import { useAuth, TUserInfo, TUseAuth } from '@app/hooks';
 
 // Utils
-import { getExpireTime, getCurrentTimeSeconds } from '@utils/index';
+import { getExpireTime, getCurrentTimeSeconds } from '@app/utils';
 
 /**
  * Requires you to log in to continue

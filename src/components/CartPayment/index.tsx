@@ -12,10 +12,10 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import { ChevronIcon } from '@assets/images/ChevronIcon';
+import { ChevronIcon } from '@app/assets/images/ChevronIcon';
 
 // Constants
-import { IMAGES } from '@constants/index';
+import { IMAGES } from '@app/constants';
 
 const CartPaymentComponent = (): JSX.Element => (
   <Box

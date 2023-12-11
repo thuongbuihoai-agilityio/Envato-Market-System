@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import OverallBalance from '..';
 
 // Mock
-import { OVERALL_BALANCE_MOCK } from '@mocks/index';
+import { OVERALL_BALANCE_MOCK } from '@app/mocks';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

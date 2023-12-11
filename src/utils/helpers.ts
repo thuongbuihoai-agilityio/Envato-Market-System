@@ -1,7 +1,7 @@
-import { DOTS } from '@constants/common';
-import { ERROR_MESSAGES } from '@constants/messages';
-import { ROUTES } from '@constants/routers';
-import { FormatPaginationParams } from '@interfaces/pagination';
+import { DOTS } from '@app/constants/common';
+import { ERROR_MESSAGES } from '@app/constants/messages';
+import { ROUTES } from '@app/constants/routers';
+import { FormatPaginationParams } from '@app/interfaces/pagination';
 
 export const formatNumberButton = (numberOfPage: number) => {
   const numberOfButtons = [];

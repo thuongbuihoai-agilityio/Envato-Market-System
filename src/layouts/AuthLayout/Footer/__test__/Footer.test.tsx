@@ -2,9 +2,9 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import Footer from '@layouts/AuthLayout/Footer';
+import Footer from '@app/layouts/AuthLayout/Footer';
 
-jest.mock('@utils/time', () => ({
+jest.mock('@app/utils/time', () => ({
   getCurrentYear: jest.fn(() => 2023),
 }));
 

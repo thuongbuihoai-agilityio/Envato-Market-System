@@ -1,4 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
+import { Box, Flex } from '@chakra-ui/react';
 
 // Components
 import {
@@ -7,15 +8,14 @@ import {
   Fetching,
   UserCard,
   UsersTable,
-} from '@components/index';
-import { Box, Flex } from '@chakra-ui/react';
+} from '@app/components';
 
 // Hooks
-import { useEmployee } from '@hooks/index';
+import { useEmployee } from '@app/hooks';
 
 // Mocks
-import { INITIAL_USER } from '@mocks/index';
-import { Search } from '@assets/icons';
+import { INITIAL_USER } from '@app/mocks';
+import { Search } from '@app/assets/icons';
 
 const UserPage = () => {
   // Users

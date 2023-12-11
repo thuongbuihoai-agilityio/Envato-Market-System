@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
 // Constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 interface BenefitProps {
   imageURL: string;

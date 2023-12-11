@@ -2,10 +2,10 @@ import { FunctionComponent } from 'react';
 import { Control, useForm } from 'react-hook-form';
 
 // Hooks
-import { useDebounce, useSearch, TSearchTransaction } from '@hooks/index';
+import { useDebounce, useSearch, TSearchTransaction } from '@app/hooks';
 
 // Types
-import { TSearchValue } from '@components/common/SearchBar';
+import { TSearchValue } from '@app/components/common/SearchBar';
 
 export type TWithTransaction = {
   searchTransactionValue: string;

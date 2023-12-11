@@ -9,21 +9,21 @@ exports[`TotalListSkeleton component renders correctly 1`] = `
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
     <div
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
     <div
       class="css-1gvp5h0"
     >
       <div
-        class="chakra-skeleton css-se5xss"
+        class="chakra-skeleton css-1wu0swh"
       />
     </div>
   </div>

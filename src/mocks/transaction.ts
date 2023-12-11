@@ -1,7 +1,7 @@
 import {
   PAYMENT_STATUS_ENUM,
   TRANSACTION_STATUS_ENUM,
-} from '@constants/transaction';
+} from '@app/constants/transaction';
 
 export const TRANSACTIONS = [
   {

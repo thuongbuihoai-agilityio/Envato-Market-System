@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { Sidebar } from '@components/index';
+import { Sidebar } from '@app/components';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Custom Components/Sidebar',

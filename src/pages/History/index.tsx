@@ -10,16 +10,16 @@ import {
   Pagination,
   SearchBar,
   Fetching,
-} from '@components/index';
+} from '@app/components';
 
 // Hooks
-import { useTransactions } from '@hooks/index';
+import { useTransactions } from '@app/hooks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@hocs/index';
+import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Constants
-import { PAGE_SIZE, TOTAL_COUNT } from '@constants/index';
+import { PAGE_SIZE, TOTAL_COUNT } from '@app/constants';
 
 const History = ({
   searchTransactionValue,

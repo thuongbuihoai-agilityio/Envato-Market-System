@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { Menu } from '@components/index';
-import { MENU_ITEM_LIST } from '@constants/sidebar';
+import { Menu } from '@app/components';
+
+// Constants
+import { MENU_ITEM_LIST } from '@app/constants/sidebar';
 
 const meta: Meta<typeof Menu> = {
   title: 'Custom Components/Menu',

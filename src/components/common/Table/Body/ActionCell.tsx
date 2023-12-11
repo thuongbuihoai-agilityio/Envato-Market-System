@@ -2,7 +2,7 @@ import { IconButton, IconButtonProps, Td } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
-import { Dot } from '@assets/icons';
+import { Dot } from '@app/assets/icons';
 
 type TActionCellProps = Pick<IconButtonProps, 'onClick'>;
 

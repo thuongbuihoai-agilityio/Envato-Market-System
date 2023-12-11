@@ -2,10 +2,10 @@
 import {
   PAYMENT_STATUS_ENUM,
   TRANSACTION_STATUS_ENUM,
-} from '@constants/transaction';
+} from '@app/constants/transaction';
 
 // Interfaces
-import { TTransaction } from '@interfaces/transaction';
+import { TTransaction } from '@app/interfaces/transaction';
 
 export const HISTORY: TTransaction[] = [
   {

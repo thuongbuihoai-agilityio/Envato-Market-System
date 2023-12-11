@@ -1,5 +1,5 @@
 // Types
-import { TIcon } from '@interfaces/index';
+import { TIcon } from '@app/interfaces';
 
 export const Gift = ({ color }: TIcon) => (
   <svg

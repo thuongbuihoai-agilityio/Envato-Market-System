@@ -2,7 +2,7 @@ import { Button, Flex, IconButton, Td } from '@chakra-ui/react';
 import { MouseEventHandler, memo, useCallback } from 'react';
 
 // Icons
-import { Dot } from '@assets/icons';
+import { Dot } from '@app/assets/icons';
 import areEqual from 'react-fast-compare';
 
 type TActionsProps = {

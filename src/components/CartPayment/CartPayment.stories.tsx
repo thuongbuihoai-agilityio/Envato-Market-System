@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import CardPayment from '@components/CartPayment';
+import CardPayment from '@app/components/CartPayment';
 
 const meta: Meta<typeof CardPayment> = {
   title: 'Custom Components/CardPayment',

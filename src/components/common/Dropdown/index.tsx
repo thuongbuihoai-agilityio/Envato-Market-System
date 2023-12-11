@@ -15,14 +15,14 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import { Arrow } from '@assets/icons';
+import { Arrow } from '@app/assets/icons';
 
 // Constants
-import { MENU_LIST, MENU_LIST_ICON } from '@constants/menu';
+import { MENU_LIST, MENU_LIST_ICON } from '@app/constants/menu';
 
 // Components
-import { Avatar } from '@components/index';
-import { useAuth } from '@hooks/useAuth';
+import { Avatar } from '@app/components';
+import { useAuth } from '@app/hooks/useAuth';
 
 interface DropdownProps {
   src?: string;

@@ -2,10 +2,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Constants
-import { IMAGES } from '@constants/images';
+import { IMAGES } from '@app/constants/images';
 
 // Message
-import Message from '@components/BoxChat/Message';
+import Message from '@app/components/BoxChat/Message';
 
 describe('Message component', () => {
   it('renders correctly', () => {

@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
 // Components
-import LoginPage from '@pages/Login';
+import LoginPage from '@app/pages/Login';
 
 const setup = () =>
   render(

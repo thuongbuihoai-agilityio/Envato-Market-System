@@ -1,9 +1,9 @@
 // Types
-import { TDataSource } from '@components/index';
-import { TTransaction } from '@interfaces/transaction';
+import { TDataSource } from '@app/components';
+import { TTransaction } from '@app/interfaces/transaction';
 
 // Mocks
-import { TRANSACTIONS } from '@mocks/index';
+import { TRANSACTIONS } from '@app/mocks';
 import { formatDate } from '.';
 import { formatUppercaseFirstLetter } from './helpers';
 

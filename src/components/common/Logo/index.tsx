@@ -2,7 +2,7 @@ import { Text, useColorModeValue, theme } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 // Assets
-import { LogoIcon } from '@assets/images/index';
+import { LogoIcon } from '@app/assets/images';
 
 const Logo = () => {
   const colorFill = useColorModeValue(

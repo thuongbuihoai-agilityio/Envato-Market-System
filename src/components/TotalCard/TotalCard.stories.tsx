@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import TotalCard from '.';
-import { TOTAL_EARNINGS_MOCK } from '@mocks/index';
+import { TOTAL_EARNINGS_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof TotalCard> = {
   title: 'Custom Components/TotalCard',
