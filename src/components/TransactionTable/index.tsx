@@ -15,16 +15,27 @@ import { TTransaction } from '@app/interfaces/transaction';
 // Utils
 import { getTransactionHomePage } from '@app/utils/transaction';
 
+// Hooks
+import { TSortField, TSortHandler } from '@app/hooks';
+
 type TFilterUserProps = {
   transactions?: TTransaction[];
+  onSort?: TSortHandler;
 };
 
 const TransactionTableComponent = ({
   transactions = [],
+  onSort,
 }: TFilterUserProps): JSX.Element => {
   const renderHead = useCallback(
-    (title: string): JSX.Element => <HeadCell key={title} title={title} />,
-    [],
+    (title: string, key: string): JSX.Element => {
+      const handleClick = () => {
+        onSort && onSort(key as TSortField);
+      };
+
+      return <HeadCell key={title} title={title} onClick={handleClick} />;
+    },
+    [onSort],
   );
 
   const renderNameUser = useCallback(
