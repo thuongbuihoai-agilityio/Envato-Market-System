@@ -47,6 +47,7 @@ const LoginPage = (): JSX.Element => {
       errors: { root },
     },
     handleSubmit,
+    watch,
     setError,
     clearErrors,
   } = useForm<TLoginForm>({
@@ -63,6 +64,16 @@ const LoginPage = (): JSX.Element => {
 
   // Disable button when wait response from Server
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
+
+  const isFillAllFields: boolean = !Object.entries(watch()).every(
+    ([key, value]) => {
+      if (key === 'isRemember') return true;
+
+      return value;
+    },
+  );
+
+  const isDisabledSubmitBtn: boolean = isSubmit || isFillAllFields;
 
   const renderPasswordIcon = useMemo((): JSX.Element => {
     const Icon = isShowPassword ? ViewIcon : ViewOffIcon;
@@ -181,7 +192,7 @@ const LoginPage = (): JSX.Element => {
           type="submit"
           textTransform="capitalize"
           form="login-form"
-          isDisabled={isSubmit}
+          isDisabled={isDisabledSubmitBtn}
         >
           Sign In
         </Button>

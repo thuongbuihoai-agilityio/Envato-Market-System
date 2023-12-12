@@ -49,6 +49,7 @@ const RegisterPage = () => {
     formState: {
       errors: { root },
     },
+    watch,
     handleSubmit,
     setError,
     clearErrors,
@@ -70,6 +71,8 @@ const RegisterPage = () => {
 
   // Disable button when wait response from Server
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const isDisabledSubmitBtn: boolean =
+    isSubmit || !Object.values(watch()).every((value) => value);
 
   const renderPasswordIcon = useCallback(
     (isCorrect: boolean, callback: typeof onShowPassword): JSX.Element => {
@@ -289,7 +292,7 @@ const RegisterPage = () => {
           type="submit"
           textTransform="capitalize"
           form="register-form"
-          isDisabled={isSubmit}
+          isDisabled={isDisabledSubmitBtn}
         >
           Sign Up
         </Button>
