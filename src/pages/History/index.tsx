@@ -1,12 +1,12 @@
+import { Suspense, lazy, memo, useMemo } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
-import { Suspense, lazy, memo } from 'react';
 
 // Components
 import { Pagination, SearchBar, Fetching } from '@app/components';
 
 // Hooks
-import { useTransactions } from '@app/hooks';
+import { usePagination, useTransactions } from '@app/hooks';
 
 // HOCs
 import {
@@ -14,9 +14,6 @@ import {
   withErrorBoundary,
   withTransactions,
 } from '@app/hocs';
-
-// Constants
-import { PAGE_SIZE, TOTAL_COUNT } from '@app/constants';
 
 // Lazy loading components
 const HistoryTable = lazy(() => import('@app/components/HistoryTable'));
@@ -28,6 +25,7 @@ const History = ({
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
   // History transactions
   const {
     data: transactions = [],
@@ -35,8 +33,17 @@ const History = ({
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
+    limit: +searchParam.limit,
+    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
+
+  const transactionList = useMemo(() => {
+    const start = (+searchParam.page - 1) * +searchParam.limit;
+    const end = +searchParam.limit + start;
+
+    return transactions.slice(start, end);
+  }, [searchParam.page, transactions, searchParam.limit]);
 
   return (
     <Grid
@@ -68,12 +75,18 @@ const History = ({
             {/* Table users */}
             <Box mt={5}>
               <Suspense fallback={<Spinner />}>
-                <HistoryTable histories={transactions} onSort={sortBy} />
+                <HistoryTable histories={transactionList} onSort={sortBy} />
               </Suspense>
             </Box>
 
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={TOTAL_COUNT} />
+              <Pagination
+                pageSize={+searchParam.limit}
+                currentPage={+searchParam.page}
+                totalCount={transactions.length}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>

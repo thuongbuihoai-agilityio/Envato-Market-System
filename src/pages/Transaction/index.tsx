@@ -1,15 +1,12 @@
+import { memo, useMemo, Suspense, lazy } from 'react';
 import areEqual from 'react-fast-compare';
-import { Suspense, lazy, memo } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 
 // Components
 import { Pagination, SearchBar, Fetching } from '@app/components';
 
-// Constants
-import { PAGE_SIZE } from '@app/constants/pagination';
-
 // Hooks
-import { useTransactions } from '@app/hooks';
+import { usePagination, useTransactions } from '@app/hooks';
 
 // HOCs
 import {
@@ -28,6 +25,8 @@ const Transaction = ({
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
+
   // Query transactions
   const {
     data: transactions = [],
@@ -35,8 +34,17 @@ const Transaction = ({
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
+    limit: +searchParam.limit,
+    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
+
+  const transactionList = useMemo(() => {
+    const start = (+searchParam.page - 1) * +searchParam.limit;
+    const end = +searchParam.limit + start;
+
+    return transactions.slice(start, end);
+  }, [searchParam.page, transactions, searchParam.limit]);
 
   return (
     <Grid
@@ -66,11 +74,20 @@ const Transaction = ({
             />
             <Box mt={5}>
               <Suspense fallback={<Spinner />}>
-                <TransactionTable transactions={transactions} onSort={sortBy} />
+                <TransactionTable
+                  transactions={transactionList}
+                  onSort={sortBy}
+                />
               </Suspense>
             </Box>
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+              <Pagination
+                pageSize={+searchParam.limit}
+                currentPage={+searchParam.page}
+                totalCount={transactions.length}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>

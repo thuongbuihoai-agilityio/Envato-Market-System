@@ -64,7 +64,7 @@ export const colors: ThemeOverride['colors'] &
     section: {
       primary: {
         default: '#F6FAFF',
-        _dark: '#1D0024',
+        _dark: '#1D1E24',
       },
     },
 

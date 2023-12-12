@@ -1,4 +1,4 @@
-import { Suspense, lazy, memo, useCallback, useState } from 'react';
+import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
 import areEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Spinner, Stack } from '@chakra-ui/react';
 
@@ -6,7 +6,7 @@ import { Box, Grid, GridItem, Spinner, Stack } from '@chakra-ui/react';
 import { SearchBar, Pagination, Fetching } from '@app/components';
 
 // Hooks
-import { useGetStatistic, useTransactions } from '@app/hooks';
+import { useGetStatistic, useTransactions, usePagination } from '@app/hooks';
 
 // Mocks
 import {
@@ -23,7 +23,7 @@ import {
 } from '@app/hocs';
 
 // Constants
-import { END_POINTS, PAGE_SIZE } from '@app/constants';
+import { END_POINTS } from '@app/constants';
 
 // Types
 import {
@@ -50,6 +50,8 @@ const Dashboard = ({
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
+
   // Query transactions
   const {
     data: transactions = [],
@@ -59,6 +61,13 @@ const Dashboard = ({
   } = useTransactions({
     name: searchTransactionValue,
   });
+
+  const transactionList = useMemo(() => {
+    const start = (+searchParam.page - 1) * +searchParam.limit;
+    const end = +searchParam.limit + start;
+
+    return transactions.slice(start, end);
+  }, [searchParam.page, transactions, searchParam.limit]);
 
   const {
     data: totalListData = [],
@@ -158,11 +167,20 @@ const Dashboard = ({
             />
             <Box mt={5}>
               <Suspense fallback={<Spinner />}>
-                <TransactionTable transactions={transactions} onSort={sortBy} />
+                <TransactionTable
+                  transactions={transactionList}
+                  onSort={sortBy}
+                />
               </Suspense>
             </Box>
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+              <Pagination
+                pageSize={+searchParam.limit}
+                currentPage={+searchParam.page}
+                totalCount={transactions.length}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>
