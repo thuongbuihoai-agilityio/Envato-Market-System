@@ -16,7 +16,7 @@ import {
 } from '@app/components';
 
 // Hooks
-import { useGetStatistic, useTransactions } from '@app/hooks';
+import { useGetStatistic, useTransactions, usePagination} from '@app/hooks';
 
 // Mocks
 import {
@@ -29,7 +29,7 @@ import {
 import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Constants
-import { END_POINTS, PAGE_SIZE } from '@app/constants';
+import { END_POINTS } from '@app/constants';
 
 // Types
 import {
@@ -48,12 +48,17 @@ const Dashboard = ({
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
+  const {limitData, handleChangeLimit, handleChangePage} = usePagination();
+
   // Query transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
-  } = useTransactions({
+  } = useTransactions(
+    limitData.limit,
+    limitData.currentPage,
+    {
     name: searchTransactionValue,
   });
 
@@ -151,7 +156,13 @@ const Dashboard = ({
               <TransactionTable transactions={transactions} />
             </Box>
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+              <Pagination
+                pageSize={limitData.limit}
+                currentPage={limitData.currentPage}
+                totalCount={3}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>

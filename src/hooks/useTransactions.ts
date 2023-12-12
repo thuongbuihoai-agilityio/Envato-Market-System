@@ -13,12 +13,16 @@ import { TTransaction } from '@app/interfaces/transaction';
 export type TSearchTransaction = {
   name: string;
   month?: string;
+  limit?: number;
+  pageParam?: number;
 };
 
 export const useTransactions = (queryParam?: TSearchTransaction) => {
-  const { name: searchName, month: searchMonth }: TSearchTransaction =
+  const { name: searchName, month: searchMonth, limit, pageParam }: TSearchTransaction =
     Object.assign(
       {
+        limit: 1,
+        pageParam: 1,
         name: '',
         month: '',
       },
@@ -26,8 +30,8 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     );
 
   const { data = [], ...query } = useQuery({
-    queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-    queryFn: () => getTransactions(),
+    queryKey: [END_POINTS.TRANSACTIONS, limit, pageParam, searchName, searchMonth],
+    queryFn: () => getTransactions(limit, pageParam),
   });
 
   /**

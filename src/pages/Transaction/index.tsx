@@ -11,11 +11,8 @@ import {
   TransactionTable,
 } from '@app/components';
 
-// Constants
-import { PAGE_SIZE } from '@app/constants/pagination';
-
 // Hooks
-import { useTransactions } from '@app/hooks';
+import { usePagination, useTransactions } from '@app/hooks';
 
 //
 import { TWithTransaction, withTransactions } from '@app/hocs';
@@ -26,12 +23,14 @@ const Transaction = ({
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
+  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
+
   // Query transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
-  } = useTransactions({
+  } = useTransactions(limitData.limit, limitData.currentPage, {
     name: searchTransactionValue,
   });
 
@@ -65,7 +64,13 @@ const Transaction = ({
               <TransactionTable transactions={transactions} />
             </Box>
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+              <Pagination
+                pageSize={limitData.limit}
+                currentPage={limitData.currentPage}
+                totalCount={3}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>

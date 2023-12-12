@@ -5,3 +5,4 @@ export * from './useTransactions';
 export * from './useEmployee';
 export * from './useDebounce';
 export * from './useSearch';
+export * from './usePagination';

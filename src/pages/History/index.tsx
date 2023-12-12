@@ -19,19 +19,22 @@ import { useTransactions } from '@app/hooks';
 import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Constants
-import { PAGE_SIZE, TOTAL_COUNT } from '@app/constants';
+import { usePagination } from '@app/hooks/usePagination';
 
 const History = ({
   searchTransactionValue,
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
+  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
   // History transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
+    limit: limitData.limit,
+    pageParam: limitData.currentPage,
     name: searchTransactionValue,
   });
 
@@ -68,7 +71,13 @@ const History = ({
             </Box>
 
             <Box mt={8}>
-              <Pagination pageSize={PAGE_SIZE} totalCount={TOTAL_COUNT} />
+              <Pagination
+                pageSize={limitData.limit}
+                currentPage={limitData.currentPage}
+                totalCount={3}
+                onLimitChange={handleChangeLimit}
+                onPageChange={handleChangePage}
+              />
             </Box>
           </Fetching>
         </Box>

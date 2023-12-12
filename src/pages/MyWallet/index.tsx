@@ -15,10 +15,10 @@ import {
 } from '@app/components';
 
 // Constants
-import { END_POINTS, PAGE_SIZE } from '@app/constants';
+import { END_POINTS } from '@app/constants';
 
 // Hooks
-import { useGetStatistic, useTransactions } from '@app/hooks';
+import { useGetStatistic, usePagination, useTransactions } from '@app/hooks';
 
 // HOCs
 import { TWithTransaction, withTransactions } from '@app/hocs';
@@ -39,12 +39,13 @@ const MyWallet = ({
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
+  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
   // Query transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
-  } = useTransactions({
+  } = useTransactions(limitData.limit, limitData.currentPage, {
     name: searchTransactionValue,
   });
 
@@ -133,7 +134,13 @@ const MyWallet = ({
                   <TransactionTable transactions={transactions} />
                 </Box>
                 <Box mt={8}>
-                  <Pagination pageSize={PAGE_SIZE} totalCount={100} />
+                  <Pagination
+                    pageSize={limitData.limit}
+                    currentPage={limitData.currentPage}
+                    totalCount={3}
+                    onLimitChange={handleChangeLimit}
+                    onPageChange={handleChangePage}
+                  />
                 </Box>
               </Fetching>
             </Box>

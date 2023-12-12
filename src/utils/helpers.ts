@@ -20,33 +20,39 @@ export const formatPagination = ({
   const numberOfPage = Math.ceil(totalCount / pageSize);
   let tempNumberOfButtons = [...arrOfCurrButtons];
 
-  let rangeStart = Math.max(1, currentPage - 1);
-
-  let rangeEnd = Math.min(
-    currentPage + 1,
-    formatNumberButton(numberOfPage).length,
-  );
-
-  tempNumberOfButtons = [
-    ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
-      ? [
-          ...(formatNumberButton(numberOfPage).length - 3 >= 1
-            ? Array.from(
-                { length: 3 },
-                (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-              )
-            : []),
-          formatNumberButton(numberOfPage).length - 1,
-          formatNumberButton(numberOfPage).length,
-        ]
-      : [
-          rangeStart,
-          rangeStart + 1,
-          rangeStart + 2,
-          DOTS,
-          formatNumberButton(numberOfPage).length,
-        ]),
-  ].filter((button) => button !== null);
+  if (formatNumberButton(numberOfPage).length <= 4) {
+    const numberOfPages = Array.from(
+      { length: formatNumberButton(numberOfPage).length },
+      (_, index) => index + 1,
+    );
+    tempNumberOfButtons = numberOfPages;
+  } else {
+    const rangeStart = Math.max(1, currentPage - 1);
+    const rangeEnd = Math.min(
+      currentPage + 1,
+      formatNumberButton(numberOfPage).length,
+    );
+    tempNumberOfButtons = [
+      ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
+        ? [
+            ...(formatNumberButton(numberOfPage).length - 3 > 1
+              ? Array.from(
+                  { length: 3 },
+                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+                )
+              : []),
+            formatNumberButton(numberOfPage).length - 1,
+            formatNumberButton(numberOfPage).length,
+          ]
+        : [
+            rangeStart,
+            rangeStart + 1,
+            rangeStart + 2,
+            DOTS,
+            formatNumberButton(numberOfPage).length,
+          ]),
+    ].filter((button) => button !== null);
+  }
 
   return tempNumberOfButtons;
 };
@@ -87,6 +93,4 @@ export const validatePassword = (value: string) => {
   return true;
 };
 
-export const formatUppercaseFirstLetter = (value: string) => {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-};
+export const formatUppercaseFirstLetter = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);

@@ -20,22 +20,25 @@ import { formatNumberButton, formatPagination } from '@app/utils/helpers';
 interface PaginationProps {
   totalCount?: number;
   pageSize?: number;
+  currentPage?: number;
   onPageChange?: (offset: number) => void;
+  onLimitChange?: (limit: number) => void;
 }
 
 const PaginationComponent = ({
   totalCount = 0,
+  currentPage = 1,
   pageSize = PAGE_SIZE,
   onPageChange = () => {},
+  onLimitChange = () => {},
 }: PaginationProps) => {
   const colorFill = theme.colors.gray[400];
 
   const [data, setData] = useState<PaginationType>({
-    currentPage: 1,
     arrOfCurrButtons: [],
   });
 
-  const { currentPage, arrOfCurrButtons } = data;
+  const { arrOfCurrButtons } = data;
   const numberOfPage = Math.ceil(totalCount / pageSize);
 
   const isDisabledPrev = currentPage <= 1;
@@ -54,7 +57,7 @@ const PaginationComponent = ({
       ...data,
       arrOfCurrButtons: tempNumberOfButtons,
     });
-  }, [currentPage, pageSize, numberOfPage]);
+  }, [currentPage, pageSize]);
 
   const handlePrevPage = useCallback(() => {
     if (currentPage === 1) {
@@ -62,12 +65,8 @@ const PaginationComponent = ({
       return;
     }
 
-    setData({
-      ...data,
-      currentPage: currentPage - 1,
-    });
     onPageChange(currentPage - 1);
-  }, [currentPage]);
+  }, [currentPage, onPageChange]);
 
   const handleNextPage = useCallback(() => {
     if (currentPage === formatNumberButton(numberOfPage).length) {
@@ -75,20 +74,16 @@ const PaginationComponent = ({
       return;
     }
 
-    setData({
-      ...data,
-      currentPage: currentPage + 1,
-    });
     onPageChange(currentPage + 1);
-  }, [currentPage]);
+  }, [currentPage, numberOfPage, onPageChange]);
 
   const handlePageClick = useCallback((value: number) => {
     onPageChange(value);
-    setData({
-      ...data,
-      currentPage: value,
-    });
-  }, []);
+  }, [onPageChange]);
+
+  const handleLimitChange = useCallback((limit: TOption) => {
+    onLimitChange(+limit.value);
+  }, [onLimitChange]);
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
@@ -121,10 +116,11 @@ const PaginationComponent = ({
             variant="secondary"
             options={PAGINATION}
             renderTitle={renderTitle}
+            onSelect={handleLimitChange}
           />
         </Box>
       </Flex>
-      <Flex w={{ base: 304, xl: 358 }} justifyContent="space-between">
+      <Flex justifyContent="space-between">
         <Button
           data-testId="prev-button"
           variant="iconSecondary"

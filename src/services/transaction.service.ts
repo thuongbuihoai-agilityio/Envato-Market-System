@@ -11,10 +11,12 @@ const transactionHttpService: AxiosInstance = axios.create({
 });
 
 export const getTransactions = async (
+  limit?: number,
+  pageParam?: number,
   searchParam?: string,
 ): Promise<TTransaction[]> =>
   (
     await transactionHttpService.get(
-      `${END_POINTS.TRANSACTIONS}${searchParam || ''}`,
+      `${END_POINTS.TRANSACTIONS}?limit=${limit}&page=${pageParam}${searchParam || ''}`,
     )
   ).data;
