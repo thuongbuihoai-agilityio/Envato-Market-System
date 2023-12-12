@@ -7,25 +7,21 @@ import {
   Heading,
   Text,
   theme,
-  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Dropdown, IconButton, InputField, Logo } from '@app/components';
+import {
+  Dropdown,
+  IconButton,
+  InputField,
+  Logo,
+  SwitchTheme,
+} from '@app/components';
 
 // Constants
 import { IMAGES } from '@app/constants/images';
-import { THEMES } from '@app/constants/themes';
 
 // Assets
-import {
-  Bell,
-  Email,
-  Gift,
-  Rotate,
-  Search,
-  LightTheme,
-} from '@app/assets/icons';
-import { DarkTheme } from '@app/assets/icons/DarkTheme';
+import { Bell, Email, Gift, Rotate, Search } from '@app/assets/icons';
 
 // hooks
 import { useAuth } from '@app/hooks/useAuth';
@@ -44,8 +40,6 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     (state): string | undefined =>
       `${state.user?.firstName} ${state.user?.lastName}`,
   );
-
-  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -98,7 +92,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         />
       </Box>
       <Flex
-        minW={{ base: 'fit-content', xl: '407px', '3xl': '530px' }}
+        minW={{ base: 'fit-content', xl: 407, '3xl': 530 }}
         justifyContent={{ base: 'end', xl: 'space-between' }}
       >
         <Flex
@@ -106,17 +100,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           borderRight="1px"
           borderColor="border.primary"
           height="min-content"
-          pr="43px"
-          minW="310px"
+          pr={43}
+          minW={310}
           justifyContent="space-between"
         >
-          <IconButton onClick={toggleColorMode}>
-            {colorMode === THEMES.LIGHT ? (
-              <LightTheme color={colorFill} />
-            ) : (
-              <DarkTheme color={colorFill} />
-            )}
-          </IconButton>
+          <SwitchTheme />
 
           <IconButton isNotification>
             <Bell color={colorFill} />
