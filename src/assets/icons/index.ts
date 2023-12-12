@@ -27,3 +27,5 @@ export * from './LogoMini';
 export * from './MyWallet';
 export * from './Setting';
 export * from './ChevronIcon';
+export * from './Eye';
+export * from './EyeSlash';
