@@ -28,7 +28,7 @@ export const getTransactionHomePage = (
 
     return {
       id,
-      name,
+      name: formatUppercaseFirstLetter(name),
       email,
       location,
       date: formatDate(+date),
