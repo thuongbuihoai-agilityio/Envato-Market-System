@@ -1,8 +1,11 @@
-import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
 
 // Components
 import { Box, Flex, Text, Spinner } from '@chakra-ui/react';
 import { Button, InputField, Fetching, Select } from '@app/components';
+
+// HOCs
+import { withErrorBoundary } from '@app/hocs';
 
 // Hooks
 import { useDebounce, useEmployee, useSearch } from '@app/hooks';
@@ -148,4 +151,6 @@ const User = () => {
   );
 };
 
-export default User;
+const UsersPage = memo(withErrorBoundary(User));
+
+export default UsersPage;

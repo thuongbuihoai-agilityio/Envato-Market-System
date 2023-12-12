@@ -12,7 +12,11 @@ import { END_POINTS, PAGE_SIZE } from '@app/constants';
 import { useGetStatistic, useTransactions } from '@app/hooks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@app/hocs';
+import {
+  TWithTransaction,
+  withErrorBoundary,
+  withTransactions,
+} from '@app/hocs';
 
 // Types
 import { TOption } from '@app/components/common/Select';
@@ -154,6 +158,9 @@ const MyWallet = ({
   );
 };
 
-const MyWalletPage = memo(withTransactions(MyWallet), areEqual);
+const MyWalletPage = memo(
+  withErrorBoundary(withTransactions(MyWallet)),
+  areEqual,
+);
 
 export default MyWalletPage;

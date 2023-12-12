@@ -9,6 +9,8 @@ import './wdyr';
 
 // Styles
 import './index.css';
+
+// Providers
 import { ChakraProvider, QueryProvider } from './providers';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
