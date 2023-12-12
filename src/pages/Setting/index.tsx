@@ -7,6 +7,9 @@ import { OPTION_SETTING } from '@app/constants/setting';
 // Components
 import ItemSideBarSetting from '@app/components/ItemSideBarSetting';
 
+// HOCs
+import { withErrorBoundary } from '@app/hocs';
+
 // Lazy loading components
 const AvatarSetting = lazy(() =>
   import('@app/assets/icons/AvatarSetting').then((module) => ({
@@ -96,5 +99,5 @@ const SettingPage = () => {
   );
 };
 
-const Setting = memo(SettingPage);
+const Setting = memo(withErrorBoundary(SettingPage));
 export default Setting;

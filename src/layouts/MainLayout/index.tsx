@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
+import areEqual from 'react-fast-compare';
 import {
   Box,
   Flex,
@@ -20,7 +21,10 @@ import { getTitleByPathName } from '@app/utils/helpers';
 // Layouts
 import { Header, SideBar } from '@app/layouts';
 
-const MainLayout = () => {
+// HOCs
+import { withErrorBoundary } from '@app/hocs';
+
+const Layout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [isTablet] = useMediaQuery('(min-width: 768px) and (max-width: 992px)');
@@ -77,5 +81,7 @@ const MainLayout = () => {
     </Flex>
   );
 };
+
+const MainLayout = memo(withErrorBoundary(Layout), areEqual);
 
 export default MainLayout;

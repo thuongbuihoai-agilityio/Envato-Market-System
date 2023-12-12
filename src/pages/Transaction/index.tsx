@@ -12,7 +12,11 @@ import { PAGE_SIZE } from '@app/constants/pagination';
 import { useTransactions } from '@app/hooks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@app/hocs';
+import {
+  TWithTransaction,
+  withErrorBoundary,
+  withTransactions,
+} from '@app/hocs';
 
 // lazy loading components
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
@@ -83,6 +87,9 @@ const Transaction = ({
   );
 };
 
-const TransactionPage = memo(withTransactions(Transaction), areEqual);
+const TransactionPage = memo(
+  withErrorBoundary(withTransactions(Transaction)),
+  areEqual,
+);
 
 export default TransactionPage;

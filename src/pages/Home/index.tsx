@@ -16,7 +16,11 @@ import {
 } from '@app/mocks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@app/hocs';
+import {
+  TWithTransaction,
+  withErrorBoundary,
+  withTransactions,
+} from '@app/hocs';
 
 // Constants
 import { END_POINTS, PAGE_SIZE } from '@app/constants';
@@ -189,6 +193,9 @@ const Dashboard = ({
   );
 };
 
-const DashboardPage = memo(withTransactions(Dashboard), areEqual);
+const DashboardPage = memo(
+  withErrorBoundary(withTransactions(Dashboard)),
+  areEqual,
+);
 
 export default DashboardPage;

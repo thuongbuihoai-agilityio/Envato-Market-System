@@ -1,3 +1,4 @@
+import areEqual from 'react-fast-compare';
 import {
   Box,
   Flex,
@@ -9,6 +10,9 @@ import { ReactNode, memo, useMemo } from 'react';
 
 // Constants
 import { IMAGES, THEMES, TITLES } from '@app/constants';
+
+// HOCs
+import { withErrorBoundary } from '@app/hocs';
 
 // Components
 import { Benefit, Divider, IconButton, Logo } from '@app/components';
@@ -104,6 +108,6 @@ const AuthLayoutComponent = ({
     </Flex>
   );
 };
-const AuthLayout = memo(AuthLayoutComponent);
+const AuthLayout = memo(withErrorBoundary(AuthLayoutComponent), areEqual);
 
 export default AuthLayout;

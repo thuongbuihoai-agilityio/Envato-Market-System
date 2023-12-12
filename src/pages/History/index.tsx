@@ -9,7 +9,11 @@ import { Pagination, SearchBar, Fetching } from '@app/components';
 import { useTransactions } from '@app/hooks';
 
 // HOCs
-import { TWithTransaction, withTransactions } from '@app/hocs';
+import {
+  TWithTransaction,
+  withErrorBoundary,
+  withTransactions,
+} from '@app/hocs';
 
 // Constants
 import { PAGE_SIZE, TOTAL_COUNT } from '@app/constants';
@@ -86,6 +90,9 @@ const History = ({
   );
 };
 
-const HistoryPage = memo(withTransactions(History), areEqual);
+const HistoryPage = memo(
+  withErrorBoundary(withTransactions(History)),
+  areEqual,
+);
 
 export default HistoryPage;
