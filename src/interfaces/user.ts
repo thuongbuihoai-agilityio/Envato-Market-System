@@ -1,6 +1,6 @@
 export type TUser = {
   id: string;
-  avatarURL: string;
+  avatarURL?: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -11,10 +11,10 @@ export type TUser = {
   city: string;
   address: string;
   postalCode: string;
-  facebookURL: string;
-  twitterURL: string;
-  linkedinURL: string;
-  youtubeURL: string;
+  facebookURL?: string;
+  twitterURL?: string;
+  linkedinURL?: string;
+  youtubeURL?: string;
 };
 
 export type TCustomer = {
