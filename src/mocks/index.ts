@@ -6,3 +6,4 @@ export * from './sidebar';
 export * from './transaction';
 export * from './user';
 export * from './faq.ts';
+export * from './history.ts';

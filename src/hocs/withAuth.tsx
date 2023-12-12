@@ -15,7 +15,7 @@ import { getExpireTime, getCurrentTimeSeconds } from '@app/utils';
  * @param Component Components need to be tested
  * @returns
  */
-export const withNeedLogin = <TProps extends object>(
+export const withCheckLogin = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
