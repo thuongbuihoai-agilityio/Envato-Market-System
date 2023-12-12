@@ -1,4 +1,4 @@
-import { Flex, IconButton, Th } from '@chakra-ui/react';
+import { Flex, IconButton, Text, Th } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
@@ -15,9 +15,6 @@ type THeadCellProps = {
 const HeadCellComponent = ({ title, onClick }: THeadCellProps): JSX.Element => (
   <Th
     key={title}
-    color="text.secondary"
-    textTransform="none"
-    fontSize="sm"
     py={5}
     px={0}
     sx={{
@@ -28,7 +25,16 @@ const HeadCellComponent = ({ title, onClick }: THeadCellProps): JSX.Element => (
     }}
   >
     <Flex alignItems="center" gap={2}>
-      {title}
+      <Text
+        color="text.secondary"
+        textTransform="none"
+        fontSize="sm"
+        whiteSpace="break-spaces"
+        maxW={200}
+        noOfLines={1}
+      >
+        {title}
+      </Text>
       <IconButton
         aria-label={`This is the icon for ${title}`}
         w={7}

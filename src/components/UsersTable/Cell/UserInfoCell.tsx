@@ -34,8 +34,15 @@ const UserInfoComponent = ({
         borderRadius="lg"
         bgColor="transparent"
       />
-      <Box>
-        <Text as="h4" fontSize="lg" fontWeight="bold">
+      <Box flex={1}>
+        <Text
+          as="h4"
+          fontSize="lg"
+          fontWeight="bold"
+          whiteSpace="break-spaces"
+          maxW={300}
+          noOfLines={1}
+        >
           {name}
         </Text>
         <Text
@@ -43,13 +50,19 @@ const UserInfoComponent = ({
           color="text.textInfo"
           fontWeight="semibold"
           lineHeight={8}
+          display="flex"
         >
-          {role}&sdot;
+          <Text as="span" maxW={230} whiteSpace="break-spaces" noOfLines={1}>
+            {role}&sdot;
+          </Text>
           <Text
             as="span"
             fontSize="sm"
             fontWeight="medium"
             color="secondary.350"
+            flex={1}
+            whiteSpace="break-spaces"
+            noOfLines={1}
           >
             {address}&sdot;{time}
           </Text>
