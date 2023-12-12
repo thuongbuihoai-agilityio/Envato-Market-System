@@ -13,7 +13,8 @@
     "prepare": "husky install",
     "pre-commit-lint": "pnpm lint-staged",
     "test-coverage": "pnpm jest --coverage",
-    "test": "pnpm jest"
+    "test": "pnpm jest",
+    "pre-push-lint": "rm -rf storybook-static/ vite build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // type
-import { SidebarProps } from '@app/components/Sidebar';
+import { SidebarProps } from '@app/layouts/Sidebar';
 
 // components
 import {
