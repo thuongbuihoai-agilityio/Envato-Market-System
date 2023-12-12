@@ -15,6 +15,7 @@ const CustomerNameCellComponent = ({
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
+    minW={280}
   >
     <Flex alignItems="center" gap="10px">
       <Img
@@ -24,7 +25,14 @@ const CustomerNameCellComponent = ({
         h={10}
         borderRadius="full"
       />
-      <Text fontSize="md" fontWeight="semibold">
+      <Text
+        fontSize="md"
+        fontWeight="semibold"
+        whiteSpace="break-spaces"
+        maxW={200}
+        noOfLines={1}
+        title={`${name}`}
+      >
         {name}
       </Text>
     </Flex>

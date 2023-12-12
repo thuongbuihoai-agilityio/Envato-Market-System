@@ -1,4 +1,4 @@
-import { Box, IconButton, IconButtonProps, Td } from '@chakra-ui/react';
+import { IconButton, IconButtonProps, Td } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
@@ -14,22 +14,21 @@ const ActionCellComponent = ({ onClick }: TActionCellProps): JSX.Element => (
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
-    w="50px"
+    minW={50}
+    w={50}
   >
-    <Box w={100}>
-      <IconButton
-        aria-label="This is the icon action"
-        w={7}
-        h={7}
-        bgColor="transparent"
-        _hover={{
-          bgColor: 'transparent',
-        }}
-        onClick={onClick}
-      >
-        <Dot />
-      </IconButton>
-    </Box>
+    <IconButton
+      aria-label="This is the icon action"
+      w={7}
+      h={7}
+      bgColor="transparent"
+      _hover={{
+        bgColor: 'transparent',
+      }}
+      onClick={onClick}
+    >
+      <Dot />
+    </IconButton>
   </Td>
 );
 

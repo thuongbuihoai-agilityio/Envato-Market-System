@@ -9,6 +9,7 @@ import {
   Tbody,
   Td,
   TableProps,
+  Text,
 } from '@chakra-ui/react';
 
 // Constants
@@ -47,16 +48,15 @@ const TableComponent = ({
               renderHead ? (
                 renderHead(`${title}`, `${key}`)
               ) : (
-                <Th
-                  key={key}
-                  color="text.secondary"
-                  textTransform="none"
-                  fontSize="sm"
-                  py={5}
-                  px={0}
-                  textAlign="left"
-                >
-                  {title}
+                <Th key={key} py={5} px={0} textAlign="left">
+                  <Text
+                    color="text.secondary"
+                    textTransform="none"
+                    fontSize="sm"
+                    title={title}
+                  >
+                    {title}
+                  </Text>
                 </Th>
               ),
             )}
@@ -96,16 +96,19 @@ const TableComponent = ({
                     column.renderBody ? (
                       column.renderBody(data)
                     ) : (
-                      <Td
-                        key={column.key}
-                        py={5}
-                        px={0}
-                        fontSize="md"
-                        color="text.primary"
-                        fontWeight="semibold"
-                        textAlign="left"
-                      >
-                        {data[column.key as keyof typeof data]}
+                      <Td key={column.key} py={5} px={0}>
+                        <Text
+                          fontSize="md"
+                          color="text.primary"
+                          fontWeight="semibold"
+                          textAlign="left"
+                          whiteSpace="break-spaces"
+                          maxW={200}
+                          noOfLines={1}
+                          title={`${data[column.key as keyof typeof data]}`}
+                        >
+                          {data[column.key as keyof typeof data]}
+                        </Text>
                       </Td>
                     ),
                   )}

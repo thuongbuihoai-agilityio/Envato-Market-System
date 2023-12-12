@@ -18,7 +18,16 @@ const StatusComponent = ({
     textAlign="left"
     minW={120}
   >
-    <Badge {...props}>{text}</Badge>
+    <Badge
+      {...props}
+      maxW={100}
+      whiteSpace="break-spaces"
+      noOfLines={1}
+      title={`${text}`}
+      textAlign="center"
+    >
+      {text}
+    </Badge>
   </Td>
 );
 

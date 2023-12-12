@@ -4,6 +4,15 @@ const BORDER_RADIUS = 'lg';
 const BG_NO_COLOR = 'transparent';
 
 export const Table = defineStyleConfig({
+  baseStyle: {
+    td: {
+      minW: 230,
+    },
+    th: {
+      minW: 230,
+    },
+  },
+
   variants: {
     secondary: {
       tr: {
