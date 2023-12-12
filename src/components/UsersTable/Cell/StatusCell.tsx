@@ -16,6 +16,7 @@ const StatusComponent = ({
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
+    minW={120}
   >
     <Badge {...props}>{text}</Badge>
   </Td>
