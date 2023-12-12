@@ -42,3 +42,18 @@ export const EXCHANGE_RATE_OPTIONS = [
     value: 'AUD',
   },
 ];
+
+export const FILTER_USER_OPTIONS = [
+  {
+    label: 'Seniority Level',
+    value: '',
+  },
+  {
+    label: 'Senior Level',
+    value: 'Senior Level',
+  },
+  {
+    label: 'Junior Level',
+    value: 'Junior Level',
+  },
+];

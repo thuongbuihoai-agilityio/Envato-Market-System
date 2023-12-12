@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import { ChevronIcon } from '@app/assets/images/ChevronIcon';
+import { ChevronIcon } from '@app/assets/icons';
 
 // Constants
 import { IMAGES } from '@app/constants';

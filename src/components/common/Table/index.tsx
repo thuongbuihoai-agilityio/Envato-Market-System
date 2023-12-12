@@ -23,7 +23,7 @@ type THeaderTable = {
   title?: string;
   key?: string;
   renderBody?: (_: TDataSource) => JSX.Element;
-  renderHead?: (_: string) => JSX.Element;
+  renderHead?: (title: string, key: string) => JSX.Element;
 };
 
 type TTableProps = TableProps & {
@@ -45,7 +45,7 @@ const TableComponent = ({
           {columns &&
             columns.map(({ key, title, renderHead }) =>
               renderHead ? (
-                renderHead(`${title}`)
+                renderHead(`${title}`, `${key}`)
               ) : (
                 <Th
                   key={key}
