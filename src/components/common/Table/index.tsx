@@ -53,6 +53,7 @@ const TableComponent = ({
                     color="text.secondary"
                     textTransform="none"
                     fontSize="sm"
+                    title={title}
                   >
                     {title}
                   </Text>
@@ -104,6 +105,7 @@ const TableComponent = ({
                           whiteSpace="break-spaces"
                           maxW={200}
                           noOfLines={1}
+                          title={`${data[column.key as keyof typeof data]}`}
                         >
                           {data[column.key as keyof typeof data]}
                         </Text>

@@ -32,6 +32,7 @@ const HeadCellComponent = ({ title, onClick }: THeadCellProps): JSX.Element => (
         whiteSpace="break-spaces"
         maxW={200}
         noOfLines={1}
+        title={title}
       >
         {title}
       </Text>

@@ -31,6 +31,7 @@ const CustomerNameCellComponent = ({
         whiteSpace="break-spaces"
         maxW={200}
         noOfLines={1}
+        title={`${name}`}
       >
         {name}
       </Text>

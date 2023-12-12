@@ -42,6 +42,7 @@ const UserInfoComponent = ({
           whiteSpace="break-spaces"
           maxW={300}
           noOfLines={1}
+          title={name}
         >
           {name}
         </Text>
@@ -52,7 +53,13 @@ const UserInfoComponent = ({
           lineHeight={8}
           display="flex"
         >
-          <Text as="span" maxW={230} whiteSpace="break-spaces" noOfLines={1}>
+          <Text
+            as="span"
+            maxW={230}
+            whiteSpace="break-spaces"
+            noOfLines={1}
+            title={role}
+          >
             {role}&sdot;
           </Text>
           <Text
@@ -63,6 +70,7 @@ const UserInfoComponent = ({
             flex={1}
             whiteSpace="break-spaces"
             noOfLines={1}
+            title={`${address} ${time}`}
           >
             {address}&sdot;{time}
           </Text>
