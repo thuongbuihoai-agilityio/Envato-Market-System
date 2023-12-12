@@ -34,6 +34,7 @@ export const withCheckLogin = <TProps extends object>(
         signOut: state.signOut,
       }),
     );
+
     const expiredTime: number = getExpireTime(
       date,
       isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,

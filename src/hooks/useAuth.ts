@@ -109,7 +109,11 @@ export const useAuth = create(
 
         return {};
       },
-      signOut: () => set({ user: null, isRemember: false, date: 0 }),
+
+      signOut: () => {
+        set({ user: null, isRemember: false, date: 0 });
+        useAuth.persist.clearStorage();
+      },
 
       updateUserInfo: async (updatedInfo) => {
         const currentUser = useAuth.getState().user;
@@ -142,6 +146,6 @@ export const useAuth = create(
         }
       },
     }),
-    { name: 'authentication' },
+    { name: 'authentication', skipHydration: true },
   ),
 );
