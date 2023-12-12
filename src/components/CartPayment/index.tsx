@@ -9,16 +9,24 @@ import {
   Input,
   Button,
   Center,
+  IconButton,
 } from '@chakra-ui/react';
 
 // Assets
-import { ChevronIcon } from '@app/assets/icons';
+import { ChevronIcon, Eye, EyeSlash } from '@app/assets/icons';
 
 // Constants
 import { IMAGES } from '@app/constants';
 
-const CartPaymentComponent = (): JSX.Element => {
+interface CardPaymentProps {
+  balance?: number;
+}
+
+const CartPaymentComponent = ({
+  balance = 24.098,
+}: CardPaymentProps): JSX.Element => {
   const [value, setValue] = useState<string>('');
+  const [hideBalance, setHideBalance] = useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Remove non-numeric characters and leading zeros
@@ -32,6 +40,10 @@ const CartPaymentComponent = (): JSX.Element => {
     }
 
     setValue(sanitizedValue);
+  };
+
+  const toggleHideBalance = () => {
+    setHideBalance((prev) => !prev);
   };
 
   return (
@@ -54,7 +66,35 @@ const CartPaymentComponent = (): JSX.Element => {
       </Heading>
 
       <Center>
-        <Image src={IMAGES.CARD_PAYMENT.url} alt="Payment Card" />
+        <Flex
+          flexDir="column"
+          bgImage={IMAGES.CARD_PAYMENT.url}
+          justifyContent="flex-end"
+          p={6}
+          w={340}
+          h={200}
+        >
+          <Flex alignItems="center" gap={3}>
+            <Text variant="textSm" color="secondary.300">
+              Balance
+            </Text>
+            <IconButton
+              aria-label="eye"
+              icon={hideBalance ? <EyeSlash /> : <Eye />}
+              w="fit-content"
+              bg="none"
+              onClick={toggleHideBalance}
+              sx={{
+                _hover: {
+                  bg: 'none',
+                },
+              }}
+            />
+          </Flex>
+          <Text color="common.white" variant="text3Xl" fontWeight="semibold">
+            {hideBalance ? '******' : `$${balance}`}
+          </Text>
+        </Flex>
       </Center>
 
       <Box mt={4}>
