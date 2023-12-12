@@ -126,12 +126,14 @@ const DropdownComponent = ({
               );
             })}
             <Divider my={3.5} color="gray.300" />
-            {MENU_LIST.map(({ id, value }) => (
+            {MENU_LIST.map(({ id, value, href }) => (
               <MenuItem
                 key={id}
                 p={3.5}
                 borderRadius="lg"
                 bg="transparent"
+                as={Link}
+                to={href}
                 _hover={{
                   bg: 'background.component.tertiary',
                   color: 'primary.500',
