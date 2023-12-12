@@ -23,6 +23,7 @@ const UserInfoComponent = ({
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
+    minW={470}
   >
     <Flex alignItems="center" gap="10px">
       <Img
