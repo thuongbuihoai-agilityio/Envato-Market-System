@@ -63,7 +63,7 @@ export const Button = defineStyleConfig({
         borderColor: 'primary.600',
       },
       _dark: {
-        borderColor: 'primary.700',
+        borderColor: 'secondary.950',
       },
     },
     iconSecondary: {
