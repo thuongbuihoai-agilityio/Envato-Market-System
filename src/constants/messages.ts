@@ -10,4 +10,5 @@ export const ERROR_MESSAGES = {
   PASS_WORD_WEAK:
     'Password contains uppercase, lowercase and special characters',
   PHONE_NUMBER_INVALID: 'Invalid phone number',
+  UPDATE_FAIL: 'Update failed',
 };
