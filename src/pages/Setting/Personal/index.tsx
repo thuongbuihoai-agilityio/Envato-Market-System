@@ -18,21 +18,20 @@ import { TUser } from '@app/interfaces';
 
 // Hooks
 import { useAuth } from '@app/hooks';
-import { useUser } from '@app/hooks/useUser';
 
 // Constants
 import { AUTH_SCHEMA } from '@app/constants/form';
 
 // Components
 import { InputField, UpdateProfile } from '@app/components';
+import { useUpdateUser } from '@app/hooks/useUser';
+import { AxiosResponse } from 'axios';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later
   const [isSubmit] = useState<boolean>(false);
   const { user, updateUserInfo } = useAuth();
-  const {
-    updateUserMutation: { mutate },
-  } = useUser();
+  const { mutate: updateUser } = useUpdateUser();
 
   const {
     control,
@@ -61,13 +60,13 @@ const UserFormComponent = () => {
   const handleSubmitForm = (updatedInfo: TUser) => {
     const data = { ...updatedInfo, id: user?.id || '' };
 
-    mutate(data, {
-      onSuccess: (updatedUser) => {
+    updateUser(data, {
+      onSuccess: (response: AxiosResponse<TUser>) => {
+        const updatedUser: Partial<TUser> = response.data;
         updateUserInfo(updatedUser);
       },
-
       onError: (error) => {
-        // TODO : handle notification later
+        // TODO: handle notification later
         console.log(error);
       },
     });
