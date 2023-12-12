@@ -1,16 +1,16 @@
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 // components
-import { MemoryRouter } from 'react-router-dom';
-import { Sidebar } from '@app/components';
+import { SideBar } from '@app/layouts';
 
 describe('Sidebar test case', () => {
   it('should render correctly', () => {
-    const mockFucntion = jest.fn();
+    const mockFunction = jest.fn();
 
     const { container } = render(
       <MemoryRouter>
-        <Sidebar isOpen={true} onClose={mockFucntion} onOpen={mockFucntion} />
+        <SideBar isOpen={true} onClose={mockFunction} onOpen={mockFunction} />
       </MemoryRouter>,
     );
 

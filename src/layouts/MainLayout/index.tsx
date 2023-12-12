@@ -12,10 +12,13 @@ import {
 import { IMAGES, SIDEBAR } from '@app/constants';
 
 // Components
-import { Header, Lazy, Sidebar } from '@app/components';
+import { Lazy } from '@app/components';
 
 // Helpers
 import { getTitleByPathName } from '@app/utils/helpers';
+
+// Layouts
+import { Header, SideBar } from '@app/layouts';
 
 const MainLayout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -51,7 +54,7 @@ const MainLayout = () => {
           transition: 'all .25s ease-in-out',
         }}
       >
-        <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+        <SideBar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
         <Header name={getTitleByPathName(`${pathname.slice(1)}`)} />
 
