@@ -1,17 +1,27 @@
-import { memo, useCallback, useState } from 'react';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Suspense, lazy, memo, useCallback, useState } from 'react';
+import { Grid, GridItem, Spinner } from '@chakra-ui/react';
 
 // Constants
 import { OPTION_SETTING } from '@app/constants/setting';
 
-// Assets
-import { AvatarSetting } from '@app/assets/icons/AvatarSetting';
-import { Faq } from '@app/assets/icons/Faq';
-
 // Components
 import ItemSideBarSetting from '@app/components/ItemSideBarSetting';
-import UserForm from './Personal';
-import FaqPage from './Faq';
+
+// Lazy loading components
+const AvatarSetting = lazy(() =>
+  import('@app/assets/icons/AvatarSetting').then((module) => ({
+    default: module.AvatarSetting,
+  })),
+);
+
+const Faq = lazy(() =>
+  import('@app/assets/icons/Faq').then((module) => ({
+    default: module.Faq,
+  })),
+);
+
+const UserForm = lazy(() => import('@app/pages/Setting/Personal'));
+const FaqPage = lazy(() => import('@app/pages/Setting/Faq'));
 
 const SettingPage = () => {
   const [activeItemId, setActiveItemId] = useState<string>('');
@@ -24,9 +34,17 @@ const SettingPage = () => {
   const renderPageContent = useCallback(() => {
     switch (activeItemId) {
       case OPTION_SETTING.USER_FORM:
-        return <UserForm />;
+        return (
+          <Suspense fallback={<Spinner />}>
+            <UserForm />
+          </Suspense>
+        );
       case OPTION_SETTING.FAQ_PAGE:
-        return <FaqPage />;
+        return (
+          <Suspense fallback={<Spinner />}>
+            <FaqPage />
+          </Suspense>
+        );
       default:
         return null;
     }
@@ -49,7 +67,9 @@ const SettingPage = () => {
           title="Personal Informations"
           content="Fill in your personal information"
         >
-          <AvatarSetting />
+          <Suspense fallback={<Spinner />}>
+            <AvatarSetting />
+          </Suspense>
         </ItemSideBarSetting>
 
         <ItemSideBarSetting
@@ -59,7 +79,9 @@ const SettingPage = () => {
           title="FAQ"
           content="Frequently asked questions"
         >
-          <Faq />
+          <Suspense fallback={<Spinner />}>
+            <Faq />
+          </Suspense>
         </ItemSideBarSetting>
       </GridItem>
 
