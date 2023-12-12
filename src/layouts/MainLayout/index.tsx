@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { memo, useEffect } from 'react';
-import areEqual from 'react-fast-compare';
+import { useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -32,6 +31,8 @@ const Layout = () => {
   const location = useLocation();
 
   const { pathname } = location;
+
+  console.log('MainLayout');
 
   // Open mini sidebar on tablet
   useEffect(() => {
@@ -82,6 +83,6 @@ const Layout = () => {
   );
 };
 
-const MainLayout = memo(withErrorBoundary(Layout), areEqual);
+const MainLayout = withErrorBoundary(Layout);
 
 export default MainLayout;
