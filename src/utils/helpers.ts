@@ -93,4 +93,5 @@ export const validatePassword = (value: string) => {
   return true;
 };
 
-export const formatUppercaseFirstLetter = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
+export const formatUppercaseFirstLetter = (value = '') =>
+  value.charAt(0).toUpperCase() + value.slice(1);
