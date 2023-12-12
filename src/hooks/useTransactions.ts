@@ -86,7 +86,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       if (type === 'desc') {
         if (prevValue.trim() > nextValue.trim()) return -1;
 
-        if (prevValue.trim() < nextValue.trim()) return -1;
+        if (prevValue.trim() < nextValue.trim()) return 1;
       }
 
       return 0;
@@ -131,7 +131,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
    */
   const transactions: TTransaction[] = useMemo((): TTransaction[] => {
     const isNameMatchWith = (target: string): boolean =>
-      target.trim().includes(searchName);
+      (target || '').trim().includes(searchName);
 
     return transactionsAfterSort.filter(
       ({ customer: { name, email, location } }: TTransaction) => {
