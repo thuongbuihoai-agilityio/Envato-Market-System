@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
-import { memo } from 'react';
 
 // Components
 import {
@@ -13,28 +13,25 @@ import {
 } from '@app/components';
 
 // Hooks
-import { useTransactions } from '@app/hooks';
+import { usePagination, useTransactions } from '@app/hooks';
 
 // HOCs
 import { TWithTransaction, withTransactions } from '@app/hocs';
-
-// Constants
-import { usePagination } from '@app/hooks/usePagination';
 
 const History = ({
   searchTransactionValue,
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
-  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
   // History transactions
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
   } = useTransactions({
-    limit: limitData.limit,
-    pageParam: limitData.currentPage,
+    limit: +searchParam.limit,
+    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
 
@@ -72,8 +69,8 @@ const History = ({
 
             <Box mt={8}>
               <Pagination
-                pageSize={limitData.limit}
-                currentPage={limitData.currentPage}
+                pageSize={+searchParam.limit}
+                currentPage={+searchParam.page}
                 totalCount={3}
                 onLimitChange={handleChangeLimit}
                 onPageChange={handleChangePage}

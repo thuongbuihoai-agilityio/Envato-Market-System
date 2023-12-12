@@ -1,15 +1,15 @@
 export const PAGINATION = [
   {
-    label: '10',
-    value: '10',
+    label: '1',
+    value: '1',
   },
   {
-    label: '20',
-    value: '20',
+    label: '2',
+    value: '2',
   },
   {
-    label: '50',
-    value: '50',
+    label: '5',
+    value: '5',
   },
 ];
 

@@ -39,7 +39,7 @@ const MyWallet = ({
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
-  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
   // Query transactions
   const {
     data: transactions = [],
@@ -47,6 +47,8 @@ const MyWallet = ({
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
+    limit: +searchParam.limit,
+    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
 
@@ -139,8 +141,8 @@ const MyWallet = ({
                 </Box>
                 <Box mt={8}>
                   <Pagination
-                    pageSize={limitData.limit}
-                    currentPage={limitData.currentPage}
+                    pageSize={+searchParam.limit}
+                    currentPage={+searchParam.page}
                     totalCount={3}
                     onLimitChange={handleChangeLimit}
                     onPageChange={handleChangePage}

@@ -77,24 +77,30 @@ const PaginationComponent = ({
     onPageChange(currentPage + 1);
   }, [currentPage, numberOfPage, onPageChange]);
 
-  const handlePageClick = useCallback((value: number) => {
-    onPageChange(value);
-  }, [onPageChange]);
+  const handlePageClick = useCallback(
+    (value: number) => {
+      onPageChange(value);
+    },
+    [onPageChange],
+  );
 
-  const handleLimitChange = useCallback((limit: TOption) => {
-    onLimitChange(+limit.value);
-  }, [onLimitChange]);
+  const handleLimitChange = useCallback(
+    (limit: TOption) => {
+      onLimitChange(+limit.value);
+    },
+    [onLimitChange],
+  );
 
   const renderTitle = useCallback(
-    ({ label }: TOption) => (
+    () => (
       <Flex w={20}>
-        <Text fontSize={{ lg: 'sm' }}>{label}</Text>
+        <Text fontSize={{ lg: 'sm' }}>{pageSize}</Text>
         <Box mt={-1} ml={2}>
           <Arrow color={colorFill} width={18} height={15} />
         </Box>
       </Flex>
     ),
-    [colorFill],
+    [colorFill, pageSize],
   );
 
   return (

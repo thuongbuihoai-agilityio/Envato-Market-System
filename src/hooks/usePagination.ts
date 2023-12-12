@@ -1,34 +1,29 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
+import { useSearch } from '.';
 
 export const usePagination = () => {
-  const [limitData, setLimitData] = useState({
-    limit: 1,
-    currentPage: 1,
+  const { searchParam, setSearchParam } = useSearch({
+    limit: '1',
+    page: '1',
   });
 
-  const handleChangePage = useCallback(
-    (value: number) => {
-      setLimitData({
-        ...limitData,
-        currentPage: value,
-      });
+  const handleChangeLimit = useCallback(
+    (limit: number) => {
+      searchParam.page = '1';
+      setSearchParam('limit', limit.toString());
     },
-    [limitData],
+    [searchParam, setSearchParam],
   );
 
-  const handleChangeLimit = useCallback(
-    (value: number) => {
-      setLimitData({
-        ...limitData,
-        limit: value,
-        currentPage: 1,
-      });
+  const handleChangePage = useCallback(
+    (page: number) => {
+      setSearchParam('page', page.toString());
     },
-    [limitData],
+    [setSearchParam],
   );
 
   return {
-    limitData,
+    searchParam,
     handleChangeLimit,
     handleChangePage,
   };

@@ -23,7 +23,7 @@ const Transaction = ({
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
-  const { limitData, handleChangeLimit, handleChangePage } = usePagination();
+  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
 
   // Query transactions
   const {
@@ -32,6 +32,8 @@ const Transaction = ({
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
+    limit: +searchParam.limit,
+    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
 
@@ -66,8 +68,8 @@ const Transaction = ({
             </Box>
             <Box mt={8}>
               <Pagination
-                pageSize={limitData.limit}
-                currentPage={limitData.currentPage}
+                pageSize={+searchParam.limit}
+                currentPage={+searchParam.page}
                 totalCount={3}
                 onLimitChange={handleChangeLimit}
                 onPageChange={handleChangePage}
