@@ -13,8 +13,6 @@ import { TTransaction } from '@app/interfaces/transaction';
 export type TSearchTransaction = {
   name: string;
   month?: string;
-  limit?: number;
-  pageParam?: number;
 };
 
 type TSortType = 'desc' | 'asc';
@@ -26,20 +24,14 @@ type TSort = {
 export type TSortHandler = (field: TSortField) => void;
 
 export const useTransactions = (queryParam?: TSearchTransaction) => {
-  const {
-    name: searchName,
-    month: searchMonth,
-    limit,
-    pageParam,
-  }: TSearchTransaction = Object.assign(
-    {
-      limit: 10,
-      pageParam: 1,
-      name: '',
-      month: '',
-    },
-    queryParam,
-  );
+  const { name: searchName, month: searchMonth }: TSearchTransaction =
+    Object.assign(
+      {
+        name: '',
+        month: '',
+      },
+      queryParam,
+    );
 
   const sortType: Record<TSortType, TSortType> = useMemo(
     () => ({
@@ -55,13 +47,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
   });
 
   const { data = [], ...query } = useQuery({
-    queryKey: [
-      END_POINTS.TRANSACTIONS,
-      limit,
-      pageParam,
-      searchName,
-      searchMonth,
-    ],
+    queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
     queryFn: () => getTransactions(),
   });
 

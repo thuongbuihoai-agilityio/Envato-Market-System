@@ -50,7 +50,7 @@ const Dashboard = ({
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
 
-  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
+  const { data, handleChangeLimit, handleChangePage } = usePagination();
 
   // Query transactions
   const {
@@ -63,11 +63,11 @@ const Dashboard = ({
   });
 
   const transactionList = useMemo(() => {
-    const start = (+searchParam.page - 1) * +searchParam.limit;
-    const end = +searchParam.limit + start;
+    const start = (data.currentPage - 1) * data.limit;
+    const end = data.limit + start;
 
     return transactions.slice(start, end);
-  }, [searchParam.page, transactions, searchParam.limit]);
+  }, [data.currentPage, transactions, data.limit]);
 
   const {
     data: totalListData = [],
@@ -175,8 +175,8 @@ const Dashboard = ({
             </Box>
             <Box mt={8}>
               <Pagination
-                pageSize={+searchParam.limit}
-                currentPage={+searchParam.page}
+                pageSize={data.limit}
+                currentPage={data.currentPage}
                 totalCount={transactions.length}
                 onLimitChange={handleChangeLimit}
                 onPageChange={handleChangePage}

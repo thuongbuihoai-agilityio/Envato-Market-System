@@ -1,4 +1,4 @@
-import { Suspense, lazy, memo, useMemo } from 'react';
+import { Suspense, lazy, memo } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
 
@@ -25,7 +25,6 @@ const History = ({
   controlInputTransaction,
   onSearchTransaction,
 }: TWithTransaction) => {
-  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
   // History transactions
   const {
     data: transactions = [],
@@ -33,17 +32,10 @@ const History = ({
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
-    limit: +searchParam.limit,
-    pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
-
-  const transactionList = useMemo(() => {
-    const start = (+searchParam.page - 1) * +searchParam.limit;
-    const end = +searchParam.limit + start;
-
-    return transactions.slice(start, end);
-  }, [searchParam.page, transactions, searchParam.limit]);
+  const { data, filterData, handleChangeLimit, handleChangePage } =
+    usePagination(transactions);
 
   return (
     <Grid
@@ -75,14 +67,14 @@ const History = ({
             {/* Table users */}
             <Box mt={5}>
               <Suspense fallback={<Spinner />}>
-                <HistoryTable histories={transactionList} onSort={sortBy} />
+                <HistoryTable histories={filterData} onSort={sortBy} />
               </Suspense>
             </Box>
 
             <Box mt={8}>
               <Pagination
-                pageSize={+searchParam.limit}
-                currentPage={+searchParam.page}
+                pageSize={data.limit}
+                currentPage={data.currentPage}
                 totalCount={transactions.length}
                 onLimitChange={handleChangeLimit}
                 onPageChange={handleChangePage}
