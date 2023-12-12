@@ -24,7 +24,9 @@ const UserForm = lazy(() => import('@app/pages/Setting/Personal'));
 const FaqPage = lazy(() => import('@app/pages/Setting/Faq'));
 
 const SettingPage = () => {
-  const [activeItemId, setActiveItemId] = useState<string>('');
+  const [activeItemId, setActiveItemId] = useState<string>(
+    OPTION_SETTING.USER_FORM,
+  );
 
   const handleItemClick = useCallback(
     (id: string) => setActiveItemId(id),
