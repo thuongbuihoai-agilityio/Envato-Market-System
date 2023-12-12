@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import * as path from 'path';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import EnvironmentPlugin from "vite-plugin-environment"
+import EnvironmentPlugin from 'vite-plugin-environment';
 
 // plugins
 import react from '@vitejs/plugin-react';
@@ -10,7 +10,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    EnvironmentPlugin("all"),
+    EnvironmentPlugin('all'),
     react({
       jsxImportSource: '@welldone-software/why-did-you-render',
     }),
