@@ -32,8 +32,6 @@ const Layout = () => {
 
   const { pathname } = location;
 
-  console.log('MainLayout');
-
   // Open mini sidebar on tablet
   useEffect(() => {
     if (isTablet) {
