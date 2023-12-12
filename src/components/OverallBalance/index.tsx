@@ -146,23 +146,18 @@ const OverallBalanceComponent = ({
             enabled: false,
           },
           tooltip: {
-            custom: function ({ series, seriesIndex, dataPointIndex }) {
-              console.log('series', series);
-              console.log('seriesIndex', seriesIndex);
-              console.log('dataPointIndex', dataPointIndex);
-              return (
-                '<div style="padding: 10px; background-color: #000; color: #FFF">' +
-                '<div>' +
-                `${chartData[dataPointIndex].title}` +
-                '</div>' +
-                '<p>' +
-                `${REVENUE_FLOW_STATUS[0]}: ${series[0][dataPointIndex]}` +
-                '</p>' +
-                '<p>' +
-                `${REVENUE_FLOW_STATUS[1]}: ${series[1][dataPointIndex]}` +
-                '</p>' +
-                '</div>'
-              );
+            custom: function ({ series, dataPointIndex }) {
+              return `<div style="padding: 10px; background-color: #000; color: #FFF">
+                <div>
+                ${chartData[dataPointIndex].title} 
+                </div>
+                <p>
+                ${REVENUE_FLOW_STATUS[0]}: ${series[0][dataPointIndex]} 
+                </p>
+                <p>
+                ${REVENUE_FLOW_STATUS[1]}: ${series[1][dataPointIndex]}
+                </p>
+                </div>`;
             },
           },
         }}

@@ -60,8 +60,6 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
     theme.colors.white,
   );
 
-  console.log(data);
-
   const renderTitle = useCallback(
     ({ label }: TOption) => (
       <Flex alignItems="center">
@@ -181,16 +179,14 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
           },
           tooltip: {
             custom: function ({ series, seriesIndex, dataPointIndex }) {
-              return (
-                '<div style="padding: 10px; background-color: #000; color: #FFF" >' +
-                '<p>' +
-                `${data[dataPointIndex].title}` +
-                '</p>' +
-                '<span>' +
-                `${REVENUE_FLOW_STATUS[seriesIndex]}: ${series[seriesIndex][dataPointIndex]}` +
-                '</span>' +
-                '</div>'
-              );
+              return `<div style="padding: 10px; background-color: #000; color: #FFF" >
+                <p>
+                ${data[dataPointIndex].title}
+                </p>
+                <span>
+                ${REVENUE_FLOW_STATUS[seriesIndex]}: ${series[seriesIndex][dataPointIndex]}
+                </span>
+                </div>`;
             },
           },
         }}
