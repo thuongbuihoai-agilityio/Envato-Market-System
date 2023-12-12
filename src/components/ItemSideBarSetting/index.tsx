@@ -30,7 +30,7 @@ const ItemSideBarSetting = ({
   const isActive: boolean = id === activeItemId;
 
   return (
-    <Box w="full" px={4} py={6} onClick={handleToggle}>
+    <Box w="full" onClick={handleToggle}>
       <Flex
         cursor="pointer"
         onClick={handleToggle}
@@ -42,7 +42,8 @@ const ItemSideBarSetting = ({
               : 'secondary.600'
             : 'transparent'
         }
-        p={4}
+        px={4}
+        py={6}
         borderRadius="lg"
       >
         <Flex

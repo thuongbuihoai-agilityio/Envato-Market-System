@@ -54,14 +54,16 @@ const SettingPage = () => {
 
   return (
     <Grid
-      bg="background.body.quaternary"
+      bg="background.body.primary"
       borderRadius="lg"
       gridTemplateColumns={{
         base: 'repeat(1,minmax(0,1fr))',
         xl: 'repeat(12,minmax(0,1fr))',
       }}
+      px={{ base: 6, md: 12 }}
+      py={12}
     >
-      <GridItem colSpan={3}>
+      <GridItem px={4} py={6} colSpan={3} bg="background.body.quaternary">
         <ItemSideBarSetting
           id={OPTION_SETTING.USER_FORM}
           activeItemId={activeItemId}
@@ -87,7 +89,7 @@ const SettingPage = () => {
         </ItemSideBarSetting>
       </GridItem>
 
-      <GridItem colSpan={9} px={10} py={8}>
+      <GridItem colSpan={9} px={10} py={8} bg="background.body.quaternary">
         {renderPageContent()}
       </GridItem>
     </Grid>
