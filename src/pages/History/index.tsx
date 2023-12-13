@@ -1,4 +1,4 @@
-import { Suspense, lazy, memo } from 'react';
+import { Suspense, lazy, memo, useCallback } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
 
@@ -34,10 +34,11 @@ const History = ({
   } = useTransactions({
     name: searchTransactionValue,
   });
-  const { data, filterData, handleChangeLimit, handleChangePage } =
+
+  const { data, filterData, handleChangeLimit, handleChangePage, handleSearchWithPagination } =
     usePagination(transactions);
 
-  return (
+    return (
     <Grid
       bg="background.body.primary"
       py={12}
@@ -61,7 +62,7 @@ const History = ({
             {/* Filter bar */}
             <SearchBar
               control={controlInputTransaction}
-              onSearch={onSearchTransaction}
+              onSearch={() => handleSearchWithPagination(searchTransactionValue, onSearchTransaction)}
             />
 
             {/* Table users */}
