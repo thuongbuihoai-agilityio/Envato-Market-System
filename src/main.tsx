@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 
 // config why-did-you-render
-// import './wdyr';
+import './wdyr';
 
 // Styles
 import './index.css';
