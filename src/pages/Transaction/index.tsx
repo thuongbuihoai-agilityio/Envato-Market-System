@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import areEqual from 'react-fast-compare';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
@@ -16,7 +17,6 @@ import { usePagination, useTransactions } from '@app/hooks';
 
 //
 import { TWithTransaction, withTransactions } from '@app/hocs';
-import { memo } from 'react';
 
 const Transaction = ({
   searchTransactionValue,
@@ -36,6 +36,13 @@ const Transaction = ({
     pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
+
+  const transactionList = useMemo(() => {
+    const start = (+searchParam.page - 1) * +searchParam.limit;
+    const end = +searchParam.limit + start;
+
+    return transactions.slice(start, end);
+  }, [searchParam.page, transactions, searchParam.limit]);
 
   return (
     <Grid
@@ -64,13 +71,16 @@ const Transaction = ({
               onSearch={onSearchTransaction}
             />
             <Box mt={5}>
-              <TransactionTable transactions={transactions} onSort={sortBy} />
+              <TransactionTable
+                transactions={transactionList}
+                onSort={sortBy}
+              />
             </Box>
             <Box mt={8}>
               <Pagination
                 pageSize={+searchParam.limit}
                 currentPage={+searchParam.page}
-                totalCount={3}
+                totalCount={transactions.length}
                 onLimitChange={handleChangeLimit}
                 onPageChange={handleChangePage}
               />

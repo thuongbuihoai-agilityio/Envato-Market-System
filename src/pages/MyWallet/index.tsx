@@ -1,5 +1,5 @@
 import areEqual from 'react-fast-compare';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -51,6 +51,13 @@ const MyWallet = ({
     pageParam: +searchParam.page,
     name: searchTransactionValue,
   });
+
+  const transactionList = useMemo(() => {
+    const start = (+searchParam.page - 1) * +searchParam.limit;
+    const end = +searchParam.limit + start;
+
+    return transactions.slice(start, end);
+  }, [searchParam.page, transactions, searchParam.limit]);
 
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
@@ -135,7 +142,7 @@ const MyWallet = ({
                 />
                 <Box mt={5}>
                   <TransactionTable
-                    transactions={transactions}
+                    transactions={transactionList}
                     onSort={sortBy}
                   />
                 </Box>
@@ -143,7 +150,7 @@ const MyWallet = ({
                   <Pagination
                     pageSize={+searchParam.limit}
                     currentPage={+searchParam.page}
-                    totalCount={3}
+                    totalCount={transactions.length}
                     onLimitChange={handleChangeLimit}
                     onPageChange={handleChangePage}
                   />

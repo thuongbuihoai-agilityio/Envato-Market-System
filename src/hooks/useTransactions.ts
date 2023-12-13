@@ -61,7 +61,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       searchName,
       searchMonth,
     ],
-    queryFn: () => getTransactions(limit, pageParam),
+    queryFn: () => getTransactions(),
   });
 
   //  sort transactions
