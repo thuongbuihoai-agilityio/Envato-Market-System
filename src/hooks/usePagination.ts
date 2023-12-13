@@ -3,7 +3,7 @@ import { useSearch } from '.';
 
 export const usePagination = () => {
   const { searchParam, setSearchParam } = useSearch({
-    limit: '1',
+    limit: '10',
     page: '1',
   });
 

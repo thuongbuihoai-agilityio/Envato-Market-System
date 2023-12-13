@@ -16,6 +16,7 @@ export type TSearchTransaction = {
   limit?: number;
   pageParam?: number;
 };
+
 type TSortType = 'desc' | 'asc';
 export type TSortField = 'name' | 'email' | 'location' | 'spent';
 type TSort = {
@@ -32,7 +33,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     pageParam,
   }: TSearchTransaction = Object.assign(
     {
-      limit: 1,
+      limit: 10,
       pageParam: 1,
       name: '',
       month: '',
