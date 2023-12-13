@@ -1,16 +1,9 @@
-import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
-import { memo } from 'react';
+import { Suspense, lazy, memo } from 'react';
 
 // Components
-import {
-  BoxChat,
-  CartPayment,
-  HistoryTable,
-  Pagination,
-  SearchBar,
-  Fetching,
-} from '@app/components';
+import { Pagination, SearchBar, Fetching } from '@app/components';
 
 // Hooks
 import { useTransactions } from '@app/hooks';
@@ -20,6 +13,11 @@ import { TWithTransaction, withTransactions } from '@app/hocs';
 
 // Constants
 import { PAGE_SIZE, TOTAL_COUNT } from '@app/constants';
+
+// Lazy loading components
+const HistoryTable = lazy(() => import('@app/components/HistoryTable'));
+const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const BoxChat = lazy(() => import('@app/components/BoxChat'));
 
 const History = ({
   searchTransactionValue,
@@ -31,6 +29,7 @@ const History = ({
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
+    sortBy,
   } = useTransactions({
     name: searchTransactionValue,
   });
@@ -64,7 +63,9 @@ const History = ({
 
             {/* Table users */}
             <Box mt={5}>
-              <HistoryTable histories={transactions} />
+              <Suspense fallback={<Spinner />}>
+                <HistoryTable histories={transactions} onSort={sortBy} />
+              </Suspense>
             </Box>
 
             <Box mt={8}>
@@ -75,8 +76,10 @@ const History = ({
       </GridItem>
       <GridItem mt={{ base: 6, '2xl': 0 }}>
         <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
-          <CartPayment />
-          <BoxChat />
+          <Suspense fallback={<Spinner />}>
+            <CartPayment />
+            <BoxChat />
+          </Suspense>
         </Flex>
       </GridItem>
     </Grid>

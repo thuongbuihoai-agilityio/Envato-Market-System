@@ -1,4 +1,4 @@
-import { Fragment, memo } from 'react';
+import { Fragment, Suspense, lazy, memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box,
@@ -9,6 +9,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Spinner,
   Text,
   theme,
   useColorModeValue,
@@ -21,8 +22,10 @@ import { Arrow } from '@app/assets/icons';
 import { MENU_LIST, MENU_LIST_ICON } from '@app/constants/menu';
 
 // Components
-import { Avatar } from '@app/components';
 import { useAuth } from '@app/hooks/useAuth';
+
+// Lazy loading components
+const Avatar = lazy(() => import('@app/components/common/Avatar'));
 
 interface DropdownProps {
   src?: string;
@@ -58,7 +61,9 @@ const DropdownComponent = ({
             isActive={isOpen}
           >
             <Flex alignItems="center">
-              <Avatar src={src} />
+              <Suspense fallback={<Spinner />}>
+                <Avatar src={src} />
+              </Suspense>
               <Box display={{ base: 'none', '3xl': 'inline' }}>
                 <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
@@ -121,12 +126,14 @@ const DropdownComponent = ({
               );
             })}
             <Divider my={3.5} color="gray.300" />
-            {MENU_LIST.map(({ id, value }) => (
+            {MENU_LIST.map(({ id, value, href }) => (
               <MenuItem
                 key={id}
                 p={3.5}
                 borderRadius="lg"
                 bg="transparent"
+                as={Link}
+                to={href}
                 _hover={{
                   bg: 'background.component.tertiary',
                   color: 'primary.500',
