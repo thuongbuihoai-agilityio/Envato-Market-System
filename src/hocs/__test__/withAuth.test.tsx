@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 // HOCs
-import { withLogged, withNeedLogin } from '..';
+import { withLogged, withCheckLogin } from '..';
 
 // Hooks
 import { useAuth } from '@app/hooks';
@@ -15,7 +15,7 @@ const Login = () => <h2>Login page</h2>;
 const RouterTemp = () => (
   <MemoryRouter initialEntries={[ROUTES.ROOT]}>
     <Routes>
-      <Route path={ROUTES.ROOT} Component={withNeedLogin(Home)} />
+      <Route path={ROUTES.ROOT} Component={withCheckLogin(Home)} />
       <Route path={ROUTES.LOGIN} Component={withLogged(Login)} />
     </Routes>
   </MemoryRouter>

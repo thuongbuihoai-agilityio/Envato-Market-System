@@ -1,18 +1,9 @@
 import areEqual from 'react-fast-compare';
-import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
+import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 
 // Components
-import {
-  CartPayment,
-  Efficiency,
-  OverallBalance,
-  Pagination,
-  SearchBar,
-  Fetching,
-  TotalBalance,
-  TransactionTable,
-} from '@app/components';
+import { Pagination, SearchBar, Fetching } from '@app/components';
 
 // Constants
 import { END_POINTS } from '@app/constants';
@@ -29,6 +20,13 @@ import { IEfficiency, IOverallBalance } from '@app/interfaces';
 
 // Mocks
 import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@app/mocks';
+
+// Lazy loading components
+const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
+const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const Efficiency = lazy(() => import('@app/components/Efficiency'));
+const TotalBalance = lazy(() => import('@app/components/TotalBalance'));
+const OverallBalance = lazy(() => import('@app/components/OverallBalance'));
 
 const MyWallet = ({
   controlInputTransaction,
@@ -90,8 +88,10 @@ const MyWallet = ({
     >
       <GridItem colSpan={1}>
         <Flex w="full" direction="column" gap={6}>
-          <TotalBalance />
-          <CartPayment />
+          <Suspense fallback={<Spinner />}>
+            <TotalBalance />
+            <CartPayment />
+          </Suspense>
         </Flex>
       </GridItem>
       <GridItem colSpan={{ xl: 3 }} mt={{ base: 6, '3xl': 0 }}>
@@ -107,7 +107,9 @@ const MyWallet = ({
                 isError={isErrorOverallBalance}
                 errorMessage="Overall Balance data error"
               >
-                <OverallBalance {...overallBalanceData} />
+                <Suspense fallback={<Spinner />}>
+                  <OverallBalance {...overallBalanceData} />
+                </Suspense>
               </Fetching>
             </Box>
             <Box flex={1}>
@@ -115,12 +117,14 @@ const MyWallet = ({
                 isError={isErrorEfficiency}
                 errorMessage="Efficiency data error"
               >
-                <Efficiency
-                  {...efficiencyData}
-                  isLoading={isLoadingEfficiency}
-                  isLoadingWhenSelect={isLoadingSelectEfficiencyType}
-                  onChangeSelect={handleChangeSelectEfficiency}
-                />
+                <Suspense fallback={<Spinner />}>
+                  <Efficiency
+                    {...efficiencyData}
+                    isLoading={isLoadingEfficiency}
+                    isLoadingWhenSelect={isLoadingSelectEfficiencyType}
+                    onChangeSelect={handleChangeSelectEfficiency}
+                  />
+                </Suspense>
               </Fetching>
             </Box>
           </Flex>
@@ -141,10 +145,12 @@ const MyWallet = ({
                   onSearch={onSearchTransaction}
                 />
                 <Box mt={5}>
-                  <TransactionTable
-                    transactions={transactionList}
-                    onSort={sortBy}
-                  />
+                  <Suspense fallback={<Spinner />}>
+                    <TransactionTable
+                      transactions={transactionList}
+                      onSort={sortBy}
+                    />
+                  </Suspense>
                 </Box>
                 <Box mt={8}>
                   <Pagination

@@ -26,7 +26,7 @@ export const colors: ThemeOverride['colors'] &
     650: '#1D0024',
     700: '#747681',
     750: '#2A313C',
-    800: '#edf2f7',
+    800: '#EDF2F7',
     850: '#E2E8F0',
     900: '#2563EB',
     950: '#4A5568',
@@ -92,11 +92,11 @@ export const colors: ThemeOverride['colors'] &
         },
         secondary: {
           default: '#FFF',
-          _dark: '#1d1e25',
+          _dark: '#1D1E25',
         },
         noBackground: {
           default: '#FFF',
-          _dark: '#1d1e25',
+          _dark: '#1D1E25',
         },
       },
       selectList: {
@@ -113,8 +113,8 @@ export const colors: ThemeOverride['colors'] &
       },
       table: {
         primary: {
-          default: '#fff',
-          _dark: '#1d1e24',
+          default: '#FFF',
+          _dark: '#1D1E24',
         },
       },
     },
@@ -202,11 +202,11 @@ export const colors: ThemeOverride['colors'] &
   },
 
   warning: {
-    300: '#FFFbeb',
-    400: '#FDF9e9',
+    300: '#FFFBEB',
+    400: '#FDF9E9',
     500: '#EAB308',
-    600: '#FDF9e9',
+    600: '#FDF9E9',
     700: '#FF784B',
-    800: '#f6a723',
+    800: '#f6A723',
   },
 };

@@ -1,19 +1,9 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
 import areEqual from 'react-fast-compare';
-import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Spinner, Stack } from '@chakra-ui/react';
 
 // Components
-import {
-  CartPayment,
-  TotalList,
-  BoxChat,
-  Efficiency,
-  RevenueFlow,
-  TransactionTable,
-  SearchBar,
-  Pagination,
-  Fetching,
-} from '@app/components';
+import { SearchBar, Pagination, Fetching } from '@app/components';
 
 // Hooks
 import { useGetStatistic, useTransactions, usePagination } from '@app/hooks';
@@ -38,6 +28,14 @@ import {
   IEfficiency,
 } from '@app/interfaces';
 import { TOption } from '@app/components/common/Select';
+
+// Lazy load components
+const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const BoxChat = lazy(() => import('@app/components/BoxChat'));
+const TotalList = lazy(() => import('@app/components/TotalList'));
+const RevenueFlow = lazy(() => import('@app/components/RevenueFlow'));
+const Efficiency = lazy(() => import('@app/components/Efficiency'));
+const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 
 const Dashboard = ({
   searchTransactionValue,
@@ -105,10 +103,12 @@ const Dashboard = ({
           isError={isErrorTotalList}
           errorMessage="Total statistic data error "
         >
-          <TotalList
-            spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
-            isLoading={isLoadingTotalList}
-          />
+          <Suspense fallback={<Spinner />}>
+            <TotalList
+              spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
+              isLoading={isLoadingTotalList}
+            />
+          </Suspense>
         </Fetching>
 
         <Grid
@@ -122,7 +122,9 @@ const Dashboard = ({
               isError={isErrorRevenueFlow}
               errorMessage="Revenue flow data error"
             >
-              <RevenueFlow data={revenueFlowData} />
+              <Suspense fallback={<Spinner />}>
+                <RevenueFlow data={revenueFlowData} />
+              </Suspense>
             </Fetching>
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
@@ -130,12 +132,14 @@ const Dashboard = ({
               isError={isErrorEfficiency}
               errorMessage="Efficiency data error"
             >
-              <Efficiency
-                {...efficiencyData}
-                isLoading={isLoadingEfficiency}
-                isLoadingWhenSelect={isLoadingSelectEfficiencyType}
-                onChangeSelect={handleChangeSelectEfficiency}
-              />
+              <Suspense fallback={<Spinner />}>
+                <Efficiency
+                  {...efficiencyData}
+                  isLoading={isLoadingEfficiency}
+                  isLoadingWhenSelect={isLoadingSelectEfficiencyType}
+                  onChangeSelect={handleChangeSelectEfficiency}
+                />
+              </Suspense>
             </Fetching>
           </GridItem>
         </Grid>
@@ -158,10 +162,12 @@ const Dashboard = ({
               onSearch={onSearchTransaction}
             />
             <Box mt={5}>
-              <TransactionTable
-                transactions={transactionList}
-                onSort={sortBy}
-              />
+              <Suspense fallback={<Spinner />}>
+                <TransactionTable
+                  transactions={transactionList}
+                  onSort={sortBy}
+                />
+              </Suspense>
             </Box>
             <Box mt={8}>
               <Pagination
@@ -181,14 +187,19 @@ const Dashboard = ({
           spacing={{ base: 6, lg: 0 }}
         >
           <Box w="full">
-            <CartPayment />
+            <Suspense fallback={<Spinner />}>
+              <CartPayment />
+            </Suspense>
           </Box>
+
           <Box
             w="full"
             mt={{ base: 6, md: 0, '2xl': 6 }}
             ml={{ lg: 6, '2xl': 0 }}
           >
-            <BoxChat />
+            <Suspense fallback={<Spinner />}>
+              <BoxChat />
+            </Suspense>
           </Box>
         </Stack>
       </GridItem>

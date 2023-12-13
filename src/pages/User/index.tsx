@@ -1,15 +1,8 @@
-import { useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
 
 // Components
-import { Box, Flex, Text } from '@chakra-ui/react';
-import {
-  Button,
-  InputField,
-  Fetching,
-  UserCard,
-  UsersTable,
-  Select,
-} from '@app/components';
+import { Box, Flex, Text, Spinner } from '@chakra-ui/react';
+import { Button, InputField, Fetching, Select } from '@app/components';
 
 // Hooks
 import { useDebounce, useEmployee, useSearch } from '@app/hooks';
@@ -26,12 +19,17 @@ import { FILTER_USER_OPTIONS } from '@app/constants';
 // Types
 import { TOption } from '@app/components/common/Select';
 
+// Lazy loading components
+const UsersTable = lazy(() => import('@app/components/UsersTable'));
+const UserCard = lazy(() => import('@app/components/UserCard'));
+
 const User = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [seniorityLevel, setSeniorityLevel] = useState<string>('');
   const { setSearchParam, searchParam } = useSearch<{ jobTitle: string }>({
     jobTitle: '',
   });
+
   // Users
   const {
     data: users = [],
@@ -136,11 +134,15 @@ const User = () => {
           </Flex>
         </Flex>
         <Fetching isLoading={isEmployeesLoading} isError={isEmployeesError}>
-          <UsersTable users={usersFiltered} onClickUser={handleClickUser} />
+          <Suspense fallback={<Spinner />}>
+            <UsersTable users={usersFiltered} onClickUser={handleClickUser} />
+          </Suspense>
         </Fetching>
       </Box>
       <Box flex={1} pt={20}>
-        <UserCard user={user || INITIAL_USER} />
+        <Suspense fallback={<Spinner />}>
+          <UserCard user={user || INITIAL_USER} />
+        </Suspense>
       </Box>
     </Flex>
   );

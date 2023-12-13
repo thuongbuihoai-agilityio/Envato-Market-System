@@ -177,6 +177,18 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
           dataLabels: {
             enabled: false,
           },
+          tooltip: {
+            custom: function ({ series, seriesIndex, dataPointIndex }) {
+              return `<div style="padding: 10px; background-color: #000; color: #FFF" >
+                <p>
+                ${data[dataPointIndex].title}
+                </p>
+                <span>
+                ${REVENUE_FLOW_STATUS[seriesIndex]}: ${series[seriesIndex][dataPointIndex]}
+                </span>
+                </div>`;
+            },
+          },
         }}
         series={chartData}
         type="bar"
