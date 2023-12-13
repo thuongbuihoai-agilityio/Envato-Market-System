@@ -20,7 +20,7 @@ import {
 
 // Types
 import { TOption } from '@app/components/common/Select';
-import { IEfficiency, IOverallBalance } from '@app/interfaces';
+import { IEfficiency, TOverallBalance } from '@app/interfaces';
 
 // Mocks
 import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@app/mocks';
@@ -73,7 +73,7 @@ const MyWallet = ({
     data: overallBalanceData = INITIAL_OVERALL_BALANCE,
     isLoading: isLoadingOverallBalance,
     isError: isErrorOverallBalance,
-  } = useGetStatistic<IOverallBalance>(END_POINTS.OVERALL_BALANCE);
+  } = useGetStatistic<TOverallBalance>(END_POINTS.OVERALL_BALANCE);
 
   const handleChangeSelectEfficiency = useCallback((data: TOption) => {
     setEfficiencyType(data.value);

@@ -25,14 +25,9 @@ import {
   EXCHANGE_RATE_OPTIONS,
 } from '@app/constants/options';
 import { TOption } from '@app/components/common/Select';
+import { IEfficiency } from '@app/interfaces';
 
-interface EfficiencyProps {
-  arrival: number;
-  spending: number;
-  statistical: {
-    title: string;
-    value: number;
-  }[];
+interface EfficiencyProps extends IEfficiency {
   isLoading?: boolean;
   isExchangeRate?: boolean;
   isLoadingWhenSelect?: boolean;
