@@ -93,7 +93,8 @@ exports[`CardPayment component renders correctly 1`] = `
           </p>
           <input
             class="chakra-input css-17okvn5"
-            type="number"
+            type="text"
+            value=""
           />
           <img
             alt="This is the user avatar"
