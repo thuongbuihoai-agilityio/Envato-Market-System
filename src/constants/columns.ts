@@ -1,4 +1,5 @@
-import { TDataSource } from '@app/components';
+// Types
+import { TDataSource } from '@app/interfaces';
 
 export const COLUMNS_DASHBOARD = (
   onRenderHead: (title: string, key: string) => void,

@@ -14,7 +14,7 @@ export { default as Navigation } from './common/Navigation';
 export { default as Select } from './common/Select';
 export { default as Pagination } from './common/Pagination';
 export { default as TransactionTable } from './TransactionTable';
-export { default as Table, type TDataSource } from './common/Table';
+export { default as Table } from './common/Table';
 export * from './common/Table/Body';
 export { default as HeadCell } from './common/Table/HeadCell';
 export { default as CartPayment } from './CartPayment';
