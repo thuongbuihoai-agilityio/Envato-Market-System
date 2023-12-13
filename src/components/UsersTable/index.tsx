@@ -2,13 +2,7 @@ import { memo, useCallback } from 'react';
 import areEqual from 'react-fast-compare';
 
 // Components
-import {
-  Table,
-  UserInfoCell,
-  StatusCell,
-  ActionCell,
-  TDataSource,
-} from '@app/components';
+import { Table, UserInfoCell, StatusCell, ActionCell } from '@app/components';
 
 // Types
 import { TEmployee } from '@app/interfaces/user';
@@ -18,6 +12,7 @@ import { getDataUser } from '@app/utils';
 
 // Constants
 import { STATUS_LABEL } from '@app/constants/status';
+import { TDataSource } from '@app/interfaces';
 
 type TUsersProps = {
   users: TEmployee[];

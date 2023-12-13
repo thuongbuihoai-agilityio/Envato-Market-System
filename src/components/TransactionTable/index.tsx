@@ -5,7 +5,6 @@ import { Suspense, memo, useCallback, useMemo } from 'react';
 import {
   Table,
   Pagination,
-  TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
@@ -28,7 +27,7 @@ import { COLUMNS_DASHBOARD, COLUMNS_HISTORY } from '@app/constants/columns';
 import { STATUS_LABEL } from '@app/constants/status';
 
 // Types
-import { THeaderTable } from '@app/interfaces';
+import { TDataSource, THeaderTable } from '@app/interfaces';
 
 interface TFilterUserProps extends TWithTransaction {
   isTableHistory?: boolean;

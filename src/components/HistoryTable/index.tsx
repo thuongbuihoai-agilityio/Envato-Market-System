@@ -3,7 +3,6 @@ import { memo, useCallback, useMemo } from 'react';
 // Components
 import {
   Table,
-  TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
@@ -14,7 +13,7 @@ import {
 import { STATUS_LABEL } from '@app/constants';
 
 // Types
-import { TTransaction } from '@app/interfaces';
+import { TDataSource, TTransaction } from '@app/interfaces';
 
 // Utils
 import { getTransactionHomePage } from '@app/utils';

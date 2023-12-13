@@ -1,5 +1,5 @@
 // Types
-import { TDataSource } from '@app/components';
+import { TDataSource } from '@app/interfaces';
 import { TTransaction } from '@app/interfaces/transaction';
 
 // Mocks
