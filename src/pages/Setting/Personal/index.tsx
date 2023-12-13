@@ -14,7 +14,7 @@ import {
 import { Controller, useForm } from 'react-hook-form';
 
 // Interfaces
-import { TUser } from '@app/interfaces';
+import { TUserDetail } from '@app/interfaces';
 
 // Hooks
 import { useAuth } from '@app/hooks';
@@ -40,7 +40,7 @@ const UserFormComponent = () => {
     },
     clearErrors,
     handleSubmit,
-  } = useForm<TUser>({
+  } = useForm<TUserDetail>({
     defaultValues: {
       email: user?.email || '',
       firstName: user?.firstName || '',
@@ -57,12 +57,12 @@ const UserFormComponent = () => {
     },
   });
 
-  const handleSubmitForm = (updatedInfo: TUser) => {
+  const handleSubmitForm = (updatedInfo: TUserDetail) => {
     const data = { ...updatedInfo, id: user?.id || '' };
 
     updateUser(data, {
-      onSuccess: (response: AxiosResponse<TUser>) => {
-        const updatedUser: Partial<TUser> = response.data;
+      onSuccess: (response: AxiosResponse<TUserDetail>) => {
+        const updatedUser: Partial<TUserDetail> = response.data;
         updateUserInfo(updatedUser);
       },
       onError: (error) => {
