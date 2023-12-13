@@ -69,6 +69,11 @@ const PaginationComponent = ({
   }, [currentPage, onPageChange]);
 
   const handleNextPage = useCallback(() => {
+    console.log(
+      'formatNumberButton(numberOfPage)',
+      formatNumberButton(numberOfPage),
+    );
+
     if (currentPage === formatNumberButton(numberOfPage).length) {
       onPageChange(currentPage);
       return;

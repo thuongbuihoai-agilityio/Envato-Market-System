@@ -1,15 +1,13 @@
-import { DOTS } from '@app/constants/common';
-import { ERROR_MESSAGES } from '@app/constants/messages';
-import { ROUTES } from '@app/constants/routers';
+// Constants
+import { REGEX, DOTS, ERROR_MESSAGES } from '@app/constants';
+
+// Types
 import { FormatPaginationParams } from '@app/interfaces/pagination';
 
-export const formatNumberButton = (numberOfPage: number): number[] => {
-  const numberOfButtons = [];
-  for (let i = 1; i <= numberOfPage; ++i) {
-    numberOfButtons.push(i);
-  }
-  return numberOfButtons;
-};
+export const formatNumberButton = (numberOfPage: number): number[] =>
+  Array.from({ length: numberOfPage }).map(
+    (_, index: number): number => index + 1,
+  );
 
 export const formatPagination = ({
   totalCount,
@@ -57,36 +55,16 @@ export const formatPagination = ({
   return tempNumberOfButtons;
 };
 
-export const getTitleByPathName = (path: string): string => {
-  switch (path) {
-    case ROUTES.MY_WALLET:
-      return 'My Wallet';
-    case ROUTES.TRANSACTION:
-      return 'Transaction';
-    case ROUTES.USER:
-      return 'User';
-    case ROUTES.HISTORY:
-      return 'History';
-    case ROUTES.SETTING:
-      return 'Setting';
-    default:
-      return 'Dashboard';
-  }
-};
-
-export const validatePassword = (value: string): string | boolean => {
+export const validatePassword = (value: string) => {
   if (!value) {
     return ERROR_MESSAGES.FIELD_REQUIRED('Password');
   }
 
-  if (value.length < 8) {
+  if (!REGEX.LENGTH_IS_EIGHT.test(value)) {
     return ERROR_MESSAGES.PASS_WORD_SHORT;
   }
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
-
-  if (!passwordRegex.test(value)) {
+  if (!REGEX.PASSWORD.test(value)) {
     return ERROR_MESSAGES.PASS_WORD_WEAK;
   }
 
