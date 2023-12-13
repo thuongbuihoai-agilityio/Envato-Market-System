@@ -1,41 +1,83 @@
-import { memo, useCallback, useMemo } from 'react';
+import { Box, Spinner } from '@chakra-ui/react';
+import { Suspense, memo, useCallback, useMemo } from 'react';
 
 // Components
 import {
   Table,
+  Pagination,
   TDataSource,
   CustomerNameCell,
   HeadCell,
   ActionCell,
-} from '@app/components';
-
-// Types
-import { TTransaction } from '@app/interfaces/transaction';
+  SearchBar,
+  StatusCell,
+  Fetching,
+} from '@app/components/index';
 
 // Utils
 import { getTransactionHomePage } from '@app/utils/transaction';
 
-// Hooks
-import { TSortField, TSortHandler } from '@app/hooks';
+// Hocs
+import { TWithTransaction } from '@app/hocs';
 
-type TFilterUserProps = {
-  transactions?: TTransaction[];
-  onSort?: TSortHandler;
-};
+// Hooks
+import { TSortField, usePagination, useTransactions } from '@app/hooks';
+
+// Constants
+import { COLUMNS_DASHBOARD, COLUMNS_HISTORY } from '@app/constants/columns';
+import { STATUS_LABEL } from '@app/constants/status';
+
+// Types
+import { THeaderTable } from '@app/interfaces';
+
+interface TFilterUserProps extends TWithTransaction {
+  isTableHistory?: boolean;
+}
 
 const TransactionTableComponent = ({
-  transactions = [],
-  onSort,
-}: TFilterUserProps): JSX.Element => {
+  isTableHistory = false,
+  searchTransactionValue,
+  controlInputTransaction,
+  onSearchTransaction,
+}: TFilterUserProps) => {
+  const {
+    data: transactions = [],
+    isLoading: isLoadingTransactions,
+    isError: isTransactionsError,
+    sortBy,
+  } = useTransactions({
+    name: searchTransactionValue,
+  });
+
+  const { data, filterData, setData, handleChangeLimit, handleChangePage } =
+    usePagination(transactions);
+
+  const handleSearchWithPagination = useCallback(() => {
+    setData((prevData) => ({
+      ...prevData,
+      currentPage:
+        transactions.length < data.limit || searchTransactionValue === ''
+          ? 1
+          : prevData.currentPage,
+    }));
+    onSearchTransaction();
+  }, [
+    transactions.length,
+    data.limit,
+    searchTransactionValue,
+    setData,
+    onSearchTransaction,
+  ]);
+
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
       const handleClick = () => {
-        onSort && onSort(key as TSortField);
+        sortBy && sortBy(key as TSortField);
       };
 
       return <HeadCell key={title} title={title} onClick={handleClick} />;
     },
-    [onSort],
+    [sortBy],
   );
 
   const renderNameUser = useCallback(
@@ -52,43 +94,63 @@ const TransactionTableComponent = ({
     [],
   );
 
-  const columns = useMemo(
-    () => [
-      {
-        title: 'Customer name',
-        key: 'name',
-        renderHead,
-        renderBody: renderNameUser,
-      },
-      {
-        title: 'Email',
-        key: 'email',
-        renderHead,
-      },
-      {
-        title: 'Location',
-        key: 'location',
-        renderHead,
-      },
-      {
-        title: 'Spent',
-        key: 'spent',
-        renderHead,
-      },
-      {
-        title: '',
-        key: 'action',
-        renderBody: renderActionIcon,
-      },
-    ],
-    [renderActionIcon, renderHead, renderNameUser],
+  type TStatus = keyof typeof STATUS_LABEL;
+
+  const renderPaymentStatus = ({ paymentStatus }: TDataSource): JSX.Element => (
+    <StatusCell
+      variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
+      text={paymentStatus}
+    />
   );
 
-  return (
-    <Table
-      columns={columns}
-      dataSource={getTransactionHomePage(transactions)}
+  const renderTransactionStatus = ({
+    transactionStatus,
+  }: TDataSource): JSX.Element => (
+    <StatusCell
+      variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
+      text={transactionStatus}
     />
+  );
+
+  const columns = useMemo(() => {
+    if (isTableHistory) {
+      return COLUMNS_HISTORY(
+        renderHead,
+        renderNameUser,
+        renderPaymentStatus,
+        renderTransactionStatus,
+        renderActionIcon,
+      );
+    }
+    return COLUMNS_DASHBOARD(renderHead, renderNameUser, renderActionIcon);
+  }, [isTableHistory]);
+
+  return (
+    <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
+      <SearchBar
+        control={controlInputTransaction}
+        onSearch={handleSearchWithPagination}
+      />
+      <Box mt={5}>
+        <Suspense fallback={<Spinner />}>
+          <Table
+            columns={columns as THeaderTable[]}
+            dataSource={getTransactionHomePage(filterData)}
+          />
+        </Suspense>
+      </Box>
+      {!!transactions.length && (
+        <Box mt={8}>
+          <Pagination
+            pageSize={data.limit}
+            currentPage={data.currentPage}
+            totalCount={transactions.length}
+            onLimitChange={handleChangeLimit}
+            onPageChange={handleChangePage}
+          />
+        </Box>
+      )}
+    </Fetching>
   );
 };
 

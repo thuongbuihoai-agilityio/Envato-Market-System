@@ -14,18 +14,8 @@ import {
 // Constants
 import { ERROR_MESSAGES } from '@app/constants';
 
-export type TDataSource = {
-  id: string | number;
-  [key: string]: string | number | boolean;
-};
-
-type THeaderTable = {
-  title?: string;
-  key?: string;
-  renderBody?: (_: TDataSource) => JSX.Element;
-  renderHead?: (title: string, key: string) => JSX.Element;
-};
-
+// Types
+import { TDataSource, THeaderTable } from '@app/interfaces';
 type TTableProps = TableProps & {
   columns?: THeaderTable[];
   dataSource?: TDataSource[];

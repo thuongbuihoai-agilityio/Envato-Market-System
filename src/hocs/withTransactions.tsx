@@ -7,11 +7,11 @@ import { useDebounce, useSearch, TSearchTransaction } from '@app/hooks';
 // Types
 import { TSearchValue } from '@app/components/common/SearchBar';
 
-export type TWithTransaction = {
+export interface TWithTransaction {
   searchTransactionValue: string;
   controlInputTransaction: Control<TSearchValue>;
   onSearchTransaction: () => void;
-};
+}
 
 export const withTransactions = <TProps extends TWithTransaction>(
   Component: FunctionComponent<TProps & TWithTransaction>,

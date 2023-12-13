@@ -1,15 +1,15 @@
 import areEqual from 'react-fast-compare';
-import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, memo, useCallback, useState } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
 
 // Components
-import { Pagination, SearchBar, Fetching } from '@app/components';
+import { Fetching } from '@app/components';
 
 // Constants
 import { END_POINTS } from '@app/constants';
 
 // Hooks
-import { useGetStatistic, usePagination, useTransactions } from '@app/hooks';
+import { useGetStatistic } from '@app/hooks';
 
 // HOCs
 import {
@@ -40,24 +40,6 @@ const MyWallet = ({
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
-
-  const { data, handleChangeLimit, handleChangePage } = usePagination();
-  // Query transactions
-  const {
-    data: transactions = [],
-    isLoading: isLoadingTransactions,
-    isError: isTransactionsError,
-    sortBy,
-  } = useTransactions({
-    name: searchTransactionValue,
-  });
-
-  const transactionList = useMemo(() => {
-    const start = (data.currentPage - 1) * data.limit;
-    const end = data.limit + start;
-
-    return transactions.slice(start, end);
-  }, [data.currentPage, transactions, data.limit]);
 
   const {
     data: efficiencyData = INITIAL_EFFICIENCY,
@@ -138,32 +120,11 @@ const MyWallet = ({
               px={6}
               py={5}
             >
-              <Fetching
-                isLoading={isLoadingTransactions}
-                isError={isTransactionsError}
-              >
-                <SearchBar
-                  control={controlInputTransaction}
-                  onSearch={onSearchTransaction}
-                />
-                <Box mt={5}>
-                  <Suspense fallback={<Spinner />}>
-                    <TransactionTable
-                      transactions={transactionList}
-                      onSort={sortBy}
-                    />
-                  </Suspense>
-                </Box>
-                <Box mt={8}>
-                  <Pagination
-                    pageSize={data.limit}
-                    currentPage={data.currentPage}
-                    totalCount={transactions.length}
-                    onLimitChange={handleChangeLimit}
-                    onPageChange={handleChangePage}
-                  />
-                </Box>
-              </Fetching>
+              <TransactionTable
+                controlInputTransaction={controlInputTransaction}
+                searchTransactionValue={searchTransactionValue}
+                onSearchTransaction={onSearchTransaction}
+              />
             </Box>
           </Box>
         </Flex>
