@@ -1,12 +1,14 @@
-export interface ISpendingStatistics {
+export interface IStatisticsBase {
   title: string;
+}
+
+export interface ISpendingStatistics extends IStatisticsBase {
   total: number;
   growth: number;
   weeklyIncome: number[];
 }
 
-export interface IRevenueFlow {
-  title: string;
+export interface IRevenueFlow extends IStatisticsBase {
   pending: number;
   signed: number;
   lost: number;
@@ -19,12 +21,8 @@ export interface IEfficiency {
     title: string;
     value: number;
   }[];
-  isLoading?: boolean;
-  isExchangeRate?: boolean;
 }
 
-export interface IOverallBalance {
-  total: number;
-  growth: number;
+export type TOverallBalance = Pick<ISpendingStatistics, 'total' | 'growth'> & {
   data: Omit<IRevenueFlow, 'pending'>[];
-}
+};
