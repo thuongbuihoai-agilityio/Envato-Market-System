@@ -17,9 +17,6 @@ import {
   SwitchTheme,
 } from '@app/components';
 
-// Constants
-import { IMAGES } from '@app/constants/images';
-
 // Assets
 import { Bell, Email, Gift, Rotate, Search } from '@app/assets/icons';
 
@@ -41,6 +38,10 @@ const HeaderComponent = ({ name }: HeaderProps) => {
       `${state.user?.firstName} ${state.user?.lastName}`,
   );
 
+  const avatarURL = useAuth(
+    (state): string | undefined => state.user?.avatarURL,
+  );
+
   return (
     <Flex
       h={{ base: 85, md: 28 }}
@@ -52,11 +53,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     >
       <Flex minW="full" display={{ md: 'none' }} justifyContent="space-between">
         <Logo />
-        <Dropdown
-          name="John Doe"
-          permission="Super Admin"
-          src={IMAGES.AVATAR.url}
-        />
+        <Dropdown name="John Doe" permission="Super Admin" src={avatarURL} />
       </Flex>
       <Box display={{ base: 'none', md: 'inline' }} minW="185px">
         <Heading
@@ -118,12 +115,9 @@ const HeaderComponent = ({ name }: HeaderProps) => {
             <Gift color={colorFill} />
           </IconButton>
         </Flex>
+
         <Box display={{ base: 'none', md: 'inline-flex' }}>
-          <Dropdown
-            name={username}
-            permission="Super Admin"
-            src={IMAGES.AVATAR.url}
-          />
+          <Dropdown name={username} permission="Super Admin" src={avatarURL} />
         </Box>
       </Flex>
     </Flex>
