@@ -7,5 +7,5 @@ import { getStatistical } from '@app/services';
 export const useGetStatistic = <T>(endPoint: string) =>
   useQuery<T>({
     queryKey: [endPoint],
-    queryFn: () => getStatistical(endPoint),
+    queryFn: ({ signal }) => getStatistical(endPoint, { signal }),
   });

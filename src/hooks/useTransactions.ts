@@ -48,7 +48,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
   const { data = [], ...query } = useQuery({
     queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-    queryFn: () => getTransactions(),
+    queryFn: ({ signal }) => getTransactions('', { signal }),
   });
 
   //  sort transactions

@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from 'axios';
 import { END_POINTS } from '@app/constants';
 
 // Types
-import { TTransaction } from '@app/interfaces';
+import { IAxiosConfig, TTransaction } from '@app/interfaces';
 
 const transactionHttpService: AxiosInstance = axios.create({
   baseURL: process.env.VITE_API_TRANSACTION,
@@ -12,9 +12,11 @@ const transactionHttpService: AxiosInstance = axios.create({
 
 export const getTransactions = async (
   searchParam?: string,
+  config?: IAxiosConfig,
 ): Promise<TTransaction[]> =>
   (
     await transactionHttpService.get(
       `${END_POINTS.TRANSACTIONS}${searchParam || ''}`,
+      config,
     )
   ).data;
