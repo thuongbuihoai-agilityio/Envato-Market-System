@@ -19,25 +19,15 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         <div
           class="css-70qvj9"
         >
-          <span
-            class="chakra-avatar css-1gt5voo"
+          <div
+            class="chakra-spinner css-1y7joxr"
           >
-            <svg
-              aria-label=" avatar"
-              class="chakra-avatar__svg css-16ite8i"
-              role="img"
-              viewBox="0 0 128 128"
+            <span
+              class="css-8b45rq"
             >
-              <path
-                d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
-                fill="currentColor"
-              />
-              <path
-                d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
+              Loading...
+            </span>
+          </div>
           <div
             class="css-1eben70"
           >
@@ -95,7 +85,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         <a
           class="chakra-menu__menuitem css-4otqo"
           data-index="0"
-          href="/"
+          href="/setting"
           id="menu-list-:r1:-menuitem-:r2:"
           role="menuitem"
           tabindex="-1"
@@ -173,13 +163,13 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           aria-orientation="horizontal"
           class="chakra-divider css-19ob8qo"
         />
-        <button
+        <a
           class="chakra-menu__menuitem css-mdob6w"
           data-index="2"
+          href="/setting"
           id="menu-list-:r1:-menuitem-:r4:"
           role="menuitem"
           tabindex="-1"
-          type="button"
         >
           <a
             class="chakra-text css-0"
@@ -187,14 +177,14 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           >
             Setting
           </a>
-        </button>
-        <button
+        </a>
+        <a
           class="chakra-menu__menuitem css-mdob6w"
           data-index="3"
+          href="/user"
           id="menu-list-:r1:-menuitem-:r5:"
           role="menuitem"
           tabindex="-1"
-          type="button"
         >
           <a
             class="chakra-text css-0"
@@ -202,7 +192,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           >
             User
           </a>
-        </button>
+        </a>
       </div>
     </div>
   </div>

@@ -34,7 +34,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
               <p
                 class="chakra-text css-nyal52"
               >
-                10
+                8
               </p>
               <div
                 class="css-1x77umq"
@@ -118,7 +118,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
       </div>
     </div>
     <div
-      class="css-1oo4i8t"
+      class="css-gg4vpm"
     >
       <button
         class="chakra-button css-159lhy8"
