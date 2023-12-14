@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { ReactElement, memo, useCallback, useState } from 'react';
 import {
   Box,
   Text,
@@ -22,28 +22,42 @@ interface CardPaymentProps {
   balance?: number;
 }
 
+type TBalanceStatus = {
+  balance: string;
+  iconBalance: ReactElement;
+};
+
 const CartPaymentComponent = ({
   balance = 24.098,
 }: CardPaymentProps): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [hideBalance, setHideBalance] = useState<boolean>(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Remove non-numeric characters and leading zeros
-    const sanitizedValue = event.target.value
-      .replace(/[^0-9]/g, '')
-      .replace(/^0+/, '');
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      // Remove non-numeric characters and leading zeros
+      const sanitizedValue = event.target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^0+/, '');
 
-    // Prevent entering negative numbers
-    if (sanitizedValue !== '' && sanitizedValue.charAt(0) === '-') {
-      return;
-    }
+      // Prevent entering negative numbers
+      if (sanitizedValue && sanitizedValue.charAt(0) === '-') {
+        return;
+      }
 
-    setValue(sanitizedValue);
-  };
+      setValue(sanitizedValue);
+    },
+    [],
+  );
 
-  const toggleHideBalance = () => {
-    setHideBalance((prev) => !prev);
+  const toggleHideBalance = useCallback(
+    () => setHideBalance((prev) => !prev),
+    [],
+  );
+
+  const { iconBalance, balance: balanceStatus }: TBalanceStatus = {
+    iconBalance: hideBalance ? <EyeSlash /> : <Eye />,
+    balance: hideBalance ? '******' : `$${balance}`,
   };
 
   return (
@@ -80,7 +94,7 @@ const CartPaymentComponent = ({
             </Text>
             <IconButton
               aria-label="eye"
-              icon={hideBalance ? <EyeSlash /> : <Eye />}
+              icon={iconBalance}
               w="fit-content"
               bg="none"
               onClick={toggleHideBalance}
@@ -92,7 +106,7 @@ const CartPaymentComponent = ({
             />
           </Flex>
           <Text color="common.white" variant="text3Xl" fontWeight="semibold">
-            {hideBalance ? '******' : `$${balance}`}
+            {balanceStatus}
           </Text>
         </Flex>
       </Center>
