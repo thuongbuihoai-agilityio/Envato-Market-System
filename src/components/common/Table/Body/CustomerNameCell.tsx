@@ -23,6 +23,7 @@ const CustomerNameCellComponent = ({
         alt={`Image of ${name}`}
         w={10}
         h={10}
+        objectFit="cover"
         borderRadius="full"
       />
       <Text

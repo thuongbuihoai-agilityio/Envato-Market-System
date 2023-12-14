@@ -67,12 +67,17 @@ const DropdownComponent = ({
               <Box display={{ base: 'none', '3xl': 'inline' }}>
                 <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
-                    <Text mr="15px" fontWeight="bold">
+                    <Text mr="15px" w={68} fontWeight="bold" variant="text5Xl">
                       {name}
                     </Text>
                     <Arrow color={colorFill} />
                   </Flex>
-                  <Text fontSize="sm" color="text.secondary">
+                  <Text
+                    fontSize="sm"
+                    w={20}
+                    color="text.secondary"
+                    variant="text5Xl"
+                  >
                     {permission}
                   </Text>
                 </Flex>

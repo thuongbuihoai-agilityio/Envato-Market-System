@@ -33,6 +33,7 @@ const UserInfoComponent = ({
         h={16}
         borderRadius="lg"
         bgColor="transparent"
+        objectFit="cover"
       />
       <Box flex={1}>
         <Text
