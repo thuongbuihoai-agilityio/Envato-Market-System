@@ -9,21 +9,23 @@ import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
 import { UsersHttpService } from '@app/services';
 
 // Types
-import { TUser } from '@app/interfaces/user';
+import { TUserDetail } from '@app/interfaces/user';
 
 // Utils
 import { getCurrentTimeSeconds } from '@app/utils';
 
 type TSignUpErrorField = Partial<
-  Record<keyof Omit<TUser, 'id' | 'createdAt'>, string>
+  Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>
 >;
 
-export type TUserInfo = Omit<TUser, 'password'> | null;
+export type TUserInfo = Omit<TUserDetail, 'password'> | null;
 
 export type TUseAuth = {
   user: TUserInfo;
   isRemember: boolean;
   date: number;
+  setUser: (user: TUserDetail) => void;
+  updateUserInfo: (updatedInfo: Partial<TUserDetail>) => Promise<void>;
   signIn: (
     {
       email,
@@ -34,7 +36,7 @@ export type TUseAuth = {
     },
     isRemember?: boolean,
   ) => Promise<void>;
-  signUp: (userInfo: Omit<TUser, 'id' | 'createdAt'>) => Promise<{
+  signUp: (userInfo: Omit<TUserDetail, 'id' | 'createdAt'>) => Promise<{
     errors?: TSignUpErrorField;
   }>;
   signOut: () => void;
@@ -46,14 +48,15 @@ export const useAuth = create(
       user: null,
       isRemember: false,
       date: 0,
+      setUser: (user) => set({ user }),
       signIn: async ({ email, password }, isRemember) => {
-        const { data = [] }: AxiosResponse<TUser[] | undefined> =
-          await UsersHttpService.get<TUser[] | undefined>(
+        const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
+          await UsersHttpService.get<TUserDetail[] | undefined>(
             `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
           );
 
         // Because search by params working incorrect
-        const user: TUser | undefined = data.find(
+        const user: TUserDetail | undefined = data.find(
           (user) => user.email === email && user.password === password,
         );
 
@@ -72,12 +75,12 @@ export const useAuth = create(
       },
       signUp: async (userInfo) => {
         const { email, password } = userInfo;
-        const { data = [] }: AxiosResponse<TUser[] | undefined> =
-          await UsersHttpService.get<TUser[] | undefined>(
+        const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
+          await UsersHttpService.get<TUserDetail[] | undefined>(
             `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
           );
         // Because search by params working incorrect
-        const user: TUser | undefined = data.find(
+        const user: TUserDetail | undefined = data.find(
           (user) => user.email === email,
         );
 
@@ -91,8 +94,8 @@ export const useAuth = create(
 
         // Send request add new user
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { password: responsePassword, ...response }: TUser =
-          await UsersHttpService.post<TUser>(
+        const { password: responsePassword, ...response }: TUserDetail =
+          await UsersHttpService.post<TUserDetail>(
             END_POINTS.USERS,
             {
               ...userInfo,
@@ -106,8 +109,43 @@ export const useAuth = create(
 
         return {};
       },
-      signOut: () => set({ user: null, isRemember: false, date: 0 }),
+
+      signOut: () => {
+        set({ user: null, isRemember: false, date: 0 });
+        useAuth.persist.clearStorage();
+      },
+
+      updateUserInfo: async (updatedInfo) => {
+        const currentUser = useAuth.getState().user;
+
+        if (!currentUser) {
+          return;
+        }
+
+        try {
+          const response = await UsersHttpService.put<TUserDetail>(
+            `${END_POINTS.USERS}/${currentUser.id}`,
+            updatedInfo,
+          );
+
+          const updatedUser = response.data;
+
+          set((currentState: TUseAuth) => {
+            if (currentState.user) {
+              return {
+                user: {
+                  ...currentState.user,
+                  ...updatedUser,
+                },
+              };
+            }
+            return currentState;
+          });
+        } catch {
+          throw new Error(ERROR_MESSAGES.UPDATE_FAIL);
+        }
+      },
     }),
-    { name: 'authentication' },
+    { name: 'authentication', skipHydration: true },
   ),
 );

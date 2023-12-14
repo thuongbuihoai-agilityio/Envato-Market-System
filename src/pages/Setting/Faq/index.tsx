@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Box } from '@chakra-ui/react';
 
 // Constants
-import { FAQ_DATA } from '@app/mocks/faq';
+import { FAQ_DATA } from '@app/constants';
 
 // Components
 import { FaqItem } from '@app/components';

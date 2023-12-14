@@ -13,7 +13,7 @@ import { colors } from '@app/themes/bases/colors';
 import { InputField, Select, Selector } from '@app/components';
 
 //Mocks
-import { MONTHS } from '@app/mocks/select';
+import { MONTHS_OPTIONS } from '@app/constants';
 
 // Types
 import { TOption } from '@app/components/common/Select';
@@ -87,7 +87,7 @@ const SearchBarComponent = ({
         }}
       >
         <Select
-          options={MONTHS}
+          options={MONTHS_OPTIONS}
           renderTitle={renderTitleSelector}
           onSelect={handleSelectMonth}
         />

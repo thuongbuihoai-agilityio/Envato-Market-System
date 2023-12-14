@@ -1,9 +1,9 @@
 import areEqual from 'react-fast-compare';
-import { Suspense, lazy, memo, useCallback, useState } from 'react';
-import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
+import { lazy, memo, useCallback, useState } from 'react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
-import { Fetching } from '@app/components';
+import { Fetching, Lazy } from '@app/components';
 
 // Constants
 import { END_POINTS } from '@app/constants';
@@ -20,7 +20,7 @@ import {
 
 // Types
 import { TOption } from '@app/components/common/Select';
-import { IEfficiency, IOverallBalance } from '@app/interfaces';
+import { IEfficiency, TOverallBalance } from '@app/interfaces';
 
 // Mocks
 import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@app/mocks';
@@ -53,7 +53,7 @@ const MyWallet = ({
     data: overallBalanceData = INITIAL_OVERALL_BALANCE,
     isLoading: isLoadingOverallBalance,
     isError: isErrorOverallBalance,
-  } = useGetStatistic<IOverallBalance>(END_POINTS.OVERALL_BALANCE);
+  } = useGetStatistic<TOverallBalance>(END_POINTS.OVERALL_BALANCE);
 
   const handleChangeSelectEfficiency = useCallback((data: TOption) => {
     setEfficiencyType(data.value);
@@ -72,10 +72,10 @@ const MyWallet = ({
     >
       <GridItem colSpan={1}>
         <Flex w="full" direction="column" gap={6}>
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <TotalBalance />
             <CartPayment />
-          </Suspense>
+          </Lazy>
         </Flex>
       </GridItem>
       <GridItem colSpan={{ xl: 3 }} mt={{ base: 6, '3xl': 0 }}>
@@ -91,9 +91,9 @@ const MyWallet = ({
                 isError={isErrorOverallBalance}
                 errorMessage="Overall Balance data error"
               >
-                <Suspense fallback={<Spinner />}>
+                <Lazy>
                   <OverallBalance {...overallBalanceData} />
-                </Suspense>
+                </Lazy>
               </Fetching>
             </Box>
             <Box flex={1}>
@@ -101,14 +101,14 @@ const MyWallet = ({
                 isError={isErrorEfficiency}
                 errorMessage="Efficiency data error"
               >
-                <Suspense fallback={<Spinner />}>
+                <Lazy>
                   <Efficiency
                     {...efficiencyData}
                     isLoading={isLoadingEfficiency}
                     isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                     onChangeSelect={handleChangeSelectEfficiency}
                   />
-                </Suspense>
+                </Lazy>
               </Fetching>
             </Box>
           </Flex>

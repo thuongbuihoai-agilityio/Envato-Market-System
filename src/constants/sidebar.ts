@@ -65,3 +65,21 @@ export const SIDEBAR = {
   MINI_SIDEBAR_WIDTH: '96px',
   EXPAND_SIDEBAR_WIDTH: '308px',
 };
+
+export const EXPAND_SIDEBAR_MENU_LIST = [
+  {
+    id: 1,
+    title: 'Menu',
+    listItem: MENU_ITEM_LIST,
+  },
+  {
+    id: 2,
+    title: 'Help',
+    listItem: HELP_ITEM_LIST,
+  },
+  {
+    id: 3,
+    title: 'Others',
+    listItem: OTHER_ITEM_LIST,
+  },
+];

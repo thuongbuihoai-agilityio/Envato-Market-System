@@ -36,3 +36,5 @@ export { default as FaqItem } from './FaqItem';
 export { default as UpdateProfile } from './Profile';
 export { default as Fetching } from './Skeleton/Fetching';
 export { default as FallbackErrorBoundary } from './FallbackErrorBoundary';
+export { default as SwitchTheme } from './SwitchTheme';
+export { default as ItemSideBarSetting } from './ItemSideBarSetting';

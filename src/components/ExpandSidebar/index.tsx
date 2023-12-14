@@ -20,7 +20,7 @@ import { Logo, Menu } from '@app/components';
 import { SIDEBAR, IMAGES } from '@app/constants';
 
 // mocks
-import { EXPAND_SIDEBAR_MENU_LIST } from '@app/mocks/sidebar';
+import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 
 const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
   <Drawer

@@ -1,29 +1,36 @@
-export type TUser = {
+export interface IUserBase {
   id: string;
-  email: string;
   firstName: string;
   lastName: string;
-  password: string;
   createdAt: number;
-};
-
-export type TCustomer = {
-  id: string;
-  name: string;
-  avatar: string;
+  avatarURL: string;
   email: string;
-  location: string;
-};
+}
 
-export type TEmployee = {
-  id: string;
-  firstName: string;
-  lastName: string;
+export type TEmployee = Omit<IUserBase, 'email'> & {
   lastActive: string;
   lastPlace: string;
   workTime: string;
   level: string;
   position: string;
-  avatarURL: string;
-  createdAt: number;
+};
+
+export type TCustomer = Pick<IUserBase, 'id' | 'email'> & {
+  name: string;
+  avatar: string;
+  location: string;
+};
+
+export type TUserDetail = Omit<IUserBase, 'avatarURL'> & {
+  avatarURL?: string;
+  password: string;
+  phoneNumber: string;
+  country: string;
+  city: string;
+  address: string;
+  postalCode: string;
+  facebookURL?: string;
+  twitterURL?: string;
+  linkedinURL?: string;
+  youtubeURL?: string;
 };

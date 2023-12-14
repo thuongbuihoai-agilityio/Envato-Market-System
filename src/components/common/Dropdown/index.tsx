@@ -1,4 +1,4 @@
-import { Fragment, Suspense, lazy, memo } from 'react';
+import { Fragment, lazy, memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box,
@@ -9,11 +9,11 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Spinner,
   Text,
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Lazy } from '@app/components';
 
 // Assets
 import { Arrow } from '@app/assets/icons';
@@ -21,7 +21,6 @@ import { Arrow } from '@app/assets/icons';
 // Constants
 import { MENU_LIST, MENU_LIST_ICON } from '@app/constants/menu';
 
-// Components
 import { useAuth } from '@app/hooks/useAuth';
 
 // Lazy loading components
@@ -61,18 +60,23 @@ const DropdownComponent = ({
             isActive={isOpen}
           >
             <Flex alignItems="center">
-              <Suspense fallback={<Spinner />}>
+              <Lazy>
                 <Avatar src={src} />
-              </Suspense>
+              </Lazy>
               <Box display={{ base: 'none', '3xl': 'inline' }}>
                 <Flex flexDirection="column" alignItems="start" ml={18}>
                   <Flex alignItems="center">
-                    <Text mr="15px" fontWeight="bold">
+                    <Text mr="15px" w={68} fontWeight="bold" variant="text5Xl">
                       {name}
                     </Text>
                     <Arrow color={colorFill} />
                   </Flex>
-                  <Text fontSize="sm" color="text.secondary">
+                  <Text
+                    fontSize="sm"
+                    w={20}
+                    color="text.secondary"
+                    variant="text5Xl"
+                  >
                     {permission}
                   </Text>
                 </Flex>

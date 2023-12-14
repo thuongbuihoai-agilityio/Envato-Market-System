@@ -20,9 +20,8 @@ export const getCurrentTimeSeconds = (): number => Date.now() / 1000;
  * @param timestamp
  * @returns
  */
-export const formatDate = (timestamp: number) => {
+export const formatDate = (timestamp: number): string => {
   const date = new Date(+timestamp);
-
   const day = date.getDate();
   const month = date.toLocaleString('default', { month: 'short' });
   const year = date.getFullYear();

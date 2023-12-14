@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import FaqItem from '@app/components/FaqItem';
 
 // Constants
-import { FAQ_DATA } from '@app/mocks/faq';
+import { FAQ_DATA } from '@app/constants';
 
 test('renders question and answer correctly', () => {
   render(

@@ -1,24 +1,17 @@
 import areEqual from 'react-fast-compare';
-import {
-  Box,
-  Flex,
-  theme,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { ReactNode, memo, useMemo } from 'react';
 
 // Constants
-import { IMAGES, THEMES, TITLES } from '@app/constants';
+import { IMAGES, TITLES } from '@app/constants';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
 
 // Components
-import { Benefit, Divider, IconButton, Logo } from '@app/components';
+import { Benefit, Divider, Logo, SwitchTheme } from '@app/components';
 import AuthHeading from './Heading';
 import AuthFooter from './Footer';
-import { DarkTheme, LightTheme } from '@app/assets/icons';
 
 // Types
 import { TImage } from '@app/interfaces';
@@ -42,12 +35,6 @@ const AuthLayoutComponent = ({
     [isSignInForm],
   );
 
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
-
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex width="100%" minH="100vh">
       <Box
@@ -62,13 +49,7 @@ const AuthLayoutComponent = ({
       >
         <Flex justifyContent="space-between" px={12}>
           <Logo />
-          <IconButton onClick={toggleColorMode}>
-            {colorMode === THEMES.LIGHT ? (
-              <LightTheme color={colorFill} />
-            ) : (
-              <DarkTheme color={colorFill} />
-            )}
-          </IconButton>
+          <SwitchTheme />
         </Flex>
         <Box
           w={{

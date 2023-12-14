@@ -6,12 +6,17 @@ exports[`HeadCell Match to snapshot 1`] = `
     class="chakra-table css-0"
   >
     <th
-      class="css-1fbm6kk"
+      class="css-1os40k8"
     >
       <div
         class="css-j2at52"
       >
-        Title
+        <p
+          class="chakra-text css-18oyu9h"
+          title="Title"
+        >
+          Title
+        </p>
         <button
           aria-label="This is the icon for Title"
           class="chakra-button css-1x5hsk6"

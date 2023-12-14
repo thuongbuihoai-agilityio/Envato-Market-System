@@ -33,6 +33,11 @@ export const Text = defineStyleConfig({
         color: 'primary.500',
       },
     },
+    text5Xl: {
+      whiteSpace: 'none',
+      overflow: 'hidden',
+      textOverflow: 'clip',
+    },
   },
   defaultProps: {
     variant: 'textMd',

@@ -1,6 +1,6 @@
-import { memo, Suspense, lazy } from 'react';
+import { memo, lazy } from 'react';
 import areEqual from 'react-fast-compare';
-import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // HOCs
 import {
@@ -8,6 +8,7 @@ import {
   withErrorBoundary,
   withTransactions,
 } from '@app/hocs';
+import { Lazy } from '@app/components';
 
 // lazy loading components
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
@@ -44,10 +45,10 @@ const Transaction = ({
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }}>
       <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
-        <Suspense fallback={<Spinner />}>
+        <Lazy>
           <CartPayment />
           <BoxChat />
-        </Suspense>
+        </Lazy>
       </Flex>
     </GridItem>
   </Grid>

@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import Select from '..';
 
 // Mocks
-import { SOCIAL_PLATFORM_OPTIONS } from '@app/mocks';
+import { SOCIAL_PLATFORM_OPTIONS } from '@app/constants';
 
 describe('Select', () => {
   it('Match snapshot', () => {

@@ -30,12 +30,12 @@ import { AuthLayout } from '@app/layouts';
 import { InputField } from '@app/components';
 
 // Types
-import { TUser } from '@app/interfaces/user';
+import { TUserDetail } from '@app/interfaces/user';
 
 // Utils
 import { validatePassword } from '@app/utils/helpers';
 
-type TRegisterForm = Omit<TUser, 'id' | 'createdAt'> & {
+type TRegisterForm = Omit<TUserDetail, 'id' | 'createdAt'> & {
   confirmPassword: string;
   isAcceptPrivacyPolicy: boolean;
 };
@@ -49,6 +49,7 @@ const RegisterPage = () => {
     formState: {
       errors: { root },
     },
+    watch,
     handleSubmit,
     setError,
     clearErrors,
@@ -70,6 +71,8 @@ const RegisterPage = () => {
 
   // Disable button when wait response from Server
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const isDisabledSubmitBtn: boolean =
+    isSubmit || !Object.values(watch()).every((value) => value);
 
   const renderPasswordIcon = useCallback(
     (isCorrect: boolean, callback: typeof onShowPassword): JSX.Element => {
@@ -289,7 +292,7 @@ const RegisterPage = () => {
           type="submit"
           textTransform="capitalize"
           form="register-form"
-          isDisabled={isSubmit}
+          isDisabled={isDisabledSubmitBtn}
         >
           Sign Up
         </Button>

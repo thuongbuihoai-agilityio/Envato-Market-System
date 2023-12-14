@@ -1,11 +1,11 @@
-import { Suspense, lazy, memo, useCallback, useState } from 'react';
-import { Grid, GridItem, Spinner } from '@chakra-ui/react';
+import { lazy, memo, useCallback, useState } from 'react';
+import { Grid, GridItem } from '@chakra-ui/react';
 
 // Constants
 import { OPTION_SETTING } from '@app/constants/setting';
 
 // Components
-import ItemSideBarSetting from '@app/components/ItemSideBarSetting';
+import { ItemSideBarSetting, Lazy } from '@app/components';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
@@ -40,15 +40,15 @@ const SettingPage = () => {
     switch (activeItemId) {
       case OPTION_SETTING.USER_FORM:
         return (
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <UserForm />
-          </Suspense>
+          </Lazy>
         );
       case OPTION_SETTING.FAQ_PAGE:
         return (
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <FaqPage />
-          </Suspense>
+          </Lazy>
         );
       default:
         return null;
@@ -74,9 +74,9 @@ const SettingPage = () => {
           title="Personal Informations"
           content="Fill in your personal information"
         >
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <AvatarSetting />
-          </Suspense>
+          </Lazy>
         </ItemSideBarSetting>
 
         <ItemSideBarSetting
@@ -86,9 +86,9 @@ const SettingPage = () => {
           title="FAQ"
           content="Frequently asked questions"
         >
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <Faq />
-          </Suspense>
+          </Lazy>
         </ItemSideBarSetting>
       </GridItem>
 

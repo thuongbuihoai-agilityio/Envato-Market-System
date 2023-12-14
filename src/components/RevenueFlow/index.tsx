@@ -179,12 +179,16 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
           },
           tooltip: {
             custom: function ({ series, seriesIndex, dataPointIndex }) {
+              const status = REVENUE_FLOW_STATUS[seriesIndex]
+                ? `${REVENUE_FLOW_STATUS[seriesIndex]}:`
+                : '';
+
               return `<div style="padding: 10px; background-color: #000; color: #FFF" >
                 <p>
                 ${data[dataPointIndex].title}
                 </p>
                 <span>
-                ${REVENUE_FLOW_STATUS[seriesIndex]}: ${series[seriesIndex][dataPointIndex]}
+                ${status} ${series[seriesIndex][dataPointIndex]}
                 </span>
                 </div>`;
             },

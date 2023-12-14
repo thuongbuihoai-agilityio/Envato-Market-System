@@ -15,28 +15,53 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <th
-            class="css-zm2y1u"
+            class="css-uvf2im"
           >
-            Customer name
+            <p
+              class="chakra-text css-9m1sly"
+              title="Customer name"
+            >
+              Customer name
+            </p>
           </th>
           <th
-            class="css-zm2y1u"
+            class="css-uvf2im"
           >
-            Email
+            <p
+              class="chakra-text css-9m1sly"
+              title="Email"
+            >
+              Email
+            </p>
           </th>
           <th
-            class="css-zm2y1u"
+            class="css-uvf2im"
           >
-            Location
+            <p
+              class="chakra-text css-9m1sly"
+              title="Location"
+            >
+              Location
+            </p>
           </th>
           <th
-            class="css-zm2y1u"
+            class="css-uvf2im"
           >
-            Spent
+            <p
+              class="chakra-text css-9m1sly"
+              title="Spent"
+            >
+              Spent
+            </p>
           </th>
           <th
-            class="css-zm2y1u"
-          />
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title=""
+            />
+          </th>
         </tr>
       </thead>
       <tbody
@@ -46,51 +71,44 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Devon Lane
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Devon Lane"
+            >
+              Devon Lane
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            devon@mail.com
+            <p
+              class="chakra-text css-e7h0oz"
+              title="devon@mail.com"
+            >
+              devon@mail.com
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Philadelphia, USA
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Philadelphia, USA"
+            >
+              Philadelphia, USA
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            $101.00
-          </td>
-          <button>
-            action
-          </button>
-        </tr>
-        <tr
-          class="css-0"
-        >
-          <td
-            class="css-x4m69r"
-          >
-            Devon Lane
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            devon@mail.com
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            Philadelphia, USA
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            $101.00
+            <p
+              class="chakra-text css-e7h0oz"
+              title="$101.00"
+            >
+              $101.00
+            </p>
           </td>
           <button>
             action
@@ -100,51 +118,44 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Devon Lane
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Devon Lane"
+            >
+              Devon Lane
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            devon@mail.com
+            <p
+              class="chakra-text css-e7h0oz"
+              title="devon@mail.com"
+            >
+              devon@mail.com
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Philadelphia, USA
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Philadelphia, USA"
+            >
+              Philadelphia, USA
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            $101.00
-          </td>
-          <button>
-            action
-          </button>
-        </tr>
-        <tr
-          class="css-0"
-        >
-          <td
-            class="css-x4m69r"
-          >
-            Devon Lane
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            devon@mail.com
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            Philadelphia, USA
-          </td>
-          <td
-            class="css-x4m69r"
-          >
-            $101.00
+            <p
+              class="chakra-text css-e7h0oz"
+              title="$101.00"
+            >
+              $101.00
+            </p>
           </td>
           <button>
             action
@@ -154,24 +165,138 @@ exports[`Table Match to snapshot 1`] = `
           class="css-0"
         >
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Devon Lane
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Devon Lane"
+            >
+              Devon Lane
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            devon@mail.com
+            <p
+              class="chakra-text css-e7h0oz"
+              title="devon@mail.com"
+            >
+              devon@mail.com
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            Philadelphia, USA
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Philadelphia, USA"
+            >
+              Philadelphia, USA
+            </p>
           </td>
           <td
-            class="css-x4m69r"
+            class="css-1jnt2qq"
           >
-            $101.00
+            <p
+              class="chakra-text css-e7h0oz"
+              title="$101.00"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Devon Lane"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="devon@mail.com"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Philadelphia, USA"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="$101.00"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Devon Lane"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="devon@mail.com"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="Philadelphia, USA"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-1jnt2qq"
+          >
+            <p
+              class="chakra-text css-e7h0oz"
+              title="$101.00"
+            >
+              $101.00
+            </p>
           </td>
           <button>
             action

@@ -1,22 +1,20 @@
-import { DOTS } from '@app/constants/common';
-import { ERROR_MESSAGES } from '@app/constants/messages';
-import { ROUTES } from '@app/constants/routers';
+// Constants
+import { REGEX, DOTS, ERROR_MESSAGES } from '@app/constants';
+
+// Types
 import { FormatPaginationParams } from '@app/interfaces/pagination';
 
-export const formatNumberButton = (numberOfPage: number) => {
-  const numberOfButtons = [];
-  for (let i = 1; i <= numberOfPage; ++i) {
-    numberOfButtons.push(i);
-  }
-  return numberOfButtons;
-};
+export const formatNumberButton = (numberOfPage: number): number[] =>
+  Array.from({ length: numberOfPage }).map(
+    (_, index: number): number => index + 1,
+  );
 
 export const formatPagination = ({
   totalCount,
   pageSize,
   currentPage,
   arrOfCurrButtons,
-}: FormatPaginationParams) => {
+}: FormatPaginationParams): (string | number)[] => {
   const numberOfPage = Math.ceil(totalCount / pageSize);
   let tempNumberOfButtons = [...arrOfCurrButtons];
 
@@ -57,40 +55,21 @@ export const formatPagination = ({
   return tempNumberOfButtons;
 };
 
-export const getTitleByPathName = (path: string): string => {
-  switch (path) {
-    case ROUTES.MY_WALLET:
-      return 'My Wallet';
-    case ROUTES.TRANSACTION:
-      return 'Transaction';
-    case ROUTES.USER:
-      return 'User';
-    case ROUTES.HISTORY:
-      return 'History';
-    case ROUTES.SETTING:
-      return 'Setting';
-    default:
-      return 'Dashboard';
-  }
-};
-
 export const validatePassword = (value: string) => {
   if (!value) {
     return ERROR_MESSAGES.FIELD_REQUIRED('Password');
   }
 
-  if (value.length < 8) {
+  if (!REGEX.LENGTH_IS_EIGHT.test(value)) {
     return ERROR_MESSAGES.PASS_WORD_SHORT;
   }
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
-
-  if (!passwordRegex.test(value)) {
+  if (!REGEX.PASSWORD.test(value)) {
     return ERROR_MESSAGES.PASS_WORD_WEAK;
   }
 
   return true;
 };
 
-export const formatUppercaseFirstLetter = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
+export const formatUppercaseFirstLetter = (value = ''): string =>
+  value.charAt(0).toUpperCase() + value.slice(1);

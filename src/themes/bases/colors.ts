@@ -1,7 +1,4 @@
-import { ThemeOverride, ColorHues } from '@chakra-ui/react';
-
-export const colors: ThemeOverride['colors'] &
-  Record<string, Partial<ColorHues> & Record<number, string>> = {
+export const colors = {
   primary: {
     400: '#D9FBE6',
     500: '#22C55E',
@@ -32,6 +29,10 @@ export const colors: ThemeOverride['colors'] &
     950: '#4A5568',
     1000: '#E5E7EB',
     1050: '#9AA2B1',
+  },
+
+  common: {
+    white: '#FFF',
   },
 
   background: {
