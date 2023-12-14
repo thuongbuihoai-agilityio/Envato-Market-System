@@ -1,12 +1,12 @@
-import { lazy, memo, useCallback, useMemo, useState } from 'react';
+import { lazy, memo, useCallback, useState } from 'react';
 import areEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
-import { SearchBar, Pagination, Fetching, Lazy } from '@app/components';
+import { Fetching, Lazy } from '@app/components';
 
 // Hooks
-import { useGetStatistic, useTransactions, usePagination } from '@app/hooks';
+import { useGetStatistic } from '@app/hooks';
 
 // Mocks
 import {
@@ -49,25 +49,6 @@ const Dashboard = ({
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
-
-  const { searchParam, handleChangeLimit, handleChangePage } = usePagination();
-
-  // Query transactions
-  const {
-    data: transactions = [],
-    isLoading: isLoadingTransactions,
-    isError: isTransactionsError,
-    sortBy,
-  } = useTransactions({
-    name: searchTransactionValue,
-  });
-
-  const transactionList = useMemo(() => {
-    const start = (+searchParam.page - 1) * +searchParam.limit;
-    const end = +searchParam.limit + start;
-
-    return transactions.slice(start, end);
-  }, [searchParam.page, transactions, searchParam.limit]);
 
   const {
     data: totalListData = [],
@@ -157,32 +138,11 @@ const Dashboard = ({
           px={6}
           py={5}
         >
-          <Fetching
-            isLoading={isLoadingTransactions}
-            isError={isTransactionsError}
-          >
-            <SearchBar
-              control={controlInputTransaction}
-              onSearch={onSearchTransaction}
-            />
-            <Box mt={5}>
-              <Lazy>
-                <TransactionTable
-                  transactions={transactionList}
-                  onSort={sortBy}
-                />
-              </Lazy>
-            </Box>
-            <Box mt={8}>
-              <Pagination
-                pageSize={+searchParam.limit}
-                currentPage={+searchParam.page}
-                totalCount={transactions.length}
-                onLimitChange={handleChangeLimit}
-                onPageChange={handleChangePage}
-              />
-            </Box>
-          </Fetching>
+          <TransactionTable
+            controlInputTransaction={controlInputTransaction}
+            searchTransactionValue={searchTransactionValue}
+            onSearchTransaction={onSearchTransaction}
+          />
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>

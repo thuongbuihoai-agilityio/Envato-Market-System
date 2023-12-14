@@ -18,4 +18,5 @@ export * from './transaction';
 export * from './store';
 export * from './status';
 export * from './pagination';
+export * from './columns';
 export * from './faq';
