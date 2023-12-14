@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { ReactElement, memo } from 'react';
 import { ColorMode, useColorMode } from '@chakra-ui/react';
 
 // Components
@@ -7,27 +7,18 @@ import { IconButton } from '..';
 // Icons
 import { DarkTheme, LightTheme } from '@app/assets/icons';
 
-// Constants
-import { THEMES } from '@app/constants';
+// Themes
 import { colors } from '@app/themes/bases/colors';
 
 const SwitchThemeComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const colorFill: Record<ColorMode, string> = {
-    light: colors.text.primary.default,
-    dark: colors.common.white,
+  const icons: Record<ColorMode, ReactElement> = {
+    light: <LightTheme color={colors.text.primary.default} />,
+    dark: <DarkTheme color={colors.common.white} />,
   };
 
-  return (
-    <IconButton onClick={toggleColorMode}>
-      {colorMode === THEMES.LIGHT ? (
-        <LightTheme color={colorFill[colorMode]} />
-      ) : (
-        <DarkTheme color={colorFill[colorMode]} />
-      )}
-    </IconButton>
-  );
+  return <IconButton onClick={toggleColorMode}>{icons[colorMode]}</IconButton>;
 };
 
 const SwitchTheme = memo(SwitchThemeComponent);

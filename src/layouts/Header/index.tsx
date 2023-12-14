@@ -37,8 +37,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
   );
 
   const username = useAuth(
-    (state): string | undefined =>
-      `${state.user?.firstName} ${state.user?.lastName}`,
+    ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
   );
 
   return (

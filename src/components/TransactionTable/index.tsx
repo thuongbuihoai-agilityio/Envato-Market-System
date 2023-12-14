@@ -18,7 +18,7 @@ import {
 // Utils
 import { getTransactionHomePage } from '@app/utils';
 
-// Hocs
+// HOCs
 import { TWithTransaction } from '@app/hocs';
 
 // Hooks
@@ -61,9 +61,9 @@ const TransactionTableComponent = ({
     handleSearchWithPagination,
   } = usePagination(transactions);
 
-  const handleSearchParams = () => {
+  const handleSearchParams = useCallback(() => {
     handleSearchWithPagination(searchTransactionValue, onSearchTransaction);
-  };
+  }, [handleSearchWithPagination, onSearchTransaction, searchTransactionValue]);
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -92,20 +92,24 @@ const TransactionTableComponent = ({
 
   type TStatus = keyof typeof STATUS_LABEL;
 
-  const renderPaymentStatus = ({ paymentStatus }: TDataSource): JSX.Element => (
-    <StatusCell
-      variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
-      text={paymentStatus}
-    />
+  const renderPaymentStatus = useCallback(
+    ({ paymentStatus }: TDataSource): JSX.Element => (
+      <StatusCell
+        variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
+        text={paymentStatus}
+      />
+    ),
+    [],
   );
 
-  const renderTransactionStatus = ({
-    transactionStatus,
-  }: TDataSource): JSX.Element => (
-    <StatusCell
-      variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
-      text={transactionStatus}
-    />
+  const renderTransactionStatus = useCallback(
+    ({ transactionStatus }: TDataSource): JSX.Element => (
+      <StatusCell
+        variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
+        text={transactionStatus}
+      />
+    ),
+    [],
   );
 
   const columns = useMemo(() => {
@@ -119,7 +123,14 @@ const TransactionTableComponent = ({
       );
     }
     return COLUMNS_DASHBOARD(renderHead, renderNameUser, renderActionIcon);
-  }, [isTableHistory]);
+  }, [
+    isTableHistory,
+    renderActionIcon,
+    renderHead,
+    renderNameUser,
+    renderPaymentStatus,
+    renderTransactionStatus,
+  ]);
 
   return (
     <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
