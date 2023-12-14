@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { StorageValue, persist, createJSONStorage } from 'zustand/middleware';
 
 // Constants
 import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
@@ -112,6 +112,7 @@ export const useAuth = create(
 
       signOut: () => {
         set({ user: null, isRemember: false, date: 0 });
+
         useAuth.persist.clearStorage();
       },
 
@@ -146,6 +147,21 @@ export const useAuth = create(
         }
       },
     }),
-    { name: 'authentication', skipHydration: true },
+    {
+      name: 'authentication',
+      storage: createJSONStorage(() => ({
+        setItem: (key: string, value: string) => {
+          const {
+            state: { user },
+          }: StorageValue<TUseAuth> = JSON.parse(value);
+
+          if (user) {
+            localStorage.setItem(key, value);
+          }
+        },
+        getItem: localStorage.getItem.bind(localStorage),
+        removeItem: localStorage.removeItem.bind(localStorage),
+      })),
+    },
   ),
 );
