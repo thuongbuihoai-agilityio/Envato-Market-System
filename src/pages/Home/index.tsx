@@ -114,6 +114,7 @@ const Dashboard = ({
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
             <Fetching
+              isLoading={isLoadingEfficiency && !isLoadingSelectEfficiencyType}
               isError={isErrorEfficiency}
               errorMessage="Efficiency data error"
             >
