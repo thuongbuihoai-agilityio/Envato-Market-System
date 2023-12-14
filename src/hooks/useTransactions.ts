@@ -62,7 +62,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       searchName,
       searchMonth,
     ],
-    queryFn: () => getTransactions(),
+    queryFn: ({ signal }) => getTransactions('', { signal }),
   });
 
   //  sort transactions
