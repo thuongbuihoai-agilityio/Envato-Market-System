@@ -9,13 +9,10 @@ import {
 } from '@chakra-ui/react';
 
 // Constants
-import { IMAGES, SIDEBAR } from '@app/constants';
+import { IMAGES, SIDEBAR, TITLES_HEADER } from '@app/constants';
 
 // Components
 import { Lazy } from '@app/components';
-
-// Helpers
-import { getTitleByPathName } from '@app/utils/helpers';
 
 // Layouts
 import { Header, SideBar } from '@app/layouts';
@@ -59,7 +56,9 @@ const Layout = () => {
       >
         <SideBar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
-        <Header name={getTitleByPathName(`${pathname.slice(1)}`)} />
+        <Header
+          name={TITLES_HEADER[`${pathname.slice(1)}`] || TITLES_HEADER.DEFAULT}
+        />
 
         {/* Button to show Sidebar on mobile */}
         <Image

@@ -4,8 +4,9 @@ import { TTransaction } from '@app/interfaces/transaction';
 
 // Mocks
 import { TRANSACTIONS } from '@app/mocks';
-import { formatDate } from '.';
-import { formatUppercaseFirstLetter } from './helpers';
+
+// Utils
+import { formatDate, formatUppercaseFirstLetter } from '.';
 
 /**
  * Convert data show for home page
