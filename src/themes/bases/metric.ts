@@ -30,4 +30,5 @@ export const sizes: ThemeOverride['sizes'] = {
   md: '40px',
   lg: '52px',
   xl: '64px',
+  huge: '160px',
 };
