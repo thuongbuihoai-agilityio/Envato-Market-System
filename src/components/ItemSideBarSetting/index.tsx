@@ -1,8 +1,6 @@
+import isEqual from 'react-fast-compare';
 import { memo, useCallback } from 'react';
-import { Box, Flex, Text, Heading, useColorMode } from '@chakra-ui/react';
-
-// constants
-import { THEMES } from '@app/constants/themes';
+import { Box, Flex, Text, Heading, useColorModeValue } from '@chakra-ui/react';
 
 export interface ItemSideBarSettingProps {
   id: string;
@@ -25,7 +23,7 @@ const ItemSideBarSetting = ({
     onClick(id);
   }, [id, onClick]);
 
-  const { colorMode } = useColorMode();
+  const color: string = useColorModeValue('secondary.200', 'secondary.600');
 
   const isActive: boolean = id === activeItemId;
 
@@ -35,13 +33,7 @@ const ItemSideBarSetting = ({
         cursor="pointer"
         onClick={handleToggle}
         columnGap={4}
-        bg={
-          isActive
-            ? colorMode === THEMES.LIGHT
-              ? 'secondary.200'
-              : 'secondary.600'
-            : 'transparent'
-        }
+        bg={isActive ? color : 'transparent'}
         px={4}
         py={6}
         borderRadius="lg"
@@ -70,6 +62,6 @@ const ItemSideBarSetting = ({
   );
 };
 
-const ItemSideBar = memo(ItemSideBarSetting);
+const ItemSideBar = memo(ItemSideBarSetting, isEqual);
 
 export default ItemSideBar;

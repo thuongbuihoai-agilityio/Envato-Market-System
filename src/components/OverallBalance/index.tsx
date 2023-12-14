@@ -27,10 +27,12 @@ import {
 import { IRevenueFlow } from '@app/interfaces';
 import { TOption } from '@app/components/common/Select';
 
+type TOverallData = Omit<IRevenueFlow, 'pending'>[];
+
 interface OverallBalanceProps {
   total: number;
   growth: number;
-  data: Omit<IRevenueFlow, 'pending'>[];
+  data: TOverallData;
 }
 
 const OverallBalanceComponent = ({
@@ -38,8 +40,7 @@ const OverallBalanceComponent = ({
   total,
   growth,
 }: OverallBalanceProps) => {
-  const [chartData, setChartData] =
-    useState<Omit<IRevenueFlow, 'pending'>[]>(data);
+  const [chartData, setChartData] = useState<TOverallData>(data);
 
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
@@ -57,17 +58,14 @@ const OverallBalanceComponent = ({
   );
 
   const handleChangeSelect = useCallback(
-    (option: TOption) => {
-      switch (option.value) {
-        case 'Jan,Jun':
-          setChartData(data.slice(0, -6));
-          break;
-        case 'July,Dec':
-          setChartData(data.slice(-6));
-          break;
-        default:
-          setChartData(data);
-      }
+    ({ value }: TOption) => {
+      const temp: TOverallData = [...data];
+      const result: Record<string, TOverallData> = {
+        'Jan,Jun': temp.slice(0, -6),
+        'July,Dec': temp.slice(-6),
+      };
+
+      setChartData(result[value] || data);
     },
     [data],
   );
@@ -95,8 +93,8 @@ const OverallBalanceComponent = ({
             <Flex key={item} gap={2} alignItems="center">
               <Box
                 bgColor={OVERALL_BALANCE_COLORS[index]}
-                w="12px"
-                height="12px"
+                w={3}
+                height={3}
                 rounded="50%"
               />
               <Text variant="textSm">{item}</Text>
@@ -149,10 +147,10 @@ const OverallBalanceComponent = ({
             custom: function ({ series, dataPointIndex }) {
               return `<div style="padding: 10px; background-color: #000; color: #FFF">
                 <div>
-                ${chartData[dataPointIndex].title} 
+                ${chartData[dataPointIndex].title}
                 </div>
                 <p>
-                ${REVENUE_FLOW_STATUS[0]}: ${series[0][dataPointIndex]} 
+                ${REVENUE_FLOW_STATUS[0]}: ${series[0][dataPointIndex]}
                 </p>
                 <p>
                 ${REVENUE_FLOW_STATUS[1]}: ${series[1][dataPointIndex]}
