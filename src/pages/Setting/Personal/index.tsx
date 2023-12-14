@@ -1,4 +1,6 @@
 import { memo, useCallback, useState } from 'react';
+import { AxiosResponse } from 'axios';
+
 import {
   HStack,
   VStack,
@@ -8,6 +10,7 @@ import {
   GridItem,
   Button,
   Flex,
+  useToast,
 } from '@chakra-ui/react';
 
 // Hooks
@@ -18,64 +21,81 @@ import { TUserDetail } from '@app/interfaces';
 
 // Hooks
 import { useAuth } from '@app/hooks';
+import { useUpdateUser } from '@app/hooks/useUser';
 
 // Constants
 import { AUTH_SCHEMA } from '@app/constants/form';
+import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@app/constants';
 
 // Components
 import { InputField, UpdateProfile } from '@app/components';
-import { useUpdateUser } from '@app/hooks/useUser';
-import { AxiosResponse } from 'axios';
 
 const UserFormComponent = () => {
   // TODO: will update integrate later
   const [isSubmit] = useState<boolean>(false);
   const { user, setUser } = useAuth();
   const { mutate: updateUser } = useUpdateUser();
+  const toast = useToast();
 
   const {
     control,
     setValue,
-    getValues,
     formState: {
       errors: { root },
+      isValid,
     },
     clearErrors,
     handleSubmit,
+
+    watch,
   } = useForm<TUserDetail>({
     defaultValues: {
-      avatarURL: user?.avatarURL || '',
-      email: user?.email || '',
-      firstName: user?.firstName || '',
-      lastName: user?.lastName || '',
-      phoneNumber: user?.phoneNumber || '',
-      country: user?.country || '',
-      city: user?.city || '',
-      address: user?.address || '',
-      postalCode: user?.postalCode || '',
-      facebookURL: user?.facebookURL || '',
-      linkedinURL: user?.linkedinURL || '',
-      twitterURL: user?.twitterURL || '',
-      youtubeURL: user?.youtubeURL || '',
+      id: user?.id,
+      avatarURL: user?.avatarURL,
+      email: user?.email,
+      firstName: user?.firstName,
+      lastName: user?.lastName,
+      phoneNumber: user?.phoneNumber,
+      country: user?.country,
+      city: user?.city,
+      address: user?.address,
+      postalCode: user?.postalCode,
+      facebookURL: user?.facebookURL,
+      linkedinURL: user?.linkedinURL,
+      twitterURL: user?.twitterURL,
+      youtubeURL: user?.youtubeURL,
     },
   });
 
   const handleSubmitForm = useCallback(
     (updatedInfo: TUserDetail) => {
-      const data = { ...updatedInfo, id: user?.id || '' };
-
-      updateUser(data, {
+      updateUser(updatedInfo, {
         onSuccess: (response: AxiosResponse<TUserDetail>) => {
           const updatedUser: TUserDetail = response.data;
           setUser(updatedUser);
+
+          toast({
+            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+            position: 'top-right',
+          });
         },
-        onError: (error) => {
-          // TODO: handle notification later
-          console.log(error);
+        onError: () => {
+          toast({
+            title: ERROR_MESSAGES.UPDATE_FAIL.title,
+            description: ERROR_MESSAGES.UPDATE_FAIL.description,
+            status: 'error',
+            duration: 3000,
+            isClosable: true,
+            position: 'top-right',
+          });
         },
       });
     },
-    [user, updateUser, setUser],
+    [updateUser, setUser, toast],
   );
 
   return (
@@ -88,14 +108,20 @@ const UserFormComponent = () => {
         <Grid
           width="100%"
           gridTemplateColumns={{
-            base: 'repeat(1,minmax(0,1fr))',
             xl: 'repeat(12,minmax(0,1fr))',
           }}
           gap={12}
+          display={{
+            base: 'flex',
+            xl: 'grid',
+          }}
+          flexDirection={{
+            base: 'column-reverse',
+          }}
         >
           <GridItem
+            order={-1}
             as="section"
-            flex={1}
             w={{
               base: '100%',
               md: 'unset',
@@ -115,6 +141,7 @@ const UserFormComponent = () => {
             >
               personal information&apos;s
             </Heading>
+
             <HStack
               gap={{
                 base: 6,
@@ -133,6 +160,7 @@ const UserFormComponent = () => {
                 name="firstName"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
+                    p={0.5}
                     variant="authentication"
                     bg="background.body.primary"
                     label="First Name"
@@ -446,7 +474,7 @@ const UserFormComponent = () => {
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
-                  isDisabled={isSubmit}
+                  isDisabled={!isValid}
                   w="none"
                 >
                   Save Profile
@@ -455,8 +483,8 @@ const UserFormComponent = () => {
             </GridItem>
           </GridItem>
 
-          <GridItem colSpan={5}>
-            <UpdateProfile setValue={setValue} getValues={getValues} />
+          <GridItem order={1} colSpan={5}>
+            <UpdateProfile setValue={setValue} url={watch('avatarURL') || ''} />
           </GridItem>
         </Grid>
       </VStack>

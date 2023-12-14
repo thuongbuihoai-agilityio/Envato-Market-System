@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { UseFormGetValues, UseFormSetValue } from 'react-hook-form';
+import { UseFormSetValue } from 'react-hook-form';
 import {
   Box,
   Heading,
@@ -10,10 +10,11 @@ import {
   InputGroup,
   InputLeftElement,
   FormLabel,
+  Skeleton,
 } from '@chakra-ui/react';
 
 // Interfaces
-import { TUser } from '@app/interfaces';
+import { TUserDetail } from '@app/interfaces';
 
 // Constants
 import { IMAGES } from '@app/constants/images';
@@ -22,28 +23,28 @@ import { IMAGES } from '@app/constants/images';
 import { uploadImage } from '@app/services/image.service';
 
 export type TUpdateProfileProps = {
-  setValue: UseFormSetValue<TUser>;
-  getValues: UseFormGetValues<TUser>;
+  url: string;
+  setValue: UseFormSetValue<TUserDetail>;
 };
-const UpdateProfile = ({ setValue, getValues }: TUpdateProfileProps) => {
-  const [selectedFile, setSelectedFile] = useState<File | null>();
+const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFileChange = useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files && e.target.files[0];
+      setIsLoading(true);
 
-      if (file) {
-        const formData = new FormData();
-        formData.append('image', file);
+      const file = (e.target.files && e.target.files[0]) as File;
 
-        const result = await uploadImage(formData);
+      const formData = new FormData();
+      formData.append('image', file);
 
-        setSelectedFile(file);
+      const result = await uploadImage(formData);
 
-        setValue('avatarURL', result);
-      }
+      setValue('avatarURL', result);
+
+      setIsLoading(false);
     },
-    [setValue, setSelectedFile],
+    [setValue],
   );
 
   return (
@@ -68,18 +69,16 @@ const UpdateProfile = ({ setValue, getValues }: TUpdateProfileProps) => {
       </Text>
 
       <Center position="relative">
-        <Image
-          borderRadius="50%"
-          w="huge"
-          h="huge"
-          src={
-            selectedFile
-              ? URL.createObjectURL(selectedFile)
-              : getValues('avatarURL')
-          }
-          alt={IMAGES.BIG_AVATAR.alt}
-          objectFit="cover"
-        />
+        <Skeleton isLoaded={!isLoading} borderRadius="50%" w="huge" h="huge">
+          <Image
+            borderRadius="50%"
+            w="huge"
+            h="huge"
+            src={url}
+            alt={IMAGES.BIG_AVATAR.alt}
+            objectFit="cover"
+          />
+        </Skeleton>
 
         <InputGroup boxSize={7}>
           <InputLeftElement>
@@ -90,7 +89,7 @@ const UpdateProfile = ({ setValue, getValues }: TUpdateProfileProps) => {
                 objectFit="cover"
                 maxW={'none'}
                 position="absolute"
-                bottom="-31px"
+                bottom={-31}
                 left="-48px"
                 zIndex={1}
                 border="none"
@@ -105,8 +104,8 @@ const UpdateProfile = ({ setValue, getValues }: TUpdateProfileProps) => {
               onChange={handleFileChange}
               opacity={0}
               position="relative"
-              width="100%"
-              height="100%"
+              width="full"
+              height="full"
               id="file"
               name="file"
             />

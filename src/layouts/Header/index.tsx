@@ -55,7 +55,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         <Logo />
         <Dropdown name="John Doe" permission="Super Admin" src={avatarURL} />
       </Flex>
-      <Box display={{ base: 'none', md: 'inline' }} minW="185px">
+      <Box display={{ base: 'none', md: 'inline' }} minW={185}>
         <Heading
           as="h1"
           fontSize="3xl"

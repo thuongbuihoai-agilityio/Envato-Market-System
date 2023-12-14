@@ -12,6 +12,6 @@ export const uploadImage = async (image: FormData): Promise<string> => {
 
     return response.data.data.url;
   } catch (error) {
-    throw new Error(ERROR_MESSAGES.UPDATE_FAIL);
+    throw new Error(ERROR_MESSAGES.UPDATE_FAIL.title);
   }
 };
