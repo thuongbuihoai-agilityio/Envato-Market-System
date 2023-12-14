@@ -5,7 +5,7 @@ import SidebarSetting from '@app/components/ItemSideBarSetting';
 
 const meta: Meta<typeof SidebarSetting> = {
   title: 'Custom Components/SidebarSetting',
-
+  tags: ['autodocs'],
   component: SidebarSetting,
 };
 
