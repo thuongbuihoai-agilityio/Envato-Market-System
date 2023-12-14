@@ -57,7 +57,7 @@ const PaginationComponent = ({
       ...data,
       arrOfCurrButtons: tempNumberOfButtons,
     });
-  }, [currentPage, pageSize]);
+  }, [currentPage, pageSize, totalCount]);
 
   const handlePrevPage = useCallback(() => {
     if (currentPage === 1) {

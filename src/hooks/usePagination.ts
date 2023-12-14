@@ -1,30 +1,64 @@
-import { useCallback } from 'react';
-import { useSearch } from '.';
+import { useCallback, useMemo, useState } from 'react';
 
-export const usePagination = () => {
-  const { searchParam, setSearchParam } = useSearch({
-    limit: '10',
-    page: '1',
+// Types
+import { TTransaction } from '@app/interfaces';
+
+export const usePagination = (transactions: TTransaction[]) => {
+  const [data, setData] = useState({
+    limit: 10,
+    currentPage: 1,
   });
+
+  const { limit, currentPage } = data;
+
+  const filterData = useMemo(() => {
+    const start = (currentPage - 1) * limit;
+    const end = limit + start;
+
+    return transactions.slice(start, end);
+  }, [currentPage, limit, transactions]);
 
   const handleChangeLimit = useCallback(
     (limit: number) => {
-      searchParam.page = '1';
-      setSearchParam('limit', limit.toString());
+      setData({
+        ...data,
+        currentPage: (data.currentPage = 1),
+        limit,
+      });
     },
-    [searchParam, setSearchParam],
+    [data],
   );
 
   const handleChangePage = useCallback(
-    (page: number) => {
-      setSearchParam('page', page.toString());
+    (currentPage: number) => {
+      setData({
+        ...data,
+        currentPage,
+      });
     },
-    [setSearchParam],
+    [data],
+  );
+
+  const handleSearchWithPagination = useCallback(
+    (searchTransactionValue = '', onSearchTransaction: () => void) => {
+      setData((prevData) => ({
+        ...prevData,
+        currentPage:
+          transactions.length < data.limit || !searchTransactionValue
+            ? 1
+            : prevData.currentPage,
+      }));
+      onSearchTransaction();
+    },
+    [transactions.length, data.limit, setData],
   );
 
   return {
-    searchParam,
+    data,
+    filterData,
+    setData,
     handleChangeLimit,
     handleChangePage,
+    handleSearchWithPagination,
   };
 };

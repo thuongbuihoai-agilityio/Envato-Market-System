@@ -1,8 +1,8 @@
 import { Flex, Img, Td, Text } from '@chakra-ui/react';
 import { memo } from 'react';
 
-// Components
-import { TDataSource } from '..';
+// Types
+import { TDataSource } from '@app/interfaces';
 
 const CustomerNameCellComponent = ({
   image,
