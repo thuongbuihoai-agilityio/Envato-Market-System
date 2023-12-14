@@ -18,4 +18,21 @@ export default {
       lines: 80,
     },
   },
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/*.d.ts',
+    '!**/*wdyr.ts',
+    '!**/*main.tsx',
+    '!**/*.stories.tsx',
+    '!**/node_modules/**',
+    '!<rootDir>/.storybook/**',
+    '!<rootDir>/*.config.js',
+    '!<rootDir>/src/assets/**',
+    '!<rootDir>/src/themes/**',
+    '!<rootDir>/src/constants/**',
+    '!<rootDir>/src/interfaces/**',
+    '!<rootDir>/coverage/**',
+    '!<rootDir>/public/**',
+    '!**/*.config.ts'
+  ]
 };

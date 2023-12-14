@@ -18,7 +18,7 @@ exports[`renders Setting Page with content 1`] = `
             class="css-10g0scl"
           >
             <div
-              class="chakra-spinner css-1y7joxr"
+              class="chakra-spinner css-zcyhge"
             >
               <span
                 class="css-8b45rq"
@@ -53,7 +53,7 @@ exports[`renders Setting Page with content 1`] = `
             class="css-vwt6je"
           >
             <div
-              class="chakra-spinner css-1y7joxr"
+              class="chakra-spinner css-zcyhge"
             >
               <span
                 class="css-8b45rq"
@@ -83,7 +83,7 @@ exports[`renders Setting Page with content 1`] = `
       class="css-1im7oej"
     >
       <div
-        class="chakra-spinner css-1y7joxr"
+        class="chakra-spinner css-zcyhge"
       >
         <span
           class="css-8b45rq"
