@@ -1,9 +1,9 @@
-import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
+import { lazy, memo, useCallback, useMemo, useState } from 'react';
 import areEqual from 'react-fast-compare';
-import { Box, Grid, GridItem, Spinner, Stack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
-import { SearchBar, Pagination, Fetching } from '@app/components';
+import { SearchBar, Pagination, Fetching, Lazy } from '@app/components';
 
 // Hooks
 import { useGetStatistic, useTransactions, usePagination } from '@app/hooks';
@@ -107,12 +107,12 @@ const Dashboard = ({
           isError={isErrorTotalList}
           errorMessage="Total statistic data error "
         >
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <TotalList
               spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
               isLoading={isLoadingTotalList}
             />
-          </Suspense>
+          </Lazy>
         </Fetching>
 
         <Grid
@@ -126,9 +126,9 @@ const Dashboard = ({
               isError={isErrorRevenueFlow}
               errorMessage="Revenue flow data error"
             >
-              <Suspense fallback={<Spinner />}>
+              <Lazy>
                 <RevenueFlow data={revenueFlowData} />
-              </Suspense>
+              </Lazy>
             </Fetching>
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
@@ -136,14 +136,14 @@ const Dashboard = ({
               isError={isErrorEfficiency}
               errorMessage="Efficiency data error"
             >
-              <Suspense fallback={<Spinner />}>
+              <Lazy>
                 <Efficiency
                   {...efficiencyData}
                   isLoading={isLoadingEfficiency}
                   isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                   onChangeSelect={handleChangeSelectEfficiency}
                 />
-              </Suspense>
+              </Lazy>
             </Fetching>
           </GridItem>
         </Grid>
@@ -166,12 +166,12 @@ const Dashboard = ({
               onSearch={onSearchTransaction}
             />
             <Box mt={5}>
-              <Suspense fallback={<Spinner />}>
+              <Lazy>
                 <TransactionTable
                   transactions={transactionList}
                   onSort={sortBy}
                 />
-              </Suspense>
+              </Lazy>
             </Box>
             <Box mt={8}>
               <Pagination
@@ -191,9 +191,9 @@ const Dashboard = ({
           spacing={{ base: 6, lg: 0 }}
         >
           <Box w="full">
-            <Suspense fallback={<Spinner />}>
+            <Lazy>
               <CartPayment />
-            </Suspense>
+            </Lazy>
           </Box>
 
           <Box
@@ -201,9 +201,9 @@ const Dashboard = ({
             mt={{ base: 6, md: 0, '2xl': 6 }}
             ml={{ lg: 6, '2xl': 0 }}
           >
-            <Suspense fallback={<Spinner />}>
+            <Lazy>
               <BoxChat />
-            </Suspense>
+            </Lazy>
           </Box>
         </Stack>
       </GridItem>
