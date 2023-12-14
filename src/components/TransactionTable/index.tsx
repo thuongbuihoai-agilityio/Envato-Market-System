@@ -1,5 +1,6 @@
-import { Box, Spinner } from '@chakra-ui/react';
-import { Suspense, memo, useCallback, useMemo } from 'react';
+import { Box } from '@chakra-ui/react';
+import { memo, useCallback, useMemo } from 'react';
+import isEqual from 'react-fast-compare';
 
 // Components
 import {
@@ -11,10 +12,11 @@ import {
   SearchBar,
   StatusCell,
   Fetching,
+  Lazy,
 } from '@app/components/index';
 
 // Utils
-import { getTransactionHomePage } from '@app/utils/transaction';
+import { getTransactionHomePage } from '@app/utils';
 
 // Hocs
 import { TWithTransaction } from '@app/hocs';
@@ -23,8 +25,11 @@ import { TWithTransaction } from '@app/hocs';
 import { TSortField, usePagination, useTransactions } from '@app/hooks';
 
 // Constants
-import { COLUMNS_DASHBOARD, COLUMNS_HISTORY } from '@app/constants/columns';
-import { STATUS_LABEL } from '@app/constants/status';
+import {
+  COLUMNS_DASHBOARD,
+  COLUMNS_HISTORY,
+  STATUS_LABEL,
+} from '@app/constants';
 
 // Types
 import { TDataSource, THeaderTable } from '@app/interfaces';
@@ -48,25 +53,17 @@ const TransactionTableComponent = ({
     name: searchTransactionValue,
   });
 
-  const { data, filterData, setData, handleChangeLimit, handleChangePage } =
-    usePagination(transactions);
+  const {
+    data,
+    filterData,
+    handleChangeLimit,
+    handleChangePage,
+    handleSearchWithPagination,
+  } = usePagination(transactions);
 
-  const handleSearchWithPagination = useCallback(() => {
-    setData((prevData) => ({
-      ...prevData,
-      currentPage:
-        transactions.length < data.limit || searchTransactionValue === ''
-          ? 1
-          : prevData.currentPage,
-    }));
-    onSearchTransaction();
-  }, [
-    transactions.length,
-    data.limit,
-    searchTransactionValue,
-    setData,
-    onSearchTransaction,
-  ]);
+  const handleSearchParams = () => {
+    handleSearchWithPagination(searchTransactionValue, onSearchTransaction);
+  };
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -128,15 +125,15 @@ const TransactionTableComponent = ({
     <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
       <SearchBar
         control={controlInputTransaction}
-        onSearch={handleSearchWithPagination}
+        onSearch={handleSearchParams}
       />
       <Box mt={5}>
-        <Suspense fallback={<Spinner />}>
+        <Lazy>
           <Table
             columns={columns as THeaderTable[]}
             dataSource={getTransactionHomePage(filterData)}
           />
-        </Suspense>
+        </Lazy>
       </Box>
       {!!transactions.length && (
         <Box mt={8}>
@@ -153,6 +150,6 @@ const TransactionTableComponent = ({
   );
 };
 
-const TransactionTable = memo(TransactionTableComponent);
+const TransactionTable = memo(TransactionTableComponent, isEqual);
 
 export default TransactionTable;

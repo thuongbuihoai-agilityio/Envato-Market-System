@@ -2,13 +2,13 @@ import { useCallback, useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 // Services
-import { getTransactions } from '@app/services/transaction.service';
+import { getTransactions } from '@app/services';
 
 // Constants
 import { END_POINTS } from '@app/constants';
 
 // Types
-import { TTransaction } from '@app/interfaces/transaction';
+import { TTransaction } from '@app/interfaces';
 
 export type TSearchTransaction = {
   name: string;

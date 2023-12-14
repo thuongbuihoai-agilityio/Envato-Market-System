@@ -5,7 +5,7 @@ import {
 } from '@app/constants/transaction';
 
 // Interfaces
-import { TTransaction } from '@app/interfaces/transaction';
+import { TTransaction } from '@app/interfaces';
 
 export const HISTORY: TTransaction[] = [
   {
