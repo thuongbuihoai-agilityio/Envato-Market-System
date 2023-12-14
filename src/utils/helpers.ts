@@ -3,7 +3,7 @@ import { ERROR_MESSAGES } from '@app/constants/messages';
 import { ROUTES } from '@app/constants/routers';
 import { FormatPaginationParams } from '@app/interfaces/pagination';
 
-export const formatNumberButton = (numberOfPage: number) => {
+export const formatNumberButton = (numberOfPage: number): number[] => {
   const numberOfButtons = [];
   for (let i = 1; i <= numberOfPage; ++i) {
     numberOfButtons.push(i);
@@ -16,7 +16,7 @@ export const formatPagination = ({
   pageSize,
   currentPage,
   arrOfCurrButtons,
-}: FormatPaginationParams) => {
+}: FormatPaginationParams): (string | number)[] => {
   const numberOfPage = Math.ceil(totalCount / pageSize);
   let tempNumberOfButtons = [...arrOfCurrButtons];
 
@@ -74,7 +74,7 @@ export const getTitleByPathName = (path: string): string => {
   }
 };
 
-export const validatePassword = (value: string) => {
+export const validatePassword = (value: string): string | boolean => {
   if (!value) {
     return ERROR_MESSAGES.FIELD_REQUIRED('Password');
   }
@@ -93,5 +93,5 @@ export const validatePassword = (value: string) => {
   return true;
 };
 
-export const formatUppercaseFirstLetter = (value = '') =>
+export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);

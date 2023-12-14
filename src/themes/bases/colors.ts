@@ -1,6 +1,4 @@
-// TODO: update type later
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const colors: any = {
+export const colors = {
   primary: {
     400: '#D9FBE6',
     500: '#22C55E',
