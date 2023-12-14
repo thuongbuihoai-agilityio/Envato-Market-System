@@ -1,4 +1,7 @@
-import { Avatar, Box, Flex, Image, Spacer, Text } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Spacer, Text } from '@chakra-ui/react';
+
+// Components
+import MessageImage from './MessageImage';
 
 interface MessageProps {
   content?: string;
@@ -11,83 +14,59 @@ interface MessageProps {
 const Message = ({
   content,
   avatar,
-  isImage,
   avatarPosition = 'before',
+  isImage = false,
   isOwnerMessage = false,
-}: MessageProps) => {
-  const reversePositionTime = isOwnerMessage ? 'row-reverse' : 'row';
+}: MessageProps) => (
+  <Flex>
+    {avatarPosition === 'before' && (
+      <Avatar src={avatar} borderColor="border.tertiary" w={9} h={9} mr={2} />
+    )}
 
-  return (
-    <Flex>
-      {avatarPosition === 'before' && (
-        <Avatar src={avatar} borderColor="border.tertiary" w={9} h={9} mr={2} />
-      )}
-
-      <Flex align="flex-end" direction={reversePositionTime} mb="30px">
-        <Box data-testid="image-container">
-          {isImage ? (
-            <>
-              <Image
-                src={'images/record.png'}
-                _light={{
-                  display: 'block',
-                }}
-                _dark={{
-                  display: 'none',
-                }}
-                alt="Message Image"
-                ml={2}
-              />
-
-              <Image
-                src={'images/record-dark.png'}
-                _light={{
-                  display: 'none',
-                }}
-                _dark={{
-                  display: 'block',
-                }}
-                alt="Message Image"
-                ml={2}
-              />
-            </>
-          ) : (
-            <Text
-              bg="background.component.secondary"
-              p={3}
-              ml={2}
-              borderRadius={8}
-              color="text.primary"
-              data-testid="text-content"
-            >
-              {content}
-            </Text>
-          )}
-        </Box>
-        <Spacer />
-        <Text
-          ml={3}
-          mr={3}
-          fontSize="xs"
-          color="secondary.250"
-          fontWeight="medium"
-        >
-          {new Date().toLocaleTimeString()}
-        </Text>
-      </Flex>
-
-      {avatarPosition === 'after' && (
-        <Avatar
-          src={avatar}
-          borderColor="border.tertiary"
-          w={9}
-          h={9}
-          ml={2}
-          data-testid="avatar"
-        />
-      )}
+    <Flex
+      align="flex-end"
+      direction={isOwnerMessage ? 'row-reverse' : 'row'}
+      mb="30px"
+    >
+      <Box data-testid="image-container">
+        {isImage ? (
+          <MessageImage />
+        ) : (
+          <Text
+            bg="background.component.secondary"
+            p={3}
+            ml={2}
+            borderRadius={8}
+            color="text.primary"
+            data-testid="text-content"
+          >
+            {content}
+          </Text>
+        )}
+      </Box>
+      <Spacer />
+      <Text
+        ml={3}
+        mr={3}
+        fontSize="xs"
+        color="secondary.250"
+        fontWeight="medium"
+      >
+        {new Date().toLocaleTimeString()}
+      </Text>
     </Flex>
-  );
-};
+
+    {avatarPosition === 'after' && (
+      <Avatar
+        src={avatar}
+        borderColor="border.tertiary"
+        w={9}
+        h={9}
+        ml={2}
+        data-testid="avatar"
+      />
+    )}
+  </Flex>
+);
 
 export default Message;
