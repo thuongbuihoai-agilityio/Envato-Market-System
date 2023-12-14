@@ -8,6 +8,7 @@ import { Status } from '@app/interfaces';
 
 const meta: Meta<typeof StatusLabel> = {
   title: 'Custom Components/StatusLabel',
+  tags: ['autodocs'],
   component: StatusLabel,
 };
 
