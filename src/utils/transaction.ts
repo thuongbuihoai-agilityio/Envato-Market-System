@@ -1,6 +1,5 @@
 // Types
-import { TDataSource } from '@app/interfaces';
-import { TTransaction } from '@app/interfaces';
+import { TDataSource, TTransaction } from '@app/interfaces';
 
 // Mocks
 import { TRANSACTIONS } from '@app/mocks';
