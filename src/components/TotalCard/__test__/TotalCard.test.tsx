@@ -13,4 +13,18 @@ describe('TotalCard component', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('Get TotalBalance component', () => {
+    const { getByText } = render(
+      <TotalCard
+        title="Total earnings"
+        total={10}
+        growth={20}
+        weeklyIncome={TOTAL_EARNINGS_MOCK.weeklyIncome}
+      />,
+    );
+
+    const totalBalance = getByText('Total earnings');
+    expect(totalBalance).toBeTruthy();
+  });
 });
