@@ -1,9 +1,9 @@
 import areEqual from 'react-fast-compare';
-import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
-import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
+import { lazy, memo, useCallback, useMemo, useState } from 'react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
-import { Pagination, SearchBar, Fetching } from '@app/components';
+import { Pagination, SearchBar, Fetching, Lazy } from '@app/components';
 
 // Constants
 import { END_POINTS } from '@app/constants';
@@ -92,10 +92,10 @@ const MyWallet = ({
     >
       <GridItem colSpan={1}>
         <Flex w="full" direction="column" gap={6}>
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <TotalBalance />
             <CartPayment />
-          </Suspense>
+          </Lazy>
         </Flex>
       </GridItem>
       <GridItem colSpan={{ xl: 3 }} mt={{ base: 6, '3xl': 0 }}>
@@ -111,9 +111,9 @@ const MyWallet = ({
                 isError={isErrorOverallBalance}
                 errorMessage="Overall Balance data error"
               >
-                <Suspense fallback={<Spinner />}>
+                <Lazy>
                   <OverallBalance {...overallBalanceData} />
-                </Suspense>
+                </Lazy>
               </Fetching>
             </Box>
             <Box flex={1}>
@@ -121,14 +121,14 @@ const MyWallet = ({
                 isError={isErrorEfficiency}
                 errorMessage="Efficiency data error"
               >
-                <Suspense fallback={<Spinner />}>
+                <Lazy>
                   <Efficiency
                     {...efficiencyData}
                     isLoading={isLoadingEfficiency}
                     isLoadingWhenSelect={isLoadingSelectEfficiencyType}
                     onChangeSelect={handleChangeSelectEfficiency}
                   />
-                </Suspense>
+                </Lazy>
               </Fetching>
             </Box>
           </Flex>
@@ -149,12 +149,12 @@ const MyWallet = ({
                   onSearch={onSearchTransaction}
                 />
                 <Box mt={5}>
-                  <Suspense fallback={<Spinner />}>
+                  <Lazy>
                     <TransactionTable
                       transactions={transactionList}
                       onSort={sortBy}
                     />
-                  </Suspense>
+                  </Lazy>
                 </Box>
                 <Box mt={8}>
                   <Pagination

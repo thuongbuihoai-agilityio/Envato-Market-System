@@ -1,8 +1,8 @@
-import { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
+import { lazy, memo, useCallback, useMemo, useState } from 'react';
 
 // Components
-import { Box, Flex, Text, Spinner } from '@chakra-ui/react';
-import { Button, InputField, Fetching, Select } from '@app/components';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { Button, InputField, Fetching, Select, Lazy } from '@app/components';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
@@ -137,15 +137,15 @@ const User = () => {
           </Flex>
         </Flex>
         <Fetching isLoading={isEmployeesLoading} isError={isEmployeesError}>
-          <Suspense fallback={<Spinner />}>
+          <Lazy>
             <UsersTable users={usersFiltered} onClickUser={handleClickUser} />
-          </Suspense>
+          </Lazy>
         </Fetching>
       </Box>
       <Box flex={1} pt={20}>
-        <Suspense fallback={<Spinner />}>
+        <Lazy>
           <UserCard user={user || INITIAL_USER} />
-        </Suspense>
+        </Lazy>
       </Box>
     </Flex>
   );
