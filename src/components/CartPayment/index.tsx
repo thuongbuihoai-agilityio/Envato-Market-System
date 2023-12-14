@@ -171,6 +171,7 @@ const CartPaymentComponent = ({
               fontSize="2xl"
               ml={2}
               value={value}
+              name="money"
               onChange={handleChange}
             />
 
