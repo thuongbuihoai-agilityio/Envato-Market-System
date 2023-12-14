@@ -38,20 +38,23 @@ interface ChartDataState {
 }
 
 const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
-  const defaultSeries = useMemo(
-    () => [
+  const defaultSeries = useMemo(() => {
+    const generatesData = (
+      key: keyof Omit<IRevenueFlow, '_id' | 'title'>,
+    ): number[] => data.map((item: IRevenueFlow) => item[key]);
+
+    return [
       {
-        data: data.map(({ pending }) => pending),
+        data: generatesData('pending'),
       },
       {
-        data: data.map(({ signed }) => signed),
+        data: generatesData('signed'),
       },
       {
-        data: data.map(({ lost }) => lost),
+        data: generatesData('lost'),
       },
-    ],
-    [data],
-  );
+    ];
+  }, [data]);
 
   const [chartData, setChartData] = useState<ChartDataState[]>(defaultSeries);
 
