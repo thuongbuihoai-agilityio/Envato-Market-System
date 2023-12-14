@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Text, useDisclosure } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 
 export type FaqItemProps = {
   question: string;
@@ -8,18 +8,19 @@ export type FaqItemProps = {
 };
 
 const FaqItem = ({ question, answer }: FaqItemProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const COLOR = 'primary.500';
 
-  const toggleAnswer = useCallback(() => {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
-  }, []);
+  const { isOpen: isOpenAnswer, onToggle: onToggleAnswer } = useDisclosure();
 
-  const colorFill = 'primary.500';
+  const icons: Record<'true' | 'false', ReactElement> = {
+    true: <MinusIcon color={COLOR} />,
+    false: <AddIcon color={COLOR} />,
+  };
 
   return (
     <Box>
       <Flex
-        onClick={toggleAnswer}
+        onClick={onToggleAnswer}
         cursor="pointer"
         align="center"
         mb={5}
@@ -28,21 +29,17 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
         borderColor="border.quinary"
         color="text.quinary"
       >
-        {isOpen ? (
-          <MinusIcon color={colorFill} />
-        ) : (
-          <AddIcon color={colorFill} />
-        )}
+        {icons[`${isOpenAnswer}`]}
         <Text ml={5} fontWeight="bold" color="text.quinary" fontSize="lg">
           {question}
         </Text>
       </Flex>
-      {isOpen && (
+      {isOpenAnswer && (
         <Flex flex={1} pb={4}>
           <Divider
             orientation="vertical"
             height="auto"
-            borderColor={colorFill}
+            borderColor={COLOR}
             borderWidth="1px"
             borderRadius="lg"
             marginLeft={9}

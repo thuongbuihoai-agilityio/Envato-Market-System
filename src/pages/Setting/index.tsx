@@ -1,4 +1,4 @@
-import { lazy, memo, useCallback, useState } from 'react';
+import { ReactElement, lazy, memo, useCallback, useState } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 // Constants
@@ -31,29 +31,12 @@ const SettingPage = () => {
     OPTION_SETTING.USER_FORM,
   );
 
-  const handleItemClick = useCallback(
-    (id: string) => setActiveItemId(id),
-    [activeItemId],
-  );
+  const pages: Record<string, ReactElement> = {
+    [OPTION_SETTING.USER_FORM]: <UserForm />,
+    [OPTION_SETTING.FAQ_PAGE]: <FaqPage />,
+  };
 
-  const renderPageContent = useCallback(() => {
-    switch (activeItemId) {
-      case OPTION_SETTING.USER_FORM:
-        return (
-          <Lazy>
-            <UserForm />
-          </Lazy>
-        );
-      case OPTION_SETTING.FAQ_PAGE:
-        return (
-          <Lazy>
-            <FaqPage />
-          </Lazy>
-        );
-      default:
-        return null;
-    }
-  }, [activeItemId]);
+  const handleItemClick = useCallback((id: string) => setActiveItemId(id), []);
 
   return (
     <Grid
@@ -93,7 +76,7 @@ const SettingPage = () => {
       </GridItem>
 
       <GridItem colSpan={9} px={10} py={8} bg="background.body.quaternary">
-        {renderPageContent()}
+        <Lazy>{pages[activeItemId]}</Lazy>
       </GridItem>
     </Grid>
   );
