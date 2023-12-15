@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { AxiosResponse } from 'axios';
+import { shallow } from 'zustand/shallow';
 
 // Constants
 import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
@@ -15,7 +16,6 @@ import { getCurrentTimeSeconds } from '@app/utils';
 
 // Stores
 import { authStore } from '@app/stores';
-import { shallow } from 'zustand/shallow';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>
@@ -135,13 +135,10 @@ export const useAuth = () => {
     [updateStore],
   );
 
-  const handleSetUser = useCallback(updateStore, [updateStore]);
-  const handleSignOut = useCallback(clearStore, [clearStore]);
-
   return {
-    setUser: handleSetUser,
+    setUser: updateStore,
     signIn: handleSignIn,
     signUp: handleSignUp,
-    signOut: handleSignOut,
+    signOut: clearStore,
   };
 };
