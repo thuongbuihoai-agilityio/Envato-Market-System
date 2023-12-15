@@ -3,18 +3,21 @@ import '@testing-library/jest-dom';
 import Fetching from '..';
 
 describe('Fetching component', () => {
-  it('renders correctly', () => {
+  it('should renders correctly', () => {
     const { container } = render(<Fetching isLoading />);
+
     expect(container).toMatchSnapshot();
   });
 
-  it('renders children when not loading or in error state', () => {
+  it('should renders children when not loading or in error state', () => {
     render(<Fetching>{'Content'}</Fetching>);
+
     expect(screen.getByText('Content')).toBeInTheDocument();
   });
 
-  it('renders error message when in error state', () => {
+  it('should renders error message when in error state', () => {
     render(<Fetching isError errorMessage="Error Message" />);
+
     expect(screen.getByText('Error Message')).toBeInTheDocument();
   });
 });
