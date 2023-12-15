@@ -15,6 +15,7 @@ import { getCurrentTimeSeconds } from '@app/utils';
 
 // Stores
 import { authStore } from '@app/stores';
+import { shallow } from 'zustand/shallow';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>
@@ -44,10 +45,13 @@ export type TUseAuth = {
 };
 
 export const useAuth = () => {
-  const { updateStore, clearStore } = authStore((state) => ({
-    updateStore: state.updateStore,
-    clearStore: state.clearStore,
-  }));
+  const { updateStore, clearStore } = authStore(
+    (state) => ({
+      updateStore: state.updateStore,
+      clearStore: state.clearStore,
+    }),
+    shallow,
+  );
 
   const handleSignIn = useCallback(
     async (
