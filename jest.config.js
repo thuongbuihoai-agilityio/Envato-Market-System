@@ -31,6 +31,7 @@ export default {
     '!<rootDir>/src/themes/**',
     '!<rootDir>/src/constants/**',
     '!<rootDir>/src/interfaces/**',
+    '!<rootDir>/src/providers/**',
     '!<rootDir>/coverage/**',
     '!<rootDir>/public/**',
     '!**/*.config.ts'
