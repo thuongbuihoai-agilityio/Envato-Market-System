@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // App
-import App from './App.tsx';
+import App from './app/App.tsx';
 
 // config why-did-you-render
 import './wdyr';
 
 // Styles
 import './index.css';
+import './app/App.css';
 
 // Providers
 import { ChakraProvider, QueryProvider } from './providers';
