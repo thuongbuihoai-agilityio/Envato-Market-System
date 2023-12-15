@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Fetching from '..';
+
+// Components
+import Fetching from '../index';
 
 describe('Fetching component', () => {
   it('should renders correctly', () => {
