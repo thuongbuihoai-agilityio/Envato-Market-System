@@ -47,12 +47,12 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
             <img
               alt="Edit icon"
               class="chakra-image css-1eh5dcz"
-              data-testid="upload-image"
               src="/icons/edit.svg"
             />
           </label>
           <input
-            class="chakra-input css-ueb3mo"
+            class="chakra-input css-kmhx47"
+            data-testid="upload-image"
             id="file"
             name="file"
             type="file"

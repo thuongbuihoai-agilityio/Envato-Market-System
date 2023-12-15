@@ -37,8 +37,13 @@ describe('withAuth', () => {
       user: {
         email: 'a@asnet.com.vv',
         id: '1',
-        lastName: 'B',
-        firstName: 'C',
+        lastName: 'nguyen',
+        firstName: 'van',
+        phoneNumber: '0123838377',
+        country: 'Da Nang',
+        city: 'Da Nang',
+        address: 'Da Nang',
+        postalCode: '1234',
         createdAt: Date.now(),
       } as TAuthStoreData['user'],
     });
