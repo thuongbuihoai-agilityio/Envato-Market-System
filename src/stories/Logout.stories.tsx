@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { theme } from '@chakra-ui/react';
+import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
 import { Logout } from '@app/assets/icons/Logout';
@@ -12,6 +12,13 @@ const meta: Meta<typeof Logout> = {
       description: 'Define the color fill for the Logout Icon',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,
@@ -26,5 +33,13 @@ type Story = StoryObj<typeof Logout>;
 export const Default: Story = {
   args: {
     color: theme.colors.gray[800],
+  },
+  render: function Render(props) {
+    const colorFill = useColorModeValue(
+      theme.colors.gray[800],
+      theme.colors.white,
+    );
+
+    return <Logout {...props} color={colorFill} />;
   },
 };

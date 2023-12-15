@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { theme } from '@chakra-ui/react';
+import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
 import { AvatarSetting } from '@app/assets/icons';
@@ -25,6 +25,13 @@ const meta: Meta<typeof AvatarSetting> = {
       description: 'Define the rotation degree of the AvatarSetting Icon',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,
@@ -38,5 +45,13 @@ type Story = StoryObj<typeof AvatarSetting>;
 export const Default: Story = {
   args: {
     color: theme.colors.gray[800],
+  },
+  render: function Render(props) {
+    const colorFill = useColorModeValue(
+      theme.colors.gray[800],
+      theme.colors.white,
+    );
+
+    return <AvatarSetting {...props} color={colorFill} />;
   },
 };

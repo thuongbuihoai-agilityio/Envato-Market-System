@@ -26,6 +26,11 @@ const meta: Meta<typeof Benefit> = {
     description: {
       description: 'The description content of the Benefit',
     },
+
+    width: {
+      description: 'The width of the benefit content',
+      defaultValue: '50%',
+    },
   },
   parameters: {
     controls: {
@@ -44,5 +49,6 @@ export const Default: Story = {
     heading: 'Speady, Easy and Fast',
     description:
       'BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a $20 bonus when you receive qualifying direct deposits',
+    width: '100%',
   },
 };

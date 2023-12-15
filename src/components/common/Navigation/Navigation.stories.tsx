@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 // components
 import { Navigation } from '@app/components';
@@ -22,6 +22,13 @@ const meta: Meta<typeof Navigation> = {
       defaultValue: '/',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,

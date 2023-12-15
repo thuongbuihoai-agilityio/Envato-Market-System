@@ -1,4 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
+import { Box } from '@chakra-ui/react';
 
 // Components
 import FaqItem from '@app/components/FaqItem';
@@ -14,6 +15,18 @@ const meta: Meta<typeof FaqItem> = {
 
     answer: {
       description: 'This is content of answer',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
+  parameters: {
+    controls: {
+      expanded: true,
     },
   },
 };

@@ -1,12 +1,22 @@
 import { StoryObj, Meta } from '@storybook/react';
+import { Box } from '@chakra-ui/react';
 
 // Components
 import { SettingIcon } from '@app/assets/icons';
+import { Navigation } from '@app/components';
 
 const meta: Meta<typeof SettingIcon> = {
   title: 'Icons/Setting',
   tags: ['autodocs'],
-
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Navigation>
+          <Story />
+        </Navigation>
+      </Box>
+    ),
+  ],
   component: SettingIcon,
 };
 

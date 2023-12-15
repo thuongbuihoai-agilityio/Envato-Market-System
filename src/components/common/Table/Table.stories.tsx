@@ -28,7 +28,7 @@ const meta: Meta<typeof Table> = {
     },
   },
   render: (props) => (
-    <Box bgColor="secondary.150" w="full" h="100vh" padding={10}>
+    <Box bgColor="background.component.primary" w="full" h="50vh" padding={10}>
       <Table {...props} />
     </Box>
   ),

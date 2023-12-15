@@ -6,6 +6,7 @@ import ActionsCell from '../ActionsCell';
 
 const meta: Meta<typeof ActionsCell> = {
   title: 'Custom Components/Users/Cell/ActionsCell',
+  tags: ['autodocs'],
   component: ActionsCell,
   parameters: {
     controls: {

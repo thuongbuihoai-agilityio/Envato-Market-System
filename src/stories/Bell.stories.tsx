@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { theme } from '@chakra-ui/react';
+import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
 import { Bell } from '@app/assets/icons';
@@ -24,6 +24,13 @@ const meta: Meta<typeof Bell> = {
       description: 'Define the rotation degree of the Bell Icon',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,
@@ -37,5 +44,13 @@ type Story = StoryObj<typeof Bell>;
 export const Default: Story = {
   args: {
     color: theme.colors.gray[800],
+  },
+  render: function Render(props) {
+    const colorFill = useColorModeValue(
+      theme.colors.gray[800],
+      theme.colors.white,
+    );
+
+    return <Bell {...props} color={colorFill} />;
   },
 };
