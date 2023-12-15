@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Profile component renders correctly 1`] = `
+exports[`UpdateProfile component Profile component renders correctly 1`] = `
 <div>
   <div
     class="css-0"
@@ -24,21 +24,41 @@ exports[`Profile component renders correctly 1`] = `
     <div
       class="css-4bwcy0"
     >
-      <img
-        alt="This is the big avatar"
-        class="chakra-image css-1phd9a0"
-        src="/images/big-avatar.png"
-      />
-      <button
-        class="chakra-button css-1bbvwej"
-        type="button"
+      <div
+        class="chakra-skeleton css-183zf81"
       >
         <img
-          alt="Edit icon"
-          class="chakra-image css-0"
-          src="/icons/edit.svg"
+          alt="This is the big avatar"
+          class="chakra-image css-opaydd"
+          src=""
         />
-      </button>
+      </div>
+      <div
+        class="chakra-input__group css-eh9zni"
+        data-group="true"
+      >
+        <div
+          class="chakra-input__left-element css-o84xzr"
+        >
+          <label
+            class="chakra-form__label css-uvho5g"
+            for="file"
+          >
+            <img
+              alt="Edit icon"
+              class="chakra-image css-1eh5dcz"
+              data-testid="upload-image"
+              src="/icons/edit.svg"
+            />
+          </label>
+          <input
+            class="chakra-input css-ueb3mo"
+            id="file"
+            name="file"
+            type="file"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>

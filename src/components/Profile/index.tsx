@@ -108,6 +108,7 @@ const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
               height="full"
               id="file"
               name="file"
+              data-testid="upload-image"
             />
           </InputLeftElement>
         </InputGroup>
