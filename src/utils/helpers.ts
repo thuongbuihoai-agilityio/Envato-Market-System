@@ -73,3 +73,6 @@ export const validatePassword = (value: string) => {
 
 export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
+
+export const clearNonNumericAndLeadingZeros = (value: string): string =>
+  value.replace(/[^0-9]/g, '').replace(/^0+/, '');

@@ -13,6 +13,7 @@ describe('CardPayment test cases', () => {
 
   test('should invoke handleChange function to prevent negative number when typing money amount', async () => {
     const { container } = render(<CardPayment />);
+
     const moneyInput = container.querySelector<HTMLInputElement>(
       'input[name="money"]',
     );
