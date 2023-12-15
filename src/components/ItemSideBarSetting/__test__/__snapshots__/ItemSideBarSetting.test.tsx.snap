@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fetching component should renders correctly 1`] = `
+exports[`ItemSidebarSetting component should renders correctly 1`] = `
 <div>
   <div
     class="css-13rbvqk"
