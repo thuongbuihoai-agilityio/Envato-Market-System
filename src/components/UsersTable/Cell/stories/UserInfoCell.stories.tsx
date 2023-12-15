@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { Table, Tr } from '@chakra-ui/react';
+import { Box, Table, Tr } from '@chakra-ui/react';
 
 // Component
 import UserInfoCell from '../UserInfoCell';
@@ -9,7 +9,15 @@ import { USERS } from '@app/mocks';
 
 const meta: Meta<typeof UserInfoCell> = {
   title: 'Custom Components/Users/Cell/UserInfoCell',
+  tags: ['autodocs'],
   component: UserInfoCell,
+  decorators: [
+    (Story) => (
+      <Box bgColor="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,

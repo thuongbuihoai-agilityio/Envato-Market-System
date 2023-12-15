@@ -46,7 +46,7 @@ export const Button = defineStyleConfig({
       },
     },
     outline: {
-      color: 'gray.800',
+      color: 'text.primary',
       fontWeight: 'medium',
       borderColor: 'border.primary',
       backgroundColor: 'transparent',

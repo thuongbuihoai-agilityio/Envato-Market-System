@@ -33,6 +33,7 @@ import { TImage } from '@app/interfaces';
 
 const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
   const { colorMode } = useColorMode();
+
   const logos: Record<ColorMode, TImage> = {
     light: IMAGES.LOGO_MINI_LIGHT,
     dark: IMAGES.LOGO_MINI_DARK,
