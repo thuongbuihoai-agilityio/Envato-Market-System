@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserTable component renders correctly 1`] = `
+exports[`UserTable component should renders correctly 1`] = `
 <div>
   <div
     class="chakra-table__container css-zipzvv"

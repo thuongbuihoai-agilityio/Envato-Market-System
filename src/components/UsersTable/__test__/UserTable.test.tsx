@@ -1,16 +1,29 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import UserTable from '..';
+
+// Components
+import UserTable from '../index';
+
+// Mocks
 import { USERS_MOCK } from '@app/mocks';
 
 describe('UserTable component', () => {
-  it('renders correctly', () => {
+  it('should renders correctly', () => {
     const { container } = render(<UserTable users={USERS_MOCK} />);
+
     expect(container).toMatchSnapshot();
   });
 
-  it('renders children when not loading or in error state', () => {
+  it('should renders component', () => {
     render(<UserTable users={USERS_MOCK} />);
-    expect(screen.getByText('Abdur Rohman')).toBeInTheDocument();
+
+    expect(USERS_MOCK).toBeInTheDocument();
+  });
+
+  it('should renders children when onclickUser', () => {
+    const onClickUser = jest.fn();
+    render(<UserTable users={USERS_MOCK} onClickUser={onClickUser} />);
+
+    expect(onClickUser).toHaveBeenCalled();
   });
 });

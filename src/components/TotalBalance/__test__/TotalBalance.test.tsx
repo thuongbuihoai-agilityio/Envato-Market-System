@@ -13,7 +13,7 @@ describe('TotalBalance render', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('Should get TotalBalance component', () => {
+  test('Should render get TotalBalance component', () => {
     const { getByText } = render(<TotalBalance />);
     const totalBalance = getByText('Total Balance');
 
