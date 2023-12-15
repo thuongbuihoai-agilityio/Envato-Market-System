@@ -33,13 +33,7 @@ exports[`Message component renders correctly 1`] = `
       >
         <img
           alt="Message Image"
-          class="chakra-image css-gqpkea"
-          src="images/record.png"
-        />
-        <img
-          alt="Message Image"
-          class="chakra-image css-qbvju8"
-          src="images/record-dark.png"
+          class="chakra-image css-14gt3bc"
         />
       </div>
       <div
@@ -48,7 +42,11 @@ exports[`Message component renders correctly 1`] = `
       <p
         class="chakra-text css-1n53wzr"
       >
-        9:30:00 AM
+<<<<<<< HEAD
+        3:51 PM
+=======
+        Thu Dec 14 2023 17:31:40
+>>>>>>> 802ba90 (test: improve unit test for expand sidebar)
       </p>
     </div>
   </div>

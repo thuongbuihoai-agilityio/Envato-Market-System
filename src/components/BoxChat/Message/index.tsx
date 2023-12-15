@@ -9,6 +9,7 @@ interface MessageProps {
   isImage?: boolean;
   avatarPosition?: 'before' | 'after';
   isOwnerMessage?: boolean;
+  localeTime?: string;
 }
 
 const Message = ({
@@ -17,6 +18,10 @@ const Message = ({
   avatarPosition = 'before',
   isImage = false,
   isOwnerMessage = false,
+  localeTime = new Date().toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+  }),
 }: MessageProps) => (
   <Flex>
     {avatarPosition === 'before' && (
@@ -52,7 +57,7 @@ const Message = ({
         color="secondary.250"
         fontWeight="medium"
       >
-        {new Date().toLocaleTimeString()}
+        {localeTime}
       </Text>
     </Flex>
 

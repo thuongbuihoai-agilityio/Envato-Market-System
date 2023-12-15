@@ -16,11 +16,7 @@ import {
 } from '@app/mocks';
 
 // HOCs
-import {
-  TWithTransaction,
-  withErrorBoundary,
-  withTransactions,
-} from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 
 // Constants
 import { END_POINTS } from '@app/constants';
@@ -41,11 +37,7 @@ const RevenueFlow = lazy(() => import('@app/components/RevenueFlow'));
 const Efficiency = lazy(() => import('@app/components/Efficiency'));
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 
-const Dashboard = ({
-  searchTransactionValue,
-  controlInputTransaction,
-  onSearchTransaction,
-}: TWithTransaction) => {
+const Dashboard = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
@@ -139,11 +131,7 @@ const Dashboard = ({
           px={6}
           py={5}
         >
-          <TransactionTable
-            controlInputTransaction={controlInputTransaction}
-            searchTransactionValue={searchTransactionValue}
-            onSearchTransaction={onSearchTransaction}
-          />
+          <TransactionTable />
         </Box>
       </GridItem>
       <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>
@@ -172,9 +160,6 @@ const Dashboard = ({
   );
 };
 
-const DashboardPage = memo(
-  withErrorBoundary(withTransactions(Dashboard)),
-  areEqual,
-);
+const DashboardPage = memo(withErrorBoundary(Dashboard), areEqual);
 
 export default DashboardPage;

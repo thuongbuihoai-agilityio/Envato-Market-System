@@ -10,5 +10,15 @@ export const ERROR_MESSAGES = {
   PASS_WORD_WEAK:
     'Password contains uppercase, lowercase and special characters',
   PHONE_NUMBER_INVALID: 'Invalid phone number',
-  UPDATE_FAIL: 'Update failed',
+  UPDATE_FAIL: {
+    title: 'Update failed',
+    description: 'Your profile has not been updated successfully',
+  },
+};
+
+export const SUCCESS_MESSAGES = {
+  UPDATE_SUCCESS: {
+    title: 'Update success',
+    description: 'Your profile has been updated successfully',
+  },
 };

@@ -6,21 +6,13 @@ import areEqual from 'react-fast-compare';
 import { TransactionTable } from '@app/components';
 
 // HOCs
-import {
-  TWithTransaction,
-  withErrorBoundary,
-  withTransactions,
-} from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 
 // Lazy loading components
 const CartPayment = lazy(() => import('@app/components/CartPayment'));
 const BoxChat = lazy(() => import('@app/components/BoxChat'));
 
-const History = ({
-  searchTransactionValue,
-  controlInputTransaction,
-  onSearchTransaction,
-}: TWithTransaction) => (
+const History = () => (
   <Grid
     bg="background.body.primary"
     py={12}
@@ -37,12 +29,7 @@ const History = ({
         px={6}
         py={5}
       >
-        <TransactionTable
-          isTableHistory
-          controlInputTransaction={controlInputTransaction}
-          searchTransactionValue={searchTransactionValue}
-          onSearchTransaction={onSearchTransaction}
-        />
+        <TransactionTable isTableHistory />
       </Box>
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }}>
@@ -56,9 +43,6 @@ const History = ({
   </Grid>
 );
 
-const HistoryPage = memo(
-  withErrorBoundary(withTransactions(History)),
-  areEqual,
-);
+const HistoryPage = memo(withErrorBoundary(History), areEqual);
 
 export default HistoryPage;

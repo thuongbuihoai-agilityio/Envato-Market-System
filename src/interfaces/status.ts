@@ -9,3 +9,9 @@ export enum Status {
   PENDING = 'Pending',
   COMPLETED = 'Completed',
 }
+
+export enum RevenueFlowStatus {
+  PENDING = 'pending',
+  SINGED = 'signed',
+  LOST = 'lost',
+}

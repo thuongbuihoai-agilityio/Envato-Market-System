@@ -18,6 +18,9 @@ import { ChevronIcon, Eye, EyeSlash } from '@app/assets/icons';
 // Constants
 import { IMAGES } from '@app/constants';
 
+// Utils
+import { clearNonNumericAndLeadingZeros } from '@app/utils';
+
 interface CardPaymentProps {
   balance?: number;
 }
@@ -35,15 +38,11 @@ const CartPaymentComponent = ({
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      // Remove non-numeric characters and leading zeros
-      const sanitizedValue = event.target.value
-        .replace(/[^0-9]/g, '')
-        .replace(/^0+/, '');
+      const value: string = event.target.value;
+      if (value.charAt(0) === '-') return;
 
-      // Prevent entering negative numbers
-      if (sanitizedValue && sanitizedValue.charAt(0) === '-') {
-        return;
-      }
+      // Remove non-numeric characters and leading zeros
+      const sanitizedValue = clearNonNumericAndLeadingZeros(value);
 
       setValue(sanitizedValue);
     },

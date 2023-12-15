@@ -33,6 +33,10 @@ const meta: Meta<typeof Message> = {
 
       defaultValue: false,
     },
+
+    localeTime: {
+      description: 'Indicate the time of the message',
+    },
   },
   parameters: {
     controls: {

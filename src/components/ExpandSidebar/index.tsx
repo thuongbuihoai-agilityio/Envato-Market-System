@@ -64,6 +64,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
           right={0}
           onClick={onOpen}
           cursor="pointer"
+          id="close-expand"
         />
       </DrawerHeader>
 

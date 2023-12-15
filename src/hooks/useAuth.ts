@@ -25,7 +25,6 @@ export type TUseAuth = {
   isRemember: boolean;
   date: number;
   setUser: (user: TUserDetail) => void;
-  updateUserInfo: (updatedInfo: Partial<TUserDetail>) => Promise<void>;
   signIn: (
     {
       email,
@@ -109,43 +108,7 @@ export const useAuth = create(
 
         return {};
       },
-
-      signOut: () => {
-        set({ user: null, isRemember: false, date: 0 });
-
-        useAuth.persist.clearStorage();
-      },
-
-      updateUserInfo: async (updatedInfo) => {
-        const currentUser = useAuth.getState().user;
-
-        if (!currentUser) {
-          return;
-        }
-
-        try {
-          const response = await UsersHttpService.put<TUserDetail>(
-            `${END_POINTS.USERS}/${currentUser.id}`,
-            updatedInfo,
-          );
-
-          const updatedUser = response.data;
-
-          set((currentState: TUseAuth) => {
-            if (currentState.user) {
-              return {
-                user: {
-                  ...currentState.user,
-                  ...updatedUser,
-                },
-              };
-            }
-            return currentState;
-          });
-        } catch {
-          throw new Error(ERROR_MESSAGES.UPDATE_FAIL);
-        }
-      },
+      signOut: () => set({ user: null, isRemember: false, date: 0 }),
     }),
     {
       name: 'authentication',
