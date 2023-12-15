@@ -7,6 +7,9 @@ import { IMAGES } from '@app/constants';
 // Components
 import Message from '@app/components/BoxChat/Message';
 
+// Mocks
+import { MESSAGE_TIME } from '@app/mocks';
+
 const BoxChatComponent = (): JSX.Element => (
   <Box w="full" bg="background.body.quaternary" borderRadius="lg">
     <Flex
@@ -52,9 +55,14 @@ const BoxChatComponent = (): JSX.Element => (
         content="Hi, What can i help you with?"
         avatarPosition="before"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
+        localeTime={MESSAGE_TIME}
       />
 
-      <Message avatar={IMAGES.CHAT_USER_AVATAR.url} isImage />
+      <Message
+        avatar={IMAGES.CHAT_USER_AVATAR.url}
+        isImage
+        localeTime={MESSAGE_TIME}
+      />
 
       <Flex direction="row-reverse">
         <Message
@@ -62,6 +70,7 @@ const BoxChatComponent = (): JSX.Element => (
           avatarPosition="after"
           isOwnerMessage
           avatar={IMAGES.CHAT_USER_AVATAR.url}
+          localeTime={MESSAGE_TIME}
         />
       </Flex>
 
@@ -69,6 +78,7 @@ const BoxChatComponent = (): JSX.Element => (
         content="Sure, I can help you with that"
         avatarPosition="before"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
+        localeTime={MESSAGE_TIME}
       />
 
       <Flex justify="center" align="center">

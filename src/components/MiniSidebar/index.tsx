@@ -67,8 +67,8 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
         >
           {/* Mini Logo in Light Mode */}
           <Image
-            src={logos[colorMode].url}
-            alt={logos[colorMode].alt}
+            src={logos[colorMode]?.url}
+            alt={logos[colorMode]?.alt}
             cursor="pointer"
           />
 

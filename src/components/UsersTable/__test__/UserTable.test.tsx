@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
@@ -17,12 +17,12 @@ describe('UserTable component', () => {
   it('should renders component', () => {
     render(<UserTable users={USERS_MOCK} />);
 
-    expect(USERS_MOCK).toBeInTheDocument();
+    expect(screen.getByText('Abdur Rohman')).toBeInTheDocument();
   });
 
   it('should renders children when onclickUser', () => {
     const onClickUser = jest.fn();
-    render(<UserTable users={USERS_MOCK} onClickUser={onClickUser} />);
+    render(<UserTable users={USERS_MOCK} onClickUser={onClickUser('1')} />);
 
     expect(onClickUser).toHaveBeenCalled();
   });

@@ -78,7 +78,7 @@ exports[`BoxChat component renders correctly 1`] = `
           <p
             class="chakra-text css-1n53wzr"
           >
-            5:27:24 PM
+            3:51 PM
           </p>
         </div>
       </div>
@@ -122,7 +122,7 @@ exports[`BoxChat component renders correctly 1`] = `
           <p
             class="chakra-text css-1n53wzr"
           >
-            5:27:24 PM
+            3:51 PM
           </p>
         </div>
       </div>
@@ -152,7 +152,7 @@ exports[`BoxChat component renders correctly 1`] = `
             <p
               class="chakra-text css-1n53wzr"
             >
-              5:27:24 PM
+              3:51 PM
             </p>
           </div>
           <span
@@ -219,7 +219,7 @@ exports[`BoxChat component renders correctly 1`] = `
           <p
             class="chakra-text css-1n53wzr"
           >
-            5:27:24 PM
+            3:51 PM
           </p>
         </div>
       </div>
