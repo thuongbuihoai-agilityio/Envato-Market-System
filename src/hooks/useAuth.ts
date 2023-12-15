@@ -49,11 +49,6 @@ export const useAuth = () => {
     clearStore: state.clearStore,
   }));
 
-  const handleSetUser = useCallback(
-    (user: TUserDetail) => updateStore({ user }),
-    [updateStore],
-  );
-
   const handleSignIn = useCallback(
     async (
       {
@@ -136,6 +131,7 @@ export const useAuth = () => {
     [updateStore],
   );
 
+  const handleSetUser = useCallback(updateStore, [updateStore]);
   const handleSignOut = useCallback(clearStore, [clearStore]);
 
   return {

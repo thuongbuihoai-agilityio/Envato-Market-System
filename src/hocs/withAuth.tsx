@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
+import { shallow } from 'zustand/shallow';
 
 // Constants
 import { EXPIRED_DAY, ROUTES } from '@app/constants';
@@ -35,6 +36,7 @@ export const withCheckLogin = <TProps extends object>(
         user: state.user,
         date: state.date,
       }),
+      shallow,
     );
 
     const expiredTime: number = getExpireTime(

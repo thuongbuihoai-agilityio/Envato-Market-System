@@ -1,5 +1,5 @@
-import { create } from 'zustand';
 import { StorageValue, createJSONStorage, persist } from 'zustand/middleware';
+import { createWithEqualityFn } from 'zustand/traditional';
 
 // Constants
 import { STORE_KEY } from '@app/constants';
@@ -18,21 +18,15 @@ type TAuthStoreAction = {
   clearStore: () => void;
 };
 
-export const authStore = create(
+export const authStore = createWithEqualityFn(
   persist<TAuthStoreData & TAuthStoreAction>(
-    (set) => {
-      const initData: TAuthStoreData = {
-        user: null,
-        isRemember: false,
-        date: 0,
-      };
-
-      return {
-        ...initData,
-        updateStore: (data: Partial<TAuthStoreData>) => set(data),
-        clearStore: () => set(initData),
-      };
-    },
+    (set) => ({
+      user: null,
+      isRemember: false,
+      date: 0,
+      updateStore: (data: Partial<TAuthStoreData>) => set(data),
+      clearStore: () => set({ user: null }),
+    }),
     {
       name: STORE_KEY.AUTH,
       storage: createJSONStorage(() => ({
@@ -43,8 +37,10 @@ export const authStore = create(
             JSON.parse(value);
 
           if (user) {
-            localStorage.setItem(key, value);
+            return localStorage.setItem(key, value);
           }
+
+          return localStorage.removeItem(key);
         },
         getItem: localStorage.getItem.bind(localStorage),
         removeItem: localStorage.removeItem.bind(localStorage),
