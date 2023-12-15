@@ -1,6 +1,5 @@
+import { useCallback } from 'react';
 import { AxiosResponse } from 'axios';
-import { create } from 'zustand';
-import { StorageValue, persist, createJSONStorage } from 'zustand/middleware';
 
 // Constants
 import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
@@ -13,6 +12,9 @@ import { TUserDetail } from '@app/interfaces/user';
 
 // Utils
 import { getCurrentTimeSeconds } from '@app/utils';
+
+// Stores
+import { authStore } from '@app/stores';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>
@@ -41,90 +43,105 @@ export type TUseAuth = {
   signOut: () => void;
 };
 
-export const useAuth = create(
-  persist<TUseAuth>(
-    (set) => ({
-      user: null,
-      isRemember: false,
-      date: 0,
-      setUser: (user) => set({ user }),
-      signIn: async ({ email, password }, isRemember) => {
-        const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
-          await UsersHttpService.get<TUserDetail[] | undefined>(
-            `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
-          );
+export const useAuth = () => {
+  const { updateStore, clearStore } = authStore((state) => ({
+    updateStore: state.updateStore,
+    clearStore: state.clearStore,
+  }));
 
-        // Because search by params working incorrect
-        const user: TUserDetail | undefined = data.find(
-          (user) => user.email === email && user.password === password,
+  const handleSetUser = useCallback(
+    (user: TUserDetail) => updateStore({ user }),
+    [updateStore],
+  );
+
+  const handleSignIn = useCallback(
+    async (
+      {
+        email,
+        password,
+      }: {
+        email: string;
+        password: string;
+      },
+      isRemember?: boolean,
+    ): Promise<void> => {
+      const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
+        await UsersHttpService.get<TUserDetail[] | undefined>(
+          `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
         );
 
-        if (!user) {
-          throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
-        }
+      // Because search by params working incorrect
+      const user: TUserDetail | undefined = data.find(
+        (user) => user.email === email && user.password === password,
+      );
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { password: pass, ...userInfo } = user;
+      if (!user) {
+        throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
+      }
 
-        return set({
-          user: userInfo,
-          isRemember,
-          date: getCurrentTimeSeconds(),
-        });
-      },
-      signUp: async (userInfo) => {
-        const { email, password } = userInfo;
-        const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
-          await UsersHttpService.get<TUserDetail[] | undefined>(
-            `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
-          );
-        // Because search by params working incorrect
-        const user: TUserDetail | undefined = data.find(
-          (user) => user.email === email,
-        );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { password: pass, ...userInfo } = user;
 
-        if (user) {
-          return {
-            errors: {
-              email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
-            },
-          };
-        }
-
-        // Send request add new user
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { password: responsePassword, ...response }: TUserDetail =
-          await UsersHttpService.post<TUserDetail>(
-            END_POINTS.USERS,
-            {
-              ...userInfo,
-              createdAt: Date.now(),
-            },
-            {},
-          ).then((res) => res.data);
-
-        // Save user into store
-        set({ user: response, date: getCurrentTimeSeconds() });
-
-        return {};
-      },
-      signOut: () => set({ user: null, isRemember: false, date: 0 }),
-    }),
-    {
-      name: 'authentication',
-      storage: createJSONStorage(() => ({
-        setItem: (key: string, value: string) => {
-          const {
-            state: { user },
-          }: StorageValue<TUseAuth> = JSON.parse(value);
-
-          if (user) {
-            localStorage.setItem(key, value);
-          }
-        },
-        getItem: localStorage.getItem.bind(localStorage),
-        removeItem: localStorage.removeItem.bind(localStorage),
-      })),
+      return updateStore({
+        user: userInfo,
+        isRemember,
+        date: getCurrentTimeSeconds(),
+      });
     },
-  ),
-);
+    [updateStore],
+  );
+
+  const handleSignUp = useCallback(
+    async (
+      userInfo: Omit<TUserDetail, 'id' | 'createdAt'>,
+    ): Promise<{
+      errors?: TSignUpErrorField;
+    }> => {
+      const { email, password } = userInfo;
+      const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
+        await UsersHttpService.get<TUserDetail[] | undefined>(
+          `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
+        );
+
+      // Because search by params working incorrect
+      const user: TUserDetail | undefined = data.find(
+        (user) => user.email === email,
+      );
+
+      if (user) {
+        return {
+          errors: {
+            email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
+          },
+        };
+      }
+
+      // Send request add new user
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { password: responsePassword, ...response }: TUserDetail =
+        await UsersHttpService.post<TUserDetail>(
+          END_POINTS.USERS,
+          {
+            ...userInfo,
+            createdAt: Date.now(),
+          },
+          {},
+        ).then((res) => res.data);
+
+      // Save user into store
+      updateStore({ user: response, date: getCurrentTimeSeconds() });
+
+      return {};
+    },
+    [updateStore],
+  );
+
+  const handleSignOut = useCallback(clearStore, [clearStore]);
+
+  return {
+    setUser: handleSetUser,
+    signIn: handleSignIn,
+    signUp: handleSignUp,
+    signOut: handleSignOut,
+  };
+};

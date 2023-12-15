@@ -37,7 +37,7 @@ type TLoginForm = {
 };
 
 const LoginPage = (): JSX.Element => {
-  const signIn = useAuth((state) => state.signIn);
+  const { signIn } = useAuth();
   const redirect = useNavigate();
 
   // Control form

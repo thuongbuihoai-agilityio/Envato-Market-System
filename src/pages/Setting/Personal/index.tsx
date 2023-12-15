@@ -30,10 +30,14 @@ import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@app/constants';
 // Components
 import { InputField, UpdateProfile } from '@app/components';
 
+// Stores
+import { authStore } from '@app/stores';
+
 const UserFormComponent = () => {
   // TODO: will update integrate later
   const [isSubmit] = useState<boolean>(false);
-  const { user, setUser } = useAuth();
+  const { setUser } = useAuth();
+  const user = authStore((state) => state.user);
   const { mutate: updateUser } = useUpdateUser();
   const toast = useToast();
 

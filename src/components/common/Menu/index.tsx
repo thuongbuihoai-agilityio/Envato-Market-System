@@ -22,7 +22,7 @@ export type MenuProps = {
 };
 
 const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
-  const signOut = useAuth((state) => state.signOut);
+  const { signOut } = useAuth();
   return (
     <VStack mb={isMinify ? 9 : 5} w="full" overscroll="full">
       {!isMinify && (
