@@ -76,7 +76,7 @@ const UserFormComponent = () => {
       updateUser(updatedInfo, {
         onSuccess: (response: AxiosResponse<TUserDetail>) => {
           const updatedUser: TUserDetail = response.data;
-          setUser(updatedUser);
+          setUser({ user: updatedUser });
 
           toast({
             title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
