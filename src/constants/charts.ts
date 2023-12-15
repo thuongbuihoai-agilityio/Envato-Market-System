@@ -18,9 +18,3 @@ export const MONTHS = [
 ];
 
 export const REVENUE_FLOW_STATUS = ['Pending', 'Signed', 'Lost'];
-
-export enum CHART_STATUS {
-  PENDING = 'pending',
-  SENDING = 'signed',
-  LOST = 'lost',
-}
