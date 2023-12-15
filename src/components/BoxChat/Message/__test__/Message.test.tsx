@@ -8,6 +8,11 @@ import { IMAGES } from '@app/constants/images';
 import Message from '@app/components/BoxChat/Message';
 
 describe('Message component', () => {
+  const mockLocaleTime = new Date(1702543868252).toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+
   it('renders correctly', () => {
     const { container } = render(
       <Message
@@ -16,6 +21,7 @@ describe('Message component', () => {
         isImage
         avatarPosition="before"
         isOwnerMessage
+        localeTime={mockLocaleTime}
       />,
     );
     expect(container).toMatchSnapshot();
@@ -23,16 +29,21 @@ describe('Message component', () => {
 
   it('should render image container when isImage is true', () => {
     const { getByTestId } = render(
-      <Message content="Hello" avatar="avatar.png" isImage={true} />,
+      <Message
+        content="Hello"
+        avatar={IMAGES.CHAT_USER_AVATAR.url}
+        isImage={true}
+        localeTime={mockLocaleTime}
+      />,
     );
 
     const imageContainer = getByTestId('image-container');
     expect(imageContainer).toBeInTheDocument();
   });
 
-  it('should render text content when isImage is false', () => {
+  it('should render text content and current time when no input localeTime and isImage parameters', () => {
     const { getByTestId } = render(
-      <Message content="Hello" avatar="avatar.png" isImage={false} />,
+      <Message content="Hello" avatar={IMAGES.CHAT_USER_AVATAR.url} />,
     );
 
     const textContent = getByTestId('text-content');
@@ -43,9 +54,10 @@ describe('Message component', () => {
     const { getByTestId } = render(
       <Message
         content="Hello"
-        avatar="avatar.png"
+        avatar={IMAGES.CHAT_USER_AVATAR.url}
         isImage={false}
         avatarPosition="after"
+        localeTime={mockLocaleTime}
       />,
     );
 

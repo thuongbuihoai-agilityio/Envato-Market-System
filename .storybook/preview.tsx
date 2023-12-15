@@ -3,7 +3,7 @@ import type { Preview } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
 //Providers
-import { ChakraProvider } from '../src/providers';
+import { ChakraProvider, QueryProvider } from '../src/providers';
 
 const preview: Preview = {
   parameters: {
@@ -17,11 +17,13 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <BrowserRouter>
-        <ChakraProvider>
-          <Story />
-        </ChakraProvider>
-      </BrowserRouter>
+      <QueryProvider>
+        <BrowserRouter>
+          <ChakraProvider>
+            <Story />
+          </ChakraProvider>
+        </BrowserRouter>
+      </QueryProvider>
     ),
   ],
 };
