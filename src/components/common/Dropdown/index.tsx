@@ -37,7 +37,7 @@ const DropdownComponent = ({
   name = '',
   permission = '',
 }: DropdownProps) => {
-  const signOut = useAuth((state) => state.signOut);
+  const { signOut } = useAuth();
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
     theme.colors.white,

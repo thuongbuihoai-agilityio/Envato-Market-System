@@ -41,7 +41,7 @@ type TRegisterForm = Omit<TUserDetail, 'id' | 'createdAt'> & {
 };
 
 const RegisterPage = () => {
-  const signUp = useAuth((state) => state.signUp);
+  const { signUp } = useAuth();
   const redirect = useNavigate();
   // Control form
   const {

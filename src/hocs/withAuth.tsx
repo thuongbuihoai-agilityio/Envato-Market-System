@@ -1,14 +1,18 @@
 import { Navigate } from 'react-router-dom';
 import { FunctionComponent } from 'react';
+import { shallow } from 'zustand/shallow';
 
 // Constants
 import { EXPIRED_DAY, ROUTES } from '@app/constants';
 
 // Hooks
-import { useAuth, TUserInfo, TUseAuth } from '@app/hooks';
+import { useAuth, TUserInfo } from '@app/hooks';
 
 // Utils
 import { getExpireTime, getCurrentTimeSeconds } from '@app/utils';
+
+// Stores
+import { authStore } from '@app/stores';
 
 /**
  * Requires you to log in to continue
@@ -19,20 +23,20 @@ export const withCheckLogin = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const { isRemember, user, date, signOut } = useAuth(
+    const { signOut } = useAuth();
+    const { isRemember, user, date } = authStore(
       (
         state,
       ): {
         isRemember: boolean;
         date: number;
         user: TUserInfo;
-        signOut: TUseAuth['signOut'];
       } => ({
         isRemember: state.isRemember,
         user: state.user,
         date: state.date,
-        signOut: state.signOut,
       }),
+      shallow,
     );
 
     const expiredTime: number = getExpireTime(
@@ -66,7 +70,7 @@ export const withLogged = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const user = useAuth((state): TUserInfo => state.user);
+    const user = authStore((state): TUserInfo => state.user);
 
     if (user) return <Navigate to={ROUTES.ROOT} replace />;
 

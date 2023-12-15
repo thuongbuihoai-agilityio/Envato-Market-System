@@ -21,7 +21,7 @@ import {
 import { Bell, Email, Gift, Rotate, Search } from '@app/assets/icons';
 
 // hooks
-import { useAuth } from '@app/hooks/useAuth';
+import { authStore } from '@app/stores';
 
 interface HeaderProps {
   name?: string;
@@ -33,11 +33,10 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     theme.colors.white,
   );
 
-  const username = useAuth(
+  const username = authStore(
     ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
   );
-
-  const avatarURL = useAuth(
+  const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
   );
 
