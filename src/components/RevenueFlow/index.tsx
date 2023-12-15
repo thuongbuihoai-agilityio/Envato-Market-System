@@ -26,7 +26,7 @@ import {
 } from '@app/constants';
 
 // Types
-import { IRevenueFlow } from '@app/interfaces';
+import { IRevenueFlow, RevenueFlowStatus } from '@app/interfaces';
 import { TOption } from '@app/components/common/Select';
 
 interface RevenueFlowProps {
@@ -45,13 +45,13 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
 
     return [
       {
-        data: generatesData('pending'),
+        data: generatesData(RevenueFlowStatus.PENDING),
       },
       {
-        data: generatesData('signed'),
+        data: generatesData(RevenueFlowStatus.SINGED),
       },
       {
-        data: generatesData('lost'),
+        data: generatesData(RevenueFlowStatus.LOST),
       },
     ];
   }, [data]);
@@ -90,13 +90,13 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
         );
       const result = [
         {
-          data: getRevenueFlowDetails('pending'),
+          data: getRevenueFlowDetails(RevenueFlowStatus.PENDING),
         },
         {
-          data: getRevenueFlowDetails('signed'),
+          data: getRevenueFlowDetails(RevenueFlowStatus.SINGED),
         },
         {
-          data: getRevenueFlowDetails('lost'),
+          data: getRevenueFlowDetails(RevenueFlowStatus.LOST),
         },
         {
           data: data.map((revenue: IRevenueFlow) =>
