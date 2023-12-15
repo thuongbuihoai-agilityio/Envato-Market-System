@@ -110,7 +110,7 @@ describe('useAuth', () => {
       },
     } = setup();
     await act(async () => {
-      await setUser(SIGN_IN_PARAM as TUserDetail);
+      await setUser({ user: SIGN_IN_PARAM as TUserDetail });
     });
 
     expect(authStore.getState().user).toEqual(SIGN_IN_PARAM);
