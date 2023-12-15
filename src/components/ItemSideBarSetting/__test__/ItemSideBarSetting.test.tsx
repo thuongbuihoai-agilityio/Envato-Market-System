@@ -7,7 +7,7 @@ import { ItemSideBarSetting } from '@app/components';
 // Assets
 import { Account } from '@app/assets/icons';
 
-describe('Fetching component', () => {
+describe('ItemSidebarSetting component', () => {
   const onToggle = jest.fn();
   it('should renders correctly', () => {
     const { container } = render(
