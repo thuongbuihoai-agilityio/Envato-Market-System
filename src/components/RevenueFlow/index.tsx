@@ -19,6 +19,7 @@ import { Arrow } from '@app/assets/icons';
 
 // Constants
 import {
+  CHART_STATUS,
   MONTHS,
   REVENUE_FLOW_COLORS,
   REVENUE_FLOW_OPTIONS,
@@ -45,13 +46,13 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
 
     return [
       {
-        data: generatesData('pending'),
+        data: generatesData(CHART_STATUS.PENDING),
       },
       {
-        data: generatesData('signed'),
+        data: generatesData(CHART_STATUS.SENDING),
       },
       {
-        data: generatesData('lost'),
+        data: generatesData(CHART_STATUS.LOST),
       },
     ];
   }, [data]);
@@ -90,13 +91,13 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
         );
       const result = [
         {
-          data: getRevenueFlowDetails('pending'),
+          data: getRevenueFlowDetails(CHART_STATUS.PENDING),
         },
         {
-          data: getRevenueFlowDetails('signed'),
+          data: getRevenueFlowDetails(CHART_STATUS.SENDING),
         },
         {
-          data: getRevenueFlowDetails('lost'),
+          data: getRevenueFlowDetails(CHART_STATUS.LOST),
         },
         {
           data: data.map((revenue: IRevenueFlow) =>
