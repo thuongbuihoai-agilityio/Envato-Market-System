@@ -12,11 +12,7 @@ import { END_POINTS } from '@app/constants';
 import { useGetStatistic } from '@app/hooks';
 
 // HOCs
-import {
-  TWithTransaction,
-  withErrorBoundary,
-  withTransactions,
-} from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 
 // Types
 import { TOption } from '@app/components/common/Select';
@@ -32,11 +28,7 @@ const Efficiency = lazy(() => import('@app/components/Efficiency'));
 const TotalBalance = lazy(() => import('@app/components/TotalBalance'));
 const OverallBalance = lazy(() => import('@app/components/OverallBalance'));
 
-const MyWallet = ({
-  controlInputTransaction,
-  searchTransactionValue,
-  onSearchTransaction,
-}: TWithTransaction) => {
+const MyWallet = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
@@ -120,11 +112,7 @@ const MyWallet = ({
               px={6}
               py={5}
             >
-              <TransactionTable
-                controlInputTransaction={controlInputTransaction}
-                searchTransactionValue={searchTransactionValue}
-                onSearchTransaction={onSearchTransaction}
-              />
+              <TransactionTable />
             </Box>
           </Box>
         </Flex>
@@ -133,9 +121,6 @@ const MyWallet = ({
   );
 };
 
-const MyWalletPage = memo(
-  withErrorBoundary(withTransactions(MyWallet)),
-  areEqual,
-);
+const MyWalletPage = memo(withErrorBoundary(MyWallet), areEqual);
 
 export default MyWalletPage;

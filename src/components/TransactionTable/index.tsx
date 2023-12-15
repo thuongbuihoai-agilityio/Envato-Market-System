@@ -18,11 +18,16 @@ import {
 // Utils
 import { getTransactionHomePage } from '@app/utils';
 
-// HOCs
-import { TWithTransaction } from '@app/hocs';
-
 // Hooks
-import { TSortField, usePagination, useTransactions } from '@app/hooks';
+import {
+  TSearchTransaction,
+  TSortField,
+  useDebounce,
+  useForm,
+  usePagination,
+  useSearch,
+  useTransactions,
+} from '@app/hooks';
 
 // Constants
 import {
@@ -33,37 +38,60 @@ import {
 
 // Types
 import { TDataSource, THeaderTable } from '@app/interfaces';
+import { TSearchValue } from '../common/SearchBar';
 
-interface TFilterUserProps extends TWithTransaction {
+interface TFilterUserProps {
   isTableHistory?: boolean;
 }
 
 const TransactionTableComponent = ({
   isTableHistory = false,
-  searchTransactionValue,
-  controlInputTransaction,
-  onSearchTransaction,
 }: TFilterUserProps) => {
+  const {
+    searchParam: searchTransaction,
+    setSearchParam: setSearchTransaction,
+  } = useSearch<TSearchTransaction>({
+    name: '',
+  });
+
+  // Form control for search
+  const { control, getValues } = useForm<TSearchValue>({
+    defaultValues: {
+      search: searchTransaction.name,
+    },
+  });
+
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
     sortBy,
   } = useTransactions({
-    name: searchTransactionValue,
+    name: searchTransaction.name,
   });
 
   const {
     data,
     filterData,
+    resetPage,
     handleChangeLimit,
     handleChangePage,
     handleSearchWithPagination,
   } = usePagination(transactions);
 
+  // Update search params when end time debounce
+  const handleDebounceSearch = useDebounce(() => {
+    resetPage();
+    setSearchTransaction('name', getValues().search);
+  }, []);
+
   const handleSearchParams = useCallback(() => {
-    handleSearchWithPagination(searchTransactionValue, onSearchTransaction);
-  }, [handleSearchWithPagination, onSearchTransaction, searchTransactionValue]);
+    handleSearchWithPagination(searchTransaction.name, handleDebounceSearch);
+  }, [
+    handleDebounceSearch,
+    handleSearchWithPagination,
+    searchTransaction.name,
+  ]);
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -134,10 +162,7 @@ const TransactionTableComponent = ({
 
   return (
     <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
-      <SearchBar
-        control={controlInputTransaction}
-        onSearch={handleSearchParams}
-      />
+      <SearchBar control={control} onSearch={handleSearchParams} />
       <Box mt={5}>
         <Lazy>
           <Table

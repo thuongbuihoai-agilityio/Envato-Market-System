@@ -3,11 +3,7 @@ import areEqual from 'react-fast-compare';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // HOCs
-import {
-  TWithTransaction,
-  withErrorBoundary,
-  withTransactions,
-} from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 import { Lazy } from '@app/components';
 
 // lazy loading components
@@ -15,11 +11,7 @@ const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 const CartPayment = lazy(() => import('@app/components/CartPayment'));
 const BoxChat = lazy(() => import('@app/components/BoxChat'));
 
-const Transaction = ({
-  searchTransactionValue,
-  controlInputTransaction,
-  onSearchTransaction,
-}: TWithTransaction) => (
+const Transaction = () => (
   <Grid
     bg="background.body.primary"
     py={12}
@@ -36,11 +28,7 @@ const Transaction = ({
         px={6}
         py={5}
       >
-        <TransactionTable
-          controlInputTransaction={controlInputTransaction}
-          searchTransactionValue={searchTransactionValue}
-          onSearchTransaction={onSearchTransaction}
-        />
+        <TransactionTable />
       </Box>
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }}>
@@ -54,9 +42,6 @@ const Transaction = ({
   </Grid>
 );
 
-const TransactionPage = memo(
-  withErrorBoundary(withTransactions(Transaction)),
-  areEqual,
-);
+const TransactionPage = memo(withErrorBoundary(Transaction), areEqual);
 
 export default TransactionPage;
