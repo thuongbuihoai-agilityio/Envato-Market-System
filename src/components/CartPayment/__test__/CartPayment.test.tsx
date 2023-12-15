@@ -7,13 +7,12 @@ import userEvent from '@testing-library/user-event';
 
 describe('CardPayment test cases', () => {
   test('CardPayment component renders correctly', () => {
-    const { container } = render(<CardPayment />);
+    const { container } = render(<CardPayment balance={123} />);
     expect(container).toMatchSnapshot();
   });
 
   test('should invoke handleChange function to prevent negative number when typing money amount', async () => {
-    const { container } = render(<CardPayment />);
-
+    const { container } = render(<CardPayment balance={123} />);
     const moneyInput = container.querySelector<HTMLInputElement>(
       'input[name="money"]',
     );
@@ -26,7 +25,7 @@ describe('CardPayment test cases', () => {
   });
 
   test('should hide money amount when clicking the eye icon button', async () => {
-    render(<CardPayment />);
+    render(<CardPayment balance={123} />);
     const eyeButton = screen.getByRole<HTMLButtonElement>('button', {
       name: /eye/i,
     });

@@ -42,7 +42,11 @@ exports[`Message component renders correctly 1`] = `
       <p
         class="chakra-text css-1n53wzr"
       >
+<<<<<<< HEAD
         3:51 PM
+=======
+        Thu Dec 14 2023 17:31:40
+>>>>>>> 802ba90 (test: improve unit test for expand sidebar)
       </p>
     </div>
   </div>

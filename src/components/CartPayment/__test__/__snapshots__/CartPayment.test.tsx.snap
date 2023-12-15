@@ -49,7 +49,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
         <p
           class="chakra-text css-mk1qvw"
         >
-          $24.098
+          $123
         </p>
       </div>
     </div>
