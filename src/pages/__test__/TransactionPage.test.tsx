@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
 // Pages
-import Transaction from '..';
+import Transaction from '../Transaction';
 
 describe('Transaction page', () => {
-  it('Match to snapshot', () => {
+  it('Should render match with snapshot.', async () => {
     const { container } = render(<Transaction />);
 
     expect(container).toMatchSnapshot();

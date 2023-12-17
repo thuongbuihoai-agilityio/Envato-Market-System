@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`History Component Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="chakra-stack css-1pkffy6"
+  >
+    <p
+      class="chakra-text css-oz7p8m"
+    >
+      An error has been occurred!!
+    </p>
+    <p
+      class="chakra-text css-1ly9ogx"
+    >
+      useLocation() may be used only in the context of a &lt;Router&gt; component.
+    </p>
+  </div>
+</div>
+`;

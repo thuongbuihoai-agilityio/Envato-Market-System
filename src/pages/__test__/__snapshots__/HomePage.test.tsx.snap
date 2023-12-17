@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Component Should render match with snapshot. 1`] = `<div />`;
+
+exports[`Dashboard Component renders Dashboard component with mocked child components 1`] = `<div />`;
