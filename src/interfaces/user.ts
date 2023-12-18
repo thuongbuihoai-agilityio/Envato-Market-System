@@ -13,6 +13,7 @@ export type TEmployee = Omit<IUserBase, 'email'> & {
   workTime: string;
   level: string;
   position: string;
+  salary: number;
 };
 
 export type TCustomer = Pick<IUserBase, 'id' | 'email'> & {

@@ -11,6 +11,7 @@ export const USER_MOCK: TEmployee = {
   lastPlace: 'Jakarta, Indonesia',
   id: '1',
   createdAt: 3123123,
+  salary: 1234,
 };
 
 export const USERS_MOCK = [
