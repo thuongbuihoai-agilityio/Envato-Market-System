@@ -40,7 +40,7 @@ describe('useAuth', () => {
 
       await signIn(SIGN_IN_PARAM);
     } catch (error) {
-      const { message } = error as unknown as Error;
+      const { message } = error as Error;
 
       expect(message).toBe(ERROR_MESSAGES.AUTH_INCORRECT);
     }
