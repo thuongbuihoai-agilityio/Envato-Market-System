@@ -6,6 +6,7 @@ import StatusCell from '../StatusCell';
 
 const meta: Meta<typeof StatusCell> = {
   title: 'Custom Components/Users/Cell/StatusCell',
+  tags: ['autodocs'],
   component: StatusCell,
   parameters: {
     controls: {

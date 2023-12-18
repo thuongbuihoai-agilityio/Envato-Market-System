@@ -23,7 +23,6 @@ export * from './BookMart';
 export * from './ShareNodes';
 export * from './AvatarSetting';
 export * from './Faq';
-export * from './LogoMini';
 export * from './MyWallet';
 export * from './Setting';
 export * from './ChevronIcon';

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Box } from '@chakra-ui/react';
 
 // Components
 import Dropdown from '.';
@@ -19,6 +20,13 @@ const meta: Meta<typeof Dropdown> = {
       description: 'This is that persons right',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box h="50vh" bg="background.component.primary">
+        <Story />
+      </Box>
+    ),
+  ],
   parameters: {
     controls: {
       expanded: true,

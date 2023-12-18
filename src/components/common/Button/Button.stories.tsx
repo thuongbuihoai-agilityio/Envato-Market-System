@@ -88,19 +88,10 @@ export const RightIcon: Story = {
   },
 };
 
-export const Outline: Story = {
-  args: {
-    size: 'lg',
-    variant: 'outline',
-    children: 'Outline Button',
-  },
-};
-
 export const Disable: Story = {
   args: {
     size: 'lg',
-    variant: 'outline',
-    children: 'Outline Button',
+    children: 'Disabled Button',
     isDisabled: true,
   },
 };

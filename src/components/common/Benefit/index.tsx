@@ -9,6 +9,7 @@ interface BenefitProps {
   alt: string;
   heading?: string;
   description?: string;
+  width?: string;
 }
 
 const BenefitComponent = ({
@@ -16,9 +17,10 @@ const BenefitComponent = ({
   alt,
   heading,
   description,
+  width = '50%',
 }: BenefitProps) => (
   <Flex
-    w="50%"
+    w={width}
     p={20}
     minH="100vh"
     alignItems="center"

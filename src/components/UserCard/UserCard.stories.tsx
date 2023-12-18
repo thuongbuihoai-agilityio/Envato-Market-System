@@ -1,6 +1,9 @@
 import { StoryObj, Meta } from '@storybook/react';
 
+// Components
 import UserCard from '.';
+
+// Mocks
 import { USER_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof UserCard> = {
