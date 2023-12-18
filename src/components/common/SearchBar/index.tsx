@@ -37,7 +37,7 @@ const SearchBarComponent = ({
   const renderTitleSelector = useCallback(() => <Selector />, []);
 
   // Form control for search
-  const { control, setValue } = useForm<TSearchValue>({
+  const { control, resetField } = useForm<TSearchValue>({
     defaultValues: {
       search: searchValue,
     },
@@ -54,9 +54,9 @@ const SearchBarComponent = ({
   );
 
   const handleResetValue = useCallback(() => {
-    setValue('search', '');
+    resetField('search');
     onSearch('');
-  }, [setValue, onSearch]);
+  }, [onSearch]);
 
   return (
     <HStack as="form" data-testId="search-bar" h={14} gap={5}>
@@ -80,7 +80,7 @@ const SearchBarComponent = ({
               placeholder="Search by name, email, or other..."
               variant="secondary"
               leftIcon={<Search color={searchIconColor} />}
-              rightIcon={<CloseIcon onClick={handleResetValue} />}
+              rightIcon={value && <CloseIcon onClick={handleResetValue} />}
               data-testid="search-transaction"
             />
           )}
