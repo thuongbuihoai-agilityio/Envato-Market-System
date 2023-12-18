@@ -3,17 +3,44 @@ import '@testing-library/jest-dom';
 
 // Components
 import { SearchBar } from '@app/components';
+import userEvent from '@testing-library/user-event';
+// Themes
+import { colors } from '@app/themes/bases/colors';
+
+const onSearchMock = jest.fn();
+const onFilterMock = jest.fn();
+
+const setup = () =>
+  render(
+    <SearchBar
+      searchValue=""
+      onSearch={onSearchMock}
+      onFilter={onFilterMock}
+    />,
+  );
 
 describe('SearchBar render', () => {
   it('Should render match with snapshot.', () => {
-    const { container } = render(<SearchBar onSearch={() => {}} />);
+    const { container } = setup();
     expect(container).toMatchSnapshot();
   });
 
-  it('Get SearchBar component', () => {
-    const { getByTestId } = render(<SearchBar onSearch={() => {}} />);
+  it('Call onChange when input change ', async () => {
+    const { getByTestId } = setup();
+    const input = getByTestId('search-transaction');
+    await userEvent.type(input, 'abc');
+    expect(onSearchMock).toHaveBeenCalledWith('abc');
+  });
 
-    const searchBar = getByTestId('search-bar');
-    expect(searchBar).toBeInTheDocument();
+  it('Call onFilter when select ', async () => {
+    jest.replaceProperty(colors, 'secondary', {
+      400: null,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+
+    const { getByText } = setup();
+    const filterOption = getByText('January');
+    await userEvent.click(filterOption);
+    expect(onFilterMock).toHaveBeenCalledWith('jan');
   });
 });

@@ -1,5 +1,5 @@
-import { FormEvent, memo, useCallback } from 'react';
-import { Controller, Control } from 'react-hook-form';
+import { memo, useCallback } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
 import areEqual from 'react-fast-compare';
 
@@ -23,17 +23,24 @@ export type TSearchValue = {
 };
 
 type TSearchProps = {
-  control?: Control<TSearchValue>;
-  onSearch: () => void;
+  searchValue: string;
+  onSearch: (value: string) => void;
   onFilter?: (value: string) => void;
 };
 
 const SearchBarComponent = ({
-  control,
+  searchValue,
   onSearch,
   onFilter,
 }: TSearchProps): JSX.Element => {
   const renderTitleSelector = useCallback(() => <Selector />, []);
+
+  // Form control for search
+  const { control } = useForm<TSearchValue>({
+    defaultValues: {
+      search: searchValue,
+    },
+  });
 
   const searchIconColor: string = useColorModeValue(
     colors.secondary[400] ?? '',
@@ -46,13 +53,7 @@ const SearchBarComponent = ({
   );
 
   return (
-    <HStack
-      as="form"
-      data-testId="search-bar"
-      h={14}
-      gap={5}
-      onSubmit={(e: FormEvent) => e.preventDefault()}
-    >
+    <HStack as="form" data-testId="search-bar" h={14} gap={5}>
       <Box
         display={{
           base: 'none',
@@ -68,11 +69,12 @@ const SearchBarComponent = ({
               value={value}
               onChange={(value: string) => {
                 onChange(value);
-                onSearch();
+                onSearch(value);
               }}
               placeholder="Search by name, email, or other..."
               variant="secondary"
               leftIcon={<Search color={searchIconColor} />}
+              data-testid="search-transaction"
             />
           )}
         />
