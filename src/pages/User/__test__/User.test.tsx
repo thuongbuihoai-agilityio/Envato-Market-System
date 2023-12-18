@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router-dom';
 import UserPage from '@app/pages/User';
 
 // Mocks
-import { USER_MOCK } from '@app/mocks';
+import { USERS_MOCK } from '@app/mocks';
 
 const queryClient = new QueryClient();
 
@@ -28,8 +28,8 @@ describe('User Page', () => {
     const userIdToFind = '2';
 
     const result =
-      USER_MOCK.find((user) => user.id === userIdToFind) || USER_MOCK[0];
+      USERS_MOCK.find((user) => user.id === userIdToFind) || USERS_MOCK[0];
 
-    expect(result).toEqual(USER_MOCK[1]);
+    expect(result).toEqual(USERS_MOCK[1]);
   });
 });
