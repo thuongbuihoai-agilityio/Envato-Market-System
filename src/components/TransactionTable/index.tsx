@@ -70,14 +70,6 @@ const TransactionTableComponent = ({
     setSearchTransaction('name', value);
   }, []);
 
-  const handleSearchParams = useCallback(
-    (value: string) => {
-      handleDebounceSearch(value);
-      // handleSearchWithPagination(searchTransaction.name, handleDebounceSearch);
-    },
-    [handleDebounceSearch],
-  );
-
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
       const handleClick = () => {
@@ -149,7 +141,7 @@ const TransactionTableComponent = ({
     <>
       <SearchBar
         searchValue={searchTransaction.name}
-        onSearch={handleSearchParams}
+        onSearch={handleDebounceSearch}
       />
       <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
         <Box mt={5}>

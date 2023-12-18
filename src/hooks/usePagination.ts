@@ -39,20 +39,6 @@ export const usePagination = (transactions: TTransaction[]) => {
     [data],
   );
 
-  const handleSearchWithPagination = useCallback(
-    (searchTransactionValue = '', onSearchTransaction: () => void) => {
-      setData((prevData) => ({
-        ...prevData,
-        currentPage:
-          transactions.length < data.limit || !searchTransactionValue
-            ? 1
-            : prevData.currentPage,
-      }));
-      onSearchTransaction();
-    },
-    [transactions.length, data.limit, setData],
-  );
-
   const resetPage = useCallback(
     () => setData((prev) => ({ ...prev, currentPage: 1 })),
     [],
@@ -65,6 +51,5 @@ export const usePagination = (transactions: TTransaction[]) => {
     resetPage,
     handleChangeLimit,
     handleChangePage,
-    handleSearchWithPagination,
   };
 };

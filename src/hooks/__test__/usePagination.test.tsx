@@ -3,9 +3,6 @@ import { renderHook, act } from '@testing-library/react-hooks';
 // Hooks
 import { usePagination } from '@app/hooks/usePagination';
 
-// Mocks
-import { TRANSACTIONS } from '@app/mocks';
-
 describe('usePagination hook', () => {
   it('should initialize with the correct default values', () => {
     const { result } = renderHook(() => usePagination([]));
@@ -47,15 +44,5 @@ describe('usePagination hook', () => {
 
     expect(result.current.data.currentPage).toBe(1);
     expect(result.current.data.limit).toBe(10);
-  });
-
-  it('should update currentPage based on search conditions when handleSearchWithPagination is called', () => {
-    const { result } = renderHook(() => usePagination(TRANSACTIONS));
-
-    act(() => {
-      result.current.handleSearchWithPagination('searchValue', () => {});
-    });
-
-    expect(result.current.data.currentPage).toBe(1);
   });
 });
