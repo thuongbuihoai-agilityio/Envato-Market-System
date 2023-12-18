@@ -85,6 +85,7 @@ const LoginPage = (): JSX.Element => {
         h="25px"
         cursor="pointer"
         onClick={onToggleShowPassword}
+        aria-label="toggle-password"
       />
     );
   }, [isShowPassword, onToggleShowPassword]);
