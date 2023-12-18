@@ -30,12 +30,12 @@ exports[`UserCard component renders correctly 1`] = `
       <h3
         class="chakra-heading css-1u7vw38"
       >
-        Abdur Rohman
+         
       </h3>
       <p
         class="chakra-text css-1uvw9jh"
       >
-        Finance managers • Jakarta, Indonesia • 2 days ago
+         •  • 
       </p>
       <div
         class="css-1mcd17k"
@@ -133,9 +133,7 @@ exports[`UserCard component renders correctly 1`] = `
         </p>
         <p
           class="chakra-text css-11c5ex2"
-        >
-          Senior Level
-        </p>
+        />
       </div>
       <div
         class="css-1lekzkb"
@@ -147,9 +145,7 @@ exports[`UserCard component renders correctly 1`] = `
         </p>
         <p
           class="chakra-text css-11c5ex2"
-        >
-          Full Time
-        </p>
+        />
       </div>
       <div
         class="css-1lekzkb"

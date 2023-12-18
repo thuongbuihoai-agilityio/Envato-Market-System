@@ -4,7 +4,18 @@ import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 // constants
 import { IMAGES } from '@app/constants/images';
 
-const TotalBalanceComponent = (): JSX.Element => (
+// Utils
+import { formatDecimalNumber } from '@app/utils';
+
+interface TotalBalanceProps {
+  balance?: number;
+  growth?: number;
+}
+
+const TotalBalanceComponent = ({
+  balance = 88232,
+  growth = 2.05,
+}: TotalBalanceProps): JSX.Element => (
   <Box
     w="full"
     bg="background.body.quaternary"
@@ -31,7 +42,7 @@ const TotalBalanceComponent = (): JSX.Element => (
           lineHeight={9}
           display="inline"
         >
-          $88,232.00
+          {`$${formatDecimalNumber(balance)}`}
         </Text>
         <Text
           fontSize="md"
@@ -58,7 +69,7 @@ const TotalBalanceComponent = (): JSX.Element => (
             mr="2"
           />
           <Text fontSize="lg" fontWeight="bold" color="green.500">
-            2.05%
+            {growth}%
           </Text>
         </Flex>
       </Flex>

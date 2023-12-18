@@ -5,7 +5,7 @@ import { TDataSource, TTransaction } from '@app/interfaces';
 import { TRANSACTIONS } from '@app/mocks';
 
 // Utils
-import { formatDate, formatUppercaseFirstLetter } from '.';
+import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
 
 /**
  * Convert data show for home page
@@ -35,6 +35,6 @@ export const getTransactionHomePage = (
       paymentStatus: formatUppercaseFirstLetter(paymentStatus),
       transactionStatus: formatUppercaseFirstLetter(transactionStatus),
       image: avatar || TRANSACTIONS[0].customer.avatar,
-      spent: `${currency}${amount}`,
+      spent: `${currency}${formatDecimalNumber(+amount)}`,
     };
   });

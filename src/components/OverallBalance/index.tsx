@@ -27,6 +27,9 @@ import {
 import { IRevenueFlow } from '@app/interfaces';
 import { TOption } from '@app/components/common/Select';
 
+// Utils
+import { formatDecimalNumber } from '@app/utils';
+
 type TOverallData = Omit<IRevenueFlow, 'pending'>[];
 
 interface OverallBalanceProps {
@@ -83,7 +86,7 @@ const OverallBalanceComponent = ({
           <Text variant="textSm">Overall Balance</Text>
           <Flex align="center" gap={2}>
             <Heading variant="heading2Xl" as="h3">
-              ${total}
+              ${formatDecimalNumber(total)}
             </Heading>
             <Text color="primary.500">{growth}%</Text>
           </Flex>

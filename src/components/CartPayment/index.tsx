@@ -19,7 +19,10 @@ import { ChevronIcon, Eye, EyeSlash } from '@app/assets/icons';
 import { IMAGES } from '@app/constants';
 
 // Utils
-import { clearNonNumericAndLeadingZeros } from '@app/utils';
+import {
+  clearNonNumericAndLeadingZeros,
+  formatDecimalNumber,
+} from '@app/utils';
 
 interface CardPaymentProps {
   balance?: number;
@@ -31,7 +34,7 @@ type TBalanceStatus = {
 };
 
 const CartPaymentComponent = ({
-  balance = 24.098,
+  balance = 24098,
 }: CardPaymentProps): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [hideBalance, setHideBalance] = useState<boolean>(false);
@@ -56,7 +59,7 @@ const CartPaymentComponent = ({
 
   const { iconBalance, balance: balanceStatus }: TBalanceStatus = {
     iconBalance: hideBalance ? <EyeSlash /> : <Eye />,
-    balance: hideBalance ? '******' : `$${balance}`,
+    balance: hideBalance ? '******' : `$${formatDecimalNumber(balance)}`,
   };
 
   return (
