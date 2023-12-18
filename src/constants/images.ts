@@ -179,4 +179,9 @@ export const IMAGES = {
     url: '/icons/edit.svg',
     alt: 'Edit icon',
   },
+
+  AVATAR_SIGN_UP: {
+    url: '/images/avatar-sign-up.webp',
+    alt: 'This is avatar sign up',
+  },
 };

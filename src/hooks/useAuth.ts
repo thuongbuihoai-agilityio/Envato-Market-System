@@ -3,7 +3,12 @@ import { AxiosResponse } from 'axios';
 import { shallow } from 'zustand/shallow';
 
 // Constants
-import { END_POINTS, SEARCH_PARAM, ERROR_MESSAGES } from '@app/constants';
+import {
+  END_POINTS,
+  SEARCH_PARAM,
+  ERROR_MESSAGES,
+  IMAGES,
+} from '@app/constants';
 
 // Services
 import { UsersHttpService } from '@app/services';
@@ -122,6 +127,7 @@ export const useAuth = () => {
           END_POINTS.USERS,
           {
             ...userInfo,
+            avatarURL: IMAGES.AVATAR_SIGN_UP.url,
             createdAt: Date.now(),
           },
           {},
