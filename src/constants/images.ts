@@ -37,7 +37,7 @@ export const IMAGES = {
     alt: 'This is avatar',
   },
   USER_AVATAR: {
-    url: '/icons/user-avatar.png',
+    url: '/icons/user-avatar.webp',
     alt: 'This is the user avatar',
   },
   TOTAL_EARN: {
@@ -156,7 +156,7 @@ export const IMAGES = {
   },
 
   CHAT_USER_AVATAR: {
-    url: '/images/avatar-user-chat.png',
+    url: '/images/avatar-user-chat.webp',
     alt: 'This is the user avatar',
   },
 
@@ -171,7 +171,7 @@ export const IMAGES = {
   },
 
   BIG_AVATAR: {
-    url: '/images/big-avatar.png',
+    url: '/images/big-avatar.webp',
     alt: 'This is the big avatar',
   },
 
