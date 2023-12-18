@@ -127,6 +127,7 @@ exports[`Login page Match to snapshot 1`] = `
                 type="button"
               >
                 <svg
+                  aria-label="toggle-password"
                   class="chakra-icon css-1l546ul"
                   focusable="false"
                   viewBox="0 0 24 24"
