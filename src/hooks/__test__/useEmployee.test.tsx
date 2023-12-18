@@ -20,7 +20,7 @@ const setup = () =>
   });
 
 describe('useEmployee', () => {
-  it('Work', async () => {
+  it('Should get employees data', async () => {
     jest
       .spyOn(employeeHttpRequest, 'get')
       .mockResolvedValue({ data: USERS_MOCK });
@@ -30,5 +30,15 @@ describe('useEmployee', () => {
     await waitFor(() =>
       expect(result.current.data?.length).toBe(USERS_MOCK.length),
     );
+  });
+
+  it('Should get employees data (reject)', async () => {
+    jest
+      .spyOn(employeeHttpRequest, 'get')
+      .mockRejectedValue({ data: undefined });
+
+    const { result } = await act(() => setup());
+
+    await waitFor(() => expect(result.current.isError).toBeFalsy());
   });
 });
