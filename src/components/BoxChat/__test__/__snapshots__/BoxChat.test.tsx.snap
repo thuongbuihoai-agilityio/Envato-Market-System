@@ -22,6 +22,7 @@ exports[`BoxChat component renders correctly 1`] = `
           src="/icons/user-avatar.webp"
         />
         <button
+          aria-label="btn-icon-plus"
           class="chakra-button css-18tuhly"
           type="button"
         >

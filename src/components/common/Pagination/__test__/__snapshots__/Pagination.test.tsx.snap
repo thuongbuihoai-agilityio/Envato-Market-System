@@ -121,6 +121,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
       class="css-gg4vpm"
     >
       <button
+        aria-label="btn-prev"
         class="chakra-button css-159lhy8"
         data-testid="prev-button"
         disabled=""
@@ -147,6 +148,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         class="css-70qvj9"
       >
         <button
+          aria-label="btn-pages"
           class="chakra-button css-bn5hd7"
           disabled=""
           type="button"
@@ -154,18 +156,21 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
           1
         </button>
         <button
+          aria-label="btn-pages"
           class="chakra-button css-jh60bw"
           type="button"
         >
           2
         </button>
         <button
+          aria-label="btn-pages"
           class="chakra-button css-jh60bw"
           type="button"
         >
           3
         </button>
         <button
+          aria-label="btn-pages"
           class="chakra-button css-1vh27uz"
           disabled=""
           type="button"
@@ -173,6 +178,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
           ...
         </button>
         <button
+          aria-label="btn-pages"
           class="chakra-button css-jh60bw"
           type="button"
         >
@@ -180,6 +186,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         </button>
       </div>
       <button
+        aria-label="btn-next"
         class="chakra-button css-1681ub4"
         data-testid="next-button"
         type="button"

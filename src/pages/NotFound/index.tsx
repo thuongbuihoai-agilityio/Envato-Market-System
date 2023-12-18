@@ -9,6 +9,7 @@ const NotFoundPage = (): JSX.Element => (
     <Image src={IMAGES.NOT_FOUND.url} alt={IMAGES.NOT_FOUND.alt} />
     <Button
       as={Link}
+      aria-label="btn-go-back"
       to="/"
       mt={6}
       _hover={{ bg: 'gray.600' }}

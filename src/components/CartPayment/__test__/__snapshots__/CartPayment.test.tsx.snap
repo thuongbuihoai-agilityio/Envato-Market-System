@@ -139,6 +139,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
         </div>
       </div>
       <button
+        aria-label="btn-send-money"
         class="chakra-button css-4v6g0h"
         type="button"
       >

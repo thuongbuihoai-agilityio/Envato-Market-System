@@ -190,6 +190,7 @@ const LoginPage = (): JSX.Element => {
         </Text>
         <Button
           type="submit"
+          aria-label="btn-sign-in"
           textTransform="capitalize"
           form="login-form"
           isDisabled={isDisabledSubmitBtn}

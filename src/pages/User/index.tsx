@@ -121,6 +121,7 @@ const User = () => {
             </Box>
             <Button
               size="md"
+              aria-label="btn-search"
               bg="background.component.quaternary"
               fontWeight="medium"
               sx={{

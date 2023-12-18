@@ -39,7 +39,13 @@ const BoxChatComponent = (): JSX.Element => (
           h={8}
         />
 
-        <Button bg="secondary.800" w={9} h={9} borderRadius="50%">
+        <Button
+          aria-label="btn-icon-plus"
+          bg="secondary.800"
+          w={9}
+          h={9}
+          borderRadius="50%"
+        >
           <Image
             src="icons/plus.svg"
             alt={IMAGES.USER_AVATAR.alt}

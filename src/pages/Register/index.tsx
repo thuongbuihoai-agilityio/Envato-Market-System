@@ -290,6 +290,7 @@ const RegisterPage = () => {
         </Text>
         <Button
           type="submit"
+          aria-label="btn-sign-up"
           textTransform="capitalize"
           form="register-form"
           isDisabled={isDisabledSubmitBtn}

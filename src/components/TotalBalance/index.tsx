@@ -82,7 +82,12 @@ const TotalBalanceComponent = (): JSX.Element => (
       </Box>
     </Flex>
 
-    <Button mt={14} colorScheme="primary" fontWeight="bold">
+    <Button
+      aria-label="btn-add-money"
+      mt={14}
+      colorScheme="primary"
+      fontWeight="bold"
+    >
       Add Money
     </Button>
   </Box>
