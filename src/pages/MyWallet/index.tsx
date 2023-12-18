@@ -1,5 +1,5 @@
 import areEqual from 'react-fast-compare';
-import { lazy, memo, useCallback, useState } from 'react';
+import { lazy, memo } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // Components
@@ -15,11 +15,11 @@ import { useGetStatistic } from '@app/hooks';
 import { withErrorBoundary } from '@app/hocs';
 
 // Types
-import { TOption } from '@app/components/common/Select';
-import { IEfficiency, TOverallBalance } from '@app/interfaces';
+
+import { TOverallBalance } from '@app/interfaces';
 
 // Mocks
-import { INITIAL_EFFICIENCY, INITIAL_OVERALL_BALANCE } from '@app/mocks';
+import { INITIAL_OVERALL_BALANCE } from '@app/mocks';
 
 // Lazy loading components
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
@@ -29,29 +29,11 @@ const TotalBalance = lazy(() => import('@app/components/TotalBalance'));
 const OverallBalance = lazy(() => import('@app/components/OverallBalance'));
 
 const MyWallet = () => {
-  const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
-  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
-    useState<boolean>(false);
-
-  const {
-    data: efficiencyData = INITIAL_EFFICIENCY,
-    isLoading: isLoadingEfficiency,
-    isError: isErrorEfficiency,
-  } = useGetStatistic<IEfficiency>(
-    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
-  );
-
   const {
     data: overallBalanceData = INITIAL_OVERALL_BALANCE,
     isLoading: isLoadingOverallBalance,
     isError: isErrorOverallBalance,
   } = useGetStatistic<TOverallBalance>(END_POINTS.OVERALL_BALANCE);
-
-  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
-    setEfficiencyType(data.value);
-    setLoadingSelectEfficiencyType(true);
-  }, []);
-
   return (
     <Grid
       bg="background.body.primary"
@@ -89,19 +71,9 @@ const MyWallet = () => {
               </Fetching>
             </Box>
             <Box flex={1}>
-              <Fetching
-                isError={isErrorEfficiency}
-                errorMessage="Efficiency data error"
-              >
-                <Lazy>
-                  <Efficiency
-                    {...efficiencyData}
-                    isLoading={isLoadingEfficiency}
-                    isLoadingWhenSelect={isLoadingSelectEfficiencyType}
-                    onChangeSelect={handleChangeSelectEfficiency}
-                  />
-                </Lazy>
-              </Fetching>
+              <Lazy>
+                <Efficiency />
+              </Lazy>
             </Box>
           </Flex>
           <Box>

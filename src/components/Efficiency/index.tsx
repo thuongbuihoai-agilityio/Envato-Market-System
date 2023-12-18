@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -19,30 +19,37 @@ import EfficiencyRefetch from './Refetching';
 import { Arrow } from '@app/assets/icons';
 
 // Constants
-import { EFFICIENCY_OPTIONS } from '@app/constants';
+import { EFFICIENCY_OPTIONS, END_POINTS } from '@app/constants';
 
 // Types
 import { IEfficiency } from '@app/interfaces';
+import { useGetStatistic } from '@app/hooks';
+import { INITIAL_EFFICIENCY } from '@app/mocks';
 
-interface EfficiencyProps extends IEfficiency {
-  isLoading?: boolean;
-  isExchangeRate?: boolean;
-  isLoadingWhenSelect?: boolean;
-  onChangeSelect: (data: TOption) => void;
-}
-
-const EfficiencyComponent = ({
-  arrival,
-  spending,
-  statistical,
-  isLoading = false,
-  isLoadingWhenSelect = false,
-  onChangeSelect,
-}: EfficiencyProps) => {
+const EfficiencyComponent = () => {
+  const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
+  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
+    useState<boolean>(false);
   const colorFill = useColorModeValue(
     theme.colors.gray[400],
     theme.colors.white,
   );
+
+  const {
+    data: efficiencyData,
+    isLoading: isLoadingEfficiency,
+    isError: isErrorEfficiency,
+  } = useGetStatistic<IEfficiency>(
+    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
+  );
+
+  const { arrival, spending, statistical } =
+    efficiencyData || INITIAL_EFFICIENCY;
+
+  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
+    setEfficiencyType(data.value);
+    setLoadingSelectEfficiencyType(true);
+  }, []);
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
@@ -53,6 +60,20 @@ const EfficiencyComponent = ({
     ),
     [colorFill],
   );
+
+  if (isErrorEfficiency)
+    return (
+      <Heading
+        as="h3"
+        color="text.primary"
+        bgColor="background.body.secondary"
+        rounded="lg"
+        boxShadow="sm"
+        p={4}
+      >
+        Efficiency data error
+      </Heading>
+    );
 
   return (
     <Box bg="background.component.primary" rounded="lg">
@@ -72,11 +93,12 @@ const EfficiencyComponent = ({
             size="sm"
             variant="no-background"
             renderTitle={renderTitle}
-            onSelect={onChangeSelect}
+            onSelect={handleChangeSelectEfficiency}
+            data-testid="select-efficiency"
           />
         </Box>
       </Flex>
-      {isLoadingWhenSelect && isLoading ? (
+      {isLoadingEfficiency && isLoadingSelectEfficiencyType ? (
         <EfficiencyRefetch />
       ) : (
         <EfficiencyInfo
