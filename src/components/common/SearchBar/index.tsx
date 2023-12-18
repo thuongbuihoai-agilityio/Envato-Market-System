@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
 import areEqual from 'react-fast-compare';
 
 // Assets
@@ -36,7 +37,7 @@ const SearchBarComponent = ({
   const renderTitleSelector = useCallback(() => <Selector />, []);
 
   // Form control for search
-  const { control } = useForm<TSearchValue>({
+  const { control, setValue } = useForm<TSearchValue>({
     defaultValues: {
       search: searchValue,
     },
@@ -51,6 +52,11 @@ const SearchBarComponent = ({
     ({ value }: TOption) => onFilter && onFilter(value),
     [onFilter],
   );
+
+  const handleResetValue = useCallback(() => {
+    setValue('search', '');
+    onSearch('');
+  }, [setValue, onSearch]);
 
   return (
     <HStack as="form" data-testId="search-bar" h={14} gap={5}>
@@ -74,6 +80,7 @@ const SearchBarComponent = ({
               placeholder="Search by name, email, or other..."
               variant="secondary"
               leftIcon={<Search color={searchIconColor} />}
+              rightIcon={<CloseIcon onClick={handleResetValue} />}
               data-testid="search-transaction"
             />
           )}
