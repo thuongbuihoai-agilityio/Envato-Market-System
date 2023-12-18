@@ -75,26 +75,24 @@ export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
 export const clearNonNumericAndLeadingZeros = (value: string): string => {
-  let hasDigitBeforeDecimal = false;
+  const match = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
+    value?.toString().replace(/[^(\d|.)]/g, ''),
+  );
 
-  return value
-    .split('')
-    .filter((char, index, array) => {
-      if (char === '.') {
-        if (!hasDigitBeforeDecimal) {
-          //
-          return false;
-        }
-        return !array.slice(0, index).includes('.');
-      }
-      if (/\d/.test(char)) {
-        hasDigitBeforeDecimal = true;
-        return true;
-      }
-      return false;
-    })
-    .join('')
-    .replace(/^0+/, '');
+  const formatValue = match ? match[0] : '';
+
+  let results = formatValue.replace(/[^.\d]/g, '');
+
+  // remove leading zeros
+  if (results.startsWith('0')) {
+    const valueUnits = results.split('.');
+
+    results = `${parseInt(valueUnits[0].replace(/,/g, ''), 10)}${
+      valueUnits.length > 1 ? `.${valueUnits[1]}` : ''
+    }`;
+  }
+
+  return results;
 };
 
 /**
