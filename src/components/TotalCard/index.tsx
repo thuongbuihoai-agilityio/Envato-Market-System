@@ -7,6 +7,9 @@ import Chart from 'react-apexcharts';
 // Images
 import { IMAGES } from '@app/constants';
 
+// Utils
+import { formatDecimalNumber } from '@app/utils';
+
 interface TotalCardComponentProps {
   title: string;
   total: number;
@@ -35,7 +38,7 @@ const TotalCardComponent = ({
     </Flex>
     <Flex alignItems="center" justifyContent="space-between">
       <Box>
-        <Text variant="text3Xl">${total}</Text>
+        <Text variant="text3Xl">${formatDecimalNumber(total)}</Text>
         <HStack>
           <Image src={IMAGES.GROWTH.url} alt={IMAGES.GROWTH.alt} />
           <Text color="primary.500">

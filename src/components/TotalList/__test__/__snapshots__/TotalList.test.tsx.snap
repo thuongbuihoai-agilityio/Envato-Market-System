@@ -39,7 +39,7 @@ exports[`TotalList component renders correctly 1`] = `
               class="chakra-text css-0"
             >
               $
-              7.245
+              7.25
             </p>
             <div
               class="chakra-stack css-1igwmid"
@@ -102,7 +102,7 @@ exports[`TotalList component renders correctly 1`] = `
               class="chakra-text css-0"
             >
               $
-              7.245
+              7.25
             </p>
             <div
               class="chakra-stack css-1igwmid"
@@ -165,7 +165,7 @@ exports[`TotalList component renders correctly 1`] = `
               class="chakra-text css-0"
             >
               $
-              7.245
+              7.25
             </p>
             <div
               class="chakra-stack css-1igwmid"

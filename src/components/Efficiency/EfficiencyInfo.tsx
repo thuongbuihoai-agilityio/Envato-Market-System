@@ -13,7 +13,12 @@ import { Sort } from '@app/assets/icons';
 
 // Types
 import { IEfficiency } from '@app/interfaces';
+
+// Colors
 import { colors } from '@app/themes/bases/colors';
+
+// Utils
+import { formatDecimalNumber } from '@app/utils';
 
 const EfficiencyComponent = ({
   statistical,
@@ -67,7 +72,7 @@ const EfficiencyComponent = ({
           <Box mb={6}>
             <Flex alignItems="center" gap={1}>
               <Text variant="textLg" color="primary.500">
-                ${arrival}
+                ${formatDecimalNumber(arrival, true)}
               </Text>
               <Sort />
             </Flex>
@@ -77,7 +82,9 @@ const EfficiencyComponent = ({
           </Box>
           <Box>
             <Flex alignItems="center" gap={1}>
-              <Text variant="textLg">${spending}</Text>
+              <Text variant="textLg">
+                ${formatDecimalNumber(spending, true)}
+              </Text>
               <Sort color={sortIconColor} />
             </Flex>
 

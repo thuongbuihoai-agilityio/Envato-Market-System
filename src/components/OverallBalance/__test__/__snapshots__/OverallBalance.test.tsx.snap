@@ -23,7 +23,7 @@ exports[`OverallBalance component renders correctly 1`] = `
             class="chakra-heading css-0"
           >
             $
-            48.574
+            48.57
           </h3>
           <p
             class="chakra-text css-ss2gmn"
