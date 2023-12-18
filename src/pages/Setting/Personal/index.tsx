@@ -164,7 +164,6 @@ const UserFormComponent = () => {
                 name="firstName"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
-                    p={0.5}
                     variant="authentication"
                     bg="background.body.primary"
                     label="First Name"

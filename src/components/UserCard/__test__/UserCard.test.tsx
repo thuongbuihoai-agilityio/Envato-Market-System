@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 import UserCard from '..';
 
 // Mock
-import { USER_MOCK } from '@app/mocks';
+import { INITIAL_USER } from '@app/mocks';
 
 describe('UserCard component', () => {
   it('renders correctly', () => {
-    const { container } = render(<UserCard user={USER_MOCK} />);
+    const { container } = render(<UserCard user={INITIAL_USER} />);
 
     expect(container).toMatchSnapshot();
   });
