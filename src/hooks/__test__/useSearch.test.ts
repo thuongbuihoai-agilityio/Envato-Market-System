@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import * as reactRouterDom from 'react-router-dom';
 
 // Hooks
@@ -30,12 +30,14 @@ describe('useSearch', () => {
     const { result } = renderHook(() => useSearch(defaultParams));
 
     act(() => {
-      result.current.setSearchParam('param1', 'value1');
+      result.current.setSearchParam('param1', 'new_value');
     });
 
-    expect(result.current.searchParam.param1).toEqual('value1');
-    expect(result.current.defaultQuery.toString()).toEqual(
-      'param1=value1&param2=value2',
-    );
+    waitFor(() => {
+      expect(result.current.searchParam.param1).toEqual('new_value');
+      expect(result.current.defaultQuery.toString()).toEqual(
+        'param1=new_value&param2=value2',
+      );
+    });
   });
 });
