@@ -20,7 +20,7 @@ import { TUserDetail } from '@app/interfaces';
 import { IMAGES } from '@app/constants/images';
 
 // Services
-import { uploadImage } from '@app/services/image.service';
+import { uploadImage } from '@app/services/image';
 
 export type TUpdateProfileProps = {
   url: string;
