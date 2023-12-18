@@ -23,7 +23,6 @@ import {
   TSearchTransaction,
   TSortField,
   useDebounce,
-  useForm,
   usePagination,
   useSearch,
   useTransactions,
@@ -38,7 +37,6 @@ import {
 
 // Types
 import { TDataSource, THeaderTable } from '@app/interfaces';
-import { TSearchValue } from '../common/SearchBar';
 
 interface TFilterUserProps {
   isTableHistory?: boolean;
@@ -54,13 +52,6 @@ const TransactionTableComponent = ({
     name: '',
   });
 
-  // Form control for search
-  const { control, getValues } = useForm<TSearchValue>({
-    defaultValues: {
-      search: searchTransaction.name,
-    },
-  });
-
   const {
     data: transactions = [],
     isLoading: isLoadingTransactions,
@@ -70,28 +61,22 @@ const TransactionTableComponent = ({
     name: searchTransaction.name,
   });
 
-  const {
-    data,
-    filterData,
-    resetPage,
-    handleChangeLimit,
-    handleChangePage,
-    handleSearchWithPagination,
-  } = usePagination(transactions);
+  const { data, filterData, resetPage, handleChangeLimit, handleChangePage } =
+    usePagination(transactions);
 
   // Update search params when end time debounce
-  const handleDebounceSearch = useDebounce(() => {
+  const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
-    setSearchTransaction('name', getValues().search);
+    setSearchTransaction('name', value);
   }, []);
 
-  const handleSearchParams = useCallback(() => {
-    handleSearchWithPagination(searchTransaction.name, handleDebounceSearch);
-  }, [
-    handleDebounceSearch,
-    handleSearchWithPagination,
-    searchTransaction.name,
-  ]);
+  const handleSearchParams = useCallback(
+    (value: string) => {
+      handleDebounceSearch(value);
+      // handleSearchWithPagination(searchTransaction.name, handleDebounceSearch);
+    },
+    [handleDebounceSearch],
+  );
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -161,28 +146,33 @@ const TransactionTableComponent = ({
   ]);
 
   return (
-    <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
-      <SearchBar control={control} onSearch={handleSearchParams} />
-      <Box mt={5}>
-        <Lazy>
-          <Table
-            columns={columns as THeaderTable[]}
-            dataSource={getTransactionHomePage(filterData)}
-          />
-        </Lazy>
-      </Box>
-      {!!transactions.length && (
-        <Box mt={8}>
-          <Pagination
-            pageSize={data.limit}
-            currentPage={data.currentPage}
-            totalCount={transactions.length}
-            onLimitChange={handleChangeLimit}
-            onPageChange={handleChangePage}
-          />
+    <>
+      <SearchBar
+        searchValue={searchTransaction.name}
+        onSearch={handleSearchParams}
+      />
+      <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
+        <Box mt={5}>
+          <Lazy>
+            <Table
+              columns={columns as THeaderTable[]}
+              dataSource={getTransactionHomePage(filterData)}
+            />
+          </Lazy>
         </Box>
-      )}
-    </Fetching>
+        {!!transactions.length && (
+          <Box mt={8}>
+            <Pagination
+              pageSize={data.limit}
+              currentPage={data.currentPage}
+              totalCount={transactions.length}
+              onLimitChange={handleChangeLimit}
+              onPageChange={handleChangePage}
+            />
+          </Box>
+        )}
+      </Fetching>
+    </>
   );
 };
 
