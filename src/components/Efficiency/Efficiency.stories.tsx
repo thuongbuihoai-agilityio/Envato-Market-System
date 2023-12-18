@@ -1,7 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 import Efficiency from '.';
-import { EFFICIENCY_MOCK } from '@app/mocks/spending';
 
 const meta: Meta<typeof Efficiency> = {
   title: 'Custom Components/Efficiency',
@@ -36,13 +35,4 @@ const meta: Meta<typeof Efficiency> = {
 export default meta;
 type Story = StoryObj<typeof Efficiency>;
 
-export const Default: Story = {
-  args: EFFICIENCY_MOCK,
-};
-
-export const ExchangeRate: Story = {
-  args: {
-    ...EFFICIENCY_MOCK,
-    isExchangeRate: true,
-  },
-};
+export const Default: Story = {};

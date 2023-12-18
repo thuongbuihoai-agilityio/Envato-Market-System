@@ -1,4 +1,4 @@
-import { lazy, memo, useCallback, useState } from 'react';
+import { lazy, memo } from 'react';
 import areEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
@@ -9,11 +9,7 @@ import { Fetching, Lazy } from '@app/components';
 import { useGetStatistic } from '@app/hooks';
 
 // Mocks
-import {
-  INITIAL_REVENUE_FLOW,
-  INITIAL_TOTAL_STATISTICS,
-  INITIAL_EFFICIENCY,
-} from '@app/mocks';
+import { INITIAL_REVENUE_FLOW, INITIAL_TOTAL_STATISTICS } from '@app/mocks';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
@@ -22,12 +18,7 @@ import { withErrorBoundary } from '@app/hocs';
 import { END_POINTS } from '@app/constants';
 
 // Types
-import {
-  ISpendingStatistics,
-  IRevenueFlow,
-  IEfficiency,
-} from '@app/interfaces';
-import { TOption } from '@app/components/common/Select';
+import { ISpendingStatistics, IRevenueFlow } from '@app/interfaces';
 
 // Lazy load components
 const CartPayment = lazy(() => import('@app/components/CartPayment'));
@@ -38,10 +29,6 @@ const Efficiency = lazy(() => import('@app/components/Efficiency'));
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 
 const Dashboard = () => {
-  const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
-  const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
-    useState<boolean>(false);
-
   const {
     data: totalListData = [],
     isLoading: isLoadingTotalList,
@@ -53,19 +40,6 @@ const Dashboard = () => {
     isLoading: isLoadingRevenueFlow,
     isError: isErrorRevenueFlow,
   } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
-
-  const {
-    data: efficiencyData = INITIAL_EFFICIENCY,
-    isLoading: isLoadingEfficiency,
-    isError: isErrorEfficiency,
-  } = useGetStatistic<IEfficiency>(
-    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
-  );
-
-  const handleChangeSelectEfficiency = useCallback((data: TOption) => {
-    setEfficiencyType(data.value);
-    setLoadingSelectEfficiencyType(true);
-  }, []);
 
   return (
     <Grid
@@ -105,20 +79,9 @@ const Dashboard = () => {
             </Fetching>
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
-            <Fetching
-              isLoading={isLoadingEfficiency && !isLoadingSelectEfficiencyType}
-              isError={isErrorEfficiency}
-              errorMessage="Efficiency data error"
-            >
-              <Lazy>
-                <Efficiency
-                  {...efficiencyData}
-                  isLoading={isLoadingEfficiency}
-                  isLoadingWhenSelect={isLoadingSelectEfficiencyType}
-                  onChangeSelect={handleChangeSelectEfficiency}
-                />
-              </Lazy>
-            </Fetching>
+            <Lazy>
+              <Efficiency />
+            </Lazy>
           </GridItem>
         </Grid>
 
