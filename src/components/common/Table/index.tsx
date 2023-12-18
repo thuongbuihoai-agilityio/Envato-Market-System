@@ -86,7 +86,7 @@ const TableComponent = ({
                     column.renderBody ? (
                       column.renderBody(data)
                     ) : (
-                      <Td key={column.key} py={5} px={0}>
+                      <Td key={column.key} py={5} px={0} minW={280}>
                         <Text
                           fontSize="md"
                           color="text.primary"

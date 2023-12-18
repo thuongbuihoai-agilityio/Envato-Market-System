@@ -13,9 +13,7 @@ const ActionCellComponent = ({ onClick }: TActionCellProps): JSX.Element => (
     fontSize="md"
     color="text.primary"
     fontWeight="semibold"
-    textAlign="left"
-    minW={50}
-    w={50}
+    textAlign="center"
   >
     <IconButton
       aria-label="This is the icon action"

@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Th } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -75,6 +75,8 @@ const TransactionTableComponent = ({
       const handleClick = () => {
         sortBy && sortBy(key as TSortField);
       };
+
+      if (!title) return <Th w={50} maxW={50} />;
 
       return <HeadCell key={title} title={title} onClick={handleClick} />;
     },
