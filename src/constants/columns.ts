@@ -31,6 +31,7 @@ export const COLUMNS_DASHBOARD = (
     title: '',
     key: 'action',
     renderBody: onRenderActionIcon,
+    renderHead: onRenderHead,
   },
 ];
 

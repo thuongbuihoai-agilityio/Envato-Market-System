@@ -10,14 +10,15 @@ const CustomerNameCellComponent = ({
 }: TDataSource): JSX.Element => (
   <Td
     py={5}
-    px={0}
+    pr={5}
+    pl={0}
     fontSize="md"
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
-    minW={280}
+    minW={350}
   >
-    <Flex alignItems="center" gap="10px">
+    <Flex alignItems="center" gap="10px" maxW={350}>
       <Img
         src={`${image}`}
         alt={`Image of ${name}`}
@@ -30,9 +31,11 @@ const CustomerNameCellComponent = ({
         fontSize="md"
         fontWeight="semibold"
         whiteSpace="break-spaces"
-        maxW={200}
         noOfLines={1}
+        minW={250}
         title={`${name}`}
+        pr={10}
+        flex={1}
       >
         {name}
       </Text>
