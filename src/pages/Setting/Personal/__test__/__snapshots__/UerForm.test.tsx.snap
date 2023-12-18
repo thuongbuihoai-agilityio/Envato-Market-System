@@ -383,7 +383,7 @@ exports[`renders UserForm with content 1`] = `
           <img
             alt="This is the big avatar"
             class="chakra-image css-1phd9a0"
-            src="/images/big-avatar.png"
+            src="/images/big-avatar.webp"
           />
           <button
             class="chakra-button css-1bbvwej"
