@@ -1,15 +1,15 @@
 export const ERROR_MESSAGES = {
   FIELD_REQUIRED: (fieldName: string) => `${fieldName} is required`,
-  EMAIL_INVALID: 'Wrong email format',
-  PASSWORD_NOT_MATCH: 'Password don’t match',
+  EMAIL_INVALID: 'Email is invalid',
+  PASSWORD_NOT_MATCH: 'Password does not match',
   SOMETHING_ERROR: 'Something went wrong!!',
-  AUTH_INCORRECT: 'Email or password incorrect',
-  ACCOUNT_ALREADY_EXISTS: 'An account using this email address already exists',
-  EMPTY_DATA: 'Data is the empty',
+  AUTH_INCORRECT: 'Email or password is incorrect',
+  ACCOUNT_ALREADY_EXISTS: 'This email address is already in used',
+  EMPTY_DATA: 'No data found',
   PASS_WORD_SHORT: 'Password must be more than 8 characters',
   PASS_WORD_WEAK:
     'Password contains uppercase, lowercase and special characters',
-  PHONE_NUMBER_INVALID: 'Invalid phone number',
+  PHONE_NUMBER_INVALID: 'Phone number is invalid',
   UPDATE_FAIL: {
     title: 'Update failed',
     description: 'Your profile has not been updated successfully',
