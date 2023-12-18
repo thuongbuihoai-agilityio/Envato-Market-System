@@ -1,11 +1,11 @@
 export const ERROR_MESSAGES = {
   FIELD_REQUIRED: (fieldName: string) => `${fieldName} is required`,
   EMAIL_INVALID: 'Email is invalid',
-  PASSWORD_NOT_MATCH: "Password doesn't match",
+  PASSWORD_NOT_MATCH: 'Password does not match',
   SOMETHING_ERROR: 'Something went wrong!!',
   AUTH_INCORRECT: 'Email or password is incorrect',
   ACCOUNT_ALREADY_EXISTS: 'This email address is already in used',
-  EMPTY_DATA: 'Data is the empty',
+  EMPTY_DATA: 'No data found',
   PASS_WORD_SHORT: 'Password must be more than 8 characters',
   PASS_WORD_WEAK:
     'Password contains uppercase, lowercase and special characters',
