@@ -23,11 +23,7 @@ const TotalCardComponent = ({
   growth,
   weeklyIncome,
 }: TotalCardComponentProps) => (
-  <Box
-    p={{ base: 5, lg: 1, xl: 5 }}
-    bg="background.component.primary"
-    rounded="lg"
-  >
+  <Box p={5} bg="background.component.primary" rounded="lg">
     <Flex alignItems="center" justifyContent="space-between" mb={5}>
       <HStack w="fit-content">
         <Image src={IMAGES.TOTAL_EARN.url} alt={IMAGES.TOTAL_EARN.alt} />
@@ -49,45 +45,46 @@ const TotalCardComponent = ({
           </Text>
         </HStack>
       </Box>
-      <Chart
-        options={{
-          colors: ['#22C55E'],
-          grid: {
-            show: false,
-          },
-          xaxis: {
-            labels: {
+      <Box maxW="150">
+        <Chart
+          options={{
+            colors: ['#22C55E'],
+            grid: {
               show: false,
             },
-            axisTicks: {
-              show: false,
+            xaxis: {
+              labels: {
+                show: false,
+              },
+              axisTicks: {
+                show: false,
+              },
             },
-          },
-          yaxis: {
-            labels: {
-              show: false,
+            yaxis: {
+              labels: {
+                show: false,
+              },
             },
-          },
-          tooltip: {
-            enabled: false,
-          },
-          chart: {
-            toolbar: {
-              show: false,
+            tooltip: {
+              enabled: false,
             },
-          },
-          dataLabels: {
-            enabled: false,
-          },
-        }}
-        series={[
-          {
-            data: weeklyIncome,
-          },
-        ]}
-        type="area"
-        width="150"
-      />
+            chart: {
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+          }}
+          series={[
+            {
+              data: weeklyIncome,
+            },
+          ]}
+          type="area"
+        />
+      </Box>
     </Flex>
   </Box>
 );

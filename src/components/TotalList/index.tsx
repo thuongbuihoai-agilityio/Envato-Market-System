@@ -20,7 +20,7 @@ const TotalListComponent = ({
 
   return (
     <Grid
-      templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
+      templateColumns={{ base: 'repeat(1, 1fr)', xl: 'repeat(3, 1fr)' }}
       gap={6}
     >
       {spendingStatistics.map(

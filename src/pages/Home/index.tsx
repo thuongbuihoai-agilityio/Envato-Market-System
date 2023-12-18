@@ -46,7 +46,7 @@ const Dashboard = () => {
       display={{ sm: 'block', md: 'grid' }}
       bg="background.body.primary"
       p={{ base: 6, xl: 12 }}
-      templateColumns={{ base: 'repeat(1, 1fr)', '3xl': 'repeat(4, 1fr)' }}
+      templateColumns={{ base: 'repeat(1, 1fr)', '5xl': 'repeat(4, 1fr)' }}
       gap={0}
     >
       <GridItem colSpan={3}>
