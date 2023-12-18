@@ -98,7 +98,7 @@ const LoginPage = (): JSX.Element => {
         await signIn({ email: username, password }, isRemember);
         redirect(ROUTES.ROOT);
       } catch (error) {
-        const { message } = error as unknown as Error;
+        const { message } = error as Error;
 
         setError('root', { type: 'custom', message });
       } finally {

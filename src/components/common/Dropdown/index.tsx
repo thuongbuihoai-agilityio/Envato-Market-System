@@ -32,7 +32,7 @@ interface DropdownProps {
   permission?: string;
 }
 
-const DropdownComponent = ({
+const UserDropdownMenu = ({
   src = '',
   name = '',
   permission = '',
@@ -160,6 +160,6 @@ const DropdownComponent = ({
   );
 };
 
-const Dropdown = memo(DropdownComponent);
+const Dropdown = memo(UserDropdownMenu);
 
 export default Dropdown;

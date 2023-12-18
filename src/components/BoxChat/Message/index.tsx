@@ -1,7 +1,7 @@
 import { Avatar, Box, Flex, Spacer, Text } from '@chakra-ui/react';
 
 // Components
-import MessageImage from './MessageImage';
+import VoiceChatMessage from './VoiceChatMessage';
 
 interface MessageProps {
   content?: string;
@@ -35,7 +35,7 @@ const Message = ({
     >
       <Box data-testid="image-container">
         {isImage ? (
-          <MessageImage />
+          <VoiceChatMessage />
         ) : (
           <Text
             bg="background.component.secondary"

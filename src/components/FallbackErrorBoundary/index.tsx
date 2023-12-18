@@ -9,7 +9,7 @@ const ErrorComponent = ({ error }: FallbackProps): JSX.Element => (
       An error has been occurred!!
     </Text>
     <Text fontSize="3xl" fontWeight="bold" color="danger.400">
-      {error?.message || (error as unknown as string)}
+      {error?.message || (error as string)}
     </Text>
   </VStack>
 );
