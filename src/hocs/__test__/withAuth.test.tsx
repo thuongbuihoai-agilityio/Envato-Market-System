@@ -50,6 +50,6 @@ describe('withAuth', () => {
     const { container, getByText } = setup();
 
     expect(container).toMatchSnapshot();
-    expect(getByText('Home page')).toBeDefined();
+    expect(getByText('Login page')).toBeDefined();
   });
 });

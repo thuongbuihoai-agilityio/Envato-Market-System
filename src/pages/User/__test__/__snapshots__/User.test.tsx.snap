@@ -156,6 +156,7 @@ exports[`User Page renders User component snapshot 1`] = `
             </div>
           </div>
           <button
+            aria-label="btn-search"
             class="chakra-button css-13aejih"
             type="button"
           >
