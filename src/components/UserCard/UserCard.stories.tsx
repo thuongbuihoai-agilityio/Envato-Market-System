@@ -4,7 +4,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import UserCard from '.';
 
 // Mocks
-import { USER_MOCK } from '@app/mocks';
+import { INITIAL_USER } from '@app/mocks';
 
 const meta: Meta<typeof UserCard> = {
   title: 'Custom Components/UserCard',
@@ -27,6 +27,6 @@ type Story = StoryObj<typeof UserCard>;
 
 export const Default: Story = {
   args: {
-    user: USER_MOCK,
+    user: INITIAL_USER,
   },
 };

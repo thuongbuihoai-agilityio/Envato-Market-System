@@ -31,7 +31,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => (
     closeOnOverlayClick={false}
     variant={{
       base: '',
-      '2xl': 'clickThrough',
+      '4xl': 'clickThrough',
     }}
     blockScrollOnMount={false}
   >

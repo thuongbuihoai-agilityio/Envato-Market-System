@@ -114,10 +114,6 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
               />
               <Menu listItem={[...OTHER_ITEM_LIST]} isMinify />
             </List>
-
-            <Center border="1px solid white" boxSize={10} bg="primary.500">
-              <Image src={IMAGES.MONEY_BAG.url} alt={IMAGES.MONEY_BAG.alt} />
-            </Center>
           </VStack>
         </DrawerBody>
       </DrawerContent>

@@ -21,7 +21,9 @@ import { Header, SideBar } from '@app/layouts';
 import { withErrorBoundary } from '@app/hocs';
 
 const Layout = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure({
+    defaultIsOpen: true,
+  });
 
   const [isTablet] = useMediaQuery('(min-width: 768px) and (max-width: 992px)');
 
@@ -43,7 +45,7 @@ const Layout = () => {
           base: 0,
           md: !isOpen ? 0 : SIDEBAR.MINI_SIDEBAR_WIDTH,
           lg: SIDEBAR.MINI_SIDEBAR_WIDTH,
-          '2xl': !isOpen
+          '4xl': !isOpen
             ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
             : SIDEBAR.MINI_SIDEBAR_WIDTH,
         }}
