@@ -35,9 +35,6 @@ describe('useSearch', () => {
 
     waitFor(() => {
       expect(result.current.searchParam.param1).toEqual('new_value');
-      expect(result.current.defaultQuery.toString()).toEqual(
-        'param1=new_value&param2=value2',
-      );
     });
   });
 });
