@@ -2,10 +2,13 @@ import { StorageValue, createJSONStorage, persist } from 'zustand/middleware';
 import { createWithEqualityFn } from 'zustand/traditional';
 
 // Constants
-import { STORE_KEY } from '@app/constants';
+import { EXPIRED_DAY, STORE_KEY } from '@app/constants';
 
 // Types
 import { TUserDetail } from '@app/interfaces';
+
+// Utils
+import { getCurrentTimeSeconds, getExpireTime } from '@app/utils';
 
 export type TUserInfo = Omit<TUserDetail, 'password'> | null;
 export type TAuthStoreData = {
@@ -13,7 +16,7 @@ export type TAuthStoreData = {
   isRemember: boolean;
   date: number;
 };
-type TAuthStoreAction = {
+export type TAuthStoreAction = {
   updateStore: (data: Partial<TAuthStoreData>) => void;
   clearStore: () => void;
 };
@@ -36,13 +39,38 @@ export const authStore = createWithEqualityFn(
           }: StorageValue<TAuthStoreData & TAuthStoreAction> =
             JSON.parse(value);
 
-          if (user) {
+          const isCorrectUser: boolean = !!user;
+
+          if (isCorrectUser) {
             return localStorage.setItem(key, value);
           }
 
           return localStorage.removeItem(key);
         },
-        getItem: localStorage.getItem.bind(localStorage),
+        getItem: (key: string) => {
+          const response: string | null = localStorage.getItem(key);
+
+          if (response) {
+            const {
+              state: { user, date, isRemember },
+            }: StorageValue<TAuthStoreData & TAuthStoreAction> =
+              JSON.parse(response);
+
+            const expiredTime: number = getExpireTime(
+              date,
+              isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+            );
+
+            const isExpired: boolean =
+              expiredTime - getCurrentTimeSeconds() < 0;
+
+            if (isExpired && user) return null;
+
+            return response;
+          }
+
+          return null;
+        },
         removeItem: localStorage.removeItem.bind(localStorage),
       })),
     },

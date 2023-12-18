@@ -1,78 +1,41 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { FunctionComponent } from 'react';
-import { shallow } from 'zustand/shallow';
 
 // Constants
-import { EXPIRED_DAY, ROUTES } from '@app/constants';
-
-// Hooks
-import { useAuth, TUserInfo } from '@app/hooks';
-
-// Utils
-import { getExpireTime, getCurrentTimeSeconds } from '@app/utils';
+import { PRIVATE_ROUTES, PUBLIC_ROUTES, ROUTES } from '@app/constants';
 
 // Stores
-import { authStore } from '@app/stores';
+import { TAuthStoreData, authStore } from '@app/stores';
 
-/**
- * Requires you to log in to continue
- * @param Component Components need to be tested
- * @returns
- */
-export const withCheckLogin = <TProps extends object>(
-  Component: FunctionComponent<TProps>,
-): FunctionComponent<TProps> => {
-  const NewComponent = (props: TProps): JSX.Element => {
-    const { signOut } = useAuth();
-    const { isRemember, user, date } = authStore(
-      (
-        state,
-      ): {
-        isRemember: boolean;
-        date: number;
-        user: TUserInfo;
-      } => ({
-        isRemember: state.isRemember,
-        user: state.user,
-        date: state.date,
-      }),
-      shallow,
-    );
-
-    const expiredTime: number = getExpireTime(
-      date,
-      isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
-    );
-    const isExpired: boolean = expiredTime - getCurrentTimeSeconds() < 0;
-
-    if (isExpired && user) {
-      signOut();
-
-      return <></>;
-    }
-
-    if (!user) {
-      return <Navigate to={ROUTES.LOGIN} />;
-    }
-
-    return <Component {...props} />;
-  };
-
-  return NewComponent;
+type TValidateRoute = {
+  id: number;
+  path: string;
 };
 
-/**
- * Access is not allowed after logging in
- * @param Component Components need to be tested
- * @returns
- */
-export const withLogged = <TProps extends object>(
+export const withAuthentication = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
   const NewComponent = (props: TProps): JSX.Element => {
-    const user = authStore((state): TUserInfo => state.user);
+    const { pathname } = useLocation();
+    const user = authStore((state): TAuthStoreData['user'] => state.user);
 
-    if (user) return <Navigate to={ROUTES.ROOT} replace />;
+    const isMatchPrivateRoute: boolean = PRIVATE_ROUTES.some(
+      (route: TValidateRoute) =>
+        pathname === ROUTES.ROOT || `/${route.path}` === pathname,
+    );
+    const isMatchPublicRoute: boolean = PUBLIC_ROUTES.some(
+      (route: TValidateRoute) => `/${route.path}` === pathname,
+    );
+    const isNotLogin: boolean = !user;
+    const isLoggedIn: boolean = !!user;
+
+    if (isMatchPublicRoute && isLoggedIn) {
+      return <Navigate to={ROUTES.ROOT} replace />;
+    }
+
+    if (isMatchPrivateRoute && isNotLogin) {
+      return <Navigate to={ROUTES.LOGIN} />;
+    }
 
     return <Component {...props} />;
   };

@@ -6,7 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '@app/layouts';
 
 // HOCs
-import { withLazy, withCheckLogin } from '@app/hocs';
+import { withLazy, withAuthentication } from '@app/hocs';
 
 // Pages
 const Dashboard = lazy(() => import('@app/pages/Home'));
@@ -23,7 +23,7 @@ const ComingSoon = lazy(() => import('@app/pages/ComingSoon'));
 export const ROUTER = createBrowserRouter([
   {
     path: ROUTES.ROOT,
-    Component: withCheckLogin(MainLayout),
+    Component: withAuthentication(MainLayout),
     children: [
       {
         index: true,
@@ -57,7 +57,7 @@ export const ROUTER = createBrowserRouter([
   },
   {
     path: `/${ROUTES.LOGIN}`,
-    Component: withLazy(Login),
+    Component: withAuthentication(withLazy(Login)),
   },
   {
     path: `/${ROUTES.REGISTER}`,
