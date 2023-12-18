@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import UserTable from '../index';
+import UserTable from '@app/components/UsersTable';
 
 // Mocks
 import { USERS_MOCK } from '@app/mocks';

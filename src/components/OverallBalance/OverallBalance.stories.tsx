@@ -1,6 +1,9 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import OverallBalance from '.';
+// Components
+import OverallBalance from '@app/components/OverallBalance';
+
+// Mocks
 import { OVERALL_BALANCE_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof OverallBalance> = {

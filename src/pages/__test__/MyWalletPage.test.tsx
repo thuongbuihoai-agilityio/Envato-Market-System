@@ -1,8 +1,14 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
+// Mocks
 import { INITIAL_EFFICIENCY } from '@app/mocks';
+
+// Hooks
 import { useGetStatistic } from '@app/hooks';
-import MyWalletPage from '../MyWallet';
+
+// Pages
+import MyWalletPage from '@app/pages/MyWallet';
 
 // Mock the modules or functions used in your component
 jest.mock('@app/hooks', () => ({

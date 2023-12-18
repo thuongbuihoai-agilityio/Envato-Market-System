@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import DashboardPage from '../Home';
+import DashboardPage from '@app/pages/Home/index';
 import { INITIAL_EFFICIENCY } from '@app/mocks';
 import { useGetStatistic } from '@app/hooks';
 

@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 const queryClient = new QueryClient();
 
 // Component
-import Efficiency from '..';
+import { Efficiency } from '@app/components';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

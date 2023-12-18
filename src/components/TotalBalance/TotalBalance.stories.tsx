@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import TotalBalance from '.';
+// Components
+import TotalBalance from '@app/components/TotalBalance';
 
 const meta: Meta<typeof TotalBalance> = {
   title: 'Custom Components/TotalBalance',

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
 
 // Component
-import FilterUser from '.';
+import FilterUser from '@app/components/TransactionTable';
 
 const meta: Meta<typeof FilterUser> = {
   title: 'Custom Components/FilterUser',

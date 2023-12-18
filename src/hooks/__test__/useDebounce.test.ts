@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 
 // Hooks
-import { useDebounce } from '..';
+import { useDebounce } from '@app/hooks/useDebounce';
 
 // Constants
 import { DEBOUNCE_TIME } from '@app/constants';

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
 
 // Components
-import SwitchTheme from '.';
+import SwitchTheme from '@app/components/SwitchTheme';
 
 const meta: Meta<typeof SwitchTheme> = {
   title: 'Custom Components/SwitchTheme',

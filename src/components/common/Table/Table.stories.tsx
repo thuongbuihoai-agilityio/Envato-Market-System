@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, Flex, Img, Td, Text } from '@chakra-ui/react';
 
 // Components
-import Table from '.';
+import { Table } from '@app/components';
 
 // Icons
 import { Dot } from '@app/assets/icons';

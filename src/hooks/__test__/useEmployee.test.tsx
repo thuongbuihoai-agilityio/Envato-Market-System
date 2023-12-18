@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react';
 
 // Hooks
-import { useEmployee } from '..';
+import { useEmployee } from '@app/hooks';
 
 // Services
 import { employeeHttpRequest } from '@app/services';

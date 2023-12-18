@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, Table, Tr } from '@chakra-ui/react';
 
 // Component
-import UserInfoCell from '../UserInfoCell';
+import UserInfoCell from '@app/components/UsersTable/Cell/UserInfoCell';
 
 // Mocks
 import { USERS } from '@app/mocks';

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Pages
-import Transaction from '../Transaction';
+import Transaction from '@app/pages/Transaction';
 
 describe('Transaction page', () => {
   it('Should render match with snapshot.', async () => {

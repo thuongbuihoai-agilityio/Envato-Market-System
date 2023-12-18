@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react';
-import TotalListSkeleton from '..';
+
+// Components
+import { TotalListSkeleton } from '@app/components';
 
 describe('TotalListSkeleton component', () => {
   it('renders correctly', () => {

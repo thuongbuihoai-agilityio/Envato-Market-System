@@ -1,6 +1,8 @@
 import { fireEvent, render } from '@testing-library/react';
-import { ActionCell } from '../Body';
 import { Table } from '@chakra-ui/react';
+
+// Components
+import { ActionCell } from '@app/components';
 
 const onClick = jest.fn();
 

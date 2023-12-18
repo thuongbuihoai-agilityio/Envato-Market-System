@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Table, Tr } from '@chakra-ui/react';
 
 // Component
-import StatusCell from '../StatusCell';
+import StatusCell from '@app/components/UsersTable/Cell/StatusCell';
 
 const meta: Meta<typeof StatusCell> = {
   title: 'Custom Components/Users/Cell/StatusCell',

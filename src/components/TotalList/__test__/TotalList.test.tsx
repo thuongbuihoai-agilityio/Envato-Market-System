@@ -1,6 +1,10 @@
 import { render } from '@testing-library/react';
-import TotalList from '..';
+
+// Components
 import { SPENDING_STATISTICS_MOCK } from '@app/mocks';
+
+// Mocks
+import { TotalList } from '@app/components';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

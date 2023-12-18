@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
 // Components
-import Pagination from '..';
+import { Pagination } from '@app/components';
 
 describe('Pagination render', () => {
   test('Should render match with snapshot.', () => {

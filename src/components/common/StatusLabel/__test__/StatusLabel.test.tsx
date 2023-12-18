@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { Status } from '@app/interfaces';
 
 // Components
-import StatusLabel from '..';
+import { StatusLabel } from '@app/components';
 
 describe('StatusLabel Component', () => {
   it('renders with the correct variant for FULL_TIME', () => {

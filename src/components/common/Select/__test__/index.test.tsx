@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
 // Components
-import Select from '..';
+import { Select } from '@app/components';
 
 // Mocks
 import { SOCIAL_PLATFORM_OPTIONS } from '@app/constants';

@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import UpdateProfile from '..';
 import userEvent from '@testing-library/user-event';
-// import { uploadImage } from '@app/services/image.service';
+
+// Components
+import { UpdateProfile } from '@app/components';
 
 const setValueMock = jest.fn();
 

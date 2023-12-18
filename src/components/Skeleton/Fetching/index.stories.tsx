@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import Fetching from '.';
+import Fetching from '@app/components/Skeleton/Fetching';
 
 const meta: Meta<typeof Fetching> = {
   title: 'Custom Components/Skeleton/Fetching',

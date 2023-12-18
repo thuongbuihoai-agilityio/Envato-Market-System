@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 // Components
-import OverallBalance from '..';
+import { OverallBalance } from '@app/components';
 
 // Mock
 import { OVERALL_BALANCE_MOCK } from '@app/mocks';

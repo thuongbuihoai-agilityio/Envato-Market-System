@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Pages
-import HistoryPage from '../History';
+import HistoryPage from '@app/pages/History';
 
 describe('History Component', () => {
   it('Should render match with snapshot.', async () => {

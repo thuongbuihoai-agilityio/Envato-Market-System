@@ -1,6 +1,7 @@
-import { StoryObj, Meta } from '@storybook/react';
+import { TotalListSkeleton } from '@app/components';
 
-import TotalListSkeleton from '.';
+// Components
+import { StoryObj, Meta } from '@storybook/react';
 
 const meta: Meta<typeof TotalListSkeleton> = {
   title: 'Custom Components/Skeleton/TotalListSkeleton',

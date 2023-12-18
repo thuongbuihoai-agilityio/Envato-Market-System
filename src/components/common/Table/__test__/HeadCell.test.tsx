@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
-import HeadCell from '../HeadCell';
 import { Table } from '@chakra-ui/react';
+
+// Components
+import { HeadCell } from '@app/components';
 
 const setup = () =>
   render(<HeadCell title="Title" />, {
