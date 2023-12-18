@@ -13,6 +13,9 @@ import { IMAGES } from '@app/constants/images';
 // Types
 import { TEmployee } from '@app/interfaces';
 
+// Mocks
+import { INITIAL_USER } from '@app/mocks';
+
 interface userCardProps {
   user: TEmployee;
 }
@@ -27,7 +30,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
     level,
     workTime,
     avatarURL,
-  } = user || {};
+  } = Object.assign(INITIAL_USER, user);
 
   const iconButtonStyles = {
     variant: 'outline',
