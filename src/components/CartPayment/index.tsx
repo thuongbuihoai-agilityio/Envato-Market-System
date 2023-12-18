@@ -198,7 +198,12 @@ const CartPaymentComponent = ({
           </Flex>
         </Box>
 
-        <Button mt={4} colorScheme="primary" fontWeight="bold">
+        <Button
+          aria-label="btn-send-money"
+          mt={4}
+          colorScheme="primary"
+          fontWeight="bold"
+        >
           Send Money
         </Button>
       </Box>

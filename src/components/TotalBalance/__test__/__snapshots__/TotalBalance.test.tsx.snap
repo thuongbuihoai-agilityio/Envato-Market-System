@@ -65,6 +65,7 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
       </div>
     </div>
     <button
+      aria-label="btn-add-money"
       class="chakra-button css-ifxyxq"
       type="button"
     >

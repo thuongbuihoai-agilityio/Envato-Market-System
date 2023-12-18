@@ -129,6 +129,7 @@ const PaginationComponent = ({
       <Flex justifyContent="space-between">
         <Button
           data-testId="prev-button"
+          aria-label="btn-prev"
           variant="iconSecondary"
           cursor={isDisabledPrev ? 'not-allowed' : ''}
           isDisabled={isDisabledPrev}
@@ -155,6 +156,7 @@ const PaginationComponent = ({
             return (
               <Button
                 key={item}
+                aria-label="btn-pages"
                 isDisabled={isDisable}
                 mx={0.5}
                 h={{ base: 30, '2xl': 53 }}
@@ -178,6 +180,7 @@ const PaginationComponent = ({
         </Flex>
         <Button
           data-testId="next-button"
+          aria-label="btn-next"
           variant="iconSecondary"
           cursor={isDisableNext ? 'not-allowed' : ''}
           isDisabled={isDisableNext}

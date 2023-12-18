@@ -34,7 +34,12 @@ const ActionComponent = ({
       textAlign="left"
     >
       <Flex alignItems="center" gap={3}>
-        <Button onClick={handleClickMessage} flex={1} size="none">
+        <Button
+          aria-label="btn-message"
+          onClick={handleClickMessage}
+          flex={1}
+          size="none"
+        >
           Message
         </Button>
         <IconButton

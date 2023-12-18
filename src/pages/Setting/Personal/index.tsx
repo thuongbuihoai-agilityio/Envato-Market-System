@@ -475,6 +475,7 @@ const UserFormComponent = () => {
               <Flex direction="row-reverse">
                 <Button
                   type="submit"
+                  aria-label="btn-save-profile"
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
