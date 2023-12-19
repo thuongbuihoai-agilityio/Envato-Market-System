@@ -74,18 +74,7 @@ const AuthLayoutComponent = ({
           <AuthFooter />
         </Box>
       </Box>
-      <Benefit
-        imageURL={url}
-        alt={alt}
-        heading="Speady, Easy and Fast"
-        description={`BankCo. help you set saving goals, earn cash back offers, Go to
-          disclaimer for more details and get paychecks up to two days early. Get
-          a
-            <span class="text-highlight">
-              $20
-            </span>
-          bonus when you receive qualifying direct deposits`}
-      />
+      <Benefit imageURL={url} alt={alt} heading="Speady, Easy and Fast" />
     </Flex>
   );
 };
