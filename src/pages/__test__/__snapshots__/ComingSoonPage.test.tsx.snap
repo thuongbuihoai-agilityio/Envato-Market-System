@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Component Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="css-bbsa2c"
+  >
+    <h2
+      class="chakra-heading css-0"
+    >
+      Up coming soon
+    </h2>
+  </div>
+</div>
+`;

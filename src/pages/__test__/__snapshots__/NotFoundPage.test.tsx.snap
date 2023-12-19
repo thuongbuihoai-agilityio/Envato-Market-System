@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound Page Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="css-1m2j76w"
+  >
+    <img
+      alt="This is the not found image"
+      class="chakra-image css-0"
+      src="/images/not-found.svg"
+    />
+    <a
+      aria-label="btn-go-back"
+      aria-labelledby="go back"
+      class="chakra-button css-1a9spu1"
+      href="/"
+    >
+      Go Back
+    </a>
+  </div>
+</div>
+`;

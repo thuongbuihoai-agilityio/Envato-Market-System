@@ -28,6 +28,7 @@ export default {
     '!<rootDir>/.storybook/**',
     '!<rootDir>/*.config.js',
     '!<rootDir>/src/assets/**',
+    '!<rootDir>/src/components/Icons/**',
     '!<rootDir>/src/themes/**',
     '!<rootDir>/src/constants/**',
     '!<rootDir>/src/interfaces/**',
