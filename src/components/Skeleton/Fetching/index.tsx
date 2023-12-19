@@ -12,12 +12,18 @@ type TFetchingProps = {
   isLoading?: boolean;
   isError?: boolean;
   errorMessage?: string;
+  quality?: number;
   size?: keyof typeof skeletonSizes;
   variant?: TVariant;
   children?: ReactNode;
 };
 
-const PrimarySkeleton = ({ size }: { size: TFetchingProps['size'] }) =>
+const PrimarySkeleton = ({
+  size,
+}: {
+  size: TFetchingProps['size'];
+  quality: number;
+}) =>
   Array.from({ length: 5 }).map(
     (_, index: number): ReactElement => (
       <SkeletonChakra
@@ -35,13 +41,14 @@ const Fetching = ({
   isLoading = false,
   isError = false,
   errorMessage = ERROR_MESSAGES.SOMETHING_ERROR,
+  quality = 5,
   size = 'xs',
   variant = 'primary',
   children,
 }: TFetchingProps): JSX.Element => {
   const skeleton: Record<TVariant, ReactElement> = useMemo(
     () => ({
-      primary: <PrimarySkeleton size={size} />,
+      primary: <PrimarySkeleton size={size} quality={quality} />,
       secondary: (
         <SkeletonChakra
           bg="background.component.primary"
