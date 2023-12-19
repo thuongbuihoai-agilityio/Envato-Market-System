@@ -1,0 +1,7 @@
+user-agent: *
+disallow: /downloads/
+
+user-agent: magicsearchbot
+disallow: /uploads/
+
+sitemap: https://example.com/sitemap-file.xml
