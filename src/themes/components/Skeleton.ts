@@ -1,9 +1,12 @@
 import { defineStyleConfig } from '@chakra-ui/react';
 
 export const skeletonSizes: Record<
-  'sm' | 'md' | 'lg',
+  'xs' | 'sm' | 'md' | 'lg',
   Record<string, number>
 > = {
+  xs: {
+    h: 14,
+  },
   sm: {
     h: 180,
   },

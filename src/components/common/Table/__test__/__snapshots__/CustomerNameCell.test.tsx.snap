@@ -6,10 +6,10 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
     class="chakra-table css-0"
   >
     <td
-      class="css-m6eqk4"
+      class="css-quuys3"
     >
       <div
-        class="css-1h2sv0j"
+        class="css-170pwsj"
       >
         <img
           alt="Image of Duong Pham"
@@ -17,7 +17,7 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
           src="undefined"
         />
         <p
-          class="chakra-text css-g88s0j"
+          class="chakra-text css-mn2b9z"
           title="Duong Pham"
         >
           Duong Pham
