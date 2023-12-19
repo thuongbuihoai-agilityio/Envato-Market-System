@@ -8,7 +8,6 @@ interface BenefitProps {
   imageURL: string;
   alt: string;
   heading?: string;
-  description?: string;
   width?: string;
 }
 
@@ -16,7 +15,6 @@ const BenefitComponent = ({
   imageURL,
   alt,
   heading,
-  description,
   width = '50%',
 }: BenefitProps) => (
   <Flex
@@ -65,12 +63,22 @@ const BenefitComponent = ({
       >
         {heading}
       </Heading>
-      <Text
-        fontSize="sm"
-        fontWeight="medium"
-        color="text.secondary"
-        dangerouslySetInnerHTML={{ __html: `${description}` }}
-      />
+
+      <Text fontWeight="medium" fontSize="sm" textAlign="center">
+        BankCo. help you set saving goals, earn cash back offers, Go to
+        disclaimer for more details and get paychecks up to two days early. Get
+        a
+        <Text
+          as="span"
+          color="primary.500"
+          paddingInline={1}
+          fontWeight="bold"
+          fontSize="sm"
+        >
+          $20
+        </Text>
+        bonus when you receive qualifying direct deposits
+      </Text>
     </Box>
   </Flex>
 );

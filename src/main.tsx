@@ -8,7 +8,6 @@ import App from './app/App.tsx';
 import './wdyr';
 
 // Styles
-import './index.css';
 import './app/App.css';
 
 // Providers
