@@ -1,8 +1,14 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { ReactNode } from 'react';
-import { useUpdateUser } from '../useUser';
+
+// Hooks
+import { useUpdateUser } from '@app/hooks';
+
+// Interfaces
 import { TUserDetail } from '@app/interfaces';
+
+// Services
 import { UsersHttpService } from '@app/services';
 
 const queryClient = new QueryClient({

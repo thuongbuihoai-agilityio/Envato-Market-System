@@ -11,7 +11,6 @@ import {
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Select } from '..';
 
 // Icon
 import { Arrow } from '@app/assets/icons';
@@ -25,7 +24,9 @@ import {
 
 // Types
 import { IRevenueFlow } from '@app/interfaces';
-import { TOption } from '@app/components/common/Select';
+
+// Components
+import Select, { TOption } from '@app/components/common/Select';
 
 // Utils
 import { formatDecimalNumber } from '@app/utils';

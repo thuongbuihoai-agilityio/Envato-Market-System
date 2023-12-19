@@ -1,6 +1,8 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import RevenueFlow from '.';
+// Components
+import { RevenueFlow } from '@app/components';
+
 import { REVENUE_FLOW_MOCK } from '@app/mocks';
 
 const meta: Meta<typeof RevenueFlow> = {

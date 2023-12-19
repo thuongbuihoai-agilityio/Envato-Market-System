@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Components
-import RevenueFlow from '..';
+import { RevenueFlow } from '@app/components';
 
 // Mock
 import { REVENUE_FLOW_MOCK } from '@app/mocks';

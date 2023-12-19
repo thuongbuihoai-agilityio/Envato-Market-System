@@ -1,6 +1,10 @@
 import { render } from '@testing-library/react';
-import TotalCard from '..';
+
+// Mocks
 import { TOTAL_EARNINGS_MOCK } from '@app/mocks';
+
+// Components
+import { TotalCard } from '@app/components';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,

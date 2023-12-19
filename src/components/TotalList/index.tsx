@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 // Components
 import { Grid, GridItem } from '@chakra-ui/react';
-import { TotalCard, TotalListSkeleton } from '..';
+import { TotalCard, TotalListSkeleton } from '@app/components';
 
 // Types
 import { ISpendingStatistics } from '@app/interfaces';

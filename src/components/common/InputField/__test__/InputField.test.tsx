@@ -1,7 +1,9 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import InputField from '..';
 import { CloseIcon } from '@chakra-ui/icons';
+
+// Components
+import { InputField } from '@app/components';
 
 describe('InputField component', () => {
   const mockOnChange = jest.fn();

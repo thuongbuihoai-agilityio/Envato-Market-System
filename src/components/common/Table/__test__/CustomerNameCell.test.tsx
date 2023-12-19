@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
-import { CustomerNameCell } from '../Body';
 import { Table } from '@chakra-ui/react';
+
+// Components
+import { CustomerNameCell } from '@app/components';
 
 const setup = () =>
   render(<CustomerNameCell id={1} name="Duong Pham" />, {

@@ -11,7 +11,7 @@ import { Arrow } from '@app/assets/icons';
 import { PAGE_SIZE, PAGINATION } from '@app/constants/pagination';
 
 // Interfaces
-import { TOption } from '../Select';
+import { TOption } from '@app/components/common/Select';
 import { PaginationType } from '@app/interfaces/pagination';
 
 // Utils

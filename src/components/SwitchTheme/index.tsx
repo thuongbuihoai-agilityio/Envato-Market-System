@@ -2,7 +2,7 @@ import { ReactElement, memo } from 'react';
 import { ColorMode, useColorMode } from '@chakra-ui/react';
 
 // Components
-import { IconButton } from '..';
+import { IconButton } from '@app/components';
 
 // Icons
 import { DarkTheme, LightTheme } from '@app/assets/icons';

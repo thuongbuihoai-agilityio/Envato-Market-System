@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 
 // component
-import Dropdown from '..';
+import { Dropdown } from '@app/components';
 
 describe('Dropdown render', () => {
   const renderComponent = ({

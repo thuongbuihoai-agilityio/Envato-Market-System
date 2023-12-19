@@ -1,6 +1,8 @@
 import { render, waitFor } from '@testing-library/react';
-import SwitchTheme from '..';
 import userEvent from '@testing-library/user-event';
+
+// Components
+import { SwitchTheme } from '@app/components';
 
 // Mocking Chakra UI useColorMode hook
 const useColorModeMock = jest.fn();

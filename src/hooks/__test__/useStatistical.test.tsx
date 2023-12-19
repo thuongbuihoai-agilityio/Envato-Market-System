@@ -1,9 +1,17 @@
+import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
-import { ReactNode } from 'react';
-import { useGetStatistic } from '..';
+
+// Hooks
+import { useGetStatistic } from '@app/hooks';
+
+// Constants
 import { END_POINTS } from '@app/constants';
+
+// Services
 import * as services from '@app/services';
+
+// Mocks
 import { SPENDING_STATISTICS_MOCK } from '@app/mocks';
 
 const queryClient = new QueryClient({

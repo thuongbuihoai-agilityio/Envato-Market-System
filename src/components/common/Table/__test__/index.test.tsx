@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Components
-import Table from '..';
+import { Table } from '@app/components';
 
 // Mocks
 import { USERS } from '@app/mocks';

@@ -6,3 +6,4 @@ export * from './useEmployee';
 export * from './useDebounce';
 export * from './useSearch';
 export * from './usePagination';
+export * from './useUser';

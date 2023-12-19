@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Components
-import UserCard from '..';
+import UserCard from '@app/components/UserCard';
 
 // Mock
 import { USER_MOCK } from '@app/mocks';

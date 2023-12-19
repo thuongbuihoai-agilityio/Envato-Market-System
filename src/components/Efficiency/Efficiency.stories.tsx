@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react';
 
-import Efficiency from '.';
+import Efficiency from '@app/components/Efficiency';
 
 const meta: Meta<typeof Efficiency> = {
   title: 'Custom Components/Efficiency',

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import Fetching from '../index';
+import { Fetching } from '@app/components';
 
 describe('Fetching component', () => {
   it('should renders correctly', () => {

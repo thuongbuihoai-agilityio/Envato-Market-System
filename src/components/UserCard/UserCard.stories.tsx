@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import UserCard from '.';
+import UserCard from '@app/components/UserCard';
 
 // Mocks
 import { INITIAL_USER } from '@app/mocks';
