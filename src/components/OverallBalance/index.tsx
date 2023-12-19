@@ -154,10 +154,14 @@ const OverallBalanceComponent = ({
                 ${chartData[dataPointIndex].title}
                 </div>
                 <p>
-                ${REVENUE_FLOW_STATUS[0]}: ${series[0][dataPointIndex]}
+                ${REVENUE_FLOW_STATUS[0]}: $${formatDecimalNumber(
+                  series[0][dataPointIndex],
+                )}
                 </p>
                 <p>
-                ${REVENUE_FLOW_STATUS[1]}: ${series[1][dataPointIndex]}
+                ${REVENUE_FLOW_STATUS[1]}: $${formatDecimalNumber(
+                  series[1][dataPointIndex],
+                )}
                 </p>
                 </div>`;
             },

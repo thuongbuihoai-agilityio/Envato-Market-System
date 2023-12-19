@@ -191,7 +191,7 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
                 ${data[dataPointIndex].title}
                 </p>
                 <span>
-                ${status} ${series[seriesIndex][dataPointIndex]}
+                ${status} ${series[seriesIndex][dataPointIndex]}%
                 </span>
                 </div>`;
             },
