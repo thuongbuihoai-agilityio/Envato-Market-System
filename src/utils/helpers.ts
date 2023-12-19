@@ -74,25 +74,14 @@ export const validatePassword = (value: string) => {
 export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
-export const clearNonNumericAndLeadingZeros = (value: string): string => {
+export const formatDecimalInput = (value = ''): string => {
   const match = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
-    value?.toString().replace(/[^(\d|.)]/g, ''),
+    value.replace(/[^(\d|.)]/g, ''),
   );
 
   const formatValue = match ? match[0] : '';
 
-  let results = formatValue.replace(/[^.\d]/g, '');
-
-  // remove leading zeros
-  if (results.startsWith('0')) {
-    const valueUnits = results.split('.');
-
-    results = `${parseInt(valueUnits[0].replace(/,/g, ''), 10)}${
-      valueUnits.length > 1 ? `.${valueUnits[1]}` : ''
-    }`;
-  }
-
-  return results;
+  return formatValue;
 };
 
 /**
