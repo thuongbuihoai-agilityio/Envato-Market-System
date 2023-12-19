@@ -30,12 +30,16 @@ interface DropdownProps {
   src?: string;
   name?: string;
   permission?: string;
+  offsetX?: number;
+  offsetY?: number;
 }
 
 const UserDropdownMenu = ({
   src = '',
   name = '',
   permission = '',
+  offsetX = 0,
+  offsetY = 20,
 }: DropdownProps) => {
   const { signOut } = useAuth();
   const colorFill = useColorModeValue(
@@ -44,7 +48,7 @@ const UserDropdownMenu = ({
   );
 
   return (
-    <Menu>
+    <Menu offset={[offsetX, offsetY]}>
       {({ isOpen }) => (
         <Box position="relative" float="right">
           <MenuButton
@@ -84,9 +88,6 @@ const UserDropdownMenu = ({
             </Flex>
           </MenuButton>
           <MenuList
-            position="absolute"
-            top="10px"
-            right={{ base: '-18.75', md: '-13.25', '3xl': '-42' }}
             data-testid="TestDropdown"
             px={3}
             py={2}
