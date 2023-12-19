@@ -13,6 +13,9 @@ import { IMAGES } from '@app/constants/images';
 // Types
 import { TEmployee } from '@app/interfaces';
 
+// Utils
+import { formatDecimalNumber } from '@app/utils';
+
 interface userCardProps {
   user: TEmployee;
 }
@@ -27,6 +30,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
     level,
     workTime,
     avatarURL,
+    salary,
   } = user || {};
 
   const iconButtonStyles = {
@@ -111,7 +115,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
             Salary
           </Text>
           <Text variant="textSm" fontWeight="semibold" color="text.primary">
-            $250-300
+            ${formatDecimalNumber(salary, true)}
           </Text>
         </Flex>
       </Flex>

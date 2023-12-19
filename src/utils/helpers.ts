@@ -74,8 +74,15 @@ export const validatePassword = (value: string) => {
 export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
-export const clearNonNumericAndLeadingZeros = (value: string): string =>
-  value.replace(/[^0-9]/g, '').replace(/^0+/, '');
+export const formatDecimalInput = (value = ''): string => {
+  const validData = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
+    value.replace(/[^(\d|.)]/g, ''),
+  );
+
+  const formatValue = validData ? validData[0] : '';
+
+  return formatValue;
+};
 
 /**
  * Format number rg: 12345 -> 12,345.00 if isOmitDecimals = false or 12,345 if isOmitDecimals = true

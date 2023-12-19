@@ -19,10 +19,7 @@ import { ChevronIcon, Eye, EyeSlash } from '@app/components/Icons';
 import { IMAGES } from '@app/constants';
 
 // Utils
-import {
-  clearNonNumericAndLeadingZeros,
-  formatDecimalNumber,
-} from '@app/utils';
+import { formatDecimalInput, formatDecimalNumber } from '@app/utils';
 
 interface CardPaymentProps {
   balance?: number;
@@ -42,10 +39,9 @@ const CartPaymentComponent = ({
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value: string = event.target.value;
-      if (value.charAt(0) === '-') return;
 
       // Remove non-numeric characters and leading zeros
-      const sanitizedValue = clearNonNumericAndLeadingZeros(value);
+      const sanitizedValue = formatDecimalInput(value);
 
       setValue(sanitizedValue);
     },
