@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback } from 'react';
 import { AxiosResponse } from 'axios';
 
 import {
@@ -34,7 +34,6 @@ import { InputField, UpdateProfile } from '@app/components';
 import { authStore } from '@app/stores';
 
 const UserFormComponent = () => {
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
   const { mutate: updateUser } = useUpdateUser();
@@ -50,7 +49,7 @@ const UserFormComponent = () => {
     },
     clearErrors,
     handleSubmit,
-
+    reset,
     watch,
   } = useForm<TUserDetail>({
     defaultValues: {
@@ -69,11 +68,11 @@ const UserFormComponent = () => {
       twitterURL: user?.twitterURL,
       youtubeURL: user?.youtubeURL,
     },
+    mode: 'onBlur',
   });
 
   const handleSubmitForm = useCallback(
     (updatedInfo: TUserDetail) => {
-      setIsDisabled(true);
       updateUser(updatedInfo, {
         onSuccess: (response: AxiosResponse<TUserDetail>) => {
           const updatedUser: TUserDetail = response.data;
@@ -87,6 +86,7 @@ const UserFormComponent = () => {
             isClosable: true,
             position: 'top-right',
           });
+          reset(updatedInfo);
         },
         onError: () => {
           toast({
@@ -100,7 +100,7 @@ const UserFormComponent = () => {
         },
       });
     },
-    [updateUser, setUser, toast],
+    [updateUser, setUser, reset, toast],
   );
 
   return (
@@ -172,7 +172,6 @@ const UserFormComponent = () => {
                     isError={!!error}
                     errorMessages={error?.message}
                     onChange={(data) => {
-                      setIsDisabled(false);
                       clearErrors('firstName'), field.onChange(data);
                     }}
                   />
@@ -191,7 +190,6 @@ const UserFormComponent = () => {
                     isError={!!error}
                     errorMessages={error?.message}
                     onChange={(data) => {
-                      setIsDisabled(false);
                       clearErrors('lastName'), field.onChange(data);
                     }}
                   />
@@ -471,7 +469,7 @@ const UserFormComponent = () => {
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
-                  isDisabled={!isDirty || !isValid || isDisabled}
+                  isDisabled={!isDirty || !isValid}
                   w="none"
                 >
                   Save Profile
