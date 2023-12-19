@@ -1,4 +1,10 @@
-import { Fragment, ReactElement, ReactNode } from 'react';
+import {
+  Fragment,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+  useCallback,
+} from 'react';
 import { Flex, Heading, List, ListItem, Text, VStack } from '@chakra-ui/react';
 
 // Components
@@ -6,6 +12,10 @@ import { Navigation } from '@app/components';
 
 // Hooks
 import { useAuth } from '@app/hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+
+// Constants
+import { ROUTES } from '@app/constants';
 
 export type TMenuItem = {
   id: number;
@@ -22,7 +32,19 @@ export type MenuProps = {
 };
 
 const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
+  const navigate = useNavigate();
   const { signOut } = useAuth();
+
+  const handleSignOut = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+
+      signOut();
+      navigate(`${ROUTES.LOGIN}`);
+    },
+    [navigate, signOut],
+  );
+
   return (
     <VStack mb={isMinify ? 9 : 5} w="full" overscroll="full">
       {!isMinify && (
@@ -62,7 +84,7 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
                   <Navigation
                     destination={destination}
                     {...(menuItemContent === 'Sign Out' && {
-                      onClick: signOut,
+                      onClick: handleSignOut,
                     })}
                   >
                     <LeftIconComponent />
@@ -71,7 +93,7 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
                   <Navigation
                     destination={destination}
                     {...(menuItemContent === 'Sign Out' && {
-                      onClick: signOut,
+                      onClick: handleSignOut,
                     })}
                   >
                     <Flex alignItems="center" justifyContent="space-between">

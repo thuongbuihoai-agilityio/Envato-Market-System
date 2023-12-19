@@ -6,7 +6,7 @@ import { ReactNode, memo, useMemo } from 'react';
 import { IMAGES, TITLES } from '@app/constants';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withAuthentication, withErrorBoundary } from '@app/hocs';
 
 // Components
 import { Benefit, Divider, Logo, SwitchTheme } from '@app/components';
@@ -89,6 +89,9 @@ const AuthLayoutComponent = ({
     </Flex>
   );
 };
-const AuthLayout = memo(withErrorBoundary(AuthLayoutComponent), areEqual);
+const AuthLayout = memo(
+  withErrorBoundary(withAuthentication(AuthLayoutComponent)),
+  areEqual,
+);
 
 export default AuthLayout;

@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 // HOCs
-import { withLogged, withCheckLogin } from '..';
+import { withAuthentication } from '..';
 
 // Constants
 import { ROUTES } from '@app/constants';
@@ -15,8 +15,8 @@ const Login = () => <h2>Login page</h2>;
 const RouterTemp = () => (
   <MemoryRouter initialEntries={[ROUTES.ROOT]}>
     <Routes>
-      <Route path={ROUTES.ROOT} Component={withCheckLogin(Home)} />
-      <Route path={ROUTES.LOGIN} Component={withLogged(Login)} />
+      <Route path={ROUTES.ROOT} Component={withAuthentication(Home)} />
+      <Route path={ROUTES.LOGIN} Component={withAuthentication(Login)} />
     </Routes>
   </MemoryRouter>
 );
@@ -50,6 +50,6 @@ describe('withAuth', () => {
     const { container, getByText } = setup();
 
     expect(container).toMatchSnapshot();
-    expect(getByText('Login page')).toBeDefined();
+    expect(getByText('Home page')).toBeDefined();
   });
 });

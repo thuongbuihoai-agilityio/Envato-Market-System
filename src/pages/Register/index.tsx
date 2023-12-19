@@ -18,7 +18,7 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useAuth, useForm } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary, withLogged } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 
 // Constants
 import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@app/constants';
@@ -326,5 +326,5 @@ const RegisterPage = () => {
   );
 };
 
-const Register = memo(withErrorBoundary(withLogged(RegisterPage)));
+const Register = memo(withErrorBoundary(RegisterPage));
 export default Register;

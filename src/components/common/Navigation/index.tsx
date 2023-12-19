@@ -1,4 +1,4 @@
-import { ReactNode, memo, useMemo } from 'react';
+import { MouseEvent, ReactNode, memo, useMemo } from 'react';
 import { Link as ReactRouterLink, useLocation } from 'react-router-dom';
 import { Link, useColorMode } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
@@ -9,7 +9,7 @@ import { THEMES } from '@app/constants/themes';
 export type TNavigationProps = {
   children: ReactNode;
   destination?: string;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 };
 
 const COLOR = {

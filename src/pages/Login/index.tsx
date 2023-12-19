@@ -16,7 +16,7 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useForm, useAuth } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary, withLogged } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs';
 
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@app/constants';
@@ -218,5 +218,5 @@ const LoginPage = (): JSX.Element => {
   );
 };
 
-const Login = memo(withErrorBoundary(withLogged(LoginPage)));
+const Login = memo(withErrorBoundary(LoginPage));
 export default Login;

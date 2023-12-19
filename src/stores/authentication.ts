@@ -2,10 +2,18 @@ import { StorageValue, createJSONStorage, persist } from 'zustand/middleware';
 import { createWithEqualityFn } from 'zustand/traditional';
 
 // Constants
-import { STORE_KEY } from '@app/constants';
+import { EXPIRED_DAY, STORE_KEY } from '@app/constants';
 
 // Types
 import { TUserDetail } from '@app/interfaces';
+
+// Utils
+import {
+  convertToString,
+  getCurrentTimeSeconds,
+  getExpireTime,
+  getValueFromLocalStore,
+} from '@app/utils';
 
 export type TUserInfo = Omit<TUserDetail, 'password'> | null;
 export type TAuthStoreData = {
@@ -13,19 +21,23 @@ export type TAuthStoreData = {
   isRemember: boolean;
   date: number;
 };
-type TAuthStoreAction = {
+export type TAuthStoreAction = {
   updateStore: (data: Partial<TAuthStoreData>) => void;
   clearStore: () => void;
+};
+
+const DEFAULT_VALUE = {
+  user: null,
+  isRemember: false,
+  date: 0,
 };
 
 export const authStore = createWithEqualityFn(
   persist<TAuthStoreData & TAuthStoreAction>(
     (set) => ({
-      user: null,
-      isRemember: false,
-      date: 0,
+      ...DEFAULT_VALUE,
       updateStore: (data: Partial<TAuthStoreData>) => set(data),
-      clearStore: () => set({ user: null }),
+      clearStore: () => set(DEFAULT_VALUE),
     }),
     {
       name: STORE_KEY.AUTH,
@@ -36,13 +48,39 @@ export const authStore = createWithEqualityFn(
           }: StorageValue<TAuthStoreData & TAuthStoreAction> =
             JSON.parse(value);
 
-          if (user) {
+          const hasUser: boolean = !!user;
+
+          if (hasUser) {
             return localStorage.setItem(key, value);
           }
 
           return localStorage.removeItem(key);
         },
-        getItem: localStorage.getItem.bind(localStorage),
+        getItem: (key: string) => {
+          const response: string = getValueFromLocalStore(key);
+          const defaultValue: string = convertToString(DEFAULT_VALUE);
+
+          if (response) {
+            const {
+              state: { user, date, isRemember },
+            }: StorageValue<TAuthStoreData & TAuthStoreAction> =
+              JSON.parse(response);
+
+            const expiredTime: number = getExpireTime(
+              date,
+              isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+            );
+
+            const isExpired: boolean =
+              expiredTime - getCurrentTimeSeconds() < 0;
+
+            if (isExpired && user) return defaultValue;
+
+            return response;
+          }
+
+          return defaultValue;
+        },
         removeItem: localStorage.removeItem.bind(localStorage),
       })),
     },
