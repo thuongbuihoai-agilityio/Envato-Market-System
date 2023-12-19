@@ -6,7 +6,7 @@ import { END_POINTS } from '@app/constants';
 // Types
 import { IAxiosConfig, TTransaction } from '@app/interfaces';
 
-const transactionHttpService: AxiosInstance = axios.create({
+export const transactionHttpService: AxiosInstance = axios.create({
   baseURL: process.env.VITE_API_TRANSACTION,
 });
 
