@@ -100,8 +100,8 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
         </div>
         <img
           alt="This is the logo debit card"
-          class="chakra-image css-1rw1l6f"
-          src="/icons/debit-icon.svg"
+          class="chakra-image__placeholder css-1rw1l6f"
+          src="/icons/user.svg"
         />
         <p
           class="chakra-text css-1lowlkl"
@@ -133,8 +133,8 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
           />
           <img
             alt="This is the user avatar"
-            class="chakra-image css-pdhoft"
-            src="/icons/user-avatar.webp"
+            class="chakra-image__placeholder css-pdhoft"
+            src="/icons/user.svg"
           />
         </div>
       </div>

@@ -138,6 +138,7 @@ const CartPaymentComponent = ({
           <Image
             src={IMAGES.DEBIT_ICON.url}
             alt={IMAGES.DEBIT_ICON.alt}
+            fallbackSrc={IMAGES.USER.url}
             boxSize={6}
             position="absolute"
             left={5}
@@ -190,6 +191,7 @@ const CartPaymentComponent = ({
             <Image
               src={IMAGES.USER_AVATAR.url}
               alt={IMAGES.USER_AVATAR.alt}
+              fallbackSrc={IMAGES.USER.url}
               boxSize={6}
               mt={3}
               w="42px"
