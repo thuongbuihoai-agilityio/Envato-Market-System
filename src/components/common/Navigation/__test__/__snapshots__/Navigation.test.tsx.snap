@@ -3,6 +3,7 @@
 exports[`Navigation test case should render correctly with the default destination 1`] = `
 <div>
   <a
+    aria-label="navigate-item"
     class="chakra-link css-kf8s5h"
     href="/"
   >
@@ -14,6 +15,7 @@ exports[`Navigation test case should render correctly with the default destinati
 exports[`Navigation test case should render correctly with the given destination 1`] = `
 <div>
   <a
+    aria-label="navigate-item"
     class="chakra-link css-1h1hto7"
     href="/mock"
   >

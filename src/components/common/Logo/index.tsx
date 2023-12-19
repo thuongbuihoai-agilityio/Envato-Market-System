@@ -11,7 +11,7 @@ const Logo = () => {
   );
 
   return (
-    <Text as={Link} to="/" display="inline-block">
+    <Text as={Link} aria-label="link-to-home" to="/" display="inline-block">
       <LogoIcon colorFill={colorFill} />
     </Text>
   );

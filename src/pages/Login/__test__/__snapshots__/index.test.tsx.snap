@@ -12,6 +12,7 @@ exports[`Login page Match to snapshot 1`] = `
         class="css-rmobdt"
       >
         <a
+          aria-label="link-to-home"
           class="chakra-text css-1baulvz"
           href="/"
         >
@@ -173,6 +174,7 @@ exports[`Login page Match to snapshot 1`] = `
               </span>
             </label>
             <a
+              aria-label="forgot password"
               class="chakra-text css-csnbyf"
               href="/forgot-password"
             >
@@ -201,6 +203,7 @@ exports[`Login page Match to snapshot 1`] = `
         >
           Don't have an account?
           <a
+            aria-label="sign up"
             class="chakra-text css-ditwkt"
             href="/register"
           >

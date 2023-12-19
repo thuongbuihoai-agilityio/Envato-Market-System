@@ -134,6 +134,7 @@ const Navigation = ({
       as={ReactRouterLink}
       to={destination}
       onClick={onClick}
+      aria-label="navigate-item"
       _hover={ACTIVE_LIGHT}
       _dark={{
         svg: IDLE_DARK,

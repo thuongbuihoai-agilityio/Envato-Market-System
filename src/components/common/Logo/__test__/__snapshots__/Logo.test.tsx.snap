@@ -3,6 +3,7 @@
 exports[`renders Logo with content 1`] = `
 <div>
   <a
+    aria-label="link-to-home"
     class="chakra-text css-1baulvz"
     href="/"
   >

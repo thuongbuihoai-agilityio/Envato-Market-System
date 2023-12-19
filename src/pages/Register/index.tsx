@@ -272,11 +272,21 @@ const RegisterPage = () => {
           />
           <Text color="text.secondary" fontSize="md" flex={1}>
             By creating an account, you&apos;re agreeing to our {''}
-            <ChakraLink href="#" color="text.primary" cursor="pointer">
+            <ChakraLink
+              href="#"
+              aria-label="Privacy Policy"
+              color="text.primary"
+              cursor="pointer"
+            >
               Privacy Policy
             </ChakraLink>
             , and {''}
-            <ChakraLink href="#" color="text.primary" cursor="pointer">
+            <ChakraLink
+              href="#"
+              aria-label="Electronics Communication Policy"
+              color="text.primary"
+              cursor="pointer"
+            >
               Electronics Communication Policy.
             </ChakraLink>
           </Text>
@@ -304,6 +314,7 @@ const RegisterPage = () => {
         <Text
           as={Link}
           to={`/${ROUTES.LOGIN}`}
+          aria-label="sign in"
           fontWeight="semibold"
           textDecoration="underline"
           ml={2}
