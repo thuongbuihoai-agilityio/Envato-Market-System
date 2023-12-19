@@ -58,7 +58,7 @@ const EfficiencyComponent = ({
               custom: function ({ series, seriesIndex }) {
                 return `<div style="padding: 10px; background-color: #000" >
               <span>
-              ${statistical[seriesIndex].title}: ${series[seriesIndex]}
+              ${statistical[seriesIndex].title}: ${series[seriesIndex]}%
               </span>
               </div>`;
               },
