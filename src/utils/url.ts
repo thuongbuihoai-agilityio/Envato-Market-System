@@ -6,7 +6,7 @@
 export const getSearchParam = (objSearchParam: object): string => {
   const searchParam: string = Object.entries(objSearchParam)
     .filter(([, value]) => value)
-    .map(([key, value]) => (value ? `${key}=${value}` : ''))
+    .map(([key, value]) => `${key}=${value}`)
     .join('&');
 
   return `?${searchParam}`;
