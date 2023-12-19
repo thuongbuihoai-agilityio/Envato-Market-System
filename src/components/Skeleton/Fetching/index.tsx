@@ -20,11 +20,12 @@ type TFetchingProps = {
 
 const PrimarySkeleton = ({
   size,
+  quality,
 }: {
   size: TFetchingProps['size'];
   quality: number;
 }) =>
-  Array.from({ length: 5 }).map(
+  Array.from({ length: quality }).map(
     (_, index: number): ReactElement => (
       <SkeletonChakra
         // eslint-disable-next-line react/no-array-index-key
