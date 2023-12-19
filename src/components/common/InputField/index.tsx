@@ -47,7 +47,11 @@ const InputComponent = (
   return (
     <FormControl isInvalid={isError}>
       {/* TODO: Will update later */}
-      {label && <FormLabel color="text.secondary">{label}</FormLabel>}
+      {label && (
+        <FormLabel color="text.secondary" marginInlineEnd={0}>
+          {label}
+        </FormLabel>
+      )}
       <InputGroup w="inherit">
         {leftIcon && (
           <InputLeftElement pointerEvents="none">{leftIcon}</InputLeftElement>

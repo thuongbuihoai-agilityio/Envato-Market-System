@@ -96,6 +96,8 @@ const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
                 border="none"
                 bg="none"
                 w="auto"
+                cursor="pointer"
+                _hover={{ transform: 'scale(1.1)' }}
               />
             </FormLabel>
 

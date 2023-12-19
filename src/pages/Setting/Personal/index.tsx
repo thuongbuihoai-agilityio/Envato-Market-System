@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback } from 'react';
 import { AxiosResponse } from 'axios';
 
 import {
@@ -34,8 +34,6 @@ import { InputField, UpdateProfile } from '@app/components';
 import { authStore } from '@app/stores';
 
 const UserFormComponent = () => {
-  // TODO: will update integrate later
-  const [isSubmit] = useState<boolean>(false);
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
   const { mutate: updateUser } = useUpdateUser();
@@ -47,10 +45,11 @@ const UserFormComponent = () => {
     formState: {
       errors: { root },
       isValid,
+      isDirty,
     },
     clearErrors,
     handleSubmit,
-
+    reset,
     watch,
   } = useForm<TUserDetail>({
     defaultValues: {
@@ -69,6 +68,7 @@ const UserFormComponent = () => {
       twitterURL: user?.twitterURL,
       youtubeURL: user?.youtubeURL,
     },
+    mode: 'onBlur',
   });
 
   const handleSubmitForm = useCallback(
@@ -86,6 +86,7 @@ const UserFormComponent = () => {
             isClosable: true,
             position: 'top-right',
           });
+          reset(updatedInfo);
         },
         onError: () => {
           toast({
@@ -99,7 +100,7 @@ const UserFormComponent = () => {
         },
       });
     },
-    [updateUser, setUser, toast],
+    [updateUser, setUser, reset, toast],
   );
 
   return (
@@ -170,7 +171,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('firstName'), field.onChange(data);
                     }}
@@ -189,7 +189,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('lastName'), field.onChange(data);
                     }}
@@ -221,7 +220,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('email'), field.onChange(data);
                     }}
@@ -241,7 +239,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('phoneNumber'), field.onChange(data);
                     }}
@@ -253,6 +250,7 @@ const UserFormComponent = () => {
             <Heading w="full" textAlign="left" pt={8} pb={6}>
               Personal Address
             </Heading>
+
             <HStack
               gap={{
                 base: 6,
@@ -277,7 +275,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('country'), field.onChange(data);
                     }}
@@ -297,7 +294,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('city'), field.onChange(data);
                     }}
@@ -329,7 +325,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('address'), field.onChange(data);
                     }}
@@ -349,7 +344,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('postalCode'), field.onChange(data);
                     }}
@@ -361,6 +355,7 @@ const UserFormComponent = () => {
             <Heading w="full" textAlign="left" pt={8} pb={6}>
               Social Information
             </Heading>
+
             <HStack
               gap={{
                 base: 6,
@@ -385,7 +380,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('facebookURL'), field.onChange(data);
                     }}
@@ -405,7 +399,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('twitterURL'), field.onChange(data);
                     }}
@@ -437,7 +430,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('linkedinURL'), field.onChange(data);
                     }}
@@ -457,7 +449,6 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    isDisabled={isSubmit}
                     onChange={(data) => {
                       clearErrors('youtubeURL'), field.onChange(data);
                     }}
@@ -478,7 +469,7 @@ const UserFormComponent = () => {
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
-                  isDisabled={!isValid}
+                  isDisabled={!isDirty || !isValid}
                   w="none"
                 >
                   Save Profile
