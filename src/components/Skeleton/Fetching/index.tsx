@@ -57,7 +57,7 @@ const Fetching = ({
         />
       ),
     }),
-    [size],
+    [quality, size],
   );
 
   if (isError) {
