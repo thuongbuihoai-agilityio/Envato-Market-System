@@ -68,6 +68,8 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
 
       <List
         mt={2.5}
+        role="listbox"
+        aria-label="list-icon"
         spacing={isMinify ? 5.5 : 2.75}
         w="full"
         sx={{
@@ -79,7 +81,7 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
             const LeftIconComponent = leftIcon || Fragment;
 
             return (
-              <ListItem key={id}>
+              <ListItem key={id} aria-label="item-icon" role="list">
                 {isMinify ? (
                   <Navigation
                     destination={destination}

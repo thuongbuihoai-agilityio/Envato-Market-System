@@ -57,7 +57,7 @@ const Message = ({
         ml={3}
         mr={3}
         fontSize="xs"
-        color="secondary.250"
+        color="text.textTime"
         fontWeight="medium"
       >
         {localeTime}

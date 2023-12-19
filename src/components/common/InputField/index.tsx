@@ -54,6 +54,7 @@ const InputComponent = (
         )}
         <Input
           type="text"
+          color="secondary.450"
           onChange={handleChangeValue}
           ref={ref}
           {...rest}

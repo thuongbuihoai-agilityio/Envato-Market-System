@@ -17,7 +17,7 @@ const DividerComponent = ({ content }: TDividerProps) => (
       _light={{ bg: '#fff' }}
       _dark={{ bg: 'secondary.600' }}
       px="4"
-      color="gray.500"
+      color="secondary.450"
       top="50%"
       transform="translate(-50%, -50%)"
     >

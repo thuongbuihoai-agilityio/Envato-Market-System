@@ -1,7 +1,7 @@
 export const colors = {
   primary: {
     400: '#D9FBE6',
-    500: '#22C55E',
+    500: '#0C642F',
     600: '#16A34A',
     800: '#27DA68',
     700: '#2A313C',
@@ -12,11 +12,11 @@ export const colors = {
     100: '#F6FAFF',
     150: '#FAFAFA',
     200: '#F7FAFC',
-    250: '#A0AEC0',
+    250: '#4B5772',
     300: '#969BA0',
     350: '#6B7280',
     400: '#1D1E24',
-    450: '#718096',
+    450: '#4F5669',
     500: '#2D3748',
     550: '#23302B',
     600: '#23262B',
@@ -83,7 +83,7 @@ export const colors = {
         _dark: 'secondary.600',
       },
       quaternary: {
-        default: '#718096',
+        default: '#4F5669',
         _dark: '#23262B',
       },
       select: {
@@ -155,12 +155,12 @@ export const colors = {
       _dark: '#FFF',
     },
     secondary: {
-      default: '#718096',
+      default: '#4F5669',
       _dark: '#FAFAFA',
     },
 
     tertiary: {
-      default: '#A0AEC0',
+      default: '#4B5772',
       _dark: '#747681',
     },
     quaternary: {
@@ -188,18 +188,22 @@ export const colors = {
       _dark: '#FFF',
     },
     nonary: {
-      default: '#A0AEC0',
+      default: '#4B5772',
       _dark: '#FFF',
     },
     denary: {
       default: '#6B7280',
       _dark: '#FFF',
     },
+    textTime: {
+      default: '#4B5772',
+      _dark: '#A0AEC0',
+    },
   },
 
   danger: {
     400: '#FF4747',
-    500: '#DD3333',
+    500: '#9B1717',
   },
 
   warning: {
@@ -208,6 +212,6 @@ export const colors = {
     500: '#EAB308',
     600: '#FDF9E9',
     700: '#FF784B',
-    800: '#f6A723',
+    800: '#784B08',
   },
 };
