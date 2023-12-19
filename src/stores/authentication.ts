@@ -39,9 +39,9 @@ export const authStore = createWithEqualityFn(
           }: StorageValue<TAuthStoreData & TAuthStoreAction> =
             JSON.parse(value);
 
-          const isCorrectUser: boolean = !!user;
+          const hasUser: boolean = !!user;
 
-          if (isCorrectUser) {
+          if (hasUser) {
             return localStorage.setItem(key, value);
           }
 
