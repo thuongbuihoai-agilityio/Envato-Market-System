@@ -16,7 +16,7 @@ import EfficiencyInfo from './EfficiencyInfo';
 import EfficiencyRefetch from './Refetching';
 
 // Icons
-import { Arrow } from '@app/assets/icons';
+import { Arrow } from '@app/components/Icons';
 
 // Constants
 import { EFFICIENCY_OPTIONS, END_POINTS } from '@app/constants';

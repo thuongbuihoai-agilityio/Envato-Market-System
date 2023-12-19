@@ -5,7 +5,7 @@ import { Box, Flex, Img, Td, Text } from '@chakra-ui/react';
 import Table from '.';
 
 // Icons
-import { Dot } from '@app/assets/icons';
+import { Dot } from '@app/components/Icons';
 
 // Mocks
 import { USERS } from '@app/mocks';

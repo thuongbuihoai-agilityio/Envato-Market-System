@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Menu } from '@app/components';
 
 // Assets
-import { DashboardIcon } from '@app/assets/icons';
+import { DashboardIcon } from '@app/components/Icons';
 
 describe('Menu test case', () => {
   const MOCK_ITEM_LIST = [

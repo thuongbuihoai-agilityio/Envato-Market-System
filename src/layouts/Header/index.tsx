@@ -18,7 +18,7 @@ import {
 } from '@app/components';
 
 // Assets
-import { Bell, Email, Gift, Rotate, Search } from '@app/assets/icons';
+import { Bell, Email, Gift, Rotate, Search } from '@app/components/Icons';
 
 // hooks
 import { authStore } from '@app/stores';

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Rotate } from '@app/assets/icons';
+import { Rotate } from '@app/components/Icons';
 
 const meta: Meta<typeof Rotate> = {
   title: 'Icons/Rotate',

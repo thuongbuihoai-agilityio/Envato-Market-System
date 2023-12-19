@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Bell } from '@app/assets/icons';
+import { Bell } from '@app/components/Icons';
 
 const meta: Meta<typeof Bell> = {
   title: 'Icons/Bell',

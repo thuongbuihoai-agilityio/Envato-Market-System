@@ -2,7 +2,7 @@ import { Center, useColorModeValue } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
-import { FilterIcon } from '@app/assets/icons';
+import { FilterIcon } from '@app/components/Icons';
 
 // Themes
 import { colors } from '@app/themes/bases/colors';

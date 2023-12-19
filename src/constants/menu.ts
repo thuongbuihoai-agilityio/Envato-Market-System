@@ -1,5 +1,5 @@
 // Icons
-import { Account, Logout } from '@app/assets/icons';
+import { Account, Logout } from '@app/components/Icons';
 
 // Constants
 import { ROUTES } from '.';

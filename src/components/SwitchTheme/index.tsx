@@ -5,7 +5,7 @@ import { ColorMode, useColorMode } from '@chakra-ui/react';
 import { IconButton } from '..';
 
 // Icons
-import { DarkTheme, LightTheme } from '@app/assets/icons';
+import { DarkTheme, LightTheme } from '@app/components/Icons';
 
 // Themes
 import { colors } from '@app/themes/bases/colors';

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Search } from '@app/assets/icons';
+import { Search } from '@app/components/Icons';
 
 const meta: Meta<typeof Search> = {
   title: 'Icons/Search',

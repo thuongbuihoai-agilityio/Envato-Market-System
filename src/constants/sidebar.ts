@@ -7,7 +7,7 @@ import {
   SignOutIcon,
   TransactionIcon,
   UserIcon,
-} from '@app/assets/icons';
+} from '@app/components/Icons';
 
 export const MENU_ITEM_LIST = [
   {

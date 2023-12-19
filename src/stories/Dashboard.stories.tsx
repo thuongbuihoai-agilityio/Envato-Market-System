@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
 
 // Components
-import { DashboardIcon } from '@app/assets/icons';
+import { DashboardIcon } from '@app/components/Icons';
 import { Navigation } from '@app/components';
 
 const meta: Meta<typeof DashboardIcon> = {

@@ -12,13 +12,13 @@ import { withErrorBoundary } from '@app/hocs';
 
 // Lazy loading components
 const AvatarSetting = lazy(() =>
-  import('@app/assets/icons/AvatarSetting').then((module) => ({
+  import('@app/components/Icons/AvatarSetting').then((module) => ({
     default: module.AvatarSetting,
   })),
 );
 
 const Faq = lazy(() =>
-  import('@app/assets/icons/Faq').then((module) => ({
+  import('@app/components/Icons/Faq').then((module) => ({
     default: module.Faq,
   })),
 );
