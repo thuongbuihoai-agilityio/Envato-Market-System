@@ -18,22 +18,20 @@ export const withAuthentication = <TProps extends object>(
   const NewComponent = (props: TProps): JSX.Element => {
     const { pathname } = useLocation();
     const user = authStore((state): TAuthStoreData['user'] => state.user);
-
     const isMatchPrivateRoute: boolean = PRIVATE_ROUTES.some(
       (route: TValidateRoute) =>
         pathname === ROUTES.ROOT || `/${route.path}` === pathname,
     );
+    const hasUser: boolean = !!user;
     const isMatchPublicRoute: boolean = PUBLIC_ROUTES.some(
       (route: TValidateRoute) => `/${route.path}` === pathname,
     );
-    const isNotLogin: boolean = !user;
-    const isLoggedIn: boolean = !!user;
 
-    if (isMatchPublicRoute && isLoggedIn) {
+    if (isMatchPublicRoute && hasUser) {
       return <Navigate to={ROUTES.ROOT} replace />;
     }
 
-    if (isMatchPrivateRoute && isNotLogin) {
+    if (isMatchPrivateRoute && !hasUser) {
       return <Navigate to={ROUTES.LOGIN} />;
     }
 

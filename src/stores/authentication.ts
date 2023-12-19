@@ -8,7 +8,12 @@ import { EXPIRED_DAY, STORE_KEY } from '@app/constants';
 import { TUserDetail } from '@app/interfaces';
 
 // Utils
-import { getCurrentTimeSeconds, getExpireTime } from '@app/utils';
+import {
+  convertToString,
+  getCurrentTimeSeconds,
+  getExpireTime,
+  getValueFromLocalStore,
+} from '@app/utils';
 
 export type TUserInfo = Omit<TUserDetail, 'password'> | null;
 export type TAuthStoreData = {
@@ -21,14 +26,18 @@ export type TAuthStoreAction = {
   clearStore: () => void;
 };
 
+const DEFAULT_VALUE = {
+  user: null,
+  isRemember: false,
+  date: 0,
+};
+
 export const authStore = createWithEqualityFn(
   persist<TAuthStoreData & TAuthStoreAction>(
     (set) => ({
-      user: null,
-      isRemember: false,
-      date: 0,
+      ...DEFAULT_VALUE,
       updateStore: (data: Partial<TAuthStoreData>) => set(data),
-      clearStore: () => set({ user: null }),
+      clearStore: () => set(DEFAULT_VALUE),
     }),
     {
       name: STORE_KEY.AUTH,
@@ -48,7 +57,8 @@ export const authStore = createWithEqualityFn(
           return localStorage.removeItem(key);
         },
         getItem: (key: string) => {
-          const response: string | null = localStorage.getItem(key);
+          const response: string = getValueFromLocalStore(key);
+          const defaultValue: string = convertToString(DEFAULT_VALUE);
 
           if (response) {
             const {
@@ -64,12 +74,12 @@ export const authStore = createWithEqualityFn(
             const isExpired: boolean =
               expiredTime - getCurrentTimeSeconds() < 0;
 
-            if (isExpired && user) return null;
+            if (isExpired && user) return defaultValue;
 
             return response;
           }
 
-          return null;
+          return defaultValue;
         },
         removeItem: localStorage.removeItem.bind(localStorage),
       })),
