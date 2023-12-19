@@ -9,6 +9,7 @@ const NotFoundPage = (): JSX.Element => (
     <Image src={IMAGES.NOT_FOUND.url} alt={IMAGES.NOT_FOUND.alt} />
     <Button
       as={Link}
+      aria-labelledby="go back"
       aria-label="btn-go-back"
       to="/"
       mt={6}

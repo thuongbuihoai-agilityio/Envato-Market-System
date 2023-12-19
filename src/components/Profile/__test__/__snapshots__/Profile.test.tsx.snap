@@ -28,9 +28,9 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
         class="chakra-skeleton css-183zf81"
       >
         <img
-          alt="This is the big avatar"
+          alt="This is avatar sign up"
           class="chakra-image css-opaydd"
-          src=""
+          src="/images/avatar-sign-up.webp"
         />
       </div>
       <div

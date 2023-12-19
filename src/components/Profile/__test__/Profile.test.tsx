@@ -10,8 +10,8 @@ const setup = () => render(<UpdateProfile url="" setValue={setValueMock} />);
 
 const uploadImageMock = jest.fn();
 
-jest.mock('@app/services/image.service', () => ({
-  ...jest.requireActual('@app/services/image.service'),
+jest.mock('@app/services/image', () => ({
+  ...jest.requireActual('@app/services/image'),
   uploadImage: () => uploadImageMock,
 }));
 

@@ -104,6 +104,7 @@ const UserDropdownMenu = ({
                   as={Link}
                   to={href}
                   p={3.5}
+                  aria-label={`menu-icon-${value}`}
                   borderRadius="lg"
                   bg="transparent"
                   _hover={{
@@ -138,6 +139,7 @@ const UserDropdownMenu = ({
                 bg="transparent"
                 as={Link}
                 to={href}
+                aria-label={`menu-item-${value}`}
                 _hover={{
                   bg: 'background.component.tertiary',
                   color: 'primary.500',
@@ -148,7 +150,7 @@ const UserDropdownMenu = ({
                   outline: 'none',
                 }}
               >
-                <Text as={Link} to="#" variant="text4Xl">
+                <Text as={Link} aria-label={value} to="#" variant="text4Xl">
                   {value}
                 </Text>
               </MenuItem>

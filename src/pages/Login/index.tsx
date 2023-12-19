@@ -174,6 +174,7 @@ const LoginPage = (): JSX.Element => {
           <Text
             as={Link}
             to={`/${ROUTES.FORGOT_PASSWORD}`}
+            aria-label="forgot password"
             color="primary.500"
             fontWeight="semibold"
             textTransform="capitalize"
@@ -205,6 +206,7 @@ const LoginPage = (): JSX.Element => {
         <Text
           as={Link}
           to={`/${ROUTES.REGISTER}`}
+          aria-label="sign up"
           fontWeight="semibold"
           textDecoration="underline"
           ml={2}
