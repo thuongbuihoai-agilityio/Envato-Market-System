@@ -59,7 +59,7 @@ const SearchBarComponent = ({
   }, [onSearch]);
 
   return (
-    <HStack as="form" data-testId="search-bar" h={14} gap={5}>
+    <HStack as="form" data-testid="search-bar" h={14} gap={5}>
       <Box
         display={{
           base: 'none',

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders Setting Page with content 1`] = `
+exports[`Setting Page test cases should render correctly 1`] = `
 <div>
   <div
     class="css-17433br"

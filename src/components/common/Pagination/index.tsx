@@ -105,7 +105,7 @@ const PaginationComponent = ({
 
   return (
     <Flex
-      data-testId="pagination"
+      data-testid="pagination"
       w="100%"
       justifyContent={{ base: 'center', lg: 'space-between' }}
     >
@@ -128,7 +128,7 @@ const PaginationComponent = ({
       </Flex>
       <Flex justifyContent="space-between">
         <Button
-          data-testId="prev-button"
+          data-testid="prev-button"
           aria-label="btn-prev"
           variant="iconSecondary"
           cursor={isDisabledPrev ? 'not-allowed' : ''}
@@ -179,7 +179,7 @@ const PaginationComponent = ({
           })}
         </Flex>
         <Button
-          data-testId="next-button"
+          data-testid="next-button"
           aria-label="btn-next"
           variant="iconSecondary"
           cursor={isDisableNext ? 'not-allowed' : ''}

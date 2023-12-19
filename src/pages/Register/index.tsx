@@ -156,6 +156,7 @@ const RegisterPage = () => {
                 onChange={(data) => {
                   clearErrors('firstName'), field.onChange(data);
                 }}
+                aria-label="first-name"
               />
             )}
           />
@@ -174,6 +175,7 @@ const RegisterPage = () => {
                 onChange={(data) => {
                   clearErrors('lastName'), field.onChange(data);
                 }}
+                aria-label="last-name"
               />
             )}
           />
@@ -194,6 +196,7 @@ const RegisterPage = () => {
               onChange={(data) => {
                 clearErrors('email'), field.onChange(data);
               }}
+              aria-label="email"
             />
           )}
         />
@@ -218,6 +221,8 @@ const RegisterPage = () => {
                 onChange={(data) => {
                   clearErrors('password'), field.onChange(data);
                 }}
+                aria-label="password"
+                role="textbox"
               />
             );
           }}
@@ -267,29 +272,20 @@ const RegisterPage = () => {
                     },
                   },
                 })}
-              ></Checkbox>
+              >
+                <Text color="text.secondary" fontSize="md" flex={1}>
+                  By creating an account, you&apos;re agreeing to our {''}
+                  <ChakraLink href="#" color="text.primary" cursor="pointer">
+                    Privacy Policy
+                  </ChakraLink>
+                  , and {''}
+                  <ChakraLink href="#" color="text.primary" cursor="pointer">
+                    Electronics Communication Policy.
+                  </ChakraLink>
+                </Text>
+              </Checkbox>
             )}
           />
-          <Text color="text.secondary" fontSize="md" flex={1}>
-            By creating an account, you&apos;re agreeing to our {''}
-            <ChakraLink
-              href="#"
-              aria-label="Privacy Policy"
-              color="text.primary"
-              cursor="pointer"
-            >
-              Privacy Policy
-            </ChakraLink>
-            , and {''}
-            <ChakraLink
-              href="#"
-              aria-label="Electronics Communication Policy"
-              color="text.primary"
-              cursor="pointer"
-            >
-              Electronics Communication Policy.
-            </ChakraLink>
-          </Text>
         </Flex>
       </VStack>
 

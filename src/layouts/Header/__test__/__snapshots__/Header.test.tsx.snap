@@ -57,7 +57,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               class="css-70qvj9"
             >
               <div
-                class="chakra-spinner css-1y7joxr"
+                class="chakra-spinner css-zcyhge"
               >
                 <span
                   class="css-8b45rq"
@@ -75,7 +75,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     class="css-70qvj9"
                   >
                     <p
-                      class="chakra-text css-8gj9cf"
+                      class="chakra-text css-16ubuka"
                     >
                       John Doe
                     </p>
@@ -97,7 +97,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     </svg>
                   </div>
                   <p
-                    class="chakra-text css-pfmkmr"
+                    class="chakra-text css-1hfxp5x"
                   >
                     Super Admin
                   </p>
@@ -208,12 +208,11 @@ exports[`Header render Should render match with snapshot. 1`] = `
               role="menuitem"
               tabindex="-1"
             >
-              <a
+              <p
                 class="chakra-text css-0"
-                href="/"
               >
                 Setting
-              </a>
+              </p>
             </a>
             <a
               class="chakra-menu__menuitem css-mdob6w"
@@ -223,12 +222,11 @@ exports[`Header render Should render match with snapshot. 1`] = `
               role="menuitem"
               tabindex="-1"
             >
-              <a
+              <p
                 class="chakra-text css-0"
-                href="/"
               >
                 User
-              </a>
+              </p>
             </a>
           </div>
         </div>
@@ -333,52 +331,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
             class="chakra-button css-yt1s1n"
             data-testid="icon-button"
             type="button"
-          >
-            <svg
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="5"
-                stroke-width="1.5"
-              />
-              <path
-                d="M12 2V4"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M12 20V22"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M20.6602 7L18.9281 8"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M5.07178 16L3.33973 17"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M3.33984 7L5.07189 8"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-              <path
-                d="M18.9282 16L20.6603 17"
-                stroke-linecap="round"
-                stroke-width="1.5"
-              />
-            </svg>
-          </button>
+          />
         </div>
         <div
           class="css-1ve4u7y"
@@ -486,7 +439,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 class="css-70qvj9"
               >
                 <div
-                  class="chakra-spinner css-1y7joxr"
+                  class="chakra-spinner css-zcyhge"
                 >
                   <span
                     class="css-8b45rq"
@@ -504,7 +457,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       class="css-70qvj9"
                     >
                       <p
-                        class="chakra-text css-8gj9cf"
+                        class="chakra-text css-16ubuka"
                       >
                         undefined undefined
                       </p>
@@ -526,7 +479,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       </svg>
                     </div>
                     <p
-                      class="chakra-text css-pfmkmr"
+                      class="chakra-text css-1hfxp5x"
                     >
                       Super Admin
                     </p>
@@ -637,12 +590,11 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 role="menuitem"
                 tabindex="-1"
               >
-                <a
+                <p
                   class="chakra-text css-0"
-                  href="/"
                 >
                   Setting
-                </a>
+                </p>
               </a>
               <a
                 class="chakra-menu__menuitem css-mdob6w"
@@ -652,12 +604,11 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 role="menuitem"
                 tabindex="-1"
               >
-                <a
+                <p
                   class="chakra-text css-0"
-                  href="/"
                 >
                   User
-                </a>
+                </p>
               </a>
             </div>
           </div>
