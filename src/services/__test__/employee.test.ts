@@ -14,9 +14,9 @@ describe('Employee service', () => {
       .spyOn(employeeHttpRequest, 'get')
       .mockResolvedValue({ data: USERS_MOCK });
 
-    const transactions = await getEmployees();
+    const employees = await getEmployees();
 
-    expect(transactions).toEqual(USERS_MOCK);
+    expect(employees).toEqual(USERS_MOCK);
   });
 
   it('Get employees (reject)', async () => {
