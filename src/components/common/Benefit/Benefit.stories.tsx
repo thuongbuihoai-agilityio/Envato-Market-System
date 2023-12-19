@@ -23,10 +23,6 @@ const meta: Meta<typeof Benefit> = {
       description: 'The heading content to display',
     },
 
-    description: {
-      description: 'The description content of the Benefit',
-    },
-
     width: {
       description: 'The width of the benefit content',
       defaultValue: '50%',
@@ -47,8 +43,6 @@ export const Default: Story = {
     imageURL: IMAGES.SIGN_IN.url,
     alt: IMAGES.SIGN_IN.alt,
     heading: 'Speady, Easy and Fast',
-    description:
-      'BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a $20 bonus when you receive qualifying direct deposits',
     width: '100%',
   },
 };
