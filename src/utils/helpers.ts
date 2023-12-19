@@ -75,11 +75,11 @@ export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
 export const formatDecimalInput = (value = ''): string => {
-  const match = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
+  const validData = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
     value.replace(/[^(\d|.)]/g, ''),
   );
 
-  const formatValue = match ? match[0] : '';
+  const formatValue = validData ? validData[0] : '';
 
   return formatValue;
 };
