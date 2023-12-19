@@ -18,8 +18,8 @@ exports[`BoxChat component renders correctly 1`] = `
       >
         <img
           alt="This is the user avatar"
-          class="chakra-image css-jqgv83"
-          src="/icons/user-avatar.webp"
+          class="chakra-image__placeholder css-jqgv83"
+          src="/icons/user.svg"
         />
         <button
           aria-label="btn-icon-plus"
@@ -28,8 +28,8 @@ exports[`BoxChat component renders correctly 1`] = `
         >
           <img
             alt="This is the user avatar"
-            class="chakra-image css-k1r8rc"
-            src="icons/plus.svg"
+            class="chakra-image__placeholder css-k1r8rc"
+            src="/icons/user.svg"
           />
         </button>
       </div>

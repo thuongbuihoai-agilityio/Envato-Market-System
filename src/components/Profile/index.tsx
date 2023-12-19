@@ -76,6 +76,7 @@ const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
             h="huge"
             src={url || IMAGES.AVATAR_SIGN_UP.url}
             alt={IMAGES.AVATAR_SIGN_UP.alt}
+            fallbackSrc={IMAGES.USER.url}
             objectFit="cover"
           />
         </Skeleton>

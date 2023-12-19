@@ -32,9 +32,15 @@ exports[`renders Benefit with content 1`] = `
         class="chakra-heading css-tmruzz"
       />
       <p
-        class="chakra-text css-1rphqkz"
+        class="chakra-text css-rm4le2"
       >
-        undefined
+        BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a
+        <span
+          class="chakra-text css-g28uzg"
+        >
+          $20
+        </span>
+        bonus when you receive qualifying direct deposits
       </p>
     </div>
   </div>

@@ -35,6 +35,7 @@ const BoxChatComponent = (): JSX.Element => (
         <Image
           src={IMAGES.USER_AVATAR.url}
           alt={IMAGES.USER_AVATAR.alt}
+          fallbackSrc={IMAGES.USER.url}
           w="52px"
           h={8}
         />
@@ -49,6 +50,7 @@ const BoxChatComponent = (): JSX.Element => (
           <Image
             src="icons/plus.svg"
             alt={IMAGES.USER_AVATAR.alt}
+            fallbackSrc={IMAGES.USER.url}
             w={3.5}
             h={3.5}
           />
