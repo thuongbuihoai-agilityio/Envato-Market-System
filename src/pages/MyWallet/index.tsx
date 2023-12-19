@@ -64,6 +64,8 @@ const MyWallet = () => {
                 isLoading={isLoadingOverallBalance}
                 isError={isErrorOverallBalance}
                 errorMessage="Overall Balance data error"
+                variant="secondary"
+                size="md"
               >
                 <Lazy>
                   <OverallBalance {...overallBalanceData} />

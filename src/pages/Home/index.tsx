@@ -52,7 +52,7 @@ const Dashboard = () => {
       <GridItem colSpan={3}>
         <Fetching
           isError={isErrorTotalList}
-          errorMessage="Total statistic data error "
+          errorMessage="Total statistic data error"
         >
           <Lazy>
             <TotalList
@@ -72,6 +72,8 @@ const Dashboard = () => {
               isLoading={isLoadingRevenueFlow}
               isError={isErrorRevenueFlow}
               errorMessage="Revenue flow data error"
+              variant="secondary"
+              size="md"
             >
               <Lazy>
                 <RevenueFlow data={revenueFlowData} />

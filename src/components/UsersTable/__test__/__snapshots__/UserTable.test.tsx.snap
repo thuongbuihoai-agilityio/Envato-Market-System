@@ -84,7 +84,7 @@ exports[`UserTable component should renders correctly 1`] = `
             </span>
           </td>
           <td
-            class="css-1t7ec6l"
+            class="css-1s0xgin"
           >
             <button
               aria-label="This is the icon action"
@@ -176,7 +176,7 @@ exports[`UserTable component should renders correctly 1`] = `
             </span>
           </td>
           <td
-            class="css-1t7ec6l"
+            class="css-1s0xgin"
           >
             <button
               aria-label="This is the icon action"

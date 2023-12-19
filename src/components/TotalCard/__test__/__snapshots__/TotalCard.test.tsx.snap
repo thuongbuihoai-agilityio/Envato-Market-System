@@ -3,7 +3,7 @@
 exports[`TotalCard component renders correctly 1`] = `
 <div>
   <div
-    class="css-3bhc6p"
+    class="css-sjmnun"
   >
     <div
       class="css-6ce5r8"
@@ -58,7 +58,11 @@ exports[`TotalCard component renders correctly 1`] = `
           </p>
         </div>
       </div>
-      <div />
+      <div
+        class="css-1sg7bn7"
+      >
+        <div />
+      </div>
     </div>
   </div>
 </div>

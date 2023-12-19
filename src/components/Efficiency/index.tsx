@@ -10,7 +10,7 @@ import {
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Select } from '@app/components';
+import { Fetching, Select } from '@app/components';
 import { TOption } from '@app/components/common/Select';
 import EfficiencyInfo from './EfficiencyInfo';
 import EfficiencyRefetch from './Refetching';
@@ -77,36 +77,43 @@ const EfficiencyComponent = () => {
 
   return (
     <Box bg="background.component.primary" rounded="lg">
-      <Flex
-        py={4}
-        px={5}
-        borderBottom="1px"
-        borderColor="border.primary"
-        justifyContent="space-between"
+      <Fetching
+        isLoading={isLoadingEfficiency}
+        isError={isErrorEfficiency}
+        variant="secondary"
+        size="md"
       >
-        <Heading variant="heading2Xl" as="h3">
-          Efficiency
-        </Heading>
-        <Box w={102} h={21}>
-          <Select
-            options={EFFICIENCY_OPTIONS}
-            size="sm"
-            variant="no-background"
-            renderTitle={renderTitle}
-            onSelect={handleChangeSelectEfficiency}
-            data-testid="select-efficiency"
+        <Flex
+          py={4}
+          px={5}
+          borderBottom="1px"
+          borderColor="border.primary"
+          justifyContent="space-between"
+        >
+          <Heading variant="heading2Xl" as="h3">
+            Efficiency
+          </Heading>
+          <Box w={102} h={21}>
+            <Select
+              options={EFFICIENCY_OPTIONS}
+              size="sm"
+              variant="no-background"
+              renderTitle={renderTitle}
+              onSelect={handleChangeSelectEfficiency}
+              data-testid="select-efficiency"
+            />
+          </Box>
+        </Flex>
+        {isLoadingEfficiency && isLoadingSelectEfficiencyType ? (
+          <EfficiencyRefetch />
+        ) : (
+          <EfficiencyInfo
+            spending={spending}
+            statistical={statistical}
+            arrival={arrival}
           />
-        </Box>
-      </Flex>
-      {isLoadingEfficiency && isLoadingSelectEfficiencyType ? (
-        <EfficiencyRefetch />
-      ) : (
-        <EfficiencyInfo
-          spending={spending}
-          statistical={statistical}
-          arrival={arrival}
-        />
-      )}
+        )}
+      </Fetching>
     </Box>
   );
 };

@@ -165,7 +165,19 @@ exports[`User Page renders User component snapshot 1`] = `
         </div>
       </div>
       <div
-        class="chakra-skeleton css-1wu0swh"
+        class="chakra-skeleton css-1dl4gcj"
+      />
+      <div
+        class="chakra-skeleton css-1dl4gcj"
+      />
+      <div
+        class="chakra-skeleton css-1dl4gcj"
+      />
+      <div
+        class="chakra-skeleton css-1dl4gcj"
+      />
+      <div
+        class="chakra-skeleton css-1dl4gcj"
       />
     </div>
     <div
