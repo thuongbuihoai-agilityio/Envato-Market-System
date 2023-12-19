@@ -5,7 +5,7 @@ import { CloseIcon } from '@chakra-ui/icons';
 import areEqual from 'react-fast-compare';
 
 // Assets
-import { Search } from '@app/assets/icons';
+import { Search } from '@app/components/Icons';
 
 // Themes
 import { colors } from '@app/themes/bases/colors';

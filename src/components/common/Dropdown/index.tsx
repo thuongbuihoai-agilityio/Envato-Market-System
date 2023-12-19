@@ -16,7 +16,7 @@ import {
 import { Lazy } from '@app/components';
 
 // Assets
-import { Arrow } from '@app/assets/icons';
+import { Arrow } from '@app/components/Icons';
 
 // Constants
 import { MENU_LIST, MENU_LIST_ICON } from '@app/constants/menu';

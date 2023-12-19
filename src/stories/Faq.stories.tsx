@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Faq } from '@app/assets/icons';
+import { Faq } from '@app/components/Icons';
 
 const meta: Meta<typeof Faq> = {
   title: 'Icons/Faq',

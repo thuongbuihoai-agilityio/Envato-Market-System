@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import { TransactionIcon } from '@app/assets/icons';
+import { TransactionIcon } from '@app/components/Icons';
 import { Box } from '@chakra-ui/react';
 import { Navigation } from '@app/components';
 

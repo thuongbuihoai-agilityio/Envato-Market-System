@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { theme } from '@chakra-ui/react';
 
 // Components
-import { BookMark } from '@app/assets/icons';
+import { BookMark } from '@app/components/Icons';
 
 const meta: Meta<typeof BookMark> = {
   title: 'Icons/BookMark',

@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 
 // Components
-import { ShareNodes } from '@app/assets/icons';
+import { ShareNodes } from '@app/components/Icons';
 
 const meta: Meta<typeof ShareNodes> = {
   title: 'Icons/ShareNodes',

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
 
 // Components
-import { SettingIcon } from '@app/assets/icons';
+import { SettingIcon } from '@app/components/Icons';
 import { Navigation } from '@app/components';
 
 const meta: Meta<typeof SettingIcon> = {

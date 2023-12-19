@@ -5,7 +5,7 @@ import { Box, Flex, Text, theme } from '@chakra-ui/react';
 import { Button, Select } from '@app/components';
 
 // Assets
-import { Arrow } from '@app/assets/icons';
+import { Arrow } from '@app/components/Icons';
 
 // Constants
 import { PAGE_SIZE, PAGINATION } from '@app/constants/pagination';

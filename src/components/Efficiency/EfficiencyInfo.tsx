@@ -9,7 +9,7 @@ import Statistical from './Statistical';
 import { STROKE_COLORS, THEMES } from '@app/constants';
 
 // Icons
-import { Sort } from '@app/assets/icons';
+import { Sort } from '@app/components/Icons';
 
 // Types
 import { IEfficiency } from '@app/interfaces';

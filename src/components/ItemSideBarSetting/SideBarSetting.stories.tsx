@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // components
 import SidebarSetting from '@app/components/ItemSideBarSetting';
-import { AvatarSetting, Faq } from '@app/assets/icons';
+import { AvatarSetting, Faq } from '@app/components/Icons';
 
 const meta: Meta<typeof SidebarSetting> = {
   title: 'Custom Components/SidebarSetting',

@@ -3,7 +3,11 @@ import { theme } from '@chakra-ui/react';
 
 // Components
 import { IconButton } from '@app/components';
-import { LightTheme, DarkTheme, Email as EmailIcon } from '@app/assets/icons';
+import {
+  LightTheme,
+  DarkTheme,
+  Email as EmailIcon,
+} from '@app/components/Icons';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Custom Components/IconButton',

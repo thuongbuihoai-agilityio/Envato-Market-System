@@ -5,7 +5,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import { Navigation } from '@app/components';
 
 // Assets
-import { DashboardIcon } from '@app/assets/icons';
+import { DashboardIcon } from '@app/components/Icons';
 
 const meta: Meta<typeof Navigation> = {
   title: 'Custom Components/Navigation',

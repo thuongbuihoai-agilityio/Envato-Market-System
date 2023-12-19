@@ -3,7 +3,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import { colors } from '@app/themes/bases/colors';
 
 // Components
-import { FilterIcon } from '@app/assets/icons';
+import { FilterIcon } from '@app/components/Icons';
 
 const meta: Meta<typeof FilterIcon> = {
   title: 'Icons/Filter',

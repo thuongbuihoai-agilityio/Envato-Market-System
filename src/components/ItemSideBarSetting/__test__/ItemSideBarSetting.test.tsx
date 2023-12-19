@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { ItemSideBarSetting } from '@app/components';
 
 // Assets
-import { Account } from '@app/assets/icons';
+import { Account } from '@app/components/Icons';
 
 describe('ItemSidebarSetting component', () => {
   const onToggle = jest.fn();

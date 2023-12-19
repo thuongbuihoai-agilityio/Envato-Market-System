@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Logout } from '@app/assets/icons/Logout';
+import { Logout } from '@app/components/Icons/Logout';
 
 const meta: Meta<typeof Logout> = {
   title: 'Icons/Logout',

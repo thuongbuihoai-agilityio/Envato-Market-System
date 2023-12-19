@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 // Assets
-import { ChevronIcon, Eye, EyeSlash } from '@app/assets/icons';
+import { ChevronIcon, Eye, EyeSlash } from '@app/components/Icons';
 
 // Constants
 import { IMAGES } from '@app/constants';

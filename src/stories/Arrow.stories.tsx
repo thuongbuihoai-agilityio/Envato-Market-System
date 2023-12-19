@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Arrow } from '@app/assets/icons';
+import { Arrow } from '@app/components/Icons';
 
 const meta: Meta<typeof Arrow> = {
   title: 'Icons/Arrow',

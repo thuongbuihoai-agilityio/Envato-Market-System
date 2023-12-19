@@ -2,7 +2,7 @@ import { Flex, IconButton, Text, Th } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Icons
-import { Sort } from '@app/assets/icons';
+import { Sort } from '@app/components/Icons';
 
 // Themes
 import { colors } from '@app/themes/bases/colors';

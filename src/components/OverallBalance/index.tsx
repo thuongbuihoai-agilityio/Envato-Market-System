@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 // Icon
-import { Arrow } from '@app/assets/icons';
+import { Arrow } from '@app/components/Icons';
 
 // Constants
 import {

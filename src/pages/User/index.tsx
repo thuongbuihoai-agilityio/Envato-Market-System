@@ -14,7 +14,7 @@ import { useDebounce, useEmployee, useSearch } from '@app/hooks';
 import { INITIAL_USER } from '@app/mocks';
 
 // Icons
-import { Search, ChevronIcon } from '@app/assets/icons';
+import { Search, ChevronIcon } from '@app/components/Icons';
 
 // Constants
 import { FILTER_USER_OPTIONS } from '@app/constants';

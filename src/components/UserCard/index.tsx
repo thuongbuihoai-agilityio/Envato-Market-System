@@ -5,7 +5,7 @@ import isEqual from 'react-fast-compare';
 import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
 
 // Icons
-import { BookMark, ShareNodes } from '@app/assets/icons';
+import { BookMark, ShareNodes } from '@app/components/Icons';
 
 // Images
 import { IMAGES } from '@app/constants/images';

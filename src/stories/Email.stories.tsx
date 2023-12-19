@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { Email } from '@app/assets/icons';
+import { Email } from '@app/components/Icons';
 
 const meta: Meta<typeof Email> = {
   title: 'Icons/Email',

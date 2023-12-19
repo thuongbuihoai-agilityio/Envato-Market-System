@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Box, theme, useColorModeValue } from '@chakra-ui/react';
 
 // Components
-import { LightTheme } from '@app/assets/icons';
+import { LightTheme } from '@app/components/Icons';
 
 const meta: Meta<typeof LightTheme> = {
   title: 'Icons/LightTheme',
