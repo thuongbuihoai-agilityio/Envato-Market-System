@@ -40,7 +40,7 @@ const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
 
       const result = await uploadImage(formData);
 
-      setValue('avatarURL', result);
+      setValue('avatarURL', result, { shouldDirty: true });
 
       setIsLoading(false);
     },
