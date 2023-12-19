@@ -26,6 +26,7 @@ export const USERS_MOCK = [
     lastPlace: 'Jakarta, Indonesia',
     id: '1',
     createdAt: 3123123,
+    salary: 1234,
   },
   {
     avatarURL: 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png',
@@ -38,6 +39,7 @@ export const USERS_MOCK = [
     lastPlace: 'Jakarta, Indonesia',
     id: '2',
     createdAt: 132312321,
+    salary: 1234,
   },
 ];
 
@@ -52,4 +54,5 @@ export const INITIAL_USER = {
   lastPlace: '',
   id: '',
   createdAt: 0,
+  salary: 0,
 };
