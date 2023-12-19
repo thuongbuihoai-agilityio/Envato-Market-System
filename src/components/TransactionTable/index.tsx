@@ -12,7 +12,6 @@ import {
   SearchBar,
   StatusCell,
   Fetching,
-  Lazy,
 } from '@app/components/index';
 
 // Utils
@@ -147,12 +146,10 @@ const TransactionTableComponent = ({
       />
       <Fetching isLoading={isLoadingTransactions} isError={isTransactionsError}>
         <Box mt={5}>
-          <Lazy>
-            <Table
-              columns={columns as THeaderTable[]}
-              dataSource={getTransactionHomePage(filterData)}
-            />
-          </Lazy>
+          <Table
+            columns={columns as THeaderTable[]}
+            dataSource={getTransactionHomePage(filterData)}
+          />
         </Box>
         {!!transactions.length && (
           <Box mt={8}>
