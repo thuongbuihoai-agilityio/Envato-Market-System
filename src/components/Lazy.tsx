@@ -10,10 +10,6 @@ const LazyComponent = ({ children }: TLazyProps) => (
   </Suspense>
 );
 
-const Lazy = memo(
-  LazyComponent,
-  (prevProps: TLazyProps, nextProps: TLazyProps) =>
-    areEqual(prevProps, nextProps),
-);
+const Lazy = memo(LazyComponent, areEqual);
 
 export default Lazy;

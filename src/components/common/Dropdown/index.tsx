@@ -151,9 +151,7 @@ const UserDropdownMenu = ({
                   outline: 'none',
                 }}
               >
-                <Text as={Link} aria-label={value} to="#" variant="text4Xl">
-                  {value}
-                </Text>
+                <Text variant="text4Xl">{value}</Text>
               </MenuItem>
             ))}
           </MenuList>

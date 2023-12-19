@@ -17,7 +17,7 @@ const StatusLabelComponent = ({
   value = Status.FULL_TIME,
 }: StatusLabelProps) => (
   <Tag
-    data-testId="tag"
+    data-testid="tag"
     px={3}
     py={1}
     variant={STATUS_LABEL[value]}

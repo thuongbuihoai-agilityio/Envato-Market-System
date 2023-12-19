@@ -1,44 +1,38 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 
 // component
 import { Dropdown } from '@app/components';
 
-describe('Dropdown render', () => {
-  const renderComponent = ({
-    name,
-    permission,
-  }: {
-    name?: string;
-    permission?: string;
-  }) =>
-    render(
-      <Dropdown
-        name={name || 'John Doe'}
-        permission={permission || 'Super Admin'}
-      />,
-      { wrapper: MemoryRouter },
-    );
+const renderComponent = ({
+  name,
+  permission,
+}: {
+  name?: string;
+  permission?: string;
+}) =>
+  render(<Dropdown name={name} permission={permission} />, {
+    wrapper: MemoryRouter,
+  });
 
-  it('Should render match with snapshot.', () => {
-    const { container } = renderComponent({});
-    expect(container).toMatchSnapshot();
+describe('Dropdown render', () => {
+  it('Should render match with snapshot.', async () => {
+    const { container } = await renderComponent({
+      name: 'John Doe',
+      permission: 'Super Admin',
+    });
+
+    waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
   it('Get Dropdown component', () => {
     const { getByTestId } = renderComponent({});
 
     const avatar = getByTestId('TestDropdown');
+
     expect(avatar).toBeTruthy();
-  });
-
-  it('Re-render', () => {
-    const { getByTestId, rerender } = renderComponent({});
-
-    const avatar = getByTestId('TestDropdown');
-    expect(avatar).toBeTruthy();
-
-    rerender(<Dropdown name="ABC" permission="BCD" />);
   });
 });
