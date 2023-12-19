@@ -1,9 +1,6 @@
 // Types
 import { TDataSource, TTransaction } from '@app/interfaces';
 
-// Mocks
-import { TRANSACTIONS } from '@app/mocks';
-
 // Utils
 import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
 
@@ -13,7 +10,7 @@ import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
  * @returns
  */
 export const getTransactionHomePage = (
-  transactions: TTransaction[],
+  transactions: TTransaction[] = [],
 ): TDataSource[] =>
   transactions.map((transaction) => {
     const {
@@ -34,7 +31,7 @@ export const getTransactionHomePage = (
       date: formatDate(+date),
       paymentStatus: formatUppercaseFirstLetter(paymentStatus),
       transactionStatus: formatUppercaseFirstLetter(transactionStatus),
-      image: avatar || TRANSACTIONS[0].customer.avatar,
+      image: avatar,
       spent: `${currency}${formatDecimalNumber(+amount)}`,
     };
   });

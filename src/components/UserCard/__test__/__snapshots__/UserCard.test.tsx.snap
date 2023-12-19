@@ -162,7 +162,8 @@ exports[`UserCard component renders correctly 1`] = `
         <p
           class="chakra-text css-11c5ex2"
         >
-          $250-300
+          $
+          1,234
         </p>
       </div>
     </div>

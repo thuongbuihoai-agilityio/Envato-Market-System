@@ -1,9 +1,6 @@
 // Types
 import { TEmployee, TDataSource } from '@app/interfaces';
 
-// Mocks
-import { TRANSACTIONS } from '@app/mocks';
-
 export type TShowEmployee = Omit<
   TEmployee,
   'id' | 'createdAt' | 'lastName' | 'firstName' | 'avatarURL'
@@ -18,7 +15,7 @@ export type TShowEmployee = Omit<
  * @param users
  * @returns
  */
-export const getDataUser = (users: TEmployee[]): TShowEmployee[] =>
+export const getDataUser = (users: TEmployee[] = []): TShowEmployee[] =>
   users.map((user) => {
     const {
       id,
@@ -42,6 +39,6 @@ export const getDataUser = (users: TEmployee[]): TShowEmployee[] =>
       lastPlace,
       salary,
       name: `${firstName} ${lastName}`,
-      image: avatarURL || TRANSACTIONS[0].customer.avatar,
+      image: avatarURL,
     };
   });
