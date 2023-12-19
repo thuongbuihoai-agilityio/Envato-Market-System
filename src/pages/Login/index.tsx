@@ -192,7 +192,8 @@ const LoginPage = (): JSX.Element => {
         </Text>
         <Button
           type="submit"
-          aria-label="btn-sign-in"
+          role="link"
+          aria-label="Sign In"
           textTransform="capitalize"
           form="login-form"
           isDisabled={isDisabledSubmitBtn}

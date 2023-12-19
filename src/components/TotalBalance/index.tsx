@@ -68,7 +68,7 @@ const TotalBalanceComponent = ({
             alt={IMAGES.INCREASE_ICON.alt}
             mr="2"
           />
-          <Text fontSize="lg" fontWeight="bold" color="green.500">
+          <Text fontSize="lg" fontWeight="bold" color="green.600">
             {growth}%
           </Text>
         </Flex>

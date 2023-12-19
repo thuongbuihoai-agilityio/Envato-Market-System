@@ -75,7 +75,7 @@ export const Input = defineStyleConfig({
     authentication: {
       field: {
         borderColor: 'gray.200',
-        color: 'gray.400',
+        color: 'secondary.450',
         backgroundColor: NO_COLOR,
         fontSize: 'md',
         _dark: {
