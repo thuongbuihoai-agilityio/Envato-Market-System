@@ -1,7 +1,10 @@
 import { StoryObj, Meta } from '@storybook/react';
 
+// Constants
+import { AVATAR_POSITION, IMAGES } from '@app/constants';
+
+// Components
 import Message from '.';
-import { IMAGES } from '@app/constants/images';
 
 const meta: Meta<typeof Message> = {
   title: 'Custom Components/Message',
@@ -25,7 +28,7 @@ const meta: Meta<typeof Message> = {
       description:
         'Determine whether the position of the avatar is before or after',
 
-      defaultValue: 'before',
+      defaultValue: AVATAR_POSITION.BEFORE,
     },
 
     isOwnerMessage: {
@@ -53,7 +56,7 @@ export const Default: Story = {
     content: 'This is message',
     avatar: IMAGES.USER_AVATAR.url,
     isImage: true,
-    avatarPosition: 'before',
+    avatarPosition: AVATAR_POSITION.BEFORE,
     isOwnerMessage: true,
   },
 };

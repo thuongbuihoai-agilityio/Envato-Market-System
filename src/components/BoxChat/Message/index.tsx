@@ -3,11 +3,14 @@ import { Avatar, Box, Flex, Spacer, Text } from '@chakra-ui/react';
 // Components
 import VoiceChatMessage from './VoiceChatMessage';
 
+// Constants
+import { AVATAR_POSITION } from '@app/constants';
+
 interface MessageProps {
   content?: string;
   avatar?: string;
   isImage?: boolean;
-  avatarPosition?: 'before' | 'after';
+  avatarPosition?: AVATAR_POSITION;
   isOwnerMessage?: boolean;
   localeTime?: string;
 }
@@ -15,7 +18,7 @@ interface MessageProps {
 const Message = ({
   content,
   avatar,
-  avatarPosition = 'before',
+  avatarPosition = AVATAR_POSITION.BEFORE,
   isImage = false,
   isOwnerMessage = false,
   localeTime = new Date().toLocaleTimeString([], {
@@ -24,7 +27,7 @@ const Message = ({
   }),
 }: MessageProps) => (
   <Flex>
-    {avatarPosition === 'before' && (
+    {avatarPosition === AVATAR_POSITION.BEFORE && (
       <Avatar src={avatar} borderColor="border.tertiary" w={9} h={9} mr={2} />
     )}
 
@@ -61,7 +64,7 @@ const Message = ({
       </Text>
     </Flex>
 
-    {avatarPosition === 'after' && (
+    {avatarPosition === AVATAR_POSITION.AFTER && (
       <Avatar
         src={avatar}
         borderColor="border.tertiary"

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Box, Image, Heading, Flex, Input, Button } from '@chakra-ui/react';
 
 // Constants
-import { IMAGES } from '@app/constants';
+import { AVATAR_POSITION, IMAGES } from '@app/constants';
 
 // Components
 import Message from '@app/components/BoxChat/Message';
@@ -59,7 +59,7 @@ const BoxChatComponent = (): JSX.Element => (
     <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
       <Message
         content="Hi, What can i help you with?"
-        avatarPosition="before"
+        avatarPosition={AVATAR_POSITION.BEFORE}
         avatar={IMAGES.CHAT_USER_AVATAR.url}
         localeTime={MESSAGE_TIME}
       />
@@ -73,7 +73,7 @@ const BoxChatComponent = (): JSX.Element => (
       <Flex direction="row-reverse">
         <Message
           content="Hello, I want to know more about your product"
-          avatarPosition="after"
+          avatarPosition={AVATAR_POSITION.AFTER}
           isOwnerMessage
           avatar={IMAGES.CHAT_USER_AVATAR.url}
           localeTime={MESSAGE_TIME}
@@ -82,7 +82,7 @@ const BoxChatComponent = (): JSX.Element => (
 
       <Message
         content="Sure, I can help you with that"
-        avatarPosition="before"
+        avatarPosition={AVATAR_POSITION.BEFORE}
         avatar={IMAGES.CHAT_USER_AVATAR.url}
         localeTime={MESSAGE_TIME}
       />

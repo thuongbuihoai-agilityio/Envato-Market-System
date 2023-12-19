@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Constants
-import { IMAGES } from '@app/constants/images';
+import { IMAGES, AVATAR_POSITION } from '@app/constants';
 
 // Message
 import Message from '@app/components/BoxChat/Message';
@@ -19,7 +19,7 @@ describe('Message component', () => {
         content="This is message"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
         isImage
-        avatarPosition="before"
+        avatarPosition={AVATAR_POSITION.BEFORE}
         isOwnerMessage
         localeTime={mockLocaleTime}
       />,
@@ -56,7 +56,7 @@ describe('Message component', () => {
         content="Hello"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
         isImage={false}
-        avatarPosition="after"
+        avatarPosition={AVATAR_POSITION.AFTER}
         localeTime={mockLocaleTime}
       />,
     );
