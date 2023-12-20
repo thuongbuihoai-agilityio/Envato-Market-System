@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Box, HStack, useColorModeValue } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 
 // Assets
 import { Search } from '@app/components/Icons';
@@ -105,6 +105,6 @@ const SearchBarComponent = ({
   );
 };
 
-const SearchBar = memo(SearchBarComponent, areEqual);
+const SearchBar = memo(SearchBarComponent, isEqual);
 
 export default SearchBar;

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import {
   TableContainer,
   Table as TableChakra,
@@ -111,6 +111,6 @@ const TableComponent = ({
   </TableContainer>
 );
 
-const Table = memo(TableComponent, areEqual);
+const Table = memo(TableComponent, isEqual);
 
 export default Table;

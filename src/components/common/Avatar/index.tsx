@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import {
   Avatar as AvatarChakra,
   AvatarProps as AvatarPropsChakra,
@@ -22,6 +22,6 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
   />
 );
 
-const Avatar = memo(AvatarComponent, areEqual);
+const Avatar = memo(AvatarComponent, isEqual);
 
 export default Avatar;

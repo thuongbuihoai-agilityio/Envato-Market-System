@@ -1,6 +1,6 @@
 import { Spinner } from '@chakra-ui/react';
 import { ReactNode, Suspense, memo } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 
 type TLazyProps = { children: ReactNode };
 
@@ -10,6 +10,6 @@ const LazyComponent = ({ children }: TLazyProps) => (
   </Suspense>
 );
 
-const Lazy = memo(LazyComponent, areEqual);
+const Lazy = memo(LazyComponent, isEqual);
 
 export default Lazy;
