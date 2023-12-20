@@ -1,8 +1,9 @@
-import { Flex, Img, Td, Text } from '@chakra-ui/react';
+import { Flex, Image, Td, Text } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Types
 import { TDataSource } from '@app/interfaces';
+import { IMAGES } from '@app/constants';
 
 const CustomerNameCellComponent = ({
   image,
@@ -19,9 +20,10 @@ const CustomerNameCellComponent = ({
     minW={350}
   >
     <Flex alignItems="center" gap="10px" maxW={350}>
-      <Img
+      <Image
         src={`${image}`}
         alt={`Image of ${name}`}
+        fallbackSrc={IMAGES.AVATAR_SIGN_UP.url}
         w={10}
         h={10}
         objectFit="cover"
