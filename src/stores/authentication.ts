@@ -1,4 +1,9 @@
-import { StorageValue, createJSONStorage, persist } from 'zustand/middleware';
+import {
+  StateStorage,
+  StorageValue,
+  createJSONStorage,
+  persist,
+} from 'zustand/middleware';
 import { createWithEqualityFn } from 'zustand/traditional';
 
 // Constants
@@ -10,9 +15,9 @@ import { TUserDetail } from '@app/interfaces';
 // Utils
 import {
   convertToString,
-  getCurrentTimeSeconds,
   getExpireTime,
   getValueFromLocalStore,
+  loginExpired,
 } from '@app/utils';
 
 export type TUserInfo = Omit<TUserDetail, 'password'> | null;
@@ -32,6 +37,47 @@ const DEFAULT_VALUE = {
   date: 0,
 };
 
+const getItem: StateStorage['getItem'] = (key: string) => {
+  const response: string = getValueFromLocalStore(key);
+  const defaultValue: string = convertToString(DEFAULT_VALUE);
+
+  if (response) {
+    const {
+      state: { user, date, isRemember },
+    }: StorageValue<TAuthStoreData & TAuthStoreAction> = JSON.parse(response);
+
+    const expiredTime: number = getExpireTime(
+      date,
+      isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
+    );
+
+    if (loginExpired(expiredTime) && user) return defaultValue;
+
+    return response;
+  }
+
+  return defaultValue;
+};
+
+const setItem: StateStorage['setItem'] = (key: string, value: string) => {
+  const {
+    state: { user },
+  }: StorageValue<TAuthStoreData & TAuthStoreAction> = JSON.parse(value);
+  const hasUser: boolean = !!user && !!Object.keys(user).length;
+
+  if (hasUser) {
+    return localStorage.setItem(key, value);
+  }
+
+  return localStorage.removeItem(key);
+};
+
+const myStore = (): StateStorage => ({
+  setItem,
+  getItem,
+  removeItem: localStorage.removeItem.bind(localStorage),
+});
+
 export const authStore = createWithEqualityFn(
   persist<TAuthStoreData & TAuthStoreAction>(
     (set) => ({
@@ -41,48 +87,7 @@ export const authStore = createWithEqualityFn(
     }),
     {
       name: STORE_KEY.AUTH,
-      storage: createJSONStorage(() => ({
-        setItem: (key: string, value: string) => {
-          const {
-            state: { user },
-          }: StorageValue<TAuthStoreData & TAuthStoreAction> =
-            JSON.parse(value);
-
-          const hasUser: boolean = !!user;
-
-          if (hasUser) {
-            return localStorage.setItem(key, value);
-          }
-
-          return localStorage.removeItem(key);
-        },
-        getItem: (key: string) => {
-          const response: string = getValueFromLocalStore(key);
-          const defaultValue: string = convertToString(DEFAULT_VALUE);
-
-          if (response) {
-            const {
-              state: { user, date, isRemember },
-            }: StorageValue<TAuthStoreData & TAuthStoreAction> =
-              JSON.parse(response);
-
-            const expiredTime: number = getExpireTime(
-              date,
-              isRemember ? EXPIRED_DAY.REMEMBER : EXPIRED_DAY.NOT_REMEMBER,
-            );
-
-            const isExpired: boolean =
-              expiredTime - getCurrentTimeSeconds() < 0;
-
-            if (isExpired && user) return defaultValue;
-
-            return response;
-          }
-
-          return defaultValue;
-        },
-        removeItem: localStorage.removeItem.bind(localStorage),
-      })),
+      storage: createJSONStorage(myStore),
     },
   ),
 );

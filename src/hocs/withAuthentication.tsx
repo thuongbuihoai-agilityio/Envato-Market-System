@@ -22,16 +22,15 @@ export const withAuthentication = <TProps extends object>(
       (route: TValidateRoute) =>
         pathname === ROUTES.ROOT || `/${route.path}` === pathname,
     );
-    const hasUser: boolean = !!user;
     const isMatchPublicRoute: boolean = PUBLIC_ROUTES.some(
       (route: TValidateRoute) => `/${route.path}` === pathname,
     );
 
-    if (isMatchPublicRoute && hasUser) {
+    if (isMatchPublicRoute && !!user) {
       return <Navigate to={ROUTES.ROOT} replace />;
     }
 
-    if (isMatchPrivateRoute && !hasUser) {
+    if (isMatchPrivateRoute && !user) {
       return <Navigate to={ROUTES.LOGIN} />;
     }
 

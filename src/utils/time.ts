@@ -3,17 +3,6 @@ export const getCurrentYear = (): number => {
   return currentYear;
 };
 
-/**
- *
- * @param startDate (seconds)
- * @param dateOfExpiry
- * @returns
- */
-export const getExpireTime = (
-  startDate: number,
-  dateOfExpiry: number,
-): number => startDate + dateOfExpiry * 24 * 60 * 60; // startDate + dateOfExpiry * hour * minutes * seconds
-
 export const getCurrentTimeSeconds = (): number => Date.now() / 1000;
 
 /**
@@ -28,3 +17,22 @@ export const formatDate = (timestamp: number): string => {
 
   return `${month} ${day}, ${year}`;
 };
+
+/**
+ *
+ * @param startDate (seconds)
+ * @param dateOfExpiry
+ * @returns
+ */
+export const getExpireTime = (
+  startDate: number,
+  dateOfExpiry: number,
+): number => startDate + dateOfExpiry * 24 * 60 * 60; // startDate + dateOfExpiry * hour * minutes * seconds
+
+/**
+ *
+ * @param expiredTime (seconds)
+ * @returns
+ */
+export const loginExpired = (expiredTime: number): boolean =>
+  expiredTime - getCurrentTimeSeconds() < 0;
