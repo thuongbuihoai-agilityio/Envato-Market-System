@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EfficiencyInfo component should render correctly 1`] = `<div />`;
+
+exports[`EfficiencyInfo component should render with dark mode  1`] = `<div />`;

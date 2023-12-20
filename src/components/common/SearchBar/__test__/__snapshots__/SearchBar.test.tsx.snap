@@ -45,7 +45,7 @@ exports[`SearchBar render Should render match with snapshot. 1`] = `
             </svg>
           </div>
           <input
-            class="chakra-input css-0"
+            class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
             id="field-:r0:"
             placeholder="Search by name, email, or other..."

@@ -6,10 +6,18 @@ const queryClient = new QueryClient();
 
 // Component
 import { Efficiency } from '@app/components';
+import { EFFICIENCY_MOCK } from '@app/mocks';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,
   default: () => <div />,
+}));
+
+const useGetStatisticMock = jest.fn();
+
+jest.mock('@app/hooks', () => ({
+  ...jest.requireActual('@app/hooks'),
+  useGetStatistic: () => useGetStatisticMock(),
 }));
 
 const setup = () =>
@@ -20,6 +28,11 @@ const setup = () =>
   );
 
 describe('Efficiency component', () => {
+  beforeEach(() => {
+    useGetStatisticMock.mockReturnValue({
+      data: EFFICIENCY_MOCK,
+    });
+  });
   it('renders correctly', () => {
     const { container } = setup();
 
@@ -34,5 +47,14 @@ describe('Efficiency component', () => {
     await userEvent.click(selectOption);
 
     expect(select.textContent).toBe('Monthly');
+  });
+
+  it('show error when fetch data failed', () => {
+    useGetStatisticMock.mockReturnValue({
+      isError: true,
+    });
+    const { container } = setup();
+
+    expect(container).toMatchSnapshot();
   });
 });

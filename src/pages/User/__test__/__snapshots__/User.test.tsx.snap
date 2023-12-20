@@ -47,7 +47,7 @@ exports[`User Page renders User component snapshot 1`] = `
               </svg>
             </div>
             <input
-              class="chakra-input css-1pyhcao"
+              class="chakra-input css-1i2i6iz"
               id="field-:r0:"
               placeholder="Job Title"
               type="text"

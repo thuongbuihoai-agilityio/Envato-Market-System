@@ -44,7 +44,7 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
             src="/icons/increase.svg"
           />
           <p
-            class="chakra-text css-v75p2z"
+            class="chakra-text css-gn7xew"
           >
             2.05
             %
