@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders UserForm with content 1`] = `
+exports[`Personal Page test cases renders UserForm with content 1`] = `
 <div>
-  <div
-    class="css-1pzxhv6"
+  <form
+    class="chakra-stack css-tl3ftk"
+    id="register-form"
   >
-    <section
-      class="css-j63fm7"
+    <div
+      class="css-x1jqhu"
     >
-      <h3
-        class="chakra-heading css-r8aai1"
+      <section
+        class="css-17s3n79"
       >
-        personal information's
-      </h3>
-      <form
-        class="chakra-stack css-ylms7g"
-        id="register-form"
-      >
+        <h3
+          class="chakra-heading css-r8aai1"
+        >
+          personal information's
+        </h3>
         <div
-          class="chakra-stack css-rluqv0"
+          class="chakra-stack css-1s7rg7j"
         >
           <div
             class="chakra-form-control css-0"
@@ -127,7 +127,7 @@ exports[`renders UserForm with content 1`] = `
           Personal Address
         </h2>
         <div
-          class="chakra-stack css-fskqe1"
+          class="chakra-stack css-1fq11yp"
         >
           <div
             class="chakra-form-control css-0"
@@ -236,7 +236,7 @@ exports[`renders UserForm with content 1`] = `
           Social Information
         </h2>
         <div
-          class="chakra-stack css-fskqe1"
+          class="chakra-stack css-1fq11yp"
         >
           <div
             class="chakra-form-control css-0"
@@ -256,7 +256,7 @@ exports[`renders UserForm with content 1`] = `
               <input
                 class="chakra-input css-r4nbqm"
                 id="field-:r8:"
-                name="facebook"
+                name="facebookURL"
                 type="text"
                 value=""
               />
@@ -280,7 +280,7 @@ exports[`renders UserForm with content 1`] = `
               <input
                 class="chakra-input css-r4nbqm"
                 id="field-:r9:"
-                name="twitter"
+                name="twitterURL"
                 type="text"
                 value=""
               />
@@ -308,7 +308,7 @@ exports[`renders UserForm with content 1`] = `
               <input
                 class="chakra-input css-r4nbqm"
                 id="field-:ra:"
-                name="linkedin"
+                name="linkedinURL"
                 type="text"
                 value=""
               />
@@ -332,7 +332,7 @@ exports[`renders UserForm with content 1`] = `
               <input
                 class="chakra-input css-r4nbqm"
                 id="field-:rb:"
-                name="youtube"
+                name="youtubeURL"
                 type="text"
                 value=""
               />
@@ -340,64 +340,90 @@ exports[`renders UserForm with content 1`] = `
           </div>
         </div>
         <div
-          class="css-omcqsq"
+          class="css-t110l1"
         >
           <p
             class="chakra-text css-dz8804"
           />
-          <button
-            class="chakra-button css-1u2d9l5"
-            form="register-form"
-            type="submit"
+          <div
+            class="css-tz0gqg"
           >
-            Save Profile
-          </button>
+            <button
+              aria-label="btn-save-profile"
+              class="chakra-button css-glk3as"
+              disabled=""
+              form="register-form"
+              type="submit"
+            >
+              Save Profile
+            </button>
+          </div>
         </div>
-      </form>
-    </section>
-    <div
-      class="css-73fbxg"
-    >
+      </section>
       <div
-        class="css-0"
+        class="css-hf8gyw"
       >
-        <h4
-          class="chakra-heading css-1th4bpb"
-        >
-          update profile
-        </h4>
-        <p
-          class="chakra-text css-12zxwfm"
-        >
-          Profile at least Size
-          <span
-            class="chakra-text css-1999y4e"
-          >
-            300x300.
-          </span>
-          Gift to work too.
-        </p>
         <div
-          class="css-4bwcy0"
+          class="css-0"
         >
-          <img
-            alt="This is the big avatar"
-            class="chakra-image css-1phd9a0"
-            src="/images/big-avatar.webp"
-          />
-          <button
-            class="chakra-button css-1bbvwej"
-            type="button"
+          <h4
+            class="chakra-heading css-1th4bpb"
           >
-            <img
-              alt="Edit icon"
-              class="chakra-image css-0"
-              src="/icons/edit.svg"
-            />
-          </button>
+            update profile
+          </h4>
+          <p
+            class="chakra-text css-12zxwfm"
+          >
+            Profile at least Size
+            <span
+              class="chakra-text css-1999y4e"
+            >
+              300x300.
+            </span>
+            Gift to work too.
+          </p>
+          <div
+            class="css-4bwcy0"
+          >
+            <div
+              class="chakra-skeleton css-183zf81"
+            >
+              <img
+                alt="This is the big avatar"
+                class="chakra-image css-opaydd"
+                src=""
+              />
+            </div>
+            <div
+              class="chakra-input__group css-eh9zni"
+              data-group="true"
+            >
+              <div
+                class="chakra-input__left-element css-o84xzr"
+              >
+                <label
+                  class="chakra-form__label css-uvho5g"
+                  for="file"
+                >
+                  <img
+                    alt="Edit icon"
+                    class="chakra-image css-1eh5dcz"
+                    src="/icons/edit.svg"
+                  />
+                </label>
+                <input
+                  class="chakra-input css-kmhx47"
+                  data-testid="upload-image"
+                  id="file"
+                  name="file"
+                  type="file"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
 `;

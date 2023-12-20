@@ -160,6 +160,7 @@ const LoginPage = (): JSX.Element => {
             name="isRemember"
             render={({ field: { value, onChange } }) => (
               <Checkbox
+                aria-label="remember"
                 variant="round"
                 isChecked={value}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
