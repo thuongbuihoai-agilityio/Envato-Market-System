@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Setting Page test cases should render correctly 1`] = `
+<div>
+  <div
+    class="css-17433br"
+  >
+    <div
+      class="css-17rd0ux"
+    >
+      <div
+        class="css-13rbvqk"
+      >
+        <div
+          class="css-tzbww"
+        >
+          <div
+            class="css-10g0scl"
+          >
+            <div
+              class="chakra-spinner css-zcyhge"
+            >
+              <span
+                class="css-8b45rq"
+              >
+                Loading...
+              </span>
+            </div>
+          </div>
+          <div
+            class="css-0"
+          >
+            <h4
+              class="chakra-heading css-8fxmo4"
+            >
+              Personal Informations
+            </h4>
+            <p
+              class="chakra-text css-la7pi6"
+            >
+              Fill in your personal information
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-13rbvqk"
+      >
+        <div
+          class="css-8i2j7a"
+        >
+          <div
+            class="css-vwt6je"
+          >
+            <div
+              class="chakra-spinner css-zcyhge"
+            >
+              <span
+                class="css-8b45rq"
+              >
+                Loading...
+              </span>
+            </div>
+          </div>
+          <div
+            class="css-0"
+          >
+            <h4
+              class="chakra-heading css-8fxmo4"
+            >
+              FAQ
+            </h4>
+            <p
+              class="chakra-text css-la7pi6"
+            >
+              Frequently asked questions
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-1im7oej"
+    >
+      <div
+        class="chakra-spinner css-zcyhge"
+      >
+        <span
+          class="css-8b45rq"
+        >
+          Loading...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

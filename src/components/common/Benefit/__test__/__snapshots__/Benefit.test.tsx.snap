@@ -7,7 +7,7 @@ exports[`renders Benefit with content 1`] = `
   >
     <img
       alt="This is sign in image"
-      class="chakra-image css-0"
+      class="chakra-image css-1egtfbj"
       src="/icons/signin.svg"
     />
     <img

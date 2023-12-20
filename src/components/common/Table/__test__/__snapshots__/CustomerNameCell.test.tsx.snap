@@ -13,8 +13,8 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
       >
         <img
           alt="Image of Duong Pham"
-          class="chakra-image css-19kez7u"
-          src="undefined"
+          class="chakra-image__placeholder css-19idant"
+          src="/images/avatar-sign-up.webp"
         />
         <p
           class="chakra-text css-mn2b9z"

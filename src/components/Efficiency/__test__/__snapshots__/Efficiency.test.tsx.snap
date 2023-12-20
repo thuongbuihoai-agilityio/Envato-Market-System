@@ -118,7 +118,9 @@ exports[`Efficiency component renders correctly 1`] = `
       <div
         class="css-wax5jp"
       >
-        <div />
+        <div>
+          EfficiencyInfo component
+        </div>
         <div
           class="css-0"
         >
@@ -265,15 +267,5 @@ exports[`Efficiency component renders correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`Efficiency component show error when fetch data failed 1`] = `
-<div>
-  <h3
-    class="chakra-heading css-h5ypiw"
-  >
-    Efficiency data error
-  </h3>
 </div>
 `;
