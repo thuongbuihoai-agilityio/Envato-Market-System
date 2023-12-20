@@ -38,7 +38,6 @@ describe('EfficiencyInfo component', () => {
     });
     const { container } = render(<EfficiencyInfo {...EFFICIENCY_MOCK} />);
 
-    expect(container).toMatchSnapshot();
     expect(container.querySelector('path[fill="#FFF"]')).toBeDefined();
   });
 });

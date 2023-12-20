@@ -10,7 +10,7 @@ import { EFFICIENCY_MOCK } from '@app/mocks';
 
 jest.mock('react-apexcharts', () => ({
   __esModule: true,
-  default: () => <div />,
+  default: () => <div>EfficiencyInfo component</div>,
 }));
 
 const useGetStatisticMock = jest.fn();
@@ -53,8 +53,8 @@ describe('Efficiency component', () => {
     useGetStatisticMock.mockReturnValue({
       isError: true,
     });
-    const { container } = setup();
-
-    expect(container).toMatchSnapshot();
+    const { getByText } = setup();
+    const errorMessage = getByText('Efficiency data error');
+    expect(errorMessage).toBeDefined();
   });
 });
