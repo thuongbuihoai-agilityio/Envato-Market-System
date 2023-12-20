@@ -78,7 +78,7 @@ const EfficiencyComponent = () => {
   return (
     <Box bg="background.component.primary" rounded="lg">
       <Fetching
-        isLoading={isLoadingEfficiency}
+        isLoading={isLoadingEfficiency && !isLoadingSelectEfficiencyType}
         isError={isErrorEfficiency}
         variant="secondary"
         size="md"

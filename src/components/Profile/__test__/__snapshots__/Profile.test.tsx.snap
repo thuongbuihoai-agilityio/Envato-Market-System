@@ -46,7 +46,7 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
           >
             <img
               alt="Edit icon"
-              class="chakra-image css-1eh5dcz"
+              class="chakra-image css-36zrex"
               src="/icons/edit.svg"
             />
           </label>

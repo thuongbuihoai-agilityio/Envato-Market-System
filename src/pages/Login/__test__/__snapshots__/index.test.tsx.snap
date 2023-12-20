@@ -80,7 +80,7 @@ exports[`Login page Match to snapshot 1`] = `
             class="chakra-divider css-ri09he"
           />
           <div
-            class="css-1u70y5c"
+            class="css-pwrcs2"
           >
             Or continue with
           </div>
@@ -98,7 +98,7 @@ exports[`Login page Match to snapshot 1`] = `
               data-group="true"
             >
               <input
-                class="chakra-input css-0"
+                class="chakra-input css-6hxpcw"
                 id="field-:r1:"
                 name="username"
                 placeholder="Username or email"
@@ -116,7 +116,7 @@ exports[`Login page Match to snapshot 1`] = `
               data-group="true"
             >
               <input
-                class="chakra-input css-0"
+                class="chakra-input css-6hxpcw"
                 id="field-:r2:"
                 name="password"
                 placeholder="Password"
@@ -190,10 +190,11 @@ exports[`Login page Match to snapshot 1`] = `
             class="chakra-text css-dz8804"
           />
           <button
-            aria-label="btn-sign-in"
+            aria-label="Sign In"
             class="chakra-button css-shrws2"
             disabled=""
             form="login-form"
+            role="link"
             type="submit"
           >
             Sign In
