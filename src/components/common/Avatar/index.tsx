@@ -16,6 +16,7 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
     borderColor="gray.200"
     w="52px"
     h="52px"
+    pt={0.5}
     cursor="pointer"
     src={src}
     {...props}
