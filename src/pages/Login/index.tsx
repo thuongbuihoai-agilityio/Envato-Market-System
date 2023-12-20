@@ -193,7 +193,7 @@ const LoginPage = (): JSX.Element => {
         </Text>
         <Button
           type="submit"
-          role="link"
+          role="button"
           aria-label="Sign In"
           textTransform="capitalize"
           form="login-form"

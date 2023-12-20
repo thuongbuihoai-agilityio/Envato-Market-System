@@ -42,16 +42,73 @@ const HeaderComponent = ({ name }: HeaderProps) => {
 
   return (
     <Flex
-      h={{ base: 85, md: 28 }}
+      h="100%"
       maxW="full"
       bg="background.component.primary"
-      alignItems="center"
+      alignItems="start"
       px={{ base: 6, xl: 10 }}
+      py={6}
       justifyContent="space-between"
+      direction={{
+        base: 'column',
+        default: 'row',
+      }}
     >
-      <Flex minW="full" display={{ md: 'none' }} justifyContent="space-between">
+      <Flex
+        minW="full"
+        display={{ base: 'inline-flex', md: 'none' }}
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Logo />
-        <Dropdown name="John Doe" permission="Super Admin" src={avatarURL} />
+        <Flex display={{ base: 'flex' }} height="min-content" gap={4}>
+          <Flex
+            display={{ base: 'none', default: 'inline-flex' }}
+            justifyContent="end"
+            w="fit-content"
+            gap={3}
+          >
+            <SwitchTheme />
+
+            <IconButton isNotification>
+              <Bell color={colorFill} />
+            </IconButton>
+
+            <IconButton isNotification hasNewNotification>
+              <Email color={colorFill} />
+            </IconButton>
+
+            <IconButton isNotification>
+              <Gift color={colorFill} />
+            </IconButton>
+          </Flex>
+          <Dropdown name="John Doe" permission="Super Admin" src={avatarURL} />
+        </Flex>
+      </Flex>
+      <Flex
+        display={{ base: 'inline-flex', default: 'none' }}
+        alignSelf="end"
+        w="100%"
+        gap={3}
+        pt={2.5}
+        justifyContent={{
+          base: 'space-between',
+          '0.8sm': 'end',
+        }}
+      >
+        <SwitchTheme />
+
+        <IconButton isNotification>
+          <Bell color={colorFill} />
+        </IconButton>
+
+        <IconButton isNotification hasNewNotification>
+          <Email color={colorFill} />
+        </IconButton>
+
+        <IconButton isNotification>
+          <Gift color={colorFill} />
+        </IconButton>
       </Flex>
       <Box display={{ base: 'none', md: 'inline' }} minW={185}>
         <Heading
@@ -68,7 +125,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         </Text>
       </Box>
       <Box
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: 'none', xl: 'block' }}
         w={{ base: 500, md: 350, '2xl': 500 }}
         px={4}
       >
@@ -87,36 +144,74 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         />
       </Box>
       <Flex
-        minW={{ base: 'fit-content', xl: 407, '3xl': 530 }}
+        w={{ base: '100%', xl: 407, '3xl': 530 }}
         justifyContent={{ base: 'end', xl: 'space-between' }}
+        direction={{
+          base: 'column',
+          xl: 'row',
+        }}
+        gap={4}
+        pl={{
+          base: 0,
+          md: 5,
+          lg: 24,
+          xl: 0,
+        }}
       >
-        <Flex
-          display={{ base: 'none', xl: 'inline-flex' }}
-          borderRight="1px"
-          borderColor="border.primary"
-          height="min-content"
-          pr={43}
-          minW={310}
-          justifyContent="space-between"
-        >
-          <SwitchTheme />
-
-          <IconButton isNotification>
-            <Bell color={colorFill} />
-          </IconButton>
-
-          <IconButton isNotification hasNewNotification>
-            <Email color={colorFill} />
-          </IconButton>
-
-          <IconButton isNotification>
-            <Gift color={colorFill} />
-          </IconButton>
-        </Flex>
-
-        <Box display={{ base: 'none', md: 'inline-flex' }}>
-          <Dropdown name={username} permission="Super Admin" src={avatarURL} />
+        <Box display={{ base: 'none', md: 'block', xl: 'none' }} w="100%">
+          <InputField
+            leftIcon={<Search color={colorFill} />}
+            placeholder="Search..."
+            rightIcon={
+              <>
+                <Rotate color={colorFill} />
+                <Text color="text.primary" pl={1}>
+                  K
+                </Text>
+              </>
+            }
+            onChange={() => {}}
+          />
         </Box>
+        <Flex
+          gap={43}
+          alignSelf={{
+            base: 'end',
+            xl: 'baseline',
+          }}
+        >
+          <Flex
+            display={{ base: 'none', md: 'inline-flex' }}
+            borderRight="1px"
+            borderColor="border.primary"
+            height="min-content"
+            pr={43}
+            minW={310}
+            justifyContent="space-between"
+          >
+            <SwitchTheme />
+
+            <IconButton isNotification>
+              <Bell color={colorFill} />
+            </IconButton>
+
+            <IconButton isNotification hasNewNotification>
+              <Email color={colorFill} />
+            </IconButton>
+
+            <IconButton isNotification>
+              <Gift color={colorFill} />
+            </IconButton>
+          </Flex>
+
+          <Box display={{ base: 'none', md: 'inline-flex' }}>
+            <Dropdown
+              name={username}
+              permission="Super Admin"
+              src={avatarURL}
+            />
+          </Box>
+        </Flex>
       </Flex>
     </Flex>
   );
