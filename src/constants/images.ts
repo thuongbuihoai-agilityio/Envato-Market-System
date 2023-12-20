@@ -2,10 +2,14 @@ export const IMAGES = {
   SIGN_IN: {
     url: '/icons/signin.svg',
     alt: 'This is sign in image',
+    width: 699,
+    height: 596,
   },
   SIGN_UP: {
     url: '/icons/signup.svg',
-    alt: 'This is sign in image',
+    alt: 'This is sign up image',
+    width: 699,
+    height: 480,
   },
   SQUARE: {
     url: '/icons/square.svg',

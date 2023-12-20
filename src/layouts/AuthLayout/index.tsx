@@ -14,7 +14,7 @@ import AuthHeading from './Heading';
 import AuthFooter from './Footer';
 
 // Types
-import { TImage } from '@app/interfaces';
+import { TImageDetails } from '@app/interfaces';
 
 type TAuthLayoutProps = {
   children?: ReactNode;
@@ -30,8 +30,8 @@ const AuthLayoutComponent = ({
     (): string => (isSignInForm ? TITLES.SIGN_IN : TITLES.SIGN_UP),
     [isSignInForm],
   );
-  const { url, alt }: TImage = useMemo(
-    (): TImage => (isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP),
+  const { url, alt, width, height }: TImageDetails = useMemo(
+    (): TImageDetails => (isSignInForm ? IMAGES.SIGN_IN : IMAGES.SIGN_UP),
     [isSignInForm],
   );
 
@@ -74,7 +74,11 @@ const AuthLayoutComponent = ({
           <AuthFooter />
         </Box>
       </Box>
-      <Benefit imageURL={url} alt={alt} heading="Speady, Easy and Fast" />
+      <Benefit
+        image={{ url: url, width: width, height: height }}
+        alt={alt}
+        heading="Speady, Easy and Fast"
+      />
     </Flex>
   );
 };
