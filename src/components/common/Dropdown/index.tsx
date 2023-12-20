@@ -50,7 +50,7 @@ const UserDropdownMenu = ({
   return (
     <Menu offset={[offsetX, offsetY]}>
       {({ isOpen }) => (
-        <Box position="relative" float="right">
+        <Box>
           <MenuButton
             as={Button}
             p={0}
