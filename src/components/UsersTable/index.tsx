@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { Table, UserInfoCell, StatusCell, ActionCell } from '@app/components';
@@ -81,6 +81,6 @@ const UsersComponent = ({ users, onClickUser }: TUsersProps): JSX.Element => {
   );
 };
 
-const Users = memo(UsersComponent, areEqual);
+const Users = memo(UsersComponent, isEqual);
 
 export default Users;

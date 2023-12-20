@@ -7,7 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { MouseEventHandler, memo, useState } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 
 const PRIMARY_BG_COLOR = 'background.component.select.primary';
 const SECONDARY_BG_COLOR = 'background.component.select.primary';
@@ -163,6 +163,6 @@ const SelectComponent = ({
   );
 };
 
-const Select = memo(SelectComponent, areEqual);
+const Select = memo(SelectComponent, isEqual);
 
 export default Select;

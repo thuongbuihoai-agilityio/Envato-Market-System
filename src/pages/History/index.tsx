@@ -1,6 +1,6 @@
 import { Suspense, lazy, memo } from 'react';
 import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { TransactionTable } from '@app/components';
@@ -43,6 +43,6 @@ const History = () => (
   </Grid>
 );
 
-const HistoryPage = memo(withErrorBoundary(History), areEqual);
+const HistoryPage = memo(withErrorBoundary(History), isEqual);
 
 export default HistoryPage;

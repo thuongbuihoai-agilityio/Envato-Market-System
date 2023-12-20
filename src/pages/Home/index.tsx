@@ -1,5 +1,5 @@
 import { lazy, memo } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
@@ -125,6 +125,6 @@ const Dashboard = () => {
   );
 };
 
-const DashboardPage = memo(withErrorBoundary(Dashboard), areEqual);
+const DashboardPage = memo(withErrorBoundary(Dashboard), isEqual);
 
 export default DashboardPage;

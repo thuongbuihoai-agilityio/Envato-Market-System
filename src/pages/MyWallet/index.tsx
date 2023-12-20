@@ -1,4 +1,4 @@
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import { lazy, memo } from 'react';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
@@ -95,6 +95,6 @@ const MyWallet = () => {
   );
 };
 
-const MyWalletPage = memo(withErrorBoundary(MyWallet), areEqual);
+const MyWalletPage = memo(withErrorBoundary(MyWallet), isEqual);
 
 export default MyWalletPage;

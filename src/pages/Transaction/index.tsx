@@ -1,5 +1,5 @@
 import { memo, lazy } from 'react';
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // HOCs
@@ -42,6 +42,6 @@ const Transaction = () => (
   </Grid>
 );
 
-const TransactionPage = memo(withErrorBoundary(Transaction), areEqual);
+const TransactionPage = memo(withErrorBoundary(Transaction), isEqual);
 
 export default TransactionPage;

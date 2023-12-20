@@ -1,4 +1,4 @@
-import areEqual from 'react-fast-compare';
+import isEqual from 'react-fast-compare';
 import { Box, Flex } from '@chakra-ui/react';
 import { ReactNode, memo, useMemo } from 'react';
 
@@ -80,7 +80,7 @@ const AuthLayoutComponent = ({
 };
 const AuthLayout = memo(
   withErrorBoundary(withAuthentication(AuthLayoutComponent)),
-  areEqual,
+  isEqual,
 );
 
 export default AuthLayout;
