@@ -66,6 +66,8 @@ const TotalBalanceComponent = ({
           <Image
             src={IMAGES.INCREASE_ICON.url}
             alt={IMAGES.INCREASE_ICON.alt}
+            w={5}
+            h={5}
             mr="2"
           />
           <Text fontSize="lg" fontWeight="bold" color="green.600">

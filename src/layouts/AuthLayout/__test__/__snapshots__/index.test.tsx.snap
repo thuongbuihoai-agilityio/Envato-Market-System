@@ -124,11 +124,11 @@ exports[`Auth layout Match to snapshot 1`] = `
       <div
         class="css-1wwt0r"
       >
-        <h3
+        <h2
           class="chakra-heading css-tmruzz"
         >
           Speady, Easy and Fast
-        </h3>
+        </h2>
         <p
           class="chakra-text css-rm4le2"
         >

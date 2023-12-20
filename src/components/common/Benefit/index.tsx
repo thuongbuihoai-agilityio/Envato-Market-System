@@ -60,7 +60,7 @@ const BenefitComponent = ({
       w={{ '2xl': '500px' }}
     >
       <Heading
-        as="h3"
+        as="h2"
         variant="heading4Xl"
         marginBottom={4}
         color="text.primary"

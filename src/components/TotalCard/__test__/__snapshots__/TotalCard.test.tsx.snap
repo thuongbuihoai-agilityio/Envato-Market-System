@@ -13,7 +13,7 @@ exports[`TotalCard component renders correctly 1`] = `
       >
         <img
           alt="Total earn icon"
-          class="chakra-image css-0"
+          class="chakra-image css-1ee2qsp"
           src="/icons/total-earn.svg"
         />
         <p
@@ -40,7 +40,7 @@ exports[`TotalCard component renders correctly 1`] = `
         >
           <img
             alt="Growth icon"
-            class="chakra-image css-0"
+            class="chakra-image css-u7n7wz"
             src="/icons/growth.svg"
           />
           <p

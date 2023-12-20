@@ -28,7 +28,7 @@ exports[`renders Benefit with content 1`] = `
     <div
       class="css-1wwt0r"
     >
-      <h3
+      <h2
         class="chakra-heading css-tmruzz"
       />
       <p
