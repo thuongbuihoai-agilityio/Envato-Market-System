@@ -9,7 +9,15 @@ const VoiceChatMessageComponent = (): JSX.Element => {
     dark: 'images/record-dark.webp',
   };
 
-  return <Image src={imageByColorMode[colorMode]} alt="Message Image" ml={2} />;
+  return (
+    <Image
+      src={imageByColorMode[colorMode]}
+      alt="Message Image"
+      ml={2}
+      w={203}
+      h={46}
+    />
+  );
 };
 
 const VoiceChatMessage = memo(VoiceChatMessageComponent);

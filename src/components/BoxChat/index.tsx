@@ -102,6 +102,8 @@ const BoxChatComponent = (): JSX.Element => (
             <Image
               src={IMAGES.ATTACH.url}
               alt={IMAGES.ATTACH.alt}
+              w={4}
+              h={15}
               cursor="pointer"
             />
 
@@ -119,6 +121,8 @@ const BoxChatComponent = (): JSX.Element => (
             <Image
               src={IMAGES.MICRO.url}
               alt={IMAGES.MICRO.alt}
+              w={6}
+              h={6}
               cursor="pointer"
             />
           </Flex>
@@ -128,6 +132,8 @@ const BoxChatComponent = (): JSX.Element => (
           ml={5}
           src={IMAGES.SEND.url}
           alt={IMAGES.SEND.alt}
+          w={5}
+          h={18}
           cursor="pointer"
         />
       </Flex>

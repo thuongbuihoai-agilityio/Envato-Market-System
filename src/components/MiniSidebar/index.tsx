@@ -70,6 +70,8 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
           <Image
             src={logos[colorMode]?.url}
             alt={logos[colorMode]?.alt}
+            w={8}
+            h={45}
             cursor="pointer"
           />
 

@@ -99,7 +99,7 @@ const Dashboard = () => {
           <TransactionTable />
         </Box>
       </GridItem>
-      <GridItem mt={{ base: 6, '3xl': 0 }} ml={{ '2xl': 12 }}>
+      <GridItem mt={{ base: 6, '5xl': 0 }} ml={{ '5xl': 12 }}>
         <Stack
           direction={{ base: 'column', lg: 'row', '2xl': 'column' }}
           spacing={{ base: 6, lg: 0 }}

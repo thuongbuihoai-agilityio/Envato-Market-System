@@ -26,7 +26,12 @@ const TotalCardComponent = ({
   <Box p={5} bg="background.component.primary" rounded="lg">
     <Flex alignItems="center" justifyContent="space-between" mb={5}>
       <HStack w="fit-content">
-        <Image src={IMAGES.TOTAL_EARN.url} alt={IMAGES.TOTAL_EARN.alt} />
+        <Image
+          w={12}
+          h={38}
+          src={IMAGES.TOTAL_EARN.url}
+          alt={IMAGES.TOTAL_EARN.alt}
+        />
         <Text variant="textLg" fontWeight="semibold">
           {title}
         </Text>
@@ -36,7 +41,12 @@ const TotalCardComponent = ({
       <Box>
         <Text variant="text3Xl">${formatDecimalNumber(total)}</Text>
         <HStack>
-          <Image src={IMAGES.GROWTH.url} alt={IMAGES.GROWTH.alt} />
+          <Image
+            src={IMAGES.GROWTH.url}
+            alt={IMAGES.GROWTH.alt}
+            w={4}
+            h={3.5}
+          />
           <Text color="primary.500">
             + {growth}%{' '}
             <Text as="span" variant="textSm" color="text.textInfo">
