@@ -55,6 +55,10 @@ describe('Login page', () => {
 
     const checkboxLabel = screen.getByText(/remember me/i);
 
+    const submitBtn = screen.getByRole('button', {
+      name: /sign in/i,
+    });
+
     await userEvent.type(usernameInput, 'dieu.le@asnet.com.vn');
 
     await userEvent.type(passwordInput, 'Abcd@12356345');
