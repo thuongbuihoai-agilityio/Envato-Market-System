@@ -762,8 +762,8 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               >
                 <img
                   alt="Image of Devon Lane"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -841,8 +841,8 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               >
                 <img
                   alt="Image of Bessie Cooper"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -920,8 +920,8 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               >
                 <img
                   alt="Image of Dianne Russell"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -1986,8 +1986,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               >
                 <img
                   alt="Image of Devon Lane"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -2075,8 +2075,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               >
                 <img
                   alt="Image of Bessie Cooper"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -2164,8 +2164,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               >
                 <img
                   alt="Image of Dianne Russell"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -3240,8 +3240,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               >
                 <img
                   alt="Image of Devon Lane"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -3329,8 +3329,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               >
                 <img
                   alt="Image of Bessie Cooper"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"
@@ -3418,8 +3418,8 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               >
                 <img
                   alt="Image of Dianne Russell"
-                  class="chakra-image css-19kez7u"
-                  src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png"
+                  class="chakra-image__placeholder css-19idant"
+                  src="/images/avatar-sign-up.webp"
                 />
                 <p
                   class="chakra-text css-mn2b9z"

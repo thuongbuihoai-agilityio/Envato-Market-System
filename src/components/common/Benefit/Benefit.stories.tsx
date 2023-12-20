@@ -11,7 +11,7 @@ const meta: Meta<typeof Benefit> = {
   tags: ['autodocs'],
   component: Benefit,
   argTypes: {
-    imageURL: {
+    image: {
       description: 'The image URL to display',
     },
 
@@ -40,7 +40,11 @@ type Story = StoryObj<typeof Benefit>;
 
 export const Default: Story = {
   args: {
-    imageURL: IMAGES.SIGN_IN.url,
+    image: {
+      url: IMAGES.SIGN_IN.url,
+      width: 699,
+      height: 596,
+    },
     alt: IMAGES.SIGN_IN.alt,
     heading: 'Speady, Easy and Fast',
     width: '100%',

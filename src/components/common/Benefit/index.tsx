@@ -5,14 +5,18 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { IMAGES } from '@app/constants/images';
 
 interface BenefitProps {
-  imageURL: string;
+  image: {
+    url: string;
+    width: number;
+    height: number;
+  };
   alt: string;
   heading?: string;
   width?: string;
 }
 
 const BenefitComponent = ({
-  imageURL,
+  image,
   alt,
   heading,
   width = '50%',
@@ -27,7 +31,7 @@ const BenefitComponent = ({
     display={{ base: 'none', lg: 'block' }}
     backgroundColor="background.section.primary"
   >
-    <Image src={imageURL} alt={alt} />
+    <Image src={image.url} alt={alt} w={image.width} height={image.height} />
     <Image
       position="absolute"
       top={10}

@@ -12,6 +12,7 @@ exports[`Register page Match to snapshot 1`] = `
         class="css-rmobdt"
       >
         <a
+          aria-label="link-to-home"
           class="chakra-text css-1baulvz"
           href="/"
         >
@@ -79,7 +80,7 @@ exports[`Register page Match to snapshot 1`] = `
             class="chakra-divider css-ri09he"
           />
           <div
-            class="css-1u70y5c"
+            class="css-pwrcs2"
           >
             Or continue with
           </div>
@@ -101,7 +102,7 @@ exports[`Register page Match to snapshot 1`] = `
               >
                 <input
                   aria-label="first-name"
-                  class="chakra-input css-0"
+                  class="chakra-input css-6hxpcw"
                   id="field-:r2:"
                   name="firstName"
                   placeholder="First name"
@@ -120,7 +121,7 @@ exports[`Register page Match to snapshot 1`] = `
               >
                 <input
                   aria-label="last-name"
-                  class="chakra-input css-0"
+                  class="chakra-input css-6hxpcw"
                   id="field-:r3:"
                   name="lastName"
                   placeholder="Last name"
@@ -140,7 +141,7 @@ exports[`Register page Match to snapshot 1`] = `
             >
               <input
                 aria-label="email"
-                class="chakra-input css-0"
+                class="chakra-input css-6hxpcw"
                 id="field-:r4:"
                 name="email"
                 placeholder="Email"
@@ -159,7 +160,7 @@ exports[`Register page Match to snapshot 1`] = `
             >
               <input
                 aria-label="password"
-                class="chakra-input css-0"
+                class="chakra-input css-6hxpcw"
                 id="field-:r5:"
                 name="password"
                 placeholder="Password"
@@ -199,7 +200,7 @@ exports[`Register page Match to snapshot 1`] = `
               data-group="true"
             >
               <input
-                class="chakra-input css-0"
+                class="chakra-input css-6hxpcw"
                 id="field-:r6:"
                 name="confirmPassword"
                 placeholder="Confirm password"
@@ -292,6 +293,7 @@ exports[`Register page Match to snapshot 1`] = `
         >
           Already have an account?
           <a
+            aria-label="sign in"
             class="chakra-text css-ditwkt"
             href="/login"
           >
@@ -315,8 +317,8 @@ exports[`Register page Match to snapshot 1`] = `
       class="css-1ys2le4"
     >
       <img
-        alt="This is sign in image"
-        class="chakra-image css-0"
+        alt="This is sign up image"
+        class="chakra-image css-6gb11t"
         src="/icons/signup.svg"
       />
       <img
@@ -343,20 +345,14 @@ exports[`Register page Match to snapshot 1`] = `
           Speady, Easy and Fast
         </h3>
         <p
-          class="chakra-text css-1rphqkz"
+          class="chakra-text css-rm4le2"
         >
-          BankCo. help you set saving goals, earn cash back offers, Go to
-          disclaimer for more details and get paychecks up to two days early. Get
-          a
-            
+          BankCo. help you set saving goals, earn cash back offers, Go to disclaimer for more details and get paychecks up to two days early. Get a
           <span
-            class="text-highlight"
+            class="chakra-text css-g28uzg"
           >
-            
-              $20
-            
+            $20
           </span>
-          
           bonus when you receive qualifying direct deposits
         </p>
       </div>
