@@ -82,11 +82,15 @@ const CartPaymentComponent = ({
           flexDir="column"
           bgImage={IMAGES.CARD_PAYMENT.url}
           justifyContent="flex-end"
+          borderRadius="lg"
+          bgPosition="center"
+          bgSize={{ base: 'contain', md: 'unset' }}
+          bgRepeat="no-repeat"
           p={6}
-          w={340}
-          h={200}
+          w={{ base: 250, sm: 340 }}
+          h={{ base: 150, sm: 200 }}
         >
-          <Flex alignItems="center" gap={3}>
+          <Flex alignItems="center" gap={{ base: 1, sm: 3 }}>
             <Text variant="textSm" color="secondary.300">
               Balance
             </Text>
@@ -103,7 +107,13 @@ const CartPaymentComponent = ({
               }}
             />
           </Flex>
-          <Text color="common.white" variant="text3Xl" fontWeight="semibold">
+          <Text
+            color="common.white"
+            variant="text3Xl"
+            fontWeight="semibold"
+            fontSize={{ base: 'md', sm: '3xl' }}
+            lineHeight={{ base: 'unset', sm: 'lg' }}
+          >
             {balanceStatus}
           </Text>
         </Flex>

@@ -14,10 +14,10 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
       class="css-gmuwbf"
     >
       <div
-        class="css-ok09pg"
+        class="css-1wgc2ju"
       >
         <div
-          class="css-guqklo"
+          class="css-1foj61n"
         >
           <p
             class="chakra-text css-rxozpz"
@@ -47,7 +47,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
           </button>
         </div>
         <p
-          class="chakra-text css-mk1qvw"
+          class="chakra-text css-1was8s"
         >
           $123.00
         </p>
