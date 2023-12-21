@@ -33,10 +33,6 @@ import { InputField, UpdateProfile } from '@app/components';
 // Stores
 import { authStore } from '@app/stores';
 
-export type TControlProps = TUserDetail & {
-  tempImg: undefined | string;
-};
-
 const UserFormComponent = () => {
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
@@ -53,7 +49,7 @@ const UserFormComponent = () => {
     clearErrors,
     handleSubmit,
     reset,
-  } = useForm<TControlProps>({
+  } = useForm<TUserDetail>({
     defaultValues: {
       id: user?.id,
       avatarURL: user?.avatarURL,
@@ -109,7 +105,7 @@ const UserFormComponent = () => {
     toast({
       description: message,
       status: 'error',
-      duration: 2 * 1000,
+      duration: 3000,
       position: 'top-right',
     });
   }, []);

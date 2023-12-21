@@ -18,43 +18,52 @@ import { AUTH_SCHEMA, ERROR_MESSAGES, IMAGES, REGEX } from '@app/constants';
 
 // Services
 import { uploadImage } from '@app/services/image';
-
-// Types
-import { TControlProps } from '@app/pages/Setting/Personal';
+import { TUserDetail } from '@app/interfaces';
 
 export type TUpdateProfileProps = {
-  control: Control<TControlProps>;
+  control: Control<TUserDetail>;
   onUploadError: (message: string) => void;
 };
 
 const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const allowedImageTypes = [''];
 
   const handleChangeFile = useCallback(
     (callback: (value: string) => void) =>
       async (e: ChangeEvent<HTMLInputElement>) => {
         const file = (e.target.files && e.target.files[0]) as File;
-        if (file) {
-          try {
-            setIsLoading(true);
 
-            if (REGEX.IMG.test(file.name)) {
-              const formData = new FormData();
-              formData.append('image', file);
-              const result = await uploadImage(formData);
-              callback(result);
-            } else {
-              onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
-            }
-          } catch (error) {
-            onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
-          } finally {
-            setIsLoading(false);
-          }
+        // Check file is empty or undefined
+        if (!file) {
+          return;
+        }
+
+        // Check type of image
+
+        const MaxSize = 32000000;
+        // Check size of image
+        if (file.size > MaxSize) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
+        }
+
+        if (!REGEX.IMG.test(file.name)) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
+        }
+
+        // Uploading file
+        try {
+          setIsLoading(true);
+          const formData = new FormData();
+          formData.append('image', file);
+          const result = await uploadImage(formData);
+          callback(result);
+        } catch (error) {
+          onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
+        } finally {
+          setIsLoading(false);
         }
       },
-    [allowedImageTypes, onUploadError],
+    [onUploadError],
   );
 
   return (
