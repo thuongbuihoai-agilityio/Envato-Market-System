@@ -1143,6 +1143,7 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
           <button
             aria-label="btn-pages"
             class="chakra-button css-bn5hd7"
+            data-testid="page-1-button"
             disabled=""
             type="button"
           >
@@ -2397,6 +2398,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             aria-label="btn-pages"
             class="chakra-button css-bn5hd7"
+            data-testid="page-1-button"
             disabled=""
             type="button"
           >
@@ -3651,6 +3653,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             aria-label="btn-pages"
             class="chakra-button css-bn5hd7"
+            data-testid="page-1-button"
             disabled=""
             type="button"
           >
