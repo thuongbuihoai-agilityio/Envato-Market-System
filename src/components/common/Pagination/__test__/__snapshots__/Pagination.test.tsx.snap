@@ -34,7 +34,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
               <p
                 class="chakra-text css-nyal52"
               >
-                8
+                10
               </p>
               <div
                 class="css-1x77umq"
@@ -150,6 +150,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         <button
           aria-label="btn-pages"
           class="chakra-button css-bn5hd7"
+          data-testid="page-1-button"
           disabled=""
           type="button"
         >
@@ -158,6 +159,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         <button
           aria-label="btn-pages"
           class="chakra-button css-jh60bw"
+          data-testid="page-2-button"
           type="button"
         >
           2
@@ -165,6 +167,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         <button
           aria-label="btn-pages"
           class="chakra-button css-jh60bw"
+          data-testid="page-3-button"
           type="button"
         >
           3
@@ -172,6 +175,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         <button
           aria-label="btn-pages"
           class="chakra-button css-1vh27uz"
+          data-testid="page-...-button"
           disabled=""
           type="button"
         >
@@ -180,9 +184,10 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         <button
           aria-label="btn-pages"
           class="chakra-button css-jh60bw"
+          data-testid="page-10-button"
           type="button"
         >
-          13
+          10
         </button>
       </div>
       <button
