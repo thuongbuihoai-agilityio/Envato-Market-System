@@ -20,6 +20,9 @@ import { AUTH_SCHEMA, ERROR_MESSAGES, IMAGES, REGEX } from '@app/constants';
 import { uploadImage } from '@app/services/image';
 import { TUserDetail } from '@app/interfaces';
 
+// Constants
+import { MaxSize } from '@app/constants/sizes';
+
 export type TUpdateProfileProps = {
   control: Control<TUserDetail>;
   onUploadError: (message: string) => void;
@@ -38,14 +41,12 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
           return;
         }
 
-        // Check type of image
-
-        const MaxSize = 32000000;
         // Check size of image
         if (file.size > MaxSize) {
           return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
         }
 
+        // Check type of image
         if (!REGEX.IMG.test(file.name)) {
           return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
         }

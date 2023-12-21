@@ -15,7 +15,7 @@ export const ERROR_MESSAGES = {
     description: 'Your profile has not been updated successfully',
   },
   UPLOAD_IMAGE: "Wrong image format. Only 'jpg', 'png' and 'webp' are allowed",
-  UPLOAD_IMAGE_SIZE: 'Image size should be less than 32MB',
+  UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
 };
 
 export const SUCCESS_MESSAGES = {
