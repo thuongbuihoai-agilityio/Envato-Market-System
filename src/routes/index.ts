@@ -49,10 +49,6 @@ export const ROUTER = createBrowserRouter([
         path: ROUTES.USER,
         Component: User,
       },
-      {
-        path: ROUTES.NOT_FOUND,
-        Component: NotFound,
-      },
     ],
   },
   {
@@ -66,5 +62,9 @@ export const ROUTER = createBrowserRouter([
   {
     path: `/${ROUTES.FORGOT_PASSWORD}`,
     Component: withLazy(ComingSoon),
+  },
+  {
+    path: ROUTES.NOT_FOUND,
+    Component: NotFound,
   },
 ]);
