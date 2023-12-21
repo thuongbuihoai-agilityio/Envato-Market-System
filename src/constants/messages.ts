@@ -14,6 +14,7 @@ export const ERROR_MESSAGES = {
     title: 'Update failed',
     description: 'Your profile has not been updated successfully',
   },
+  UPLOAD_IMAGE: "Wrong image format. Only 'jpg', 'png' and 'webp' are allowed",
 };
 
 export const SUCCESS_MESSAGES = {

@@ -80,4 +80,12 @@ export const AUTH_SCHEMA = {
   YOUTUBE: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('YouTube'),
   },
+
+  AVATAR_URL: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Avatar'),
+    pattern: {
+      value: REGEX.IMG,
+      message: ERROR_MESSAGES.UPLOAD_IMAGE,
+    },
+  },
 };
