@@ -39,7 +39,7 @@ const UserDropdownMenu = ({
   name = '',
   permission = '',
   offsetX = 0,
-  offsetY = 20,
+  offsetY = 10,
 }: DropdownProps) => {
   const { signOut } = useAuth();
   const colorFill = useColorModeValue(
@@ -89,6 +89,8 @@ const UserDropdownMenu = ({
           </MenuButton>
           <MenuList
             data-testid="TestDropdown"
+            position="relative"
+            zIndex={2}
             px={3}
             py={2}
             mt={{ md: 4 }}
