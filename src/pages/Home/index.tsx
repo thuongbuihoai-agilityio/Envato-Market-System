@@ -30,7 +30,7 @@ const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 
 const Dashboard = () => {
   const {
-    data: totalListData = [],
+    data: totalListData = INITIAL_TOTAL_STATISTICS,
     isLoading: isLoadingTotalList,
     isError: isErrorTotalList,
   } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
@@ -56,7 +56,7 @@ const Dashboard = () => {
         >
           <Lazy>
             <TotalList
-              spendingStatistics={totalListData || INITIAL_TOTAL_STATISTICS}
+              spendingStatistics={totalListData}
               isLoading={isLoadingTotalList}
             />
           </Lazy>

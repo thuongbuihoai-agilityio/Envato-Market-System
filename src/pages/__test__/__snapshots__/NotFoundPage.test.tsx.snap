@@ -3,7 +3,7 @@
 exports[`NotFound Page Should render match with snapshot. 1`] = `
 <div>
   <div
-    class="css-1m2j76w"
+    class="css-xtaqxe"
   >
     <img
       alt="This is the not found image"
@@ -13,7 +13,7 @@ exports[`NotFound Page Should render match with snapshot. 1`] = `
     <a
       aria-label="btn-go-back"
       aria-labelledby="go back"
-      class="chakra-button css-1a9spu1"
+      class="chakra-button css-1wvscb"
       href="/"
     >
       Go Back

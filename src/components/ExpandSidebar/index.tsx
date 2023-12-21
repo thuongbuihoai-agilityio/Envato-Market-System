@@ -44,7 +44,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
       }}
       blockScrollOnMount={false}
     >
-      <DrawerOverlay />
+      <DrawerOverlay data-testid="expand-overlay" />
 
       <DrawerContent
         maxW={SIDEBAR.EXPAND_SIDEBAR_WIDTH}
