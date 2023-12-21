@@ -9,16 +9,10 @@ import {
   theme,
   useColorModeValue,
 } from '@chakra-ui/react';
-import {
-  Dropdown,
-  IconButton,
-  InputField,
-  Logo,
-  SwitchTheme,
-} from '@app/components';
+import { Dropdown, IconButton, Logo, SwitchTheme } from '@app/components';
 
 // Assets
-import { Bell, Email, Gift, Rotate, Search } from '@app/components/Icons';
+import { Bell, Email, Gift } from '@app/components/Icons';
 
 // hooks
 import { authStore } from '@app/stores';
@@ -124,25 +118,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           Let’s check your update today
         </Text>
       </Box>
-      <Box
-        display={{ base: 'none', xl: 'block' }}
-        w={{ base: 500, md: 350, '2xl': 500 }}
-        px={4}
-      >
-        <InputField
-          leftIcon={<Search color={colorFill} />}
-          placeholder="Search..."
-          rightIcon={
-            <>
-              <Rotate color={colorFill} />
-              <Text color="text.primary" pl={1}>
-                K
-              </Text>
-            </>
-          }
-          onChange={() => {}}
-        />
-      </Box>
+
       <Flex
         w={{ base: '100%', xl: 407, '3xl': 530 }}
         justifyContent={{ base: 'end', xl: 'space-between' }}
@@ -158,21 +134,6 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           xl: 0,
         }}
       >
-        <Box display={{ base: 'none', md: 'block', xl: 'none' }} w="100%">
-          <InputField
-            leftIcon={<Search color={colorFill} />}
-            placeholder="Search..."
-            rightIcon={
-              <>
-                <Rotate color={colorFill} />
-                <Text color="text.primary" pl={1}>
-                  K
-                </Text>
-              </>
-            }
-            onChange={() => {}}
-          />
-        </Box>
         <Flex
           gap={43}
           alignSelf={{
