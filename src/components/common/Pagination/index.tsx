@@ -156,6 +156,7 @@ const PaginationComponent = ({
             return (
               <Button
                 key={item}
+                data-testid={`page-${item}-button`}
                 aria-label="btn-pages"
                 isDisabled={isDisable}
                 mx={0.5}
