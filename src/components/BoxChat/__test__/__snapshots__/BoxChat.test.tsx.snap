@@ -114,7 +114,7 @@ exports[`BoxChat component renders correctly 1`] = `
           >
             <img
               alt="Message Image"
-              class="chakra-image css-14gt3bc"
+              class="chakra-image css-5n3hi3"
             />
           </div>
           <div
@@ -235,7 +235,7 @@ exports[`BoxChat component renders correctly 1`] = `
           >
             <img
               alt="Attach icon"
-              class="chakra-image css-4g6ai3"
+              class="chakra-image css-14s0vbu"
               src="/icons/attach.svg"
             />
             <input
@@ -245,14 +245,14 @@ exports[`BoxChat component renders correctly 1`] = `
             />
             <img
               alt="Micro icon"
-              class="chakra-image css-4g6ai3"
+              class="chakra-image css-1gw17ja"
               src="/icons/micro.svg"
             />
           </div>
         </div>
         <img
           alt="Send icon"
-          class="chakra-image css-qgs394"
+          class="chakra-image css-1c40io7"
           src="/icons/send.svg"
         />
       </div>

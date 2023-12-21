@@ -33,7 +33,7 @@ exports[`Message component renders correctly 1`] = `
       >
         <img
           alt="Message Image"
-          class="chakra-image css-14gt3bc"
+          class="chakra-image css-5n3hi3"
         />
       </div>
       <div

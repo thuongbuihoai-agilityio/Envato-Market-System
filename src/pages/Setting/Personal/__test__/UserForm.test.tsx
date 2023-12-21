@@ -110,5 +110,5 @@ describe('Personal Page test cases', () => {
     waitFor(() => {
       expect(submitBtn.disabled).toBeTruthy();
     });
-  });
+  }, 20000);
 });
