@@ -40,7 +40,7 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
         >
           <img
             alt="This is the increase icon"
-            class="chakra-image css-1qkvt8e"
+            class="chakra-image css-17pjxxg"
             src="/icons/increase.svg"
           />
           <p

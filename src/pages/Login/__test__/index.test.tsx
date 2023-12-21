@@ -6,6 +6,9 @@ import userEvent from '@testing-library/user-event';
 // Components
 import Login from '@app/pages/Login';
 
+// Constants
+import { ERROR_MESSAGES, ROUTES } from '@app/constants';
+
 const setup = () =>
   render(
     <QueryClientProvider client={new QueryClient()}>
@@ -15,7 +18,6 @@ const setup = () =>
     </QueryClientProvider>,
   );
 
-// TODO: Can not expect, I will update late
 describe('Login page', () => {
   it('Match to snapshot', () => {
     const { container } = setup();
@@ -41,12 +43,18 @@ describe('Login page', () => {
       await userEvent.click(checkboxLabel);
     });
 
+    const currentUrl = global.window.location.pathname;
+
+    expect(currentUrl).toContain(ROUTES.LOGIN);
+
     const submitBtn = container.querySelector('button[type="submit"]');
     submitBtn && (await userEvent.click(submitBtn));
+
+    expect(currentUrl).toContain(ROUTES.ROOT);
   });
 
   it('should handle submit failed', async () => {
-    const { container } = setup();
+    setup();
 
     const usernameInput = screen.getByRole<HTMLInputElement>('textbox');
 
@@ -65,15 +73,13 @@ describe('Login page', () => {
 
     await userEvent.click(checkboxLabel);
 
-    await waitFor(async () => {
-      const submitBtn = container.querySelector('button[type="submit"]');
-      submitBtn && (await userEvent.click(submitBtn));
+    await userEvent.click(submitBtn);
 
-      // TODO: Can not expect now, I will update late
-      // const message = screen.findByText(
-      //   new RegExp(ERROR_MESSAGES.AUTH_INCORRECT, 'i'),
-      // );
-      // expect(message).toEqual(ERROR_MESSAGES.AUTH_INCORRECT);
+    waitFor(async () => {
+      const message = screen.findByText(
+        new RegExp(ERROR_MESSAGES.AUTH_INCORRECT, 'i'),
+      );
+      expect(message).toEqual(ERROR_MESSAGES.AUTH_INCORRECT);
     });
   });
 });
