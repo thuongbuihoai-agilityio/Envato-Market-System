@@ -7,3 +7,5 @@ export const EXPIRED_DAY = {
 };
 
 export const DEBOUNCE_TIME = 600; // ms
+
+export const SHOW_TIME = 3000;

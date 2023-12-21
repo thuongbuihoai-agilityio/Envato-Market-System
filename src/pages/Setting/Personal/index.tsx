@@ -25,7 +25,7 @@ import { useUpdateUser } from '@app/hooks/useUser';
 
 // Constants
 import { AUTH_SCHEMA } from '@app/constants/form';
-import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@app/constants';
+import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
 
 // Components
 import { InputField, UpdateProfile } from '@app/components';
@@ -80,7 +80,7 @@ const UserFormComponent = () => {
             title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
             description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
             status: 'success',
-            duration: 3000,
+            duration: SHOW_TIME,
             isClosable: true,
             position: 'top-right',
           });
@@ -91,7 +91,7 @@ const UserFormComponent = () => {
             title: ERROR_MESSAGES.UPDATE_FAIL.title,
             description: ERROR_MESSAGES.UPDATE_FAIL.description,
             status: 'error',
-            duration: 3000,
+            duration: SHOW_TIME,
             isClosable: true,
             position: 'top-right',
           });
@@ -105,7 +105,7 @@ const UserFormComponent = () => {
     toast({
       description: message,
       status: 'error',
-      duration: 3000,
+      duration: SHOW_TIME,
       position: 'top-right',
     });
   }, []);
@@ -118,7 +118,7 @@ const UserFormComponent = () => {
         onSubmit={handleSubmit(handleSubmitForm)}
       >
         <Grid
-          width="100%"
+          width="full"
           gridTemplateColumns={{
             xl: 'repeat(12,minmax(0,1fr))',
           }}
