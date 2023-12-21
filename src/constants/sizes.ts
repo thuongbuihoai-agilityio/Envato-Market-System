@@ -1,1 +1,1 @@
-export const MaxSize = 5000000;
+export const Max_Size = 5000000;

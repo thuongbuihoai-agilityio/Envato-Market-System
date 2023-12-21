@@ -21,7 +21,7 @@ import { uploadImage } from '@app/services/image';
 import { TUserDetail } from '@app/interfaces';
 
 // Constants
-import { MaxSize } from '@app/constants/sizes';
+import { Max_Size } from '@app/constants/sizes';
 
 export type TUpdateProfileProps = {
   control: Control<TUserDetail>;
@@ -42,7 +42,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         }
 
         // Check size of image
-        if (file.size > MaxSize) {
+        if (file.size > Max_Size) {
           return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
         }
 
