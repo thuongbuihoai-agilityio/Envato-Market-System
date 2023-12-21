@@ -110,6 +110,15 @@ const UserFormComponent = () => {
     });
   }, []);
 
+  const handleChangeValue = useCallback(
+    <T,>(field: keyof TUserDetail, changeHandler: (value: T) => void) =>
+      (data: T) => {
+        clearErrors(field);
+        changeHandler(data);
+      },
+    [clearErrors],
+  );
+
   return (
     <>
       <VStack
@@ -170,7 +179,11 @@ const UserFormComponent = () => {
                 control={control}
                 rules={AUTH_SCHEMA.FIRST_NAME}
                 name="firstName"
-                render={({ field, fieldState: { error } }) => (
+                render={({
+                  field,
+                  field: { onChange },
+                  fieldState: { error },
+                }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
@@ -178,9 +191,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('firstName'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('firstName', onChange)}
                   />
                 )}
               />
@@ -196,9 +207,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('lastName'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('lastName', field.onChange)}
                   />
                 )}
               />
@@ -227,9 +236,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('email'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('email', field.onChange)}
                   />
                 )}
               />
@@ -246,9 +253,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('phoneNumber'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('phoneNumber', field.onChange)}
                   />
                 )}
               />
@@ -282,9 +287,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('country'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('country', field.onChange)}
                   />
                 )}
               />
@@ -301,9 +304,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('city'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('city', field.onChange)}
                   />
                 )}
               />
@@ -332,9 +333,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('address'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('address', field.onChange)}
                   />
                 )}
               />
@@ -343,7 +342,11 @@ const UserFormComponent = () => {
                 control={control}
                 rules={AUTH_SCHEMA.POSTAL_CODE}
                 name="postalCode"
-                render={({ field, fieldState: { error } }) => (
+                render={({
+                  field,
+                  field: { onChange },
+                  fieldState: { error },
+                }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
@@ -351,9 +354,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('postalCode'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('postalCode', onChange)}
                   />
                 )}
               />
@@ -387,9 +388,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('facebookURL'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('facebookURL', field.onChange)}
                   />
                 )}
               />
@@ -406,9 +405,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('twitterURL'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('twitterURL', field.onChange)}
                   />
                 )}
               />
@@ -437,9 +434,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('linkedinURL'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('linkedinURL', field.onChange)}
                   />
                 )}
               />
@@ -456,9 +451,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
-                    onChange={(data) => {
-                      clearErrors('youtubeURL'), field.onChange(data);
-                    }}
+                    onChange={handleChangeValue('youtubeURL', field.onChange)}
                   />
                 )}
               />
