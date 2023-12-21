@@ -1,62 +1,38 @@
-import { ReactElement, memo, useCallback, useState } from 'react';
-import {
-  Box,
-  Text,
-  Image,
-  Select,
-  Heading,
-  Flex,
-  Input,
-  Button,
-  Center,
-  IconButton,
-} from '@chakra-ui/react';
+import { memo, useCallback } from 'react';
+import { Box, Heading } from '@chakra-ui/react';
+import { Control } from 'react-hook-form';
 
-// Assets
-import { ChevronIcon, Eye, EyeSlash } from '@app/components/Icons';
+// Hooks
+import { useForm } from '@app/hooks';
 
-// Constants
-import { IMAGES } from '@app/constants';
+// Components
+import { CardBalance } from './CardBalance';
+import { UserSelector } from './UserSelector';
+import { EnterMoney } from './EnterMoney';
 
-// Utils
-import { formatDecimalInput, formatDecimalNumber } from '@app/utils';
-
-interface CardPaymentProps {
+export interface CardPaymentProps {
   balance?: number;
 }
-
-type TBalanceStatus = {
-  balance: string;
-  iconBalance: ReactElement;
+type TTransfer = {
+  money: string;
+  userId: string;
+};
+export type TTransferControl = {
+  control: Control<TTransfer>;
 };
 
 const CartPaymentComponent = ({
   balance = 24098,
 }: CardPaymentProps): JSX.Element => {
-  const [value, setValue] = useState<string>('');
-  const [hideBalance, setHideBalance] = useState<boolean>(false);
-
-  const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value: string = event.target.value;
-
-      // Remove non-numeric characters and leading zeros
-      const sanitizedValue = formatDecimalInput(value);
-
-      setValue(sanitizedValue);
+  const { control, handleSubmit } = useForm<TTransfer>({
+    defaultValues: {
+      money: '',
+      userId: '',
     },
-    [],
-  );
+  });
 
-  const toggleHideBalance = useCallback(
-    () => setHideBalance((prev) => !prev),
-    [],
-  );
-
-  const { iconBalance, balance: balanceStatus }: TBalanceStatus = {
-    iconBalance: hideBalance ? <EyeSlash /> : <Eye />,
-    balance: hideBalance ? '******' : `$${formatDecimalNumber(balance)}`,
-  };
+  // TODO: Update to late
+  const submit = useCallback(() => {}, []);
 
   return (
     <Box
@@ -77,146 +53,11 @@ const CartPaymentComponent = ({
         my wallet
       </Heading>
 
-      <Center>
-        <Flex
-          flexDir="column"
-          bgImage={IMAGES.CARD_PAYMENT.url}
-          justifyContent="flex-end"
-          borderRadius="lg"
-          bgPosition="center"
-          bgSize={{ base: 'contain', md: 'unset' }}
-          bgRepeat="no-repeat"
-          p={6}
-          w={{ base: 250, sm: 340 }}
-          h={{ base: 150, sm: 200 }}
-        >
-          <Flex alignItems="center" gap={{ base: 1, sm: 3 }}>
-            <Text variant="textSm" color="secondary.300">
-              Balance
-            </Text>
-            <IconButton
-              aria-label="eye"
-              icon={iconBalance}
-              w="fit-content"
-              bg="none"
-              onClick={toggleHideBalance}
-              sx={{
-                _hover: {
-                  bg: 'none',
-                },
-              }}
-            />
-          </Flex>
-          <Text
-            color="common.white"
-            variant="text3Xl"
-            fontWeight="semibold"
-            fontSize={{ base: 'md', sm: '3xl' }}
-            lineHeight={{ base: 'unset', sm: 'lg' }}
-          >
-            {balanceStatus}
-          </Text>
-        </Flex>
-      </Center>
+      <CardBalance balance={balance} />
 
-      <Box mt={4}>
-        <Text
-          fontWeight="bold"
-          color="text.primary"
-          fontSize="lg"
-          mb={3}
-          textTransform="capitalize"
-        >
-          quick transfer
-        </Text>
-
-        <Box position="relative">
-          <Select
-            size="lg"
-            sx={{
-              paddingLeft: '50px',
-            }}
-            borderColor="border.secondary"
-            color="text.primary"
-            icon={<ChevronIcon />}
-          >
-            <option value="debit" color="text.primary">
-              Debit
-            </option>
-          </Select>
-
-          <Image
-            src={IMAGES.DEBIT_ICON.url}
-            alt={IMAGES.DEBIT_ICON.alt}
-            fallbackSrc={IMAGES.USER.url}
-            boxSize={6}
-            position="absolute"
-            left={5}
-            top="50%"
-            transform="translateY(-50%)"
-          />
-
-          <Text
-            sx={{
-              position: 'absolute',
-              right: 10,
-              top: '50%',
-              transform: 'translateY(-50%)',
-            }}
-            fontWeight="bold"
-            fontSize="sm"
-          >
-            $ 10,431
-          </Text>
-        </Box>
-
-        <Box
-          border="1px solid"
-          borderColor="border.secondary"
-          p={4}
-          mt={5}
-          borderRadius="lg"
-        >
-          <Text color="text.secondary"> Enter amount </Text>
-          <Flex direction="row" alignItems="center">
-            <Text color="text.primary" fontSize="2xl" fontWeight="bold">
-              $
-            </Text>
-            <Input
-              variant="authentication"
-              type="text"
-              _dark={{
-                border: 'none',
-              }}
-              sx={{ border: 'none', padding: 0 }}
-              color="text.primary"
-              fontWeight="bold"
-              fontSize="2xl"
-              ml={2}
-              value={value}
-              name="money"
-              onChange={handleChange}
-            />
-
-            <Image
-              src={IMAGES.USER_AVATAR.url}
-              alt={IMAGES.USER_AVATAR.alt}
-              fallbackSrc={IMAGES.USER.url}
-              boxSize={6}
-              mt={3}
-              w="42px"
-            />
-          </Flex>
-        </Box>
-
-        <Button
-          aria-label="btn-send-money"
-          mt={4}
-          colorScheme="primary"
-          fontWeight="bold"
-        >
-          Send Money
-        </Button>
+      <Box as="form" mt={4} onSubmit={handleSubmit(submit)}>
+        <UserSelector control={control} />
+        <EnterMoney control={control} />
       </Box>
     </Box>
   );
