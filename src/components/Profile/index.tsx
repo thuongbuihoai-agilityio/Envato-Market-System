@@ -28,7 +28,7 @@ export type TUpdateProfileProps = {
 };
 
 const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
-  const [tempURL, setTempURL] = useState<string>('');
+  const [previewURL, setPreviewURL] = useState<string>('');
 
   const handleChangeFile = useCallback(
     (callback: (value: string) => void) =>
@@ -56,7 +56,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
           const formData = new FormData();
 
           formData.append('image', file);
-          setTempURL(tempURL);
+          setPreviewURL(tempURL);
 
           const result = await uploadImage(formData);
           callback(result);
@@ -98,7 +98,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
               borderRadius="50%"
               w="huge"
               h="huge"
-              src={tempURL || value || IMAGES.AVATAR_SIGN_UP.url}
+              src={previewURL || value || IMAGES.AVATAR_SIGN_UP.url}
               alt={IMAGES.AVATAR_SIGN_UP.alt}
               fallbackSrc={IMAGES.USER.url}
               objectFit="cover"
