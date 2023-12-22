@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { UseFormSetValue } from 'react-hook-form';
+import { ChangeEvent, useCallback, useState } from 'react';
+import { Control, Controller } from 'react-hook-form';
 import {
   Box,
   Heading,
@@ -13,38 +13,58 @@ import {
   Skeleton,
 } from '@chakra-ui/react';
 
-// Interfaces
-import { TUserDetail } from '@app/interfaces';
-
 // Constants
-import { IMAGES } from '@app/constants/images';
+import { AUTH_SCHEMA, ERROR_MESSAGES, IMAGES, REGEX } from '@app/constants';
 
 // Services
 import { uploadImage } from '@app/services/image';
+import { TUserDetail } from '@app/interfaces';
+
+// Constants
+import { MAX_SIZE } from '@app/constants/sizes';
 
 export type TUpdateProfileProps = {
-  url: string;
-  setValue: UseFormSetValue<TUserDetail>;
+  control: Control<TUserDetail>;
+  onUploadError: (message: string) => void;
 };
-const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
+
+const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFileChange = useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
-      setIsLoading(true);
+  const handleChangeFile = useCallback(
+    (callback: (value: string) => void) =>
+      async (e: ChangeEvent<HTMLInputElement>) => {
+        const file = (e.target.files && e.target.files[0]) as File;
 
-      const file = (e.target.files && e.target.files[0]) as File;
+        // Check file is empty or undefined
+        if (!file) {
+          return;
+        }
 
-      const formData = new FormData();
-      formData.append('image', file);
+        // Check size of image
+        if (file.size > MAX_SIZE) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
+        }
 
-      const result = await uploadImage(formData);
+        // Check type of image
+        if (!REGEX.IMG.test(file.name)) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
+        }
 
-      setValue('avatarURL', result, { shouldDirty: true });
-
-      setIsLoading(false);
-    },
-    [setValue],
+        // Uploading file
+        try {
+          setIsLoading(true);
+          const formData = new FormData();
+          formData.append('image', file);
+          const result = await uploadImage(formData);
+          callback(result);
+        } catch (error) {
+          onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
+        } finally {
+          setIsLoading(false);
+        }
+      },
+    [onUploadError],
   );
 
   return (
@@ -68,54 +88,66 @@ const UpdateProfile = ({ url, setValue }: TUpdateProfileProps) => {
         Gift to work too.
       </Text>
 
-      <Center position="relative">
-        <Skeleton isLoaded={!isLoading} borderRadius="50%" w="huge" h="huge">
-          <Image
-            borderRadius="50%"
-            w="huge"
-            h="huge"
-            src={url || IMAGES.AVATAR_SIGN_UP.url}
-            alt={IMAGES.AVATAR_SIGN_UP.alt}
-            fallbackSrc={IMAGES.USER.url}
-            objectFit="cover"
-          />
-        </Skeleton>
-
-        <InputGroup boxSize={7}>
-          <InputLeftElement>
-            <FormLabel htmlFor="file">
-              <Image
-                src={IMAGES.EDIT.url}
-                alt={IMAGES.EDIT.alt}
-                objectFit="cover"
-                maxW={'none'}
-                position="absolute"
-                bottom={-31}
-                left="-48px"
-                zIndex={1}
-                border="none"
-                bg="none"
-                w="auto"
-                cursor="pointer"
-                _hover={{ transform: 'scale(1.1)' }}
-              />
-            </FormLabel>
-
-            <Input
+      <Controller
+        control={control}
+        name="avatarURL"
+        rules={AUTH_SCHEMA.AVATAR_URL}
+        render={({ field: { value, onChange } }) => (
+          <Center position="relative">
+            <Skeleton
+              isLoaded={!isLoading}
               borderRadius="50%"
-              type="file"
-              onChange={handleFileChange}
-              opacity={0}
-              position="relative"
-              width="full"
-              height="full"
-              id="file"
-              name="file"
-              data-testid="upload-image"
-            />
-          </InputLeftElement>
-        </InputGroup>
-      </Center>
+              w="huge"
+              h="huge"
+            >
+              <Image
+                borderRadius="50%"
+                w="huge"
+                h="huge"
+                src={value || IMAGES.AVATAR_SIGN_UP.url}
+                alt={IMAGES.AVATAR_SIGN_UP.alt}
+                fallbackSrc={IMAGES.USER.url}
+                objectFit="cover"
+              />
+            </Skeleton>
+
+            <InputGroup boxSize={7}>
+              <InputLeftElement>
+                <FormLabel htmlFor="file">
+                  <Image
+                    src={IMAGES.EDIT.url}
+                    alt={IMAGES.EDIT.alt}
+                    objectFit="cover"
+                    maxW={'none'}
+                    position="absolute"
+                    bottom={-31}
+                    left="-48px"
+                    zIndex={1}
+                    border="none"
+                    bg="none"
+                    w="auto"
+                    cursor="pointer"
+                    _hover={{ transform: 'scale(1.1)' }}
+                  />
+                </FormLabel>
+                <Input
+                  value=""
+                  borderRadius="50%"
+                  type="file"
+                  opacity={0}
+                  position="relative"
+                  width="full"
+                  height="full"
+                  id="file"
+                  data-testid="upload-image"
+                  onChange={handleChangeFile(onChange)}
+                  accept="image/*"
+                />
+              </InputLeftElement>
+            </InputGroup>
+          </Center>
+        )}
+      />
     </Box>
   );
 };

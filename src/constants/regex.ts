@@ -6,4 +6,5 @@ export const REGEX = {
   LENGTH_IS_EIGHT: /^.{8,}$/,
   PASSWORD:
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/,
+  IMG: /\.(png|jpg|webp)$/,
 };
