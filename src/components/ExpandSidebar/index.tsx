@@ -26,7 +26,7 @@ import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
-  const handleCLoseSideBar = useCallback(() => {
+  const handleCloseSideBar = useCallback(() => {
     isMobileAndTablet && onOpen();
   }, [isMobileAndTablet, onOpen]);
 
@@ -36,7 +36,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
       onClose={onClose}
       isOpen={isOpen}
       trapFocus={false}
-      onOverlayClick={handleCLoseSideBar}
+      onOverlayClick={handleCloseSideBar}
       variant={{
         '4xl': 'clickThrough',
       }}
@@ -97,7 +97,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
                 key={item.id}
                 title={item.title}
                 listItem={item.listItem}
-                onClickMenuItem={handleCLoseSideBar}
+                onClickMenuItem={handleCloseSideBar}
               />
             ))}
           </VStack>
