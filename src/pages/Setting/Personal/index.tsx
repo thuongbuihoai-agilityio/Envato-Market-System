@@ -277,13 +277,12 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.COUNTRY}
                 name="country"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Country and Region"
+                    label="Country and Region (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -294,13 +293,12 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.CITY}
                 name="city"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="City"
+                    label="City (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -323,13 +321,12 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.ADDRESS}
                 name="address"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Address"
+                    label="Address (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -340,7 +337,6 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.POSTAL_CODE}
                 name="postalCode"
                 render={({
                   field,
@@ -350,7 +346,7 @@ const UserFormComponent = () => {
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Postal Code"
+                    label="Postal Code (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -378,13 +374,12 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.FACEBOOK}
                 name="facebookURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Facebook"
+                    label="Facebook (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -395,13 +390,12 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.TWITTER}
                 name="twitterURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="TWitter"
+                    label="TWitter (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -424,13 +418,12 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.LINKEDIN}
                 name="linkedinURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Linkedin"
+                    label="Linkedin (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -441,13 +434,12 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.YOUTUBE}
                 name="youtubeURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="Youtube"
+                    label="Youtube (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}

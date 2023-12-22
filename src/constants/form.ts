@@ -42,43 +42,10 @@ export const AUTH_SCHEMA = {
   },
 
   PHONE_NUMBER: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Last Name'),
     pattern: {
       value: REGEX.PHONE_NUMBER,
       message: ERROR_MESSAGES.PHONE_NUMBER_INVALID,
     },
-  },
-
-  CITY: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('City'),
-  },
-
-  ADDRESS: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Address'),
-  },
-
-  COUNTRY: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Country'),
-  },
-
-  POSTAL_CODE: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Postal Code'),
-  },
-
-  FACEBOOK: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Facebook'),
-  },
-
-  LINKEDIN: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('LinkedIn'),
-  },
-
-  TWITTER: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Twitter'),
-  },
-
-  YOUTUBE: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('YouTube'),
   },
 
   AVATAR_URL: {
