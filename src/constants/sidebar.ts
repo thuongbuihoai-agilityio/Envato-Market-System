@@ -8,6 +8,7 @@ import {
   TransactionIcon,
   UserIcon,
 } from '@app/components/Icons';
+import { ROUTES } from '.';
 
 export const MENU_ITEM_LIST = [
   {
@@ -20,26 +21,26 @@ export const MENU_ITEM_LIST = [
     id: 2,
     leftIcon: TransactionIcon,
     menuItemContent: 'Transaction',
-    destination: '/transaction',
+    destination: `/${ROUTES.TRANSACTION}`,
   },
   {
     id: 3,
     leftIcon: MyWalletIcon,
     menuItemContent: 'My Wallet',
-    destination: '/my-wallet',
+    destination: `/${ROUTES.MY_WALLET}`,
   },
   {
     id: 4,
     leftIcon: UserIcon,
     menuItemContent: 'User',
-    destination: '/user',
+    destination: `/${ROUTES.USER}`,
   },
 
   {
     id: 5,
     leftIcon: HistoryIcon,
     menuItemContent: 'History',
-    destination: '/history',
+    destination: `/${ROUTES.HISTORY}`,
   },
 ];
 
@@ -48,7 +49,7 @@ export const HELP_ITEM_LIST = [
     id: 6,
     leftIcon: SettingIcon,
     menuItemContent: 'Setting',
-    destination: '/setting',
+    destination: `/${ROUTES.SETTING}`,
   },
 ];
 
@@ -57,7 +58,7 @@ export const OTHER_ITEM_LIST = [
     id: 7,
     leftIcon: SignOutIcon,
     menuItemContent: 'Sign Out',
-    destination: '/sign-out',
+    destination: `/${ROUTES.LOGIN}`,
   },
 ];
 

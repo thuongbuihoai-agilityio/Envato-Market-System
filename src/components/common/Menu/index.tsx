@@ -41,14 +41,16 @@ const Menu = ({
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
-  const handleSignOut = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleClickMenuItem = useCallback(
+    (routes: string) => (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
+      navigate(routes);
 
-      signOut();
-      navigate(`${ROUTES.LOGIN}`);
+      routes === `/${ROUTES.LOGIN}`
+        ? signOut()
+        : onClickMenuItem && onClickMenuItem();
     },
-    [navigate, signOut],
+    [navigate, onClickMenuItem, signOut],
   );
 
   return (
@@ -91,22 +93,14 @@ const Menu = ({
                 {isMinify ? (
                   <Navigation
                     destination={destination}
-                    onClick={
-                      menuItemContent === 'Sign Out'
-                        ? handleSignOut
-                        : onClickMenuItem
-                    }
+                    onClick={handleClickMenuItem(destination)}
                   >
                     <LeftIconComponent />
                   </Navigation>
                 ) : (
                   <Navigation
                     destination={destination}
-                    onClick={
-                      menuItemContent === 'Sign Out'
-                        ? handleSignOut
-                        : onClickMenuItem
-                    }
+                    onClick={handleClickMenuItem(destination)}
                   >
                     <Flex alignItems="center" justifyContent="space-between">
                       <Flex

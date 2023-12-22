@@ -7,7 +7,6 @@ import { Menu } from '@app/components';
 // Assets
 import { DashboardIcon } from '@app/components/Icons';
 import userEvent from '@testing-library/user-event';
-import { ROUTES } from '@app/constants';
 
 const useNavigateMock = jest.fn();
 
@@ -66,7 +65,7 @@ describe('Menu test case', () => {
     expect(expectedHeading.textContent).toMatch('');
   });
 
-  it('handle sign out', async () => {
+  it('handle click menu item', async () => {
     render(
       <MemoryRouter>
         <Menu listItem={MOCK_ITEM_LIST} />
@@ -77,6 +76,6 @@ describe('Menu test case', () => {
 
     await userEvent.click(singOut);
 
-    expect(useNavigateMock).toHaveBeenCalledWith(ROUTES.LOGIN);
+    expect(useNavigateMock).toHaveBeenCalledWith('/Mock');
   });
 });
