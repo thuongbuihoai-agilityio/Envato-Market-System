@@ -1,22 +1,23 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
+import { useForm } from 'react-hook-form';
 
 // Components
 import Profile from '@app/components/Profile';
 
-// Constants
-import { IMAGES } from '@app/constants';
+// Interfaces
+import { TUserDetail } from '@app/interfaces';
 
 const meta: Meta<typeof Profile> = {
   title: 'Custom Components/Profile',
   tags: ['autodocs'],
   component: Profile,
   argTypes: {
-    url: {
-      description: 'The image URL of the Profile component',
+    control: {
+      description: 'The control of form',
     },
-    setValue: {
-      description: 'The function to set image URL to the submit model',
+    onUploadError: {
+      description: 'The callback when upload error',
     },
   },
   decorators: [
@@ -37,7 +38,13 @@ type Story = StoryObj<typeof Profile>;
 
 export const Default: Story = {
   args: {
-    url: IMAGES.BIG_AVATAR.url,
+    onUploadError: () => {},
+  },
+
+  render: function Render(props) {
+    const { control } = useForm<TUserDetail>();
+
+    return <Profile {...props} control={control} />;
   },
 };
 
