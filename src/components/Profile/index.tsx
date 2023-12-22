@@ -10,7 +10,6 @@ import {
   InputGroup,
   InputLeftElement,
   FormLabel,
-  Skeleton,
 } from '@chakra-ui/react';
 
 // Constants
@@ -29,7 +28,7 @@ export type TUpdateProfileProps = {
 };
 
 const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [tempURL, setTempURL] = useState<string>('');
 
   const handleChangeFile = useCallback(
     (callback: (value: string) => void) =>
@@ -53,15 +52,16 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
 
         // Uploading file
         try {
-          setIsLoading(true);
+          const tempURL: string = URL.createObjectURL(file);
           const formData = new FormData();
+
           formData.append('image', file);
+          setTempURL(tempURL);
+
           const result = await uploadImage(formData);
           callback(result);
         } catch (error) {
           onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
-        } finally {
-          setIsLoading(false);
         }
       },
     [onUploadError],
@@ -94,22 +94,15 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         rules={AUTH_SCHEMA.AVATAR_URL}
         render={({ field: { value, onChange } }) => (
           <Center position="relative">
-            <Skeleton
-              isLoaded={!isLoading}
+            <Image
               borderRadius="50%"
               w="huge"
               h="huge"
-            >
-              <Image
-                borderRadius="50%"
-                w="huge"
-                h="huge"
-                src={value || IMAGES.AVATAR_SIGN_UP.url}
-                alt={IMAGES.AVATAR_SIGN_UP.alt}
-                fallbackSrc={IMAGES.USER.url}
-                objectFit="cover"
-              />
-            </Skeleton>
+              src={tempURL || value || IMAGES.AVATAR_SIGN_UP.url}
+              alt={IMAGES.AVATAR_SIGN_UP.alt}
+              fallbackSrc={IMAGES.USER.url}
+              objectFit="cover"
+            />
 
             <InputGroup boxSize={7}>
               <InputLeftElement>
