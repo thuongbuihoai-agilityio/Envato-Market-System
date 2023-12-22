@@ -142,6 +142,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
                   data-testid="upload-image"
                   onChange={handleChangeFile(onChange)}
                   accept="image/*"
+                  data-testId="upload-image"
                 />
               </InputLeftElement>
             </InputGroup>

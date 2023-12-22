@@ -51,11 +51,12 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
             />
           </label>
           <input
+            accept="image/*"
             class="chakra-input css-kmhx47"
             data-testid="upload-image"
             id="file"
-            name="file"
             type="file"
+            value=""
           />
         </div>
       </div>
