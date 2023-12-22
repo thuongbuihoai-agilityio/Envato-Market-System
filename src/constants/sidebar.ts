@@ -58,7 +58,7 @@ export const OTHER_ITEM_LIST = [
     id: 7,
     leftIcon: SignOutIcon,
     menuItemContent: 'Sign Out',
-    destination: `/${ROUTES.LOGIN}`,
+    destination: `/${ROUTES.SIGN_OUT}`,
   },
 ];
 

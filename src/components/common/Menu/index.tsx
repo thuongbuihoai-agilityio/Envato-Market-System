@@ -41,16 +41,13 @@ const Menu = ({
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
-  const handleClickMenuItem = useCallback(
-    (routes: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleSignOut = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-      navigate(routes);
-
-      routes === `/${ROUTES.LOGIN}`
-        ? signOut()
-        : onClickMenuItem && onClickMenuItem();
+      signOut();
+      navigate(ROUTES.LOGIN);
     },
-    [navigate, onClickMenuItem, signOut],
+    [navigate, signOut],
   );
 
   return (
@@ -88,20 +85,19 @@ const Menu = ({
           ({ leftIcon, rightIcon, destination, menuItemContent, id }) => {
             const LeftIconComponent = leftIcon || Fragment;
 
+            const handleClick =
+              destination === `/${ROUTES.SIGN_OUT}`
+                ? handleSignOut
+                : onClickMenuItem;
+
             return (
               <ListItem key={id} aria-label="item-icon" role="list">
                 {isMinify ? (
-                  <Navigation
-                    destination={destination}
-                    onClick={handleClickMenuItem(destination)}
-                  >
+                  <Navigation destination={destination} onClick={handleClick}>
                     <LeftIconComponent />
                   </Navigation>
                 ) : (
-                  <Navigation
-                    destination={destination}
-                    onClick={handleClickMenuItem(destination)}
-                  >
+                  <Navigation destination={destination} onClick={handleClick}>
                     <Flex alignItems="center" justifyContent="space-between">
                       <Flex
                         gap={2.5}
