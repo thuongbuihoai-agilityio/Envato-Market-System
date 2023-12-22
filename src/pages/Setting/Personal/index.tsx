@@ -32,6 +32,7 @@ import { InputField, UpdateProfile } from '@app/components';
 
 // Stores
 import { authStore } from '@app/stores';
+import { formatAllowOnlyNumbers } from '@app/utils';
 
 const UserFormComponent = () => {
   const { setUser } = useAuth();
@@ -253,6 +254,7 @@ const UserFormComponent = () => {
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
+                    value={formatAllowOnlyNumbers(field.value)}
                     onChange={handleChangeValue('phoneNumber', field.onChange)}
                   />
                 )}
