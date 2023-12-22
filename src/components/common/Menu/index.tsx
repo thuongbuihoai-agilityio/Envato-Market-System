@@ -29,18 +29,23 @@ export type MenuProps = {
   title?: string;
   listItem: Array<TMenuItem>;
   isMinify?: boolean;
+  onClickMenuItem?: () => void;
 };
 
-const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
+const Menu = ({
+  title = '',
+  listItem,
+  isMinify = false,
+  onClickMenuItem,
+}: MenuProps) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
   const handleSignOut = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
-
       signOut();
-      navigate(`${ROUTES.LOGIN}`);
+      navigate(ROUTES.LOGIN);
     },
     [navigate, signOut],
   );
@@ -80,24 +85,19 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
           ({ leftIcon, rightIcon, destination, menuItemContent, id }) => {
             const LeftIconComponent = leftIcon || Fragment;
 
+            const handleClick =
+              destination === `/${ROUTES.SIGN_OUT}`
+                ? handleSignOut
+                : onClickMenuItem;
+
             return (
               <ListItem key={id} aria-label="item-icon" role="list">
                 {isMinify ? (
-                  <Navigation
-                    destination={destination}
-                    {...(menuItemContent === 'Sign Out' && {
-                      onClick: handleSignOut,
-                    })}
-                  >
+                  <Navigation destination={destination} onClick={handleClick}>
                     <LeftIconComponent />
                   </Navigation>
                 ) : (
-                  <Navigation
-                    destination={destination}
-                    {...(menuItemContent === 'Sign Out' && {
-                      onClick: handleSignOut,
-                    })}
-                  >
+                  <Navigation destination={destination} onClick={handleClick}>
                     <Flex alignItems="center" justifyContent="space-between">
                       <Flex
                         gap={2.5}

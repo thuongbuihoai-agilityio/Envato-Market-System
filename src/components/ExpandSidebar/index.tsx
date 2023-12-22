@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import isEqual from 'react-fast-compare';
 import {
   Drawer,
@@ -26,10 +26,8 @@ import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
-  const closeOnOverlayClick = useMemo(() => {
-    if (isMobileAndTablet) {
-      return onOpen;
-    }
+  const handleCloseSideBar = useCallback(() => {
+    isMobileAndTablet && onOpen();
   }, [isMobileAndTablet, onOpen]);
 
   return (
@@ -38,7 +36,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
       onClose={onClose}
       isOpen={isOpen}
       trapFocus={false}
-      onOverlayClick={closeOnOverlayClick}
+      onOverlayClick={handleCloseSideBar}
       variant={{
         '4xl': 'clickThrough',
       }}
@@ -95,7 +93,12 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
         >
           <VStack pr={12.5} mb={9}>
             {EXPAND_SIDEBAR_MENU_LIST.map((item) => (
-              <Menu key={item.id} title={item.title} listItem={item.listItem} />
+              <Menu
+                key={item.id}
+                title={item.title}
+                listItem={item.listItem}
+                onClickMenuItem={handleCloseSideBar}
+              />
             ))}
           </VStack>
         </DrawerBody>

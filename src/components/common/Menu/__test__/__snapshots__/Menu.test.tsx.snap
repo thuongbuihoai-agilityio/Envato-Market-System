@@ -83,6 +83,31 @@ exports[`Menu test case should render correctly and expand by default 1`] = `
           </div>
         </a>
       </li>
+      <li
+        aria-label="item-icon"
+        class="css-0"
+        role="list"
+      >
+        <a
+          aria-label="navigate-item"
+          class="chakra-link css-1h1hto7"
+          href="/sign-out"
+        >
+          <div
+            class="css-1lekzkb"
+          >
+            <div
+              class="css-dyap1g"
+            >
+              <p
+                class="chakra-text css-1pvloc"
+              >
+                Sign Out
+              </p>
+            </div>
+          </div>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
@@ -137,6 +162,17 @@ exports[`Menu test case should render correctly with the given minify option 1`]
           aria-label="navigate-item"
           class="chakra-link css-1h1hto7"
           href="/mock"
+        />
+      </li>
+      <li
+        aria-label="item-icon"
+        class="css-0"
+        role="list"
+      >
+        <a
+          aria-label="navigate-item"
+          class="chakra-link css-1h1hto7"
+          href="/sign-out"
         />
       </li>
     </ul>
