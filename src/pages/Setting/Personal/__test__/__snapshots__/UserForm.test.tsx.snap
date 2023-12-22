@@ -7,7 +7,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
     id="register-form"
   >
     <div
-      class="css-x1jqhu"
+      class="css-huxx7y"
     >
       <section
         class="css-17s3n79"
@@ -138,7 +138,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r4:"
               id="field-:r4:-label"
             >
-              Country and Region
+              Country and Region (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -162,7 +162,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r5:"
               id="field-:r5:-label"
             >
-              City
+              City (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -190,7 +190,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r6:"
               id="field-:r6:-label"
             >
-              Address
+              Address (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -214,7 +214,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r7:"
               id="field-:r7:-label"
             >
-              Postal Code
+              Postal Code (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -247,7 +247,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r8:"
               id="field-:r8:-label"
             >
-              Facebook
+              Facebook (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -271,7 +271,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:r9:"
               id="field-:r9:-label"
             >
-              TWitter
+              TWitter (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -299,7 +299,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:ra:"
               id="field-:ra:-label"
             >
-              Linkedin
+              Linkedin (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -323,7 +323,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               for="field-:rb:"
               id="field-:rb:-label"
             >
-              Youtube
+              Youtube (optional)
             </label>
             <div
               class="chakra-input__group css-169ufh8"
@@ -412,11 +412,12 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
                   />
                 </label>
                 <input
+                  accept="image/*"
                   class="chakra-input css-kmhx47"
                   data-testid="upload-image"
                   id="file"
-                  name="file"
                   type="file"
+                  value=""
                 />
               </div>
             </div>

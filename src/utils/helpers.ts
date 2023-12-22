@@ -105,3 +105,15 @@ export const formatDecimalNumber = (
 
   return numberWithCommas;
 };
+
+// Format for typing numbers in input
+export const formatAllowOnlyNumbers = (
+  input: string | undefined | null,
+): string => {
+  if (!input) {
+    return ''; // or handle the case when input is undefined or null
+  }
+
+  // Replace any non-digit character with an empty string
+  return input.replace(/[^0-9]/g, '');
+};
