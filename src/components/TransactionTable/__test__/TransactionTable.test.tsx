@@ -108,9 +108,8 @@ describe('Transaction table', () => {
     });
   });
 
-  // TODO: Can not inspect now, I will update later
   it('Sort transactions by name', async () => {
-    const { container } = await act(setup);
+    const { container, findAllByRole } = await act(setup);
     await waitFor(() => {});
 
     const trElements = container.querySelectorAll('tr');
@@ -118,8 +117,15 @@ describe('Transaction table', () => {
       ?.querySelector('th')
       ?.querySelector('button');
 
-    await act(() => {
+    await waitFor(async () => {
       sortByNameButton && fireEvent.click(sortByNameButton);
+      const rows = await findAllByRole('cell');
+
+      const name = rows[0].querySelector('p')?.title;
+
+      if (name) {
+        expect(name).toBe('Zepeda lorna');
+      }
     });
   });
 });
