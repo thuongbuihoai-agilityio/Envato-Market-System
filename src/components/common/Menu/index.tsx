@@ -29,9 +29,15 @@ export type MenuProps = {
   title?: string;
   listItem: Array<TMenuItem>;
   isMinify?: boolean;
+  onClickMenuItem?: () => void;
 };
 
-const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
+const Menu = ({
+  title = '',
+  listItem,
+  isMinify = false,
+  onClickMenuItem,
+}: MenuProps) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
@@ -85,18 +91,22 @@ const Menu = ({ title = '', listItem, isMinify = false }: MenuProps) => {
                 {isMinify ? (
                   <Navigation
                     destination={destination}
-                    {...(menuItemContent === 'Sign Out' && {
-                      onClick: handleSignOut,
-                    })}
+                    onClick={
+                      menuItemContent === 'Sign Out'
+                        ? handleSignOut
+                        : onClickMenuItem
+                    }
                   >
                     <LeftIconComponent />
                   </Navigation>
                 ) : (
                   <Navigation
                     destination={destination}
-                    {...(menuItemContent === 'Sign Out' && {
-                      onClick: handleSignOut,
-                    })}
+                    onClick={
+                      menuItemContent === 'Sign Out'
+                        ? handleSignOut
+                        : onClickMenuItem
+                    }
                   >
                     <Flex alignItems="center" justifyContent="space-between">
                       <Flex
