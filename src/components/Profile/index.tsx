@@ -53,16 +53,12 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
 
         // Uploading file
         try {
-          console.log('resolve');
-
           setIsLoading(true);
           const formData = new FormData();
           formData.append('image', file);
           const result = await uploadImage(formData);
           callback(result);
         } catch (error) {
-          console.log('reject');
-
           onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
         } finally {
           setIsLoading(false);
