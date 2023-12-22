@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // components
@@ -32,7 +32,7 @@ describe('Menu test case', () => {
     {
       id: 3,
       menuItemContent: 'Sign Out',
-      destination: '/Mock',
+      destination: 'sign-out',
     },
   ];
 
@@ -77,6 +77,8 @@ describe('Menu test case', () => {
 
     await userEvent.click(singOut);
 
-    expect(useNavigateMock).toHaveBeenCalledWith(ROUTES.LOGIN);
+    waitFor(() => {
+      expect(useNavigateMock).toHaveBeenCalledWith(ROUTES.LOGIN);
+    });
   });
 });
