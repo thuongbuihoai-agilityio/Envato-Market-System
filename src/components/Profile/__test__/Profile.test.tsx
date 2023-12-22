@@ -25,8 +25,12 @@ const { result } = renderHook(() => useForm<TUserDetail>());
 
 const setup = () => {
   const control: Control<TUserDetail> = result.current.control;
+  const props = {
+    control,
+    onUploadError: jest.fn(),
+  };
 
-  return render(<UpdateProfile control={control} onUploadError={jest.fn()} />);
+  return render(<UpdateProfile {...props} />);
 };
 
 const uploadImageMock = jest.fn();
@@ -143,7 +147,6 @@ describe('UpdateProfile component', () => {
   });
 
   it('should show an error message when uploading large images', async () => {
-    // uploadImageMock.mockRejectedValue('Error');
     jest.spyOn(services, 'uploadImage').mockImplementation(() => {
       throw new Error(ERROR_MESSAGES.UPDATE_FAIL.title);
     });
@@ -155,12 +158,10 @@ describe('UpdateProfile component', () => {
       />,
     );
 
-    // Get the file input element
     const fileInput = container.querySelector(
       'input[type="file"]',
     ) as HTMLInputElement;
 
-    // Mock a valid file
     const validFile = new File(['file contents'], 'valid-image.png', {
       type: 'image/png',
     });
