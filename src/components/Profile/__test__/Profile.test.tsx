@@ -26,7 +26,7 @@ const { result } = renderHook(() => useForm<TUserDetail>());
 const setup = () => {
   const control: Control<TUserDetail> = result.current.control;
 
-  return render(<UpdateProfile control={control} onUploadError={() => {}} />);
+  return render(<UpdateProfile control={control} onUploadError={jest.fn()} />);
 };
 
 const uploadImageMock = jest.fn();
@@ -48,13 +48,8 @@ describe('UpdateProfile component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('handles file change and uploads image successfully', async () => {
-    const { container } = render(
-      <UpdateProfile
-        control={result.current.control}
-        onUploadError={() => {}}
-      />,
-    );
+  it('should not show an error message when uploading a valid file', async () => {
+    const { container } = setup();
 
     uploadImageMock.mockResolvedValue('mock-url');
 
@@ -73,7 +68,7 @@ describe('UpdateProfile component', () => {
     expect(onUploadErrorMock).not.toHaveBeenCalled();
   });
 
-  it('handles file change with invalid file type', async () => {
+  it('should show an error message when uploading an invalid file', async () => {
     const { container } = render(
       <UpdateProfile
         control={result.current.control}
@@ -96,7 +91,7 @@ describe('UpdateProfile component', () => {
     expect(onUploadErrorMock).toHaveBeenCalledWith(ERROR_MESSAGES.UPLOAD_IMAGE);
   });
 
-  it('handles file change with empty file', async () => {
+  it('should show an error message when uploading an empty file', async () => {
     const { container } = render(
       <UpdateProfile
         control={result.current.control}
@@ -115,7 +110,7 @@ describe('UpdateProfile component', () => {
     expect(onUploadErrorMock).toHaveBeenCalledWith(ERROR_MESSAGES.UPLOAD_IMAGE);
   });
 
-  it('handles file change with exceeding maximum size', async () => {
+  it('should show an error message when uploading large images', async () => {
     const { container } = render(
       <UpdateProfile
         control={result.current.control}
@@ -147,7 +142,7 @@ describe('UpdateProfile component', () => {
     );
   });
 
-  it('handles file change with upload error', async () => {
+  it('should show an error message when uploading large images', async () => {
     // uploadImageMock.mockRejectedValue('Error');
     jest.spyOn(services, 'uploadImage').mockImplementation(() => {
       throw new Error(ERROR_MESSAGES.UPDATE_FAIL.title);
