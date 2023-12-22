@@ -11,26 +11,8 @@ import { STORE_KEY } from '@app/constants';
 // Utils
 import { getValueFromLocalStore } from '@app/utils';
 
-const MOCK_USER_DATA = {
-  user: {
-    firstName: 'Duong',
-    lastName: 'Pham',
-    email: 'duong.pham2@asnet.com.vn',
-    creatAt: 1703059988,
-    avatarURL: '/images/avatar-sign-up.webp',
-    phoneNumber: 'phoneNumber 20',
-    country: 'country 20',
-    postalCode: 'postalCode 20',
-    facebookURL: 'facebookURL 20',
-    twitterURL: 'twitterURL 20',
-    linkedinURL: 'linkedinURL 20',
-    youtubeURL: 'youtubeURL 20',
-    id: '20',
-    createdAt: 1703061187583,
-  },
-  isRemember: false,
-  date: 1703210585.219,
-};
+// Mocks
+import { MOCK_USER_DATA } from '@app/mocks';
 
 const setup = () =>
   renderHook<TAuthStoreData & TAuthStoreAction, unknown>(authStore);
