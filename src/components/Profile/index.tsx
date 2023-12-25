@@ -53,11 +53,11 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         // Uploading file
         try {
           callback('');
-          const tempURL: string = URL.createObjectURL(file);
+          const previewImage: string = URL.createObjectURL(file);
           const formData = new FormData();
 
           formData.append('image', file);
-          setPreviewURL(tempURL);
+          setPreviewURL(previewImage);
 
           const result = await uploadImage(formData);
           callback(result);
