@@ -1,5 +1,5 @@
 // Libs
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, Tooltip } from '@chakra-ui/react';
 
 // Bases theme
 import {
@@ -68,3 +68,6 @@ export const configThemes = {
   initialColorMode: 'system',
   useSystemColorMode: true,
 };
+
+// Override the default properties of Tooltip component
+Tooltip.defaultProps = { ...Tooltip.defaultProps, openDelay: 400 };

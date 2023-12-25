@@ -10,6 +10,7 @@ import {
   Td,
   TableProps,
   Text,
+  Tooltip,
 } from '@chakra-ui/react';
 
 // Constants
@@ -87,18 +88,23 @@ const TableComponent = ({
                       column.renderBody(data)
                     ) : (
                       <Td key={column.key} py={5} px={0} minW={280}>
-                        <Text
-                          fontSize="md"
-                          color="text.primary"
-                          fontWeight="semibold"
-                          textAlign="left"
-                          whiteSpace="break-spaces"
-                          maxW={200}
-                          noOfLines={1}
-                          title={`${data[column.key as keyof typeof data]}`}
+                        <Tooltip
+                          minW="max-content"
+                          placement="bottom-start"
+                          label={data[column.key as keyof typeof data]}
                         >
-                          {data[column.key as keyof typeof data]}
-                        </Text>
+                          <Text
+                            fontSize="md"
+                            color="text.primary"
+                            fontWeight="semibold"
+                            textAlign="left"
+                            whiteSpace="break-spaces"
+                            maxW={200}
+                            noOfLines={1}
+                          >
+                            {data[column.key as keyof typeof data]}
+                          </Text>
+                        </Tooltip>
                       </Td>
                     ),
                   )}
