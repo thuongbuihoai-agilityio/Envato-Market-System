@@ -22,7 +22,7 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
           $88,232.00
         </p>
         <p
-          class="chakra-text css-162mn7e"
+          class="chakra-text css-oop0n4"
         >
           usd
         </p>

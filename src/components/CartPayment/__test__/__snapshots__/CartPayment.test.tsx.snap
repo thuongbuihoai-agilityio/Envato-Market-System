@@ -53,7 +53,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
         </p>
       </div>
     </div>
-    <div
+    <form
       class="css-1fhgjcy"
     >
       <p
@@ -141,11 +141,11 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
       <button
         aria-label="btn-send-money"
         class="chakra-button css-4v6g0h"
-        type="button"
+        type="submit"
       >
         Send Money
       </button>
-    </div>
+    </form>
   </div>
 </div>
 `;

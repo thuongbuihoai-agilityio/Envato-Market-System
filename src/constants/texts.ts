@@ -7,10 +7,10 @@ export const TITLES = {
 };
 
 export const TITLES_HEADER = {
-  [ROUTES.MY_WALLET]: 'My Wallet',
-  [ROUTES.TRANSACTION]: 'Transaction',
-  [ROUTES.USER]: 'User',
-  [ROUTES.HISTORY]: 'History',
-  [ROUTES.SETTING]: 'Setting',
-  DEFAULT: 'Dashboard',
+  [ROUTES.MY_WALLET]: 'My Wallets',
+  [ROUTES.TRANSACTION]: 'Transactions',
+  [ROUTES.USER]: 'Users',
+  [ROUTES.HISTORY]: 'Histories',
+  [ROUTES.SETTING]: 'Settings',
+  DEFAULT: 'Dashboards',
 };
