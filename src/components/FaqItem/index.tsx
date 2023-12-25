@@ -1,5 +1,12 @@
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex, Text, useDisclosure } from '@chakra-ui/react';
+import {
+  Box,
+  Collapse,
+  Divider,
+  Flex,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { ReactElement } from 'react';
 
 export type FaqItemProps = {
@@ -34,7 +41,7 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
           {question}
         </Text>
       </Flex>
-      {isOpenAnswer && (
+      <Collapse in={isOpenAnswer} animateOpacity>
         <Flex flex={1} pb={4}>
           <Divider
             orientation="vertical"
@@ -50,7 +57,7 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
             </Text>
           </Flex>
         </Flex>
-      )}
+      </Collapse>
     </Box>
   );
 };
