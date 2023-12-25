@@ -1,12 +1,15 @@
-import { ColorMode, Image, useColorMode } from '@chakra-ui/react';
 import { memo } from 'react';
+import { ColorMode, Image, useColorMode } from '@chakra-ui/react';
+
+// Constants
+import { IMAGES } from '@app/constants';
 
 const VoiceChatMessageComponent = (): JSX.Element => {
   const { colorMode } = useColorMode();
 
   const imageByColorMode: Record<ColorMode, string> = {
-    light: 'images/record.webp',
-    dark: 'images/record-dark.webp',
+    light: IMAGES.RECORD.url,
+    dark: IMAGES.RECORD_DARK.url,
   };
 
   return (

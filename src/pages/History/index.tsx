@@ -1,9 +1,9 @@
-import { Suspense, lazy, memo } from 'react';
-import { Box, Flex, Grid, GridItem, Spinner } from '@chakra-ui/react';
+import { lazy, memo } from 'react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
 
 // Components
-import { TransactionTable } from '@app/components';
+import { Lazy, TransactionTable } from '@app/components';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
@@ -34,10 +34,10 @@ const History = () => (
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }}>
       <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
-        <Suspense fallback={<Spinner />}>
+        <Lazy>
           <CartPayment />
           <BoxChat />
-        </Suspense>
+        </Lazy>
       </Flex>
     </GridItem>
   </Grid>
