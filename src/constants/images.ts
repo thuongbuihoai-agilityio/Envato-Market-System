@@ -188,4 +188,14 @@ export const IMAGES = {
     url: '/images/avatar-sign-up.webp',
     alt: 'This is avatar sign up',
   },
+
+  RECORD: {
+    url: 'images/record.webp',
+    alt: 'This is record image',
+  },
+
+  RECORD_DARK: {
+    url: 'images/record-dark.webp',
+    alt: 'This is record dark image',
+  },
 };
