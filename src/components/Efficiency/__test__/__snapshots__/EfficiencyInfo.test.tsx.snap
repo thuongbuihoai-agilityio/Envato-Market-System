@@ -48,7 +48,7 @@ exports[`EfficiencyInfo component should render correctly with light mode 1`] = 
             </svg>
           </div>
           <p
-            class="chakra-text css-6hxpcw"
+            class="chakra-text css-jz5bk3"
           >
             Arrival
           </p>

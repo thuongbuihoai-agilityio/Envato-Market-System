@@ -76,7 +76,7 @@ const EfficiencyComponent = ({
               </Text>
               <Sort />
             </Flex>
-            <Text variant="textMd" color="secondary.450">
+            <Text variant="textMd" color="text.secondary">
               Arrival
             </Text>
           </Box>
