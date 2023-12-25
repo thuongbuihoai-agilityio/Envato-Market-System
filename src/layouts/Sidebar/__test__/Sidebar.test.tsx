@@ -4,17 +4,30 @@ import { MemoryRouter } from 'react-router-dom';
 // components
 import { SideBar } from '@app/layouts';
 
-global.matchMedia =
-  global.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
-    };
-  };
-
 describe('Sidebar test case', () => {
+  beforeEach(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
+
+  afterEach(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      ...window.matchMedia,
+      writable: true,
+    });
+  });
+
   it('should render correctly', () => {
     const mockFunction = jest.fn();
 
