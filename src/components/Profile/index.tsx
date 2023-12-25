@@ -40,18 +40,19 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
           return;
         }
 
-        // Check size of image
-        if (file.size > MAX_SIZE) {
-          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
-        }
-
         // Check type of image
         if (!REGEX.IMG.test(file.name)) {
           return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
         }
 
+        // Check size of image
+        if (file.size > MAX_SIZE) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
+        }
+
         // Uploading file
         try {
+          callback('');
           const tempURL: string = URL.createObjectURL(file);
           const formData = new FormData();
 
@@ -94,15 +95,21 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         rules={AUTH_SCHEMA.AVATAR_URL}
         render={({ field: { value, onChange } }) => (
           <Center position="relative">
-            <Image
-              borderRadius="50%"
-              w="huge"
-              h="huge"
-              src={previewURL || value || IMAGES.AVATAR_SIGN_UP.url}
-              alt={IMAGES.AVATAR_SIGN_UP.alt}
-              fallbackSrc={IMAGES.USER.url}
-              objectFit="cover"
-            />
+            <FormLabel
+              htmlFor="file"
+              cursor="pointer"
+              _hover={{ transform: 'scale(1.1)' }}
+            >
+              <Image
+                borderRadius="50%"
+                w="huge"
+                h="huge"
+                src={previewURL || value || IMAGES.AVATAR_SIGN_UP.url}
+                alt={IMAGES.AVATAR_SIGN_UP.alt}
+                fallbackSrc={IMAGES.USER.url}
+                objectFit="cover"
+              />
+            </FormLabel>
 
             <InputGroup boxSize={7}>
               <InputLeftElement>
