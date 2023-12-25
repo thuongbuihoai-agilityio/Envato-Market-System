@@ -24,15 +24,16 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
     <div
       class="css-4bwcy0"
     >
-      <div
-        class="chakra-skeleton css-183zf81"
+      <label
+        class="chakra-form__label css-1egtz7w"
+        for="file"
       >
         <img
           alt="This is avatar sign up"
           class="chakra-image__placeholder css-opaydd"
           src="/icons/user.svg"
         />
-      </div>
+      </label>
       <div
         class="chakra-input__group css-eh9zni"
         data-group="true"

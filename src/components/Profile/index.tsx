@@ -10,7 +10,6 @@ import {
   InputGroup,
   InputLeftElement,
   FormLabel,
-  Skeleton,
 } from '@chakra-ui/react';
 
 // Constants
@@ -29,7 +28,7 @@ export type TUpdateProfileProps = {
 };
 
 const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [previewURL, setPreviewURL] = useState<string>('');
 
   const handleChangeFile = useCallback(
     (callback: (value: string) => void) =>
@@ -41,27 +40,29 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
           return;
         }
 
-        // Check size of image
-        if (file.size > MAX_SIZE) {
-          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
-        }
-
         // Check type of image
         if (!REGEX.IMG.test(file.name)) {
           return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
         }
 
+        // Check size of image
+        if (file.size > MAX_SIZE) {
+          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
+        }
+
         // Uploading file
         try {
-          setIsLoading(true);
+          callback('');
+          const previewImage: string = URL.createObjectURL(file);
           const formData = new FormData();
+
           formData.append('image', file);
+          setPreviewURL(previewImage);
+
           const result = await uploadImage(formData);
           callback(result);
         } catch (error) {
           onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
-        } finally {
-          setIsLoading(false);
         }
       },
     [onUploadError],
@@ -94,22 +95,21 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         rules={AUTH_SCHEMA.AVATAR_URL}
         render={({ field: { value, onChange } }) => (
           <Center position="relative">
-            <Skeleton
-              isLoaded={!isLoading}
-              borderRadius="50%"
-              w="huge"
-              h="huge"
+            <FormLabel
+              htmlFor="file"
+              cursor="pointer"
+              _hover={{ transform: 'scale(1.1)' }}
             >
               <Image
                 borderRadius="50%"
                 w="huge"
                 h="huge"
-                src={value || IMAGES.AVATAR_SIGN_UP.url}
+                src={previewURL || value || IMAGES.AVATAR_SIGN_UP.url}
                 alt={IMAGES.AVATAR_SIGN_UP.alt}
                 fallbackSrc={IMAGES.USER.url}
                 objectFit="cover"
               />
-            </Skeleton>
+            </FormLabel>
 
             <InputGroup boxSize={7}>
               <InputLeftElement>
