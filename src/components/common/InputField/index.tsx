@@ -48,7 +48,11 @@ const InputComponent = (
     <FormControl isInvalid={isError}>
       {/* TODO: Will update later */}
       {label && (
-        <FormLabel color="text.secondary" marginInlineEnd={0}>
+        <FormLabel
+          color="text.secondary"
+          marginInlineEnd={0}
+          minW="max-content"
+        >
           {label}
         </FormLabel>
       )}
