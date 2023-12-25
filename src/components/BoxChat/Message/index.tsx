@@ -59,6 +59,7 @@ const Message = ({
         fontSize="xs"
         color="text.textTime"
         fontWeight="medium"
+        minW="max-content"
       >
         {localeTime}
       </Text>
