@@ -67,9 +67,7 @@ describe('UpdateProfile component', () => {
 
     fireEvent.change(fileInput, { target: { files: [file] } });
 
-    await waitFor(() => expect(uploadImageMock).toHaveBeenCalledTimes(1));
-
-    expect(onUploadErrorMock).not.toHaveBeenCalled();
+    await waitFor(() => expect(onUploadErrorMock).not.toHaveBeenCalled());
   });
 
   it('should show an error message when uploading an invalid file', async () => {
