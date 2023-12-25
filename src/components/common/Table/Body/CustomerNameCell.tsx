@@ -1,4 +1,4 @@
-import { Flex, Image, Td, Text } from '@chakra-ui/react';
+import { Flex, Image, Td, Text, Tooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
 // Types
@@ -29,18 +29,19 @@ const CustomerNameCellComponent = ({
         objectFit="cover"
         borderRadius="full"
       />
-      <Text
-        fontSize="md"
-        fontWeight="semibold"
-        whiteSpace="break-spaces"
-        noOfLines={1}
-        minW={250}
-        title={`${name}`}
-        pr={10}
-        flex={1}
-      >
-        {name}
-      </Text>
+      <Tooltip minW="max-content" placement="bottom-start" label={name}>
+        <Text
+          fontSize="md"
+          fontWeight="semibold"
+          whiteSpace="break-spaces"
+          noOfLines={1}
+          minW={250}
+          pr={10}
+          flex={1}
+        >
+          {name}
+        </Text>
+      </Tooltip>
     </Flex>
   </Td>
 );

@@ -1,4 +1,4 @@
-import { Badge, BadgeProps, Td } from '@chakra-ui/react';
+import { Badge, BadgeProps, Td, Tooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
 type TStatusProps = BadgeProps & {
@@ -18,16 +18,17 @@ const StatusComponent = ({
     textAlign="left"
     minW={120}
   >
-    <Badge
-      {...props}
-      maxW={100}
-      whiteSpace="break-spaces"
-      noOfLines={1}
-      title={`${text}`}
-      textAlign="center"
-    >
-      {text}
-    </Badge>
+    <Tooltip minW="max-content" placement="bottom" label={text}>
+      <Badge
+        {...props}
+        maxW={100}
+        whiteSpace="break-spaces"
+        noOfLines={1}
+        textAlign="center"
+      >
+        {text}
+      </Badge>
+    </Tooltip>
   </Td>
 );
 
