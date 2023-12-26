@@ -83,8 +83,7 @@ export const useAuth = () => {
         throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { password: pass, ...userInfo } = user;
+      const { password: _, ...userInfo } = user;
 
       return updateStore({
         user: userInfo,
@@ -121,8 +120,7 @@ export const useAuth = () => {
       }
 
       // Send request add new user
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { password: responsePassword, ...response }: TUserDetail =
+      const { password: _, ...response }: TUserDetail =
         await UsersHttpService.post<TUserDetail>(
           END_POINTS.USERS,
           {
