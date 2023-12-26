@@ -149,7 +149,7 @@ const OverallBalanceComponent = ({
           },
           tooltip: {
             custom: function ({ series, dataPointIndex }) {
-              return `<div style="padding: 10px; background-color: #000; color: #FFF">
+              return `<div style="padding: 10px; background-color: black; color: common.white">
                 <div>
                 ${chartData[dataPointIndex].title}
                 </div>

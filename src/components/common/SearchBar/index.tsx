@@ -45,7 +45,7 @@ const SearchBarComponent = ({
 
   const searchIconColor: string = useColorModeValue(
     colors.secondary[400] ?? '',
-    '#fff',
+    'common.white',
   );
 
   const handleSelectMonth = useCallback(

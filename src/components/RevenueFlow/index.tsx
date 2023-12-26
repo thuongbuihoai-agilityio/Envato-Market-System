@@ -186,7 +186,7 @@ const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
                 ? `${REVENUE_FLOW_STATUS[seriesIndex]}:`
                 : '';
 
-              return `<div style="padding: 10px; background-color: #000; color: #FFF" >
+              return `<div style="padding: 10px; background-color: black; color: common.white" >
                 <p>
                 ${data[dataPointIndex].title}
                 </p>

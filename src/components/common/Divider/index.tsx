@@ -14,7 +14,7 @@ const DividerComponent = ({ content }: TDividerProps) => (
     <ChakraProvider w="full" bg="gray.500" _dark={{ height: '1px' }} />
 
     <AbsoluteCenter
-      _light={{ bg: '#fff' }}
+      _light={{ bg: 'common.white' }}
       _dark={{ bg: 'secondary.600' }}
       px="4"
       color="secondary.450"
