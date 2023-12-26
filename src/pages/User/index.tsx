@@ -85,7 +85,10 @@ const User = () => {
     >
       <Box flex={{ '3xl': 3 }}>
         <Flex
-          p={4}
+          p={{
+            base: 1,
+            md: 4,
+          }}
           rounded="lg"
           bg="background.body.quaternary"
           mb={8}
