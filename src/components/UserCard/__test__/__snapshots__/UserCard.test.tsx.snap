@@ -42,7 +42,7 @@ exports[`UserCard component renders correctly 1`] = `
       >
         <button
           aria-label="Book Mark"
-          class="chakra-button css-h640nb"
+          class="chakra-button css-1xg8mkc"
           type="button"
         >
           <svg
@@ -62,7 +62,7 @@ exports[`UserCard component renders correctly 1`] = `
         </button>
         <button
           aria-label="Share Nodes"
-          class="chakra-button css-h640nb"
+          class="chakra-button css-1xg8mkc"
           type="button"
         >
           <svg

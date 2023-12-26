@@ -34,7 +34,7 @@ describe('ItemSidebarSetting component', () => {
   it('should renders component with children', () => {
     render(
       <ItemSideBarSetting id="1" title="Heading" onClick={onToggle}>
-        <Account color="#fff" />
+        <Account color="common.white" />
       </ItemSideBarSetting>,
     );
 

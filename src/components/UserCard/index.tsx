@@ -43,7 +43,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
     _hover: {
       bg: 'primary.500',
       borderColor: 'primary.500',
-      svg: { stroke: '#FFF' },
+      svg: { stroke: 'white' },
     },
   };
 
