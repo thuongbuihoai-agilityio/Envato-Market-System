@@ -5,9 +5,9 @@ import '@testing-library/jest-dom';
 import CardPayment from '@app/components/CartPayment';
 import userEvent from '@testing-library/user-event';
 
-const setup = () => render(<CardPayment balance={123} />);
-
 describe('CardPayment test cases', () => {
+  const setup = () => render(<CardPayment balance={123} />);
+
   test('CardPayment component renders correctly', () => {
     const { container } = setup();
     expect(container).toMatchSnapshot();
