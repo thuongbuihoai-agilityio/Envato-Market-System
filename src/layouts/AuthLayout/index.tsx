@@ -18,7 +18,6 @@ import { TImageDetails } from '@app/interfaces';
 
 type TAuthLayoutProps = {
   children?: ReactNode;
-  title?: string;
   isSignInForm?: boolean;
 };
 

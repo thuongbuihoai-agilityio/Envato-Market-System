@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, MemoExoticComponent, memo } from 'react';
 
 // Constants
 import { PRIVATE_ROUTES, PUBLIC_ROUTES, ROUTES } from '@app/constants';
@@ -38,4 +38,20 @@ export const withAuthentication = <TProps extends object>(
   };
 
   return Authentication;
+};
+
+// Layouts
+import { AuthLayout } from '@app/layouts';
+
+export const withAuthenticationLayout = <TProps extends object>(
+  Component: FunctionComponent<TProps>,
+  isSignInForm = true,
+): MemoExoticComponent<FunctionComponent<TProps>> => {
+  const AuthLayoutWrapper = (props: TProps): JSX.Element => (
+    <AuthLayout isSignInForm={isSignInForm}>
+      <Component {...props} />
+    </AuthLayout>
+  );
+
+  return memo(AuthLayoutWrapper);
 };

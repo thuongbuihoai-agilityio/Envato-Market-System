@@ -16,13 +16,10 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useForm, useAuth } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withAuthenticationLayout, withErrorBoundary } from '@app/hocs';
 
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@app/constants';
-
-// Layouts
-import { AuthLayout } from '@app/layouts';
 
 // Components
 import { InputField } from '@app/components';
@@ -36,7 +33,7 @@ type TLoginForm = {
   isRemember: boolean;
 };
 
-const LoginPage = (): JSX.Element => {
+const Login = (): JSX.Element => {
   const { signIn } = useAuth();
   const redirect = useNavigate();
 
@@ -109,8 +106,13 @@ const LoginPage = (): JSX.Element => {
     [redirect, setError, signIn],
   );
 
+  const handleClearRootError = useCallback(
+    () => clearErrors('root'),
+    [clearErrors],
+  );
+
   return (
-    <AuthLayout>
+    <>
       <VStack
         id="login-form"
         as="form"
@@ -129,7 +131,7 @@ const LoginPage = (): JSX.Element => {
               errorMessages={error?.message}
               isDisabled={isSubmit}
               {...field}
-              onBlur={() => clearErrors('root')}
+              onBlur={handleClearRootError}
             />
           )}
         />
@@ -148,7 +150,7 @@ const LoginPage = (): JSX.Element => {
               errorMessages={error?.message}
               isDisabled={isSubmit}
               {...field}
-              onBlur={() => clearErrors('root')}
+              onBlur={handleClearRootError}
             />
           )}
         />
@@ -216,9 +218,10 @@ const LoginPage = (): JSX.Element => {
           Sign Up
         </Text>
       </Text>
-    </AuthLayout>
+    </>
   );
 };
 
-const Login = memo(withErrorBoundary(LoginPage));
-export default Login;
+const LoginPage = memo(withErrorBoundary(withAuthenticationLayout(Login)));
+
+export default LoginPage;

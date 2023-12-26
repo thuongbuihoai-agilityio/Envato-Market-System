@@ -72,7 +72,7 @@ const setItem: StateStorage['setItem'] = (key: string, value: string) => {
   return localStorage.removeItem(key);
 };
 
-const myStore = (): StateStorage => ({
+const myStore: () => StateStorage = (): StateStorage => ({
   setItem,
   getItem,
   removeItem: localStorage.removeItem.bind(localStorage),
