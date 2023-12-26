@@ -327,4 +327,5 @@ const RegisterPage = () => {
 const Register = memo(
   withErrorBoundary(withAuthenticationLayout(RegisterPage, false)),
 );
+
 export default Register;

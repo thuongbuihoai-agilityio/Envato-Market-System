@@ -45,10 +45,10 @@ import { AuthLayout } from '@app/layouts';
 
 export const withAuthenticationLayout = <TProps extends object>(
   Component: FunctionComponent<TProps>,
-  isLoginForm = true,
+  isSignInForm = true,
 ): MemoExoticComponent<FunctionComponent<TProps>> => {
   const AuthLayoutWrapper = (props: TProps): JSX.Element => (
-    <AuthLayout isSignInForm={isLoginForm}>
+    <AuthLayout isSignInForm={isSignInForm}>
       <Component {...props} />
     </AuthLayout>
   );

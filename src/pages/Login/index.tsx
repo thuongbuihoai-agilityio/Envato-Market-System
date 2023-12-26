@@ -223,4 +223,5 @@ const Login = (): JSX.Element => {
 };
 
 const LoginPage = memo(withErrorBoundary(withAuthenticationLayout(Login)));
+
 export default LoginPage;
