@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { AxiosResponse } from 'axios';
 
 import {
@@ -25,7 +25,12 @@ import { useUpdateUser } from '@app/hooks/useUser';
 
 // Constants
 import { AUTH_SCHEMA } from '@app/constants/form';
-import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
+import {
+  ERROR_MESSAGES,
+  SHOW_TIME,
+  STATUS_SUBMIT,
+  SUCCESS_MESSAGES,
+} from '@app/constants';
 
 // Components
 import { InputField, UpdateProfile } from '@app/components';
@@ -37,7 +42,7 @@ import { formatAllowOnlyNumbers } from '@app/utils';
 const UserFormComponent = () => {
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
-  const { mutate: updateUser } = useUpdateUser();
+  const { mutate: updateUser, status } = useUpdateUser();
   const toast = useToast();
 
   const {
@@ -118,6 +123,11 @@ const UserFormComponent = () => {
         changeHandler(data);
       },
     [clearErrors],
+  );
+
+  const disabled = useMemo(
+    () => !isDirty || !isValid || status === STATUS_SUBMIT.PENDING,
+    [isDirty, isValid, status],
   );
 
   return (
@@ -463,7 +473,7 @@ const UserFormComponent = () => {
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
-                  isDisabled={!isDirty || !isValid}
+                  isDisabled={disabled}
                   w="none"
                 >
                   Save Profile

@@ -11,3 +11,9 @@ export const STATUS_LABEL = {
   [Status.PENDING]: 'quaternary',
   [Status.COMPLETED]: 'primary',
 };
+
+export const STATUS_SUBMIT = {
+  PENDING: 'pending',
+  ERROR: 'error',
+  SUCCESS: 'success',
+};
