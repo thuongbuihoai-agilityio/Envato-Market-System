@@ -17,6 +17,7 @@ describe('getDataUser', () => {
       firstName,
       lastName,
       avatarURL,
+      experience,
     } = USER_MOCK;
 
     expect(result).toEqual([
@@ -28,6 +29,7 @@ describe('getDataUser', () => {
         lastActive: lastActive,
         lastPlace: lastPlace,
         salary: salary,
+        experience,
         name: `${firstName} ${lastName}`,
         image: avatarURL,
       },

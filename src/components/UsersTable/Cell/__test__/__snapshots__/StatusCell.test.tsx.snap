@@ -13,7 +13,6 @@ exports[`TotalCard component renders correctly 1`] = `
       >
         <span
           class="chakra-badge css-3jdwwr"
-          title=""
         />
       </td>
     </tr>

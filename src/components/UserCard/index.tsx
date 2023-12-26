@@ -7,9 +7,6 @@ import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
 // Icons
 import { BookMark, ShareNodes } from '@app/components/Icons';
 
-// Images
-import { IMAGES } from '@app/constants/images';
-
 // Types
 import { TEmployee } from '@app/interfaces';
 
@@ -31,6 +28,8 @@ const UserCardComponent = ({ user }: userCardProps) => {
     workTime,
     avatarURL,
     salary,
+    experience,
+    hiringAgent,
   } = user || {};
 
   const iconButtonStyles = {
@@ -91,7 +90,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
             Experience
           </Text>
           <Text variant="textSm" fontWeight="semibold" color="text.primary">
-            2-4 Years
+            {experience}
           </Text>
         </Flex>
         <Flex alignItems="center" justifyContent="space-between">
@@ -124,15 +123,15 @@ const UserCardComponent = ({ user }: userCardProps) => {
           Hiring Agent
         </Text>
         <Flex gap={4} mt={4}>
-          <Avatar src={IMAGES.AVATAR.url} w={10} h={10} />
+          <Avatar src={hiringAgent.avatarURL} w={10} h={10} />
           <Box>
             <Text variant="textSm" fontWeight="semibold" color="text.primary">
-              Annette Black
+              {hiringAgent.firstName} {hiringAgent.lastName}
             </Text>
             <Text color="primary.500" variant="textSm">
               HR Specialist •{' '}
               <Text as="span" color="text.nonary" variant="textSm">
-                from last week
+                {hiringAgent.experience} Exp
               </Text>
             </Text>
           </Box>

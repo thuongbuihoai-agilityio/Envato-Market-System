@@ -767,7 +767,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Devon Lane"
                 >
                   Devon Lane
                 </p>
@@ -778,7 +777,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="devon@mail.com"
               >
                 devon@mail.com
               </p>
@@ -788,7 +786,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Philadelphia, USA"
               >
                 Philadelphia, USA
               </p>
@@ -798,7 +795,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -846,7 +842,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Bessie Cooper"
                 >
                   Bessie Cooper
                 </p>
@@ -857,7 +852,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="bessie@mail.com"
               >
                 bessie@mail.com
               </p>
@@ -867,7 +861,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Philadelphia, USA"
               >
                 Philadelphia, USA
               </p>
@@ -877,7 +870,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -925,7 +917,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Zepeda lorna"
                 >
                   Zepeda lorna
                 </p>
@@ -936,7 +927,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="dianne@mail.com"
               >
                 dianne@mail.com
               </p>
@@ -946,7 +936,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Philadelphia, USA"
               >
                 Philadelphia, USA
               </p>
@@ -956,7 +945,6 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -1011,11 +999,11 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
           class="css-1eqmq6c"
         >
           <button
-            aria-controls="menu-list-:rg:"
+            aria-controls="menu-list-:r18:"
             aria-expanded="false"
             aria-haspopup="menu"
             class="chakra-button chakra-menu__menu-button css-11agw6e"
-            id="menu-button-:rg:"
+            id="menu-button-:r18:"
             type="button"
           >
             <span
@@ -1059,7 +1047,7 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
             <div
               aria-orientation="vertical"
               class="chakra-menu__menu-list css-ta0hp9"
-              id="menu-list-:rg:"
+              id="menu-list-:r18:"
               role="menu"
               style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
               tabindex="-1"
@@ -1067,7 +1055,7 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="0"
-                id="menu-list-:rg:-menuitem-:rh:"
+                id="menu-list-:r18:-menuitem-:r19:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -1081,7 +1069,7 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="1"
-                id="menu-list-:rg:-menuitem-:ri:"
+                id="menu-list-:r18:-menuitem-:r1a:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -1095,7 +1083,7 @@ exports[`Transaction table Match snapshot (isTableHistory = false) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="2"
-                id="menu-list-:rg:-menuitem-:rj:"
+                id="menu-list-:r18:-menuitem-:r1b:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -1227,7 +1215,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:rk:"
+            id="field-:r1c:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -1239,11 +1227,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:rm:"
+        aria-controls="menu-list-:r1e:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:rm:"
+        id="menu-button-:r1e:"
         type="button"
       >
         <span
@@ -1278,7 +1266,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:rm:"
+          id="menu-list-:r1e:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -1286,7 +1274,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:rm:-menuitem-:rn:"
+            id="menu-list-:r1e:-menuitem-:r1f:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1300,7 +1288,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:rm:-menuitem-:ro:"
+            id="menu-list-:r1e:-menuitem-:r1g:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1314,7 +1302,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:rm:-menuitem-:rp:"
+            id="menu-list-:r1e:-menuitem-:r1h:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1328,7 +1316,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:rm:-menuitem-:rq:"
+            id="menu-list-:r1e:-menuitem-:r1i:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1342,7 +1330,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:rm:-menuitem-:rr:"
+            id="menu-list-:r1e:-menuitem-:r1j:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1356,7 +1344,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:rm:-menuitem-:rs:"
+            id="menu-list-:r1e:-menuitem-:r1k:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1370,7 +1358,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:rm:-menuitem-:rt:"
+            id="menu-list-:r1e:-menuitem-:r1l:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1384,7 +1372,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:rm:-menuitem-:ru:"
+            id="menu-list-:r1e:-menuitem-:r1m:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1398,7 +1386,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:rm:-menuitem-:rv:"
+            id="menu-list-:r1e:-menuitem-:r1n:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1412,7 +1400,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:rm:-menuitem-:r10:"
+            id="menu-list-:r1e:-menuitem-:r1o:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1426,7 +1414,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:rm:-menuitem-:r11:"
+            id="menu-list-:r1e:-menuitem-:r1p:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1440,7 +1428,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:rm:-menuitem-:r12:"
+            id="menu-list-:r1e:-menuitem-:r1q:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1520,7 +1508,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:rk:"
+            id="field-:r1c:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -1532,11 +1520,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:rm:"
+        aria-controls="menu-list-:r1e:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:rm:"
+        id="menu-button-:r1e:"
         type="button"
       >
         <span
@@ -1571,7 +1559,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:rm:"
+          id="menu-list-:r1e:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -1579,7 +1567,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:rm:-menuitem-:rn:"
+            id="menu-list-:r1e:-menuitem-:r1f:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1593,7 +1581,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:rm:-menuitem-:ro:"
+            id="menu-list-:r1e:-menuitem-:r1g:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1607,7 +1595,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:rm:-menuitem-:rp:"
+            id="menu-list-:r1e:-menuitem-:r1h:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1621,7 +1609,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:rm:-menuitem-:rq:"
+            id="menu-list-:r1e:-menuitem-:r1i:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1635,7 +1623,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:rm:-menuitem-:rr:"
+            id="menu-list-:r1e:-menuitem-:r1j:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1649,7 +1637,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:rm:-menuitem-:rs:"
+            id="menu-list-:r1e:-menuitem-:r1k:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1663,7 +1651,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:rm:-menuitem-:rt:"
+            id="menu-list-:r1e:-menuitem-:r1l:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1677,7 +1665,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:rm:-menuitem-:ru:"
+            id="menu-list-:r1e:-menuitem-:r1m:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1691,7 +1679,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:rm:-menuitem-:rv:"
+            id="menu-list-:r1e:-menuitem-:r1n:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1705,7 +1693,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:rm:-menuitem-:r10:"
+            id="menu-list-:r1e:-menuitem-:r1o:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1719,7 +1707,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:rm:-menuitem-:r11:"
+            id="menu-list-:r1e:-menuitem-:r1p:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1733,7 +1721,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:rm:-menuitem-:r12:"
+            id="menu-list-:r1e:-menuitem-:r1q:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -1992,7 +1980,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Devon Lane"
                 >
                   Devon Lane
                 </p>
@@ -2003,7 +1990,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -2013,7 +1999,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -2023,7 +2008,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Paid"
               >
                 Paid
               </span>
@@ -2033,7 +2017,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Cancelled"
               >
                 Cancelled
               </span>
@@ -2081,7 +2064,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Bessie Cooper"
                 >
                   Bessie Cooper
                 </p>
@@ -2092,7 +2074,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -2102,7 +2083,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -2112,7 +2092,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Paid"
               >
                 Paid
               </span>
@@ -2122,7 +2101,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Completed"
               >
                 Completed
               </span>
@@ -2170,7 +2148,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Zepeda lorna"
                 >
                   Zepeda lorna
                 </p>
@@ -2181,7 +2158,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -2191,7 +2167,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -2201,7 +2176,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Unpaid"
               >
                 Unpaid
               </span>
@@ -2211,7 +2185,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Pending"
               >
                 Pending
               </span>
@@ -2266,11 +2239,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
           class="css-1eqmq6c"
         >
           <button
-            aria-controls="menu-list-:r14:"
+            aria-controls="menu-list-:r2q:"
             aria-expanded="false"
             aria-haspopup="menu"
             class="chakra-button chakra-menu__menu-button css-11agw6e"
-            id="menu-button-:r14:"
+            id="menu-button-:r2q:"
             type="button"
           >
             <span
@@ -2314,7 +2287,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
             <div
               aria-orientation="vertical"
               class="chakra-menu__menu-list css-ta0hp9"
-              id="menu-list-:r14:"
+              id="menu-list-:r2q:"
               role="menu"
               style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
               tabindex="-1"
@@ -2322,7 +2295,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="0"
-                id="menu-list-:r14:-menuitem-:r15:"
+                id="menu-list-:r2q:-menuitem-:r2r:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -2336,7 +2309,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="1"
-                id="menu-list-:r14:-menuitem-:r16:"
+                id="menu-list-:r2q:-menuitem-:r2s:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -2350,7 +2323,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 2`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="2"
-                id="menu-list-:r14:-menuitem-:r17:"
+                id="menu-list-:r2q:-menuitem-:r2t:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -2482,7 +2455,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r18:"
+            id="field-:r2u:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -2494,11 +2467,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r1a:"
+        aria-controls="menu-list-:r30:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r1a:"
+        id="menu-button-:r30:"
         type="button"
       >
         <span
@@ -2533,7 +2506,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r1a:"
+          id="menu-list-:r30:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -2541,7 +2514,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r1a:-menuitem-:r1b:"
+            id="menu-list-:r30:-menuitem-:r31:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2555,7 +2528,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r1a:-menuitem-:r1c:"
+            id="menu-list-:r30:-menuitem-:r32:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2569,7 +2542,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r1a:-menuitem-:r1d:"
+            id="menu-list-:r30:-menuitem-:r33:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2583,7 +2556,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r1a:-menuitem-:r1e:"
+            id="menu-list-:r30:-menuitem-:r34:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2597,7 +2570,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r1a:-menuitem-:r1f:"
+            id="menu-list-:r30:-menuitem-:r35:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2611,7 +2584,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r1a:-menuitem-:r1g:"
+            id="menu-list-:r30:-menuitem-:r36:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2625,7 +2598,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r1a:-menuitem-:r1h:"
+            id="menu-list-:r30:-menuitem-:r37:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2639,7 +2612,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r1a:-menuitem-:r1i:"
+            id="menu-list-:r30:-menuitem-:r38:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2653,7 +2626,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r1a:-menuitem-:r1j:"
+            id="menu-list-:r30:-menuitem-:r39:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2667,7 +2640,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r1a:-menuitem-:r1k:"
+            id="menu-list-:r30:-menuitem-:r3a:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2681,7 +2654,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r1a:-menuitem-:r1l:"
+            id="menu-list-:r30:-menuitem-:r3b:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2695,7 +2668,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 3`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r1a:-menuitem-:r1m:"
+            id="menu-list-:r30:-menuitem-:r3c:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2775,7 +2748,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r18:"
+            id="field-:r2u:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -2787,11 +2760,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r1a:"
+        aria-controls="menu-list-:r30:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r1a:"
+        id="menu-button-:r30:"
         type="button"
       >
         <span
@@ -2826,7 +2799,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r1a:"
+          id="menu-list-:r30:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -2834,7 +2807,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r1a:-menuitem-:r1b:"
+            id="menu-list-:r30:-menuitem-:r31:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2848,7 +2821,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r1a:-menuitem-:r1c:"
+            id="menu-list-:r30:-menuitem-:r32:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2862,7 +2835,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r1a:-menuitem-:r1d:"
+            id="menu-list-:r30:-menuitem-:r33:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2876,7 +2849,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r1a:-menuitem-:r1e:"
+            id="menu-list-:r30:-menuitem-:r34:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2890,7 +2863,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r1a:-menuitem-:r1f:"
+            id="menu-list-:r30:-menuitem-:r35:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2904,7 +2877,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r1a:-menuitem-:r1g:"
+            id="menu-list-:r30:-menuitem-:r36:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2918,7 +2891,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r1a:-menuitem-:r1h:"
+            id="menu-list-:r30:-menuitem-:r37:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2932,7 +2905,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r1a:-menuitem-:r1i:"
+            id="menu-list-:r30:-menuitem-:r38:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2946,7 +2919,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r1a:-menuitem-:r1j:"
+            id="menu-list-:r30:-menuitem-:r39:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2960,7 +2933,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r1a:-menuitem-:r1k:"
+            id="menu-list-:r30:-menuitem-:r3a:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2974,7 +2947,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r1a:-menuitem-:r1l:"
+            id="menu-list-:r30:-menuitem-:r3b:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -2988,7 +2961,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r1a:-menuitem-:r1m:"
+            id="menu-list-:r30:-menuitem-:r3c:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3247,7 +3220,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Devon Lane"
                 >
                   Devon Lane
                 </p>
@@ -3258,7 +3230,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -3268,7 +3239,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -3278,7 +3248,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Paid"
               >
                 Paid
               </span>
@@ -3288,7 +3257,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Cancelled"
               >
                 Cancelled
               </span>
@@ -3336,7 +3304,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Bessie Cooper"
                 >
                   Bessie Cooper
                 </p>
@@ -3347,7 +3314,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -3357,7 +3323,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -3367,7 +3332,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Paid"
               >
                 Paid
               </span>
@@ -3377,7 +3341,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Completed"
               >
                 Completed
               </span>
@@ -3425,7 +3388,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
                 />
                 <p
                   class="chakra-text css-mn2b9z"
-                  title="Zepeda lorna"
                 >
                   Zepeda lorna
                 </p>
@@ -3436,7 +3398,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="Apr 20, 2023"
               >
                 Apr 20, 2023
               </p>
@@ -3446,7 +3407,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <p
                 class="chakra-text css-e7h0oz"
-                title="$101.00"
               >
                 $101.00
               </p>
@@ -3456,7 +3416,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Unpaid"
               >
                 Unpaid
               </span>
@@ -3466,7 +3425,6 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             >
               <span
                 class="chakra-badge css-3jdwwr"
-                title="Pending"
               >
                 Pending
               </span>
@@ -3521,11 +3479,11 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
           class="css-1eqmq6c"
         >
           <button
-            aria-controls="menu-list-:r1o:"
+            aria-controls="menu-list-:r4c:"
             aria-expanded="false"
             aria-haspopup="menu"
             class="chakra-button chakra-menu__menu-button css-11agw6e"
-            id="menu-button-:r1o:"
+            id="menu-button-:r4c:"
             type="button"
           >
             <span
@@ -3569,7 +3527,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
             <div
               aria-orientation="vertical"
               class="chakra-menu__menu-list css-ta0hp9"
-              id="menu-list-:r1o:"
+              id="menu-list-:r4c:"
               role="menu"
               style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
               tabindex="-1"
@@ -3577,7 +3535,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="0"
-                id="menu-list-:r1o:-menuitem-:r1p:"
+                id="menu-list-:r4c:-menuitem-:r4d:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -3591,7 +3549,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="1"
-                id="menu-list-:r1o:-menuitem-:r1q:"
+                id="menu-list-:r4c:-menuitem-:r4e:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -3605,7 +3563,7 @@ exports[`Transaction table Match snapshot (isTableHistory = true) 4`] = `
               <button
                 class="chakra-menu__menuitem css-1oz22gy"
                 data-index="2"
-                id="menu-list-:r1o:-menuitem-:r1r:"
+                id="menu-list-:r4c:-menuitem-:r4f:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -3737,7 +3695,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r1s:"
+            id="field-:r4g:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -3749,11 +3707,11 @@ exports[`Transaction table Render with empty data 1`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r1u:"
+        aria-controls="menu-list-:r4i:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r1u:"
+        id="menu-button-:r4i:"
         type="button"
       >
         <span
@@ -3788,7 +3746,7 @@ exports[`Transaction table Render with empty data 1`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r1u:"
+          id="menu-list-:r4i:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -3796,7 +3754,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r1u:-menuitem-:r1v:"
+            id="menu-list-:r4i:-menuitem-:r4j:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3810,7 +3768,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r1u:-menuitem-:r20:"
+            id="menu-list-:r4i:-menuitem-:r4k:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3824,7 +3782,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r1u:-menuitem-:r21:"
+            id="menu-list-:r4i:-menuitem-:r4l:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3838,7 +3796,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r1u:-menuitem-:r22:"
+            id="menu-list-:r4i:-menuitem-:r4m:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3852,7 +3810,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r1u:-menuitem-:r23:"
+            id="menu-list-:r4i:-menuitem-:r4n:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3866,7 +3824,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r1u:-menuitem-:r24:"
+            id="menu-list-:r4i:-menuitem-:r4o:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3880,7 +3838,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r1u:-menuitem-:r25:"
+            id="menu-list-:r4i:-menuitem-:r4p:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3894,7 +3852,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r1u:-menuitem-:r26:"
+            id="menu-list-:r4i:-menuitem-:r4q:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3908,7 +3866,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r1u:-menuitem-:r27:"
+            id="menu-list-:r4i:-menuitem-:r4r:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3922,7 +3880,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r1u:-menuitem-:r28:"
+            id="menu-list-:r4i:-menuitem-:r4s:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3936,7 +3894,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r1u:-menuitem-:r29:"
+            id="menu-list-:r4i:-menuitem-:r4t:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -3950,7 +3908,7 @@ exports[`Transaction table Render with empty data 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r1u:-menuitem-:r2a:"
+            id="menu-list-:r4i:-menuitem-:r4u:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4030,7 +3988,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r1s:"
+            id="field-:r4g:"
             placeholder="Search by name, email, or other..."
             type="text"
             value=""
@@ -4042,11 +4000,11 @@ exports[`Transaction table Render with empty data 2`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r1u:"
+        aria-controls="menu-list-:r4i:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r1u:"
+        id="menu-button-:r4i:"
         type="button"
       >
         <span
@@ -4081,7 +4039,7 @@ exports[`Transaction table Render with empty data 2`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r1u:"
+          id="menu-list-:r4i:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -4089,7 +4047,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r1u:-menuitem-:r1v:"
+            id="menu-list-:r4i:-menuitem-:r4j:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4103,7 +4061,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r1u:-menuitem-:r20:"
+            id="menu-list-:r4i:-menuitem-:r4k:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4117,7 +4075,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r1u:-menuitem-:r21:"
+            id="menu-list-:r4i:-menuitem-:r4l:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4131,7 +4089,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r1u:-menuitem-:r22:"
+            id="menu-list-:r4i:-menuitem-:r4m:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4145,7 +4103,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r1u:-menuitem-:r23:"
+            id="menu-list-:r4i:-menuitem-:r4n:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4159,7 +4117,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r1u:-menuitem-:r24:"
+            id="menu-list-:r4i:-menuitem-:r4o:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4173,7 +4131,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r1u:-menuitem-:r25:"
+            id="menu-list-:r4i:-menuitem-:r4p:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4187,7 +4145,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r1u:-menuitem-:r26:"
+            id="menu-list-:r4i:-menuitem-:r4q:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4201,7 +4159,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r1u:-menuitem-:r27:"
+            id="menu-list-:r4i:-menuitem-:r4r:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4215,7 +4173,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r1u:-menuitem-:r28:"
+            id="menu-list-:r4i:-menuitem-:r4s:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4229,7 +4187,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r1u:-menuitem-:r29:"
+            id="menu-list-:r4i:-menuitem-:r4t:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4243,7 +4201,7 @@ exports[`Transaction table Render with empty data 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r1u:-menuitem-:r2a:"
+            id="menu-list-:r4i:-menuitem-:r4u:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4550,7 +4508,7 @@ exports[`Transaction table Search transactions 1`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r2b:"
+            id="field-:r4v:"
             placeholder="Search by name, email, or other..."
             type="text"
             value="duong"
@@ -4577,11 +4535,11 @@ exports[`Transaction table Search transactions 1`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r2d:"
+        aria-controls="menu-list-:r51:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r2d:"
+        id="menu-button-:r51:"
         type="button"
       >
         <span
@@ -4616,7 +4574,7 @@ exports[`Transaction table Search transactions 1`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r2d:"
+          id="menu-list-:r51:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -4624,7 +4582,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r2d:-menuitem-:r2e:"
+            id="menu-list-:r51:-menuitem-:r52:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4638,7 +4596,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r2d:-menuitem-:r2f:"
+            id="menu-list-:r51:-menuitem-:r53:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4652,7 +4610,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r2d:-menuitem-:r2g:"
+            id="menu-list-:r51:-menuitem-:r54:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4666,7 +4624,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r2d:-menuitem-:r2h:"
+            id="menu-list-:r51:-menuitem-:r55:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4680,7 +4638,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r2d:-menuitem-:r2i:"
+            id="menu-list-:r51:-menuitem-:r56:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4694,7 +4652,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r2d:-menuitem-:r2j:"
+            id="menu-list-:r51:-menuitem-:r57:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4708,7 +4666,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r2d:-menuitem-:r2k:"
+            id="menu-list-:r51:-menuitem-:r58:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4722,7 +4680,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r2d:-menuitem-:r2l:"
+            id="menu-list-:r51:-menuitem-:r59:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4736,7 +4694,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r2d:-menuitem-:r2m:"
+            id="menu-list-:r51:-menuitem-:r5a:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4750,7 +4708,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r2d:-menuitem-:r2n:"
+            id="menu-list-:r51:-menuitem-:r5b:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4764,7 +4722,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r2d:-menuitem-:r2o:"
+            id="menu-list-:r51:-menuitem-:r5c:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4778,7 +4736,7 @@ exports[`Transaction table Search transactions 1`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r2d:-menuitem-:r2p:"
+            id="menu-list-:r51:-menuitem-:r5d:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4858,7 +4816,7 @@ exports[`Transaction table Search transactions 2`] = `
           <input
             class="chakra-input css-6hxpcw"
             data-testid="search-transaction"
-            id="field-:r2b:"
+            id="field-:r4v:"
             placeholder="Search by name, email, or other..."
             type="text"
             value="duong"
@@ -4885,11 +4843,11 @@ exports[`Transaction table Search transactions 2`] = `
       class="css-cgqc68"
     >
       <button
-        aria-controls="menu-list-:r2d:"
+        aria-controls="menu-list-:r51:"
         aria-expanded="false"
         aria-haspopup="menu"
         class="chakra-button chakra-menu__menu-button css-lyu4i6"
-        id="menu-button-:r2d:"
+        id="menu-button-:r51:"
         type="button"
       >
         <span
@@ -4924,7 +4882,7 @@ exports[`Transaction table Search transactions 2`] = `
         <div
           aria-orientation="vertical"
           class="chakra-menu__menu-list css-ta0hp9"
-          id="menu-list-:r2d:"
+          id="menu-list-:r51:"
           role="menu"
           style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
           tabindex="-1"
@@ -4932,7 +4890,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="0"
-            id="menu-list-:r2d:-menuitem-:r2e:"
+            id="menu-list-:r51:-menuitem-:r52:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4946,7 +4904,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
-            id="menu-list-:r2d:-menuitem-:r2f:"
+            id="menu-list-:r51:-menuitem-:r53:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4960,7 +4918,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="2"
-            id="menu-list-:r2d:-menuitem-:r2g:"
+            id="menu-list-:r51:-menuitem-:r54:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4974,7 +4932,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="3"
-            id="menu-list-:r2d:-menuitem-:r2h:"
+            id="menu-list-:r51:-menuitem-:r55:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -4988,7 +4946,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="4"
-            id="menu-list-:r2d:-menuitem-:r2i:"
+            id="menu-list-:r51:-menuitem-:r56:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5002,7 +4960,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="5"
-            id="menu-list-:r2d:-menuitem-:r2j:"
+            id="menu-list-:r51:-menuitem-:r57:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5016,7 +4974,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="6"
-            id="menu-list-:r2d:-menuitem-:r2k:"
+            id="menu-list-:r51:-menuitem-:r58:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5030,7 +4988,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="7"
-            id="menu-list-:r2d:-menuitem-:r2l:"
+            id="menu-list-:r51:-menuitem-:r59:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5044,7 +5002,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="8"
-            id="menu-list-:r2d:-menuitem-:r2m:"
+            id="menu-list-:r51:-menuitem-:r5a:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5058,7 +5016,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="9"
-            id="menu-list-:r2d:-menuitem-:r2n:"
+            id="menu-list-:r51:-menuitem-:r5b:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5072,7 +5030,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="10"
-            id="menu-list-:r2d:-menuitem-:r2o:"
+            id="menu-list-:r51:-menuitem-:r5c:"
             role="menuitem"
             tabindex="-1"
             type="button"
@@ -5086,7 +5044,7 @@ exports[`Transaction table Search transactions 2`] = `
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="11"
-            id="menu-list-:r2d:-menuitem-:r2p:"
+            id="menu-list-:r51:-menuitem-:r5d:"
             role="menuitem"
             tabindex="-1"
             type="button"

@@ -3,7 +3,7 @@ import { TEmployee, TDataSource } from '@app/interfaces';
 
 export type TShowEmployee = Omit<
   TEmployee,
-  'id' | 'createdAt' | 'lastName' | 'firstName' | 'avatarURL'
+  'id' | 'createdAt' | 'lastName' | 'firstName' | 'avatarURL' | 'hiringAgent'
 > &
   TDataSource & {
     name: string;
@@ -28,6 +28,7 @@ export const getDataUser = (users: TEmployee[] = []): TShowEmployee[] =>
       lastActive,
       lastPlace,
       salary,
+      experience,
     } = user;
 
     return {
@@ -38,6 +39,7 @@ export const getDataUser = (users: TEmployee[] = []): TShowEmployee[] =>
       lastActive,
       lastPlace,
       salary,
+      experience,
       name: `${firstName} ${lastName}`,
       image: avatarURL,
     };

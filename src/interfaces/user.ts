@@ -7,6 +7,14 @@ export interface IUserBase {
   email: string;
 }
 
+export type THiringAgent = Pick<
+  IUserBase,
+  'firstName' | 'lastName' | 'avatarURL'
+> & {
+  role: string;
+  experience: string;
+};
+
 export type TEmployee = Omit<IUserBase, 'email'> & {
   lastActive: string;
   lastPlace: string;
@@ -14,6 +22,8 @@ export type TEmployee = Omit<IUserBase, 'email'> & {
   level: string;
   position: string;
   salary: number;
+  experience: string;
+  hiringAgent: THiringAgent;
 };
 
 export type TCustomer = Pick<IUserBase, 'id' | 'email'> & {

@@ -24,7 +24,6 @@ exports[`TotalCard component renders correctly 1`] = `
           >
             <h4
               class="chakra-text css-197ngd6"
-              title="test"
             >
               test
             </h4>
@@ -40,7 +39,6 @@ exports[`TotalCard component renders correctly 1`] = `
               </span>
               <span
                 class="chakra-text css-1rgac5r"
-                title="Jakarta, Indonesia 2 days ago"
               >
                 Jakarta, Indonesia
                 ⋅

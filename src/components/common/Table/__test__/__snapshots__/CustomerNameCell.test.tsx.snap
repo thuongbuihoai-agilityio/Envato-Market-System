@@ -18,7 +18,6 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
         />
         <p
           class="chakra-text css-mn2b9z"
-          title="Duong Pham"
         >
           Duong Pham
         </p>
