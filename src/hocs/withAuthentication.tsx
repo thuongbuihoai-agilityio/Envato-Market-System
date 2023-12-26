@@ -15,7 +15,7 @@ type TValidateRoute = {
 export const withAuthentication = <TProps extends object>(
   Component: FunctionComponent<TProps>,
 ): FunctionComponent<TProps> => {
-  const NewComponent = (props: TProps): JSX.Element => {
+  const Authentication = (props: TProps): JSX.Element => {
     const { pathname } = useLocation();
     const user = authStore((state): TAuthStoreData['user'] => state.user);
     const isMatchPrivateRoute: boolean = PRIVATE_ROUTES.some(
@@ -37,5 +37,5 @@ export const withAuthentication = <TProps extends object>(
     return <Component {...props} />;
   };
 
-  return NewComponent;
+  return Authentication;
 };
