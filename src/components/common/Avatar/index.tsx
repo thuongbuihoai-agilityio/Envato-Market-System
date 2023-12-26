@@ -19,6 +19,7 @@ const AvatarComponent = ({ src = '', ...props }: AvatarProps) => (
     pt={0.5}
     cursor="pointer"
     src={src}
+    role="img"
     {...props}
   />
 );
