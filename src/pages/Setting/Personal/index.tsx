@@ -37,7 +37,7 @@ import { formatAllowOnlyNumbers } from '@app/utils';
 const UserFormComponent = () => {
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
-  const { mutate: updateUser } = useUpdateUser();
+  const { mutate: updateUser, status } = useUpdateUser();
   const toast = useToast();
 
   const {
@@ -463,7 +463,7 @@ const UserFormComponent = () => {
                   px={4}
                   textTransform="capitalize"
                   form="register-form"
-                  isDisabled={!isDirty || !isValid}
+                  isDisabled={!isDirty || !isValid || status === 'pending'}
                   w="none"
                 >
                   Save Profile
