@@ -32,7 +32,12 @@
     "quotes": ["error", "single"],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "no-useless-escape": "off",
     "arrow-body-style": ["error", "as-needed"],
     "react/no-array-index-key": "error",
