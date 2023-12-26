@@ -24,8 +24,8 @@ type TTableProps = TableProps & {
   onClickTableRow?: (id: string) => void;
 };
 
-const TableComponent = ({
-  columns,
+const Table = ({
+  columns = [],
   dataSource = [],
   onClickTableRow,
   ...props
@@ -34,7 +34,7 @@ const TableComponent = ({
     <TableChakra {...props}>
       <Thead>
         <Tr>
-          {columns &&
+          {!!columns.length &&
             columns.map(({ key, title, renderHead }) =>
               renderHead ? (
                 renderHead(`${title}`, `${key}`)
@@ -72,7 +72,7 @@ const TableComponent = ({
         ) : (
           dataSource.map((data) => {
             const handleClick = () =>
-              onClickTableRow && onClickTableRow(`${data.id}`);
+              !!onClickTableRow && onClickTableRow(`${data.id}`);
 
             return (
               <Tr
@@ -82,7 +82,7 @@ const TableComponent = ({
                 })}
                 onClick={handleClick}
               >
-                {columns &&
+                {!!columns.length &&
                   columns.map((column) =>
                     column.renderBody ? (
                       column.renderBody(data)
@@ -117,6 +117,6 @@ const TableComponent = ({
   </TableContainer>
 );
 
-const Table = memo(TableComponent, isEqual);
+const TableMemorized = memo(Table, isEqual);
 
-export default Table;
+export default TableMemorized;
