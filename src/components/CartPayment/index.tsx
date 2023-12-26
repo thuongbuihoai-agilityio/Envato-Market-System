@@ -39,7 +39,8 @@ const CartPaymentComponent = ({
       p={4}
       w="full"
       bg="background.body.quaternary"
-      padding="20px 42px"
+      py={{ base: 4, md: 5 }}
+      px={{ base: 4, md: 10 }}
       borderRadius="lg"
     >
       <Heading

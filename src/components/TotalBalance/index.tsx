@@ -16,13 +16,7 @@ const TotalBalanceComponent = ({
   balance = 88232,
   growth = 2.05,
 }: TotalBalanceProps): JSX.Element => (
-  <Box
-    w="full"
-    bg="background.body.quaternary"
-    px={11}
-    py={7}
-    borderRadius="lg"
-  >
+  <Box w="full" bg="background.body.quaternary" px={8} py={7} borderRadius="lg">
     <Box
       border="1px solid"
       borderColor="border.quaternary"
