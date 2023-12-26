@@ -1,15 +1,12 @@
 import { memo } from 'react';
-import { Box, Button, Flex, Image, Input, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 import { Controller } from 'react-hook-form';
 
-// COmponents
+// Components
 import { TTransferControl } from '.';
 
 // Utils
 import { formatDecimalInput } from '@app/utils';
-
-// Constants
-import { IMAGES } from '@app/constants';
 
 const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
   <>
@@ -58,15 +55,6 @@ const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
               />
             );
           }}
-        />
-
-        <Image
-          src={IMAGES.USER_AVATAR.url}
-          alt={IMAGES.USER_AVATAR.alt}
-          fallbackSrc={IMAGES.USER.url}
-          boxSize={6}
-          mt={3}
-          w="42px"
         />
       </Flex>
     </Box>

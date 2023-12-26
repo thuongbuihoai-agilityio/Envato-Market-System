@@ -3,7 +3,7 @@
 exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
 <div>
   <div
-    class="css-wodbpa"
+    class="css-9ft5fw"
   >
     <h3
       class="chakra-heading css-1vczax5"
@@ -14,7 +14,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
       class="css-gmuwbf"
     >
       <div
-        class="css-1wgc2ju"
+        class="css-159ui0o"
       >
         <div
           class="css-1foj61n"
@@ -130,11 +130,6 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
             name="money"
             type="text"
             value=""
-          />
-          <img
-            alt="This is the user avatar"
-            class="chakra-image__placeholder css-pdhoft"
-            src="/icons/user.svg"
           />
         </div>
       </div>

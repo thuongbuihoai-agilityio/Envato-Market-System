@@ -41,11 +41,11 @@ const Card = ({ balance }: Required<Pick<CardPaymentProps, 'balance'>>) => {
         justifyContent="flex-end"
         borderRadius="lg"
         bgPosition="center"
-        bgSize={{ base: 'contain', md: 'unset' }}
+        bgSize={{ base: 'cover', sm: 'unset' }}
         bgRepeat="no-repeat"
-        p={6}
-        w={{ base: 250, sm: 340 }}
-        h={{ base: 150, sm: 200 }}
+        p={2}
+        w={{ base: '100%', sm: 340 }}
+        h={{ base: 180, sm: 200 }}
       >
         <Flex alignItems="center" gap={{ base: 1, sm: 3 }}>
           <Text variant="textSm" color="secondary.300">
