@@ -18,13 +18,10 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useAuth, useForm } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withAuthenticationLayout, withErrorBoundary } from '@app/hocs';
 
 // Constants
 import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@app/constants';
-
-// Layouts
-import { AuthLayout } from '@app/layouts';
 
 // Components
 import { InputField } from '@app/components';
@@ -95,8 +92,11 @@ const RegisterPage = () => {
     async (data) => {
       setIsSubmit(true);
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { isAcceptPrivacyPolicy, confirmPassword, ...fieldValues } = data;
+      const {
+        isAcceptPrivacyPolicy: _isAcceptPrivacyPolicy,
+        confirmPassword: _confirmPassword,
+        ...fieldValues
+      } = data;
       try {
         const { errors } = await signUp(fieldValues);
 
@@ -122,8 +122,17 @@ const RegisterPage = () => {
     [redirect, setError, signUp],
   );
 
+  const handleClearErrorMessage = useCallback(
+    (field: keyof TRegisterForm, onChange: (value: string) => void) =>
+      (data: string) => {
+        clearErrors(field);
+        onChange(data);
+      },
+    [clearErrors],
+  );
+
   return (
-    <AuthLayout isSignInForm={false}>
+    <>
       <VStack
         as="form"
         gap={6}
@@ -153,9 +162,7 @@ const RegisterPage = () => {
                 isError={!!error}
                 errorMessages={error?.message}
                 isDisabled={isSubmit}
-                onChange={(data) => {
-                  clearErrors('firstName'), field.onChange(data);
-                }}
+                onChange={handleClearErrorMessage('firstName', field.onChange)}
                 aria-label="first-name"
               />
             )}
@@ -172,9 +179,7 @@ const RegisterPage = () => {
                 isError={!!error}
                 errorMessages={error?.message}
                 isDisabled={isSubmit}
-                onChange={(data) => {
-                  clearErrors('lastName'), field.onChange(data);
-                }}
+                onChange={handleClearErrorMessage('lastName', field.onChange)}
                 aria-label="last-name"
               />
             )}
@@ -193,9 +198,7 @@ const RegisterPage = () => {
               isError={!!error}
               errorMessages={error?.message}
               isDisabled={isSubmit}
-              onChange={(data) => {
-                clearErrors('email'), field.onChange(data);
-              }}
+              onChange={handleClearErrorMessage('email', field.onChange)}
               aria-label="email"
             />
           )}
@@ -206,7 +209,7 @@ const RegisterPage = () => {
           control={control}
           name="password"
           render={({ field, fieldState: { error } }) => {
-            const { message } = error || {};
+            const { message } = error ?? {};
 
             return (
               <InputField
@@ -218,9 +221,7 @@ const RegisterPage = () => {
                 isError={!!message}
                 errorMessages={message}
                 isDisabled={isSubmit}
-                onChange={(data) => {
-                  clearErrors('password'), field.onChange(data);
-                }}
+                onChange={handleClearErrorMessage('password', field.onChange)}
                 aria-label="password"
                 role="textbox"
               />
@@ -245,9 +246,10 @@ const RegisterPage = () => {
               isError={!!error}
               errorMessages={error?.message}
               isDisabled={isSubmit}
-              onChange={(data) => {
-                clearErrors('confirmPassword'), field.onChange(data);
-              }}
+              onChange={handleClearErrorMessage(
+                'confirmPassword',
+                field.onChange,
+              )}
             />
           )}
         />
@@ -318,9 +320,11 @@ const RegisterPage = () => {
           Sign In
         </Text>
       </Text>
-    </AuthLayout>
+    </>
   );
 };
 
-const Register = memo(withErrorBoundary(RegisterPage));
+const Register = memo(
+  withErrorBoundary(withAuthenticationLayout(RegisterPage, false)),
+);
 export default Register;
