@@ -30,6 +30,8 @@ const UserCardComponent = ({ user }: UserCardProps) => {
     workTime,
     avatarURL,
     salary,
+    experience,
+    hiringAgent,
   } = user || USER_MOCK;
 
   const iconButtonStyles = {

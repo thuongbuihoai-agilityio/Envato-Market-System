@@ -29,15 +29,20 @@ import {
 import { IRevenueFlow, RevenueFlowStatus } from '@app/interfaces';
 import { TOption } from '@app/components/common/Select';
 
+// Mocks
+import { INITIAL_REVENUE_FLOW } from '@app/mocks';
+
 interface RevenueFlowProps {
-  data: IRevenueFlow[];
+  data?: IRevenueFlow[];
 }
 
 interface ChartDataState {
   data: number[];
 }
 
-const RevenueFlowComponent = ({ data }: RevenueFlowProps) => {
+const RevenueFlowComponent = ({
+  data = INITIAL_REVENUE_FLOW,
+}: RevenueFlowProps) => {
   const defaultSeries = useMemo(() => {
     const generatesData = (
       key: keyof Omit<IRevenueFlow, '_id' | 'title'>,
