@@ -8,7 +8,7 @@ import { AVATAR_POSITION, IMAGES } from '@app/constants';
 import Message from '@app/components/BoxChat/Message';
 
 // Mocks
-import { MESSAGE_TIME } from '@app/mocks';
+import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
 
 const BoxChatComponent = (): JSX.Element => (
   <Box w="full" bg="background.body.quaternary" borderRadius="lg">
@@ -59,35 +59,23 @@ const BoxChatComponent = (): JSX.Element => (
     </Flex>
 
     <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
-      <Message
-        content="Hi, What can i help you with?"
-        avatarPosition={AVATAR_POSITION.BEFORE}
-        avatar={IMAGES.CHAT_USER_AVATAR.url}
-        localeTime={MESSAGE_TIME}
-      />
+      {MESSAGES.map((message): JSX.Element => {
+        const { isSend, isAudio, uid, content } = message;
 
-      <Message
-        avatar={IMAGES.CHAT_USER_AVATAR.url}
-        isImage
-        localeTime={MESSAGE_TIME}
-      />
-
-      <Flex direction="row-reverse">
-        <Message
-          content="Hello, I want to know more about your product"
-          avatarPosition={AVATAR_POSITION.AFTER}
-          isOwnerMessage
-          avatar={IMAGES.CHAT_USER_AVATAR.url}
-          localeTime={MESSAGE_TIME}
-        />
-      </Flex>
-
-      <Message
-        content="Sure, I can help you with that"
-        avatarPosition={AVATAR_POSITION.BEFORE}
-        avatar={IMAGES.CHAT_USER_AVATAR.url}
-        localeTime={MESSAGE_TIME}
-      />
+        return (
+          <Message
+            key={uid}
+            content={content}
+            isImage={isAudio}
+            isOwnerMessage={isSend}
+            avatarPosition={
+              isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE
+            }
+            avatar={IMAGES.CHAT_USER_AVATAR.url}
+            localeTime={MESSAGE_TIME}
+          />
+        );
+      })}
 
       <Flex justify="center" align="center">
         <Box
