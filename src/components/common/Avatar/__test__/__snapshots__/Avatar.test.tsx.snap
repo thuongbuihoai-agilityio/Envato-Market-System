@@ -10,6 +10,7 @@ exports[`Avatar render Should render match with snapshot. 1`] = `
     data-testid="avatar"
     h="52px"
     pt="0.5"
+    role="img"
     src=""
     w="52px"
   />

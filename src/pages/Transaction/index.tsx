@@ -3,7 +3,7 @@ import isEqual from 'react-fast-compare';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 import { Lazy } from '@app/components';
 
 // lazy loading components

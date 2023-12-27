@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 // HOCs
-import { withAuthentication } from '..';
+import { withAuthentication } from '@app/hocs/withAuthentication';
 
 // Constants
 import { ROUTES } from '@app/constants';

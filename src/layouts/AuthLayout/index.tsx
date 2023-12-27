@@ -6,7 +6,8 @@ import { ReactNode, memo, useMemo } from 'react';
 import { IMAGES, TITLES } from '@app/constants';
 
 // HOCs
-import { withAuthentication, withErrorBoundary } from '@app/hocs';
+import { withAuthentication } from '@app/hocs/withAuthentication';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Components
 import { Benefit, Divider, Logo, SwitchTheme } from '@app/components';

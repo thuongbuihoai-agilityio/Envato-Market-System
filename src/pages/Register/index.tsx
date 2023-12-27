@@ -18,7 +18,8 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useAuth, useForm } from '@app/hooks';
 
 // HOCs
-import { withAuthenticationLayout, withErrorBoundary } from '@app/hocs';
+import { withAuthenticationLayout } from '@app/hocs/withAuthentication';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Constants
 import { ROUTES, ERROR_MESSAGES, AUTH_SCHEMA } from '@app/constants';

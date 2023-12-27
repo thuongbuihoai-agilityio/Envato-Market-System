@@ -18,7 +18,7 @@ import { Lazy } from '@app/components';
 import { Header, SideBar } from '@app/layouts';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 const Layout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure({

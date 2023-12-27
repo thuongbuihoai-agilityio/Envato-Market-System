@@ -8,7 +8,7 @@ import { OPTION_SETTING } from '@app/constants/setting';
 import { ItemSideBarSetting, Lazy } from '@app/components';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Lazy loading components
 const AvatarSetting = lazy(() =>

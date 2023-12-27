@@ -6,7 +6,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '@app/layouts';
 
 // HOCs
-import { withLazy, withAuthentication } from '@app/hocs';
+import withLazy from '@app/hocs/withLazy';
+import { withAuthentication } from '@app/hocs/withAuthentication';
 
 // Pages
 const Dashboard = lazy(() => import('@app/pages/Home'));
