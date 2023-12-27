@@ -14,12 +14,11 @@ import { TEmployee } from '@app/interfaces';
 import { formatDecimalNumber } from '@app/utils';
 import { USER_MOCK } from '@app/mocks';
 
-// Mocks
-interface UserCardProps {
+interface userCardProps {
   user: TEmployee;
 }
 
-const UserCardComponent = ({ user }: UserCardProps) => {
+const UserCardComponent = ({ user }: userCardProps) => {
   const {
     firstName,
     lastName,
@@ -30,6 +29,8 @@ const UserCardComponent = ({ user }: UserCardProps) => {
     workTime,
     avatarURL,
     salary,
+    experience,
+    hiringAgent,
   } = user || USER_MOCK;
 
   const iconButtonStyles = {
