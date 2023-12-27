@@ -27,6 +27,7 @@ import {
   Table,
   Badge,
   Skeleton,
+  Spinner,
 } from './components';
 import { breakpoints } from './bases/breakpoints';
 
@@ -56,6 +57,7 @@ export const configThemes = {
       Table,
       Badge,
       Skeleton,
+      Spinner,
     },
   }),
   styles: {
