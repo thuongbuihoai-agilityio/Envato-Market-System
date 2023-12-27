@@ -7,11 +7,13 @@ exports[`History Component Should render match with snapshot. 1`] = `
   >
     <p
       class="chakra-text css-oz7p8m"
+      data-testid="error-title"
     >
       An error has been occurred!!
     </p>
     <p
       class="chakra-text css-1ly9ogx"
+      data-testid="error-message"
     >
       useLocation() may be used only in the context of a &lt;Router&gt; component.
     </p>

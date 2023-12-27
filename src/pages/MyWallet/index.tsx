@@ -12,7 +12,7 @@ import { END_POINTS } from '@app/constants';
 import { useGetStatistic } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Types
 

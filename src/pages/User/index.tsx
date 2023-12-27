@@ -5,7 +5,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import { Button, InputField, Fetching, Select, Lazy } from '@app/components';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Hooks
 import { useDebounce, useEmployee, useSearch } from '@app/hooks';

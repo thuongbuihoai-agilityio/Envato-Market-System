@@ -9,7 +9,7 @@ import { Fetching, Lazy } from '@app/components';
 import { useGetMultipleStatistics } from '@app/hooks';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Constants
 import { END_POINTS } from '@app/constants';

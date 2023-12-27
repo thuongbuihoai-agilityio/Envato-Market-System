@@ -6,7 +6,7 @@ import isEqual from 'react-fast-compare';
 import { Lazy, TransactionTable } from '@app/components';
 
 // HOCs
-import { withErrorBoundary } from '@app/hocs';
+import { withErrorBoundary } from '@app/hocs/withErrorBoundary';
 
 // Lazy loading components
 const CardPayment = lazy(() => import('@app/components/CardPayment'));
