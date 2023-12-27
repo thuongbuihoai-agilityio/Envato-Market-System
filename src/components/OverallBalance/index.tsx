@@ -75,10 +75,10 @@ const OverallBalanceComponent = ({
   );
 
   return (
-    <Box py={3} px={6} bg="background.component.primary" rounded="lg">
+    <Box p={3} bg="background.component.primary" rounded="lg">
       <Flex
         py={4}
-        px={5}
+        px={{ base: 0, md: 5 }}
         borderBottom="1px"
         borderColor="border.primary"
         justifyContent="space-between"
