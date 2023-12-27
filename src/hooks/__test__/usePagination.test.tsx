@@ -16,7 +16,7 @@ describe('usePagination hook', () => {
     const { result } = renderHook(() => usePagination([]));
 
     act(() => {
-      result.current.handleChangeLimit(20);
+      result.current.handleChangeLimit({ label: '20', value: '20' });
     });
 
     expect(result.current.data.limit).toBe(20);

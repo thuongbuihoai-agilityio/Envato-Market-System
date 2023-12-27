@@ -1,15 +1,29 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 // Types
 import { TTransaction } from '@app/interfaces';
+import { TOption } from '@app/components/common/Select';
+import { PaginationType } from '@app/interfaces/pagination';
+
+// Utils
+import { formatPagination } from '@app/utils';
+
+// Constants
+import { PAGE_SIZE, PREV } from '@app/constants';
 
 export const usePagination = (transactions: TTransaction[]) => {
-  const [data, setData] = useState({
-    limit: 10,
+  const [data, setData] = useState<PaginationType>({
+    limit: PAGE_SIZE,
     currentPage: 1,
+    arrOfCurrButtons: [],
   });
 
-  const { limit, currentPage } = data;
+  const { limit, currentPage, arrOfCurrButtons } = data;
+  const totalCount = transactions.length;
+
+  const isDisabledPrev = currentPage <= 1;
+  const lastPage = Math.floor((totalCount + limit - 1) / limit);
+  const isDisableNext = currentPage === lastPage || currentPage < 1;
 
   const filterData = useMemo(() => {
     const start = (currentPage - 1) * limit;
@@ -18,13 +32,32 @@ export const usePagination = (transactions: TTransaction[]) => {
     return transactions.slice(start, end);
   }, [currentPage, limit, transactions]);
 
+  const resetPage = useCallback(
+    () => setData((prev) => ({ ...prev, currentPage: 1 })),
+    [],
+  );
+
+  useEffect(() => {
+    const tempNumberOfButtons = formatPagination({
+      totalCount,
+      limit,
+      currentPage,
+      arrOfCurrButtons,
+    });
+
+    setData({
+      ...data,
+      arrOfCurrButtons: tempNumberOfButtons,
+    });
+  }, [currentPage, limit, totalCount]);
+
   const handleChangeLimit = useCallback(
-    (limit: number) => {
+    (limit: TOption) => {
       setData({
         ...data,
-        currentPage: (data.currentPage = 1),
-        limit,
+        limit: +limit.value,
       });
+      resetPage();
     },
     [data],
   );
@@ -39,17 +72,37 @@ export const usePagination = (transactions: TTransaction[]) => {
     [data],
   );
 
-  const resetPage = useCallback(
-    () => setData((prev) => ({ ...prev, currentPage: 1 })),
-    [],
+  const handlePageChange = useCallback(
+    (direction: string) => {
+      setData({
+        ...data,
+        currentPage: direction === PREV ? currentPage - 1 : currentPage + 1,
+      });
+    },
+    [currentPage, data],
+  );
+
+  const handlePageClick = useCallback(
+    (value: number) => {
+      setData({
+        ...data,
+        currentPage: value,
+      });
+    },
+    [currentPage, data],
   );
 
   return {
     data,
     filterData,
+    arrOfCurrButtons,
+    isDisabledPrev,
+    isDisableNext,
     setData,
     resetPage,
     handleChangeLimit,
     handleChangePage,
+    handlePageChange,
+    handlePageClick,
   };
 };
