@@ -18,7 +18,7 @@ exports[`Setting Page test cases should render correctly 1`] = `
             class="css-10g0scl"
           >
             <div
-              class="chakra-spinner css-zcyhge"
+              class="chakra-spinner css-1ff1tew"
             >
               <span
                 class="css-8b45rq"
@@ -53,7 +53,7 @@ exports[`Setting Page test cases should render correctly 1`] = `
             class="css-vwt6je"
           >
             <div
-              class="chakra-spinner css-zcyhge"
+              class="chakra-spinner css-1ff1tew"
             >
               <span
                 class="css-8b45rq"
@@ -83,7 +83,7 @@ exports[`Setting Page test cases should render correctly 1`] = `
       class="css-1im7oej"
     >
       <div
-        class="chakra-spinner css-zcyhge"
+        class="chakra-spinner css-1ff1tew"
       >
         <span
           class="css-8b45rq"

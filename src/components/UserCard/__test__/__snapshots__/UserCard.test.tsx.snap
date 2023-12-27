@@ -203,7 +203,9 @@ exports[`UserCard component renders correctly 1`] = `
           <p
             class="chakra-text css-11c5ex2"
           >
-            Annette Black
+            Huy
+             
+            Pham
           </p>
           <p
             class="chakra-text css-ss2gmn"
@@ -213,7 +215,8 @@ exports[`UserCard component renders correctly 1`] = `
             <span
               class="chakra-text css-1uvw9jh"
             >
-              from last week
+              10 Years
+               Exp
             </span>
           </p>
         </div>

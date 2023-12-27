@@ -37,7 +37,6 @@ exports[`UserTable component should renders correctly 1`] = `
               >
                 <h4
                   class="chakra-text css-197ngd6"
-                  title="Abdur Rohman"
                 >
                   Abdur Rohman
                 </h4>
@@ -53,7 +52,6 @@ exports[`UserTable component should renders correctly 1`] = `
                   </span>
                   <span
                     class="chakra-text css-1rgac5r"
-                    title="Jakarta, Indonesia 2 days ago"
                   >
                     Jakarta, Indonesia
                     ⋅
@@ -68,7 +66,6 @@ exports[`UserTable component should renders correctly 1`] = `
           >
             <span
               class="chakra-badge css-3jdwwr"
-              title="Full Time"
             >
               Full Time
             </span>
@@ -78,7 +75,6 @@ exports[`UserTable component should renders correctly 1`] = `
           >
             <span
               class="chakra-badge css-3jdwwr"
-              title="Senior Level"
             >
               Senior Level
             </span>
@@ -129,7 +125,6 @@ exports[`UserTable component should renders correctly 1`] = `
               >
                 <h4
                   class="chakra-text css-197ngd6"
-                  title="Devon Rohman"
                 >
                   Devon Rohman
                 </h4>
@@ -145,7 +140,6 @@ exports[`UserTable component should renders correctly 1`] = `
                   </span>
                   <span
                     class="chakra-text css-1rgac5r"
-                    title="Jakarta, Indonesia 4 days ago"
                   >
                     Jakarta, Indonesia
                     ⋅
@@ -160,7 +154,6 @@ exports[`UserTable component should renders correctly 1`] = `
           >
             <span
               class="chakra-badge css-3jdwwr"
-              title="Full Time"
             >
               Full Time
             </span>
@@ -170,7 +163,6 @@ exports[`UserTable component should renders correctly 1`] = `
           >
             <span
               class="chakra-badge css-3jdwwr"
-              title="Senior Level"
             >
               Senior Level
             </span>

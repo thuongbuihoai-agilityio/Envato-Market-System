@@ -12,6 +12,14 @@ export const USER_MOCK: TEmployee = {
   id: '1',
   createdAt: 3123123,
   salary: 1234,
+  experience: '2-4 Years',
+  hiringAgent: {
+    firstName: 'Huy',
+    lastName: 'Pham',
+    role: 'HR Specialist',
+    experience: '10 Years',
+    avatarURL: 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png',
+  },
 };
 
 export const USERS_MOCK = [
@@ -27,6 +35,14 @@ export const USERS_MOCK = [
     id: '1',
     createdAt: 3123123,
     salary: 1234,
+    experience: '3-4 Years',
+    hiringAgent: {
+      firstName: 'Huy',
+      lastName: 'Pham',
+      role: 'HR Specialist',
+      experience: '10 Years',
+      avatarURL: 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png',
+    },
   },
   {
     avatarURL: 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png',
@@ -40,6 +56,14 @@ export const USERS_MOCK = [
     id: '2',
     createdAt: 132312321,
     salary: 1234,
+    experience: '1-2 Years',
+    hiringAgent: {
+      firstName: 'Huy',
+      lastName: 'Pham',
+      role: 'HR Specialist',
+      experience: '10 Years',
+      avatarURL: 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png',
+    },
   },
 ];
 
@@ -55,6 +79,14 @@ export const INITIAL_USER = {
   id: '',
   createdAt: 0,
   salary: 0,
+  experience: '',
+  hiringAgent: {
+    firstName: '',
+    lastName: '',
+    role: '',
+    experience: '',
+    avatarURL: '',
+  },
 };
 
 export const MOCK_USER_DATA = {
