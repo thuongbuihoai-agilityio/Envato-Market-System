@@ -19,7 +19,7 @@ import { ISpendingStatistics, IRevenueFlow } from '@app/interfaces';
 import { UseQueryResult } from '@tanstack/react-query';
 
 // Lazy load components
-const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const CardPayment = lazy(() => import('@app/components/CardPayment'));
 const BoxChat = lazy(() => import('@app/components/BoxChat'));
 const TotalList = lazy(() => import('@app/components/TotalList'));
 const RevenueFlow = lazy(() => import('@app/components/RevenueFlow'));
@@ -108,7 +108,7 @@ const Dashboard = () => {
         >
           <Box w="full">
             <Lazy>
-              <CartPayment />
+              <CardPayment />
             </Lazy>
           </Box>
 
