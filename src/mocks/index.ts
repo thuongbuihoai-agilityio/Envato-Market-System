@@ -5,3 +5,4 @@ export * from './user';
 export * from './history.ts';
 export * from './time.ts';
 export * from './statistic.ts';
+export * from './chat.ts';
