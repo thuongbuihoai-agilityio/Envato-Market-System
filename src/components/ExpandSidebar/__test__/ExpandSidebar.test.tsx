@@ -6,10 +6,6 @@ import userEvent from '@testing-library/user-event';
 import { ExpandSidebar } from '@app/components';
 import { useMediaQuery } from '@chakra-ui/react';
 
-const mockOnCloseFunction = jest.fn();
-
-const mockOnOpenFunction = jest.fn();
-
 const mockMobileMediaQuery = () =>
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -25,7 +21,10 @@ const mockMobileMediaQuery = () =>
     })),
   });
 
-const setup = () =>
+const setup = (
+  mockOnOpenFunction: () => void,
+  mockOnCloseFunction: () => void,
+) =>
   render(
     <MemoryRouter>
       <ExpandSidebar
@@ -37,6 +36,10 @@ const setup = () =>
   );
 
 describe('ExpandSidebar test case', () => {
+  const mockOnCloseFunction = jest.fn();
+
+  const mockOnOpenFunction = jest.fn();
+
   beforeEach(() => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
@@ -61,14 +64,14 @@ describe('ExpandSidebar test case', () => {
   });
 
   it('should render correctly', () => {
-    const { container } = setup();
+    const { container } = setup(mockOnOpenFunction, mockOnCloseFunction);
     expect(container).toMatchSnapshot();
   });
 
   it('should invoke close function when clicking close icon', async () => {
     mockMobileMediaQuery();
 
-    const { container } = setup();
+    const { container } = setup(mockOnOpenFunction, mockOnCloseFunction);
 
     const closeIcon = container.querySelector('#close-expand');
 
@@ -82,7 +85,10 @@ describe('ExpandSidebar test case', () => {
   it('should be dismissed when clicking outside on mobile and tablet', async () => {
     mockMobileMediaQuery();
 
-    const { getByTestId, findByRole } = setup();
+    const { getByTestId, findByRole } = setup(
+      mockOnOpenFunction,
+      mockOnCloseFunction,
+    );
 
     renderHook(() => useMediaQuery('max-width: 1732px'));
 
@@ -102,7 +108,7 @@ describe('ExpandSidebar test case', () => {
   it('should be dismissed when navigating page on mobile', async () => {
     mockMobileMediaQuery();
 
-    const { getByText } = setup();
+    const { getByText } = setup(mockOnOpenFunction, mockOnCloseFunction);
 
     renderHook(() => useMediaQuery('max-width: 1732px'));
 
