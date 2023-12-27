@@ -82,6 +82,9 @@ const TotalCardComponent = ({
               toolbar: {
                 show: false,
               },
+              zoom: {
+                enabled: false,
+              },
             },
             dataLabels: {
               enabled: false,
