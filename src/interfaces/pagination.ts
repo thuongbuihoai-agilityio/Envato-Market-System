@@ -1,9 +1,9 @@
 export interface PaginationType {
   arrOfCurrButtons: (number | string)[];
+  currentPage: number;
+  limit: number;
 }
 
 export interface FormatPaginationParams extends PaginationType {
-  currentPage: number;
   totalCount: number;
-  pageSize: number;
 }

@@ -11,11 +11,11 @@ export const formatNumberButton = (numberOfPage: number): number[] =>
 
 export const formatPagination = ({
   totalCount,
-  pageSize,
+  limit,
   currentPage,
   arrOfCurrButtons,
 }: FormatPaginationParams): (string | number)[] => {
-  const numberOfPage = Math.ceil(totalCount / pageSize);
+  const numberOfPage = Math.ceil(totalCount / limit);
   let tempNumberOfButtons = [...arrOfCurrButtons];
 
   if (formatNumberButton(numberOfPage).length <= 4) {

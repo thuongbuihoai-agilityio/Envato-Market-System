@@ -60,8 +60,17 @@ const TransactionTableComponent = ({
     name: searchTransaction.name,
   });
 
-  const { data, filterData, resetPage, handleChangeLimit, handleChangePage } =
-    usePagination(transactions);
+  const {
+    data,
+    filterData,
+    arrOfCurrButtons,
+    isDisabledPrev,
+    isDisableNext,
+    resetPage,
+    handleChangeLimit,
+    handlePageChange,
+    handlePageClick,
+  } = usePagination(transactions);
 
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce((value: string) => {
@@ -156,9 +165,12 @@ const TransactionTableComponent = ({
             <Pagination
               pageSize={data.limit}
               currentPage={data.currentPage}
-              totalCount={transactions.length}
+              isDisabledPrev={isDisabledPrev}
+              isDisableNext={isDisableNext}
+              arrOfCurrButtons={arrOfCurrButtons}
               onLimitChange={handleChangeLimit}
-              onPageChange={handleChangePage}
+              onPageChange={handlePageChange}
+              onClickPage={handlePageClick}
             />
           </Box>
         )}

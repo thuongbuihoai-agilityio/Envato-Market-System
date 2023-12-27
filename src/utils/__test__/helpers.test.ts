@@ -31,7 +31,7 @@ describe('formatPagination', () => {
   it('should handle the case where numberOfPage is exactly 4', () => {
     const result = formatPagination({
       totalCount: 8,
-      pageSize: 2,
+      limit: 2,
       currentPage: 1,
       arrOfCurrButtons: [],
     });
@@ -42,7 +42,7 @@ describe('formatPagination', () => {
   it('should handle the case where numberOfPage is less than 4', () => {
     const result = formatPagination({
       totalCount: 6,
-      pageSize: 2,
+      limit: 2,
       currentPage: 1,
       arrOfCurrButtons: [],
     });
@@ -53,7 +53,7 @@ describe('formatPagination', () => {
   it('return return an array of page buttons around the current page when the number of pages is greater than 4', () => {
     const result = formatPagination({
       totalCount: 20,
-      pageSize: 2,
+      limit: 2,
       currentPage: 1,
       arrOfCurrButtons: [],
     });
@@ -64,7 +64,7 @@ describe('formatPagination', () => {
   it('should handle the case where currentPage is near the end', () => {
     const result = formatPagination({
       totalCount: 15,
-      pageSize: 2,
+      limit: 2,
       currentPage: 7,
       arrOfCurrButtons: [],
     });

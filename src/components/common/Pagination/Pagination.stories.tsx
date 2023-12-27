@@ -12,10 +12,6 @@ const meta: Meta<typeof Pagination> = {
       description: 'The number of item to display in one page',
     },
 
-    totalCount: {
-      description: 'The total number of pages',
-    },
-
     onPageChange: {
       description: 'The function to be called when changing pages',
     },
@@ -32,7 +28,8 @@ type Story = StoryObj<typeof Pagination>;
 
 export const Default: Story = {
   args: {
-    totalCount: 100,
     pageSize: 8,
+    arrOfCurrButtons: [1, 2, 3, '...', 7],
+    currentPage: 1,
   },
 };
