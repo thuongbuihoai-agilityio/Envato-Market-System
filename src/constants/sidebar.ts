@@ -14,32 +14,32 @@ export const MENU_ITEM_LIST = [
   {
     id: 1,
     leftIcon: DashboardIcon,
-    menuItemContent: 'Dashboard',
+    menuItemContent: 'Dashboards',
     destination: '/',
   },
   {
     id: 2,
     leftIcon: TransactionIcon,
-    menuItemContent: 'Transaction',
+    menuItemContent: 'Transactions',
     destination: `/${ROUTES.TRANSACTION}`,
   },
   {
     id: 3,
     leftIcon: MyWalletIcon,
-    menuItemContent: 'My Wallet',
+    menuItemContent: 'My Wallets',
     destination: `/${ROUTES.MY_WALLET}`,
   },
   {
     id: 4,
     leftIcon: UserIcon,
-    menuItemContent: 'User',
+    menuItemContent: 'Users',
     destination: `/${ROUTES.USER}`,
   },
 
   {
     id: 5,
     leftIcon: HistoryIcon,
-    menuItemContent: 'History',
+    menuItemContent: 'Histories',
     destination: `/${ROUTES.HISTORY}`,
   },
 ];
@@ -48,7 +48,7 @@ export const HELP_ITEM_LIST = [
   {
     id: 6,
     leftIcon: SettingIcon,
-    menuItemContent: 'Setting',
+    menuItemContent: 'Settings',
     destination: `/${ROUTES.SETTING}`,
   },
 ];
