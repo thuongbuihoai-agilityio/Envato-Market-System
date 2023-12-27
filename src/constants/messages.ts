@@ -16,6 +16,10 @@ export const ERROR_MESSAGES = {
   },
   UPLOAD_IMAGE: "Wrong image format. Only 'jpg', 'png' and 'webp' are allowed",
   UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
+  FACEBOOK_INVALID: 'Facebook link is invalid',
+  TWITTER_INVALID: 'Twitter link is invalid',
+  LINKEDIN_INVALID: 'Linkedin link is invalid',
+  YOUTUBE_INVALID: 'Youtube link is invalid',
 };
 
 export const SUCCESS_MESSAGES = {
