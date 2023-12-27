@@ -11,3 +11,4 @@ export * from './Menu';
 export * from './Table';
 export * from './Badge';
 export * from './Skeleton';
+export * from './Spinner';

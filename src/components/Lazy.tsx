@@ -5,13 +5,7 @@ import isEqual from 'react-fast-compare';
 type TLazyProps = { children: ReactNode };
 
 const LazyComponent = ({ children }: TLazyProps) => (
-  <Suspense
-    fallback={
-      <Spinner position="fixed" top="50%" left={{ base: '47%', lg: '52%' }} />
-    }
-  >
-    {children}
-  </Suspense>
+  <Suspense fallback={<Spinner variant="center" />}>{children}</Suspense>
 );
 
 const Lazy = memo(LazyComponent, isEqual);
