@@ -23,7 +23,7 @@ import { INITIAL_OVERALL_BALANCE } from '@app/mocks';
 
 // Lazy loading components
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
-const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const CardPayment = lazy(() => import('@app/components/CardPayment'));
 const Efficiency = lazy(() => import('@app/components/Efficiency'));
 const TotalBalance = lazy(() => import('@app/components/TotalBalance'));
 const OverallBalance = lazy(() => import('@app/components/OverallBalance'));
@@ -48,7 +48,7 @@ const MyWallet = () => {
         <Flex w="full" direction="column" gap={6}>
           <Lazy>
             <TotalBalance />
-            <CartPayment />
+            <CardPayment />
           </Lazy>
         </Flex>
       </GridItem>
