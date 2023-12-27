@@ -55,4 +55,32 @@ export const AUTH_SCHEMA = {
       message: ERROR_MESSAGES.UPLOAD_IMAGE,
     },
   },
+
+  FACEBOOK: {
+    pattern: {
+      value: REGEX.FACEBOOK,
+      message: ERROR_MESSAGES.FACEBOOK_INVALID,
+    },
+  },
+
+  TWITTER: {
+    pattern: {
+      value: REGEX.TWITTER,
+      message: ERROR_MESSAGES.TWITTER_INVALID,
+    },
+  },
+
+  LINKEDIN: {
+    pattern: {
+      value: REGEX.LINKEDIN,
+      message: ERROR_MESSAGES.LINKEDIN_INVALID,
+    },
+  },
+
+  YOUTUBE: {
+    pattern: {
+      value: REGEX.YOUTUBE,
+      message: ERROR_MESSAGES.YOUTUBE_INVALID,
+    },
+  },
 };
