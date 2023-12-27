@@ -21,11 +21,6 @@ export const MENU_LIST_ICON = [
 
 export const MENU_LIST = [
   {
-    id: 1,
-    href: `/${ROUTES.SETTING}`,
-    value: 'Setting',
-  },
-  {
     id: 2,
     href: `/${ROUTES.USER}`,
     value: 'User',
