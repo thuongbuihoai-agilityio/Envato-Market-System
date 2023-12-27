@@ -7,13 +7,16 @@ import { TotalCard, TotalListSkeleton } from '@app/components';
 // Types
 import { ISpendingStatistics } from '@app/interfaces';
 
+// Mocks
+import { INITIAL_TOTAL_STATISTICS } from '@app/mocks';
+
 interface TotalListComponentProps {
-  spendingStatistics: ISpendingStatistics[];
+  spendingStatistics?: ISpendingStatistics[];
   isLoading?: boolean;
 }
 
 const TotalListComponent = ({
-  spendingStatistics,
+  spendingStatistics = INITIAL_TOTAL_STATISTICS,
   isLoading = false,
 }: TotalListComponentProps) => {
   if (isLoading) return <TotalListSkeleton />;

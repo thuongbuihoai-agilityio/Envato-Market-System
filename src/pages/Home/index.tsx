@@ -6,10 +6,7 @@ import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 import { Fetching, Lazy } from '@app/components';
 
 // Hooks
-import { useGetStatistic } from '@app/hooks';
-
-// Mocks
-import { INITIAL_REVENUE_FLOW, INITIAL_TOTAL_STATISTICS } from '@app/mocks';
+import { useGetMultipleStatistics } from '@app/hooks';
 
 // HOCs
 import { withErrorBoundary } from '@app/hocs';
@@ -19,6 +16,7 @@ import { END_POINTS } from '@app/constants';
 
 // Types
 import { ISpendingStatistics, IRevenueFlow } from '@app/interfaces';
+import { UseQueryResult } from '@tanstack/react-query';
 
 // Lazy load components
 const CartPayment = lazy(() => import('@app/components/CartPayment'));
@@ -29,17 +27,21 @@ const Efficiency = lazy(() => import('@app/components/Efficiency'));
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
 
 const Dashboard = () => {
-  const {
-    data: totalListData = INITIAL_TOTAL_STATISTICS,
-    isLoading: isLoadingTotalList,
-    isError: isErrorTotalList,
-  } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
+  const [totalStatistic, revenueFlow] = useGetMultipleStatistics<
+    ISpendingStatistics[] | IRevenueFlow[]
+  >([END_POINTS.STATISTICS, END_POINTS.REVENUE]);
 
   const {
-    data: revenueFlowData = INITIAL_REVENUE_FLOW,
+    data: totalStatisticData,
+    isLoading: isLoadingTotalList,
+    isError: isErrorTotalList,
+  } = totalStatistic as UseQueryResult<ISpendingStatistics[]>;
+
+  const {
+    data: revenueFlowData,
     isLoading: isLoadingRevenueFlow,
     isError: isErrorRevenueFlow,
-  } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
+  } = revenueFlow as UseQueryResult<IRevenueFlow[]>;
 
   return (
     <Grid
@@ -56,7 +58,7 @@ const Dashboard = () => {
         >
           <Lazy>
             <TotalList
-              spendingStatistics={totalListData}
+              spendingStatistics={totalStatisticData}
               isLoading={isLoadingTotalList}
             />
           </Lazy>
