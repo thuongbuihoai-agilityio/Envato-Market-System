@@ -7,7 +7,7 @@ type TLazyProps = { children: ReactNode };
 const LazyComponent = ({ children }: TLazyProps) => (
   <Suspense
     fallback={
-      <Spinner position="fixed" top="50%" left={{ base: '50%', lg: '52%' }} />
+      <Spinner position="fixed" top="50%" left={{ base: '47%', lg: '52%' }} />
     }
   >
     {children}
