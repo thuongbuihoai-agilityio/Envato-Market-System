@@ -8,7 +8,7 @@ import { Button, Select } from '@app/components';
 import { Arrow } from '@app/components/Icons';
 
 // Constants
-import { PAGE_SIZE, PAGINATION } from '@app/constants/pagination';
+import { NEXT, PAGE_SIZE, PAGINATION, PREV } from '@app/constants/pagination';
 
 // Interfaces
 import { TOption } from '@app/components/common/Select';
@@ -36,8 +36,9 @@ const PaginationComponent = ({
 }: PaginationProps) => {
   const colorFill = theme.colors.gray[400];
 
-  const handleNextPage = () => onPageChange('next');
-  const handlePrevPage = () => onPageChange('prev');
+  const handleNextPage = () => onPageChange(NEXT);
+
+  const handlePrevPage = () => onPageChange(PREV);
 
   const renderTitle = useCallback(
     () => (
@@ -87,7 +88,6 @@ const PaginationComponent = ({
         </Button>
         <Flex alignItems="center">
           {arrOfCurrButtons.map((item: string | number) => {
-            const handleClickPage = () => onClickPage(item as number);
             const isDots = item.toString() === '...';
             const isDisable = currentPage === item || isDots;
             const hoverStyle = isDots
@@ -102,6 +102,7 @@ const PaginationComponent = ({
                   color: 'text.quaternary',
                   bg: 'background.body.quinary',
                 };
+            const handleClickPage = () => onClickPage(item as number);
             return (
               <Button
                 key={item}
@@ -118,7 +119,7 @@ const PaginationComponent = ({
                     : 'transparent'
                 }
                 color={currentPage === item ? 'text.quaternary' : 'gray.400'}
-                cursor={isDots ? 'not-allowed' : ''}
+                {...(isDots && { cursor: 'not-allowed' })}
                 _hover={hoverStyle}
                 _disabled={disableStyle}
                 onClick={handleClickPage}

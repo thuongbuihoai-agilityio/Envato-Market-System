@@ -8,9 +8,12 @@ import { PaginationType } from '@app/interfaces/pagination';
 // Utils
 import { formatPagination } from '@app/utils';
 
+// Constants
+import { PAGE_SIZE, PREV } from '@app/constants';
+
 export const usePagination = (transactions: TTransaction[]) => {
   const [data, setData] = useState<PaginationType>({
-    limit: 10,
+    limit: PAGE_SIZE,
     currentPage: 1,
     arrOfCurrButtons: [],
   });
@@ -71,17 +74,10 @@ export const usePagination = (transactions: TTransaction[]) => {
 
   const handlePageChange = useCallback(
     (direction: string) => {
-      if (direction === 'prev') {
-        setData({
-          ...data,
-          currentPage: currentPage - 1,
-        });
-      } else if (direction === 'next') {
-        setData({
-          ...data,
-          currentPage: currentPage + 1,
-        });
-      }
+      setData({
+        ...data,
+        currentPage: direction === PREV ? currentPage - 1 : currentPage + 1,
+      });
     },
     [currentPage, data],
   );
