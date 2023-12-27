@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback } from 'react';
 
 // Components
 import { Box, Flex, Text, theme } from '@chakra-ui/react';
@@ -8,88 +8,37 @@ import { Button, Select } from '@app/components';
 import { Arrow } from '@app/components/Icons';
 
 // Constants
-import { PAGE_SIZE, PAGINATION } from '@app/constants/pagination';
+import { NEXT, PAGE_SIZE, PAGINATION, PREV } from '@app/constants/pagination';
 
 // Interfaces
 import { TOption } from '@app/components/common/Select';
-import { PaginationType } from '@app/interfaces/pagination';
-
-// Utils
-import { formatNumberButton, formatPagination } from '@app/utils/helpers';
 
 interface PaginationProps {
-  totalCount?: number;
   pageSize?: number;
   currentPage?: number;
-  onPageChange?: (offset: number) => void;
-  onLimitChange?: (limit: number) => void;
+  isDisabledPrev?: boolean;
+  isDisableNext?: boolean;
+  arrOfCurrButtons?: (number | string)[];
+  onPageChange?: (direction: string) => void;
+  onLimitChange?: (limit: TOption) => void;
+  onClickPage?: (currentPage: number) => void;
 }
 
 const PaginationComponent = ({
-  totalCount = 0,
   currentPage = 1,
   pageSize = PAGE_SIZE,
+  arrOfCurrButtons = [],
+  isDisabledPrev = false,
+  isDisableNext = false,
   onPageChange = () => {},
   onLimitChange = () => {},
+  onClickPage = () => {},
 }: PaginationProps) => {
   const colorFill = theme.colors.gray[400];
 
-  const [data, setData] = useState<PaginationType>({
-    arrOfCurrButtons: [],
-  });
+  const handleNextPage = () => onPageChange(NEXT);
 
-  const { arrOfCurrButtons } = data;
-  const numberOfPage = Math.ceil(totalCount / pageSize);
-
-  const isDisabledPrev = currentPage <= 1;
-  const lastPage = Math.floor((totalCount + pageSize - 1) / pageSize);
-  const isDisableNext = currentPage === lastPage || currentPage < 1;
-
-  useEffect(() => {
-    const tempNumberOfButtons = formatPagination({
-      totalCount,
-      pageSize,
-      currentPage,
-      arrOfCurrButtons,
-    });
-
-    setData({
-      ...data,
-      arrOfCurrButtons: tempNumberOfButtons,
-    });
-  }, [currentPage, pageSize, totalCount]);
-
-  const handlePrevPage = useCallback(() => {
-    if (currentPage === 1) {
-      onPageChange(currentPage);
-      return;
-    }
-
-    onPageChange(currentPage - 1);
-  }, [currentPage, onPageChange]);
-
-  const handleNextPage = useCallback(() => {
-    if (currentPage === formatNumberButton(numberOfPage).length) {
-      onPageChange(currentPage);
-      return;
-    }
-
-    onPageChange(currentPage + 1);
-  }, [currentPage, numberOfPage, onPageChange]);
-
-  const handlePageClick = useCallback(
-    (value: number) => {
-      onPageChange(value);
-    },
-    [onPageChange],
-  );
-
-  const handleLimitChange = useCallback(
-    (limit: TOption) => {
-      onLimitChange(+limit.value);
-    },
-    [onLimitChange],
-  );
+  const handlePrevPage = () => onPageChange(PREV);
 
   const renderTitle = useCallback(
     () => (
@@ -122,7 +71,7 @@ const PaginationComponent = ({
             variant="secondary"
             options={PAGINATION}
             renderTitle={renderTitle}
-            onSelect={handleLimitChange}
+            onSelect={onLimitChange}
           />
         </Box>
       </Flex>
@@ -153,6 +102,7 @@ const PaginationComponent = ({
                   color: 'text.quaternary',
                   bg: 'background.body.quinary',
                 };
+            const handleClickPage = () => onClickPage(item as number);
             return (
               <Button
                 key={item}
@@ -169,10 +119,10 @@ const PaginationComponent = ({
                     : 'transparent'
                 }
                 color={currentPage === item ? 'text.quaternary' : 'gray.400'}
-                cursor={isDots ? 'not-allowed' : ''}
+                {...(isDots && { cursor: 'not-allowed' })}
                 _hover={hoverStyle}
                 _disabled={disableStyle}
-                onClick={() => handlePageClick(item as number)}
+                onClick={handleClickPage}
               >
                 {item}
               </Button>

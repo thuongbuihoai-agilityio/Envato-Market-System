@@ -98,7 +98,6 @@ const BoxChatComponent = (): JSX.Element => (
             <Input
               variant="authentication"
               ml={5}
-              type="number"
               _dark={{
                 border: 'none',
               }}

@@ -17,7 +17,7 @@ export { default as TransactionTable } from './TransactionTable';
 export { default as Table } from './common/Table';
 export * from './common/Table/Body';
 export { default as HeadCell } from './common/Table/HeadCell';
-export { default as CartPayment } from './CartPayment';
+export { default as CardPayment } from './CardPayment';
 export { default as Efficiency } from './Efficiency';
 export { default as TotalList } from './TotalList';
 export { default as BoxChat } from './BoxChat';

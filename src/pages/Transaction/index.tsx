@@ -8,7 +8,7 @@ import { Lazy } from '@app/components';
 
 // lazy loading components
 const TransactionTable = lazy(() => import('@app/components/TransactionTable'));
-const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const CardPayment = lazy(() => import('@app/components/CardPayment'));
 const BoxChat = lazy(() => import('@app/components/BoxChat'));
 
 const Transaction = () => (
@@ -34,7 +34,7 @@ const Transaction = () => (
     <GridItem mt={{ base: 6, '2xl': 0 }}>
       <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
         <Lazy>
-          <CartPayment />
+          <CardPayment />
           <BoxChat />
         </Lazy>
       </Flex>

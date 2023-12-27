@@ -386,6 +386,7 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
+                rules={AUTH_SCHEMA.FACEBOOK}
                 name="facebookURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
@@ -402,12 +403,13 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
+                rules={AUTH_SCHEMA.TWITTER}
                 name="twitterURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     variant="authentication"
                     bg="background.body.primary"
-                    label="TWitter (optional)"
+                    label="Twitter (optional)"
                     {...field}
                     isError={!!error}
                     errorMessages={error?.message}
@@ -430,6 +432,7 @@ const UserFormComponent = () => {
             >
               <Controller
                 control={control}
+                rules={AUTH_SCHEMA.LINKEDIN}
                 name="linkedinURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField
@@ -446,6 +449,7 @@ const UserFormComponent = () => {
 
               <Controller
                 control={control}
+                rules={AUTH_SCHEMA.YOUTUBE}
                 name="youtubeURL"
                 render={({ field, fieldState: { error } }) => (
                   <InputField

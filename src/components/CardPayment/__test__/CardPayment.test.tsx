@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import CardPayment from '@app/components/CartPayment';
+import CardPayment from '@app/components/CardPayment';
 import userEvent from '@testing-library/user-event';
 
 describe('CardPayment test cases', () => {

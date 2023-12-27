@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { Control } from 'react-hook-form';
 
@@ -12,6 +12,7 @@ import { EnterMoney } from './EnterMoney';
 
 export interface CardPaymentProps {
   balance?: number;
+  onSubmit?: () => void;
 }
 type TTransfer = {
   money: string;
@@ -21,8 +22,9 @@ export type TTransferControl = {
   control: Control<TTransfer>;
 };
 
-const CartPaymentComponent = ({
+const CardPaymentComponent = ({
   balance = 24098,
+  onSubmit = () => {},
 }: CardPaymentProps): JSX.Element => {
   const { control, handleSubmit } = useForm<TTransfer>({
     defaultValues: {
@@ -30,9 +32,6 @@ const CartPaymentComponent = ({
       userId: '',
     },
   });
-
-  // TODO: Update to late
-  const submit = useCallback(() => {}, []);
 
   return (
     <Box
@@ -56,7 +55,7 @@ const CartPaymentComponent = ({
 
       <CardBalance balance={balance} />
 
-      <Box as="form" mt={4} onSubmit={handleSubmit(submit)}>
+      <Box as="form" mt={4} onSubmit={handleSubmit(onSubmit)}>
         <UserSelector control={control} />
         <EnterMoney control={control} />
       </Box>
@@ -64,6 +63,6 @@ const CartPaymentComponent = ({
   );
 };
 
-const CardPayment = memo(CartPaymentComponent);
+const CardPayment = memo(CardPaymentComponent);
 
 export default CardPayment;

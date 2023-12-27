@@ -9,7 +9,7 @@ import { Lazy, TransactionTable } from '@app/components';
 import { withErrorBoundary } from '@app/hocs';
 
 // Lazy loading components
-const CartPayment = lazy(() => import('@app/components/CartPayment'));
+const CardPayment = lazy(() => import('@app/components/CardPayment'));
 const BoxChat = lazy(() => import('@app/components/BoxChat'));
 
 const History = () => (
@@ -35,7 +35,7 @@ const History = () => (
     <GridItem mt={{ base: 6, '2xl': 0 }}>
       <Flex direction={{ base: 'column', lg: 'row', xl: 'column' }} gap={6}>
         <Lazy>
-          <CartPayment />
+          <CardPayment />
           <BoxChat />
         </Lazy>
       </Flex>
