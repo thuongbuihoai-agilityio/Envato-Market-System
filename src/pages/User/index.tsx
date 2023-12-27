@@ -10,9 +10,6 @@ import { withErrorBoundary } from '@app/hocs';
 // Hooks
 import { useDebounce, useEmployee, useSearch } from '@app/hooks';
 
-// Mocks
-import { INITIAL_USER } from '@app/mocks';
-
 // Icons
 import { Search, ChevronIcon } from '@app/components/Icons';
 
@@ -21,6 +18,9 @@ import { FILTER_USER_OPTIONS } from '@app/constants';
 
 // Types
 import { TOption } from '@app/components/common/Select';
+
+// Mock
+import { INITIAL_USER } from '@app/mocks';
 
 // Lazy loading components
 const UsersTable = lazy(() => import('@app/components/UsersTable'));
