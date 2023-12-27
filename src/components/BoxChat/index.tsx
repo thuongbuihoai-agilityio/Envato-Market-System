@@ -21,9 +21,7 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
     [onChange],
   );
 
-  const handleSendMessage = (): void => {
-    onSendMessage?.();
-  };
+  const handleSendMessage = (): void => onSendMessage?.();
 
   return (
     <Box w="full" bg="background.body.quaternary" borderRadius="lg">
