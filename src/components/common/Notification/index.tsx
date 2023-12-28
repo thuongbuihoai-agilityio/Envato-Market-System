@@ -18,7 +18,7 @@ import { Bell } from '@app/components/Icons';
 
 // Constants
 import { NOTIFICATION_LIST } from '@app/constants';
-import { useNotification } from '@app/hooks/useNotofication';
+import { useNotification } from '@app/hooks';
 
 interface NotificationProps {
   colorFill: string;
@@ -130,7 +130,7 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                             {item.time}
                           </Text>
                         </Box>
-                        <DeleteIcon mr={5} onClick={handleDeleteNotification} />
+                        <DeleteIcon data-testId="delete-icon" mr={5} onClick={handleDeleteNotification} />
                       </Flex>
                       <Divider color="gray.300" />
                     </Flex>
