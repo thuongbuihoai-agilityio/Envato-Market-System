@@ -154,7 +154,7 @@ const SecurityPage = () => {
           rules={AUTH_SCHEMA.PASSWORD}
           control={control}
           name="password"
-          render={({ fieldState: { error }, field: { onChange, ...rest } }) => {
+          render={({ field: { onChange, ...rest }, fieldState: { error } }) => {
             const { message } = error ?? {};
 
             return (
@@ -188,7 +188,7 @@ const SecurityPage = () => {
           control={control}
           rules={AUTH_SCHEMA.PASSWORD}
           name="newPassword"
-          render={({ fieldState: { error }, field: { onChange, ...rest } }) => (
+          render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
             <FormControl>
               <FormLabel
                 color="secondary.700"
