@@ -154,7 +154,7 @@ const SecurityPage = () => {
           rules={AUTH_SCHEMA.PASSWORD}
           control={control}
           name="password"
-          render={({ field, fieldState: { error }, field: { onChange } }) => {
+          render={({ fieldState: { error }, field: { onChange, ...rest } }) => {
             const { message } = error ?? {};
 
             return (
@@ -171,7 +171,7 @@ const SecurityPage = () => {
                   type={isShowPassword ? 'text' : 'password'}
                   variant="authentication"
                   rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
-                  {...field}
+                  {...rest}
                   isError={!!message}
                   errorMessages={message}
                   isDisabled={isSubmit}
@@ -188,7 +188,7 @@ const SecurityPage = () => {
           control={control}
           rules={AUTH_SCHEMA.PASSWORD}
           name="newPassword"
-          render={({ field, fieldState: { error }, field: { onChange } }) => (
+          render={({ fieldState: { error }, field: { onChange, ...rest } }) => (
             <FormControl>
               <FormLabel
                 color="secondary.700"
@@ -202,7 +202,7 @@ const SecurityPage = () => {
                 type={isShowPassword ? 'text' : 'password'}
                 variant="authentication"
                 rightIcon={renderPasswordIcon(isShowPassword, onShowPassword)}
-                {...field}
+                {...rest}
                 isError={!!error}
                 errorMessages={error?.message}
                 isDisabled={isSubmit}
