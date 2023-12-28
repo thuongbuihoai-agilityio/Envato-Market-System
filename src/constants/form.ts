@@ -83,4 +83,8 @@ export const AUTH_SCHEMA = {
       message: ERROR_MESSAGES.YOUTUBE_INVALID,
     },
   },
+  PIN_CODE: {
+    required: true,
+    validate: (value: string) => value.length === 4,
+  },
 };
