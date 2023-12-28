@@ -60,7 +60,9 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         w="full"
       >
         <Logo />
-        <Dropdown name={username} permission="Super Admin" src={avatarURL} />
+        <Box display={{ base: 'block', default: 'none' }}>
+          <Dropdown name={username} permission="Super Admin" src={avatarURL} />
+        </Box>
       </Flex>
       <Box display={{ base: 'none', md: 'inline' }} minW={185}>
         <Heading
@@ -79,23 +81,39 @@ const HeaderComponent = ({ name }: HeaderProps) => {
 
       <Flex
         gap={43}
+        mt={{ base: 3, default: 0 }}
         alignSelf={{
           base: 'end',
           xl: 'baseline',
         }}
       >
-        <Flex minW={310} justifyContent="space-between">
-          <SwitchTheme />
+        <Flex>
+          <Flex
+            minW={{ base: 325, sm: 280, md: 310 }}
+            justifyContent="space-between"
+          >
+            <SwitchTheme />
 
-          <Notification colorFill={colorFill} />
+            <Notification colorFill={colorFill} />
 
-          <IconButton isNotification hasNewNotification>
-            <Email color={colorFill} />
-          </IconButton>
+            <IconButton>
+              <Email color={colorFill} />
+            </IconButton>
 
-          <IconButton isNotification>
-            <Gift color={colorFill} />
-          </IconButton>
+            <IconButton>
+              <Gift color={colorFill} />
+            </IconButton>
+          </Flex>
+          <Box
+            display={{ base: 'none', default: 'inline-flex', md: 'none' }}
+            ml={4}
+          >
+            <Dropdown
+              name={username}
+              permission="Super Admin"
+              src={avatarURL}
+            />
+          </Box>
         </Flex>
 
         <Box

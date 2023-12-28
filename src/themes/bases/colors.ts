@@ -1,5 +1,6 @@
 export const colors = {
   primary: {
+    300: '#22C55E',
     400: '#D9FBE6',
     500: '#0C642F',
     600: '#16A34A',
@@ -198,6 +199,10 @@ export const colors = {
     textTime: {
       default: '#4B5772',
       _dark: '#A0AEC0',
+    },
+    textDollar: {
+      default: '#0C642F',
+      _dark: '#22C55E',
     },
   },
 

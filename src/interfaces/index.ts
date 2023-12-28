@@ -6,3 +6,4 @@ export * from './status';
 export * from './transaction';
 export * from './table';
 export * from './config';
+export * from './notification';

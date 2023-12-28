@@ -1,4 +1,6 @@
 import { memo } from 'react';
+
+// Components
 import {
   Box,
   Button,
@@ -10,99 +12,138 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 import { IconButton } from '@app/components';
 import { Bell } from '@app/components/Icons';
+
+// Constants
+import { NOTIFICATION_LIST } from '@app/constants';
+import { useNotification } from '@app/hooks/useNotofication';
 
 interface NotificationProps {
   colorFill: string;
 }
 
-const NotificationComponent = ({ colorFill = '' }: NotificationProps) => (
-  <Menu offset={[0, 0]}>
-    {({ isOpen }) => (
-      <Box>
-        <MenuButton
-          as={Button}
-          p={0}
-          bg="none"
-          _hover={{
-            bg: 'none',
-          }}
-          _active={{
-            bg: 'none',
-          }}
-          isActive={isOpen}
-        >
-          <IconButton isNotification>
-            <Bell color={colorFill} />
-          </IconButton>
-        </MenuButton>
-        <MenuList
-          zIndex={2}
-          w={400}
-          border="none"
-          borderRadius="lg"
-          bg="background.component.primary"
-        >
-          <MenuItem p={3.5} borderRadius="lg" bg="transparent">
-            <Flex flexDirection="column">
-              <Flex flexDirection="column">
-                <Box>
-                  <Text>
-                    James Eusobiosend a new payment for SEO writing totaling
-                    $199.00
-                  </Text>
-                  <Text>23 mins ago</Text>
-                </Box>
-                <Divider />
-              </Flex>
-              <Flex flexDirection="column">
-                <Box>
-                  <Text>
-                    James Eusobiosend a new payment for SEO writing totaling
-                    $199.00
-                  </Text>
-                  <Text>23 mins ago</Text>
-                </Box>
-                <Divider />
-              </Flex>
-              <Flex flexDirection="column">
-                <Box>
-                  <Text>
-                    James Eusobiosend a new payment for SEO writing totaling
-                    $199.00
-                  </Text>
-                  <Text>23 mins ago</Text>
-                </Box>
-                <Divider />
-              </Flex>
-              <Flex flexDirection="column">
-                <Box>
-                  <Text>
-                    James Eusobiosend a new payment for SEO writing totaling
-                    $199.00
-                  </Text>
-                  <Text>23 mins ago</Text>
-                </Box>
-                <Divider />
-              </Flex>
-              <Flex flexDirection="column">
-                <Box>
-                  <Text>
-                    James Eusobiosend a new payment for SEO writing totaling
-                    $199.00
-                  </Text>
-                  <Text>23 mins ago</Text>
-                </Box>
-                <Divider />
-              </Flex>
+const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
+  const {
+    quantity,
+    hasNewNotification,
+    handleDeleteNotice,
+    handleUpdateMarkRead,
+  } = useNotification(NOTIFICATION_LIST);
+
+  return (
+    <Menu placement="auto" closeOnSelect={false}>
+      {({ isOpen }) => (
+        <Box>
+          <MenuButton
+            as={Button}
+            p={0}
+            bg="none"
+            _hover={{
+              bg: 'none',
+            }}
+            _active={{
+              bg: 'none',
+            }}
+            isActive={isOpen}
+            lineHeight="inherit"
+          >
+            <IconButton
+              hasNewNotification={hasNewNotification}
+              quantityNotification={quantity}
+            >
+              <Bell color={colorFill} />
+            </IconButton>
+          </MenuButton>
+          <MenuList
+            mt={5}
+            w={{ base: 300, lg: 435 }}
+            overflow="hidden"
+            px={3.5}
+            border="none"
+            borderRadius="lg"
+            bg="background.component.primary"
+          >
+            <Text fontSize="xl" fontWeight="bold" m={4}>
+              Notifications
+            </Text>
+            <Flex flexDirection="column" mt={3} maxH={320} overflowY="scroll">
+              {NOTIFICATION_LIST.map((item) => {
+                const handleDeleteNotification = () =>
+                  handleDeleteNotice(item.id);
+                const handleUpdateNotification = () =>
+                  handleUpdateMarkRead(item.id);
+
+                return (
+                  <MenuItem
+                    key={item.id}
+                    py={0}
+                    bg={
+                      item.isMarkRead
+                        ? 'transparent'
+                        : 'background.component.tertiary'
+                    }
+                    _hover={{
+                      bg: 'background.component.tertiary',
+                      color: 'primary.500',
+                    }}
+                    onClick={handleUpdateNotification}
+                  >
+                    <Flex flexDirection="column">
+                      <Flex alignItems="center">
+                        <Box>
+                          <Text fontSize="sm" color="text.nonary" mt={2}>
+                            <Text
+                              as="span"
+                              fontWeight="bold"
+                              pr={1}
+                              fontSize="sm"
+                            >
+                              {item.sender}
+                            </Text>
+                            {item.description}
+                            <Text
+                              as="span"
+                              fontWeight="bold"
+                              px={1}
+                              fontSize="sm"
+                            >
+                              {item.receiver}
+                            </Text>
+                            totaling
+                            <Text
+                              as="span"
+                              color="text.textDollar"
+                              px={1}
+                              fontSize="sm"
+                            >
+                              {item.sentMoney}
+                            </Text>
+                          </Text>
+                          <Text
+                            fontSize="xs"
+                            color="text.textTime"
+                            mt={2}
+                            mb={3}
+                          >
+                            {item.time}
+                          </Text>
+                        </Box>
+                        <DeleteIcon mr={5} onClick={handleDeleteNotification} />
+                      </Flex>
+                      <Divider color="gray.300" />
+                    </Flex>
+                  </MenuItem>
+                );
+              })}
             </Flex>
-          </MenuItem>
-        </MenuList>
-      </Box>
-    )}
-  </Menu>
-);
+          </MenuList>
+        </Box>
+      )}
+    </Menu>
+  );
+};
 
 const Notification = memo(NotificationComponent);
 export default Notification;
