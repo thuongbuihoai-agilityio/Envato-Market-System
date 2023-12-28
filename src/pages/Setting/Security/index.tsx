@@ -23,6 +23,7 @@ import {
   ERROR_MESSAGES,
   IMAGES,
   SHOW_TIME,
+  STATUS,
   SUCCESS_MESSAGES,
 } from '@app/constants';
 
@@ -34,6 +35,7 @@ import { useAuth, useForm, useUpdateUser } from '@app/hooks';
 
 // Components
 import { InputField } from '@app/components';
+import { POSITION } from '@app/constants/position';
 
 type TRegisterForm = Omit<TUserDetail, 'id' | 'createdAt'> & {
   newPassword: string;
@@ -79,10 +81,10 @@ const SecurityPage = () => {
           toast({
             title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
             description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
-            status: 'success',
+            status: STATUS.SUCCESS,
             duration: SHOW_TIME,
             isClosable: true,
-            position: 'top-right',
+            position: POSITION.TOP_RIGHT,
           });
           reset(updatedInfo);
         },
@@ -90,10 +92,10 @@ const SecurityPage = () => {
           toast({
             title: ERROR_MESSAGES.UPDATE_FAIL.title,
             description: ERROR_MESSAGES.UPDATE_FAIL.description,
-            status: 'error',
+            status: STATUS.ERROR,
             duration: SHOW_TIME,
             isClosable: true,
-            position: 'top-right',
+            position: POSITION.TOP_RIGHT,
           });
         },
       });
@@ -152,7 +154,7 @@ const SecurityPage = () => {
           rules={AUTH_SCHEMA.PASSWORD}
           control={control}
           name="password"
-          render={({ field, fieldState: { error } }) => {
+          render={({ field, fieldState: { error }, field: { onChange } }) => {
             const { message } = error ?? {};
 
             return (
@@ -173,7 +175,7 @@ const SecurityPage = () => {
                   isError={!!message}
                   errorMessages={message}
                   isDisabled={isSubmit}
-                  onChange={handleClearErrorMessage('password', field.onChange)}
+                  onChange={handleClearErrorMessage('password', onChange)}
                   aria-label="password"
                   role="textbox"
                 />
@@ -186,7 +188,7 @@ const SecurityPage = () => {
           control={control}
           rules={AUTH_SCHEMA.PASSWORD}
           name="newPassword"
-          render={({ field, fieldState: { error } }) => (
+          render={({ field, fieldState: { error }, field: { onChange } }) => (
             <FormControl>
               <FormLabel
                 color="secondary.700"
@@ -204,10 +206,7 @@ const SecurityPage = () => {
                 isError={!!error}
                 errorMessages={error?.message}
                 isDisabled={isSubmit}
-                onChange={handleClearErrorMessage(
-                  'newPassword',
-                  field.onChange,
-                )}
+                onChange={handleClearErrorMessage('newPassword', onChange)}
               />
             </FormControl>
           )}
