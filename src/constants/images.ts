@@ -198,4 +198,8 @@ export const IMAGES = {
     url: 'images/record-dark.webp',
     alt: 'This is record dark image',
   },
+  PASSWORD: {
+    url: 'images/reset-password.svg',
+    alt: 'This is password image',
+  },
 };

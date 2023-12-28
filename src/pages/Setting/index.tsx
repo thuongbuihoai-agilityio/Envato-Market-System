@@ -23,8 +23,15 @@ const Faq = lazy(() =>
   })),
 );
 
+const Security = lazy(() =>
+  import('@app/components/Icons/Security').then((module) => ({
+    default: module.Security,
+  })),
+);
+
 const UserForm = lazy(() => import('@app/pages/Setting/Personal'));
 const FaqPage = lazy(() => import('@app/pages/Setting/Faq'));
+const SecurityPage = lazy(() => import('@app/pages/Setting/Security'));
 
 const SettingPage = () => {
   const [activeItemId, setActiveItemId] = useState<string>(
@@ -34,6 +41,7 @@ const SettingPage = () => {
   const pages: Record<string, ReactElement> = {
     [OPTION_SETTING.USER_FORM]: <UserForm />,
     [OPTION_SETTING.FAQ_PAGE]: <FaqPage />,
+    [OPTION_SETTING.SECURITY_PAGE]: <SecurityPage />,
   };
 
   const handleItemClick = useCallback((id: string) => setActiveItemId(id), []);
@@ -66,11 +74,23 @@ const SettingPage = () => {
           id={OPTION_SETTING.FAQ_PAGE}
           activeItemId={activeItemId}
           onClick={handleItemClick}
-          title="FAQ"
+          title="Faq"
           content="Frequently asked questions"
         >
           <Lazy>
             <Faq />
+          </Lazy>
+        </ItemSideBarSetting>
+
+        <ItemSideBarSetting
+          id={OPTION_SETTING.SECURITY_PAGE}
+          activeItemId={activeItemId}
+          onClick={handleItemClick}
+          title="Security"
+          content="change your password"
+        >
+          <Lazy>
+            <Security />
           </Lazy>
         </ItemSideBarSetting>
       </GridItem>
