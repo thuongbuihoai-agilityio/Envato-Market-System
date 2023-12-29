@@ -112,9 +112,9 @@ const UserDropdownMenu = ({
                   bg="transparent"
                   _hover={{
                     bg: 'background.component.tertiary',
-                    color: 'primary.500',
-                    svg: { stroke: 'primary.500' },
-                    path: { stroke: 'primary.500' },
+                    color: 'text.textDollar',
+                    svg: { stroke: 'text.textDollar' },
+                    path: { stroke: 'text.textDollar' },
                     borderColor: 'transparent',
                   }}
                   _focus={{
@@ -145,8 +145,8 @@ const UserDropdownMenu = ({
                 aria-label={`menu-item-${value}`}
                 _hover={{
                   bg: 'background.component.tertiary',
-                  color: 'primary.500',
-                  svg: { stroke: 'primary.500' },
+                  color: 'text.textDollar',
+                  svg: { stroke: 'text.textDollar' },
                   borderColor: 'transparent',
                 }}
                 _focus={{

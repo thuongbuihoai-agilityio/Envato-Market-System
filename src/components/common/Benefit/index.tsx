@@ -74,7 +74,7 @@ const BenefitComponent = ({
         a
         <Text
           as="span"
-          color="primary.500"
+          color="text.textDollar"
           paddingInline={1}
           fontWeight="bold"
           fontSize="sm"

@@ -41,8 +41,8 @@ const UserCardComponent = ({ user }: userCardProps) => {
     w: 10,
     h: 10,
     _hover: {
-      bg: 'primary.500',
-      borderColor: 'primary.500',
+      bg: 'text.textDollar',
+      borderColor: 'text.textDollar',
       svg: { stroke: 'white' },
     },
   };
@@ -129,7 +129,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
             <Text variant="textSm" fontWeight="semibold" color="text.primary">
               {hiringAgent.firstName} {hiringAgent.lastName}
             </Text>
-            <Text color="primary.500" variant="textSm">
+            <Text color="text.textDollar" variant="textSm">
               HR Specialist •{' '}
               <Text as="span" color="text.nonary" variant="textSm">
                 {hiringAgent.experience} Exp

@@ -16,7 +16,7 @@ export const Badge = defineStyleConfig({
 
   variants: {
     primary: {
-      color: 'primary.500',
+      color: 'text.textDollar',
       backgroundColor: BACKGROUND_PRIMARY,
     },
     secondary: {

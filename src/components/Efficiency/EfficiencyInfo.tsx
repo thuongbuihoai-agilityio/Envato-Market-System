@@ -71,7 +71,7 @@ const EfficiencyComponent = ({
         <Box>
           <Box mb={6}>
             <Flex alignItems="center" gap={1}>
-              <Text variant="textLg" color="primary.500">
+              <Text variant="textLg" color="text.textDollar">
                 ${formatDecimalNumber(arrival, true)}
               </Text>
               <Sort />

@@ -86,7 +86,7 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                     }
                     _hover={{
                       bg: 'background.component.tertiary',
-                      color: 'primary.500',
+                      color: 'text.textDollar',
                     }}
                     onClick={handleUpdateNotification}
                   >
@@ -130,7 +130,11 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                             {item.time}
                           </Text>
                         </Box>
-                        <DeleteIcon data-testId="delete-icon" mr={5} onClick={handleDeleteNotification} />
+                        <DeleteIcon
+                          data-testId="delete-icon"
+                          mr={5}
+                          onClick={handleDeleteNotification}
+                        />
                       </Flex>
                       <Divider color="gray.300" />
                     </Flex>

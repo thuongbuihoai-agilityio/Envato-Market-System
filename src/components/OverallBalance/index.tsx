@@ -89,7 +89,7 @@ const OverallBalanceComponent = ({
             <Heading variant="heading2Xl" as="h3">
               ${formatDecimalNumber(total)}
             </Heading>
-            <Text color="primary.500">{growth}%</Text>
+            <Text color="text.textDollar">{growth}%</Text>
           </Flex>
         </Box>
         <Flex gap={7} display={{ base: 'none', lg: 'flex' }}>
