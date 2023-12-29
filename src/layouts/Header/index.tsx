@@ -14,11 +14,12 @@ import {
   IconButton,
   Logo,
   Notification,
+  BonusNotification,
   SwitchTheme,
 } from '@app/components';
 
 // Assets
-import { Email, Gift } from '@app/components/Icons';
+import { Email } from '@app/components/Icons';
 
 // hooks
 import { authStore } from '@app/stores';
@@ -100,9 +101,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
               <Email color={colorFill} />
             </IconButton>
 
-            <IconButton>
-              <Gift color={colorFill} />
-            </IconButton>
+            <BonusNotification colorFill={colorFill} />
           </Flex>
           <Box
             display={{ base: 'none', default: 'inline-flex', md: 'none' }}
