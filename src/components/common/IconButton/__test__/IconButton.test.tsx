@@ -44,7 +44,7 @@ describe('IconButton test cases', () => {
 
   it('render with isNotification with hasNewNotification', async () => {
     const { getByTestId } = render(
-      <IconButton isNotification hasNewNotification onClick={mockOnClick}>
+      <IconButton hasNewNotification onClick={mockOnClick}>
         <DarkTheme color="gray.800" />
       </IconButton>,
     );
@@ -54,7 +54,7 @@ describe('IconButton test cases', () => {
 
   it('render with isNotification without hasNewNotification', async () => {
     const { getByTestId } = render(
-      <IconButton isNotification onClick={mockOnClick}>
+      <IconButton onClick={mockOnClick}>
         <DarkTheme color="gray.800" />
       </IconButton>,
     );
