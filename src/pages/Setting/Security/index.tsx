@@ -148,7 +148,9 @@ const SecurityPage = () => {
           >
             Password
           </Heading>
-          <Text fontSize="14px"> Change or view your password </Text>
+          <Text fontSize="14px" color="text.ternary">
+            Change or view your password
+          </Text>
         </Box>
         <Controller
           rules={AUTH_SCHEMA.PASSWORD}
