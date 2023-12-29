@@ -29,12 +29,12 @@ describe('Avatar render', () => {
   });
 
   test('Should render match with snapshot.', () => {
-    const { container } = render(<Notification colorFill='white' />);
+    const { container } = render(<Notification colorFill="white" />);
     expect(container).toMatchSnapshot();
   });
 
   test('handleUpdateNotification should be called when a notification item is clicked', async () => {
-    render(<Notification colorFill='white' />);
+    render(<Notification colorFill="white" />);
 
     const elementUpdate = screen.getByText(NOTIFICATION_LIST[0].sender);
 
@@ -46,9 +46,9 @@ describe('Avatar render', () => {
   });
 
   test('handleDeleteNotification should be called when delete icon is clicked', async () => {
-    render(<Notification colorFill='white' />);
+    render(<Notification colorFill="white" />);
 
-    const elementDelete = screen.getByText(NOTIFICATION_LIST[0].sender)
+    const elementDelete = screen.getByText(NOTIFICATION_LIST[0].sender);
 
     await act(async () => {
       userEvent.click(elementDelete);

@@ -29,7 +29,7 @@ const History = () => (
         px={6}
         py={5}
       >
-        <TransactionTable isTableHistory />
+        <TransactionTable isTableHistory isOpenModal />
       </Box>
     </GridItem>
     <GridItem mt={{ base: 6, '2xl': 0 }}>

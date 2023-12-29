@@ -4,12 +4,20 @@ import { Table } from '@chakra-ui/react';
 // Components
 import { ActionCell } from '@app/components';
 
-const onClick = jest.fn();
+const onClickAction = jest.fn();
+const onDeleteTransaction = jest.fn();
 
 const setup = () =>
-  render(<ActionCell onClick={onClick} />, {
-    wrapper: Table,
-  });
+  render(
+    <ActionCell
+      isOpenModal
+      onClickAction={onClickAction}
+      onDeleteTransaction={onDeleteTransaction}
+    />,
+    {
+      wrapper: Table,
+    },
+  );
 
 describe('CustomerNameCell', () => {
   it('Match to snapshot', () => {
@@ -23,6 +31,6 @@ describe('CustomerNameCell', () => {
 
     fireEvent.click(getByRole('button'));
 
-    expect(onClick).toHaveBeenCalled();
+    expect(onClickAction).toHaveBeenCalled();
   });
 });
