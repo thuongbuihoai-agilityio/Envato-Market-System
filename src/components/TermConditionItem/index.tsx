@@ -14,17 +14,28 @@ const TermAndConditionItem = ({
   note,
 }: TermAndConditionProps) => (
   <Box mb={8}>
-    <Text as="h4" fontWeight="bold" fontSize="lg" mb={3}>
+    <Text as="h4" fontWeight="bold" fontSize="lg" mb={3} color="text.textTitle">
       {heading}
     </Text>
-    <Text mb={3} fontSize="md">
+    <Text mb={3} fontSize="md" color="text.binary">
       {content}
     </Text>
-    <Text fontSize="md">{description}</Text>
+    <Text fontSize="md" color="text.binary">
+      {description}
+    </Text>
 
     {note && (
-      <Box mt={2} bg="secondary.600" p={2} borderRadius="md" px={7} py={6}>
-        <Text fontSize="md">{note}</Text>
+      <Box
+        mt={2}
+        bg="background.component.secondary"
+        p={2}
+        borderRadius="md"
+        px={7}
+        py={6}
+      >
+        <Text fontSize="md" color="text.textNote">
+          {note}
+        </Text>
       </Box>
     )}
   </Box>
