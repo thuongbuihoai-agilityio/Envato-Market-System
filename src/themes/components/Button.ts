@@ -40,7 +40,7 @@ export const Button = defineStyleConfig({
       color: 'white',
       fontWeight: 'bold',
       border: 'none',
-      backgroundColor: 'primary.500',
+      backgroundColor: 'text.currencyColor',
       _hover: {
         backgroundColor: 'primary.600',
       },

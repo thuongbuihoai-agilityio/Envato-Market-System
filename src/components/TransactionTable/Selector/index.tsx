@@ -18,7 +18,7 @@ const SelectorComponent = (): JSX.Element => {
       as="span"
       textAlign="center"
       fontSize="md"
-      color="primary.500"
+      color="text.currencyColor"
       gap={3}
     >
       <FilterIcon stroke={filterIconColor} />

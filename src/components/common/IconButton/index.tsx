@@ -34,6 +34,7 @@ const IconButtonComponent = ({
       </Text>
     )}
     <IconButton
+      as="div"
       data-testid="icon-button"
       pos="relative"
       variant="iconPrimary"

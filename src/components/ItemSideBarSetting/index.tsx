@@ -42,7 +42,7 @@ const ItemSideBarSetting = ({
           borderRadius="full"
           minW={12}
           h={12}
-          bg={isActive ? 'primary.500' : 'background.body.primary'}
+          bg={isActive ? 'text.currencyColor' : 'background.body.primary'}
           align="center"
           justify="center"
         >

@@ -41,7 +41,7 @@ const MyWallet = () => {
       py={12}
       templateColumns={{ base: 'repeat(1, 1fr)', '3xl': 'repeat(4, 1fr)' }}
       gap={{ base: 0, '2xl': 6 }}
-      display={{ sm: 'block', md: 'grid' }}
+      display={{ sm: 'block', xl: 'grid' }}
       minH="100vh"
     >
       <GridItem colSpan={1}>
