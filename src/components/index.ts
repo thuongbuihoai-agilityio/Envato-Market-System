@@ -39,3 +39,5 @@ export { default as FallbackErrorBoundary } from './FallbackErrorBoundary';
 export { default as SwitchTheme } from './SwitchTheme';
 export { default as ItemSideBarSetting } from './ItemSideBarSetting';
 export { default as Notification } from './common/Notification';
+export { default as Modal } from './common/Modal';
+export { default as PinCode } from './common/PinCode';
