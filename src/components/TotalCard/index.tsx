@@ -47,7 +47,7 @@ const TotalCardComponent = ({
             w={4}
             h={3.5}
           />
-          <Text color="text.textDollar">
+          <Text color="text.currencyColor">
             + {growth}%{' '}
             <Text as="span" variant="textSm" color="text.textInfo">
               from last week

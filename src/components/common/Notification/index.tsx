@@ -86,7 +86,7 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                     }
                     _hover={{
                       bg: 'background.component.tertiary',
-                      color: 'text.textDollar',
+                      color: 'text.currencyColor',
                     }}
                     onClick={handleUpdateNotification}
                   >
@@ -114,7 +114,7 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                             totaling
                             <Text
                               as="span"
-                              color="text.textDollar"
+                              color="text.currencyColor"
                               px={1}
                               fontSize="sm"
                             >

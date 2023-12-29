@@ -15,7 +15,7 @@ export type FaqItemProps = {
 };
 
 const FaqItem = ({ question, answer }: FaqItemProps) => {
-  const COLOR = 'text.textDollar';
+  const COLOR = 'text.currencyColor';
 
   const { isOpen: isOpenAnswer, onToggle: onToggleAnswer } = useDisclosure();
 

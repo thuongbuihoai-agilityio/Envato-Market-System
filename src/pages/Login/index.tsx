@@ -179,7 +179,7 @@ const Login = (): JSX.Element => {
             as={Link}
             to={`/${ROUTES.FORGOT_PASSWORD}`}
             aria-label="forgot password"
-            color="text.textDollar"
+            color="text.currencyColor"
             fontWeight="semibold"
             textTransform="capitalize"
             textDecoration="underline"

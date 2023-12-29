@@ -30,7 +30,7 @@ export const Text = defineStyleConfig({
       fontWeight: 'semibold',
       color: 'none',
       _hover: {
-        color: 'text.textDollar',
+        color: 'text.currencyColor',
       },
     },
     text5Xl: {

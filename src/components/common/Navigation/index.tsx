@@ -14,7 +14,7 @@ export type TNavigationProps = {
 
 const COLOR = {
   LIGHT: {
-    PRIMARY: 'text.textDollar',
+    PRIMARY: 'text.currencyColor',
     SECONDARY: 'primary.900',
   },
   DARK: {
