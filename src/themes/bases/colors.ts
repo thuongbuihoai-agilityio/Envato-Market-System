@@ -201,7 +201,7 @@ export const colors = {
       default: '#4B5772',
       _dark: '#A0AEC0',
     },
-    textDollar: {
+    currencyColor: {
       default: '#0C642F',
       _dark: '#22C55E',
     },

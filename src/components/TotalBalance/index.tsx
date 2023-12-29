@@ -64,7 +64,7 @@ const TotalBalanceComponent = ({
             h={5}
             mr="2"
           />
-          <Text fontSize="lg" fontWeight="bold" color="green.600">
+          <Text fontSize="lg" fontWeight="bold" color="text.currencyColor">
             {growth}%
           </Text>
         </Flex>
