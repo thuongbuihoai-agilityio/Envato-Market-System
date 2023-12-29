@@ -29,9 +29,18 @@ const Security = lazy(() =>
   })),
 );
 
+const TermCondition = lazy(() =>
+  import('@app/components/Icons/TermCondition').then((module) => ({
+    default: module.TermCondition,
+  })),
+);
+
 const UserForm = lazy(() => import('@app/pages/Setting/Personal'));
 const FaqPage = lazy(() => import('@app/pages/Setting/Faq'));
 const SecurityPage = lazy(() => import('@app/pages/Setting/Security'));
+const TermAndConditionPage = lazy(
+  () => import('@app/pages/Setting/TermAndCondition'),
+);
 
 const SettingPage = () => {
   const [activeItemId, setActiveItemId] = useState<string>(
@@ -42,6 +51,7 @@ const SettingPage = () => {
     [OPTION_SETTING.USER_FORM]: <UserForm />,
     [OPTION_SETTING.FAQ_PAGE]: <FaqPage />,
     [OPTION_SETTING.SECURITY_PAGE]: <SecurityPage />,
+    [OPTION_SETTING.TERM_AND_CONDITION]: <TermAndConditionPage />,
   };
 
   const handleItemClick = useCallback((id: string) => setActiveItemId(id), []);
@@ -91,6 +101,18 @@ const SettingPage = () => {
         >
           <Lazy>
             <Security />
+          </Lazy>
+        </ItemSideBarSetting>
+
+        <ItemSideBarSetting
+          id={OPTION_SETTING.TERM_AND_CONDITION}
+          activeItemId={activeItemId}
+          onClick={handleItemClick}
+          title="Term and Conditions"
+          content="Term and Conditions of use and privacy policy"
+        >
+          <Lazy>
+            <TermCondition />
           </Lazy>
         </ItemSideBarSetting>
       </GridItem>
