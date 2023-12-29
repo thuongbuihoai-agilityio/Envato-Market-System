@@ -18,7 +18,7 @@ exports[`PinCode test cases should render correctly 1`] = `
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value=""
+        value="m"
       />
       <input
         aria-label="Please enter your pin code"
@@ -29,7 +29,7 @@ exports[`PinCode test cases should render correctly 1`] = `
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value=""
+        value="o"
       />
       <input
         aria-label="Please enter your pin code"
@@ -40,7 +40,7 @@ exports[`PinCode test cases should render correctly 1`] = `
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value=""
+        value="c"
       />
       <input
         aria-label="Please enter your pin code"
@@ -51,7 +51,7 @@ exports[`PinCode test cases should render correctly 1`] = `
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value=""
+        value="k"
       />
     </div>
     <button
