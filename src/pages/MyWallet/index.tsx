@@ -86,7 +86,7 @@ const MyWallet = () => {
               px={6}
               py={5}
             >
-              <TransactionTable />
+              <TransactionTable isOpenModal />
             </Box>
           </Box>
         </Flex>

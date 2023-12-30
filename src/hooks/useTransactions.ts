@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 // Services
-import { getTransactions } from '@app/services';
+import { getTransactions, transactionHttpService } from '@app/services';
 
 // Constants
 import { END_POINTS } from '@app/constants';
@@ -145,4 +145,16 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     data: transactions,
     sortBy,
   };
+};
+
+export const useDeleteTransaction = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (id: string) =>
+      await transactionHttpService.delete(`${END_POINTS.TRANSACTIONS}/${id}`),
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: [END_POINTS.TRANSACTIONS] });
+    },
+  });
 };

@@ -68,7 +68,24 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
             <Text fontSize="xl" fontWeight="bold" m={4}>
               Notifications
             </Text>
-            <Flex flexDirection="column" mt={3} maxH={320} overflowY="scroll">
+            <Flex
+              flexDirection="column"
+              mt={3}
+              maxH={320}
+              overflowY="scroll"
+              css={{
+                '&::-webkit-scrollbar': {
+                  width: 2,
+                },
+                '&::-webkit-scrollbar-track': {
+                  width: 2,
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: 'gray',
+                  borderRadius: '24px',
+                },
+              }}
+            >
               {NOTIFICATION_LIST.map((item) => {
                 const handleDeleteNotification = () =>
                   handleDeleteNotice(item.id);
@@ -131,7 +148,7 @@ const NotificationComponent = ({ colorFill = '' }: NotificationProps) => {
                           </Text>
                         </Box>
                         <DeleteIcon
-                          data-testId="delete-icon"
+                          data-testid="delete-icon"
                           mr={5}
                           onClick={handleDeleteNotification}
                         />

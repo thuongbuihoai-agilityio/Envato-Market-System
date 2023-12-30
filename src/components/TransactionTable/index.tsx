@@ -1,5 +1,5 @@
-import { Box, Th } from '@chakra-ui/react';
-import { memo, useCallback, useMemo } from 'react';
+import { Box, Th, useToast } from '@chakra-ui/react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -22,6 +22,7 @@ import {
   TSearchTransaction,
   TSortField,
   useDebounce,
+  useDeleteTransaction,
   usePagination,
   useSearch,
   useTransactions,
@@ -31,18 +32,23 @@ import {
 import {
   COLUMNS_DASHBOARD,
   COLUMNS_HISTORY,
+  ERROR_MESSAGES,
+  SHOW_TIME,
   STATUS_LABEL,
+  SUCCESS_MESSAGES,
 } from '@app/constants';
 
 // Types
 import { TDataSource, THeaderTable } from '@app/interfaces';
 
 interface TFilterUserProps {
+  isOpenModal?: boolean;
   isTableHistory?: boolean;
 }
 
 const TransactionTableComponent = ({
   isTableHistory = false,
+  isOpenModal = false,
 }: TFilterUserProps) => {
   const {
     searchParam: searchTransaction,
@@ -72,6 +78,43 @@ const TransactionTableComponent = ({
     handlePageClick,
   } = usePagination(transactions);
 
+  const toast = useToast();
+  const { mutate: deleteTransaction } = useDeleteTransaction();
+  const [, setTransactionId] = useState<string | null>(null);
+
+  const handleClickAction = useCallback((id: string) => {
+    setTransactionId(id);
+  }, []);
+
+  const handleDeleteTransaction = useCallback(
+    (id: string) => {
+      deleteTransaction(id, {
+        onError: () => {
+          toast({
+            title: ERROR_MESSAGES.DELETE_FAIL.title,
+            description: ERROR_MESSAGES.DELETE_FAIL.description,
+            status: 'error',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+        onSuccess: () => {
+          deleteTransaction(id);
+          toast({
+            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+            status: 'success',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+      });
+    },
+    [deleteTransaction, toast],
+  );
+
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
@@ -99,8 +142,14 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    (data: TDataSource): JSX.Element => (
-      <ActionCell key={`${data.id}-action`} />
+    (data: TDataSource) => (
+      <ActionCell
+        id={`${data.id}`}
+        key={`${data.id}-action`}
+        isOpenModal={isOpenModal}
+        onDeleteTransaction={handleDeleteTransaction}
+        onClickAction={handleClickAction}
+      />
     ),
     [],
   );

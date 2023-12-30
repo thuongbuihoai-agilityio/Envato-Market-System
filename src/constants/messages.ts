@@ -20,11 +20,20 @@ export const ERROR_MESSAGES = {
   TWITTER_INVALID: 'Twitter link is invalid',
   LINKEDIN_INVALID: 'Linkedin link is invalid',
   YOUTUBE_INVALID: 'Youtube link is invalid',
+  DELETE_FAIL: {
+    title: 'Delete failed',
+    description: 'Transactions has not been delete successfully',
+  },
 };
 
 export const SUCCESS_MESSAGES = {
   UPDATE_SUCCESS: {
     title: 'Update success',
     description: 'Your profile has been updated successfully',
+  },
+
+  DELETE_SUCCESS: {
+    title: 'Delete success',
+    description: 'Transactions has been delete successfully',
   },
 };
