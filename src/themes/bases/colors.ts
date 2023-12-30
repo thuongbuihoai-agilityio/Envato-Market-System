@@ -1,5 +1,6 @@
 export const colors = {
   primary: {
+    300: '#22C55E',
     400: '#D9FBE6',
     500: '#0C642F',
     600: '#16A34A',
@@ -195,9 +196,34 @@ export const colors = {
       default: '#6B7280',
       _dark: '#FFF',
     },
+
     textTime: {
       default: '#4B5772',
       _dark: '#A0AEC0',
+    },
+    currencyColor: {
+      default: '#0C642F',
+      _dark: '#22C55E',
+    },
+
+    ternary: {
+      default: '#A0AEC0',
+      _dark: '#FAFAFA',
+    },
+
+    binary: {
+      default: '#9AA2B1',
+      _dark: '#FFF',
+    },
+
+    textTitle: {
+      default: '#2D3748',
+      _dark: '#FAFAFA',
+    },
+
+    textNote: {
+      default: '#2D3748',
+      _dark: '#FFF',
     },
   },
 

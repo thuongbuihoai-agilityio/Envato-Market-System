@@ -11,6 +11,7 @@ describe('PinCode test cases', () => {
   const setup = () =>
     render(
       <PinCode
+        value="mock"
         isError={false}
         isInvalid={false}
         onChange={mockOnChange}

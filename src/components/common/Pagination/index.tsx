@@ -93,7 +93,7 @@ const PaginationComponent = ({
             const hoverStyle = isDots
               ? {}
               : {
-                  color: 'primary.500',
+                  color: 'text.currencyColor',
                   bg: 'background.body.quinary',
                 };
             const disableStyle = isDots
