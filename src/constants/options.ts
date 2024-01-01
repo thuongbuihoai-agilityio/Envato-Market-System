@@ -123,3 +123,25 @@ export const MONTHS_OPTIONS = [
     label: 'December',
   },
 ];
+
+export const PAYMENT = [
+  {
+    value: 'paid',
+    label: 'Paid'
+  },
+  {
+    value: 'unpaid',
+    label: 'Unpaid'
+  }
+];
+
+export const STATUS_TRANSACTION = [
+  {
+    value: 'completed',
+    label: 'Completed'
+  },
+  {
+    value: 'pending',
+    label: 'Pending'
+  }
+];

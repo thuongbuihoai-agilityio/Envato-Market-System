@@ -147,6 +147,7 @@ const TransactionTableComponent = ({
         id={`${data.id}`}
         key={`${data.id}-action`}
         isOpenModal={isOpenModal}
+        transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
         onClickAction={handleClickAction}
       />
