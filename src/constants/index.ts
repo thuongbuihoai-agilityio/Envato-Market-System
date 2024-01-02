@@ -22,3 +22,4 @@ export * from './columns';
 export * from './faq';
 export * from './avatar';
 export * from './notifications';
+export * from './authentication';

@@ -9,9 +9,9 @@ import {
   UserIcon,
   InboxIcon,
 } from '@app/components/Icons';
-import { ROUTES } from '.';
+import { ROUTES, SUPER_ADMIN } from '.';
 
-export const MENU_ITEM_LIST = [
+export const MENU_ITEM_LIST = (isAdmin: string) => [
   {
     id: 1,
     leftIcon: DashboardIcon,
@@ -39,10 +39,12 @@ export const MENU_ITEM_LIST = [
   },
 
   {
-    id: 4,
-    leftIcon: UserIcon,
-    menuItemContent: 'Users',
-    destination: `/${ROUTES.USER}`,
+    ...(isAdmin === SUPER_ADMIN && {
+      id: 4,
+      leftIcon: UserIcon,
+      menuItemContent: 'Users',
+      destination: `/${ROUTES.USER}`,
+    }),
   },
 
   {
