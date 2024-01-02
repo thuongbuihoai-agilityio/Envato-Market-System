@@ -135,10 +135,10 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    ({ id }: TDataSource) => (
+    (data: TDataSource) => (
       <ActionCell
-        id={id}
-        key={`${id}-action`}
+        id={data.id}
+        key={`${data.id}-action`}
         isOpenModal={isOpenModal}
         transaction={data}
         onDeleteTransaction={handleDeleteTransaction}

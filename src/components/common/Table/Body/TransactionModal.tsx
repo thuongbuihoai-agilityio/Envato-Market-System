@@ -1,26 +1,31 @@
-import { Box, Button, Flex, Grid, GridItem, HStack, Text, VStack } from "@chakra-ui/react"
-import { Controller, useForm } from "react-hook-form"
-import InputField from "../../InputField"
-import { Select, UpdateProfile } from "@app/components";
-import { PAYMENT, STATUS_TRANSACTION } from "@app/constants";
-import { memo, useCallback } from "react";
-import { TDataSource } from "@app/interfaces";
-import { TOption } from "../../Select";
+import {
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  HStack,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
+import { Controller, useForm } from 'react-hook-form';
+import InputField from '../../InputField';
+import { Select, UpdateProfile } from '@app/components';
+import { PAYMENT, STATUS_TRANSACTION } from '@app/constants';
+import { memo, useCallback } from 'react';
+import { TDataSource } from '@app/interfaces';
 
 interface TransactionProps {
   transaction?: TDataSource;
   onUpdateTransaction?: () => void;
   onCloseModal?: () => void;
-};
+}
 
 const UpdateModal = ({
   transaction,
-  onUpdateTransaction = () => { },
-  onCloseModal = () => { }
+  onUpdateTransaction = () => {},
+  onCloseModal = () => {},
 }: TransactionProps) => {
-  const {
-    control,
-  } = useForm({
+  const { control } = useForm({
     defaultValues: {
       id: transaction?.id,
       name: transaction?.name,
@@ -30,15 +35,25 @@ const UpdateModal = ({
       spent: transaction?.spent,
       date: transaction?.date,
       paymentStatus: transaction?.paymentStatus,
-      transactionStatus: transaction?.transactionStatus
+      transactionStatus: transaction?.transactionStatus,
     },
   });
+
+  const renderPaymentStatus = useCallback(
+    () => <Text color="secondary.450">{transaction?.paymentStatus}</Text>,
+    [transaction?.paymentStatus],
+  );
+
+  const renderTransactionStatus = useCallback(
+    () => <Text color="secondary.450">{transaction?.transactionStatus}</Text>,
+    [transaction?.transactionStatus],
+  );
 
   return (
     <VStack
       as="form"
       id="register-form"
-    // onSubmit={handleSubmit(handleSubmitForm)}
+      // onSubmit={handleSubmit(handleSubmitForm)}
     >
       <Grid
         width="full"
@@ -91,7 +106,7 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                // onChange={handleChangeValue('customer-name', onChange)}
+                  // onChange={handleChangeValue('customer-name', onChange)}
                 />
               )}
             />
@@ -107,7 +122,7 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                // onChange={handleChangeValue('location', field.onChange)}
+                  // onChange={handleChangeValue('location', field.onChange)}
                 />
               )}
             />
@@ -135,7 +150,7 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                // onChange={handleChangeValue('spent', field.onChange)}
+                  // onChange={handleChangeValue('spent', field.onChange)}
                 />
               )}
             />
@@ -151,8 +166,8 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                // value={formatAllowOnlyNumbers(field.value)}
-                // onChange={handleChangeValue('date', field.onChange)}
+                  // value={formatAllowOnlyNumbers(field.value)}
+                  // onChange={handleChangeValue('date', field.onChange)}
                 />
               )}
             />
@@ -171,12 +186,13 @@ const UpdateModal = ({
             <Controller
               control={control}
               name="paymentStatus"
-              render={({ field, fieldState: { error } }) => (
-                <Flex flexDirection='column' w={227}>
-                  <Text mb={1}>Payment</Text>
+              render={() => (
+                <Flex flexDirection="column" w={227}>
+                  <Text mb={1} color="secondary.450">Payment</Text>
                   <Select
+                    title="Payment"
                     options={PAYMENT}
-                    title='Payment'
+                    renderTitle={renderPaymentStatus}
                   />
                 </Flex>
               )}
@@ -184,10 +200,14 @@ const UpdateModal = ({
             <Controller
               control={control}
               name="transactionStatus"
-              render={({ field, fieldState: { error } }) => (
-                <Flex flexDirection='column' w={227}>
-                  <Text mb={1}>Status</Text>
-                  <Select title='Status' options={STATUS_TRANSACTION} />
+              render={() => (
+                <Flex flexDirection="column" w={227}>
+                  <Text mb={1} color="secondary.450">Status</Text>
+                  <Select
+                    title="Status"
+                    options={STATUS_TRANSACTION}
+                    renderTitle={renderTransactionStatus}
+                  />
                 </Flex>
               )}
             />
@@ -195,7 +215,12 @@ const UpdateModal = ({
 
           <GridItem mb={7}>
             <Flex mt={4}>
-              <Button w={44} bg="green.600" mr={3} onClick={onUpdateTransaction}>
+              <Button
+                w={44}
+                bg="green.600"
+                mr={3}
+                onClick={onUpdateTransaction}
+              >
                 Save
               </Button>
               <Button
@@ -212,15 +237,15 @@ const UpdateModal = ({
 
         <GridItem order={1} colSpan={5}>
           <UpdateProfile
-            title='Select your avatar'
+            title="Select your avatar"
             control={control}
-          // onUploadError={handleShowErrorWhenUploadImage}
+            // onUploadError={handleShowErrorWhenUploadImage}
           />
         </GridItem>
-
       </Grid>
     </VStack>
   );
-}
+};
 
-export default memo(UpdateModal);
+const UploadModalMemorized = memo(UpdateModal);
+export default UploadModalMemorized;
