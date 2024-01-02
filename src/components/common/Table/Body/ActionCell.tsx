@@ -16,26 +16,26 @@ import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { Modal } from '@app/components';
 
 interface ActionCallProps {
-  id?: string;
-  isOpenModal?: boolean;
-  onDeleteTransaction?: (id: string) => void;
-  onClickAction?: (id: string) => void;
+  id?: string | number;
+  isOpenModal: boolean;
+  onDeleteTransaction?: (id: string | number) => void;
+  onClickAction?: (id: string | number) => void;
 }
 
 const ActionCellComponent = ({
-  id = '',
+  id,
   isOpenModal = false,
   onDeleteTransaction = () => {},
   onClickAction = () => {},
 }: ActionCallProps) => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
 
   const handleToggleModal = useCallback(() => {
-    setOpenModal(!openModal);
-  }, [openModal]);
+    setIsOpenConfirmModal(!isOpenConfirmModal);
+  }, [isOpenConfirmModal]);
 
-  const handleClickAction = () => onClickAction(id);
-  const handleDeleteTransaction = () => onDeleteTransaction(id);
+  const handleClickAction = () => onClickAction(id as string);
+  const handleDeleteTransaction = () => onDeleteTransaction(id as string);
 
   const renderBodyModal = () => (
     <Flex>
@@ -111,7 +111,7 @@ const ActionCellComponent = ({
         </Menu>
       </Td>
       <Modal
-        isOpen={openModal}
+        isOpen={isOpenConfirmModal}
         onClose={handleToggleModal}
         title="Do you want to delete this transaction?"
         renderBody={renderBodyModal}

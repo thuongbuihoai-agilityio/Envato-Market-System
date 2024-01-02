@@ -80,15 +80,25 @@ const TransactionTableComponent = ({
 
   const toast = useToast();
   const { mutate: deleteTransaction } = useDeleteTransaction();
-  const [, setTransactionId] = useState<string | null>(null);
+  const [, setTransactionId] = useState<string>();
 
-  const handleClickAction = useCallback((id: string) => {
-    setTransactionId(id);
+  const handleClickAction = useCallback((id: string | number) => {
+    setTransactionId(id as string);
   }, []);
 
   const handleDeleteTransaction = useCallback(
-    (id: string) => {
+    (id: string | number) =>
       deleteTransaction(id, {
+        onSuccess: () => {
+          toast({
+            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+            status: 'success',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
         onError: () => {
           toast({
             title: ERROR_MESSAGES.DELETE_FAIL.title,
@@ -99,19 +109,7 @@ const TransactionTableComponent = ({
             position: 'top-right',
           });
         },
-        onSuccess: () => {
-          deleteTransaction(id);
-          toast({
-            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-        },
-      });
-    },
+      }),
     [deleteTransaction],
   );
 
@@ -142,10 +140,10 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    (data: TDataSource) => (
+    ({ id }: TDataSource) => (
       <ActionCell
-        id={`${data.id}`}
-        key={`${data.id}-action`}
+        id={id}
+        key={`${id}-action`}
         isOpenModal={isOpenModal}
         onDeleteTransaction={handleDeleteTransaction}
         onClickAction={handleClickAction}
