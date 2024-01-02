@@ -60,7 +60,10 @@ describe('useAuth', () => {
     });
 
     expect(authStore.getState().user).toEqual([
-      { email: 'duong.pham@asnet.com.vn', password: 'Abcd@1231' },
+      {
+        email: SIGN_IN_PARAM.email,
+        password: SIGN_IN_PARAM.password,
+      },
     ]);
   });
 
@@ -79,8 +82,8 @@ describe('useAuth', () => {
     });
 
     expect(authStore.getState().user).toEqual({
-      email: 'duong.pham@asnet.com.vn',
-      password: 'Abcd@1231',
+      email: SIGN_IN_PARAM.email,
+      password: SIGN_IN_PARAM.password,
     });
   });
 
