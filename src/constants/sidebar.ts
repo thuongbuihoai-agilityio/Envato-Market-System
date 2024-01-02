@@ -15,7 +15,7 @@ export const MENU_ITEM_LIST = (isAdmin: string) => [
   {
     id: 1,
     leftIcon: DashboardIcon,
-    menuItemContent: 'Dashboards',
+    menuItemContent: 'Dashboard',
     destination: '/',
   },
   {
