@@ -19,9 +19,16 @@ import { Lazy } from '@app/components';
 import { Arrow } from '@app/components/Icons';
 
 // Constants
-import { MENU_LIST, MENU_LIST_ICON } from '@app/constants/menu';
+import { MENU_LIST, MENU_LIST_ICON, MEMBER } from '@app/constants';
 
+// Hooks
 import { useAuth } from '@app/hooks/useAuth';
+
+// Stores
+import { authStore } from '@app/stores';
+
+// Interfaces
+import { TUserDetail } from '@app/interfaces';
 
 // Lazy loading components
 const Avatar = lazy(() => import('@app/components/common/Avatar'));
@@ -46,6 +53,9 @@ const UserDropdownMenu = ({
     theme.colors.gray[800],
     theme.colors.white,
   );
+
+  const { user } = authStore();
+  const { role = MEMBER } = user as TUserDetail;
 
   return (
     <Menu offset={[offsetX, offsetY]}>
@@ -134,28 +144,31 @@ const UserDropdownMenu = ({
               );
             })}
             <Divider my={3.5} color="gray.300" />
-            {MENU_LIST.map(({ id, value, href }) => (
-              <MenuItem
-                key={id}
-                p={3.5}
-                borderRadius="lg"
-                bg="transparent"
-                as={Link}
-                to={href}
-                aria-label={`menu-item-${value}`}
-                _hover={{
-                  bg: 'background.component.tertiary',
-                  color: 'text.currencyColor',
-                  svg: { stroke: 'text.currencyColor' },
-                  borderColor: 'transparent',
-                }}
-                _focus={{
-                  outline: 'none',
-                }}
-              >
-                <Text variant="text4Xl">{value}</Text>
-              </MenuItem>
-            ))}
+            {MENU_LIST(role).map(({ id, value, href }) => {
+              if (!value) return <></>;
+              return (
+                <MenuItem
+                  key={id}
+                  p={3.5}
+                  borderRadius="lg"
+                  bg="transparent"
+                  as={Link}
+                  to={href}
+                  aria-label={`menu-item-${value}`}
+                  _hover={{
+                    bg: 'background.component.tertiary',
+                    color: 'text.currencyColor',
+                    svg: { stroke: 'text.currencyColor' },
+                    borderColor: 'transparent',
+                  }}
+                  _focus={{
+                    outline: 'none',
+                  }}
+                >
+                  <Text variant="text4Xl">{value}</Text>
+                </MenuItem>
+              );
+            })}
           </MenuList>
         </Box>
       )}
