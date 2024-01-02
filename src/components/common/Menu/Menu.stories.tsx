@@ -6,6 +6,8 @@ import { Menu } from '@app/components';
 
 // Constants
 import { MENU_ITEM_LIST } from '@app/constants/sidebar';
+import { SUPER_ADMIN } from '@app/constants';
+import { TMenuItem } from '.';
 
 const meta: Meta<typeof Menu> = {
   title: 'Custom Components/Menu',
@@ -45,14 +47,14 @@ type Story = StoryObj<typeof Menu>;
 export const Epxand: Story = {
   args: {
     title: 'Expand Menu Component',
-    listItem: MENU_ITEM_LIST,
+    listItem: MENU_ITEM_LIST(SUPER_ADMIN) as TMenuItem[],
   },
 };
 
 export const Minify: Story = {
   args: {
     title: 'Minify Menu Component',
-    listItem: MENU_ITEM_LIST,
+    listItem: MENU_ITEM_LIST(SUPER_ADMIN) as TMenuItem[],
     isMinify: true,
   },
 };

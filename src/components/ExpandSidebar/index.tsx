@@ -13,6 +13,7 @@ import {
 
 // type
 import { SidebarProps } from '@app/layouts/Sidebar';
+import { TMenuItem } from '../common/Menu';
 
 // components
 import { Logo, Menu } from '@app/components';
@@ -96,7 +97,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
               <Menu
                 key={item.id}
                 title={item.title}
-                listItem={item.listItem}
+                listItem={item.listItem as TMenuItem[]}
                 onClickMenuItem={handleCloseSideBar}
               />
             ))}

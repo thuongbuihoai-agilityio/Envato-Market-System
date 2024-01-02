@@ -24,6 +24,9 @@ import { Email } from '@app/components/Icons';
 // hooks
 import { authStore } from '@app/stores';
 
+// Constants
+import { SUPER_ADMIN } from '@app/constants';
+
 interface HeaderProps {
   name?: string;
 }
@@ -34,9 +37,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
     theme.colors.white,
   );
 
-  const username = authStore(
-    ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
-  );
+  const { user } = authStore();
+
+  const username = `${user?.firstName} ${user?.lastName}`;
+  const isAdmin = user?.role === SUPER_ADMIN;
+
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
   );
@@ -109,7 +114,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           >
             <Dropdown
               name={username}
-              permission="Super Admin"
+              permission={isAdmin ? SUPER_ADMIN : ''}
               src={avatarURL}
             />
           </Box>
@@ -122,7 +127,11 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           borderColor="border.primary"
           height="min-content"
         >
-          <Dropdown name={username} permission="Super Admin" src={avatarURL} />
+          <Dropdown
+            name={username}
+            permission={isAdmin ? SUPER_ADMIN : ''}
+            src={avatarURL}
+          />
         </Box>
       </Flex>
     </Flex>
