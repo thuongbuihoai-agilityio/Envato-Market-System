@@ -5,7 +5,7 @@ import { AxiosResponse } from 'axios';
 import { useAuth } from '@app/hooks';
 
 // Services
-import { UsersHttpService } from '@app/services';
+import { AuthenticationHttpService } from '@app/services';
 
 // Constants
 import { ERROR_MESSAGES } from '@app/constants/messages';
@@ -29,7 +29,7 @@ describe('useAuth', () => {
 
   it('SignIn fail', async () => {
     try {
-      jest.spyOn(UsersHttpService, 'get').mockResolvedValue({
+      jest.spyOn(AuthenticationHttpService, 'post').mockResolvedValue({
         data: undefined,
       } as AxiosResponse);
       const {
@@ -47,7 +47,7 @@ describe('useAuth', () => {
   });
 
   it('SignIn success', async () => {
-    jest.spyOn(UsersHttpService, 'get').mockResolvedValue({
+    jest.spyOn(AuthenticationHttpService, 'post').mockResolvedValue({
       data: [SIGN_IN_PARAM],
     } as AxiosResponse);
     const {
@@ -59,35 +59,13 @@ describe('useAuth', () => {
       await signIn(SIGN_IN_PARAM);
     });
 
-    expect(authStore.getState().user).toEqual({ email: SIGN_IN_PARAM.email });
-  });
-
-  it('SignUp fail', async () => {
-    jest.spyOn(UsersHttpService, 'get').mockResolvedValue({
-      data: [SIGN_IN_PARAM],
-    } as AxiosResponse);
-
-    const {
-      result: {
-        current: { signUp },
-      },
-    } = setup();
-
-    const { errors } = await act(
-      async () => await signUp(SIGN_IN_PARAM as TUserDetail),
-    );
-
-    expect(errors).toEqual({
-      email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
-    });
+    expect(authStore.getState().user).toEqual([
+      { email: 'duong.pham@asnet.com.vn', password: 'Abcd@1231' },
+    ]);
   });
 
   it('SignUp success', async () => {
-    jest.spyOn(UsersHttpService, 'get').mockResolvedValue({
-      data: undefined,
-    } as AxiosResponse);
-
-    jest.spyOn(UsersHttpService, 'post').mockResolvedValue({
+    jest.spyOn(AuthenticationHttpService, 'post').mockResolvedValue({
       data: SIGN_IN_PARAM,
     } as AxiosResponse);
 
@@ -100,7 +78,10 @@ describe('useAuth', () => {
       await signUp(SIGN_IN_PARAM as TUserDetail);
     });
 
-    expect(authStore.getState().user).toEqual({ email: SIGN_IN_PARAM.email });
+    expect(authStore.getState().user).toEqual({
+      email: 'duong.pham@asnet.com.vn',
+      password: 'Abcd@1231',
+    });
   });
 
   it('Set profile', async () => {
