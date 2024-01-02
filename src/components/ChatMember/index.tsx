@@ -6,10 +6,10 @@ import { getStatusColor } from '@app/utils';
 export type Props = {
   avatar?: string;
   name?: string;
-  status: string;
+  status?: string;
   localeTime?: string;
   icon?: React.ReactNode;
-  statusColor: string;
+  statusColor?: string;
 };
 
 export const ChatMember = ({
@@ -18,7 +18,7 @@ export const ChatMember = ({
   status,
   localeTime,
   icon,
-  statusColor,
+  statusColor = '',
 }: Props) => (
   <Box>
     <Flex gap={3}>
@@ -27,7 +27,7 @@ export const ChatMember = ({
       </Avatar>
       <Box mr={6}>
         <Text>{name}</Text>
-        <Text color="text.secondary">{status}</Text>
+        <Text color="secondary.1100">{status}</Text>
       </Box>
 
       <Flex direction="column">

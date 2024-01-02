@@ -30,6 +30,7 @@ export const colors = {
     950: '#4A5568',
     1000: '#E5E7EB',
     1050: '#9AA2B1',
+    1100: '#718096',
   },
 
   common: {
@@ -60,6 +61,10 @@ export const colors = {
       },
       senary: {
         default: '#F7FAFC',
+        _dark: '#1D1E24',
+      },
+      septenary: {
+        default: '#FFF',
         _dark: '#1D1E24',
       },
     },

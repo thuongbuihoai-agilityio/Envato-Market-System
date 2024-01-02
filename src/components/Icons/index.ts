@@ -29,3 +29,4 @@ export * from './ChevronIcon';
 export * from './Eye';
 export * from './EyeSlash';
 export * from './Inbox';
+export * from './Send';
