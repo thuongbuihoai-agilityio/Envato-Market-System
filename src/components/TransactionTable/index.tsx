@@ -1,5 +1,5 @@
 import { Box, Th, useToast } from '@chakra-ui/react';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -80,15 +80,20 @@ const TransactionTableComponent = ({
 
   const toast = useToast();
   const { mutate: deleteTransaction } = useDeleteTransaction();
-  const [, setTransactionId] = useState<string | null>(null);
-
-  const handleClickAction = useCallback((id: string) => {
-    setTransactionId(id);
-  }, []);
 
   const handleDeleteTransaction = useCallback(
-    (id: string) => {
+    (id: string | number) =>
       deleteTransaction(id, {
+        onSuccess: () => {
+          toast({
+            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+            status: 'success',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
         onError: () => {
           toast({
             title: ERROR_MESSAGES.DELETE_FAIL.title,
@@ -99,20 +104,8 @@ const TransactionTableComponent = ({
             position: 'top-right',
           });
         },
-        onSuccess: () => {
-          deleteTransaction(id);
-          toast({
-            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-        },
-      });
-    },
-    [deleteTransaction, toast],
+      }),
+    [deleteTransaction],
   );
 
   // Update search params when end time debounce
@@ -142,14 +135,13 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    (data: TDataSource) => (
+    ({ id }: TDataSource) => (
       <ActionCell
-        id={`${data.id}`}
-        key={`${data.id}-action`}
+        id={id}
+        key={`${id}-action`}
         isOpenModal={isOpenModal}
         transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
-        onClickAction={handleClickAction}
       />
     ),
     [],

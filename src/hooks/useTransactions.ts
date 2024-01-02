@@ -151,7 +151,7 @@ export const useDeleteTransaction = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (id: string) =>
+    mutationFn: async (id: string | number) =>
       await transactionHttpService.delete(`${END_POINTS.TRANSACTIONS}/${id}`),
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [END_POINTS.TRANSACTIONS] });

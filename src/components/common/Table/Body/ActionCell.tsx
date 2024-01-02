@@ -18,39 +18,36 @@ import UpdateModal from './TransactionModal';
 import { TDataSource } from '@app/interfaces';
 
 interface ActionCallProps {
-  id?: string;
+  id?: string | number;
   isOpenModal?: boolean;
   transaction?: TDataSource;
-  onDeleteTransaction?: (id: string) => void;
-  onClickAction?: (id: string) => void;
+  onDeleteTransaction?: (id: string | number) => void;
 }
 
 const ActionCellComponent = ({
-  id = '',
+  id,
   isOpenModal = false,
   transaction,
-  onDeleteTransaction = () => { },
-  onClickAction = () => { },
+  onDeleteTransaction = () => {},
 }: ActionCallProps) => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
   const handleToggleDelete = useCallback(() => {
-    setOpenModal(true);
+    setIsOpenConfirmModal(true);
     setIsDelete(true);
-  }, [isDelete]);
+  }, []);
 
   const handleToggleUpdate = useCallback(() => {
-    setOpenModal(true);
-    setIsDelete(false)
-  }, [isDelete]);
+    setIsOpenConfirmModal(true);
+    setIsDelete(false);
+  }, []);
 
   const handleCloseModal = useCallback(() => {
-    setOpenModal(!openModal);
-  }, [openModal]);
+    setIsOpenConfirmModal(!isOpenConfirmModal);
+  }, [isOpenConfirmModal]);
 
-  const handleClickAction = () => onClickAction(id);
-  const handleDeleteTransaction = () => onDeleteTransaction(id);
+  const handleDeleteTransaction = () => onDeleteTransaction(id as string);
 
   const DeleteModal = () => (
     <Flex>
@@ -73,12 +70,10 @@ const ActionCellComponent = ({
       <Td
         px={0}
         fontSize="md"
-        data-testid="action-btn"
         color="text.primary"
         fontWeight="semibold"
         textAlign="center"
         position="relative"
-        onClick={handleClickAction}
       >
         <Menu closeOnSelect={false}>
           {({ isOpen }) => (
@@ -125,19 +120,28 @@ const ActionCellComponent = ({
           )}
         </Menu>
       </Td>
-      <Modal
-        isOpen={openModal}
-        onClose={handleCloseModal}
-        title={isDelete ? "Do you want to delete this transaction?" : "Update transaction"}
-        renderBody={isDelete
-          ? <DeleteModal />
-          : <UpdateModal
-              transaction={transaction}
-              // onUpdateTransaction={handleDeleteTransaction}
-              onCloseModal={handleCloseModal}
-            />
-        }
-      />
+      {isOpenConfirmModal && (
+        <Modal
+          isOpen={isOpenConfirmModal}
+          onClose={handleCloseModal}
+          title={
+            isDelete
+              ? 'Do you want to delete this transaction?'
+              : 'Update transaction'
+          }
+          renderBody={
+            isDelete ? (
+              <DeleteModal />
+            ) : (
+              <UpdateModal
+                transaction={transaction}
+                // onUpdateTransaction={handleDeleteTransaction}
+                onCloseModal={handleCloseModal}
+              />
+            )
+          }
+        />
+      )}
     </>
   );
 };
