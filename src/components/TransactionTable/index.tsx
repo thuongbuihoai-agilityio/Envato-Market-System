@@ -1,5 +1,5 @@
 import { Box, Th, useToast } from '@chakra-ui/react';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -80,11 +80,6 @@ const TransactionTableComponent = ({
 
   const toast = useToast();
   const { mutate: deleteTransaction } = useDeleteTransaction();
-  const [_, setTransactionId] = useState<string>();
-
-  const handleClickAction = useCallback((id: string | number) => {
-    setTransactionId(id as string);
-  }, []);
 
   const handleDeleteTransaction = useCallback(
     (id: string | number) =>
@@ -146,7 +141,6 @@ const TransactionTableComponent = ({
         key={`${id}-action`}
         isOpenModal={isOpenModal}
         onDeleteTransaction={handleDeleteTransaction}
-        onClickAction={handleClickAction}
       />
     ),
     [],

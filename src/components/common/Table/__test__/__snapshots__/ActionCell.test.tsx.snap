@@ -7,7 +7,6 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
   >
     <td
       class="css-1vvhs8e"
-      data-testid="action-btn"
     >
       <button
         aria-controls="menu-list-:r1:"

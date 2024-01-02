@@ -19,14 +19,12 @@ interface ActionCallProps {
   id?: string | number;
   isOpenModal?: boolean;
   onDeleteTransaction?: (id: string | number) => void;
-  onClickAction?: (id: string | number) => void;
 }
 
 const ActionCellComponent = ({
   id,
   isOpenModal = false,
   onDeleteTransaction = () => {},
-  onClickAction = () => {},
 }: ActionCallProps) => {
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
 
@@ -34,7 +32,6 @@ const ActionCellComponent = ({
     setIsOpenConfirmModal(!isOpenConfirmModal);
   }, [isOpenConfirmModal]);
 
-  const handleClickAction = () => onClickAction(id as string);
   const handleDeleteTransaction = () => onDeleteTransaction(id as string);
 
   const renderBodyModal = () => (
@@ -58,12 +55,10 @@ const ActionCellComponent = ({
       <Td
         px={0}
         fontSize="md"
-        data-testid="action-btn"
         color="text.primary"
         fontWeight="semibold"
         textAlign="center"
         position="relative"
-        onClick={handleClickAction}
       >
         <Menu closeOnSelect={false}>
           {({ isOpen }) => (
