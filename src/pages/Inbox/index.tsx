@@ -31,7 +31,12 @@ const ChatMemberList = () => {
       borderColor="border.tertiary"
     >
       {isMobile ? (
-        <GridItem colSpan={12} mb={4} padding={2}>
+        <GridItem
+          colSpan={12}
+          mb={4}
+          padding={2}
+          bg="background.body.septenary"
+        >
           <Flex justify="flex-start">
             {MEMBER_CHAT.map(({ id, avatar, statusColor }) => (
               <ChatMember key={id} avatar={avatar} statusColor={statusColor} />
