@@ -37,7 +37,7 @@ describe('Sidebar test case', () => {
           isOpen={true}
           onClose={mockFunction}
           onOpen={mockFunction}
-          roleAdmin="member"
+          role="member"
         />
       </MemoryRouter>,
     );

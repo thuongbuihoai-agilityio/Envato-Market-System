@@ -20,7 +20,7 @@ import { TUserDetail } from '@app/interfaces';
 
 export type SidebarProps = {
   menuItem?: TMenuItem[];
-  roleAdmin?: string;
+  role?: string;
   onClose: () => void;
   onOpen: () => void;
   isOpen: boolean;
@@ -35,14 +35,14 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
   return (
     <>
       <ExpandSidebar
-        roleAdmin={role}
+        role={role}
         menuItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]}
         onClose={onClose}
         onOpen={onOpen}
         isOpen={!isOpen}
       />
       <MiniSidebar
-        roleAdmin={role}
+        role={role}
         menuItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]}
         onClose={onClose}
         isOpen={isOpen}

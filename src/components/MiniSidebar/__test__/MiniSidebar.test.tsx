@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 // components
 import { MemoryRouter } from 'react-router-dom';
 import { MiniSidebar } from '@app/components';
+import { AUTHENTICATION_ROLE, MENU_ITEM_LIST } from '@app/constants';
+import { TMenuItem } from '@app/components/common/Menu';
 
 describe('MiniSidebar test case', () => {
   beforeEach(() => {
@@ -33,7 +35,7 @@ describe('MiniSidebar test case', () => {
 
     const { container } = render(
       <MemoryRouter>
-        <MiniSidebar isOpen={true} onClose={mockFucntion} roleAdmin="member" />
+        <MiniSidebar menuItem={MENU_ITEM_LIST(AUTHENTICATION_ROLE.MEMBER) as TMenuItem[]} isOpen={true} onClose={mockFucntion} role="member" />
       </MemoryRouter>,
     );
 

@@ -40,7 +40,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
   const { user } = authStore();
 
   const username = `${user?.firstName} ${user?.lastName}`;
-  const roleAdmin = user?.role === AUTHENTICATION_ROLE.SUPER_ADMIN;
+  const role = user?.role === AUTHENTICATION_ROLE.SUPER_ADMIN;
 
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
@@ -114,7 +114,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           >
             <Dropdown
               name={username}
-              permission={roleAdmin ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
+              permission={role ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
               src={avatarURL}
             />
           </Box>
@@ -129,7 +129,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         >
           <Dropdown
             name={username}
-            permission={roleAdmin ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
+            permission={role ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
             src={avatarURL}
           />
         </Box>

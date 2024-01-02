@@ -4,6 +4,9 @@ import { MemoryRouter } from 'react-router-dom';
 
 // component
 import { Dropdown } from '@app/components';
+import { AUTHENTICATION_ROLE } from '@app/constants';
+import { authStore } from '@app/stores';
+import { TUserDetail } from '@app/interfaces';
 
 const renderComponent = ({
   name,
@@ -17,6 +20,14 @@ const renderComponent = ({
   });
 
 describe('Dropdown render', () => {
+  beforeEach(() => {
+    authStore.setState({
+      user: {
+        role: AUTHENTICATION_ROLE.MEMBER
+      } as TUserDetail
+    })
+  })
+
   it('Should render match with snapshot.', async () => {
     const { container } = await renderComponent({
       name: 'John Doe',

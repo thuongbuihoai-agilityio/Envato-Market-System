@@ -19,9 +19,9 @@ export const MENU_LIST_ICON = [
   },
 ];
 
-export const MENU_LIST = (roleAdmin: string) => [
+export const MENU_LIST = (role: string) => [
   {
-    ...(roleAdmin === AUTHENTICATION_ROLE.SUPER_ADMIN && {
+    ...(role === AUTHENTICATION_ROLE.SUPER_ADMIN && {
       id: 2,
       href: `/${ROUTES.USER}`,
       value: 'User',

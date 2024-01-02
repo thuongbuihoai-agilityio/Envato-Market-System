@@ -11,7 +11,7 @@ import {
 } from '@app/components/Icons';
 import { ROUTES, AUTHENTICATION_ROLE } from '.';
 
-export const MENU_ITEM_LIST = (roleAdmin: string) => [
+export const MENU_ITEM_LIST = (role: string) => [
   {
     id: 1,
     leftIcon: DashboardIcon,
@@ -39,7 +39,7 @@ export const MENU_ITEM_LIST = (roleAdmin: string) => [
   },
 
   {
-    ...(roleAdmin === AUTHENTICATION_ROLE.SUPER_ADMIN && {
+    ...(role === AUTHENTICATION_ROLE.SUPER_ADMIN && {
       id: 4,
       leftIcon: UserIcon,
       menuItemContent: 'Users',
@@ -78,11 +78,11 @@ export const SIDEBAR = {
   EXPAND_SIDEBAR_WIDTH: '308px',
 };
 
-export const EXPAND_SIDEBAR_MENU_LIST = (roleAdmin: string) => [
+export const EXPAND_SIDEBAR_MENU_LIST = (role: string) => [
   {
     id: 1,
     title: 'Menu',
-    listItem: MENU_ITEM_LIST(roleAdmin),
+    listItem: MENU_ITEM_LIST(role),
   },
   {
     id: 2,

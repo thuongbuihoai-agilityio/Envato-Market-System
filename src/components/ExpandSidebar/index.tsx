@@ -28,7 +28,7 @@ const ExpandSidebar = ({
   onClose,
   onOpen,
   isOpen,
-  roleAdmin,
+  role,
 }: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
@@ -98,7 +98,7 @@ const ExpandSidebar = ({
           }}
         >
           <VStack pr={12.5} mb={9}>
-            {EXPAND_SIDEBAR_MENU_LIST(roleAdmin as string).map((item) => (
+            {EXPAND_SIDEBAR_MENU_LIST(role as string).map((item) => (
               <Menu
                 key={item.id}
                 title={item.title}

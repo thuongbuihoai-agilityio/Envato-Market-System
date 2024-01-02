@@ -143,32 +143,37 @@ const UserDropdownMenu = ({
                 </MenuItem>
               );
             })}
-            <Divider my={3.5} color="gray.300" />
-            {MENU_LIST(role).map(({ id, value, href }) => {
-              if (!value) return <></>;
-              return (
-                <MenuItem
-                  key={id}
-                  p={3.5}
-                  borderRadius="lg"
-                  bg="transparent"
-                  as={Link}
-                  to={href}
-                  aria-label={`menu-item-${value}`}
-                  _hover={{
-                    bg: 'background.component.tertiary',
-                    color: 'text.currencyColor',
-                    svg: { stroke: 'text.currencyColor' },
-                    borderColor: 'transparent',
-                  }}
-                  _focus={{
-                    outline: 'none',
-                  }}
-                >
-                  <Text variant="text4Xl">{value}</Text>
-                </MenuItem>
-              );
-            })}
+            {
+              role === AUTHENTICATION_ROLE.MEMBER ? null : (
+                <>
+                  <Divider my={3.5} color="gray.300" />
+                  {MENU_LIST(role).map(({ id, value, href }) => {
+                    return (
+                      <MenuItem
+                        key={id}
+                        p={3.5}
+                        borderRadius="lg"
+                        bg="transparent"
+                        as={Link}
+                        to={href}
+                        aria-label={`menu-item-${value}`}
+                        _hover={{
+                          bg: 'background.component.tertiary',
+                          color: 'text.currencyColor',
+                          svg: { stroke: 'text.currencyColor' },
+                          borderColor: 'transparent',
+                        }}
+                        _focus={{
+                          outline: 'none',
+                        }}
+                      >
+                        <Text variant="text4Xl">{value}</Text>
+                      </MenuItem>
+                    );
+                  })}
+                </>
+              )
+            }
           </MenuList>
         </Box>
       )}
