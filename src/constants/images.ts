@@ -195,11 +195,19 @@ export const IMAGES = {
   },
 
   RECORD_DARK: {
-    url: 'images/record-dark.webp',
+    url: 'images/records-dark.webp',
     alt: 'This is record dark image',
   },
   PASSWORD: {
     url: 'images/reset-password.svg',
     alt: 'This is password image',
+  },
+  PLUS: {
+    url: 'icons/plus.svg',
+    alt: 'This is the plus icon',
+  },
+  FALLBACK: {
+    url: 'images/fallback.webp',
+    alt: 'This is backup image',
   },
 };

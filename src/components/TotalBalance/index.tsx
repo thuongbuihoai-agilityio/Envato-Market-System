@@ -59,7 +59,8 @@ const TotalBalanceComponent = ({
         <Flex align="center">
           <Image
             src={IMAGES.INCREASE_ICON.url}
-            alt={IMAGES.INCREASE_ICON.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             w={5}
             h={5}
             mr="2"

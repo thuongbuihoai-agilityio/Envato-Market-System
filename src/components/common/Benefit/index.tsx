@@ -31,27 +31,45 @@ const BenefitComponent = ({
     display={{ base: 'none', lg: 'block' }}
     backgroundColor="background.section.primary"
   >
-    <Image src={image.url} alt={alt} w={image.width} height={image.height} />
+    <Image
+      src={image.url}
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
+      alt={alt}
+      w={image.width}
+      height={image.height}
+    />
     <Image
       position="absolute"
+      boxSize={115}
       top={10}
       left={8}
       src={IMAGES.SQUARE.url}
       alt={IMAGES.SQUARE.alt}
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
     />
     <Image
       position="absolute"
+      w={27}
+      h={143}
       top={14}
       right={12}
       src={IMAGES.VLINE.url}
       alt={IMAGES.VLINE.alt}
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
+      objectFit="contain"
     />
     <Image
       position="absolute"
+      boxSize={81}
       bottom={1}
       left={8}
       src={IMAGES.DOTTED.url}
       alt={IMAGES.DOTTED.alt}
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
     />
     <Box
       fontFamily="primary"

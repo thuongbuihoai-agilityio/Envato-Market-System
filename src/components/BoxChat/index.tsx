@@ -49,6 +49,7 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
             src={IMAGES.USER_AVATAR.url}
             alt={IMAGES.USER_AVATAR.alt}
             fallbackSrc={IMAGES.USER.url}
+            fallbackStrategy="onError"
             w="52px"
             h={8}
           />
@@ -61,9 +62,10 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
             borderRadius="50%"
           >
             <Image
-              src="icons/plus.svg"
-              alt={IMAGES.USER_AVATAR.alt}
-              fallbackSrc={IMAGES.USER.url}
+              src={IMAGES.PLUS.url}
+              alt={IMAGES.PLUS.alt}
+              fallbackSrc={IMAGES.FALLBACK.url}
+              fallbackStrategy="onError"
               w={3.5}
               h={3.5}
             />
@@ -103,6 +105,8 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
               <Image
                 src={IMAGES.ATTACH.url}
                 alt={IMAGES.ATTACH.alt}
+                fallbackSrc={IMAGES.FALLBACK.url}
+                fallbackStrategy="onError"
                 w={4}
                 h={15}
                 cursor="pointer"
@@ -122,6 +126,8 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
               <Image
                 src={IMAGES.MICRO.url}
                 alt={IMAGES.MICRO.alt}
+                fallbackSrc={IMAGES.FALLBACK.url}
+                fallbackStrategy="onError"
                 w={6}
                 h={6}
                 cursor="pointer"
@@ -134,6 +140,8 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
             ml={5}
             src={IMAGES.SEND.url}
             alt={IMAGES.SEND.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             w={5}
             h={18}
             cursor="pointer"

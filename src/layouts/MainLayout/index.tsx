@@ -66,7 +66,11 @@ const Layout = () => {
         <Image
           src={IMAGES.LEFT_ARROW.url}
           alt={IMAGES.LEFT_ARROW.alt}
+          fallbackSrc={IMAGES.FALLBACK.url}
+          fallbackStrategy="onError"
           position="fixed"
+          w={4}
+          h={10}
           top={8}
           transform="rotate(180deg)"
           left={0}
