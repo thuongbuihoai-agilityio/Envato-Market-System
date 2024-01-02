@@ -110,12 +110,14 @@ const ActionCellComponent = ({
           )}
         </Menu>
       </Td>
-      <Modal
-        isOpen={isOpenConfirmModal}
-        onClose={handleToggleModal}
-        title="Do you want to delete this transaction?"
-        renderBody={renderBodyModal}
-      />
+      {isOpenConfirmModal && (
+        <Modal
+          isOpen={isOpenConfirmModal}
+          onClose={handleToggleModal}
+          title="Do you want to delete this transaction?"
+          renderBody={renderBodyModal}
+        />
+      )}
     </>
   );
 };
