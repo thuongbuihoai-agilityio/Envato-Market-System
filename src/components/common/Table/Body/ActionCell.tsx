@@ -17,7 +17,7 @@ import { Modal } from '@app/components';
 
 interface ActionCallProps {
   id?: string | number;
-  isOpenModal: boolean;
+  isOpenModal?: boolean;
   onDeleteTransaction?: (id: string | number) => void;
   onClickAction?: (id: string | number) => void;
 }
