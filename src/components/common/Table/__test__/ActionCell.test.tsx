@@ -27,9 +27,9 @@ describe('CustomerNameCell', () => {
   });
 
   it('Render', () => {
-    const { getByRole } = setup();
+    const { getByTestId } = setup();
 
-    fireEvent.click(getByRole('button'));
+    fireEvent.click(getByTestId('action-btn'));
 
     expect(onClickAction).toHaveBeenCalled();
   });
