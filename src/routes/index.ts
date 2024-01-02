@@ -20,6 +20,7 @@ const Transaction = lazy(() => import('@app/pages/Transaction'));
 const User = lazy(() => import('@app/pages/User'));
 const NotFound = lazy(() => import('@app/pages/NotFound'));
 const ComingSoon = lazy(() => import('@app/pages/ComingSoon'));
+const Inbox = lazy(() => import('@app/pages/Inbox'));
 
 export const ROUTER = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const ROUTER = createBrowserRouter([
       {
         path: ROUTES.USER,
         Component: User,
+      },
+      {
+        path: ROUTES.INBOX,
+        Component: Inbox,
       },
     ],
   },

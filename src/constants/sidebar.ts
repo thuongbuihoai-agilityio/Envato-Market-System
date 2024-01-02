@@ -7,6 +7,7 @@ import {
   SignOutIcon,
   TransactionIcon,
   UserIcon,
+  InboxIcon,
 } from '@app/components/Icons';
 import { ROUTES } from '.';
 
@@ -29,6 +30,14 @@ export const MENU_ITEM_LIST = [
     menuItemContent: 'My Wallets',
     destination: `/${ROUTES.MY_WALLET}`,
   },
+
+  {
+    id: 8,
+    leftIcon: InboxIcon,
+    menuItemContent: 'Inbox',
+    destination: `/${ROUTES.INBOX}`,
+  },
+
   {
     id: 4,
     leftIcon: UserIcon,
