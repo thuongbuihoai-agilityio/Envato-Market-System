@@ -112,7 +112,7 @@ const TransactionTableComponent = ({
         },
       });
     },
-    [deleteTransaction, toast],
+    [deleteTransaction],
   );
 
   // Update search params when end time debounce
