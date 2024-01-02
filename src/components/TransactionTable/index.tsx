@@ -80,7 +80,7 @@ const TransactionTableComponent = ({
 
   const toast = useToast();
   const { mutate: deleteTransaction } = useDeleteTransaction();
-  const [, setTransactionId] = useState<string>();
+  const [_, setTransactionId] = useState<string>();
 
   const handleClickAction = useCallback((id: string | number) => {
     setTransactionId(id as string);
