@@ -47,7 +47,8 @@ const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
       <Image
         src={IMAGES.DEBIT_ICON.url}
         alt={IMAGES.DEBIT_ICON.alt}
-        fallbackSrc={IMAGES.USER.url}
+        fallbackSrc={IMAGES.FALLBACK.url}
+        fallbackStrategy="onError"
         boxSize={6}
         position="absolute"
         left={5}

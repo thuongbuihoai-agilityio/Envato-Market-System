@@ -31,6 +31,8 @@ const TotalCardComponent = ({
           h={38}
           src={IMAGES.TOTAL_EARN.url}
           alt={IMAGES.TOTAL_EARN.alt}
+          fallbackSrc={IMAGES.FALLBACK.url}
+          fallbackStrategy="onError"
         />
         <Text variant="textLg" fontWeight="semibold">
           {title}
@@ -44,6 +46,8 @@ const TotalCardComponent = ({
           <Image
             src={IMAGES.GROWTH.url}
             alt={IMAGES.GROWTH.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             w={4}
             h={3.5}
           />

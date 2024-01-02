@@ -236,6 +236,11 @@ const SecurityPage = () => {
       <Image
         src={IMAGES.PASSWORD.url}
         alt={IMAGES.PASSWORD.alt}
+        objectFit="contain"
+        w={265}
+        h={455}
+        fallbackSrc={IMAGES.FALLBACK.url}
+        fallbackStrategy="onError"
         display={{ base: 'none', xl: 'block' }}
       />
     </Flex>

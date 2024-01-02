@@ -16,6 +16,9 @@ const VoiceChatMessageComponent = (): JSX.Element => {
     <Image
       src={imageByColorMode[colorMode]}
       alt="Message Image"
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
+      objectFit="contain"
       ml={2}
       w={203}
       h={46}

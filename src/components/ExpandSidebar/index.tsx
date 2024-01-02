@@ -64,8 +64,12 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
 
           {/* Close button of Expand sidebar */}
           <Image
+            w={4}
+            h={10}
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             position="absolute"
             top="auto"
             right={0}

@@ -70,8 +70,11 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
           <Image
             src={logos[colorMode]?.url}
             alt={logos[colorMode]?.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             w={8}
             h={45}
+            objectFit="contain"
             cursor="pointer"
           />
 
@@ -79,8 +82,12 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             position="absolute"
             top="auto"
+            w={4}
+            h={10}
             transform="rotate(180deg)"
             right={-4}
             onClick={onClose}

@@ -6,7 +6,16 @@ import { IMAGES } from '@app/constants/images';
 
 const NotFoundPage = (): JSX.Element => (
   <Center flexDirection="column-reverse">
-    <Image src={IMAGES.NOT_FOUND.url} alt={IMAGES.NOT_FOUND.alt} />
+    <Image
+      src={IMAGES.NOT_FOUND.url}
+      alt={IMAGES.NOT_FOUND.alt}
+      maxW={1276}
+      maxH={858}
+      w="full"
+      h="full"
+      fallbackSrc={IMAGES.FALLBACK.url}
+      fallbackStrategy="onError"
+    />
     <Button
       as={Link}
       aria-labelledby="go back"

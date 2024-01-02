@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChatMember } from '@app/components/ChatMember';
-import { IMAGES } from '@app/constants';
 import { Image } from '@chakra-ui/react';
 
 // Components
+import { ChatMember } from '@app/components/ChatMember';
+
+// Constants
+import { IMAGES } from '@app/constants';
 
 const meta: Meta<typeof ChatMember> = {
   title: 'Custom Components/ChatMember',
@@ -41,7 +43,15 @@ export const Default: Story = {
     status: 'Online',
     statusColor: 'online',
     localeTime: '10:30',
-    icon: <Image boxSize={4} src={IMAGES.ATTACH.url} alt={IMAGES.ATTACH.alt} />,
+    icon: (
+      <Image
+        boxSize={4}
+        src={IMAGES.ATTACH.url}
+        alt={IMAGES.ATTACH.alt}
+        fallbackSrc={IMAGES.FALLBACK.url}
+        fallbackStrategy="onError"
+      />
+    ),
     avatar: 'https://bankcor.quomodosoft.com/assets/u-1-b5f0d6cb.png',
   },
 };
