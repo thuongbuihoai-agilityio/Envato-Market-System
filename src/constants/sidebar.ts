@@ -78,11 +78,11 @@ export const SIDEBAR = {
   EXPAND_SIDEBAR_WIDTH: '308px',
 };
 
-export const EXPAND_SIDEBAR_MENU_LIST = [
+export const EXPAND_SIDEBAR_MENU_LIST = (isAdmin: string) => [
   {
     id: 1,
     title: 'Menu',
-    listItem: MENU_ITEM_LIST,
+    listItem: MENU_ITEM_LIST(isAdmin),
   },
   {
     id: 2,

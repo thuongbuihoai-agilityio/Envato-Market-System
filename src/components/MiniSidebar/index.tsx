@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
 // type
@@ -20,34 +20,23 @@ import {
 import { Menu } from '@app/components';
 
 // constants
-import {
-  IMAGES,
-  HELP_ITEM_LIST,
-  MENU_ITEM_LIST,
-  OTHER_ITEM_LIST,
-  SIDEBAR,
-  MEMBER,
-} from '@app/constants';
+import { IMAGES, OTHER_ITEM_LIST, SIDEBAR } from '@app/constants';
 
 // Types
-import { TImage, TUserDetail } from '@app/interfaces';
+import { TImage } from '@app/interfaces';
 import { TMenuItem } from '../common/Menu';
 
-// Stores
-import { authStore } from '@app/stores';
-
-const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
+const MiniSidebar = ({
+  onClose,
+  isOpen,
+  menuItem,
+}: Omit<SidebarProps, 'onOpen'>) => {
   const { colorMode } = useColorMode();
 
   const logos: Record<ColorMode, TImage> = {
     light: IMAGES.LOGO_MINI_LIGHT,
     dark: IMAGES.LOGO_MINI_DARK,
   };
-
-  const { user } = authStore();
-
-  const { role = MEMBER } = user as TUserDetail;
-  const menuItem = useMemo(() => MENU_ITEM_LIST(role), [role]);
 
   return (
     <Drawer
@@ -120,10 +109,7 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
         >
           <VStack>
             <List>
-              <Menu
-                listItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]}
-                isMinify
-              />
+              <Menu listItem={menuItem as TMenuItem[]} isMinify />
               <Menu listItem={[...OTHER_ITEM_LIST]} isMinify />
             </List>
           </VStack>
