@@ -5,8 +5,7 @@ import { Box } from '@chakra-ui/react';
 import { Menu } from '@app/components';
 
 // Constants
-import { MENU_ITEM_LIST } from '@app/constants/sidebar';
-import { SUPER_ADMIN } from '@app/constants';
+import { MENU_ITEM_LIST, AUTHENTICATION_ROLE } from '@app/constants';
 import { TMenuItem } from '.';
 
 const meta: Meta<typeof Menu> = {
@@ -47,14 +46,14 @@ type Story = StoryObj<typeof Menu>;
 export const Epxand: Story = {
   args: {
     title: 'Expand Menu Component',
-    listItem: MENU_ITEM_LIST(SUPER_ADMIN) as TMenuItem[],
+    listItem: MENU_ITEM_LIST(AUTHENTICATION_ROLE.SUPER_ADMIN) as TMenuItem[],
   },
 };
 
 export const Minify: Story = {
   args: {
     title: 'Minify Menu Component',
-    listItem: MENU_ITEM_LIST(SUPER_ADMIN) as TMenuItem[],
+    listItem: MENU_ITEM_LIST(AUTHENTICATION_ROLE.SUPER_ADMIN) as TMenuItem[],
     isMinify: true,
   },
 };

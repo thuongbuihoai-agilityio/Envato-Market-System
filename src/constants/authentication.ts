@@ -1,3 +1,4 @@
-export const SUPER_ADMIN = 'Super Admin';
-
-export const MEMBER = 'member';
+export const AUTHENTICATION_ROLE = {
+  SUPER_ADMIN: 'Super Admin',
+  MEMBER: 'member',
+};

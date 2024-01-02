@@ -24,7 +24,12 @@ import { SIDEBAR, IMAGES } from '@app/constants';
 // mocks
 import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 
-const ExpandSidebar = ({ onClose, onOpen, isOpen, isAdmin }: SidebarProps) => {
+const ExpandSidebar = ({
+  onClose,
+  onOpen,
+  isOpen,
+  roleAdmin,
+}: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
   const handleCloseSideBar = useCallback(() => {
@@ -93,7 +98,7 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen, isAdmin }: SidebarProps) => {
           }}
         >
           <VStack pr={12.5} mb={9}>
-            {EXPAND_SIDEBAR_MENU_LIST(isAdmin).map((item) => (
+            {EXPAND_SIDEBAR_MENU_LIST(roleAdmin as string).map((item) => (
               <Menu
                 key={item.id}
                 title={item.title}

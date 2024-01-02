@@ -33,7 +33,7 @@ describe('MiniSidebar test case', () => {
 
     const { container } = render(
       <MemoryRouter>
-        <MiniSidebar isOpen={true} onClose={mockFucntion} />
+        <MiniSidebar isOpen={true} onClose={mockFucntion} roleAdmin="member" />
       </MemoryRouter>,
     );
 

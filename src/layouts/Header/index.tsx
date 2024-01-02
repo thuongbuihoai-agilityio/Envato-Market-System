@@ -25,7 +25,7 @@ import { Email } from '@app/components/Icons';
 import { authStore } from '@app/stores';
 
 // Constants
-import { SUPER_ADMIN } from '@app/constants';
+import { AUTHENTICATION_ROLE } from '@app/constants';
 
 interface HeaderProps {
   name?: string;
@@ -40,7 +40,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
   const { user } = authStore();
 
   const username = `${user?.firstName} ${user?.lastName}`;
-  const isAdmin = user?.role === SUPER_ADMIN;
+  const roleAdmin = user?.role === AUTHENTICATION_ROLE.SUPER_ADMIN;
 
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
@@ -114,7 +114,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
           >
             <Dropdown
               name={username}
-              permission={isAdmin ? SUPER_ADMIN : ''}
+              permission={roleAdmin ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
               src={avatarURL}
             />
           </Box>
@@ -129,7 +129,7 @@ const HeaderComponent = ({ name }: HeaderProps) => {
         >
           <Dropdown
             name={username}
-            permission={isAdmin ? SUPER_ADMIN : ''}
+            permission={roleAdmin ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
             src={avatarURL}
           />
         </Box>

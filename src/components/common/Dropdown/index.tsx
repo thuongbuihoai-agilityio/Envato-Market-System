@@ -19,7 +19,7 @@ import { Lazy } from '@app/components';
 import { Arrow } from '@app/components/Icons';
 
 // Constants
-import { MENU_LIST, MENU_LIST_ICON, MEMBER } from '@app/constants';
+import { MENU_LIST, MENU_LIST_ICON, AUTHENTICATION_ROLE } from '@app/constants';
 
 // Hooks
 import { useAuth } from '@app/hooks/useAuth';
@@ -55,7 +55,7 @@ const UserDropdownMenu = ({
   );
 
   const { user } = authStore();
-  const { role = MEMBER } = user as TUserDetail;
+  const { role = AUTHENTICATION_ROLE.MEMBER } = user as TUserDetail;
 
   return (
     <Menu offset={[offsetX, offsetY]}>

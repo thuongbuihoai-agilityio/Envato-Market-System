@@ -9,9 +9,9 @@ import {
   UserIcon,
   InboxIcon,
 } from '@app/components/Icons';
-import { ROUTES, SUPER_ADMIN } from '.';
+import { ROUTES, AUTHENTICATION_ROLE } from '.';
 
-export const MENU_ITEM_LIST = (isAdmin: string) => [
+export const MENU_ITEM_LIST = (roleAdmin: string) => [
   {
     id: 1,
     leftIcon: DashboardIcon,
@@ -39,7 +39,7 @@ export const MENU_ITEM_LIST = (isAdmin: string) => [
   },
 
   {
-    ...(isAdmin === SUPER_ADMIN && {
+    ...(roleAdmin === AUTHENTICATION_ROLE.SUPER_ADMIN && {
       id: 4,
       leftIcon: UserIcon,
       menuItemContent: 'Users',
@@ -78,11 +78,11 @@ export const SIDEBAR = {
   EXPAND_SIDEBAR_WIDTH: '308px',
 };
 
-export const EXPAND_SIDEBAR_MENU_LIST = (isAdmin: string) => [
+export const EXPAND_SIDEBAR_MENU_LIST = (roleAdmin: string) => [
   {
     id: 1,
     title: 'Menu',
-    listItem: MENU_ITEM_LIST(isAdmin),
+    listItem: MENU_ITEM_LIST(roleAdmin),
   },
   {
     id: 2,

@@ -28,6 +28,7 @@ const setup = (
   render(
     <MemoryRouter>
       <ExpandSidebar
+        roleAdmin="member"
         isOpen={true}
         onClose={mockOnOpenFunction}
         onOpen={mockOnCloseFunction}
