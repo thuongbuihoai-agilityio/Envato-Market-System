@@ -36,7 +36,6 @@ const Sidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
     <>
       <ExpandSidebar
         role={role}
-        menuItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]}
         onClose={onClose}
         onOpen={onOpen}
         isOpen={!isOpen}

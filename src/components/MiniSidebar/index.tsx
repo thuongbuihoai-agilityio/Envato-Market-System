@@ -20,7 +20,7 @@ import {
 import { Menu } from '@app/components';
 
 // constants
-import { HELP_ITEM_LIST, IMAGES, OTHER_ITEM_LIST, SIDEBAR } from '@app/constants';
+import { IMAGES, OTHER_ITEM_LIST, SIDEBAR } from '@app/constants';
 
 // Types
 import { TImage } from '@app/interfaces';
@@ -116,7 +116,7 @@ const MiniSidebar = ({
         >
           <VStack>
             <List>
-              <Menu listItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]} isMinify />
+              <Menu listItem={[...(menuItem as TMenuItem[])]} isMinify />
               <Menu listItem={[...OTHER_ITEM_LIST]} isMinify />
             </List>
           </VStack>
