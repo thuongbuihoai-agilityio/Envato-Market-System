@@ -15,14 +15,13 @@ import {
 } from '@app/components/index';
 
 // Utils
-import { getTransactionHomePage } from '@app/utils';
+import { formatTimeStamp, getTransactionHomePage } from '@app/utils';
 
 // Hooks
 import {
   TSearchTransaction,
   TSortField,
   useDebounce,
-  useDeleteTransaction,
   usePagination,
   useSearch,
   useTransactions,
@@ -36,10 +35,11 @@ import {
   SHOW_TIME,
   STATUS_LABEL,
   SUCCESS_MESSAGES,
+  TRANSACTION_STATUS_ENUM,
 } from '@app/constants';
 
 // Types
-import { TDataSource, THeaderTable } from '@app/interfaces';
+import { TDataSource, THeaderTable, TTransaction } from '@app/interfaces';
 
 interface TFilterUserProps {
   isOpenModal?: boolean;
@@ -59,9 +59,12 @@ const TransactionTableComponent = ({
 
   const {
     data: transactions = [],
+    dataHistory,
+    dataTransaction,
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
     sortBy,
+    useUpdateTransaction,
   } = useTransactions({
     name: searchTransaction.name,
   });
@@ -76,36 +79,44 @@ const TransactionTableComponent = ({
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(transactions);
+  } = usePagination(isTableHistory ? dataHistory : dataTransaction);
 
   const toast = useToast();
-  const { mutate: deleteTransaction } = useDeleteTransaction();
+  const { mutate: updateTransaction } = useUpdateTransaction();
 
   const handleDeleteTransaction = useCallback(
-    (id: string | number) =>
-      deleteTransaction(id, {
-        onSuccess: () => {
-          toast({
-            title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
+    (updateData: TTransaction) => {
+      updateTransaction(
+        {
+          ...updateData,
+          date: formatTimeStamp(updateData.date).toString(),
+          transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
         },
-        onError: () => {
-          toast({
-            title: ERROR_MESSAGES.DELETE_FAIL.title,
-            description: ERROR_MESSAGES.DELETE_FAIL.description,
-            status: 'error',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
+        {
+          onSuccess: () => {
+            toast({
+              title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+              description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+              status: 'success',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+          onError: () => {
+            toast({
+              title: ERROR_MESSAGES.DELETE_FAIL.title,
+              description: ERROR_MESSAGES.DELETE_FAIL.description,
+              status: 'error',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
         },
-      }),
-    [deleteTransaction],
+      );
+    },
+    [updateTransaction],
   );
 
   // Update search params when end time debounce
@@ -135,11 +146,11 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    ({ id }: TDataSource) => (
+    (data: TTransaction) => (
       <ActionCell
-        id={id}
-        key={`${id}-action`}
-        isOpenModal={isOpenModal}
+        key={`${data.id}-action`}
+        isOpenModal={isTableHistory ? !isOpenModal : isOpenModal}
+        transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
       />
     ),

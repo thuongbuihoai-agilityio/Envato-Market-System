@@ -9,20 +9,23 @@ import {
   MenuList,
   Td,
 } from '@chakra-ui/react';
-
-// Icons
-import { Dot } from '@app/components/Icons';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { Modal } from '@app/components';
 
+// Icons
+import { Dot } from '@app/components/Icons';
+
+// Interfaces
+import { TTransaction } from '@app/interfaces';
+
 interface ActionCallProps {
-  id?: string | number;
+  transaction?: TTransaction;
   isOpenModal?: boolean;
-  onDeleteTransaction?: (id: string | number) => void;
+  onDeleteTransaction?: (transactionData: TTransaction) => void;
 }
 
 const ActionCellComponent = ({
-  id,
+  transaction,
   isOpenModal = false,
   onDeleteTransaction = () => {},
 }: ActionCallProps) => {
@@ -32,7 +35,8 @@ const ActionCellComponent = ({
     setIsOpenConfirmModal(!isOpenConfirmModal);
   }, [isOpenConfirmModal]);
 
-  const handleDeleteTransaction = () => onDeleteTransaction(id as string);
+  const handleDeleteTransaction = () =>
+    onDeleteTransaction(transaction as TTransaction);
 
   const renderBodyModal = () => (
     <Flex>

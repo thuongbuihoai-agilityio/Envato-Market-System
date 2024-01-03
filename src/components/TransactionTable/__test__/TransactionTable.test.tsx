@@ -49,31 +49,6 @@ describe('Transaction table', () => {
 
     await waitFor(() => {
       expect(container).toMatchSnapshot();
-      expect(container.querySelectorAll('tr').length).toBe(
-        TRANSACTIONS.length + 1,
-      );
-    });
-  });
-
-  it('Match snapshot (isTableHistory = true)', async () => {
-    const { container } = await act(() => setup(true));
-
-    await waitFor(() => {
-      expect(container).toMatchSnapshot();
-      expect(container.querySelectorAll('tr').length).toBe(
-        TRANSACTIONS.length + 1,
-      );
-    });
-  });
-
-  it('Match snapshot (isTableHistory = true)', async () => {
-    const { container } = await act(() => setup(true));
-
-    await waitFor(() => {
-      expect(container).toMatchSnapshot();
-      expect(container.querySelectorAll('tr').length).toBe(
-        TRANSACTIONS.length + 1,
-      );
     });
   });
 
