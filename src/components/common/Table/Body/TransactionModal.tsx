@@ -1,59 +1,89 @@
+import { memo, useCallback } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+
+// Components
 import {
   Button,
   Flex,
   Grid,
   GridItem,
   HStack,
-  Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
-import { Controller, useForm } from 'react-hook-form';
-import InputField from '../../InputField';
-import { Select, UpdateProfile } from '@app/components';
-import { PAYMENT, STATUS_TRANSACTION } from '@app/constants';
-import { memo, useCallback } from 'react';
-import { TDataSource } from '@app/interfaces';
+import { UpdateProfile, InputField } from '@app/components';
+
+// Interfaces
+import { TCustomer, TDataSource, TTransaction } from '@app/interfaces';
+import { useTransactions } from '@app/hooks';
+import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
 
 interface TransactionProps {
   transaction?: TDataSource;
-  onUpdateTransaction?: () => void;
   onCloseModal?: () => void;
 }
 
 const UpdateModal = ({
   transaction,
-  onUpdateTransaction = () => {},
   onCloseModal = () => {},
 }: TransactionProps) => {
-  const { control } = useForm({
+  const { control, clearErrors, handleSubmit } = useForm<TDataSource>({
     defaultValues: {
       id: transaction?.id,
       name: transaction?.name,
       avatarURL: transaction?.avatarURL,
-      email: transaction?.email,
       location: transaction?.location,
-      spent: transaction?.spent,
-      date: transaction?.date,
-      paymentStatus: transaction?.paymentStatus,
-      transactionStatus: transaction?.transactionStatus,
     },
   });
 
-  const renderPaymentStatus = useCallback(
-    () => <Text color="secondary.450">{transaction?.paymentStatus}</Text>,
-    [transaction?.paymentStatus],
+  const { useUpdateTransaction } = useTransactions();
+
+  const toast = useToast();
+  const { mutate: updateTransaction } = useUpdateTransaction();
+
+  const handleChangeValue = useCallback(
+    <T,>(field: keyof TCustomer, changeHandler: (value: T) => void) =>
+      (data: T) => {
+        clearErrors(field);
+        changeHandler(data);
+      },
+    [clearErrors],
   );
 
-  const renderTransactionStatus = useCallback(
-    () => <Text color="secondary.450">{transaction?.transactionStatus}</Text>,
-    [transaction?.transactionStatus],
+  const handleSubmitForm = useCallback(
+    (updateData: TTransaction) => {
+      console.log('updateData', updateData);
+      updateTransaction(updateData, {
+        onSuccess: () => {
+          toast({
+            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+            status: 'success',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+        onError: () => {
+          toast({
+            title: ERROR_MESSAGES.UPDATE_FAIL.title,
+            description: ERROR_MESSAGES.UPDATE_FAIL.description,
+            status: 'error',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+      });
+    },
+    [updateTransaction],
   );
 
   return (
     <VStack
       as="form"
-      id="register-form"
-      // onSubmit={handleSubmit(handleSubmitForm)}
+      id="update-transaction-form"
+      onSubmit={handleSubmit(handleSubmitForm)}
     >
       <Grid
         width="full"
@@ -92,7 +122,6 @@ const UpdateModal = ({
           >
             <Controller
               control={control}
-              // rules={AUTH_SCHEMA.FIRST_NAME}
               name="name"
               render={({
                 field,
@@ -106,13 +135,12 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                  // onChange={handleChangeValue('customer-name', onChange)}
+                  onChange={handleChangeValue('name', onChange)}
                 />
               )}
             />
             <Controller
               control={control}
-              // rules={AUTH_SCHEMA.LAST_NAME}
               name="location"
               render={({ field, fieldState: { error } }) => (
                 <InputField
@@ -122,104 +150,19 @@ const UpdateModal = ({
                   {...field}
                   isError={!!error}
                   errorMessages={error?.message}
-                  // onChange={handleChangeValue('location', field.onChange)}
+                  onChange={handleChangeValue('location', field.onChange)}
                 />
               )}
             />
           </HStack>
-          <HStack
-            gap={{
-              base: 6,
-              md: 2,
-            }}
-            w="100%"
-            flexDirection={{
-              base: 'column',
-              md: 'row',
-            }}
-          >
-            <Controller
-              control={control}
-              // rules={AUTH_SCHEMA.EMAIL}
-              name="spent"
-              render={({ field, fieldState: { error } }) => (
-                <InputField
-                  variant="authentication"
-                  bg="background.body.primary"
-                  label="Spent"
-                  {...field}
-                  isError={!!error}
-                  errorMessages={error?.message}
-                  // onChange={handleChangeValue('spent', field.onChange)}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              // rules={AUTH_SCHEMA.PHONE_NUMBER}
-              name="date"
-              render={({ field, fieldState: { error } }) => (
-                <InputField
-                  variant="authentication"
-                  bg="background.body.primary"
-                  label="Date"
-                  {...field}
-                  isError={!!error}
-                  errorMessages={error?.message}
-                  // value={formatAllowOnlyNumbers(field.value)}
-                  // onChange={handleChangeValue('date', field.onChange)}
-                />
-              )}
-            />
-          </HStack>
-          <HStack
-            gap={{
-              base: 6,
-              md: 2,
-            }}
-            w="100%"
-            flexDirection={{
-              base: 'column',
-              md: 'row',
-            }}
-          >
-            <Controller
-              control={control}
-              name="paymentStatus"
-              render={() => (
-                <Flex flexDirection="column" w={227}>
-                  <Text mb={1} color="secondary.450">Payment</Text>
-                  <Select
-                    title="Payment"
-                    options={PAYMENT}
-                    renderTitle={renderPaymentStatus}
-                  />
-                </Flex>
-              )}
-            />
-            <Controller
-              control={control}
-              name="transactionStatus"
-              render={() => (
-                <Flex flexDirection="column" w={227}>
-                  <Text mb={1} color="secondary.450">Status</Text>
-                  <Select
-                    title="Status"
-                    options={STATUS_TRANSACTION}
-                    renderTitle={renderTransactionStatus}
-                  />
-                </Flex>
-              )}
-            />
-          </HStack>
-
           <GridItem mb={7}>
             <Flex mt={4}>
               <Button
+                type="submit"
+                form="update-transaction-form"
                 w={44}
                 bg="green.600"
                 mr={3}
-                onClick={onUpdateTransaction}
               >
                 Save
               </Button>

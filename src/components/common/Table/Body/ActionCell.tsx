@@ -136,7 +136,6 @@ const ActionCellComponent = ({
             ) : (
               <UpdateModal
                 transaction={transaction}
-                // onUpdateTransaction={handleDeleteTransaction}
                 onCloseModal={handleCloseModal}
               />
             )
