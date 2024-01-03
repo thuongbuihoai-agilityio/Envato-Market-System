@@ -69,6 +69,10 @@ const TransactionTableComponent = ({
     name: searchTransaction.name,
   });
 
+  const listData = isTableHistory ? dataHistory : dataTransaction;
+
+  console.log('listData', listData);
+
   const {
     data,
     filterData,
@@ -79,7 +83,7 @@ const TransactionTableComponent = ({
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(isTableHistory ? dataHistory : dataTransaction);
+  } = usePagination(listData);
 
   const toast = useToast();
   const { mutate: updateTransaction } = useUpdateTransaction();

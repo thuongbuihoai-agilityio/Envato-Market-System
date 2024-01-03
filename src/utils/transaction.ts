@@ -11,7 +11,7 @@ import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
  */
 export const getTransactionHomePage = (
   transactions: TTransaction[] = [],
-): TDataSource[] =>
+) =>
   transactions.map((transaction) => {
     const {
       id,

@@ -14,12 +14,12 @@ import {
 import { UpdateProfile, InputField } from '@app/components';
 
 // Interfaces
-import { TCustomer, TDataSource, TTransaction } from '@app/interfaces';
+import { TTransaction } from '@app/interfaces';
 import { useTransactions } from '@app/hooks';
 import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
 
 interface TransactionProps {
-  transaction?: TDataSource;
+  transaction?: TTransaction;
   onCloseModal?: () => void;
 }
 
@@ -27,11 +27,13 @@ const UpdateModal = ({
   transaction,
   onCloseModal = () => {},
 }: TransactionProps) => {
-  const { control, clearErrors, handleSubmit } = useForm<TDataSource>({
+  console.log('transaction===========', transaction);
+
+  const { control, clearErrors, handleSubmit } = useForm<TTransaction>({
     defaultValues: {
       id: transaction?.id,
       name: transaction?.name,
-      avatarURL: transaction?.avatarURL,
+      image: transaction?.image,
       location: transaction?.location,
     },
   });
@@ -42,7 +44,7 @@ const UpdateModal = ({
   const { mutate: updateTransaction } = useUpdateTransaction();
 
   const handleChangeValue = useCallback(
-    <T,>(field: keyof TCustomer, changeHandler: (value: T) => void) =>
+    <T,>(field: keyof TTransaction, changeHandler: (value: T) => void) =>
       (data: T) => {
         clearErrors(field);
         changeHandler(data);
