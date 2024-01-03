@@ -30,3 +30,5 @@ export * from './Eye';
 export * from './EyeSlash';
 export * from './Inbox';
 export * from './Send';
+export * from './Edit';
+export * from './Send';

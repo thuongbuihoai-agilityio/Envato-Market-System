@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { Box, Heading, Flex, theme, useColorModeValue } from '@chakra-ui/react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -10,10 +10,10 @@ import { colors } from '@app/themes/bases/colors';
 import { AVATAR_POSITION, IMAGES } from '@app/constants';
 
 // Components
-import Message from '@app/components/BoxChat/Message';
-import { ChatMember } from '@app/components/ChatMember';
-import Button from '@app/components/common/Button';
-import { SendIcon } from '@app/components/Icons/Send';
+import { Message } from '@app/components';
+import { ChatMemberMemorized } from '@app/components';
+import { CustomButton } from '@app/components';
+import { SendIcon } from '@app/components/Icons';
 
 // Mocks
 import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
@@ -21,7 +21,15 @@ import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
 // Stores
 import { authStore } from '@app/stores';
 
-const Conversation = () => {
+// Interfaces
+import { MessageType } from '@app/interfaces/messages';
+
+export type Props = {
+  activeMember?: string;
+  filteredMessages: MessageType[];
+};
+
+const Conversation = ({ filteredMessages }: Props) => {
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
   );
@@ -36,8 +44,13 @@ const Conversation = () => {
     colors.secondary[400],
   );
 
+  const messagesToShow = useMemo(
+    () => (filteredMessages.length > 0 ? filteredMessages : MESSAGES),
+    [filteredMessages],
+  );
+
   return (
-    <Box w="full" bg="" borderRadius="lg">
+    <Box w="full" borderRadius="lg">
       <Flex
         direction="row"
         justifyContent="space-between"
@@ -51,7 +64,7 @@ const Conversation = () => {
           fontSize="2xl"
           textTransform="capitalize"
         >
-          <ChatMember
+          <ChatMemberMemorized
             avatar={avatarURL}
             name={username}
             status="Online"
@@ -61,7 +74,7 @@ const Conversation = () => {
       </Flex>
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
-        {MESSAGES.map((message): JSX.Element => {
+        {messagesToShow.map((message): JSX.Element => {
           const { isSend, isAudio, uid, content } = message;
 
           return (
@@ -78,6 +91,7 @@ const Conversation = () => {
             />
           );
         })}
+
         <Flex direction="column" width="full">
           <ReactQuill
             value={editorValue}
@@ -95,7 +109,7 @@ const Conversation = () => {
             theme="snow"
           />
 
-          <Button
+          <CustomButton
             w="unset"
             px={4}
             py={2.5}
@@ -107,7 +121,7 @@ const Conversation = () => {
             alignSelf="flex-end"
           >
             Send
-          </Button>
+          </CustomButton>
         </Flex>
       </Box>
     </Box>

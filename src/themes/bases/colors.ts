@@ -73,6 +73,11 @@ export const colors = {
         default: '#F6FAFF',
         _dark: '#1D1E24',
       },
+
+      messageUser: {
+        default: '#EDf2f7',
+        _dark: '#1D1E24',
+      },
     },
 
     component: {

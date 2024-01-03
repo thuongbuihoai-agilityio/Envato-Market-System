@@ -1,4 +1,15 @@
-import { Box, Flex, Text, Avatar, AvatarBadge } from '@chakra-ui/react';
+import { memo } from 'react';
+import {
+  Box,
+  Flex,
+  Text,
+  Avatar,
+  AvatarBadge,
+  useColorModeValue,
+} from '@chakra-ui/react';
+
+// Themes
+import { colors } from '@app/themes/bases/colors';
 
 // Utils
 import { getStatusColor } from '@app/utils';
@@ -10,30 +21,43 @@ export type Props = {
   localeTime?: string;
   icon?: React.ReactNode;
   statusColor?: string;
+  onClick?: () => void;
 };
 
-export const ChatMember = ({
+const ChatMember = ({
   avatar,
   name,
-  status,
   localeTime,
   icon,
   statusColor = '',
-}: Props) => (
-  <Box>
-    <Flex gap={3}>
-      <Avatar src={avatar} borderRadius="50%">
-        <AvatarBadge boxSize={4} bg={getStatusColor(statusColor)} top={7} />
-      </Avatar>
-      <Box mr={6}>
-        <Text>{name}</Text>
-        <Text color="secondary.1100">{status}</Text>
-      </Box>
+  onClick,
+}: Props) => {
+  const colorFill = useColorModeValue(
+    colors.secondary[200],
+    colors.secondary[600],
+  );
 
-      <Flex direction="column">
-        <Text>{localeTime}</Text>
-        {icon}
+  return (
+    <Box cursor="pointer" _hover={{ bg: colorFill }} onClick={onClick}>
+      <Flex justify="space-between">
+        <Flex gap={3}>
+          <Avatar src={avatar} borderRadius="50%">
+            <AvatarBadge boxSize={4} bg={getStatusColor(statusColor)} top={7} />
+          </Avatar>
+          <Box mr={6}>
+            <Text>{name}</Text>
+          </Box>
+        </Flex>
+
+        <Flex direction="column">
+          <Text>{localeTime}</Text>
+          {icon}
+        </Flex>
       </Flex>
-    </Flex>
-  </Box>
-);
+    </Box>
+  );
+};
+
+const ChatMemberMemorized = memo(ChatMember);
+
+export default ChatMemberMemorized;

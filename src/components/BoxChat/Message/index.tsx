@@ -47,7 +47,11 @@ const Message = ({
           <VoiceChatMessage />
         ) : (
           <Text
-            bg="background.component.secondary"
+            bg={
+              avatarPosition === AVATAR_POSITION.AFTER
+                ? 'primary.300'
+                : 'background.section.messageUser'
+            }
             p={3}
             ml={2}
             borderRadius={8}
