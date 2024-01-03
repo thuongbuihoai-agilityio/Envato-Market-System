@@ -3,6 +3,9 @@ import { MemoryRouter } from 'react-router-dom';
 
 // components
 import { SideBar } from '@app/layouts';
+import { authStore } from '@app/stores';
+import { AUTHENTICATION_ROLE } from '@app/constants';
+import { TUserDetail } from '@app/interfaces';
 
 describe('Sidebar test case', () => {
   beforeEach(() => {
@@ -18,6 +21,11 @@ describe('Sidebar test case', () => {
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn(),
       })),
+    });
+    authStore.setState({
+      user: {
+        role: AUTHENTICATION_ROLE.MEMBER,
+      } as TUserDetail,
     });
   });
 

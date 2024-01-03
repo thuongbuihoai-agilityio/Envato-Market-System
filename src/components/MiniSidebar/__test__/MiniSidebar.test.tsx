@@ -35,7 +35,12 @@ describe('MiniSidebar test case', () => {
 
     const { container } = render(
       <MemoryRouter>
-        <MiniSidebar menuItem={MENU_ITEM_LIST(AUTHENTICATION_ROLE.MEMBER) as TMenuItem[]} isOpen={true} onClose={mockFucntion} role="member" />
+        <MiniSidebar
+          menuItem={MENU_ITEM_LIST(AUTHENTICATION_ROLE.MEMBER) as TMenuItem[]}
+          isOpen={true}
+          onClose={mockFucntion}
+          role="member"
+        />
       </MemoryRouter>,
     );
 

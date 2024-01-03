@@ -23,10 +23,10 @@ describe('Dropdown render', () => {
   beforeEach(() => {
     authStore.setState({
       user: {
-        role: AUTHENTICATION_ROLE.MEMBER
-      } as TUserDetail
-    })
-  })
+        role: AUTHENTICATION_ROLE.MEMBER,
+      } as TUserDetail,
+    });
+  });
 
   it('Should render match with snapshot.', async () => {
     const { container } = await renderComponent({
