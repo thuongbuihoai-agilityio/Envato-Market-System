@@ -5,14 +5,20 @@ import {
   useColorModeValue,
   Grid,
   GridItem,
+  useBreakpointValue,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 
 // Components
-import { ChatMember } from '@app/components/ChatMember';
-import { EditIcon } from '@app/components/Icons/Edit';
+import { EditIcon } from '@app/components/Icons';
+import { ChatMemberMemorized, ConversationMemorized } from '@app/components';
 
 // Mocks
+import { MEMBER_CHATS, MESSAGES } from '@app/mocks';
 import { MEMBER_CHAT } from '@app/mocks/member';
+
+// Interfaces
+import { MessageType } from '@app/interfaces/messages';
 
 const ChatMemberList = () => {
   const colorFill = useColorModeValue(
@@ -20,52 +26,112 @@ const ChatMemberList = () => {
     theme.colors.white,
   );
 
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+
+  const [activeMember, setActiveMember] = useState<string>('');
+  const [filteredMessages, setFilteredMessages] = useState<MessageType[]>([]);
+  const [initialized, setInitialized] = useState(false);
+
+  const handleMemberClick = (memberId: string) => {
+    setActiveMember(memberId);
+    filterMessages(memberId);
+  };
+
+  const filterMessages = (memberId: string) => {
+    const filtered = MESSAGES.filter(
+      (message) => message.uid === 'admin' || message.uid === memberId,
+    );
+    setFilteredMessages(filtered);
+  };
+
+  const initializeChat = () => {
+    const defaultMember = MEMBER_CHATS[1]?.uid;
+    filterMessages(defaultMember || '');
+    setInitialized(true);
+  };
+
+  if (!initialized) {
+    initializeChat();
+  }
+
   return (
     <Grid
-      pt={6}
-      pr={7}
-      pl={12}
-      pb={10}
-      gridTemplateColumns="repeat(12, minmax(0, 1fr))"
+      templateColumns="repeat(12, minmax(0, 1fr))"
+      borderTop="1px solid"
+      borderColor="border.tertiary"
     >
-      <GridItem colSpan={4}>
-        <Flex gap={3} align="center">
-          <Text
-            as="h3"
-            color="text.primary"
-            fontWeight="semibold"
-            fontSize="3xl"
-          >
-            Messages
+      {isMobile ? (
+        <GridItem
+          colSpan={12}
+          mb={4}
+          padding={2}
+          bg="background.body.septenary"
+        >
+          <Flex justify="flex-start">
+            {MEMBER_CHAT.map(({ id, avatar, statusColor }) => (
+              <ChatMemberMemorized
+                key={id}
+                avatar={avatar}
+                statusColor={statusColor}
+                onClick={() => handleMemberClick(id)}
+              />
+            ))}
+          </Flex>
+        </GridItem>
+      ) : (
+        <GridItem
+          colSpan={4}
+          bg="background.body.septenary"
+          pt={6}
+          pr={7}
+          pl={12}
+          pb={10}
+          borderRight="1px solid"
+          borderColor="border.tertiary"
+        >
+          <Flex justify="space-between" align="center">
             <Text
-              as="span"
+              as="h3"
               color="text.primary"
               fontWeight="semibold"
               fontSize="3xl"
             >
-              ({MEMBER_CHAT.length})
+              Messages
+              <Text
+                as="span"
+                color="text.primary"
+                fontWeight="semibold"
+                fontSize="3xl"
+              >
+                ({MEMBER_CHAT.length})
+              </Text>
             </Text>
-          </Text>
 
-          <EditIcon color={colorFill} />
-        </Flex>
-        <Flex direction="column" gap={6} py={3.5}>
-          {MEMBER_CHAT.map(
-            ({ id, avatar, name, status, localeTime, icon, statusColor }) => (
-              <ChatMember
-                key={id}
-                avatar={avatar}
-                name={name}
-                status={status}
-                localeTime={localeTime}
-                icon={icon}
-                statusColor={statusColor}
-              />
-            ),
-          )}
-        </Flex>
+            <EditIcon color={colorFill} />
+          </Flex>
+          <Flex direction="column" gap={6} py={3.5}>
+            {MEMBER_CHAT.map(
+              ({ id, avatar, name, icon, localeTime, statusColor }) => (
+                <ChatMemberMemorized
+                  key={id}
+                  avatar={avatar}
+                  name={name}
+                  icon={icon}
+                  localeTime={localeTime}
+                  statusColor={statusColor}
+                  onClick={() => handleMemberClick(id)}
+                />
+              ),
+            )}
+          </Flex>
+        </GridItem>
+      )}
+      <GridItem colSpan={isMobile ? 12 : 8}>
+        <ConversationMemorized
+          activeMember={activeMember}
+          filteredMessages={filteredMessages}
+        />
       </GridItem>
-      <GridItem colSpan={8}></GridItem>
     </Grid>
   );
 };

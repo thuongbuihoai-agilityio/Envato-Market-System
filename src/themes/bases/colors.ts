@@ -30,6 +30,7 @@ export const colors = {
     950: '#4A5568',
     1000: '#E5E7EB',
     1050: '#9AA2B1',
+    1100: '#718096',
   },
 
   common: {
@@ -62,10 +63,19 @@ export const colors = {
         default: '#F7FAFC',
         _dark: '#1D1E24',
       },
+      septenary: {
+        default: '#FFF',
+        _dark: '#1D1E24',
+      },
     },
     section: {
       primary: {
         default: '#F6FAFF',
+        _dark: '#1D1E24',
+      },
+
+      messageUser: {
+        default: '#EDf2f7',
         _dark: '#1D1E24',
       },
     },

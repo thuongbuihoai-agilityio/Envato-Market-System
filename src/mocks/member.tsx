@@ -1,40 +1,43 @@
 import { Image } from '@chakra-ui/react';
 
-// Components
-import { MESSAGE_TIME_FORMAT } from '.';
-
 // Constants
 import { IMAGES } from '@app/constants';
 
+// Utils
+import { MESSAGE_TIME_FORMAT } from '.';
+
 export const MEMBER_CHAT = [
   {
-    id: 1,
+    id: 'user1',
     avatar: 'https://example.com/avatar1.jpg',
-    name: 'John Doe',
+    name: 'Kien Nguyen',
     status: 'Online',
     localeTime: MESSAGE_TIME_FORMAT,
     icon: (
       <Image
-        src="https://example.com/icon1.png"
-        alt="Icon 1"
+        w={5}
+        h={5}
+        src="icons/file.svg"
+        alt={IMAGES.ATTACH.alt}
         fallbackSrc={IMAGES.FALLBACK.url}
-        fallbackStrategy="onError"
       />
     ),
     statusColor: 'online',
   },
   {
-    id: 2,
+    id: 'user2',
     avatar: 'https://example.com/avatar2.jpg',
-    name: 'Jane Doe',
+    name: 'Huy Pham',
     status: 'Away',
     localeTime: MESSAGE_TIME_FORMAT,
+
     icon: (
       <Image
-        src="https://example.com/icon2.png"
-        alt="Icon 2"
+        w={5}
+        h={5}
+        src="icons/file.svg"
+        alt={IMAGES.ATTACH.alt}
         fallbackSrc={IMAGES.FALLBACK.url}
-        fallbackStrategy="onError"
       />
     ),
     statusColor: 'offline',

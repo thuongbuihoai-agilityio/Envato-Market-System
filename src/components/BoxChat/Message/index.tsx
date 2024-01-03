@@ -26,7 +26,12 @@ const Message = ({
     minute: '2-digit',
   }),
 }: MessageProps) => (
-  <Flex>
+  <Flex
+    width="100%"
+    justifyContent={
+      avatarPosition === AVATAR_POSITION.AFTER ? 'flex-end' : 'flex-start'
+    }
+  >
     {avatarPosition === AVATAR_POSITION.BEFORE && (
       <Avatar src={avatar} borderColor="border.tertiary" w={9} h={9} mr={2} />
     )}
@@ -35,13 +40,18 @@ const Message = ({
       align="flex-end"
       direction={isOwnerMessage ? 'row-reverse' : 'row'}
       mb="30px"
+      alignItems="center"
     >
       <Box data-testid="image-container">
         {isImage ? (
           <VoiceChatMessage />
         ) : (
           <Text
-            bg="background.component.secondary"
+            bg={
+              avatarPosition === AVATAR_POSITION.AFTER
+                ? 'primary.300'
+                : 'background.section.messageUser'
+            }
             p={3}
             ml={2}
             borderRadius={8}
