@@ -2,7 +2,7 @@
 import { Account, Logout } from '@app/components/Icons';
 
 // Constants
-import { ROUTES } from '.';
+import { ROUTES, AUTHENTICATION_ROLE } from '.';
 
 export const MENU_LIST_ICON = [
   {
@@ -19,10 +19,12 @@ export const MENU_LIST_ICON = [
   },
 ];
 
-export const MENU_LIST = [
+export const MENU_LIST = (role: string) => [
   {
-    id: 2,
-    href: `/${ROUTES.USER}`,
-    value: 'User',
+    ...(role === AUTHENTICATION_ROLE.SUPER_ADMIN && {
+      id: 2,
+      href: `/${ROUTES.USER}`,
+      value: 'User',
+    }),
   },
 ];

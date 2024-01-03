@@ -20,18 +20,17 @@ import {
 import { Menu } from '@app/components';
 
 // constants
-import {
-  IMAGES,
-  HELP_ITEM_LIST,
-  MENU_ITEM_LIST,
-  OTHER_ITEM_LIST,
-  SIDEBAR,
-} from '@app/constants';
+import { HELP_ITEM_LIST, IMAGES, OTHER_ITEM_LIST, SIDEBAR } from '@app/constants';
 
 // Types
 import { TImage } from '@app/interfaces';
+import { TMenuItem } from '../common/Menu';
 
-const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
+const MiniSidebar = ({
+  onClose,
+  isOpen,
+  menuItem,
+}: Omit<SidebarProps, 'onOpen'>) => {
   const { colorMode } = useColorMode();
 
   const logos: Record<ColorMode, TImage> = {
@@ -117,10 +116,7 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
         >
           <VStack>
             <List>
-              <Menu
-                listItem={[...MENU_ITEM_LIST, ...HELP_ITEM_LIST]}
-                isMinify
-              />
+              <Menu listItem={[...(menuItem as TMenuItem[]), ...HELP_ITEM_LIST]} isMinify />
               <Menu listItem={[...OTHER_ITEM_LIST]} isMinify />
             </List>
           </VStack>

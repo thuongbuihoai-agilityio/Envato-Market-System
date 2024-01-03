@@ -3,6 +3,9 @@ import { MemoryRouter } from 'react-router-dom';
 
 // components
 import { SideBar } from '@app/layouts';
+import { authStore } from '@app/stores';
+import { AUTHENTICATION_ROLE } from '@app/constants';
+import { TUserDetail } from '@app/interfaces';
 
 describe('Sidebar test case', () => {
   beforeEach(() => {
@@ -19,6 +22,11 @@ describe('Sidebar test case', () => {
         dispatchEvent: jest.fn(),
       })),
     });
+    authStore.setState({
+      user: {
+        role: AUTHENTICATION_ROLE.MEMBER,
+      } as TUserDetail,
+    });
   });
 
   afterEach(() => {
@@ -33,7 +41,12 @@ describe('Sidebar test case', () => {
 
     const { container } = render(
       <MemoryRouter>
-        <SideBar isOpen={true} onClose={mockFunction} onOpen={mockFunction} />
+        <SideBar
+          isOpen={true}
+          onClose={mockFunction}
+          onOpen={mockFunction}
+          role="member"
+        />
       </MemoryRouter>,
     );
 

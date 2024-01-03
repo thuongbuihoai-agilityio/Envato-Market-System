@@ -3,15 +3,10 @@ import { AxiosResponse } from 'axios';
 import { shallow } from 'zustand/shallow';
 
 // Constants
-import {
-  END_POINTS,
-  SEARCH_PARAM,
-  ERROR_MESSAGES,
-  IMAGES,
-} from '@app/constants';
+import { END_POINTS, ERROR_MESSAGES, IMAGES } from '@app/constants';
 
 // Services
-import { UsersHttpService } from '@app/services';
+import { AuthenticationHttpService } from '@app/services';
 
 // Types
 import { TUserDetail } from '@app/interfaces/user';
@@ -69,24 +64,18 @@ export const useAuth = () => {
       },
       isRemember?: boolean,
     ): Promise<void> => {
-      const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
-        await UsersHttpService.get<TUserDetail[] | undefined>(
-          `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
+      const { data }: AxiosResponse<TUserInfo | undefined> =
+        await AuthenticationHttpService.post<TUserInfo | undefined>(
+          `${END_POINTS.SIGN_IN}`,
+          {
+            email,
+            password,
+          },
+          {},
         );
 
-      // Because search by params working incorrect
-      const user: TUserDetail | undefined = data.find(
-        (user) => user.email === email && user.password === password,
-      );
-
-      if (!user) {
-        throw new Error(ERROR_MESSAGES.AUTH_INCORRECT);
-      }
-
-      const { password: _, ...userInfo } = user;
-
       return updateStore({
-        user: userInfo,
+        user: data,
         isRemember,
         date: getCurrentTimeSeconds(),
       });
@@ -100,39 +89,30 @@ export const useAuth = () => {
     ): Promise<{
       errors?: TSignUpErrorField;
     }> => {
-      const { email, password } = userInfo;
-      const { data = [] }: AxiosResponse<TUserDetail[] | undefined> =
-        await UsersHttpService.get<TUserDetail[] | undefined>(
-          `${END_POINTS.USERS}?${SEARCH_PARAM.EMAIL}=${email}&${SEARCH_PARAM.PASSWORD}=${password}`,
-        );
-
-      // Because search by params working incorrect
-      const user: TUserDetail | undefined = data.find(
-        (user) => user.email === email,
-      );
-
-      if (user) {
+      const { email, password, firstName, lastName } = userInfo;
+      try {
+        const { data }: AxiosResponse<TUserInfo | undefined> =
+          await AuthenticationHttpService.post<TUserInfo | undefined>(
+            `${END_POINTS.SIGN_UP}`,
+            {
+              ...userInfo,
+              avatarURL: IMAGES.AVATAR_SIGN_UP.url,
+              createdAt: Date.now(),
+              email,
+              password,
+              firstName,
+              lastName,
+            },
+            {},
+          );
+        updateStore({ user: data, date: getCurrentTimeSeconds() });
+      } catch (error) {
         return {
           errors: {
             email: ERROR_MESSAGES.ACCOUNT_ALREADY_EXISTS,
           },
         };
       }
-
-      // Send request add new user
-      const { password: _, ...response }: TUserDetail =
-        await UsersHttpService.post<TUserDetail>(
-          END_POINTS.USERS,
-          {
-            ...userInfo,
-            avatarURL: IMAGES.AVATAR_SIGN_UP.url,
-            createdAt: Date.now(),
-          },
-          {},
-        ).then((res) => res.data);
-
-      // Save user into store
-      updateStore({ user: response, date: getCurrentTimeSeconds() });
 
       return {};
     },
