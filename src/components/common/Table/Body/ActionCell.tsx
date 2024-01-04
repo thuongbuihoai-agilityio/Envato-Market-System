@@ -33,6 +33,8 @@ const ActionCellComponent = ({
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
+  const customerId = transaction?.customer.customerId;
+
   const handleToggleDelete = useCallback(() => {
     setIsOpenConfirmModal(true);
     setIsDelete(true);
@@ -108,11 +110,20 @@ const ActionCellComponent = ({
                   <MenuItem bg="transparent">
                     <Flex
                       position="absolute"
-                      minW={10}
+                      right={0}
+                      minW={12}
+                      alignItems="center"
                       justifyContent="space-between"
                     >
-                      <EditIcon onClick={handleToggleUpdate} />
-                      <DeleteIcon onClick={handleToggleDelete} />
+                      {!customerId && (
+                        <EditIcon w={5} h={5} onClick={handleToggleUpdate} />
+                      )}
+                      <DeleteIcon
+                        ml={customerId ? 4 : 0}
+                        w={5}
+                        h={5}
+                        onClick={handleToggleDelete}
+                      />
                     </Flex>
                   </MenuItem>
                 </MenuList>

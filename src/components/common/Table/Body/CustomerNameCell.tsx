@@ -29,7 +29,11 @@ const CustomerNameCellComponent = ({
         objectFit="cover"
         borderRadius="full"
       />
-      <Tooltip minW="max-content" placement="bottom-start" label={name}>
+      <Tooltip
+        minW="max-content"
+        placement="bottom-start"
+        label={name as string}
+      >
         <Text
           fontSize="md"
           fontWeight="semibold"
@@ -39,7 +43,7 @@ const CustomerNameCellComponent = ({
           pr={10}
           flex={1}
         >
-          {name}
+          {name as string}
         </Text>
       </Tooltip>
     </Flex>

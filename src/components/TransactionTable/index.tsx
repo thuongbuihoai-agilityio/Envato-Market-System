@@ -1,4 +1,4 @@
-import { Box, Th, useToast } from '@chakra-ui/react';
+import { Box, Td, Text, Th, useToast } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -15,7 +15,11 @@ import {
 } from '@app/components/index';
 
 // Utils
-import { formatTimeStamp, getTransactionHomePage } from '@app/utils';
+import {
+  formatTimeStamp,
+  formatUppercaseFirstLetter,
+  getTransactionHomePage,
+} from '@app/utils';
 
 // Hooks
 import {
@@ -70,8 +74,6 @@ const TransactionTableComponent = ({
   });
 
   const listData = isTableHistory ? dataHistory : dataTransaction;
-
-  console.log('listData', listData);
 
   const {
     data,
@@ -167,7 +169,7 @@ const TransactionTableComponent = ({
     ({ paymentStatus }: TDataSource): JSX.Element => (
       <StatusCell
         variant={STATUS_LABEL[`${paymentStatus}` as TStatus]}
-        text={paymentStatus}
+        text={paymentStatus as string}
       />
     ),
     [],
@@ -177,8 +179,35 @@ const TransactionTableComponent = ({
     ({ transactionStatus }: TDataSource): JSX.Element => (
       <StatusCell
         variant={STATUS_LABEL[`${transactionStatus}` as TStatus]}
-        text={transactionStatus}
+        text={transactionStatus as string}
       />
+    ),
+    [],
+  );
+
+  const renderRole = useCallback(
+    ({ customer }: TTransaction): JSX.Element => (
+      <Td
+        py={5}
+        pr={5}
+        pl={0}
+        fontSize="md"
+        color="text.primary"
+        fontWeight="semibold"
+        textAlign="left"
+        minW={350}
+      >
+        <Text
+          fontSize="md"
+          fontWeight="semibold"
+          whiteSpace="break-spaces"
+          noOfLines={1}
+          minW={250}
+          flex={1}
+        >
+          {formatUppercaseFirstLetter(customer.role)}
+        </Text>
+      </Td>
     ),
     [],
   );
@@ -193,9 +222,15 @@ const TransactionTableComponent = ({
         renderActionIcon,
       );
     }
-    return COLUMNS_DASHBOARD(renderHead, renderNameUser, renderActionIcon);
+    return COLUMNS_DASHBOARD(
+      renderHead,
+      renderRole,
+      renderNameUser,
+      renderActionIcon,
+    );
   }, [
     isTableHistory,
+    renderRole,
     renderActionIcon,
     renderHead,
     renderNameUser,

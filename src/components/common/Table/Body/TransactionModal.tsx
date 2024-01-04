@@ -2,20 +2,16 @@ import { memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import {
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  HStack,
-  VStack,
-  useToast,
-} from '@chakra-ui/react';
-import { UpdateProfile, InputField } from '@app/components';
+import { Button, Flex, VStack, useToast } from '@chakra-ui/react';
+import { InputField } from '@app/components';
 
 // Interfaces
 import { TTransaction } from '@app/interfaces';
+
+// Hooks
 import { useTransactions } from '@app/hooks';
+
+// Constants
 import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
 
 interface TransactionProps {
@@ -27,21 +23,22 @@ const UpdateModal = ({
   transaction,
   onCloseModal = () => {},
 }: TransactionProps) => {
-  console.log('transaction===========', transaction);
-
-  const { control, clearErrors, handleSubmit } = useForm<TTransaction>({
+  const { control, clearErrors, handleSubmit, reset } = useForm<TTransaction>({
     defaultValues: {
       id: transaction?.id,
-      name: transaction?.name,
-      image: transaction?.image,
-      location: transaction?.location,
+      customer: {
+        customerName: transaction?.customer?.customerName,
+        address: transaction?.customer?.address,
+        email: transaction?.customer.email,
+        avatar: transaction?.customer.avatar,
+      },
     },
   });
 
-  const { useUpdateTransaction } = useTransactions();
-
   const toast = useToast();
-  const { mutate: updateTransaction } = useUpdateTransaction();
+
+  const { useUpdateTransaction } = useTransactions();
+  const { mutate: updateCustomer } = useUpdateTransaction();
 
   const handleChangeValue = useCallback(
     <T,>(field: keyof TTransaction, changeHandler: (value: T) => void) =>
@@ -54,8 +51,7 @@ const UpdateModal = ({
 
   const handleSubmitForm = useCallback(
     (updateData: TTransaction) => {
-      console.log('updateData', updateData);
-      updateTransaction(updateData, {
+      updateCustomer(updateData, {
         onSuccess: () => {
           toast({
             title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
@@ -65,6 +61,8 @@ const UpdateModal = ({
             isClosable: true,
             position: 'top-right',
           });
+          reset(updateData);
+          onCloseModal();
         },
         onError: () => {
           toast({
@@ -78,7 +76,7 @@ const UpdateModal = ({
         },
       });
     },
-    [updateTransaction],
+    [updateCustomer],
   );
 
   return (
@@ -87,107 +85,55 @@ const UpdateModal = ({
       id="update-transaction-form"
       onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <Grid
-        width="full"
-        gridTemplateColumns={{
-          xl: 'repeat(12,minmax(0,1fr))',
-        }}
-        gap={12}
-        display={{
-          base: 'flex',
-          xl: 'grid',
-        }}
-        flexDirection={{
-          base: 'column-reverse',
-        }}
-      >
-        <GridItem
-          order={-1}
-          as="section"
-          w={{
-            base: '100%',
-            md: 'unset',
-          }}
-          bg="background.body.quaternary"
-          colSpan={7}
-        >
-          <HStack
-            gap={{
-              base: 6,
-              md: 2,
-            }}
-            w="100%"
-            flexDirection={{
-              base: 'column',
-              md: 'row',
-            }}
-          >
-            <Controller
-              control={control}
-              name="name"
-              render={({
-                field,
-                field: { onChange },
-                fieldState: { error },
-              }) => (
-                <InputField
-                  variant="authentication"
-                  bg="background.body.primary"
-                  label="Customer Name"
-                  {...field}
-                  isError={!!error}
-                  errorMessages={error?.message}
-                  onChange={handleChangeValue('name', onChange)}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="location"
-              render={({ field, fieldState: { error } }) => (
-                <InputField
-                  variant="authentication"
-                  bg="background.body.primary"
-                  label="Location"
-                  {...field}
-                  isError={!!error}
-                  errorMessages={error?.message}
-                  onChange={handleChangeValue('location', field.onChange)}
-                />
-              )}
-            />
-          </HStack>
-          <GridItem mb={7}>
-            <Flex mt={4}>
-              <Button
-                type="submit"
-                form="update-transaction-form"
-                w={44}
-                bg="green.600"
-                mr={3}
-              >
-                Save
-              </Button>
-              <Button
-                w={44}
-                bg="orange.300"
-                _hover={{ bg: 'orange.400' }}
-                onClick={onCloseModal}
-              >
-                Cancel
-              </Button>
-            </Flex>
-          </GridItem>
-        </GridItem>
-
-        <GridItem order={1} colSpan={5}>
-          <UpdateProfile
-            title="Select your avatar"
-            control={control}
-            // onUploadError={handleShowErrorWhenUploadImage}
+      <Controller
+        control={control}
+        name="customer.customerName"
+        render={({ field, field: { onChange }, fieldState: { error } }) => (
+          <InputField
+            variant="authentication"
+            bg="background.body.primary"
+            label="Customer Name"
+            {...field}
+            isError={!!error}
+            errorMessages={error?.message}
+            onChange={handleChangeValue('name', onChange)}
           />
-        </GridItem>
-      </Grid>
+        )}
+      />
+      <Controller
+        control={control}
+        name="customer.address"
+        render={({ field, fieldState: { error } }) => (
+          <InputField
+            variant="authentication"
+            bg="background.body.primary"
+            label="Location"
+            {...field}
+            isError={!!error}
+            errorMessages={error?.message}
+            onChange={handleChangeValue('location', field.onChange)}
+          />
+        )}
+      />
+      <Flex my={4}>
+        <Button
+          type="submit"
+          form="update-transaction-form"
+          w={44}
+          bg="green.600"
+          mr={3}
+        >
+          Save
+        </Button>
+        <Button
+          w={44}
+          bg="orange.300"
+          _hover={{ bg: 'orange.400' }}
+          onClick={onCloseModal}
+        >
+          Cancel
+        </Button>
+      </Flex>
     </VStack>
   );
 };

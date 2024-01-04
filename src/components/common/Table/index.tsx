@@ -91,7 +91,9 @@ const Table = ({
                         <Tooltip
                           minW="max-content"
                           placement="bottom-start"
-                          label={data[column.key as keyof typeof data]}
+                          label={
+                            data[column.key as keyof typeof data] as string
+                          }
                         >
                           <Text
                             fontSize="md"
@@ -102,7 +104,7 @@ const Table = ({
                             maxW={200}
                             noOfLines={1}
                           >
-                            {data[column.key as keyof typeof data]}
+                            {data[column.key as keyof typeof data] as string}
                           </Text>
                         </Tooltip>
                       </Td>
