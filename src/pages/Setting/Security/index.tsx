@@ -26,16 +26,21 @@ import {
   SUCCESS_MESSAGES,
 } from '@app/constants';
 
-// Interfaces
-import { TPassword } from '@app/interfaces';
-
 // Hooks
 import { useForm, useUpdatePassword } from '@app/hooks';
 
 // Components
 import { InputField } from '@app/components';
 import { POSITION } from '@app/constants/position';
+
+// Stores
 import { authStore } from '@app/stores';
+
+export type TPassword = {
+  memberId: string;
+  oldPassword: string;
+  newPassword: string;
+};
 
 const SecurityPage = () => {
   const { mutate: updatePassword } = useUpdatePassword();
@@ -69,21 +74,22 @@ const SecurityPage = () => {
     [clearErrors],
   );
 
+  const handleUpdatePasswordSuccess = () => {
+    toast({
+      title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+      description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
+      status: STATUS.SUCCESS,
+      duration: SHOW_TIME,
+      isClosable: true,
+      position: POSITION.TOP_RIGHT,
+    });
+    reset();
+  };
+
   const handleSubmitForm = useCallback(
     (updatedInfo: TPassword) => {
-      console.log(updatedInfo);
       updatePassword(updatedInfo, {
-        onSuccess: () => {
-          toast({
-            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
-            status: STATUS.SUCCESS,
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: POSITION.TOP_RIGHT,
-          });
-          reset();
-        },
+        onSuccess: handleUpdatePasswordSuccess,
         onError: () => {
           toast({
             title: ERROR_MESSAGES.UPDATE_FAIL.title,
@@ -96,8 +102,7 @@ const SecurityPage = () => {
         },
       });
     },
-
-    [updatePassword, reset, toast],
+    [updatePassword, toast],
   );
 
   const { isOpen: isShowPassword, onToggle: onShowPassword } = useDisclosure();

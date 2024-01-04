@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Image } from '@chakra-ui/react';
 
 // Components
-import { ChatMember } from '@app/components/index';
+import { ChatMember } from '@app/components';
 
 // Constants
 import { IMAGES } from '@app/constants';

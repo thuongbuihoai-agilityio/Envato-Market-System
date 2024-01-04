@@ -42,7 +42,7 @@ const ChatMember = ({
       cursor="pointer"
       _hover={{ bg: colorFill }}
       onClick={onClick}
-      borderRadius={'lg'}
+      borderRadius="lg"
     >
       <Flex justify="space-between" p={3.5}>
         <Flex gap={3}>
