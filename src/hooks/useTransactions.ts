@@ -82,17 +82,17 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       (
         {
           customer: {
-            name: prevCustomerName,
+            customerName: prevCustomerName,
             email: prevEmail,
-            location: prevLocation,
+            address: prevLocation,
           },
           amount: prevAmount,
         }: TTransaction,
         {
           customer: {
-            name: nextCustomerName,
+            customerName: nextCustomerName,
             email: nextEmail,
-            location: nextLocation,
+            address: nextLocation,
           },
           amount: nextAmount,
         }: TTransaction,
@@ -120,10 +120,10 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       (target || '').trim().includes(searchName);
 
     return transactionsAfterSort.filter(
-      ({ customer: { name, email, location } }: TTransaction) => {
-        const isMatchWithName: boolean = isNameMatchWith(name);
+      ({ customer: { customerName, email, address } }: TTransaction) => {
+        const isMatchWithName: boolean = isNameMatchWith(customerName);
         const isMatchWithEmail: boolean = isNameMatchWith(email);
-        const isMatchWithLocation: boolean = isNameMatchWith(location);
+        const isMatchWithLocation: boolean = isNameMatchWith(address);
 
         return isMatchWithEmail || isMatchWithLocation || isMatchWithName;
       },

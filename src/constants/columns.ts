@@ -3,6 +3,7 @@ import { TDataSource, TTransaction } from '@app/interfaces';
 
 export const COLUMNS_DASHBOARD = (
   onRenderHead: (title: string, key: string) => void,
+  onRenderRole: (role: TTransaction) => void,
   onRenderBody: ({ id, image, name }: TDataSource) => void,
   onRenderActionIcon: (data: TTransaction) => void,
 ) => [
@@ -26,6 +27,12 @@ export const COLUMNS_DASHBOARD = (
     title: 'Spent',
     key: 'spent',
     renderHead: onRenderHead,
+  },
+  {
+    title: 'Role',
+    key: 'role',
+    renderHead: onRenderHead,
+    renderBody: onRenderRole,
   },
   {
     title: '',

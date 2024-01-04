@@ -1,5 +1,5 @@
 // Types
-import { TDataSource, TTransaction } from '@app/interfaces';
+import { TTransaction } from '@app/interfaces';
 
 // Utils
 import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
@@ -9,13 +9,11 @@ import { formatDate, formatDecimalNumber, formatUppercaseFirstLetter } from '.';
  * @param transactions
  * @returns
  */
-export const getTransactionHomePage = (
-  transactions: TTransaction[] = [],
-): TDataSource[] =>
+export const getTransactionHomePage = (transactions: TTransaction[] = []) =>
   transactions.map((transaction) => {
     const {
       id,
-      customer: { avatar, name, location, email },
+      customer: { customerId, avatar, customerName, address, email, role },
       amount,
       currency,
       date,
@@ -25,9 +23,10 @@ export const getTransactionHomePage = (
 
     return {
       id,
-      name: formatUppercaseFirstLetter(name),
+      name: formatUppercaseFirstLetter(customerName),
+      customer: { customerId, avatar, customerName, address, email, role },
       email,
-      location,
+      location: address,
       date: formatDate(+date),
       paymentStatus: formatUppercaseFirstLetter(paymentStatus),
       transactionStatus: formatUppercaseFirstLetter(transactionStatus),

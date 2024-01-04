@@ -61,7 +61,7 @@ export const Default: Story = {
                 borderRadius="full"
               />
               <Text fontSize="md" fontWeight="semibold">
-                {name}
+                {name as string}
               </Text>
             </Flex>
           </Td>
@@ -125,7 +125,7 @@ export const Secondary: Story = {
                 borderRadius="lg"
               />
               <Text fontSize="md" fontWeight="semibold">
-                {name}
+                {name as string}
               </Text>
             </Flex>
           </Td>

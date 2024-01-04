@@ -10,6 +10,9 @@ export type TTransaction = {
   amount: string;
   currency: string;
   date: string;
+  name: string;
+  location: string;
+  image: string;
   paymentStatus: PAYMENT_STATUS_ENUM;
   transactionStatus: TRANSACTION_STATUS_ENUM;
 };
