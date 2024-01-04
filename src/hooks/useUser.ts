@@ -12,10 +12,7 @@ import { END_POINTS } from '@app/constants';
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
     mutationFn: async (user: TUserDetail) =>
-      await UsersHttpService.put<TUserDetail>(
-        `${END_POINTS.USERS}/${user.id}`,
-        user,
-      ),
+      await UsersHttpService.put<TUserDetail>(`${END_POINTS.USERS}`, user),
   });
 
   return {
