@@ -31,6 +31,7 @@ const UpdateModal = ({
         address: transaction?.customer?.address,
         email: transaction?.customer.email,
         avatar: transaction?.customer.avatar,
+        role: transaction?.customer.role,
       },
     },
   });

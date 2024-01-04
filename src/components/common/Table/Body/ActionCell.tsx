@@ -49,23 +49,41 @@ const ActionCellComponent = ({
     setIsOpenConfirmModal(!isOpenConfirmModal);
   }, [isOpenConfirmModal]);
 
-  const handleDeleteTransaction = () =>
-    onDeleteTransaction(transaction as TTransaction);
+  const handleDeleteTransaction = useCallback(
+    () => onDeleteTransaction(transaction as TTransaction),
+    [onDeleteTransaction, transaction],
+  );
 
-  const DeleteModal = () => (
-    <Flex>
-      <Button w={44} bg="green.600" mr={3} onClick={handleDeleteTransaction}>
-        Delete
-      </Button>
-      <Button
-        w={44}
-        bg="orange.300"
-        _hover={{ bg: 'orange.400' }}
-        onClick={handleCloseModal}
-      >
-        Cancel
-      </Button>
-    </Flex>
+  const DeleteModal = useCallback(
+    () => (
+      <Flex>
+        <Button w={44} bg="green.600" mr={3} onClick={handleDeleteTransaction}>
+          Delete
+        </Button>
+        <Button
+          w={44}
+          bg="orange.300"
+          _hover={{ bg: 'orange.400' }}
+          onClick={handleCloseModal}
+        >
+          Cancel
+        </Button>
+      </Flex>
+    ),
+    [handleDeleteTransaction, handleCloseModal],
+  );
+
+  const renderModalTransactionBody = useCallback(
+    () =>
+      isDelete ? (
+        <DeleteModal />
+      ) : (
+        <UpdateModal
+          transaction={transaction}
+          onCloseModal={handleCloseModal}
+        />
+      ),
+    [DeleteModal, handleCloseModal, isDelete, transaction],
   );
 
   return (
@@ -141,16 +159,7 @@ const ActionCellComponent = ({
               ? 'Do you want to delete this transaction?'
               : 'Update transaction'
           }
-          renderBody={
-            isDelete ? (
-              <DeleteModal />
-            ) : (
-              <UpdateModal
-                transaction={transaction}
-                onCloseModal={handleCloseModal}
-              />
-            )
-          }
+          renderBody={renderModalTransactionBody}
         />
       )}
     </>
