@@ -1,16 +1,13 @@
 import { useMutation } from '@tanstack/react-query';
 
 // Interfaces
-import { TUserDetail } from '@app/interfaces';
+import { TPassword, TUserDetail } from '@app/interfaces';
 
 // Services
 import { UsersHttpService } from '@app/services';
 
 // Constants
 import { END_POINTS } from '@app/constants';
-
-// Types
-import { TPassword } from '@app/pages/Setting/Security';
 
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({

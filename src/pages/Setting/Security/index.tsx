@@ -35,12 +35,7 @@ import { POSITION } from '@app/constants/position';
 
 // Stores
 import { authStore } from '@app/stores';
-
-export type TPassword = {
-  memberId: string;
-  oldPassword: string;
-  newPassword: string;
-};
+import { TPassword } from '@app/interfaces';
 
 const SecurityPage = () => {
   const { mutate: updatePassword } = useUpdatePassword();
