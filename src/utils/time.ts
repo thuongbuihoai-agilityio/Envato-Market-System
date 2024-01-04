@@ -18,6 +18,8 @@ export const formatDate = (timestamp: number): string => {
   return `${month} ${day}, ${year}`;
 };
 
+export const formatTimeStamp = (date: string) => new Date(date).getTime();
+
 /**
  *
  * @param startDate (seconds)

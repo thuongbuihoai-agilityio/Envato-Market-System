@@ -13,3 +13,8 @@ export type TTransaction = {
   paymentStatus: PAYMENT_STATUS_ENUM;
   transactionStatus: TRANSACTION_STATUS_ENUM;
 };
+
+export interface IDataList {
+  dataTransaction: TTransaction[];
+  dataHistory: TTransaction[];
+}

@@ -1,10 +1,10 @@
 // Types
-import { TDataSource } from '@app/interfaces';
+import { TDataSource, TTransaction } from '@app/interfaces';
 
 export const COLUMNS_DASHBOARD = (
   onRenderHead: (title: string, key: string) => void,
   onRenderBody: ({ id, image, name }: TDataSource) => void,
-  onRenderActionIcon: (data: TDataSource) => void,
+  onRenderActionIcon: (data: TTransaction) => void,
 ) => [
   {
     title: 'Customer name',
@@ -40,7 +40,7 @@ export const COLUMNS_HISTORY = (
   renderBody: ({ id, image, name }: TDataSource) => void,
   renderPaymentStatus: ({ paymentStatus }: TDataSource) => void,
   renderTransactionStatus: ({ paymentStatus }: TDataSource) => void,
-  renderActionIcon: (data: TDataSource) => void,
+  renderActionIcon: (data: TTransaction) => void,
 ) => [
   {
     title: 'Customer name',

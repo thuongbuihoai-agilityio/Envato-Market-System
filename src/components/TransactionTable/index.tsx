@@ -1,4 +1,4 @@
-import { Box, Th } from '@chakra-ui/react';
+import { Box, Th, useToast } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -15,7 +15,7 @@ import {
 } from '@app/components/index';
 
 // Utils
-import { getTransactionHomePage } from '@app/utils';
+import { formatTimeStamp, getTransactionHomePage } from '@app/utils';
 
 // Hooks
 import {
@@ -31,18 +31,24 @@ import {
 import {
   COLUMNS_DASHBOARD,
   COLUMNS_HISTORY,
+  ERROR_MESSAGES,
+  SHOW_TIME,
   STATUS_LABEL,
+  SUCCESS_MESSAGES,
+  TRANSACTION_STATUS_ENUM,
 } from '@app/constants';
 
 // Types
-import { TDataSource, THeaderTable } from '@app/interfaces';
+import { TDataSource, THeaderTable, TTransaction } from '@app/interfaces';
 
 interface TFilterUserProps {
+  isOpenModal?: boolean;
   isTableHistory?: boolean;
 }
 
 const TransactionTableComponent = ({
   isTableHistory = false,
+  isOpenModal = false,
 }: TFilterUserProps) => {
   const {
     searchParam: searchTransaction,
@@ -53,9 +59,12 @@ const TransactionTableComponent = ({
 
   const {
     data: transactions = [],
+    dataHistory,
+    dataTransaction,
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
     sortBy,
+    useUpdateTransaction,
   } = useTransactions({
     name: searchTransaction.name,
   });
@@ -70,7 +79,45 @@ const TransactionTableComponent = ({
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(transactions);
+  } = usePagination(isTableHistory ? dataHistory : dataTransaction);
+
+  const toast = useToast();
+  const { mutate: updateTransaction } = useUpdateTransaction();
+
+  const handleDeleteTransaction = useCallback(
+    (updateData: TTransaction) => {
+      updateTransaction(
+        {
+          ...updateData,
+          date: formatTimeStamp(updateData.date).toString(),
+          transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+        },
+        {
+          onSuccess: () => {
+            toast({
+              title: SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+              description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+              status: 'success',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+          onError: () => {
+            toast({
+              title: ERROR_MESSAGES.DELETE_FAIL.title,
+              description: ERROR_MESSAGES.DELETE_FAIL.description,
+              status: 'error',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+        },
+      );
+    },
+    [updateTransaction],
+  );
 
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce((value: string) => {
@@ -99,8 +146,13 @@ const TransactionTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    (data: TDataSource): JSX.Element => (
-      <ActionCell key={`${data.id}-action`} />
+    (data: TTransaction) => (
+      <ActionCell
+        key={`${data.id}-action`}
+        isOpenModal={isTableHistory ? !isOpenModal : isOpenModal}
+        transaction={data}
+        onDeleteTransaction={handleDeleteTransaction}
+      />
     ),
     [],
   );

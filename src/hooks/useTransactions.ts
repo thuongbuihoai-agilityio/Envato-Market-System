@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 // Services
-import { getTransactions } from '@app/services';
+import { getTransactions, transactionHttpService } from '@app/services';
 
 // Constants
-import { END_POINTS } from '@app/constants';
+import { END_POINTS, TRANSACTION_STATUS_ENUM } from '@app/constants';
 
 // Types
-import { TTransaction } from '@app/interfaces';
+import { IDataList, TTransaction } from '@app/interfaces';
 
 export type TSearchTransaction = {
   name: string;
@@ -130,6 +130,18 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     );
   }, [transactionsAfterSort, searchName]);
 
+  const { dataTransaction, dataHistory } = transactions.reduce<IDataList>(
+    (dataList, transaction) => {
+      if (transaction.transactionStatus === TRANSACTION_STATUS_ENUM.ARCHIVED) {
+        dataList.dataHistory.push(transaction);
+      } else {
+        dataList.dataTransaction.push(transaction);
+      }
+      return dataList;
+    },
+    { dataTransaction: [], dataHistory: [] },
+  );
+
   const sortBy: TSortHandler = useCallback(
     (field: TSortField) => {
       setSortValue((prev) => ({
@@ -140,9 +152,32 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     [sortType],
   );
 
+  const useUpdateTransaction = () => {
+    const queryClient = useQueryClient();
+
+    const { error, ...rest } = useMutation({
+      mutationFn: async (transaction: TTransaction) =>
+        await transactionHttpService.put<TTransaction>(
+          `${END_POINTS.TRANSACTIONS}/${transaction.id}`,
+          transaction,
+        ),
+      onSettled: () => {
+        queryClient.invalidateQueries({ queryKey: [END_POINTS.TRANSACTIONS] });
+      },
+    });
+
+    return {
+      ...rest,
+      error: error?.message || '',
+    };
+  };
+
   return {
     ...query,
     data: transactions,
+    dataTransaction,
+    dataHistory,
     sortBy,
+    useUpdateTransaction,
   };
 };

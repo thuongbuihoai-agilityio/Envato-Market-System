@@ -141,7 +141,7 @@ const Dashboard = () => {
             px={6}
             py={5}
           >
-            <TransactionTable />
+            <TransactionTable isOpenModal />
           </Box>
         </GridItem>
         <GridItem mt={{ base: 6, '5xl': 0 }} ml={{ '5xl': 12 }}>
