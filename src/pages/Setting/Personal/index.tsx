@@ -488,7 +488,6 @@ const UserFormComponent = () => {
 
           <GridItem order={1} colSpan={5}>
             <UpdateProfile
-              title='update profile'
               onUploadError={handleShowErrorWhenUploadImage}
               control={control}
             />

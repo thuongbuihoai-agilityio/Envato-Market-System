@@ -23,12 +23,11 @@ import { TUserDetail } from '@app/interfaces';
 import { MAX_SIZE } from '@app/constants/sizes';
 
 export type TUpdateProfileProps = {
-  title?: string;
   control: Control<TUserDetail>;
   onUploadError: (message: string) => void;
 };
 
-const UpdateProfile = ({title = '', control, onUploadError }: TUpdateProfileProps) => {
+const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
 
   const handleChangeFile = useCallback(
@@ -79,7 +78,7 @@ const UpdateProfile = ({title = '', control, onUploadError }: TUpdateProfileProp
         fontSize="lg"
         mb={2}
       >
-        {title}
+        update profile
       </Heading>
 
       <Text color="secondary.250" mb={4}>
