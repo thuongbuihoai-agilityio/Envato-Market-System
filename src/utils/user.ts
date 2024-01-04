@@ -32,7 +32,7 @@ export const getDataUser = (users: TEmployee[] = []): TShowEmployee[] =>
     } = user;
 
     return {
-      id,
+      id: id,
       workTime,
       level,
       position,

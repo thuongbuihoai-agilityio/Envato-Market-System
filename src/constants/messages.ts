@@ -14,12 +14,22 @@ export const ERROR_MESSAGES = {
     title: 'Update failed',
     description: 'Your profile has not been updated successfully',
   },
-  UPLOAD_IMAGE: "Wrong image format. Only 'jpg', 'png' and 'webp' are allowed",
+  UPLOAD_IMAGE: 'Wrong image format. Only "jpg", "png" and "webp" are allowed',
   UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
   FACEBOOK_INVALID: 'Facebook link is invalid',
   TWITTER_INVALID: 'Twitter link is invalid',
   LINKEDIN_INVALID: 'Linkedin link is invalid',
   YOUTUBE_INVALID: 'Youtube link is invalid',
+  SET_PIN_CODE: {
+    title: 'Set PIN code failed',
+    description:
+      'Something went wrong when setting your PIN code. Please check your network connection and try again',
+  },
+  CONFIRM_PIN_CODE: {
+    title: 'Confirm PIN code failed',
+    description: 'Your PIN code was invalid',
+  },
+  DEFAULT_ERROR: 'An error has occurred',
   DELETE_FAIL: {
     title: 'Delete failed',
     description: 'Transactions has not been delete successfully',
@@ -31,7 +41,14 @@ export const SUCCESS_MESSAGES = {
     title: 'Update success',
     description: 'Your profile has been updated successfully',
   },
-
+  SET_PIN_CODE: {
+    title: 'Set PIN code successfully',
+    description: 'Your PIN code has been set successfully',
+  },
+  CONFIRM_PIN_CODE: {
+    title: 'Confirm PIN code successfully',
+    description: 'Your PIN code is verified',
+  },
   DELETE_SUCCESS: {
     title: 'Delete success',
     description: 'Transactions has been delete successfully',

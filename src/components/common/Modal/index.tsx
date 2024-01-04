@@ -28,7 +28,7 @@ const ModalComponent = ({
   >
     <ModalOverlay />
     <ModalContent minW={320} maxW="fit-content">
-      <ModalHeader>{title}</ModalHeader>
+      <ModalHeader textAlign="center">{title}</ModalHeader>
       <ModalBody>{renderBody()}</ModalBody>
     </ModalContent>
   </Modal>

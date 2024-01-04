@@ -1,5 +1,4 @@
 import { RouterProvider } from 'react-router-dom';
-
 // Routes
 import { ROUTER } from '@app/routes';
 

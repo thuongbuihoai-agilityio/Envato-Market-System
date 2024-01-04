@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { shallow } from 'zustand/shallow';
 
 // Constants
@@ -22,6 +22,11 @@ type TSignUpErrorField = Partial<
 >;
 
 export type TUserInfo = Omit<TUserDetail, 'password'> | null;
+
+export type TUserAxiosResponse = Omit<
+  TUserDetail & { _id: string },
+  'id'
+> | null;
 
 export type TUseAuth = {
   user: TUserInfo;
@@ -64,21 +69,33 @@ export const useAuth = () => {
       },
       isRemember?: boolean,
     ): Promise<void> => {
-      const { data }: AxiosResponse<TUserInfo | undefined> =
-        await AuthenticationHttpService.post<TUserInfo | undefined>(
-          `${END_POINTS.SIGN_IN}`,
-          {
-            email,
-            password,
-          },
-          {},
-        );
+      try {
+        const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
+          await AuthenticationHttpService.post<TUserAxiosResponse | undefined>(
+            `${END_POINTS.SIGN_IN}`,
+            {
+              email,
+              password,
+            },
+            {},
+          );
 
-      return updateStore({
-        user: data,
-        isRemember,
-        date: getCurrentTimeSeconds(),
-      });
+        let localData: TUserInfo | undefined;
+        if (data) {
+          const { _id, ...rest } = data;
+          localData = { ...rest, id: _id };
+        }
+
+        return updateStore({
+          user: localData,
+          isRemember,
+          date: getCurrentTimeSeconds(),
+        });
+      } catch (error) {
+        const { response } = error as AxiosError<{ message: string }>;
+
+        throw new Error(response?.data.message);
+      }
     },
     [updateStore],
   );
@@ -91,8 +108,8 @@ export const useAuth = () => {
     }> => {
       const { email, password, firstName, lastName } = userInfo;
       try {
-        const { data }: AxiosResponse<TUserInfo | undefined> =
-          await AuthenticationHttpService.post<TUserInfo | undefined>(
+        const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
+          await AuthenticationHttpService.post<TUserAxiosResponse | undefined>(
             `${END_POINTS.SIGN_UP}`,
             {
               ...userInfo,
@@ -105,7 +122,14 @@ export const useAuth = () => {
             },
             {},
           );
-        updateStore({ user: data, date: getCurrentTimeSeconds() });
+
+        let localData: TUserInfo | undefined;
+        if (data) {
+          const { _id, ...rest } = data;
+          localData = { ...rest, id: _id };
+        }
+
+        updateStore({ user: localData, date: getCurrentTimeSeconds() });
       } catch (error) {
         return {
           errors: {

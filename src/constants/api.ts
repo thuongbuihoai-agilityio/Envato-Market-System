@@ -14,6 +14,8 @@ export const END_POINTS = {
   OVERALL_BALANCE: '/overall-balance',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
+  CREATE_PIN: '/create-pin-code',
+  CONFIRM_PIN: '/pin-code',
 };
 
 export const SEARCH_PARAM = {
