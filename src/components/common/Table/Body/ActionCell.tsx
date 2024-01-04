@@ -35,15 +35,13 @@ const ActionCellComponent = ({
 
   const customerId = transaction?.customer.customerId;
 
-  const handleOpenDeleteModal = useCallback(() => {
-    setIsOpenConfirmModal(true);
-    setIsDelete(true);
-  }, []);
-
-  const handleOpenUpdateModal = useCallback(() => {
-    setIsOpenConfirmModal(true);
-    setIsDelete(false);
-  }, []);
+  const handleOpenConfirmModal = useCallback(
+    (isDeleteModal: boolean) => () => {
+      setIsOpenConfirmModal(true);
+      setIsDelete(isDeleteModal);
+    },
+    [],
+  );
 
   const handleToggleModal = useCallback(() => {
     setIsOpenConfirmModal(!isOpenConfirmModal);
@@ -70,7 +68,7 @@ const ActionCellComponent = ({
         </Button>
       </Flex>
     ),
-    [],
+    [handleToggleModal],
   );
 
   const renderModalTransactionBody = useCallback(
@@ -134,13 +132,17 @@ const ActionCellComponent = ({
                       justifyContent="space-between"
                     >
                       {!customerId && (
-                        <EditIcon w={5} h={5} onClick={handleOpenUpdateModal} />
+                        <EditIcon
+                          w={5}
+                          h={5}
+                          onClick={handleOpenConfirmModal(false)}
+                        />
                       )}
                       <DeleteIcon
                         ml={customerId ? 4 : 0}
                         w={5}
                         h={5}
-                        onClick={handleOpenDeleteModal}
+                        onClick={handleOpenConfirmModal(true)}
                       />
                     </Flex>
                   </MenuItem>
