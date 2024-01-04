@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import {
   Button,
   Flex,
@@ -35,17 +35,17 @@ const ActionCellComponent = ({
 
   const customerId = transaction?.customer.customerId;
 
-  const handleToggleDelete = useCallback(() => {
+  const handleOpenDeleteModal = useCallback(() => {
     setIsOpenConfirmModal(true);
     setIsDelete(true);
   }, []);
 
-  const handleToggleUpdate = useCallback(() => {
+  const handleOpenUpdateModal = useCallback(() => {
     setIsOpenConfirmModal(true);
     setIsDelete(false);
   }, []);
 
-  const handleCloseModal = useCallback(() => {
+  const handleToggleModal = useCallback(() => {
     setIsOpenConfirmModal(!isOpenConfirmModal);
   }, [isOpenConfirmModal]);
 
@@ -54,7 +54,7 @@ const ActionCellComponent = ({
     [onDeleteTransaction, transaction],
   );
 
-  const DeleteModal = useCallback(
+  const DeleteModal = useMemo(
     () => (
       <Flex>
         <Button w={44} bg="green.600" mr={3} onClick={handleDeleteTransaction}>
@@ -64,26 +64,26 @@ const ActionCellComponent = ({
           w={44}
           bg="orange.300"
           _hover={{ bg: 'orange.400' }}
-          onClick={handleCloseModal}
+          onClick={handleToggleModal}
         >
           Cancel
         </Button>
       </Flex>
     ),
-    [handleDeleteTransaction, handleCloseModal],
+    [],
   );
 
   const renderModalTransactionBody = useCallback(
     () =>
       isDelete ? (
-        <DeleteModal />
+        DeleteModal
       ) : (
         <UpdateModal
           transaction={transaction}
-          onCloseModal={handleCloseModal}
+          onCloseModal={handleToggleModal}
         />
       ),
-    [DeleteModal, handleCloseModal, isDelete, transaction],
+    [DeleteModal, handleToggleModal, isDelete, transaction],
   );
 
   return (
@@ -134,13 +134,13 @@ const ActionCellComponent = ({
                       justifyContent="space-between"
                     >
                       {!customerId && (
-                        <EditIcon w={5} h={5} onClick={handleToggleUpdate} />
+                        <EditIcon w={5} h={5} onClick={handleOpenUpdateModal} />
                       )}
                       <DeleteIcon
                         ml={customerId ? 4 : 0}
                         w={5}
                         h={5}
-                        onClick={handleToggleDelete}
+                        onClick={handleOpenDeleteModal}
                       />
                     </Flex>
                   </MenuItem>
@@ -153,7 +153,7 @@ const ActionCellComponent = ({
       {isOpenConfirmModal && (
         <Modal
           isOpen={isOpenConfirmModal}
-          onClose={handleCloseModal}
+          onClose={handleToggleModal}
           title={
             isDelete
               ? 'Do you want to delete this transaction?'

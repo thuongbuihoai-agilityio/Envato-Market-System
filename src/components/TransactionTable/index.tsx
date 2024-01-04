@@ -186,7 +186,7 @@ const TransactionTableComponent = ({
   );
 
   const renderRole = useCallback(
-    ({ customer }: TTransaction): JSX.Element => (
+    ({ customer: { role } }: TTransaction): JSX.Element => (
       <Td
         py={5}
         pr={5}
@@ -205,7 +205,7 @@ const TransactionTableComponent = ({
           minW={250}
           flex={1}
         >
-          {formatUppercaseFirstLetter(customer.role)}
+          {formatUppercaseFirstLetter(role)}
         </Text>
       </Td>
     ),
