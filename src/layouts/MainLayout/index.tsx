@@ -151,12 +151,12 @@ const Layout = () => {
             md: !isOpen
               ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
               : SIDEBAR.MINI_SIDEBAR_WIDTH,
-            // lg: !isOpen
-            //   ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
-            //   : SIDEBAR.MINI_SIDEBAR_WIDTH,
-            // '4xl': !isOpen
-            //   ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
-            //   : SIDEBAR.MINI_SIDEBAR_WIDTH,
+            lg: !isOpen
+              ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
+              : SIDEBAR.MINI_SIDEBAR_WIDTH,
+            '4xl': !isOpen
+              ? SIDEBAR.EXPAND_SIDEBAR_WIDTH
+              : SIDEBAR.MINI_SIDEBAR_WIDTH,
           }}
           w="full"
           minH="100vh"

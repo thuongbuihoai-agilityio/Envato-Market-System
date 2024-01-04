@@ -26,7 +26,7 @@ export type Props = {
 
 const ChatMember = ({
   avatar,
-  name,
+  name = 'John Doe',
   localeTime,
   icon,
   statusColor = '',
