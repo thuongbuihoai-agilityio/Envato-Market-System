@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 // Components
-import { ChatMember } from '@app/components/ChatMember';
+import { ChatMember } from '@app/components';
 
 describe('ChatMember test cases', () => {
   it('should render correctly', () => {

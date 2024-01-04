@@ -47,3 +47,9 @@ export type TUserDetail = Omit<IUserBase, 'avatarURL'> & {
   pinCode?: string;
   role?: string;
 };
+
+export type TPassword = {
+  memberId: string;
+  oldPassword: string;
+  newPassword: string;
+};

@@ -1,5 +1,4 @@
 import { memo, useCallback, useState } from 'react';
-import { AxiosResponse } from 'axios';
 import { Controller } from 'react-hook-form';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 
@@ -28,22 +27,20 @@ import {
 } from '@app/constants';
 
 // Interfaces
-import { TUserDetail } from '@app/interfaces';
+import { TPassword } from '@app/interfaces';
 
 // Hooks
-import { useAuth, useForm, useUpdateUser } from '@app/hooks';
+import { useForm, useUpdatePassword } from '@app/hooks';
 
 // Components
 import { InputField } from '@app/components';
 import { POSITION } from '@app/constants/position';
-
-type TRegisterForm = Omit<TUserDetail, 'id' | 'createdAt'> & {
-  newPassword: string;
-};
+import { authStore } from '@app/stores';
 
 const SecurityPage = () => {
-  const { mutate: updateUser } = useUpdateUser();
-  const { setUser } = useAuth();
+  const { mutate: updatePassword } = useUpdatePassword();
+  const user = authStore((state) => state.user);
+
   const toast = useToast();
   const {
     control,
@@ -54,16 +51,17 @@ const SecurityPage = () => {
     handleSubmit,
     reset,
     clearErrors,
-  } = useForm<TUserDetail & TRegisterForm>({
+  } = useForm<TPassword>({
     defaultValues: {
-      password: '',
+      oldPassword: '',
       newPassword: '',
+      memberId: user?.id,
     },
     mode: 'onBlur',
   });
 
   const handleClearErrorMessage = useCallback(
-    (field: keyof TRegisterForm, onChange: (value: string) => void) =>
+    (field: keyof TPassword, onChange: (value: string) => void) =>
       (data: string) => {
         clearErrors(field);
         onChange(data);
@@ -72,12 +70,10 @@ const SecurityPage = () => {
   );
 
   const handleSubmitForm = useCallback(
-    (updatedInfo: TUserDetail) => {
-      updateUser(updatedInfo, {
-        onSuccess: (response: AxiosResponse<TUserDetail>) => {
-          const updatedUser: TUserDetail = response.data;
-          setUser({ user: updatedUser });
-
+    (updatedInfo: TPassword) => {
+      console.log(updatedInfo);
+      updatePassword(updatedInfo, {
+        onSuccess: () => {
           toast({
             title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
             description: SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
@@ -86,7 +82,7 @@ const SecurityPage = () => {
             isClosable: true,
             position: POSITION.TOP_RIGHT,
           });
-          reset(updatedInfo);
+          reset();
         },
         onError: () => {
           toast({
@@ -100,7 +96,8 @@ const SecurityPage = () => {
         },
       });
     },
-    [updateUser, setUser, reset, toast],
+
+    [updatePassword, reset, toast],
   );
 
   const { isOpen: isShowPassword, onToggle: onShowPassword } = useDisclosure();
@@ -155,7 +152,7 @@ const SecurityPage = () => {
         <Controller
           rules={AUTH_SCHEMA.PASSWORD}
           control={control}
-          name="password"
+          name="oldPassword"
           render={({ field: { onChange, ...rest }, fieldState: { error } }) => {
             const { message } = error ?? {};
 
@@ -177,7 +174,7 @@ const SecurityPage = () => {
                   isError={!!message}
                   errorMessages={message}
                   isDisabled={isSubmit}
-                  onChange={handleClearErrorMessage('password', onChange)}
+                  onChange={handleClearErrorMessage('oldPassword', onChange)}
                   aria-label="password"
                   role="textbox"
                 />

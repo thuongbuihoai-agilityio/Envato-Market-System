@@ -11,7 +11,7 @@ import { AVATAR_POSITION, IMAGES } from '@app/constants';
 
 // Components
 import { Message } from '@app/components';
-import { ChatMemberMemorized } from '@app/components';
+import { ChatMember } from '@app/components';
 import { CustomButton } from '@app/components';
 import { SendIcon } from '@app/components/Icons';
 
@@ -64,7 +64,7 @@ const Conversation = ({ filteredMessages }: Props) => {
           fontSize="2xl"
           textTransform="capitalize"
         >
-          <ChatMemberMemorized
+          <ChatMember
             avatar={avatarURL}
             name={username}
             status="Online"
