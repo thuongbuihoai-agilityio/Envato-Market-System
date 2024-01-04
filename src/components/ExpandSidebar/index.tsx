@@ -24,12 +24,7 @@ import { SIDEBAR, IMAGES } from '@app/constants';
 // mocks
 import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 
-const ExpandSidebar = ({
-  onClose,
-  onOpen,
-  isOpen,
-  role,
-}: SidebarProps) => {
+const ExpandSidebar = ({ onClose, onOpen, isOpen, role }: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
   const handleCloseSideBar = useCallback(() => {

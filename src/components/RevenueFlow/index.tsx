@@ -45,7 +45,7 @@ const RevenueFlowComponent = ({
 }: RevenueFlowProps) => {
   const defaultSeries = useMemo(() => {
     const generatesData = (
-      key: keyof Omit<IRevenueFlow, '_id' | 'title'>,
+      key: keyof Omit<IRevenueFlow, 'id' | 'title'>,
     ): number[] => data.map((item: IRevenueFlow) => item[key]);
 
     return [
@@ -88,7 +88,7 @@ const RevenueFlowComponent = ({
       );
 
       const getRevenueFlowDetails = (
-        key: keyof Omit<IRevenueFlow, '_id' | 'title'>,
+        key: keyof Omit<IRevenueFlow, 'id' | 'title'>,
       ) =>
         data.map((revenue: IRevenueFlow) =>
           rangeMonths.includes(revenue.title) ? revenue[key] : 0,

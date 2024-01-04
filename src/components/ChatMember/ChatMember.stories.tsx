@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Image } from '@chakra-ui/react';
 
 // Components
-import { ChatMember } from '@app/components/ChatMember';
+import { ChatMemberMemorized } from '@app/components/index';
 
 // Constants
 import { IMAGES } from '@app/constants';
 
-const meta: Meta<typeof ChatMember> = {
+const meta: Meta<typeof ChatMemberMemorized> = {
   title: 'Custom Components/ChatMember',
   tags: ['autodocs'],
-  component: ChatMember,
+  component: ChatMemberMemorized,
   argTypes: {
     avatar: {
       description: 'The image url to the avatar',
@@ -35,7 +35,7 @@ const meta: Meta<typeof ChatMember> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ChatMember>;
+type Story = StoryObj<typeof ChatMemberMemorized>;
 
 export const Default: Story = {
   args: {

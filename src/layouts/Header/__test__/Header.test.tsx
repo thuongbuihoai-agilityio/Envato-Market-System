@@ -18,10 +18,10 @@ describe('Header render', () => {
   beforeEach(() => {
     authStore.setState({
       user: {
-        role: AUTHENTICATION_ROLE.MEMBER
-      } as TUserDetail
-    })
-  })
+        role: AUTHENTICATION_ROLE.MEMBER,
+      } as TUserDetail,
+    });
+  });
 
   const renderComponent = ({ name }: { name?: string }) =>
     render(<Header name={name || 'Dashboard'} />, { wrapper: MemoryRouter });

@@ -195,7 +195,7 @@ export const IMAGES = {
   },
 
   RECORD_DARK: {
-    url: 'images/records-dark.webp',
+    url: 'images/record-dark.webp',
     alt: 'This is record dark image',
   },
   PASSWORD: {

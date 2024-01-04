@@ -9,22 +9,18 @@ const meta: Meta<typeof PinCode> = {
   tags: ['autodocs'],
   component: PinCode,
   argTypes: {
-    isError: {
-      description: 'Determine if the PinCode input is invalid',
-    },
-    onChange: {
-      description: 'The on change event handler for the PinCode input',
-      action: 'onChange',
-    },
-    isInvalid: {
-      description: 'Determine if the PinCode input is invalid',
-    },
-    onSubmit: {
-      description: 'The on submit event handler for the PinCode input',
+    control: {
+      description: 'The control pass from react hook form',
     },
     isDisabled: {
-      description:
-        'Determine if the submit button of PinCode input form is disabled or not',
+      description: 'Determin whether the PinCode is disabled or not',
+    },
+    onClose: {
+      description: 'The close function handler for the PinCode component',
+      action: 'onClose',
+    },
+    onSubmit: {
+      description: 'The submit function for the PinCode component',
     },
   },
   decorators: [
@@ -47,7 +43,7 @@ type Story = StoryObj<typeof PinCode>;
 
 export const Primary: Story = {
   args: {
-    isError: false,
+    isDisabled: false,
     onSubmit: (e) => e.preventDefault(),
   },
 };
