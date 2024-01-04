@@ -38,8 +38,13 @@ const ChatMember = ({
   );
 
   return (
-    <Box cursor="pointer" _hover={{ bg: colorFill }} onClick={onClick}>
-      <Flex justify="space-between">
+    <Box
+      cursor="pointer"
+      _hover={{ bg: colorFill }}
+      onClick={onClick}
+      borderRadius="lg"
+    >
+      <Flex justify="space-between" p={3.5}>
         <Flex gap={3}>
           <Avatar src={avatar} borderRadius="50%">
             <AvatarBadge boxSize={4} bg={getStatusColor(statusColor)} top={7} />

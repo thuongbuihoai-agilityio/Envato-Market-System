@@ -10,9 +10,7 @@ import { colors } from '@app/themes/bases/colors';
 import { AVATAR_POSITION, IMAGES } from '@app/constants';
 
 // Components
-import { Message } from '@app/components';
-import { ChatMemberMemorized } from '@app/components';
-import { CustomButton } from '@app/components';
+import { Message, CustomButton, ChatMember } from '@app/components';
 import { SendIcon } from '@app/components/Icons';
 
 // Mocks
@@ -64,7 +62,7 @@ const Conversation = ({ filteredMessages }: Props) => {
           fontSize="2xl"
           textTransform="capitalize"
         >
-          <ChatMemberMemorized
+          <ChatMember
             avatar={avatarURL}
             name={username}
             status="Online"

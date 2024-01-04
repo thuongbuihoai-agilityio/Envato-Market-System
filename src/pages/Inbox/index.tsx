@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 // Components
 import { EditIcon } from '@app/components/Icons';
-import { ChatMemberMemorized, ConversationMemorized } from '@app/components';
+import { ChatMember, Conversation } from '@app/components';
 
 // Mocks
 import { MEMBER_CHATS, MESSAGES } from '@app/mocks';
@@ -69,7 +69,7 @@ const ChatMemberList = () => {
         >
           <Flex justify="flex-start">
             {MEMBER_CHAT.map(({ id, avatar, statusColor }) => (
-              <ChatMemberMemorized
+              <ChatMember
                 key={id}
                 avatar={avatar}
                 statusColor={statusColor}
@@ -112,7 +112,7 @@ const ChatMemberList = () => {
           <Flex direction="column" gap={6} py={3.5}>
             {MEMBER_CHAT.map(
               ({ id, avatar, name, icon, localeTime, statusColor }) => (
-                <ChatMemberMemorized
+                <ChatMember
                   key={id}
                   avatar={avatar}
                   name={name}
@@ -127,7 +127,7 @@ const ChatMemberList = () => {
         </GridItem>
       )}
       <GridItem colSpan={isMobile ? 12 : 8}>
-        <ConversationMemorized
+        <Conversation
           activeMember={activeMember}
           filteredMessages={filteredMessages}
         />
