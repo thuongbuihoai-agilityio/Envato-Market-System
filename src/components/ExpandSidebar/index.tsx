@@ -13,6 +13,7 @@ import {
 
 // type
 import { SidebarProps } from '@app/layouts/Sidebar';
+import { TMenuItem } from '../common/Menu';
 
 // components
 import { Logo, Menu } from '@app/components';
@@ -23,7 +24,7 @@ import { SIDEBAR, IMAGES } from '@app/constants';
 // mocks
 import { EXPAND_SIDEBAR_MENU_LIST } from '@app/constants';
 
-const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
+const ExpandSidebar = ({ onClose, onOpen, isOpen, role }: SidebarProps) => {
   const [isMobileAndTablet] = useMediaQuery('(max-width: 1732px)');
 
   const handleCloseSideBar = useCallback(() => {
@@ -64,8 +65,12 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
 
           {/* Close button of Expand sidebar */}
           <Image
+            w={4}
+            h={10}
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             position="absolute"
             top="auto"
             right={0}
@@ -92,11 +97,11 @@ const ExpandSidebar = ({ onClose, onOpen, isOpen }: SidebarProps) => {
           }}
         >
           <VStack pr={12.5} mb={9}>
-            {EXPAND_SIDEBAR_MENU_LIST.map((item) => (
+            {EXPAND_SIDEBAR_MENU_LIST(role as string).map((item) => (
               <Menu
                 key={item.id}
                 title={item.title}
-                listItem={item.listItem}
+                listItem={item.listItem as TMenuItem[]}
                 onClickMenuItem={handleCloseSideBar}
               />
             ))}

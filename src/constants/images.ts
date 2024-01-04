@@ -202,4 +202,12 @@ export const IMAGES = {
     url: 'images/reset-password.svg',
     alt: 'This is password image',
   },
+  PLUS: {
+    url: 'icons/plus.svg',
+    alt: 'This is the plus icon',
+  },
+  FALLBACK: {
+    url: 'images/fallback.webp',
+    alt: 'This is backup image',
+  },
 };

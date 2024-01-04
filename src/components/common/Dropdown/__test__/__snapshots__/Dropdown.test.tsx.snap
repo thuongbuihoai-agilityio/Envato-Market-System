@@ -20,7 +20,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           class="css-70qvj9"
         >
           <div
-            class="chakra-spinner css-1ff1tew"
+            class="chakra-spinner css-1y7joxr"
           >
             <span
               class="css-8b45rq"
@@ -84,7 +84,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
       >
         <a
           aria-label="menu-icon-My profile"
-          class="chakra-menu__menuitem css-4otqo"
+          class="chakra-menu__menuitem css-1varpzg"
           data-index="0"
           href="/setting"
           id="menu-list-:r1:-menuitem-:r2:"
@@ -130,7 +130,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
         </a>
         <a
           aria-label="menu-icon-Logout"
-          class="chakra-menu__menuitem css-4otqo"
+          class="chakra-menu__menuitem css-1varpzg"
           data-index="1"
           href="/login"
           id="menu-list-:r1:-menuitem-:r3:"
@@ -160,40 +160,6 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
               Logout
             </p>
           </div>
-        </a>
-        <hr
-          aria-orientation="horizontal"
-          class="chakra-divider css-19ob8qo"
-        />
-        <a
-          aria-label="menu-item-Setting"
-          class="chakra-menu__menuitem css-mdob6w"
-          data-index="2"
-          href="/setting"
-          id="menu-list-:r1:-menuitem-:r4:"
-          role="menuitem"
-          tabindex="-1"
-        >
-          <p
-            class="chakra-text css-0"
-          >
-            Setting
-          </p>
-        </a>
-        <a
-          aria-label="menu-item-User"
-          class="chakra-menu__menuitem css-mdob6w"
-          data-index="3"
-          href="/user"
-          id="menu-list-:r1:-menuitem-:r5:"
-          role="menuitem"
-          tabindex="-1"
-        >
-          <p
-            class="chakra-text css-0"
-          >
-            User
-          </p>
         </a>
       </div>
     </div>

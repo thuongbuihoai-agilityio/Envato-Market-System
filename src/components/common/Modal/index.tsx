@@ -11,13 +11,13 @@ export type TModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  renderBody?: JSX.Element;
+  renderBody?: () => JSX.Element;
 };
 
 const ModalComponent = ({
   isOpen,
   onClose,
-  renderBody,
+  renderBody = () => <></>,
   title = '',
 }: TModalProps) => (
   <Modal
@@ -28,8 +28,8 @@ const ModalComponent = ({
   >
     <ModalOverlay />
     <ModalContent minW={320} maxW="fit-content">
-      <ModalHeader>{title}</ModalHeader>
-      <ModalBody>{renderBody}</ModalBody>
+      <ModalHeader textAlign="center">{title}</ModalHeader>
+      <ModalBody>{renderBody()}</ModalBody>
     </ModalContent>
   </Modal>
 );

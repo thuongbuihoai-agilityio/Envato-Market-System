@@ -20,18 +20,17 @@ import {
 import { Menu } from '@app/components';
 
 // constants
-import {
-  IMAGES,
-  HELP_ITEM_LIST,
-  MENU_ITEM_LIST,
-  OTHER_ITEM_LIST,
-  SIDEBAR,
-} from '@app/constants';
+import { IMAGES, OTHER_ITEM_LIST, SIDEBAR } from '@app/constants';
 
 // Types
 import { TImage } from '@app/interfaces';
+import { TMenuItem } from '../common/Menu';
 
-const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
+const MiniSidebar = ({
+  onClose,
+  isOpen,
+  menuItem,
+}: Omit<SidebarProps, 'onOpen'>) => {
   const { colorMode } = useColorMode();
 
   const logos: Record<ColorMode, TImage> = {
@@ -70,8 +69,11 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
           <Image
             src={logos[colorMode]?.url}
             alt={logos[colorMode]?.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             w={8}
             h={45}
+            objectFit="contain"
             cursor="pointer"
           />
 
@@ -79,8 +81,12 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
           <Image
             src={IMAGES.LEFT_ARROW.url}
             alt={IMAGES.LEFT_ARROW.alt}
+            fallbackSrc={IMAGES.FALLBACK.url}
+            fallbackStrategy="onError"
             position="absolute"
             top="auto"
+            w={4}
+            h={10}
             transform="rotate(180deg)"
             right={-4}
             onClick={onClose}
@@ -110,10 +116,7 @@ const MiniSidebar = ({ onClose, isOpen }: Omit<SidebarProps, 'onOpen'>) => {
         >
           <VStack>
             <List>
-              <Menu
-                listItem={[...MENU_ITEM_LIST, ...HELP_ITEM_LIST]}
-                isMinify
-              />
+              <Menu listItem={[...(menuItem as TMenuItem[])]} isMinify />
               <Menu listItem={[...OTHER_ITEM_LIST]} isMinify />
             </List>
           </VStack>

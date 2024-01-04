@@ -107,6 +107,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
                 src={previewURL || value || IMAGES.AVATAR_SIGN_UP.url}
                 alt={IMAGES.AVATAR_SIGN_UP.alt}
                 fallbackSrc={IMAGES.USER.url}
+                fallbackStrategy="onError"
                 objectFit="cover"
               />
             </FormLabel>
@@ -117,15 +118,16 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
                   <Image
                     src={IMAGES.EDIT.url}
                     alt={IMAGES.EDIT.alt}
+                    fallbackSrc={IMAGES.FALLBACK.url}
+                    fallbackStrategy="onError"
                     objectFit="cover"
-                    maxW={'none'}
+                    boxSize={29}
                     position="absolute"
                     bottom={-31}
                     left="-48px"
                     zIndex={1}
                     border="none"
                     bg="none"
-                    w="auto"
                     cursor="pointer"
                     _hover={{ transform: 'scale(1.1)' }}
                   />

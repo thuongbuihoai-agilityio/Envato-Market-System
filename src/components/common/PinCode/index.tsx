@@ -7,44 +7,66 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
+import { Control, Controller } from 'react-hook-form';
 
 // Colors
 import { colors } from '@app/themes/bases/colors';
 
+// Types
+import { TPinCodeForm } from '@app/layouts/MainLayout';
+
+// Constants
+import { AUTH_SCHEMA } from '@app/constants';
+
 export type TPinCodeProps = {
-  isError: boolean;
-  isInvalid: boolean;
   isDisabled?: boolean;
-  value: string;
-  onChange: (value: string) => void;
   onSubmit: (e: FormEvent<HTMLDivElement>) => void;
+  onClose: () => void;
+  control: Control<TPinCodeForm>;
+};
+
+const defaultCaretStyle = {
+  caretColor: 'transparent',
 };
 
 const PinCodeComponent = ({
   isDisabled = false,
-  isError,
-  isInvalid,
-  value,
   onSubmit,
-  onChange,
+  onClose,
+  control,
 }: TPinCodeProps) => (
   <VStack as="form" onSubmit={onSubmit}>
     <HStack justifyContent="center" gap={2}>
-      <PinInput
-        errorBorderColor={colors.danger[400]}
-        isInvalid={isError || isInvalid}
-        onChange={onChange}
-        value={value}
-      >
-        <PinInputField data-testid="pin-input" />
-        <PinInputField />
-        <PinInputField />
-        <PinInputField />
-      </PinInput>
+      <Controller
+        control={control}
+        rules={AUTH_SCHEMA.PIN_CODE}
+        name="pinCode"
+        defaultValue=""
+        render={({
+          field: { onChange, value, ...rest },
+          fieldState: { error, invalid },
+        }) => (
+          <PinInput
+            {...rest}
+            errorBorderColor={colors.danger[400]}
+            isInvalid={!!error || invalid}
+            onChange={onChange}
+            value={value}
+          >
+            <PinInputField sx={defaultCaretStyle} data-testid="pin-input" />
+            <PinInputField sx={defaultCaretStyle} />
+            <PinInputField sx={defaultCaretStyle} />
+            <PinInputField sx={defaultCaretStyle} />
+          </PinInput>
+        )}
+      />
     </HStack>
-    <Button type="submit" mx={6} my={4} isDisabled={isDisabled}>
-      Submit
-    </Button>
+    <HStack w="full" mx={6} my={4} gap={4}>
+      <Button type="submit" isDisabled={isDisabled}>
+        Submit
+      </Button>
+      <Button onClick={onClose}>Cancel</Button>
+    </HStack>
   </VStack>
 );
 

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
 // Interfaces
-import { TUserDetail } from '@app/interfaces';
+import { TPassword, TUserDetail } from '@app/interfaces';
 
 // Services
 import { UsersHttpService } from '@app/services';
@@ -16,6 +16,25 @@ export const useUpdateUser = () => {
         `${END_POINTS.USERS}/${user.id}`,
         user,
       ),
+  });
+
+  return {
+    ...rest,
+    error: error?.message || '',
+  };
+};
+
+export const useUpdatePassword = () => {
+  const { error, ...rest } = useMutation({
+    mutationFn: async (passwordData: TPassword) => {
+      const { oldPassword, newPassword, memberId } = passwordData;
+
+      await UsersHttpService.put<TPassword>(`${END_POINTS.UPDATE_PASSWORD}`, {
+        oldPassword,
+        newPassword,
+        memberId,
+      });
+    },
   });
 
   return {

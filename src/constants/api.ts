@@ -12,6 +12,11 @@ export const END_POINTS = {
   EFFICIENCY: '/efficiency',
   EMPLOYEES: '/employees',
   OVERALL_BALANCE: '/overall-balance',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
+  CREATE_PIN: '/create-pin-code',
+  CONFIRM_PIN: '/pin-code',
+  UPDATE_PASSWORD: '/update-password',
 };
 
 export const SEARCH_PARAM = {

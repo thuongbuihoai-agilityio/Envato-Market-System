@@ -24,6 +24,7 @@ const CustomerNameCellComponent = ({
         src={`${image}`}
         alt={`Image of ${name}`}
         fallbackSrc={IMAGES.AVATAR_SIGN_UP.url}
+        fallbackStrategy="onError"
         w={10}
         h={10}
         objectFit="cover"

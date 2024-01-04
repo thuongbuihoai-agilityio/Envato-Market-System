@@ -10,6 +10,7 @@ export const ROUTES = {
   FORGOT_PASSWORD: 'forgot-password',
   SIGN_OUT: 'sign-out',
   NOT_FOUND: '*',
+  INBOX: 'inbox',
 };
 
 export const COMMON_ROUTES = [
@@ -43,6 +44,10 @@ export const PRIVATE_ROUTES = [
   {
     id: 6,
     path: ROUTES.USER,
+  },
+  {
+    id: 7,
+    path: ROUTES.INBOX,
   },
 ];
 
