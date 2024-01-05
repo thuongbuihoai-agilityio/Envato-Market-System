@@ -31,8 +31,8 @@ const Table = ({
   ...props
 }: TTableProps): JSX.Element => (
   <TableContainer
-    overflowX={{ base: 'auto', '5xl': 'initial' }}
-    overflowY={{ base: 'auto', '5xl': 'initial' }}
+    overflowX={{ base: 'auto', xl: 'initial', '3xl': 'auto', '4xl': 'initial' }}
+    overflowY={{ base: 'auto', xl: 'initial', '3xl': 'auto', '4xl': 'initial' }}
   >
     <TableChakra {...props}>
       <Thead>
