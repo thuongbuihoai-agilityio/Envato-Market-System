@@ -9,6 +9,7 @@ export default {
   moduleNameMapper: {
     '^@app/(.*)$': '<rootDir>/src/$1',
     '.+\\.(png|jpg)$': 'identity-obj-proxy',
+    '\\.css$': 'identity-obj-proxy',
   },
   coverageThreshold: {
     global: {
