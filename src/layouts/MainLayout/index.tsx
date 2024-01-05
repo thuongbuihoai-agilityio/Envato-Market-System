@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import {
   Box,
   Flex,
@@ -123,7 +123,7 @@ const Layout = () => {
     [handleSetPinCode, onClosePinCodeModal, setUser, toast, user],
   );
 
-  const renderPinCodeModalBody = useCallback(
+  const pinCodeModalBody = useMemo(
     () => (
       <PinCode
         control={control}
@@ -198,7 +198,7 @@ const Layout = () => {
         title="Please set the PIN code to your account"
         isOpen={isPinCodeModalOpen}
         onClose={onClosePinCodeModal}
-        renderBody={renderPinCodeModalBody}
+        body={pinCodeModalBody}
       />
     </>
   );

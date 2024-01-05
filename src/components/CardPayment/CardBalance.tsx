@@ -1,4 +1,4 @@
-import { ReactElement, memo, useCallback, useEffect } from 'react';
+import { ReactElement, memo, useCallback, useEffect, useMemo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   Center,
@@ -206,7 +206,7 @@ const Card = ({ balance }: Required<Pick<CardPaymentProps, 'balance'>>) => {
     resetConfirmPinCodeForm();
   }, [onCloseConfirmPinCodeModal, resetConfirmPinCodeForm]);
 
-  const renderPinCodeModalBody = useCallback(() => {
+  const pinCodeModalBody = useMemo(() => {
     if (!user?.pinCode)
       return (
         <PinCode
@@ -290,7 +290,7 @@ const Card = ({ balance }: Required<Pick<CardPaymentProps, 'balance'>>) => {
         title="Please set the PIN code to your account"
         isOpen={isSetPinCodeModalOpen}
         onClose={handleCloseSetPinCodeModal}
-        renderBody={renderPinCodeModalBody}
+        body={pinCodeModalBody}
       />
 
       {/*Confirm PIN code Modal */}
@@ -298,7 +298,7 @@ const Card = ({ balance }: Required<Pick<CardPaymentProps, 'balance'>>) => {
         title="Please enter your PIN code"
         isOpen={isConfirmPinCodeModalOpen}
         onClose={handleCloseConfirmPinCodeModal}
-        renderBody={renderPinCodeModalBody}
+        body={pinCodeModalBody}
       />
     </>
   );
