@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import { Button, Flex, VStack, useToast } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, VStack, useToast } from '@chakra-ui/react';
 import { InputField } from '@app/components';
 
 // Interfaces
@@ -20,12 +20,16 @@ import {
 } from '@app/constants';
 
 interface TransactionProps {
+  isDelete?: boolean;
   transaction?: TTransaction;
+  onDeleteTransaction?: () => void;
   onCloseModal?: () => void;
 }
 
-const UpdateModal = ({
+const TransactionModal = ({
+  isDelete = false,
   transaction,
+  onDeleteTransaction = () => {},
   onCloseModal = () => {},
 }: TransactionProps) => {
   const {
@@ -96,7 +100,30 @@ const UpdateModal = ({
     [updateCustomer],
   );
 
-  return (
+  return isDelete ? (
+    <Box>
+      <Text fontSize="lg">
+        Are you sure delete the transaction with id:
+        <Text as="span" pl={1} color="red.500" fontWeight="bold">
+          {transaction?.id}
+        </Text>
+        ?
+      </Text>
+      <Flex my={4} justifyContent="center">
+        <Button w={44} bg="green.600" mr={3} onClick={onDeleteTransaction}>
+          Delete
+        </Button>
+        <Button
+          w={44}
+          bg="orange.300"
+          _hover={{ bg: 'orange.400' }}
+          onClick={onCloseModal}
+        >
+          Cancel
+        </Button>
+      </Flex>
+    </Box>
+  ) : (
     <VStack
       as="form"
       id="update-transaction-form"
@@ -156,5 +183,5 @@ const UpdateModal = ({
   );
 };
 
-const UploadModalMemorized = memo(UpdateModal);
-export default UploadModalMemorized;
+const TransactionModalMemorized = memo(TransactionModal);
+export default TransactionModalMemorized;
