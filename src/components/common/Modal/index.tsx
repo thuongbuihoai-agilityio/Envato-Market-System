@@ -2,6 +2,7 @@ import { memo } from 'react';
 import {
   Modal,
   ModalBody,
+  ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
@@ -11,14 +12,16 @@ export type TModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  renderBody?: () => JSX.Element;
+  body?: JSX.Element;
+  haveCloseButton?: boolean;
 };
 
 const ModalComponent = ({
   isOpen,
   onClose,
-  renderBody = () => <></>,
+  body = <></>,
   title = '',
+  haveCloseButton = false,
 }: TModalProps) => (
   <Modal
     isCentered
@@ -28,8 +31,16 @@ const ModalComponent = ({
   >
     <ModalOverlay />
     <ModalContent minW={320} maxW="fit-content">
-      <ModalHeader textAlign="center">{title}</ModalHeader>
-      <ModalBody>{renderBody()}</ModalBody>
+      <ModalHeader
+        display="flex"
+        justifyContent={haveCloseButton ? 'space-between' : 'center'}
+        alignItems="center"
+        w="full"
+      >
+        {title}
+        {haveCloseButton && <ModalCloseButton position="unset" size="sm" />}
+      </ModalHeader>
+      <ModalBody>{body}</ModalBody>
     </ModalContent>
   </Modal>
 );
