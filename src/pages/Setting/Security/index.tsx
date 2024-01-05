@@ -90,7 +90,7 @@ const SecurityPage = () => {
         onSuccess: handleUpdatePasswordSuccess,
         onError: () => {
           toast({
-            title: ERROR_MESSAGES.UPDATE_FAIL.title,
+            title: ERROR_MESSAGES.UPDATE_PASSWORD_FAIL,
             description: ERROR_MESSAGES.UPDATE_FAIL.description,
             status: STATUS.ERROR,
             duration: SHOW_TIME,
