@@ -3,6 +3,8 @@ import { Box } from '@chakra-ui/react';
 
 // Components
 import PinCode from '.';
+import { useForm } from 'react-hook-form';
+import { TPinCodeForm } from '@app/layouts/MainLayout';
 
 const meta: Meta<typeof PinCode> = {
   title: 'Custom Components/PinCode',
@@ -25,8 +27,14 @@ const meta: Meta<typeof PinCode> = {
   },
   decorators: [
     (Story) => (
-      <Box bg="background.component.primary">
-        <Story />
+      <Box
+        display="flex"
+        justifyContent="center"
+        bg="background.component.primary"
+      >
+        <Box w={320}>
+          <Story />
+        </Box>
       </Box>
     ),
   ],
@@ -45,5 +53,10 @@ export const Primary: Story = {
   args: {
     isDisabled: false,
     onSubmit: (e) => e.preventDefault(),
+  },
+  render: function Render(props) {
+    const { control } = useForm<TPinCodeForm>({});
+
+    return <PinCode {...props} control={control} />;
   },
 };
