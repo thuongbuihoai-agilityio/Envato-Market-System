@@ -46,3 +46,4 @@ export { default as Conversation } from './Conversation';
 export { default as ChatMember } from './ChatMember';
 export { default as Message } from './BoxChat/Message';
 export { default as CustomButton } from './common/Button';
+export { default as TermAndConditionItem } from './TermConditionItem';
