@@ -17,9 +17,9 @@ const CustomerNameCellComponent = ({
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
-    minW={350}
+    minW={{ base: 150 }}
   >
-    <Flex alignItems="center" gap="10px" maxW={350}>
+    <Flex alignItems="center" gap="10px" w={200}>
       <Image
         src={`${image}`}
         alt={`Image of ${name}`}
@@ -40,7 +40,7 @@ const CustomerNameCellComponent = ({
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          minW={250}
+          minW={150}
           pr={10}
           flex={1}
         >
