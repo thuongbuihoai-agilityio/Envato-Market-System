@@ -37,6 +37,9 @@ import { POSITION } from '@app/constants/position';
 import { authStore } from '@app/stores';
 import { TPassword } from '@app/interfaces';
 
+// Utils
+import { validatePassword } from '@app/utils';
+
 const SecurityPage = () => {
   const { mutate: updatePassword } = useUpdatePassword();
   const user = authStore((state) => state.user);
@@ -185,7 +188,7 @@ const SecurityPage = () => {
 
         <Controller
           control={control}
-          rules={AUTH_SCHEMA.PASSWORD}
+          rules={{ validate: validatePassword }}
           name="newPassword"
           render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
             <FormControl>
