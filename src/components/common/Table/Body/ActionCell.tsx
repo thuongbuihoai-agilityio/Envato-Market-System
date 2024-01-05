@@ -126,7 +126,7 @@ const ActionCellComponent = ({
                   <MenuItem bg="transparent">
                     <Flex
                       position="absolute"
-                      right={0}
+                      right={4}
                       minW={12}
                       alignItems="center"
                       justifyContent="space-between"

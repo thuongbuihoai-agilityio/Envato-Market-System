@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
@@ -12,7 +12,12 @@ import { TTransaction } from '@app/interfaces';
 import { useTransactions } from '@app/hooks';
 
 // Constants
-import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
+import {
+  ERROR_MESSAGES,
+  SHOW_TIME,
+  STATUS_SUBMIT,
+  SUCCESS_MESSAGES,
+} from '@app/constants';
 
 interface TransactionProps {
   transaction?: TTransaction;
@@ -23,7 +28,13 @@ const UpdateModal = ({
   transaction,
   onCloseModal = () => {},
 }: TransactionProps) => {
-  const { control, clearErrors, handleSubmit, reset } = useForm<TTransaction>({
+  const {
+    control,
+    formState: { isDirty },
+    clearErrors,
+    handleSubmit,
+    reset,
+  } = useForm<TTransaction>({
     defaultValues: {
       id: transaction?.id,
       customer: {
@@ -39,7 +50,12 @@ const UpdateModal = ({
   const toast = useToast();
 
   const { useUpdateTransaction } = useTransactions();
-  const { mutate: updateCustomer } = useUpdateTransaction();
+  const { mutate: updateCustomer, status } = useUpdateTransaction();
+
+  const disabled = useMemo(
+    () => !isDirty || status === STATUS_SUBMIT.PENDING,
+    [isDirty, status],
+  );
 
   const handleChangeValue = useCallback(
     <T,>(field: keyof TTransaction, changeHandler: (value: T) => void) =>
@@ -123,6 +139,7 @@ const UpdateModal = ({
           w={44}
           bg="green.600"
           mr={3}
+          isDisabled={disabled}
         >
           Save
         </Button>
