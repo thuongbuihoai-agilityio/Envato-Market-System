@@ -7,4 +7,5 @@ export const breakpoints: ThemeOverride['breakpoints'] = {
   '3xl': '1536px',
   '4xl': '1732px',
   '5xl': '1860px',
+  '6xl': '1944px',
 };

@@ -195,14 +195,14 @@ const TransactionTableComponent = ({
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        minW={350}
+        w={{ base: 150, md: 20 }}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          minW={250}
+          w={{ base: 100, md: 150, '6xl': 250 }}
           flex={1}
         >
           {formatUppercaseFirstLetter(role)}
