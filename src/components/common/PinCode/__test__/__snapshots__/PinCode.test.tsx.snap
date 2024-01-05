@@ -11,55 +11,65 @@ exports[`PinCode test cases should render correctly 1`] = `
       <input
         aria-label="Please enter your pin code"
         autocomplete="off"
-        class="chakra-pin-input css-0"
+        class="chakra-pin-input css-1jd9q9x"
         data-index="0"
         data-testid="pin-input"
         id="pin-input-:r0:-0"
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value="m"
+        value=""
       />
       <input
         aria-label="Please enter your pin code"
         autocomplete="off"
-        class="chakra-pin-input css-0"
+        class="chakra-pin-input css-1jd9q9x"
         data-index="1"
         id="pin-input-:r0:-1"
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value="o"
+        value=""
       />
       <input
         aria-label="Please enter your pin code"
         autocomplete="off"
-        class="chakra-pin-input css-0"
+        class="chakra-pin-input css-1jd9q9x"
         data-index="2"
         id="pin-input-:r0:-2"
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value="c"
+        value=""
       />
       <input
         aria-label="Please enter your pin code"
         autocomplete="off"
-        class="chakra-pin-input css-0"
+        class="chakra-pin-input css-1jd9q9x"
         data-index="3"
         id="pin-input-:r0:-3"
         inputmode="numeric"
         placeholder="○"
         type="tel"
-        value="k"
+        value=""
       />
     </div>
-    <button
-      class="chakra-button css-1jroyhy"
-      type="submit"
+    <div
+      class="chakra-stack css-uhqw6c"
     >
-      Submit
-    </button>
+      <button
+        class="chakra-button css-4xx2wk"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        class="chakra-button css-4xx2wk"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
   </form>
 </div>
 `;
