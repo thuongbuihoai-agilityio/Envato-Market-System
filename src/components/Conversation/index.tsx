@@ -33,11 +33,11 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
     (state): string | undefined => state.user?.avatarURL,
   );
 
-  const userName = authStore(
+  const username = authStore(
     ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
   );
 
-  const defaultName = adminName || userName;
+  const defaultName = adminName || username;
 
   const [editorValue, setEditorValue] = useState<string>('');
   const colorFill = useColorModeValue(
