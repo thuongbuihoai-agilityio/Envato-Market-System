@@ -9,7 +9,9 @@ export default {
   moduleNameMapper: {
     '^@app/(.*)$': '<rootDir>/src/$1',
     '.+\\.(png|jpg)$': 'identity-obj-proxy',
+    '\\.css$': 'identity-obj-proxy',
   },
+
   coverageThreshold: {
     global: {
       statements: 80,
@@ -35,6 +37,6 @@ export default {
     '!<rootDir>/src/providers/**',
     '!<rootDir>/coverage/**',
     '!<rootDir>/public/**',
-    '!**/*.config.ts'
-  ]
+    '!**/*.config.ts',
+  ],
 };

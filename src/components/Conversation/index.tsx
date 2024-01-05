@@ -24,17 +24,20 @@ import { MessageType } from '@app/interfaces/messages';
 
 export type Props = {
   activeMember?: string;
-  filteredMessages: MessageType[];
+  filteredMessages?: MessageType[];
+  adminName?: string;
 };
 
-const Conversation = ({ filteredMessages }: Props) => {
+const Conversation = ({ filteredMessages, adminName }: Props) => {
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
   );
 
-  const username = authStore(
-    ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
-  );
+  const username =
+    adminName ||
+    authStore(
+      ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
+    );
 
   const [editorValue, setEditorValue] = useState<string>('');
   const colorFill = useColorModeValue(
@@ -43,7 +46,7 @@ const Conversation = ({ filteredMessages }: Props) => {
   );
 
   const messagesToShow = useMemo(
-    () => (filteredMessages.length > 0 ? filteredMessages : MESSAGES),
+    () => (filteredMessages ?? [].length > 0 ? filteredMessages : MESSAGES),
     [filteredMessages],
   );
 
@@ -72,7 +75,7 @@ const Conversation = ({ filteredMessages }: Props) => {
       </Flex>
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
-        {messagesToShow.map((message): JSX.Element => {
+        {messagesToShow?.map((message): JSX.Element => {
           const { isSend, isAudio, uid, content } = message;
 
           return (
