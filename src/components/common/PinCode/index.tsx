@@ -25,8 +25,10 @@ export type TPinCodeProps = {
   control: Control<TPinCodeForm>;
 };
 
-const defaultCaretStyle = {
+const defaultStyle = {
   caretColor: 'transparent',
+  'font-family': 'caption',
+  fontSize: '24px',
 };
 
 const PinCodeComponent = ({
@@ -52,11 +54,13 @@ const PinCodeComponent = ({
             isInvalid={!!error || invalid}
             onChange={onChange}
             value={value}
+            mask
+            variant="filled"
           >
-            <PinInputField sx={defaultCaretStyle} data-testid="pin-input" />
-            <PinInputField sx={defaultCaretStyle} />
-            <PinInputField sx={defaultCaretStyle} />
-            <PinInputField sx={defaultCaretStyle} />
+            <PinInputField sx={defaultStyle} data-testid="pin-input" />
+            <PinInputField sx={defaultStyle} />
+            <PinInputField sx={defaultStyle} />
+            <PinInputField sx={defaultStyle} />
           </PinInput>
         )}
       />
