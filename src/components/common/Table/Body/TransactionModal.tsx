@@ -29,8 +29,8 @@ interface TransactionProps {
 const TransactionModal = ({
   isDelete = false,
   transaction,
-  onDeleteTransaction = () => {},
-  onCloseModal = () => {},
+  onDeleteTransaction = () => { },
+  onCloseModal = () => { },
 }: TransactionProps) => {
   const {
     control,
@@ -57,8 +57,11 @@ const TransactionModal = ({
   const { mutate: updateCustomer, status } = useUpdateTransaction();
 
   const disabled = useMemo(
-    () => !isDirty || status === STATUS_SUBMIT.PENDING,
-    [isDirty, status],
+    () => (isDelete
+      ? status === STATUS_SUBMIT.PENDING
+      : !isDirty || status === STATUS_SUBMIT.PENDING
+    ),
+    [isDirty, status, isDelete],
   );
 
   const handleChangeValue = useCallback(
@@ -110,7 +113,13 @@ const TransactionModal = ({
         ?
       </Text>
       <Flex my={4} justifyContent="center">
-        <Button w={44} bg="green.600" mr={3} onClick={onDeleteTransaction}>
+        <Button
+          w={44}
+          bg="green.600"
+          mr={3}
+          isDisabled={disabled}
+          onClick={onDeleteTransaction}
+        >
           Delete
         </Button>
         <Button
