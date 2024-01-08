@@ -4,6 +4,9 @@ import { REGEX, DOTS, ERROR_MESSAGES } from '@app/constants';
 // Types
 import { FormatPaginationParams } from '@app/interfaces/pagination';
 
+// Mocks
+import { USER_CHATS } from '@app/mocks';
+
 export const formatNumberButton = (numberOfPage: number): number[] =>
   Array.from({ length: numberOfPage }).map(
     (_, index: number): number => index + 1,
@@ -132,3 +135,10 @@ export const getStatusColor = (status: string): string => {
       return 'gray.500';
   }
 };
+
+export const sortMessages = USER_CHATS.sort((a, b) => {
+  const timeA = new Date(a.localeTime).getTime();
+  const timeB = new Date(b.localeTime).getTime();
+
+  return timeA - timeB;
+});

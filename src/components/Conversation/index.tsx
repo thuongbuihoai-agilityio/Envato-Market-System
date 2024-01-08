@@ -14,7 +14,7 @@ import { Message, CustomButton, ChatMember } from '@app/components';
 import { SendIcon } from '@app/components/Icons';
 
 // Mocks
-import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
+import { MESSAGE_TIME, USER_CHATS } from '@app/mocks';
 
 // Stores
 import { authStore } from '@app/stores';
@@ -46,7 +46,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
   );
 
   const messagesToShow = useMemo(
-    () => (filteredMessages ?? [].length > 0 ? filteredMessages : MESSAGES),
+    () => (filteredMessages ?? [].length > 0 ? filteredMessages : USER_CHATS),
     [filteredMessages],
   );
 
@@ -76,13 +76,12 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
         {messagesToShow?.map((message): JSX.Element => {
-          const { isSend, isAudio, uid, content } = message;
+          const { isSend, uid, content } = message;
 
           return (
             <Message
               key={uid}
               content={content}
-              isImage={isAudio}
               isOwnerMessage={isSend}
               avatarPosition={
                 isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE

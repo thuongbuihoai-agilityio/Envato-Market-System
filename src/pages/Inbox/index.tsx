@@ -14,7 +14,7 @@ import { EditIcon } from '@app/components/Icons';
 import { ChatMember, Conversation } from '@app/components';
 
 // Mocks
-import { MEMBER_CHATS, MESSAGES } from '@app/mocks';
+import { MEMBER_CHATS, USER_CHATS } from '@app/mocks';
 import { MEMBER_CHAT } from '@app/mocks/member';
 
 // Interfaces
@@ -38,7 +38,7 @@ const ChatMemberList = () => {
   };
 
   const filterMessages = (memberId: string) => {
-    const filtered = MESSAGES.filter(
+    const filtered = USER_CHATS.filter(
       (message) => message.uid === 'admin' || message.uid === memberId,
     );
     setFilteredMessages(filtered);
