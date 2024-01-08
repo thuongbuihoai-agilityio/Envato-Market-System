@@ -25,8 +25,10 @@ export type TPinCodeProps = {
   control: Control<TPinCodeForm>;
 };
 
-const defaultCaretStyle = {
+const defaultStyle = {
   caretColor: 'transparent',
+  fontFamily: 'caption',
+  fontSize: '24px',
 };
 
 const PinCodeComponent = ({
@@ -43,7 +45,8 @@ const PinCodeComponent = ({
         name="pinCode"
         defaultValue=""
         render={({
-          field: { onChange, value, ...rest },
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          field: { onChange, value, ref: _, ...rest },
           fieldState: { error, invalid },
         }) => (
           <PinInput
@@ -52,11 +55,13 @@ const PinCodeComponent = ({
             isInvalid={!!error || invalid}
             onChange={onChange}
             value={value}
+            mask
+            variant="filled"
           >
-            <PinInputField sx={defaultCaretStyle} data-testid="pin-input" />
-            <PinInputField sx={defaultCaretStyle} />
-            <PinInputField sx={defaultCaretStyle} />
-            <PinInputField sx={defaultCaretStyle} />
+            <PinInputField sx={defaultStyle} data-testid="pin-input" />
+            <PinInputField sx={defaultStyle} />
+            <PinInputField sx={defaultStyle} />
+            <PinInputField sx={defaultStyle} />
           </PinInput>
         )}
       />
@@ -65,7 +70,9 @@ const PinCodeComponent = ({
       <Button type="submit" isDisabled={isDisabled}>
         Submit
       </Button>
-      <Button onClick={onClose}>Cancel</Button>
+      <Button onClick={onClose} bg="orange.300" _hover={{ bg: 'orange.400' }}>
+        Cancel
+      </Button>
     </HStack>
   </VStack>
 );

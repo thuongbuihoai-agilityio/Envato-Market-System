@@ -14,7 +14,7 @@ import { Message, CustomButton, ChatMember } from '@app/components';
 import { SendIcon } from '@app/components/Icons';
 
 // Mocks
-import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
+import { MESSAGE_TIME, USER_CHATS } from '@app/mocks';
 
 // Stores
 import { authStore } from '@app/stores';
@@ -24,10 +24,11 @@ import { MessageType } from '@app/interfaces/messages';
 
 export type Props = {
   activeMember?: string;
-  filteredMessages: MessageType[];
+  filteredMessages?: MessageType[];
+  adminName?: string;
 };
 
-const Conversation = ({ filteredMessages }: Props) => {
+const Conversation = ({ filteredMessages, adminName }: Props) => {
   const avatarURL = authStore(
     (state): string | undefined => state.user?.avatarURL,
   );
@@ -36,6 +37,8 @@ const Conversation = ({ filteredMessages }: Props) => {
     ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
   );
 
+  const defaultName = adminName || username;
+
   const [editorValue, setEditorValue] = useState<string>('');
   const colorFill = useColorModeValue(
     theme.colors.white,
@@ -43,7 +46,7 @@ const Conversation = ({ filteredMessages }: Props) => {
   );
 
   const messagesToShow = useMemo(
-    () => (filteredMessages.length > 0 ? filteredMessages : MESSAGES),
+    () => (filteredMessages ?? [].length > 0 ? filteredMessages : USER_CHATS),
     [filteredMessages],
   );
 
@@ -64,7 +67,7 @@ const Conversation = ({ filteredMessages }: Props) => {
         >
           <ChatMember
             avatar={avatarURL}
-            name={username}
+            name={defaultName}
             status="Online"
             statusColor="online"
           />
@@ -72,14 +75,13 @@ const Conversation = ({ filteredMessages }: Props) => {
       </Flex>
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
-        {messagesToShow.map((message): JSX.Element => {
-          const { isSend, isAudio, uid, content } = message;
+        {messagesToShow?.map((message): JSX.Element => {
+          const { isSend, uid, content } = message;
 
           return (
             <Message
               key={uid}
               content={content}
-              isImage={isAudio}
               isOwnerMessage={isSend}
               avatarPosition={
                 isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE

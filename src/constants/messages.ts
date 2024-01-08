@@ -34,6 +34,8 @@ export const ERROR_MESSAGES = {
     title: 'Delete failed',
     description: 'Transactions has not been delete successfully',
   },
+
+  UPDATE_PASSWORD_FAIL: 'Old password is not correct',
 };
 
 export const SUCCESS_MESSAGES = {

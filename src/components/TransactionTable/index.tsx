@@ -15,11 +15,7 @@ import {
 } from '@app/components/index';
 
 // Utils
-import {
-  formatTimeStamp,
-  formatUppercaseFirstLetter,
-  getTransactionHomePage,
-} from '@app/utils';
+import { formatUppercaseFirstLetter, getTransactionHomePage } from '@app/utils';
 
 // Hooks
 import {
@@ -44,6 +40,7 @@ import {
 
 // Types
 import { TDataSource, THeaderTable, TTransaction } from '@app/interfaces';
+import { authStore } from '@app/stores';
 
 interface TFilterUserProps {
   isOpenModal?: boolean;
@@ -61,6 +58,8 @@ const TransactionTableComponent = ({
     name: '',
   });
 
+  const { user } = authStore();
+
   const {
     data: transactions = [],
     dataHistory,
@@ -69,9 +68,12 @@ const TransactionTableComponent = ({
     isError: isTransactionsError,
     sortBy,
     useUpdateTransaction,
-  } = useTransactions({
-    name: searchTransaction.name,
-  });
+  } = useTransactions(
+    {
+      name: searchTransaction.name,
+    },
+    user?.id,
+  );
 
   const listData = isTableHistory ? dataHistory : dataTransaction;
 
@@ -90,12 +92,55 @@ const TransactionTableComponent = ({
   const toast = useToast();
   const { mutate: updateTransaction } = useUpdateTransaction();
 
-  const handleDeleteTransaction = useCallback(
-    (updateData: TTransaction) => {
+  const handleUpdateTransaction = useCallback(
+    (updateCustomer: TTransaction) => {
+      const {
+        customer: { firstName, lastName, address },
+      } = updateCustomer;
       updateTransaction(
         {
-          ...updateData,
-          date: formatTimeStamp(updateData.date).toString(),
+          transactionId: updateCustomer._id,
+          userId: user?.id,
+          firstName: firstName,
+          lastName: lastName,
+          state: address.state,
+          street: address.street,
+          city: address.city,
+          zip: address.zip,
+        },
+        {
+          onSuccess: () => {
+            toast({
+              title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+              description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+              status: 'success',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+          onError: () => {
+            toast({
+              title: ERROR_MESSAGES.UPDATE_FAIL.title,
+              description: ERROR_MESSAGES.UPDATE_FAIL.description,
+              status: 'error',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+        },
+      );
+    },
+    [updateTransaction],
+  );
+
+  const handleDeleteTransaction = useCallback(
+    (updateData: Partial<TTransaction & { id: string }>) => {
+      updateTransaction(
+        {
+          transactionId: updateData.id,
+          userId: user?.id,
           transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
         },
         {
@@ -146,7 +191,7 @@ const TransactionTableComponent = ({
 
   const renderNameUser = useCallback(
     ({ id, image, name }: TDataSource): JSX.Element => (
-      <CustomerNameCell key={id} id={id} image={image} name={name} />
+      <CustomerNameCell id={id} key={id} image={image} name={name} />
     ),
     [],
   );
@@ -154,10 +199,11 @@ const TransactionTableComponent = ({
   const renderActionIcon = useCallback(
     (data: TTransaction) => (
       <ActionCell
-        key={`${data.id}-action`}
+        key={`${data._id}-action`}
         isOpenModal={isTableHistory ? !isOpenModal : isOpenModal}
         transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
+        onUpdateTransaction={handleUpdateTransaction}
       />
     ),
     [],
@@ -195,14 +241,14 @@ const TransactionTableComponent = ({
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        minW={350}
+        w={{ base: 150, md: 20 }}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          minW={250}
+          w={{ base: 100, md: 150, '6xl': 250 }}
           flex={1}
         >
           {formatUppercaseFirstLetter(role)}

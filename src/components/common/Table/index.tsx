@@ -30,7 +30,10 @@ const Table = ({
   onClickTableRow,
   ...props
 }: TTableProps): JSX.Element => (
-  <TableContainer>
+  <TableContainer
+    overflowX={{ base: 'auto', xl: 'initial', '3xl': 'auto', '4xl': 'initial' }}
+    overflowY={{ base: 'auto', xl: 'initial', '3xl': 'auto', '4xl': 'initial' }}
+  >
     <TableChakra {...props}>
       <Thead>
         <Tr>
@@ -87,7 +90,12 @@ const Table = ({
                     column.renderBody ? (
                       column.renderBody(data)
                     ) : (
-                      <Td key={column.key} py={5} px={0} minW={280}>
+                      <Td
+                        key={column.key}
+                        py={5}
+                        px={0}
+                        minW={{ base: 10, md: 100 }}
+                      >
                         <Tooltip
                           minW="max-content"
                           placement="bottom-start"
@@ -101,7 +109,7 @@ const Table = ({
                             fontWeight="semibold"
                             textAlign="left"
                             whiteSpace="break-spaces"
-                            maxW={200}
+                            minW={{ base: 20, md: 40 }}
                             noOfLines={1}
                           >
                             {data[column.key as keyof typeof data] as string}

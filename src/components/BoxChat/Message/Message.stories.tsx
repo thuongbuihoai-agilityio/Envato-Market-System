@@ -19,11 +19,6 @@ const meta: Meta<typeof Message> = {
       description: 'The URL of the message avatar ',
     },
 
-    isImage: {
-      description:
-        'Indicate the type of the message is image URL to render image',
-    },
-
     avatarPosition: {
       description:
         'Determine whether the position of the avatar is before or after',
@@ -55,7 +50,6 @@ export const Default: Story = {
   args: {
     content: 'This is message',
     avatar: IMAGES.USER_AVATAR.url,
-    isImage: true,
     avatarPosition: AVATAR_POSITION.BEFORE,
     isOwnerMessage: true,
   },

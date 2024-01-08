@@ -121,6 +121,9 @@ devDependencies:
   '@welldone-software/why-did-you-render':
     specifier: ^7.0.1
     version: 7.0.1(react@18.2.0)
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   eslint:
     specifier: ^8.53.0
     version: 8.54.0
@@ -151,6 +154,9 @@ devDependencies:
   jest-environment-jsdom:
     specifier: ^29.7.0
     version: 29.7.0
+  jest-transform-stub:
+    specifier: ^2.0.0
+    version: 2.0.0
   json-server:
     specifier: ^0.17.4
     version: 0.17.4
@@ -7280,6 +7286,10 @@ packages:
       whatwg-url: 11.0.0
     dev: true
 
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: true
+
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -9724,6 +9734,10 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-transform-stub@2.0.0:
+    resolution: {integrity: sha512-lspHaCRx/mBbnm3h4uMMS3R5aZzMwyNpNIJLXj4cEsV0mIUtS4IjYJLSoyjRCtnxb6RIGJ4NL2quZzfIeNhbkg==}
     dev: true
 
   /jest-util@29.7.0:

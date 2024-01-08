@@ -21,7 +21,7 @@ describe('getTransactionHomePage', () => {
         },
         email: 'devon@mail.com',
         location: 'Philadelphia, USA',
-        date: formatDate(+TRANSACTIONS[0].date),
+        date: formatDate(+TRANSACTIONS[0].createdAt),
         image: TRANSACTIONS[0].customer.avatar,
         paymentStatus: formatUppercaseFirstLetter(
           TRANSACTIONS[0].paymentStatus,

@@ -4,6 +4,9 @@ import { REGEX, DOTS, ERROR_MESSAGES } from '@app/constants';
 // Types
 import { FormatPaginationParams } from '@app/interfaces/pagination';
 
+// Mocks
+import { USER_CHATS } from '@app/mocks';
+
 export const formatNumberButton = (numberOfPage: number): number[] =>
   Array.from({ length: numberOfPage }).map(
     (_, index: number): number => index + 1,
@@ -75,6 +78,10 @@ export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
 export const formatDecimalInput = (value = ''): string => {
+  // Check for leading zeros
+  if (value.length > 0 && value[0] === '0') {
+    return ''; // Indicate invalid input
+  }
   const validData = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
     value.replace(/[^(\d|.)]/g, ''),
   );
@@ -128,3 +135,10 @@ export const getStatusColor = (status: string): string => {
       return 'gray.500';
   }
 };
+
+export const sortMessages = USER_CHATS.sort((a, b) => {
+  const timeA = new Date(a.localeTime).getTime();
+  const timeB = new Date(b.localeTime).getTime();
+
+  return timeA - timeB;
+});
