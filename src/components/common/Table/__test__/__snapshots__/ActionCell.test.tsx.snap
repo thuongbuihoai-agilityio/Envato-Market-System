@@ -64,10 +64,10 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
             type="button"
           >
             <div
-              class="css-13k9koy"
+              class="css-1s0smvb"
             >
               <svg
-                class="chakra-icon css-onkibi"
+                class="chakra-icon css-1etxpkf"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -86,7 +86,7 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
                 </g>
               </svg>
               <svg
-                class="chakra-icon css-onkibi"
+                class="chakra-icon css-1upoz8k"
                 focusable="false"
                 viewBox="0 0 24 24"
               >

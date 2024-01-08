@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import {
   Button,
   Flex,
@@ -10,8 +10,7 @@ import {
   Td,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import { Modal } from '@app/components';
-import UpdateModal from './TransactionModal';
+import { Modal, TransactionModal } from '@app/components';
 
 // Icons
 import { Dot } from '@app/components/Icons';
@@ -23,17 +22,20 @@ interface ActionCallProps {
   transaction?: TTransaction;
   isOpenModal?: boolean;
   onDeleteTransaction?: (transactionData: TTransaction) => void;
+  onUpdateTransaction?: (transactionData: TTransaction) => void;
 }
 
 const ActionCellComponent = ({
   transaction,
   isOpenModal = false,
   onDeleteTransaction = () => {},
+  onUpdateTransaction = () => {},
 }: ActionCallProps) => {
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
   const customerId = transaction?.customer.customerId;
+  console.log('transaction', transaction);
 
   const handleOpenConfirmModal = useCallback(
     (isDeleteModal: boolean) => () => {
@@ -50,38 +52,6 @@ const ActionCellComponent = ({
   const handleDeleteTransaction = useCallback(
     () => onDeleteTransaction(transaction as TTransaction),
     [onDeleteTransaction, transaction],
-  );
-
-  const DeleteModal = useMemo(
-    () => (
-      <Flex>
-        <Button w={44} bg="green.600" mr={3} onClick={handleDeleteTransaction}>
-          Delete
-        </Button>
-        <Button
-          w={44}
-          bg="orange.300"
-          _hover={{ bg: 'orange.400' }}
-          onClick={handleToggleModal}
-        >
-          Cancel
-        </Button>
-      </Flex>
-    ),
-    [handleToggleModal],
-  );
-
-  const renderModalTransactionBody = useCallback(
-    () =>
-      isDelete ? (
-        DeleteModal
-      ) : (
-        <UpdateModal
-          transaction={transaction}
-          onCloseModal={handleToggleModal}
-        />
-      ),
-    [DeleteModal, handleToggleModal, isDelete, transaction],
   );
 
   return (
@@ -126,7 +96,7 @@ const ActionCellComponent = ({
                   <MenuItem bg="transparent">
                     <Flex
                       position="absolute"
-                      right={0}
+                      right={4}
                       minW={12}
                       alignItems="center"
                       justifyContent="space-between"
@@ -156,12 +126,17 @@ const ActionCellComponent = ({
         <Modal
           isOpen={isOpenConfirmModal}
           onClose={handleToggleModal}
-          title={
-            isDelete
-              ? 'Do you want to delete this transaction?'
-              : 'Update transaction'
+          title={isDelete ? 'Delete transaction' : 'Update transaction'}
+          body={
+            <TransactionModal
+              isDelete={isDelete}
+              transaction={transaction}
+              onDeleteTransaction={handleDeleteTransaction}
+              onUpdateTransaction={onUpdateTransaction}
+              onCloseModal={handleToggleModal}
+            />
           }
-          renderBody={renderModalTransactionBody}
+          haveCloseButton
         />
       )}
     </>

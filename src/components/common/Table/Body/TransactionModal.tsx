@@ -1,34 +1,49 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import { Button, Flex, VStack, useToast } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { InputField } from '@app/components';
 
 // Interfaces
 import { TTransaction } from '@app/interfaces';
 
-// Hooks
-import { useTransactions } from '@app/hooks';
-
 // Constants
-import { ERROR_MESSAGES, SHOW_TIME, SUCCESS_MESSAGES } from '@app/constants';
+import { STATUS_SUBMIT } from '@app/constants';
 
 interface TransactionProps {
+  isDelete?: boolean;
   transaction?: TTransaction;
+  onDeleteTransaction?: () => void;
+  onUpdateTransaction?: (transactionData: TTransaction) => void;
   onCloseModal?: () => void;
 }
 
-const UpdateModal = ({
+const TransactionModal = ({
+  isDelete = false,
   transaction,
+  onDeleteTransaction = () => {},
+  onUpdateTransaction = () => {},
   onCloseModal = () => {},
 }: TransactionProps) => {
-  const { control, clearErrors, handleSubmit, reset } = useForm<TTransaction>({
+  const {
+    control,
+    formState: { isDirty },
+    clearErrors,
+    handleSubmit,
+    reset,
+  } = useForm<TTransaction>({
     defaultValues: {
-      id: transaction?.id,
+      _id: transaction?._id,
       customer: {
-        customerName: transaction?.customer?.customerName,
-        address: transaction?.customer?.address,
+        firstName: transaction?.customer?.firstName,
+        lastName: transaction?.customer?.lastName,
+        address: {
+          state: transaction?.customer?.address.state,
+          street: transaction?.customer?.address.street,
+          city: transaction?.customer?.address.city,
+          zip: transaction?.customer?.address.zip,
+        },
         email: transaction?.customer.email,
         avatar: transaction?.customer.avatar,
         role: transaction?.customer.role,
@@ -36,10 +51,13 @@ const UpdateModal = ({
     },
   });
 
-  const toast = useToast();
-
-  const { useUpdateTransaction } = useTransactions();
-  const { mutate: updateCustomer } = useUpdateTransaction();
+  const disabled = useMemo(
+    () =>
+      isDelete
+        ? status === STATUS_SUBMIT.PENDING
+        : !isDirty || status === STATUS_SUBMIT.PENDING,
+    [isDirty, isDelete],
+  );
 
   const handleChangeValue = useCallback(
     <T,>(field: keyof TTransaction, changeHandler: (value: T) => void) =>
@@ -52,70 +70,149 @@ const UpdateModal = ({
 
   const handleSubmitForm = useCallback(
     (updateData: TTransaction) => {
-      updateCustomer(updateData, {
-        onSuccess: () => {
-          toast({
-            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-          reset(updateData);
-          onCloseModal();
-        },
-        onError: () => {
-          toast({
-            title: ERROR_MESSAGES.UPDATE_FAIL.title,
-            description: ERROR_MESSAGES.UPDATE_FAIL.description,
-            status: 'error',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-        },
-      });
+      console.log('updateData===================', updateData);
+
+      onUpdateTransaction(updateData);
+      reset(updateData);
+      onCloseModal();
     },
-    [updateCustomer],
+    [onUpdateTransaction],
   );
 
-  return (
+  return isDelete ? (
+    <Box>
+      <Text fontSize="lg">
+        Are you sure delete the transaction with id:
+        <Text as="span" pl={1} color="red.500" fontWeight="bold">
+          {transaction?._id}
+        </Text>
+        ?
+      </Text>
+      <Flex my={4} justifyContent="center">
+        <Button
+          w={44}
+          bg="green.600"
+          mr={3}
+          isDisabled={disabled}
+          onClick={onDeleteTransaction}
+        >
+          Delete
+        </Button>
+        <Button
+          w={44}
+          bg="orange.300"
+          _hover={{ bg: 'orange.400' }}
+          onClick={onCloseModal}
+        >
+          Cancel
+        </Button>
+      </Flex>
+    </Box>
+  ) : (
     <VStack
       as="form"
       id="update-transaction-form"
       onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <Controller
-        control={control}
-        name="customer.customerName"
-        render={({ field, field: { onChange }, fieldState: { error } }) => (
-          <InputField
-            variant="authentication"
-            bg="background.body.primary"
-            label="Customer Name"
-            {...field}
-            isError={!!error}
-            errorMessages={error?.message}
-            onChange={handleChangeValue('name', onChange)}
-          />
-        )}
-      />
-      <Controller
-        control={control}
-        name="customer.address"
-        render={({ field, fieldState: { error } }) => (
-          <InputField
-            variant="authentication"
-            bg="background.body.primary"
-            label="Location"
-            {...field}
-            isError={!!error}
-            errorMessages={error?.message}
-            onChange={handleChangeValue('location', field.onChange)}
-          />
-        )}
-      />
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.firstName"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="First Name"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.lastName"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Last Name"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.address.street"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Street"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.address.state"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="State"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.address.city"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="City"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.address.zip"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Zip"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
       <Flex my={4}>
         <Button
           type="submit"
@@ -123,6 +220,7 @@ const UpdateModal = ({
           w={44}
           bg="green.600"
           mr={3}
+          isDisabled={disabled}
         >
           Save
         </Button>
@@ -139,5 +237,5 @@ const UpdateModal = ({
   );
 };
 
-const UploadModalMemorized = memo(UpdateModal);
-export default UploadModalMemorized;
+const TransactionModalMemorized = memo(TransactionModal);
+export default TransactionModalMemorized;

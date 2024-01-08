@@ -865,7 +865,7 @@ exports[`Transaction table Render with empty data 2`] = `
     class="css-odz94x"
   >
     <div
-      class="chakra-table__container css-zipzvv"
+      class="chakra-table__container css-12od5nk"
     >
       <table
         class="chakra-table css-0"
@@ -1708,7 +1708,7 @@ exports[`Transaction table Search transactions 2`] = `
     class="css-odz94x"
   >
     <div
-      class="chakra-table__container css-zipzvv"
+      class="chakra-table__container css-12od5nk"
     >
       <table
         class="chakra-table css-0"

@@ -5,11 +5,12 @@ import { PAYMENT_STATUS_ENUM, TRANSACTION_STATUS_ENUM } from '@app/constants';
 import { TCustomer } from '.';
 
 export type TTransaction = {
-  id: string;
+  _id: string;
+  userId?: string;
   customer: TCustomer;
   amount: string;
   currency: string;
-  date: string;
+  createdAt: string;
   name: string;
   location: string;
   image: string;

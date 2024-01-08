@@ -8,7 +8,7 @@ import { getTransactions, transactionHttpService } from '@app/services';
 import { END_POINTS, TRANSACTION_STATUS_ENUM } from '@app/constants';
 
 // Types
-import { IDataList, TTransaction } from '@app/interfaces';
+import { IDataList, TAddress, TCustomer, TTransaction } from '@app/interfaces';
 
 export type TSearchTransaction = {
   name: string;
@@ -23,7 +23,10 @@ type TSort = {
 };
 export type TSortHandler = (field: TSortField) => void;
 
-export const useTransactions = (queryParam?: TSearchTransaction) => {
+export const useTransactions = (
+  queryParam?: TSearchTransaction,
+  userId?: string,
+) => {
   const { name: searchName, month: searchMonth }: TSearchTransaction =
     Object.assign(
       {
@@ -48,7 +51,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
   const { data = [], ...query } = useQuery({
     queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-    queryFn: ({ signal }) => getTransactions('', { signal }),
+    queryFn: ({ signal }) => getTransactions('', { signal }, userId),
   });
 
   //  sort transactions
@@ -82,17 +85,17 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       (
         {
           customer: {
-            customerName: prevCustomerName,
+            firstName: prevCustomerName,
             email: prevEmail,
-            address: prevLocation,
+            address: { state: prevState },
           },
           amount: prevAmount,
         }: TTransaction,
         {
           customer: {
-            customerName: nextCustomerName,
+            firstName: nextCustomerName,
             email: nextEmail,
-            address: nextLocation,
+            address: { state: nextState },
           },
           amount: nextAmount,
         }: TTransaction,
@@ -100,7 +103,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         const valueForField: Record<TSortField, number> = {
           name: handleSort(type, prevCustomerName, nextCustomerName),
           email: handleSort(type, prevEmail, nextEmail),
-          location: handleSort(type, prevLocation, nextLocation),
+          location: handleSort(type, prevState, nextState),
           spent: handleSort(type, prevAmount, nextAmount),
         };
 
@@ -120,10 +123,21 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
       (target || '').trim().includes(searchName);
 
     return transactionsAfterSort.filter(
-      ({ customer: { customerName, email, address } }: TTransaction) => {
-        const isMatchWithName: boolean = isNameMatchWith(customerName);
+      ({
+        customer: {
+          firstName,
+          lastName,
+          email,
+          address: { street, state },
+        },
+      }: TTransaction) => {
+        const isMatchWithName: boolean = isNameMatchWith(
+          `${firstName} ${lastName}`,
+        );
         const isMatchWithEmail: boolean = isNameMatchWith(email);
-        const isMatchWithLocation: boolean = isNameMatchWith(address);
+        const isMatchWithLocation: boolean = isNameMatchWith(
+          `${street} ${state}`,
+        );
 
         return isMatchWithEmail || isMatchWithLocation || isMatchWithName;
       },
@@ -156,9 +170,11 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     const queryClient = useQueryClient();
 
     const { error, ...rest } = useMutation({
-      mutationFn: async (transaction: TTransaction) =>
+      mutationFn: async (
+        transaction: Partial<TTransaction & TCustomer & TAddress>,
+      ) =>
         await transactionHttpService.put<TTransaction>(
-          `${END_POINTS.TRANSACTIONS}/${transaction.id}`,
+          `${END_POINTS.TRANSACTIONS}`,
           transaction,
         ),
       onSettled: () => {
