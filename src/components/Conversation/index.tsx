@@ -33,11 +33,11 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
     (state): string | undefined => state.user?.avatarURL,
   );
 
-  const username =
-    adminName ||
-    authStore(
-      ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
-    );
+  const username = authStore(
+    ({ user }): string | undefined => `${user?.firstName} ${user?.lastName}`,
+  );
+
+  const defaultName = adminName || username;
 
   const [editorValue, setEditorValue] = useState<string>('');
   const colorFill = useColorModeValue(
@@ -67,7 +67,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
         >
           <ChatMember
             avatar={avatarURL}
-            name={username}
+            name={defaultName}
             status="Online"
             statusColor="online"
           />
