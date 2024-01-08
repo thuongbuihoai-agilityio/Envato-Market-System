@@ -176,7 +176,10 @@ const BoxChatComponent = () => {
                     justify="flex-start"
                   >
                     <InputField
-                      placeholder="Type your message"
+                      placeholder="Type your message..."
+                      _placeholder={{
+                        color: 'secondary.450',
+                      }}
                       {...rest}
                       isError={!!error}
                       errorMessages={error?.message}
@@ -201,7 +204,7 @@ const BoxChatComponent = () => {
               type="submit"
               isDisabled={isDisabledSubmitBtn}
             >
-              <SendIcon color="primary.300" />
+              <SendIcon />
             </Button>
           </Flex>
         </VStack>

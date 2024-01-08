@@ -113,7 +113,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
             w="unset"
             px={4}
             py={2.5}
-            leftIcon={<SendIcon color="primary.300" />}
+            leftIcon={<SendIcon />}
             fontSize="md"
             fontWeight="semibold"
             bgColor="primary.600"
