@@ -79,7 +79,7 @@ const Table = ({
 
             return (
               <Tr
-                key={data.id}
+                key={data._id}
                 {...(onClickTableRow && {
                   cursor: 'pointer',
                 })}

@@ -34,10 +34,16 @@ const TransactionModal = ({
     reset,
   } = useForm<TTransaction>({
     defaultValues: {
-      id: transaction?.id,
+      _id: transaction?._id,
       customer: {
-        customerName: transaction?.customer?.customerName,
-        address: transaction?.customer?.address,
+        firstName: transaction?.customer?.firstName,
+        lastName: transaction?.customer?.lastName,
+        address: {
+          state: transaction?.customer?.address.state,
+          street: transaction?.customer?.address.street,
+          city: transaction?.customer?.address.city,
+          zip: transaction?.customer?.address.zip,
+        },
         email: transaction?.customer.email,
         avatar: transaction?.customer.avatar,
         role: transaction?.customer.role,
@@ -64,6 +70,8 @@ const TransactionModal = ({
 
   const handleSubmitForm = useCallback(
     (updateData: TTransaction) => {
+      console.log('updateData===================', updateData);
+
       onUpdateTransaction(updateData);
       reset(updateData);
       onCloseModal();
@@ -76,7 +84,7 @@ const TransactionModal = ({
       <Text fontSize="lg">
         Are you sure delete the transaction with id:
         <Text as="span" pl={1} color="red.500" fontWeight="bold">
-          {transaction?.id}
+          {transaction?._id}
         </Text>
         ?
       </Text>
@@ -106,36 +114,105 @@ const TransactionModal = ({
       id="update-transaction-form"
       onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <Controller
-        control={control}
-        name="customer.customerName"
-        render={({ field, field: { onChange }, fieldState: { error } }) => (
-          <InputField
-            variant="authentication"
-            bg="background.body.primary"
-            label="Customer Name"
-            {...field}
-            isError={!!error}
-            errorMessages={error?.message}
-            onChange={handleChangeValue('name', onChange)}
-          />
-        )}
-      />
-      <Controller
-        control={control}
-        name="customer.address"
-        render={({ field, fieldState: { error } }) => (
-          <InputField
-            variant="authentication"
-            bg="background.body.primary"
-            label="Location"
-            {...field}
-            isError={!!error}
-            errorMessages={error?.message}
-            onChange={handleChangeValue('location', field.onChange)}
-          />
-        )}
-      />
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.firstName"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="First Name"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.lastName"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Last Name"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.address.street"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Street"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.address.state"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="State"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
+      <Flex>
+        <Controller
+          control={control}
+          name="customer.address.city"
+          render={({ field, field: { onChange }, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="City"
+              mr={2}
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', onChange)}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="customer.address.zip"
+          render={({ field, fieldState: { error } }) => (
+            <InputField
+              variant="authentication"
+              bg="background.body.primary"
+              label="Zip"
+              {...field}
+              isError={!!error}
+              errorMessages={error?.message}
+              onChange={handleChangeValue('customer', field.onChange)}
+            />
+          )}
+        />
+      </Flex>
       <Flex my={4}>
         <Button
           type="submit"

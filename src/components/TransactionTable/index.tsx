@@ -15,11 +15,7 @@ import {
 } from '@app/components/index';
 
 // Utils
-import {
-  formatTimeStamp,
-  formatUppercaseFirstLetter,
-  getTransactionHomePage,
-} from '@app/utils';
+import { formatUppercaseFirstLetter, getTransactionHomePage } from '@app/utils';
 
 // Hooks
 import {
@@ -44,6 +40,7 @@ import {
 
 // Types
 import { TDataSource, THeaderTable, TTransaction } from '@app/interfaces';
+import { authStore } from '@app/stores';
 
 interface TFilterUserProps {
   isOpenModal?: boolean;
@@ -61,6 +58,8 @@ const TransactionTableComponent = ({
     name: '',
   });
 
+  const { user } = authStore();
+
   const {
     data: transactions = [],
     dataHistory,
@@ -69,9 +68,12 @@ const TransactionTableComponent = ({
     isError: isTransactionsError,
     sortBy,
     useUpdateTransaction,
-  } = useTransactions({
-    name: searchTransaction.name,
-  });
+  } = useTransactions(
+    {
+      name: searchTransaction.name,
+    },
+    user?.id,
+  );
 
   const listData = isTableHistory ? dataHistory : dataTransaction;
 
@@ -92,28 +94,43 @@ const TransactionTableComponent = ({
 
   const handleUpdateTransaction = useCallback(
     (updateCustomer: TTransaction) => {
-      updateTransaction(updateCustomer, {
-        onSuccess: () => {
-          toast({
-            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
+      const {
+        customer: { firstName, lastName, address },
+      } = updateCustomer;
+      updateTransaction(
+        {
+          transactionId: updateCustomer._id,
+          userId: user?.id,
+          firstName: firstName,
+          lastName: lastName,
+          state: address.state,
+          street: address.street,
+          city: address.city,
+          zip: address.zip,
         },
-        onError: () => {
-          toast({
-            title: ERROR_MESSAGES.UPDATE_FAIL.title,
-            description: ERROR_MESSAGES.UPDATE_FAIL.description,
-            status: 'error',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
+        {
+          onSuccess: () => {
+            toast({
+              title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+              description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+              status: 'success',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
+          onError: () => {
+            toast({
+              title: ERROR_MESSAGES.UPDATE_FAIL.title,
+              description: ERROR_MESSAGES.UPDATE_FAIL.description,
+              status: 'error',
+              duration: SHOW_TIME,
+              isClosable: true,
+              position: 'top-right',
+            });
+          },
         },
-      });
+      );
     },
     [updateTransaction],
   );
@@ -123,7 +140,8 @@ const TransactionTableComponent = ({
       updateTransaction(
         {
           ...updateData,
-          date: formatTimeStamp(updateData.date).toString(),
+          transactionId: updateData._id,
+          userId: user?.id,
           transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
         },
         {
@@ -173,8 +191,14 @@ const TransactionTableComponent = ({
   );
 
   const renderNameUser = useCallback(
-    ({ id, image, name }: TDataSource): JSX.Element => (
-      <CustomerNameCell key={id} id={id} image={image} name={name} />
+    ({ _id, image, name }: TDataSource): JSX.Element => (
+      <CustomerNameCell
+        _id={_id}
+        key={_id}
+        id={_id}
+        image={image}
+        name={name}
+      />
     ),
     [],
   );
@@ -182,7 +206,7 @@ const TransactionTableComponent = ({
   const renderActionIcon = useCallback(
     (data: TTransaction) => (
       <ActionCell
-        key={`${data.id}-action`}
+        key={`${data._id}-action`}
         isOpenModal={isTableHistory ? !isOpenModal : isOpenModal}
         transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
