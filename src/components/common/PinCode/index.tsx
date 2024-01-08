@@ -69,7 +69,9 @@ const PinCodeComponent = ({
       <Button type="submit" isDisabled={isDisabled}>
         Submit
       </Button>
-      <Button onClick={onClose}>Cancel</Button>
+      <Button onClick={onClose} bg="orange.300" _hover={{ bg: 'orange.400' }}>
+        Cancel
+      </Button>
     </HStack>
   </VStack>
 );
