@@ -90,6 +90,34 @@ const TransactionTableComponent = ({
   const toast = useToast();
   const { mutate: updateTransaction } = useUpdateTransaction();
 
+  const handleUpdateTransaction = useCallback(
+    (updateCustomer: TTransaction) => {
+      updateTransaction(updateCustomer, {
+        onSuccess: () => {
+          toast({
+            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+            status: 'success',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+        onError: () => {
+          toast({
+            title: ERROR_MESSAGES.UPDATE_FAIL.title,
+            description: ERROR_MESSAGES.UPDATE_FAIL.description,
+            status: 'error',
+            duration: SHOW_TIME,
+            isClosable: true,
+            position: 'top-right',
+          });
+        },
+      });
+    },
+    [updateTransaction],
+  );
+
   const handleDeleteTransaction = useCallback(
     (updateData: TTransaction) => {
       updateTransaction(
@@ -158,6 +186,7 @@ const TransactionTableComponent = ({
         isOpenModal={isTableHistory ? !isOpenModal : isOpenModal}
         transaction={data}
         onDeleteTransaction={handleDeleteTransaction}
+        onUpdateTransaction={handleUpdateTransaction}
       />
     ),
     [],

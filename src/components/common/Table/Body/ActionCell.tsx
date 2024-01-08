@@ -22,12 +22,14 @@ interface ActionCallProps {
   transaction?: TTransaction;
   isOpenModal?: boolean;
   onDeleteTransaction?: (transactionData: TTransaction) => void;
+  onUpdateTransaction?: (transactionData: TTransaction) => void;
 }
 
 const ActionCellComponent = ({
   transaction,
   isOpenModal = false,
   onDeleteTransaction = () => {},
+  onUpdateTransaction = () => {},
 }: ActionCallProps) => {
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
@@ -129,6 +131,7 @@ const ActionCellComponent = ({
               isDelete={isDelete}
               transaction={transaction}
               onDeleteTransaction={handleDeleteTransaction}
+              onUpdateTransaction={onUpdateTransaction}
               onCloseModal={handleToggleModal}
             />
           }

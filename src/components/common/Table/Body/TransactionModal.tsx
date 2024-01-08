@@ -2,35 +2,29 @@ import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import { Box, Button, Flex, Text, VStack, useToast } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { InputField } from '@app/components';
 
 // Interfaces
 import { TTransaction } from '@app/interfaces';
 
-// Hooks
-import { useTransactions } from '@app/hooks';
-
 // Constants
-import {
-  ERROR_MESSAGES,
-  SHOW_TIME,
-  STATUS_SUBMIT,
-  SUCCESS_MESSAGES,
-} from '@app/constants';
+import { STATUS_SUBMIT } from '@app/constants';
 
 interface TransactionProps {
   isDelete?: boolean;
   transaction?: TTransaction;
   onDeleteTransaction?: () => void;
+  onUpdateTransaction?: (transactionData: TTransaction) => void;
   onCloseModal?: () => void;
 }
 
 const TransactionModal = ({
   isDelete = false,
   transaction,
-  onDeleteTransaction = () => { },
-  onCloseModal = () => { },
+  onDeleteTransaction = () => {},
+  onUpdateTransaction = () => {},
+  onCloseModal = () => {},
 }: TransactionProps) => {
   const {
     control,
@@ -51,17 +45,12 @@ const TransactionModal = ({
     },
   });
 
-  const toast = useToast();
-
-  const { useUpdateTransaction } = useTransactions();
-  const { mutate: updateCustomer, status } = useUpdateTransaction();
-
   const disabled = useMemo(
-    () => (isDelete
-      ? status === STATUS_SUBMIT.PENDING
-      : !isDirty || status === STATUS_SUBMIT.PENDING
-    ),
-    [isDirty, status, isDelete],
+    () =>
+      isDelete
+        ? status === STATUS_SUBMIT.PENDING
+        : !isDirty || status === STATUS_SUBMIT.PENDING,
+    [isDirty, isDelete],
   );
 
   const handleChangeValue = useCallback(
@@ -75,32 +64,11 @@ const TransactionModal = ({
 
   const handleSubmitForm = useCallback(
     (updateData: TTransaction) => {
-      updateCustomer(updateData, {
-        onSuccess: () => {
-          toast({
-            title: SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-            description: SUCCESS_MESSAGES.DELETE_SUCCESS.description,
-            status: 'success',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-          reset(updateData);
-          onCloseModal();
-        },
-        onError: () => {
-          toast({
-            title: ERROR_MESSAGES.UPDATE_FAIL.title,
-            description: ERROR_MESSAGES.UPDATE_FAIL.description,
-            status: 'error',
-            duration: SHOW_TIME,
-            isClosable: true,
-            position: 'top-right',
-          });
-        },
-      });
+      onUpdateTransaction(updateData);
+      reset(updateData);
+      onCloseModal();
     },
-    [updateCustomer],
+    [onUpdateTransaction],
   );
 
   return isDelete ? (

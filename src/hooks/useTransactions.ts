@@ -161,8 +161,11 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           `${END_POINTS.TRANSACTIONS}/${transaction.id}`,
           transaction,
         ),
-      onSettled: () => {
-        queryClient.invalidateQueries({ queryKey: [END_POINTS.TRANSACTIONS] });
+      // mutationKey: [END_POINTS.TRANSACTIONS],
+      onSuccess: (data) => {
+        console.log('data', data);
+
+        queryClient.setQueryData([END_POINTS.TRANSACTIONS], data);
       },
     });
 
