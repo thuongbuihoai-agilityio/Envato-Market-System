@@ -17,7 +17,7 @@ import { AVATAR_POSITION, IMAGES } from '@app/constants';
 // Components
 import Message from '@app/components/BoxChat/Message';
 import { InputField } from '@app/components';
-import { AttachIcon, MicroIcon, SendIcon } from '@app/components/Icons';
+import { SendIcon } from '@app/components/Icons';
 
 // Mocks
 import { MESSAGE_TIME, USER_CHATS } from '@app/mocks';
@@ -28,7 +28,6 @@ import { authStore } from '@app/stores';
 export type TChat = {
   messages: string;
   isSend: boolean;
-  isAudio: boolean;
   uid: string;
   content: string;
 };
@@ -61,7 +60,6 @@ const BoxChatComponent = () => {
     const newMessage = {
       uid: 'admin',
       isSend: true,
-      isAudio: false,
       content: newMessageContent,
       avatarPosition: AVATAR_POSITION.AFTER,
       avatar: IMAGES.CHAT_USER_AVATAR.url,
@@ -145,7 +143,7 @@ const BoxChatComponent = () => {
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
         {listMessages.map((message: TChat): JSX.Element => {
-          const { isSend, isAudio, uid, content } = message;
+          const { isSend, uid, content } = message;
           const avatar =
             uid === 'admin' ? adminAvatarURL : IMAGES.CHAT_USER_AVATAR.url;
 
@@ -153,7 +151,6 @@ const BoxChatComponent = () => {
             <Message
               key={uid}
               content={content}
-              isAudio={isAudio}
               isOwnerMessage={isSend}
               avatarPosition={
                 isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE
@@ -180,8 +177,6 @@ const BoxChatComponent = () => {
                   >
                     <InputField
                       placeholder="Type your message"
-                      leftIcon={<AttachIcon />}
-                      rightIcon={<MicroIcon />}
                       {...rest}
                       isError={!!error}
                       errorMessages={error?.message}
