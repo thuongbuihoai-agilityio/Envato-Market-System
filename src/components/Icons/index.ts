@@ -32,3 +32,5 @@ export * from './Inbox';
 export * from './Send';
 export * from './Edit';
 export * from './Send';
+export * from './Micro';
+export * from './Attach';

@@ -1,27 +1,97 @@
-import { ChangeEvent, memo, useCallback } from 'react';
-import { Box, Image, Heading, Flex, Input, Button } from '@chakra-ui/react';
+import { memo, useCallback, useState } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import {
+  Box,
+  Image,
+  Heading,
+  Flex,
+  Button,
+  VStack,
+  Text,
+  FormControl,
+} from '@chakra-ui/react';
 
 // Constants
 import { AVATAR_POSITION, IMAGES } from '@app/constants';
 
 // Components
 import Message from '@app/components/BoxChat/Message';
+import { InputField } from '@app/components';
+import { AttachIcon, MicroIcon, SendIcon } from '@app/components/Icons';
 
 // Mocks
-import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
+import { MESSAGE_TIME, USER_CHATS } from '@app/mocks';
 
-export type BoxChatProps = {
-  onSendMessage?: () => void;
-  onChange?: (value: string) => void;
+// Stores
+import { authStore } from '@app/stores';
+
+export type TChat = {
+  messages: string;
+  isSend: boolean;
+  isAudio: boolean;
+  uid: string;
+  content: string;
 };
 
-const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
-  const handleChangeValue = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => onChange?.(e.target.value),
-    [onChange],
+const BoxChatComponent = () => {
+  const {
+    control,
+    formState: {
+      errors: { root },
+    },
+    watch,
+    handleSubmit,
+    reset,
+    clearErrors,
+  } = useForm<TChat>({
+    defaultValues: {
+      messages: '',
+    },
+    mode: 'onBlur',
+  });
+
+  const [listMessages, setListMessages] = useState(() => {
+    const storedMessages = localStorage.getItem('chatMessages');
+    return storedMessages ? JSON.parse(storedMessages) : USER_CHATS;
+  });
+
+  const handleSendMessage: SubmitHandler<TChat> = (event) => {
+    const newMessageContent = event.messages;
+
+    const newMessage = {
+      uid: 'admin',
+      isSend: true,
+      isAudio: false,
+      content: newMessageContent,
+      avatarPosition: AVATAR_POSITION.AFTER,
+      avatar: IMAGES.CHAT_USER_AVATAR.url,
+      localeTime: MESSAGE_TIME + 5000,
+    };
+
+    const updatedMessages = [...listMessages, newMessage];
+    setListMessages(updatedMessages);
+
+    localStorage.setItem('chatMessages', JSON.stringify(updatedMessages));
+
+    reset();
+  };
+
+  const adminAvatarURL = authStore(
+    (state): string | undefined => state.user?.avatarURL,
   );
 
-  const handleSendMessage = (): void => onSendMessage?.();
+  const handleClearErrorMessage = useCallback(
+    (field: keyof TChat, onChange: (value: string) => void) =>
+      (data: string) => {
+        clearErrors(field);
+        onChange(data);
+      },
+    [clearErrors],
+  );
+
+  const [isSubmit] = useState<boolean>(false);
+  const isDisabledSubmitBtn: boolean =
+    isSubmit || !Object.values(watch()).every((value) => value);
 
   return (
     <Box w="full" bg="background.body.quaternary" borderRadius="lg">
@@ -74,80 +144,72 @@ const BoxChatComponent = ({ onSendMessage, onChange }: BoxChatProps) => {
       </Flex>
 
       <Box padding={{ base: '24px 20px', lg: '38px 35px' }}>
-        {MESSAGES.map((message): JSX.Element => {
+        {listMessages.map((message: TChat): JSX.Element => {
           const { isSend, isAudio, uid, content } = message;
+          const avatar =
+            uid === 'admin' ? adminAvatarURL : IMAGES.CHAT_USER_AVATAR.url;
 
           return (
             <Message
               key={uid}
               content={content}
-              isImage={isAudio}
+              isAudio={isAudio}
               isOwnerMessage={isSend}
               avatarPosition={
                 isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE
               }
-              avatar={IMAGES.CHAT_USER_AVATAR.url}
+              avatar={avatar}
               localeTime={MESSAGE_TIME}
             />
           );
         })}
-
-        <Flex justify="center" align="center">
-          <Box
-            border="1px solid"
-            borderColor="border.secondary"
-            p="0 20px"
-            mt={5}
-            borderRadius="lg"
-            w="full"
-          >
-            <Flex direction="row" alignItems="center">
-              <Image
-                src={IMAGES.ATTACH.url}
-                alt={IMAGES.ATTACH.alt}
-                fallbackSrc={IMAGES.FALLBACK.url}
-                fallbackStrategy="onError"
-                w={4}
-                h={15}
-                cursor="pointer"
-              />
-
-              <Input
-                variant="authentication"
-                ml={5}
-                _dark={{
-                  border: 'none',
-                }}
-                sx={{ border: 'none', padding: 0 }}
-                placeholder="Type your message here"
-                onChange={handleChangeValue}
-              />
-
-              <Image
-                src={IMAGES.MICRO.url}
-                alt={IMAGES.MICRO.alt}
-                fallbackSrc={IMAGES.FALLBACK.url}
-                fallbackStrategy="onError"
-                w={6}
-                h={6}
-                cursor="pointer"
-              />
-            </Flex>
-          </Box>
-          <Image
-            role="button"
-            mt={5}
-            ml={5}
-            src={IMAGES.SEND.url}
-            alt={IMAGES.SEND.alt}
-            fallbackSrc={IMAGES.FALLBACK.url}
-            fallbackStrategy="onError"
-            w={5}
-            h={18}
-            cursor="pointer"
-            onClick={handleSendMessage}
-          />
-        </Flex>
+        <VStack as="form" onSubmit={handleSubmit(handleSendMessage)}>
+          <Flex justify="center" align="center" w="full">
+            <Controller
+              control={control}
+              name="messages"
+              render={({
+                field: { onChange, ...rest },
+                fieldState: { error },
+              }) => (
+                <FormControl>
+                  <Flex
+                    direction="row"
+                    alignItems="center"
+                    justify="flex-start"
+                  >
+                    <InputField
+                      placeholder="Type your message"
+                      leftIcon={<AttachIcon />}
+                      rightIcon={<MicroIcon />}
+                      {...rest}
+                      isError={!!error}
+                      errorMessages={error?.message}
+                      isDisabled={isSubmit}
+                      onChange={handleClearErrorMessage('messages', onChange)}
+                    />
+                  </Flex>
+                </FormControl>
+              )}
+            />
+            <Text color="red" textAlign="center" py={2} h={10}>
+              {root?.message}
+            </Text>
+            <Button
+              backgroundColor="transparent"
+              borderRadius="none"
+              role="button"
+              ml={5}
+              w={5}
+              h={18}
+              cursor="pointer"
+              type="submit"
+              isDisabled={isDisabledSubmitBtn}
+            >
+              <SendIcon color="primary.300" />
+            </Button>
+          </Flex>
+        </VStack>
       </Box>
     </Box>
   );

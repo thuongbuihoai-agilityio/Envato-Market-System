@@ -1,5 +1,8 @@
-export const SendIcon = () => (
+import { TIcon } from '@app/interfaces';
+
+export const SendIcon = ({ color }: TIcon) => (
   <svg
+    stroke={color}
     width="20"
     height="20"
     viewBox="0 0 20 20"

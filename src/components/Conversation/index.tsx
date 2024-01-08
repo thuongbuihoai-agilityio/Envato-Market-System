@@ -14,7 +14,7 @@ import { Message, CustomButton, ChatMember } from '@app/components';
 import { SendIcon } from '@app/components/Icons';
 
 // Mocks
-import { MESSAGE_TIME, MESSAGES } from '@app/mocks';
+import { MESSAGE_TIME, USER_CHATS } from '@app/mocks';
 
 // Stores
 import { authStore } from '@app/stores';
@@ -46,7 +46,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
   );
 
   const messagesToShow = useMemo(
-    () => (filteredMessages ?? [].length > 0 ? filteredMessages : MESSAGES),
+    () => (filteredMessages ?? [].length > 0 ? filteredMessages : USER_CHATS),
     [filteredMessages],
   );
 
@@ -82,7 +82,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
             <Message
               key={uid}
               content={content}
-              isImage={isAudio}
+              isAudio={isAudio}
               isOwnerMessage={isSend}
               avatarPosition={
                 isSend ? AVATAR_POSITION.AFTER : AVATAR_POSITION.BEFORE
@@ -114,7 +114,7 @@ const Conversation = ({ filteredMessages, adminName }: Props) => {
             w="unset"
             px={4}
             py={2.5}
-            leftIcon={<SendIcon />}
+            leftIcon={<SendIcon color="primary.300" />}
             fontSize="md"
             fontWeight="semibold"
             bgColor="primary.600"

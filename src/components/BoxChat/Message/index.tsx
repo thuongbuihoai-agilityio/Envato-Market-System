@@ -9,7 +9,7 @@ import { AVATAR_POSITION } from '@app/constants';
 interface MessageProps {
   content?: string;
   avatar?: string;
-  isImage?: boolean;
+  isAudio?: boolean;
   avatarPosition?: AVATAR_POSITION;
   isOwnerMessage?: boolean;
   localeTime?: string;
@@ -19,7 +19,7 @@ const Message = ({
   content,
   avatar,
   avatarPosition = AVATAR_POSITION.BEFORE,
-  isImage = false,
+  isAudio = false,
   isOwnerMessage = false,
   localeTime = new Date().toLocaleTimeString([], {
     hour: 'numeric',
@@ -43,7 +43,7 @@ const Message = ({
       alignItems="center"
     >
       <Box data-testid="image-container">
-        {isImage ? (
+        {isAudio ? (
           <VoiceChatMessage />
         ) : (
           <Text
