@@ -136,11 +136,10 @@ const TransactionTableComponent = ({
   );
 
   const handleDeleteTransaction = useCallback(
-    (updateData: TTransaction) => {
+    (updateData: Partial<TTransaction & { id: string }>) => {
       updateTransaction(
         {
-          ...updateData,
-          transactionId: updateData._id,
+          transactionId: updateData.id,
           userId: user?.id,
           transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
         },
