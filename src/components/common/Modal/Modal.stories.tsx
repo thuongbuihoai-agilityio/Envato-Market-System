@@ -20,7 +20,7 @@ const meta: Meta<typeof Modal> = {
     title: {
       description: 'The title of the Modal',
     },
-    renderBody: {
+    body: {
       description: 'The function that render the UI body of the Modal',
     },
   },
@@ -46,6 +46,6 @@ export const Primary: Story = {
   args: {
     title: 'Title',
     isOpen: true,
-    renderBody: () => <Text>Sample Modal</Text>,
+    body: <Text>Sample Modal</Text>,
   },
 };

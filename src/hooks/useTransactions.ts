@@ -171,7 +171,9 @@ export const useTransactions = (
 
     const { error, ...rest } = useMutation({
       mutationFn: async (
-        transaction: Partial<TTransaction & TCustomer & TAddress>,
+        transaction: Partial<
+          TTransaction & TCustomer & TAddress & { transactionId: string }
+        >,
       ) =>
         await transactionHttpService.put<TTransaction>(
           `${END_POINTS.TRANSACTIONS}`,

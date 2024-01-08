@@ -1,7 +1,7 @@
 import { TCustomer } from '.';
 
 export type TDataSource = {
-  _id: string | number;
+  id: string | number;
   [key: string]: string | number | boolean | TCustomer;
 };
 

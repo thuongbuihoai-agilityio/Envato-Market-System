@@ -33,7 +33,7 @@ export const getTransactionHomePage = (transactions: TTransaction[] = []) =>
     } = transaction;
 
     return {
-      _id,
+      id: _id,
       name: formatUppercaseFirstLetter(`${firstName} ${lastName}`),
       customer: {
         customerId,

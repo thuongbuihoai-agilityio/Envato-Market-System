@@ -191,14 +191,8 @@ const TransactionTableComponent = ({
   );
 
   const renderNameUser = useCallback(
-    ({ _id, image, name }: TDataSource): JSX.Element => (
-      <CustomerNameCell
-        _id={_id}
-        key={_id}
-        id={_id}
-        image={image}
-        name={name}
-      />
+    ({ id, image, name }: TDataSource): JSX.Element => (
+      <CustomerNameCell id={id} key={id} image={image} name={name} />
     ),
     [],
   );
