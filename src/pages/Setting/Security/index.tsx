@@ -178,7 +178,7 @@ const SecurityPage = () => {
                   errorMessages={message}
                   isDisabled={isSubmit}
                   onChange={handleClearErrorMessage('oldPassword', onChange)}
-                  aria-label="password"
+                  aria-label="oldPassword"
                   role="textbox"
                 />
               </FormControl>
@@ -209,6 +209,8 @@ const SecurityPage = () => {
                 errorMessages={error?.message}
                 isDisabled={isSubmit}
                 onChange={handleClearErrorMessage('newPassword', onChange)}
+                role="textbox"
+                aria-label="newPassword"
               />
             </FormControl>
           )}
@@ -221,7 +223,7 @@ const SecurityPage = () => {
           <Flex>
             <Button
               type="submit"
-              aria-label="btn-save-profile"
+              aria-label="btn-save-change"
               px={4}
               textTransform="capitalize"
               form="register-form"
