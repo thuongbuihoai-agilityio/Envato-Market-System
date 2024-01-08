@@ -12,7 +12,7 @@ describe('BoxChatComponent', () => {
 
   test('calls handleSendMessage when the send button is clicked', () => {
     const handleSendMessage = jest.fn();
-    render(<BoxChat onSendMessage={handleSendMessage} />);
+    render(<BoxChat />);
 
     const sendButton = screen.getByRole('button', { name: /send/i });
     fireEvent.click(sendButton);
@@ -22,7 +22,7 @@ describe('BoxChatComponent', () => {
 
   test('calls handleChangeValue when the input value changes', () => {
     const handleChangeValue = jest.fn();
-    render(<BoxChat onChange={handleChangeValue} />);
+    render(<BoxChat />);
 
     const input = screen.getByPlaceholderText('Type your message here');
     fireEvent.change(input, { target: { value: 'Test message' } });
@@ -32,7 +32,7 @@ describe('BoxChatComponent', () => {
 
   test('calls handleSendMessage when Enter key is pressed', () => {
     const handleSendMessage = jest.fn();
-    render(<BoxChat onSendMessage={handleSendMessage} />);
+    render(<BoxChat />);
 
     const input = screen.getByPlaceholderText('Type your message here');
     fireEvent.change(input, { target: { value: 'Test message' } });

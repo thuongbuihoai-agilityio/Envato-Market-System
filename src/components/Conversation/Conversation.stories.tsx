@@ -4,7 +4,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Conversation } from '@app/components';
 
 // Mocks
-import { MESSAGES } from '@app/mocks';
+import { USER_CHATS } from '@app/mocks';
 
 const meta: Meta<typeof Conversation> = {
   title: 'Custom Components/Conversation',
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Conversation>;
 
 export const Default: Story = {
   args: {
-    filteredMessages: MESSAGES,
+    filteredMessages: USER_CHATS,
     adminName: 'John Doe',
   },
 };

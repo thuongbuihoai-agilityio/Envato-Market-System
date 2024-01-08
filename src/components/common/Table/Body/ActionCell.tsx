@@ -35,7 +35,6 @@ const ActionCellComponent = ({
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
   const customerId = transaction?.customer.customerId;
-  console.log('transaction', transaction);
 
   const handleOpenConfirmModal = useCallback(
     (isDeleteModal: boolean) => () => {

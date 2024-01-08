@@ -6,14 +6,14 @@ import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { InputField } from '@app/components';
 
 // Interfaces
-import { TTransaction } from '@app/interfaces';
+import { TCustomer, TTransaction } from '@app/interfaces';
 
 // Constants
 import { STATUS_SUBMIT } from '@app/constants';
 
 interface TransactionProps {
   isDelete?: boolean;
-  transaction?: TTransaction;
+  transaction?: Partial<TTransaction & TCustomer & { id: string }>;
   onDeleteTransaction?: () => void;
   onUpdateTransaction?: (transactionData: TTransaction) => void;
   onCloseModal?: () => void;
@@ -34,7 +34,7 @@ const TransactionModal = ({
     reset,
   } = useForm<TTransaction>({
     defaultValues: {
-      _id: transaction?._id,
+      _id: transaction?.id,
       customer: {
         firstName: transaction?.customer?.firstName,
         lastName: transaction?.customer?.lastName,
@@ -44,9 +44,6 @@ const TransactionModal = ({
           city: transaction?.customer?.address.city,
           zip: transaction?.customer?.address.zip,
         },
-        email: transaction?.customer.email,
-        avatar: transaction?.customer.avatar,
-        role: transaction?.customer.role,
       },
     },
   });
@@ -70,8 +67,6 @@ const TransactionModal = ({
 
   const handleSubmitForm = useCallback(
     (updateData: TTransaction) => {
-      console.log('updateData===================', updateData);
-
       onUpdateTransaction(updateData);
       reset(updateData);
       onCloseModal();
@@ -84,7 +79,7 @@ const TransactionModal = ({
       <Text fontSize="lg">
         Are you sure delete the transaction with id:
         <Text as="span" pl={1} color="red.500" fontWeight="bold">
-          {transaction?._id}
+          {transaction?.id}
         </Text>
         ?
       </Text>

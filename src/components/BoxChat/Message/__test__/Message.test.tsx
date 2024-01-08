@@ -18,7 +18,6 @@ describe('Message component', () => {
       <Message
         content="This is message"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
-        isImage
         avatarPosition={AVATAR_POSITION.BEFORE}
         isOwnerMessage
         localeTime={mockLocaleTime}
@@ -32,7 +31,6 @@ describe('Message component', () => {
       <Message
         content="Hello"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
-        isImage={true}
         localeTime={mockLocaleTime}
       />,
     );
@@ -55,7 +53,6 @@ describe('Message component', () => {
       <Message
         content="Hello"
         avatar={IMAGES.CHAT_USER_AVATAR.url}
-        isImage={false}
         avatarPosition={AVATAR_POSITION.AFTER}
         localeTime={mockLocaleTime}
       />,
