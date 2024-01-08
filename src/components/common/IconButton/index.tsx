@@ -35,6 +35,7 @@ const IconButtonComponent = ({
     )}
     <IconButton
       as="div"
+      cursor="pointer"
       data-testid="icon-button"
       pos="relative"
       variant="iconPrimary"
