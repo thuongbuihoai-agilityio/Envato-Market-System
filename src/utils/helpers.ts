@@ -75,6 +75,10 @@ export const formatUppercaseFirstLetter = (value = ''): string =>
   value.charAt(0).toUpperCase() + value.slice(1);
 
 export const formatDecimalInput = (value = ''): string => {
+  // Check for leading zeros
+  if (value.length > 0 && value[0] === '0') {
+    return ''; // Indicate invalid input
+  }
   const validData = /(^[0-9])[^.]*((?:\.\d*)?)/.exec(
     value.replace(/[^(\d|.)]/g, ''),
   );

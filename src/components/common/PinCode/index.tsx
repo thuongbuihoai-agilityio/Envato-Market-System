@@ -27,7 +27,7 @@ export type TPinCodeProps = {
 
 const defaultStyle = {
   caretColor: 'transparent',
-  'font-family': 'caption',
+  fontFamily: 'caption',
   fontSize: '24px',
 };
 
@@ -45,7 +45,8 @@ const PinCodeComponent = ({
         name="pinCode"
         defaultValue=""
         render={({
-          field: { onChange, value, ...rest },
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          field: { onChange, value, ref: _, ...rest },
           fieldState: { error, invalid },
         }) => (
           <PinInput

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
-import { Control } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form';
 
 // Hooks
 import { useForm } from '@app/hooks';
@@ -12,26 +12,23 @@ import { EnterMoney } from './EnterMoney';
 
 export interface CardPaymentProps {
   balance?: number;
-  onSubmit?: () => void;
+  onSubmit?: SubmitHandler<TTransfer>;
 }
-type TTransfer = {
-  money: string;
+
+export type TTransfer = {
+  amount: string;
   userId: string;
-};
-export type TTransferControl = {
-  control: Control<TTransfer>;
 };
 
 const CardPaymentComponent = ({
   balance = 24098,
   onSubmit = () => {},
 }: CardPaymentProps): JSX.Element => {
-  const { control, handleSubmit } = useForm<TTransfer>({
-    defaultValues: {
-      money: '',
-      userId: '',
-    },
-  });
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid, isSubmitting },
+  } = useForm<TTransfer>({});
 
   return (
     <Box
@@ -57,7 +54,7 @@ const CardPaymentComponent = ({
 
       <Box as="form" mt={4} onSubmit={handleSubmit(onSubmit)}>
         <UserSelector control={control} />
-        <EnterMoney control={control} />
+        <EnterMoney isDisabled={!isValid || isSubmitting} control={control} />
       </Box>
     </Box>
   );

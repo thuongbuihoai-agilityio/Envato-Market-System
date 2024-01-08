@@ -28,7 +28,7 @@ interface TotalBalanceProps {
 
 export type TAddMoneyForm = {
   userId: string;
-  amount?: string;
+  amount: string;
 };
 
 const TotalBalanceComponent = ({
@@ -38,7 +38,11 @@ const TotalBalanceComponent = ({
 }: TotalBalanceProps): JSX.Element => {
   const userId = authStore((state): string | undefined => state.user?.id);
 
-  const { control, handleSubmit } = useForm<TAddMoneyForm>({
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid, isSubmitting },
+  } = useForm<TAddMoneyForm>({
     defaultValues: {
       userId,
       amount: '',
@@ -137,6 +141,7 @@ const TotalBalanceComponent = ({
           colorScheme="primary"
           fontWeight="bold"
           type="submit"
+          isDisabled={!isValid || isSubmitting}
         >
           Add Money
         </Button>

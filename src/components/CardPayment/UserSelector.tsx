@@ -1,17 +1,21 @@
-import { Box, Image, Select, Text } from '@chakra-ui/react';
+import { Box, Select, Text } from '@chakra-ui/react';
 import { memo } from 'react';
-import { Controller } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 
 // Icons
 import { ChevronIcon } from '../Icons';
 
-// Constants
-import { IMAGES } from '@app/constants';
+// Mocks
+import { MOCK_USERS_DATA } from '@app/mocks';
 
-// Components
-import { TTransferControl } from '.';
+// Types
+import { TTransfer } from '.';
 
-const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
+export type TUseSelectorProps = {
+  control: Control<TTransfer>;
+};
+
+const UserSelectorComponent = ({ control }: TUseSelectorProps): JSX.Element => (
   <>
     <Text
       fontWeight="bold"
@@ -27,8 +31,11 @@ const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
       <Controller
         control={control}
         name="userId"
-        render={() => (
+        rules={{ required: true }}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        render={({ field: { onChange, ref: _, ...rest } }) => (
           <Select
+            {...rest}
             size="lg"
             sx={{
               paddingLeft: '50px',
@@ -36,38 +43,19 @@ const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
             borderColor="border.secondary"
             color="text.primary"
             icon={<ChevronIcon />}
+            onChange={onChange}
           >
-            <option value="debit" color="text.primary">
-              Debit
+            <option selected hidden disabled value="">
+              Choose an account to transfer
             </option>
+            {MOCK_USERS_DATA.map((user) => (
+              <option key={user.id} value={user.id} color="text.primary">
+                {user.email}
+              </option>
+            ))}
           </Select>
         )}
       />
-
-      <Image
-        src={IMAGES.DEBIT_ICON.url}
-        alt={IMAGES.DEBIT_ICON.alt}
-        fallbackSrc={IMAGES.FALLBACK.url}
-        fallbackStrategy="onError"
-        boxSize={6}
-        position="absolute"
-        left={5}
-        top="50%"
-        transform="translateY(-50%)"
-      />
-
-      <Text
-        sx={{
-          position: 'absolute',
-          right: 10,
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}
-        fontWeight="bold"
-        fontSize="sm"
-      >
-        $ 10,431
-      </Text>
     </Box>
   </>
 );

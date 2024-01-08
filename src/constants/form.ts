@@ -87,4 +87,8 @@ export const AUTH_SCHEMA = {
     required: true,
     validate: (value: string) => value.length === 4,
   },
+  TRANSFER_AMOUNT: {
+    required: true,
+    validate: (value: string) => value.length > 0 && value[0] !== '',
+  },
 };
