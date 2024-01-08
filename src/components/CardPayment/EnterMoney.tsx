@@ -1,14 +1,23 @@
 import { memo } from 'react';
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
-import { Controller } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 
-// Components
-import { TTransferControl } from '.';
+// Types
+import { TTransfer } from '.';
 
 // Utils
 import { formatDecimalInput } from '@app/utils';
+import { AUTH_SCHEMA } from '@app/constants';
 
-const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
+export type TEnterMoneyProps = {
+  control: Control<TTransfer>;
+  isDisabled?: boolean;
+};
+
+const EnterMoneyComponent = ({
+  control,
+  isDisabled = false,
+}: TEnterMoneyProps): JSX.Element => (
   <>
     <Box
       border="1px solid"
@@ -24,7 +33,9 @@ const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
         </Text>
         <Controller
           control={control}
-          name="money"
+          rules={AUTH_SCHEMA.TRANSFER_AMOUNT}
+          name="amount"
+          defaultValue=""
           render={({ field: { value, onChange } }) => {
             const handleChange = (
               event: React.ChangeEvent<HTMLInputElement>,
@@ -49,8 +60,9 @@ const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
                 fontWeight="bold"
                 fontSize="2xl"
                 ml={2}
+                defaultValue=""
                 value={value}
-                name="money"
+                name="amount"
                 onChange={handleChange}
               />
             );
@@ -65,6 +77,7 @@ const EnterMoneyComponent = ({ control }: TTransferControl): JSX.Element => (
       colorScheme="primary"
       fontWeight="bold"
       type="submit"
+      isDisabled={isDisabled}
     >
       Send Money
     </Button>

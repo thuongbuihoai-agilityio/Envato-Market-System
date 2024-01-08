@@ -7,6 +7,7 @@ import { formatDecimalInput } from '@app/utils';
 
 // Types
 import { TAddMoneyForm } from '.';
+import { AUTH_SCHEMA } from '@app/constants';
 
 export type TAddMoneyInputFieldProps = {
   control: Control<TAddMoneyForm>;
@@ -30,9 +31,16 @@ const AddMoneyInputField = ({
       <Controller
         control={control}
         name="amount"
+        rules={AUTH_SCHEMA.TRANSFER_AMOUNT}
         render={({ field: { value, onChange } }) => {
-          // Remove non-numeric characters and leading zeros
-          const sanitizedValue = formatDecimalInput(value);
+          const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const value: string = event.target.value;
+
+            // Remove non-numeric characters and leading zeros
+            const sanitizedValue = formatDecimalInput(value);
+
+            onChange(sanitizedValue);
+          };
 
           return (
             <Input
@@ -46,9 +54,9 @@ const AddMoneyInputField = ({
               fontWeight="bold"
               fontSize="2xl"
               ml={2}
-              value={sanitizedValue}
+              value={value}
               name="amount"
-              onChange={onChange}
+              onChange={handleChange}
             />
           );
         }}

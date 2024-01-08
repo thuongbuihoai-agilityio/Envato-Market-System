@@ -109,7 +109,7 @@ const Dashboard = () => {
           >
             <Box w="full">
               <Lazy>
-                <CardPayment />
+                <CardPayment onSubmit={(data) => console.log(data)} />
               </Lazy>
             </Box>
 
