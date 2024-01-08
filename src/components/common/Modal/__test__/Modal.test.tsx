@@ -6,14 +6,14 @@ import { Modal } from '@app/components';
 describe('Modal test cases', () => {
   const mockOnClose = jest.fn();
 
-  const mockRenderBody = jest.fn();
+  const mockRenderBody = <></>;
 
   const setup = () =>
     render(
       <Modal
         isOpen={true}
         onClose={mockOnClose}
-        renderBody={mockRenderBody}
+        body={mockRenderBody}
         title="mock title"
       />,
     );
